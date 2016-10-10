@@ -1217,18 +1217,27 @@
 
 <table>
   <thead>
-    <tr><th>Http method</th><th colspan="3">URL</th></tr>
+    <tr>
+      <th>Http method</th>
+      <th>종류</th>
+      <th colspan="3">URL</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
       <td>POST</td>
+      <td>SMS</td>
       <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/sms</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>MMS</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/mms</td>
     </tr>
   </tbody>
 </table>
 
-
-SMS,MMS,인증용 발송에 모두 적용 가능.
+Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발송.
 
 ** Request parameter body 안의 값이 공란이면 해당 templateId의 body 내용으로 치환. **
 
@@ -1237,8 +1246,6 @@ SMS,MMS,인증용 발송에 모두 적용 가능.
 ```
 {
     "templateId": "{템플릿 아이디}",
-    "body": "",
-    "sendNo": "",
     "recipientList": [{
         "recipientNo": "{수신번호}",
         "templateParameter": {
@@ -1275,18 +1282,28 @@ SMS,MMS,인증용 발송에 모두 적용 가능.
 
 <table>
   <thead>
-    <tr><th>Http method</th><th colspan="3">URL</th></tr>
+    <tr>
+      <th>Http method</th>
+      <th>종류</th>
+      <th colspan="3">URL</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
       <td>POST</td>
+      <td>SMS</td>
       <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/sms</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>MMS</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/mms</td>
     </tr>
   </tbody>
 </table>
 
 
-SMS,MMS,인증용 발송에 모두 적용 가능.
+Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발송.
 
 ** 템플릿 아이디와 Request parameter body 안의 값이 있을 경우, 발신번호와 발신 내용이 템플릿 내용으로 치환되지 않습니다. **
 
