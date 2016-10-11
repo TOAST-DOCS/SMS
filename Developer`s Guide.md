@@ -86,7 +86,7 @@
 |body|	Object|	본문 영역|
 |- data|	Object|	데이터 영역|
 |-- requestId|	String|	요청 아이디|
-|-- statusCOde|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
+|-- statusCode|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
 
 #### 단문 SMS 발송 예제(일반 국내 수신 번호)
 
@@ -461,7 +461,7 @@
 |body|	Object|	본문 영역|
 |- data|	Object|	데이터 영역|
 |-- requestId|	String|	요청 아이디|
-|-- statusCOde|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
+|-- statusCode|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
 
 #### 장문 MMS 발송 예제
 
@@ -961,7 +961,7 @@
 |body|	Object|	본문 영역|
 |- data|	Object|	데이터 영역|
 |-- requestId|	String|	요청 아이디|
-|-- statusCOde|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
+|-- statusCode|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
 
 #### 예제
 
