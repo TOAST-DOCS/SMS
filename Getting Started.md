@@ -20,7 +20,7 @@ Console에 접속하여 SMS를 활성화 합니다.
 4. 발송하고 싶은 시간이 있다면 에약전송란에 입력합니다.
 5. 보내기 버튼을 클릭합니다.
 
-![[그림 2] SMS 발송](http://static.toastoven.net/prod_sms/img_02.png)
+![[그림 2] SMS 발송](http://static.toastoven.net/prod_sms/image_02.png)
 <center>[그림 2] SMS 발송</center>
 
 ### 일반 LMS 발송
@@ -32,7 +32,7 @@ Console에 접속하여 SMS를 활성화 합니다.
 4. 발송하고 싶은 시간이 있다면 에약전송란에 입력합니다.
 5. 보내기 버튼을 클릭합니다.
 
-![[그림 3] MMS 발송](http://static.toastoven.net/prod_sms/img_03.png)
+![[그림 3] MMS 발송](http://static.toastoven.net/prod_sms/image_03.png)
 <center>[그림 3] MMS 발송</center>
 
 ### MMS 발송(첨부파일 발송)
@@ -45,14 +45,14 @@ Console에 접속하여 SMS를 활성화 합니다.
 5. 발송하고 싶은 시간이 있다면 에약전송란에 입력합니다.
 6. 보내기 버튼을 클릭합니다.
 
-![[그림 4] MMS 발송(첨부파일 발송)](http://static.toastoven.net/prod_sms/img_04.png)
+![[그림 4] MMS 발송(첨부파일 발송)](http://static.toastoven.net/prod_sms/image_04.png)
 <center>[그림 4] MMS 발송(첨부파일 발송)</center>
 
 ### 템플릿 발송
 
 템플릿 사용여부에 ‘사용’ 선택 및 템플릿 선택 버튼을 클릭합니다.
 
-![[그림 5] 템플릿 발송](http://static.toastoven.net/prod_sms/img_05.png)
+![[그림 5] 템플릿 발송](http://static.toastoven.net/prod_sms/image_05.png)
 <center>[그림 5] 템플릿 발송</center>
 
 원하는 템플릿을 선택합니다.  
@@ -69,7 +69,7 @@ Console에 접속하여 SMS를 활성화 합니다.
 템플릿 파일은 '대량발송업로드' 탭 선택 후 '템플릿 다운로드' 버튼을 클릭하여 다운로드 받을 수 있습니다.
 템플릿 파일은 CSV 파일과 엑셀(xls, xlsx) 파일을 제공합니다.
 
-![[그림 7] 대량 업로드 발송을 위한 템플릿파일 다운로드](http://static.toastoven.net/prod_sms/img_07_00.png)
+![[그림 7] 대량 업로드 발송을 위한 템플릿파일 다운로드](http://static.toastoven.net/prod_sms/image_07_00.png)
 <center>[그림 7] 대량 업로드 발송을 위한 엑셀 템플릿 다운로드</center>
 
 다운로드 받은 템플릿에 수신자번호와 치환 데이터를 입력합니다.
@@ -78,7 +78,7 @@ Console에 접속하여 SMS를 활성화 합니다.
 
 수신번호는 '+', '-', 공백문자를 포함하여 입력할 수 있습니다.
 
-![[그림 7.1] 템플릿 파일 내용 작성](http://static.toastoven.net/prod_sms/img_07_01.png)
+![[그림 7.1] 템플릿 파일 내용 작성](http://static.toastoven.net/prod_sms/image_07_01.png)
 <center>[그림 7.1] 템플릿 파일 내용 작성</center>
 
 
@@ -92,7 +92,7 @@ Console에 접속하여 SMS를 활성화 합니다.
   - 수신번호가 잘못된 포맷으로 입력된 경우
   - 수신번호 또는 치환 데이터 입력이 누락된 경우
 
-![[그림 7.2] 템플릿 파일 유효성 검사 오류 확인](http://static.toastoven.net/prod_sms/img_07_02.png)
+![[그림 7.2] 템플릿 파일 유효성 검사 오류 확인](http://static.toastoven.net/prod_sms/image_07_02.png)
 <center>[그림 7.2] 템플릿 파일 유효성 검사 오류 확인</center>
 
 
@@ -104,7 +104,7 @@ Console에 접속하여 SMS를 활성화 합니다.
   - 확인 후 진행: 수신번호와 발송 내용을 대량SMS발송 탭에서 확인 후 발송을 진행 할 수 있습니다. 확인 후 발송을 진행하지 않으면 발송이 진행되지 않으므로 유의해 주세요.
   - 즉시발송: 수신번호와 발송 내용을 확인하지 않고 발송을 진행합니다. 발송결과는 대량SMS발송 탭에서 확인할 수 있습니다.
 
-![[그림 7.3] 대량SMS발송 예약](http://static.toastoven.net/prod_sms/img_07_03.png)
+![[그림 7.3] 대량SMS발송 예약](http://static.toastoven.net/prod_sms/image_07_03.png)
 <center>[그림 7.3] 대량SMS발송 예약</center>
 
 ## 대량SMS발송
@@ -115,12 +115,12 @@ Console에 접속하여 SMS를 활성화 합니다.
   - 조회: 상단의 조회폼에서 대량SMS 발송 예약건을 조회할 수 있습니다. 조회 건의 리스트 행을 선택하면 하단의 조회폼에서 수신번호와 발송 정보(발송내용, 발송결과)를 확인할 수 있습니다.
   - 발송/취소: 대량 업로드 발송예약시 수신 대상자 확인 후 발송을 선택한 경우, '발송준비완료' 상태의 예약건을 선택후 발송/취소 버튼을 클릭하여 발송 하거나 취소할 수 있습니다. 즉시 발송의 경우 자동으로 발송처리 됩니다.
 
-![[그림 8] 대량SMS발송 예약 조회](http://static.toastoven.net/prod_sms/img_08_00.png)
+![[그림 8] 대량SMS발송 예약 조회](http://static.toastoven.net/prod_sms/image_08_00.png)
 <center>[그림 8] 대량SMS발송 예약 조회</center>
 
   - 발송실패 확인: 진행상태가 '발송완료' 상태 인 예약 건에서 일부 발송 요청이 실패한 건은 발송 실패 건수를 확인할 수 있습니다. 실패 건수의 버튼을 클릭하면 실패된 수신번호와 발송 내용을 보여줍니다.
 
-![[그림 8.1] 발송실패 조회](http://static.toastoven.net/prod_sms/img_08_01.png)
+![[그림 8.1] 발송실패 조회](http://static.toastoven.net/prod_sms/image_08_01.png)
 <center>[그림 8.1] 발송실패 조회</center>
 
 ### 대량SMS발송 진행 상태
@@ -137,10 +137,10 @@ Console에 접속하여 SMS를 활성화 합니다.
 
 대량SMS 발송 예약 건(리스트의 행)을 선택하시면 하단의 리스트에서 수신번호별 SMS 발송 내용과 발송 결과를 조회할 수 있습니다.
 
-![[그림 9] 발송실패 조회](http://static.toastoven.net/prod_sms/img_09_00.png)
+![[그림 9] 발송실패 조회](http://static.toastoven.net/prod_sms/image_09_00.png)
 <center>[그림 9] 발송실패 조회</center>
 상세한 발송 내용을 보려면 '상세보기'를 클릭하면 상세 내용을 확인 할 수 있습니다.
-![[그림 9.1] 발송실패 조회](http://static.toastoven.net/prod_sms/img_09_01.png)
+![[그림 9.1] 발송실패 조회](http://static.toastoven.net/prod_sms/image_09_01.png)
 <center>[그림 9.1] 발송실패 조회</center>
 
 ## SMS 조회
@@ -150,7 +150,7 @@ Console에 접속하여 SMS를 활성화 합니다.
 각 항목을 조건으로 조회할 수 있습니다.  
 (요청아이디 또는 발신일시는 필수값)
 
-![[그림 10] SMS 요청별 조회](http://static.toastoven.net/prod_sms/img_10.png)
+![[그림 10] SMS 요청별 조회](http://static.toastoven.net/prod_sms/image_10.png)
 <center>[그림 10] SMS 요청별 조회</center>
 
 요청아이디 또는 수신번호 클릭 시 상세보기 팝업이 노출됩니다.
@@ -164,30 +164,30 @@ Console에 접속하여 SMS를 활성화 합니다.
 
 기본 템플릿 화면
 
-![[그림 12] 템플릿 관리 화면](http://static.toastoven.net/prod_sms/img_12.png)
+![[그림 12] 템플릿 관리 화면](http://static.toastoven.net/prod_sms/image_12.png)
 <center>[그림 12] 템플릿 관리 화면</center>
 
 카테고리 추가 버튼 클릭 시 카테고리 추가가 가능합니다.  
 반드시 카테고리를 선택한 상태에서 추가 버튼을 클릭해야 합니다.
 
-![[그림 13] 카테고리 등록](http://static.toastoven.net/prod_sms/img_13.png)
+![[그림 13] 카테고리 등록](http://static.toastoven.net/prod_sms/image_13.png)
 <center>[그림 13] 카테고리 등록</center>
 
 카테고리 수정 버튼을 클릭 시 카테고리 수정이 가능합니다.  
 반드시 카테고리를 선택한 상태에서 수정 버튼을 클릭해야 합니다.
 
-![[그림 14] 카테고리 수정](http://static.toastoven.net/prod_sms/img_14.png)
+![[그림 14] 카테고리 수정](http://static.toastoven.net/prod_sms/image_14.png)
 <center>[그림 14] 카테고리 수정</center>
 
 템플릿 추가 버튼 클릭 시 템플릿 추가가 가능합니다.  
 반드시 카테고리를 선택한 상태에서 템플릿 추가 버튼을 클릭해야 합니다.
 
-![[그림 15] 템플릿 추가](http://static.toastoven.net/prod_sms/img_15.png)
+![[그림 15] 템플릿 추가](http://static.toastoven.net/prod_sms/image_15.png)
 <center>[그림 15] 템플릿 추가</center>
 
 템플릿을 선택하여 수정이 가능합니다.
 
-![[그림 16] 템플릿 추가정보 입력](http://static.toastoven.net/prod_sms/img_16.png)
+![[그림 16] 템플릿 추가정보 입력](http://static.toastoven.net/prod_sms/image_16.png)
 <center>[그림 16] 템플릿 추가정보 입력</center>
 
 ## 발신 번호 등록
@@ -205,7 +205,7 @@ Console에 접속하여 SMS를 활성화 합니다.
 
 SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
-![[그림 17] 발신번호 관리](http://static.toastoven.net/prod_sms/img_17.png)
+![[그림 17] 발신번호 관리](http://static.toastoven.net/prod_sms/image_17.png)
 <center>[그림 17] 발신번호 관리</center>
 
 ### 인증 타입 선택
@@ -213,7 +213,7 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 1.핸드폰 인증  
 1-1본인 명의로 등록된 핸드폰으로 발신하고자 할 때에는 [그림 18]의 '핸드폰인증'으로 즉시 발신번호 등록
 
-![[그림 18] 핸드폰인증](http://static.toastoven.net/prod_sms/img_18.png)
+![[그림 18] 핸드폰인증](http://static.toastoven.net/prod_sms/image_18.png)
 <center>[그림 18] 핸드폰인증</center>
 
 1-2개인 정보 입력 후 인증 절차 수행  
@@ -228,7 +228,7 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
 1-4정상적으로 등록을 완료한 발신번호는 [그림 21]의 [발신번호 조회] 화면에서 확인 가능  
 
-![[그림 21] 발신번호 조회](http://static.toastoven.net/prod_sms/img_21.png)
+![[그림 21] 발신번호 조회](http://static.toastoven.net/prod_sms/image_21.png)
 <center>[그림 21] 발신번호 조회</center>
 
 2.서류 인증  
@@ -250,5 +250,5 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
 2-5심사가 완료된 발신번호는 [그림 25] 화면에서 확인  
 
-![[그림 25] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/img_25.png)
+![[그림 25] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/image_25.png)
 <center>[그림 25] 발신번호 등록 확인</center>
