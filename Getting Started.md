@@ -87,6 +87,7 @@ Console에 접속하여 SMS를 활성화 합니다.
 파일 업로드시 템플릿 파일의 데이터에 오류가 있는 경우 오류 내용이 표시됩니다. 오류는 총 오류 건수와 최대 10건의 오류 내용을 출력 합니다.
 
 오류 종류
+
   - recipient_no 열이 존재하지 않는 경우: recipient_no 열은 수신번호를 입력하는 열로 필수로 입력해야 합니다.
   - 파일에 입력된 데이터가 없는 경우
   - 수신번호가 잘못된 포맷으로 입력된 경우
@@ -137,11 +138,11 @@ Console에 접속하여 SMS를 활성화 합니다.
 
 대량SMS 발송 예약 건(리스트의 행)을 선택하시면 하단의 리스트에서 수신번호별 SMS 발송 내용과 발송 결과를 조회할 수 있습니다.
 
-![[그림 9] 발송실패 조회](http://static.toastoven.net/prod_sms/image_09_00.png)
+![[그림 9] 수신자 별 SMS발송 조회](http://static.toastoven.net/prod_sms/image_09_00.png)
 <center>[그림 9] 발송실패 조회</center>
 상세한 발송 내용을 보려면 '상세보기'를 클릭하면 상세 내용을 확인 할 수 있습니다.
 ![[그림 9.1] 발송실패 조회](http://static.toastoven.net/prod_sms/image_09_01.png)
-<center>[그림 9.1] 발송실패 조회</center>
+<center>[그림 9.1] 수신자 별 SMS발송 상세보기</center>
 
 ## SMS 조회
 
