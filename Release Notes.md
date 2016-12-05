@@ -10,7 +10,7 @@
     * TO-BE : 결과 사유를 전체로 선택했을 경우, 상세 결과 사유 셀렉트창 보이지 않게 수정
 * [Console] 발신번호 등록 시, 유효성 검사 강화
     * AS-IS : 중복 검사만 체크
-    * TO-BE : 중복검사 + 발신번호 등록 형식 체크 &nbsp;&nbsp;[<a href="/ko/Notification/SMS/Getting%20Started/#_12">발신번호 등록 형식</a>]
+    * TO-BE : 중복검사 + 발신번호 등록 형식 체크 &nbsp;&nbsp;[<a href="/ko/Notification/SMS/Getting%20Started/#_12" target="_blank">발신번호 등록 형식</a>]
 
 
 #### 버그 수정
