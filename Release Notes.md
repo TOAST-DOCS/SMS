@@ -2,8 +2,8 @@
 ### 2016.12.22
 #### 기능 개선/변경
 * [Console] 발송 요청 실패할 경우 조회할 수 있도록 변경
-  * AS-IS : SMS, MMS 발송 시, 실패할 경우 실패 응답은 받지만 Console에서 조회할 수 없음
-  * TO-BE : SMS, MMS 발송 시, 실패할 경우 요청 상태를 실패로 변경하여 조회할 수 있도록 변경
+    * AS-IS : SMS, MMS 발송 시, 실패할 경우 실패 응답은 받지만 Console에서 조회할 수 없음
+    * TO-BE : SMS, MMS 발송 시, 실패할 경우 요청 상태를 실패로 변경하여 조회할 수 있도록 변경
 * [Console] SMS 바이트체크 로직 추가
     * AS-IS : SMS, MMS의 제목,내용 작성 시 바이트를 미표시
     * TO-BE : SMS, MMS의 제목,내용 작성 시 바이트를 표시
@@ -11,8 +11,8 @@
     * AS-IS : SMS, MMS 기준 이상 바이트의 내용,제목을 발송 시, 내용이 잘려서 발송
     * TO-BE : SMS, MMS 기준 이상 바이트의 내용,제목을 발송 시, 실패 처리
 * [API] 수신자 리스트를 담은 발송 요청이 실패했을 경우, 실패한 수신자에 대한 로직 변경
-  * AS-IS : 다수의 수신자 리스트의 발송 요청이 실패했을 경우, 실패한 수신자 이후 수신자는 미발송
-  * TO-BE : v1.0은 기존 로직과 동일(요청 실패 시, 응답 header false)<br>v2.0은 실패한 수신자 이후 수신자에게 이어서 발송. 또한, 응답 데이터에 발송 결과 리스트 반환(응답 header true)<br>자세한 변경사항은 [<a href="/ko/Notification/SMS/Developer%60s%20Guide/#notification-sms-developers-guide" target="_blank">개발자 가이드</a>] 참고
+    * AS-IS : 다수의 수신자 리스트의 발송 요청이 실패했을 경우, 실패한 수신자 이후 수신자는 미발송
+    * TO-BE : v1.0은 기존 로직과 동일(요청 실패 시, 응답 header false)<br>v2.0은 실패한 수신자 이후 수신자에게 이어서 발송. 또한, 응답 데이터에 발송 결과 리스트 반환(응답 header true)<br>자세한 변경사항은 [<a href="/ko/Notification/SMS/Developer%60s%20Guide/#notification-sms-developers-guide" target="_blank">개발자 가이드</a>] 참고
 
 
 
