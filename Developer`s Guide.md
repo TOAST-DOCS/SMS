@@ -1,6 +1,6 @@
 ## Notification > SMS > Developer's Guide
 
-[\[v1.0 가이드 보기\]](/ko/Notification/SMS/Developer%60s%20Guide_v1/)
+문서 버전 :   <select onchange="location.href=this.value"><option selected value="/ko/Notification/SMS/Developer%60s%20Guide/">v2</option><option value="/ko/Notification/SMS/Developer%60s%20Guide_v1/">v1</option></select>
 
 ## SMS 발송
 
