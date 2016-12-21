@@ -1,7 +1,5 @@
 ## Notification > SMS > Developer's Guide
 
-문서 버전 :   <select onchange="location.href=this.value"><option selected value="/ko/Notification/SMS/Developer%60s%20Guide/">version 2</option><option value="/ko/Notification/SMS/Developer%60s%20Guide_v1/">version 1</option></select>
-
 ## SMS 발송
 
 ### [API 도메인]
@@ -20,7 +18,7 @@
 
 |Http method| URI|
 |---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/sender/sms|
+|POST|	/sms/v1.0/appKeys/{appKey}/sender/sms|
 
 [Path parameter]
 
@@ -73,14 +71,7 @@
     "body": {
         "data": {
             "requestId":String,
-            "statusCode":String,
-            "sendResultList" : [
-                {
-                    "recipientNo" : String,
-                    "resultCode" :  Integer,
-                    "resultMessage" : String
-                }
-            ]
+            "statusCode":String
         }
     }
 }
@@ -96,10 +87,6 @@
 |- data|	Object|	데이터 영역|
 |-- requestId|	String|	요청 아이디|
 |-- statusCode|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
-|-- sendResultList|	List:Object|	발송 결과 리스트|
-|--- recipientNo| String | 수신번호|
-|--- resultCode| Integer | 결과코드|
-|--- resultMessage| String | 결과메시지|
 
 #### 단문 SMS 발송 예제(일반 국내 수신 번호)
 
@@ -110,7 +97,7 @@
   <tbody>
     <tr>
       <td>POST</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/sms</td>
     </tr>
   </tbody>
 </table>
@@ -138,14 +125,7 @@
   "body": {
     "data": {
       "requestId": "0-201607-424541-1",
-      "statusCode": "2",
-      "sendResultList" : [
-          {
-              "recipientNo" : {수신번호},
-              "resultCode" :  0,
-              "resultMessage" : "SUCCESS"
-          }
-      ]
+      "statusCode": "2"
     }
   }
 }
@@ -160,7 +140,7 @@
   <tbody>
     <tr>
       <td>POST</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/sms</td>
     </tr>
   </tbody>
 </table>
@@ -195,14 +175,7 @@
   "body": {
     "data": {
       "requestId": "0-201607-424541-1",
-      "statusCode": "2",
-      "sendResultList" : [
-          {
-              "recipientNo" : {수신번호},
-              "resultCode" :  0,
-              "resultMessage" : "SUCCESS"
-          }
-      ]
+      "statusCode": "2"
     }
   }
 }
@@ -216,7 +189,7 @@
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/sms|
+|GET|	/sms/v1.0/appKeys/{appKey}/sender/sms|
 
 [Path parameter]
 
@@ -324,7 +297,7 @@
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/sms/{requestId}|
+|GET|	/sms/v1.0/appKeys/{appKey}/sender/sms/{requestId}|
 
 [Path parameter]
 
@@ -418,7 +391,7 @@
 
 |Http method|	URI|
 |---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/sender/mms|
+|POST|	/sms/v1.0/appKeys/{appKey}/sender/mms|
 
 [Path parameter]
 
@@ -473,14 +446,7 @@
     "body": {
         "data": {
             "requestId":String,
-            "statusCode":String,
-            "sendResultList" : [
-                {
-                    "recipientNo" : String,
-                    "resultCode" :  Integer,
-                    "resultMessage" : String
-                }
-            ]
+            "statusCode":String
         }
     }
 }
@@ -496,10 +462,6 @@
 |- data|	Object|	데이터 영역|
 |-- requestId|	String|	요청 아이디|
 |-- statusCode|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
-|-- sendResultList|	List:Object|	발송 결과 리스트|
-|--- recipientNo| String | 수신번호|
-|--- resultCode| Integer | 결과코드|
-|--- resultMessage| String | 결과메시지|
 
 #### 장문 MMS 발송 예제
 
@@ -510,7 +472,7 @@
   <tbody>
     <tr>
       <td>POST</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/mms</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/mms</td>
     </tr>
   </tbody>
 </table>
@@ -541,14 +503,7 @@
   "body": {
     "data": {
       "requestId": "0-201607-424541-1",
-      "statusCode": "2",
-      "sendResultList" : [
-          {
-              "recipientNo" : {수신번호},
-              "resultCode" :  0,
-              "resultMessage" : "SUCCESS"
-          }
-      ]
+      "statusCode": "2"
     }
   }
 }
@@ -564,7 +519,7 @@
 
 |Http method|	URI|
 |---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/attachfile/binaryUpload|
+|POST|	/sms/v1.0/appKeys/{appKey}/attachfile/binaryUpload|
 
 [Path parameter]
 
@@ -628,7 +583,7 @@
   <tbody>
     <tr>
       <td>POST</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/attachfile/binaryUpload</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/attachfile/binaryUpload</td>
     </tr>
   </tbody>
 </table>
@@ -670,7 +625,7 @@
   <tbody>
     <tr>
       <td>POST</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/mms</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/mms</td>
     </tr>
   </tbody>
 </table>
@@ -704,14 +659,7 @@
   "body": {
     "data": {
       "requestId": "1-201607-424631-1",
-      "statusCode": "2",
-      "sendResultList" : [
-          {
-              "recipientNo" : {수신번호},
-              "resultCode" :  0,
-              "resultMessage" : "SUCCESS"
-          }
-      ]
+      "statusCode": "2"
     }
   }
 }
@@ -725,7 +673,7 @@
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/mms|
+|GET|	/sms/v1.0/appKeys/{appKey}/sender/mms|
 
 [Path parameter]
 
@@ -842,7 +790,7 @@
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/mms/{requestId}|
+|GET|	/sms/v1.0/appKeys/{appKey}/sender/mms/{requestId}|
 
 [Path parameter]
 
@@ -945,7 +893,7 @@
 
 |Http method|	URI|
 |---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/sender/auth/sms|
+|POST|	/sms/v1.0/appKeys/{appKey}/sender/auth/sms|
 
 [Path parameter]
 
@@ -998,14 +946,7 @@
     "body": {
         "data": {
             "requestId":String,
-            "statusCode":String,
-            "sendResultList" : [
-                {
-                    "recipientNo" : String,
-                    "resultCode" :  Integer,
-                    "resultMessage" : String
-                }
-            ]
+            "statusCode":String
         }
     }
 }
@@ -1021,10 +962,6 @@
 |- data|	Object|	데이터 영역|
 |-- requestId|	String|	요청 아이디|
 |-- statusCode|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
-|-- sendResultList|	List:Object|	발송 결과 리스트|
-|--- recipientNo| String | 수신번호|
-|--- resultCode| Integer | 결과코드|
-|--- resultMessage| String | 결과메시지|
 
 #### 예제
 
@@ -1035,7 +972,7 @@
   <tbody>
     <tr>
       <td>POST</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/auth/sms</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/auth/sms</td>
     </tr>
   </tbody>
 </table>
@@ -1065,14 +1002,7 @@
   "body": {
     "data": {
       "requestId": "2-201607-424651-1",
-      "statusCode": "2",
-      "sendResultList" : [
-          {
-              "recipientNo" : String,
-              "resultCode" :  Integer,
-              "resultMessage" : String
-          }
-      ]
+      "statusCode": "2"
     }
   }
 }
@@ -1086,7 +1016,7 @@
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/auth/sms|
+|GET|	/sms/v1.0/appKeys/{appKey}/sender/auth/sms|
 
 [Path parameter]
 
@@ -1194,7 +1124,7 @@
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/auth/sms/{requestId}|
+|GET|	/sms/v1.0/appKeys/{appKey}/sender/auth/sms/{requestId}|
 
 [Path parameter]
 
@@ -1297,12 +1227,12 @@
     <tr>
       <td>POST</td>
       <td>SMS</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/sms</td>
     </tr>
     <tr>
       <td>POST</td>
       <td>MMS</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/mms</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/mms</td>
     </tr>
   </tbody>
 </table>
@@ -1362,12 +1292,12 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
     <tr>
       <td>POST</td>
       <td>SMS</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/sms</td>
     </tr>
     <tr>
       <td>POST</td>
       <td>MMS</td>
-      <td colspan="3">https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/mms</td>
+      <td colspan="3">https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/mms</td>
     </tr>
   </tbody>
 </table>
@@ -1422,7 +1352,7 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/templates|
+|GET|	/sms/v1.0/appKeys/{appKey}/templates|
 
 [Path parameter]
 
@@ -1541,7 +1471,7 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/templates/{templateId}|
+|GET|	/sms/v1.0/appKeys/{appKey}/templates/{templateId}|
 
 [Path parameter]
 
