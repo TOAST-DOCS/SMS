@@ -423,7 +423,7 @@
 |값|	타입|	필수|	설명|
 |---|---|---|---|
 |templateId|	String|	옵션|	발송 템플릿 아이디|
-|title|	String|	옵션|	제목 <br/> ('EUC-KR' 기준으로 48Byte 제한) <br/> (글자 수 40글자 이내)|
+|title|	String|	필수|	제목 <br/> ('EUC-KR' 기준으로 48Byte 제한) <br/> (글자 수 40글자 이내)|
 |body|	String|	필수|	본문 <br/> ('EUC-KR' 기준으로 4000Byte 제한) <br/> (글자 수 4000글자 이내)|
 |sendNo|	String|	필수|	발신번호|
 |attachFileIdList|	List:Integer|	옵션|	첨부파일 아이디 리스트|
