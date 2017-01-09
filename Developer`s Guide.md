@@ -224,13 +224,13 @@
 |---|---|---|
 |appKey|	String|	고유의 appKey|
 
-[Query parameter]
+[Query parameter] 1번 or 2번 조건 필수
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|requestId|	String|	조건 필수|	요청 아이디|
-|startRequestDate|	String|	조건 필수|	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수|	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String|	조건 필수 (1번) |	요청 아이디|
+|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String|	옵션|	발신번호|
@@ -733,13 +733,13 @@
 |---|---|
 |appKey|	String|	고유의 appKey|
 
-[Query parameter]
+[Query parameter] 1번 or 2번 조건 필수
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|requestId|	String|	조건 필수|	요청 아이디|
-|startRequestDate|	String|	조건 필수|	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수|	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String|	조건 필수 (1번) |	요청 아이디|
+|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String|	옵션|	발신번호|
@@ -1094,13 +1094,13 @@
 |---|----|---|
 |appKey|	String|	고유의 appKey|
 
-[Query parameter]
+[Query parameter] 1번 or 2번 조건 필수
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|requestId|	String|	조건 필수|	요청 아이디|
-|startRequestDate|	String|	조건 필수|	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수|	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String|	조건 필수 (1번) |	요청 아이디|
+|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String|	옵션|	발신번호|
