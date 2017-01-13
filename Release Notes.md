@@ -1,15 +1,20 @@
 ## Notification > SMS > Release Notes
+### 2017.01.19
+#### 기능 개선/변경
+* [API] 다수의 수신자 리스트로 발송 시 인원 수 제한 추가
+    * AS-IS : 다수의 수신자 리스트 인원 수에 대한 제한이 없음
+    * TO-BE : 한 요청에 대한 수신자 리스트 1000명으로 제한
+
+#### 버그 수정
+* [Console] 발송 조회에서 필드 내용 클릭시 ellipsis가 필드 오른쪽에 생기는 버그
+    * AS-IS : 제목,내용이 긴 경우 ellipsis가 필드 오른쪽에 생김
+    * TO-BE : 제목,내용이 길어져도 ellipsis가 해당 필드 위에 정상적으로 생김
+
 ### 2016.12.22
 #### 기능 개선/변경
 * [Console] 발송 요청 실패 건에 대해서 조회할 수 있는 기능 추가
     * AS-IS : SMS, MMS 발송 시, 실패할 경우 실패 응답은 받지만 Console에서 조회할 수 없음
     * TO-BE : SMS, MMS 발송 시, 실패할 경우 요청 상태를 실패로 변경하여 조회할 수 있도록 변경
-* [Console] SMS 바이트체크 로직 추가
-    * AS-IS : SMS, MMS의 제목,내용 작성 시 바이트를 미표시
-    * TO-BE : SMS, MMS의 제목,내용 작성 시 바이트를 표시
-* [API] SMS 바이트체크 로직 추가
-    * AS-IS : SMS, MMS 기준 이상 바이트의 내용,제목을 발송 시, 내용이 잘려서 발송
-    * TO-BE : SMS, MMS 기준 이상 바이트의 내용,제목을 발송 시, 실패 처리
 * [API] 다수의 수신자리스트에게 발송 시 유효성 검사 정상 건만 발송되도록 로직 변경
     * AS-IS : 다수의 수신자 리스트의 발송 요청이 실패했을 경우, 실패한 수신자 이후 수신자는 미발송
     * TO-BE : v1.0은 기존 로직과 동일(요청 실패 시, 응답 header false)<br>v2.0은 실패한 수신자 이후 수신자에게 이어서 발송. 또한, 응답 데이터에 발송 결과 리스트 반환(응답 header true)<br>자세한 변경사항은 [<a href="/ko/Notification/SMS/Developer%60s%20Guide/#notification-sms-developers-guide" target="_blank">개발자 가이드</a>] 참고

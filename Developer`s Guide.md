@@ -1,6 +1,6 @@
 ## Notification > SMS > Developer's Guide
 
-문서 버전 :   <select onchange="location.href=this.value"><option selected value="/ko/Notification/SMS/Developer%60s%20Guide/">version 2</option><option value="/ko/Notification/SMS/Developer%60s%20Guide_v1/">version 1</option></select>
+이전 버전보기 :   <select onchange="location.href=this.value"><option selected value="/ko/Notification/SMS/Developer%60s%20Guide/">API v2.0</option><option value="/ko/Notification/SMS/Developer%60s%20Guide_v1/">API v1.0</option></select>
 
 ## SMS 발송
 
@@ -224,13 +224,13 @@
 |---|---|---|
 |appKey|	String|	고유의 appKey|
 
-[Query parameter]
+[Query parameter] 1번 or 2번 조건 필수
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|requestId|	String|	조건 필수|	요청 아이디|
-|startRequestDate|	String|	조건 필수|	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수|	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String|	조건 필수 (1번) |	요청 아이디|
+|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String|	옵션|	발신번호|
@@ -448,7 +448,7 @@
 |값|	타입|	필수|	설명|
 |---|---|---|---|
 |templateId|	String|	옵션|	발송 템플릿 아이디|
-|title|	String|	옵션|	제목 <br/> ('EUC-KR' 기준으로 48Byte 제한) <br/> (글자 수 40글자 이내)|
+|title|	String|	필수|	제목 <br/> ('EUC-KR' 기준으로 48Byte 제한) <br/> (글자 수 40글자 이내)|
 |body|	String|	필수|	본문 <br/> ('EUC-KR' 기준으로 4000Byte 제한) <br/> (글자 수 4000글자 이내)|
 |sendNo|	String|	필수|	발신번호|
 |attachFileIdList|	List:Integer|	옵션|	첨부파일 아이디 리스트|
@@ -733,13 +733,13 @@
 |---|---|
 |appKey|	String|	고유의 appKey|
 
-[Query parameter]
+[Query parameter] 1번 or 2번 조건 필수
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|requestId|	String|	조건 필수|	요청 아이디|
-|startRequestDate|	String|	조건 필수|	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수|	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String|	조건 필수 (1번) |	요청 아이디|
+|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String|	옵션|	발신번호|
@@ -1094,13 +1094,13 @@
 |---|----|---|
 |appKey|	String|	고유의 appKey|
 
-[Query parameter]
+[Query parameter] 1번 or 2번 조건 필수
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|requestId|	String|	조건 필수|	요청 아이디|
-|startRequestDate|	String|	조건 필수|	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수|	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String|	조건 필수 (1번) |	요청 아이디|
+|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String|	옵션|	발신번호|
