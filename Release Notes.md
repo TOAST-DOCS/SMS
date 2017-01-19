@@ -17,7 +17,8 @@
     * TO-BE : SMS, MMS 발송 시, 실패할 경우 요청 상태를 실패로 변경하여 조회할 수 있도록 변경
 * [API] 다수의 수신자리스트에게 발송 시 유효성 검사 정상 건만 발송되도록 로직 변경
     * AS-IS : 다수의 수신자 리스트의 발송 요청이 실패했을 경우, 실패한 수신자 이후 수신자는 미발송
-    * TO-BE : v1.0은 기존 로직과 동일(요청 실패 시, 응답 header false)<br>v2.0은 실패한 수신자 이후 수신자에게 이어서 발송. 또한, 응답 데이터에 발송 결과 리스트 반환(응답 header true)<br>자세한 변경사항은 [<a href="/ko/Notification/SMS/Developer%60s%20Guide/#notification-sms-developers-guide" target="_blank">개발자 가이드</a>] 참고
+    * TO-BE : v1.0은 기존 로직과 동일(요청 실패 시, 응답 header false)<br>v2.0은 실패한 수신자 이후 수신자에게 이어서 발송. 또한, 응답 데이터에 발송 결과 리스트 반환(응답 header true)<br>자세한 변경사항은
+    [[개발자 가이드](./Developer`s Guide)] 참고
 * 요금 정산 방식 변경
     * AS-IS : 문자 발송 요청 시간을 기준으로 과금
     * TO-BE : 문자 발송 결과를 응답 받는 시간으로 과금
@@ -42,7 +43,7 @@
     * TO-BE : 결과 사유를 전체로 선택했을 경우, 상세 결과 사유 셀렉트창 보이지 않게 수정
 * [Console] 발신번호 등록 시, 유효성 검사 강화
     * AS-IS : 중복 검사만 체크
-    * TO-BE : 중복검사 + 발신번호 등록 형식 체크 &nbsp;&nbsp;[<a href="/ko/Notification/SMS/Getting%20Started/#_12" target="_blank">발신번호 등록 형식</a>]
+    * TO-BE : 중복검사 + 발신번호 등록 형식 체크 &nbsp;&nbsp;[[발신번호 등록 형식](./Getting Started/#_12)]
 
 
 #### 버그 수정
