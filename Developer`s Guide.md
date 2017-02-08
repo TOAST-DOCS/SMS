@@ -2,10 +2,10 @@
 
 이전 버전보기 :   <select onchange="location.href=this.value"><option selected value="/ko/Notification/SMS/Developer%60s%20Guide/">API v2.0</option><option value="/ko/Notification/SMS/Developer%60s%20Guide_v1/">API v1.0</option></select>
 
-#### 버전 개선사항
-API v1.0 -> 2.0 변경되면서 다음과 같이 발송 API가 변경되었습니다.
-v1.0 : 다수의 수신자 리스트의 발송 요청이 실패했을 경우, 실패한 수신자 이후 수신자는 미발송
-v2.0 : 실패한 수신자 이후 수신자에게 이어서 발송. 또한, 응답 데이터에 발송 결과 리스트 반환(응답 header true)
+### [버전 개선사항]
+API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습니다.<br/>
+* v1.0 : 다수의 수신자 리스트의 발송 요청이 실패했을 경우, 실패한 수신자 이후 수신자는 미발송<br/>
+* v2.0 : 실패한 수신자 이후 수신자에게 이어서 발송. 또한, 응답 데이터에 발송 결과 리스트 반환(응답 header true)<br/>
 
 ## SMS 발송
 
@@ -16,8 +16,8 @@ v2.0 : 실패한 수신자 이후 수신자에게 이어서 발송. 또한, 응�
 |Real|	https://api-sms.cloud.toast.com|
 
 ### [주의 사항]
-* SMS은 본문 길이 90byte이하의 단문메시지이며, MMS는 본문 길이 2,000byte이하, 제목 40byte 이하로 발송해야 합니다. 해당 byte 이상 발송 시, 내용이 잘려 나갈 수 있습니다.
-* 본문과 제목은 euc-kr 기준으로 발송 됩니다. 따라서 euc-kr 인코딩이 지원하지 않는 이모티콘은 발송 실패 처리 됩니다.
+* SMS은 본문 길이 90byte이하의 단문메시지이며, MMS는 본문 길이 2,000byte이하, 제목 40byte 이하로 발송해야 합니다. 해당 byte 이상 발송 시, 내용이 잘려 나갈 수 있습니다.</br>
+* 본문과 제목은 euc-kr 기준으로 발송 됩니다. 따라서 euc-kr 인코딩이 지원하지 않는 이모티콘은 발송 실패 처리 됩니다.</br>
 
 ## 단문 SMS
 
