@@ -10,6 +10,10 @@
 |---|---|
 |Real|	https://api-sms.cloud.toast.com|
 
+### [주의 사항]
+* SMS은 본문 길이 90byte이하의 단문메시지이며, MMS는 본문 길이 2,000byte이하, 제목 40byte 이하로 발송해야 합니다. 해당 byte 이상 발송 시, 내용이 잘려 나갈 수 있습니다.</br>
+* 본문과 제목은 euc-kr 기준으로 발송 됩니다. 따라서 euc-kr 인코딩이 지원하지 않는 이모티콘은 발송 실패 처리 됩니다.</br>
+
 ## 단문 SMS
 
 ### 단문 SMS 발송
@@ -54,8 +58,8 @@
 |sendNo|	String|	O|	발신번호|
 |recipientList|	List|	O|	수신자 리스트|
 |- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|- countryCode|	String|	X|	국가코드 (현재 국내 발송만 지원)|
-|- internationalRecipientNo| String| X| 국가코드가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>(현재 국내 발송만 지원)|
+|- countryCode|	String|	X|	국가코드<br/>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.)|
+|- internationalRecipientNo| String| X| 국가코드가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
 |- templateParameter|	Object|	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
 |-- #key#|	String|	X|	치환 키(##key##)|
 |-- #value#|	Object|	X|	치환 키에 매핑되는 Value값|
@@ -429,7 +433,7 @@
 |attachFileIdList|	List:Integer|	옵션|	첨부파일 아이디 리스트|
 |recipientList|	List|	필수|	수신자 리스트|
 |- recipientNo|	String|	필수|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|- countryCode|	String|	옵션|	국가코드|
+|- countryCode|	String|	옵션|	국가코드<br/>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.)|
 |- internationalRecipientNo| String| X| 국가코드가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
 |- templateParameter|	Object|	옵션|	템플릿 파라미터(템플릿 아이디 입력 시)|
 |-- #key#|	String|	옵션|	치환 키(##key##)|
@@ -929,8 +933,8 @@
 |sendNo|	String|	O|	발신번호|
 |recipientList|	List|	O|	수신자 리스트|
 |- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|- countryCode|	String|	X|	국가코드(현재 국내 발송만 지원)|
-|- internationalRecipientNo| String| X| 국가코드가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>(현재 국내 발송만 지원)|
+|- countryCode|	String|	X|	국가코드<br/>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.)|
+|- internationalRecipientNo| String| X| 국가코드가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
 |- templateParameter|	Object|	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
 |-- #key#|	String|	X|	치환 키(##key##)|
 |-- #value#|	Object|	X|	치환 키에 매핑되는 Value값|
