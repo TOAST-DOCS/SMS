@@ -1,6 +1,6 @@
 ## Notification > SMS > Release Notes
 ### 2017.02.23
-### 버그 수정
+#### 버그 수정
 * [Console] MMS 대량 발송 조회 시 발송 건수 틀린 버그 수정
     * TO-BE : MMS 대량 발송 조회 시 발송 건수 정상적으로 나타남
 
