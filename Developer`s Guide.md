@@ -457,8 +457,8 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |값|	타입|	필수|	설명|
 |---|---|---|---|
 |templateId|	String|	옵션|	발송 템플릿 아이디|
-|title|	String|	필수|	제목 <br/> ('EUC-KR' 기준으로 40Byte 제한) <br/> (글자 수 20글자 이내)|
-|body|	String|	필수|	본문 <br/> ('EUC-KR' 기준으로 2000Byte 제한) <br/> (글자 수 2000글자 이내)|
+|title|	String|	필수|	제목 <br/> ('EUC-KR' 기준으로 40Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
+|body|	String|	필수|	본문 <br/> ('EUC-KR' 기준으로 2000Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
 |sendNo|	String|	필수|	발신번호|
 |attachFileIdList|	List:Integer|	옵션|	첨부파일 아이디 리스트|
 |recipientList|	List|	필수|	수신자 리스트|
