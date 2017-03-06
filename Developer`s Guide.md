@@ -317,7 +317,7 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -409,7 +409,7 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -832,7 +832,7 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -933,7 +933,7 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -1189,7 +1189,7 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -1281,7 +1281,7 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -1693,7 +1693,7 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 </tbody>
 </table>
 
-## EMMA v.3 전송결과코드
+## EMMA v.3 수신결과코드
 
 - EMMA Version : EMMA V3.3.0 이상
 - 1) 이통사 : 이통사 전송 후 받은 결과코드이다.
