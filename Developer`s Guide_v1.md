@@ -216,8 +216,8 @@
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide_v1/#_39)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide_v1/#_40)]|
+|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide_v1/#_38)]|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide_v1/#_39)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -428,8 +428,8 @@
 |값|	타입|	필수|	설명|
 |---|---|---|---|
 |templateId|	String|	옵션|	발송 템플릿 아이디|
-|title|	String|	필수|	제목 <br/> ('EUC-KR' 기준으로 48Byte 제한) <br/> (글자 수 40글자 이내)|
-|body|	String|	필수|	본문 <br/> ('EUC-KR' 기준으로 4000Byte 제한) <br/> (글자 수 4000글자 이내)|
+|title|	String|	필수|	제목 <br/> ('EUC-KR' 기준으로 40Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
+|body|	String|	필수|	본문 <br/> ('EUC-KR' 기준으로 2000Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
 |sendNo|	String|	필수|	발신번호|
 |attachFileIdList|	List:Integer|	옵션|	첨부파일 아이디 리스트|
 |recipientList|	List|	필수|	수신자 리스트|
@@ -701,8 +701,8 @@
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide_v1/#_39)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide_v1/#_40)]|
+|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide_v1/#_38)]|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide_v1/#_39)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -1045,8 +1045,8 @@
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide_v1/#_39)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide_v1/#_40)]|
+|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide_v1/#_38)]|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide_v1/#_39)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
