@@ -1694,7 +1694,6 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 </table>
 
 ## EMMA v.3 수신결과코드
-
 - EMMA Version : EMMA V3.3.0 이상
 - 1) 이통사 : 이통사 전송 후 받은 결과코드이다.
 - 2) IB G/W : Infobank G/W가 메시지 수신후 주는 결과코드이다.

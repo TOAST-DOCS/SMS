@@ -216,7 +216,8 @@
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드(결과코드표 참고)|
+|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide_v1/#_39)]|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide_v1/#_40)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -286,7 +287,7 @@
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide_v1/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -378,7 +379,7 @@
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide_v1/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -700,7 +701,8 @@
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드(결과코드표 참고)|
+|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide_v1/#_39)]|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide_v1/#_40)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -775,7 +777,7 @@
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide_v1/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -876,7 +878,7 @@
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide_v1/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -1043,7 +1045,8 @@
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드(결과코드표 참고)|
+|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide_v1/#_39)]|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide_v1/#_40)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -1113,7 +1116,7 @@
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide_v1/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -1205,7 +1208,7 @@
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide_v1/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -1572,8 +1575,52 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 |--- createDate|	String|	첨부파일 등록날짜|
 |--- createUser|	String|	첨부파일 등록유저|
 
+## 발신 조회 코드
+### 수신 결과 코드
+<table class="table table-striped table-hover">
+<thead>
+	<tr>
+    <th>코드값</th>
+    <th>의미</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>MTR1</td>
+    <td>성공</td>
+  </tr>
+  <tr>
+    <td>MTR2</td>
+    <td>실패</td>
+  </tr>
+</tbody>
+</table>
 
-## EMMA v.3 전송결과코드
+### 수신 결과 상세 코드
+<table class="table table-striped table-hover">
+<thead>
+	<tr>
+    <th>코드값</th>
+    <th>의미</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>MTR2_1</td>
+    <td>유효성 검사 실패</td>
+  </tr>
+  <tr>
+    <td>MTR2_2</td>
+    <td>통신사 문제</td>
+  </tr>
+  <tr>
+    <td>MTR2_3</td>
+    <td>단말기 문제</td>
+  </tr>
+</tbody>
+</table>
+
+## EMMA v.3 수신결과코드
 
 - EMMA Version : EMMA V3.3.0 이상
 - 1) 이통사 : 이통사 전송 후 받은 결과코드이다.
