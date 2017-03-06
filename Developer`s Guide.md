@@ -246,8 +246,8 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드(조회 코드표 참고)|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드(조회 코드표 참고)|
+|resultCode|	String|	옵션|	수신 결과 코드([[조회 코드표](./Developer`s Guide/#resultcode)])|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드([[조회 코드표](./Developer`s Guide/#subresultcode)])|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -756,8 +756,8 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드(조회 코드표 참고)|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드(조회 코드표 참고)|
+|resultCode|	String|	옵션|	수신 결과 코드([[조회 코드표](./Developer`s Guide/#resultcode)])|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드([[조회 코드표](./Developer`s Guide/#subresultcode)])|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -1118,8 +1118,8 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드(조회 코드표 참고)|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드(조회 코드표 참고)|
+|resultCode|	String|	옵션|	수신 결과 코드([[조회 코드표](./Developer`s Guide/#resultcode)])|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드([[조회 코드표](./Developer`s Guide/#subresultcode)])|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
