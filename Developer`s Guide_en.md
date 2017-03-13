@@ -87,7 +87,7 @@ Short SMS
 | -- requestId    | String  | Request ID                                                               |
 | -- statusCOde   | String  | Request status code(1:Requesting, 2:Request completed, 3:Request failed) |
 
-#### Example of sending short SMS 
+#### Example of sending short SMS
 
 \[URL\]
 
@@ -192,7 +192,8 @@ https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/sms
 | recipientNum     | String  | Optional | Recipient number                                          |
 | templateId       | String  | Optional | Template number                                           |
 | msgStatus        | String  | Optional | Message status code(1:request, 2:processing, 3:succeeded) |
-| resultCode       | String  | Optional | Recipient result code(refer to result code table)         |
+| resultCode       | String  | Optional | Recipient result code [[refer to result code table](./Developer`s Guide_en/#resultcode)]|
+| subResultCode    | String  | Optional | Recipient sub result code [[refer to result code table](./Developer`s Guide_en/#subresultcode)]|
 | pageNum          | Integer | Optional | Page number(Default : 1)                                  |
 | pageSize         | Integer | Optional | Number of lookup(Default : 15)                            |
 
@@ -260,7 +261,7 @@ https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/sms
 | -- recipientNo     | String  | Recipient number                                    |
 | -- msgStatus       | String  | Message status code                                 |
 | -- msgStatusName   | String  | Message status code name                            |
-| -- resultCode      | String  | Received result code                                |
+| -- resultCode      | String  | Received result code [[refer to Received result code](./Developer`s Guide_en/#emma-v3-send-result-code)] |
 | -- resultCodeName  | String  | Received result code name                           |
 | -- telecomCode     | Integer | Telecommunications company code                     |
 | -- telecomCodeName | String  | Telecommunications company name                     |
@@ -356,7 +357,7 @@ https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/sms
 | -- recipientNo     | String  | Recipient number                                    |
 | -- msgStatus       | String  | Message status code                                 |
 | -- msgStatusName   | String  | Message status code name                            |
-| -- resultCode      | String  | Received result code                                |
+| -- resultCode      | String  | Received result code [[refer to Received result code](./Developer`s Guide_en/#emma-v3-send-result-code)] |
 | -- resultCodeName  | String  | Received result code name                           |
 | -- telecomCode     | Integer | Telecommunications company code                     |
 | -- telecomCodeName | String  | Telecommunications company name                     |
@@ -643,7 +644,8 @@ https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/mms
 | recipientNum     | String  | Optional | Recipient number                                          |
 | templateId       | String  | Optional | Template number                                           |
 | msgStatus        | String  | Optional | Message status code(1:request, 2:processing, 3:succeeded) |
-| resultCode       | String  | Optional | Recipient result code(refer to result code table)         |
+| resultCode       | String  | Optional | Recipient result code [[refer to result code table](./Developer`s Guide_en/#resultcode)]|
+| subResultCode    | String  | Optional | Recipient sub result code [[refer to result code table](./Developer`s Guide_en/#subresultcode)]|
 | pageNum          | Integer | Optional | Page number(Default : 1)                                  |
 | pageSize         | Integer | Optional | Number of lookup(Default : 15)                            |
 
@@ -716,7 +718,7 @@ https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/mms
 | -- recipientNo     | String  | Recipient number                                                    |
 | -- msgStatus       | String  | Message status code                                                 |
 | -- msgStatusName   | String  | Message status code name                                            |
-| -- resultCode      | String  | Received result code                                                |
+| -- resultCode      | String  | Received result code [[refer to Received result code](./Developer`s Guide_en/#emma-v3-send-result-code)] |
 | -- resultCodeName  | String  | Received result code name                                           |
 | -- telecomCode     | Integer | Telecommunications company code                                     |
 | -- telecomCodeName | String  | Telecommunications company name                                     |
@@ -817,7 +819,7 @@ https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/mms
 | -- recipientNo     | String  | Recipient number                                                    |
 | -- msgStatus       | String  | Message status code                                                 |
 | -- msgStatusName   | String  | Message status code name                                            |
-| -- resultCode      | String  | Received result code                                                |
+| -- resultCode      | String  | Received result code [[refer to Received result code](./Developer`s Guide_en/#emma-v3-send-result-code)] |
 | -- resultCodeName  | String  | Received result code name                                           |
 | -- telecomCode     | Integer | Telecommunications company code                                     |
 | -- telecomCodeName | String  | Telecommunications company name                                     |
@@ -975,7 +977,8 @@ https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/auth/sms
 | recipientNum     | String  | Optional | Recipient number                                         |
 | templateId       | String  | Optional | Template number                                          |
 | msgStatus        | String  | Optional | Message status code(1:Request, 2:Processing, 3:Suceeded) |
-| resultCode       | String  | Optional | Recipient result code(Refer to result code table)        |
+| resultCode       | String  | Optional | Recipient result code [[refer to result code table](./Developer`s Guide_en/#resultcode)]|
+| subResultCode    | String  | Optional | Recipient sub result code [[refer to result code table](./Developer`s Guide_en/#subresultcode)]|
 | pageNum          | Integer | Optional | Page number(Default : 1)                                 |
 | pageSize         | Integer | Optional | Number of lookup(Default : 15)                           |
 
@@ -1043,7 +1046,7 @@ https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/auth/sms
 | -- recipientNo     | String  | Recipient number                                    |
 | -- msgStatus       | String  | Message status code                                 |
 | -- msgStatusName   | String  | Message status code name                            |
-| -- resultCode      | String  | Receive result code                                 |
+| -- resultCode      | String  | Received result code [[refer to Received result code](./Developer`s Guide_en/#emma-v3-send-result-code)] |
 | -- resultCodeName  | String  | Receive result code name                            |
 | -- telecomCode     | Integer | Telecommunications company code                     |
 | -- telecomCodeName | String  | Telecommunications company name                     |
@@ -1139,7 +1142,7 @@ https://api-sms.cloud.toast.com/sms/v1.0/appKeys/{appKey}/sender/auth/sms
 | -- recipientNo     | String  | Recipient number                                    |
 | -- msgStatus       | String  | Message status code                                 |
 | -- msgStatusName   | String  | Message status code name                            |
-| -- resultCode      | String  | Receive result code                                 |
+| -- resultCode      | String  | Received result code [[refer to Received result code](./Developer`s Guide_en/#emma-v3-send-result-code)] |
 | -- resultCodeName  | String  | Receive result code name                            |
 | -- telecomCode     | Integer | Telecommunications company code                     |
 | -- telecomCodeName | String  | Telecommunications company name                     |
@@ -1408,6 +1411,51 @@ It can apply to all SMS,MMS and for authority.
 | -- createUser     | String  | Registered user                                           |
 | -- updateDate     | String  | Updated date                                              |
 | -- updateUser     | String  | Updated user                                              |
+
+## Look Up Send List ResultCode
+### resultCode
+<table class="table table-striped table-hover">
+<thead>
+	<tr>
+    <th>Code value</th>
+    <th>Meaning</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>MTR1</td>
+    <td>Succeeded</td>
+  </tr>
+  <tr>
+    <td>MTR2</td>
+    <td>Failure</td>
+  </tr>
+</tbody>
+</table>
+
+### subResultCode
+<table class="table table-striped table-hover">
+<thead>
+	<tr>
+    <th>Code value</th>
+    <th>Meaning</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>MTR2_1</td>
+    <td>Fail to valid check</td>
+  </tr>
+  <tr>
+    <td>MTR2_2</td>
+    <td>Telecommunications company problem</td>
+  </tr>
+  <tr>
+    <td>MTR2_3</td>
+    <td>Mobile device problem</td>
+  </tr>
+</tbody>
+</table>
 
 EMMA v.3 Send Result Code
 -------------------------
