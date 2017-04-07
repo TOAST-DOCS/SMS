@@ -1291,7 +1291,7 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |-- userId|	String|	발송 요청 아이디|
 
 ## 광고 문자
-### 광고성 SMS
+### 광고성 SMS 발송
 [URL]
 
 |Http method|	URI|
@@ -1317,7 +1317,7 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 ```
 
 
-### 광고성 MMS
+### 광고성 MMS 발송
 [URL]
 
 |Http method|	URI|
