@@ -1290,6 +1290,58 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 |-- sendType|	String|	발송 타입(0:SMS, 1:MMS, 2:Auth)|
 |-- userId|	String|	발송 요청 아이디|
 
+## 광고 문자
+### 광고성 SMS 발송
+[URL]
+
+|Http method|	URI|
+|---|---|
+|POST|	/sms/v2.0/appKeys/{appKey}/sender/ad-sms|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Request Body]
+위에 SMS 발송과 동일.
+[[Request Body 참고](./Developer`s Guide/#sms_2)]
+
+<span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+080번호는 콘솔의 080수신거부 설정 탭에서 확인 가능합니다.
+```
+(광고)
+
+[무료 수신거부]080XXXXXXX
+```
+
+
+### 광고성 MMS 발송
+[URL]
+
+|Http method|	URI|
+|---|---|
+|POST|	/sms/v2.0/appKeys/{appKey}/sender/ad-mms|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Request Body]
+위에 MMS 발송과 동일.
+[[Request Body 참고](./Developer`s Guide/#mms_1)]
+
+<span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+080번호는 콘솔의 080수신거부 설정 탭에서 확인 가능합니다.
+```
+(광고)
+
+[무료 수신거부]080XXXXXXX
+```
+
 ## 템플릿
 
 ### 템플릿 발송(본문 수정이 필요 없는 경우)
