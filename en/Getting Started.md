@@ -233,7 +233,7 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
 1-4정상적으로 등록을 완료한 발신번호는 [그림 21]의 [발신번호 조회] 화면에서 확인 가능  
 
-![[그림 21] 발신번호 조회](http://static.toastoven.net/prod_sms/img_21.png)
+![[그림 21] 발신번호 조회](http://static.toastoven.net/prod_sms/image_21.png)
 <center>[그림 21] 발신번호 조회</center>
 
 2.서류 인증  
