@@ -210,7 +210,7 @@ Console에 접속하여 SMS를 활성화 합니다.
 
 SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
-![[그림 17] 발신번호 관리](http://static.toastoven.net/prod_sms/image_17.png)
+![[그림 17] 발신번호 관리](http://static.toastoven.net/prod_sms/img_17.png)
 <center>[그림 17] 발신번호 관리</center>
 
 ### 인증 타입 선택
@@ -218,7 +218,7 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 1.핸드폰 인증  
 1-1본인 명의로 등록된 핸드폰으로 발신하고자 할 때에는 [그림 18]의 '핸드폰인증'으로 즉시 발신번호 등록
 
-![[그림 18] 핸드폰인증](http://static.toastoven.net/prod_sms/image_18.png)
+![[그림 18] 핸드폰인증](http://static.toastoven.net/prod_sms/img_18.png)
 <center>[그림 18] 핸드폰인증</center>
 
 1-2개인 정보 입력 후 인증 절차 수행  
@@ -228,7 +228,7 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
 1-3발신번호 등록 내용 확인  
 
-![[그림 20] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/img_20.png)
+![[그림 20] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/image_20.png)
 <center>[그림 20] 발신번호 등록 확인</center>
 
 1-4정상적으로 등록을 완료한 발신번호는 [그림 21]의 [발신번호 조회] 화면에서 확인 가능  
