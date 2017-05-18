@@ -210,7 +210,7 @@ Console에 접속하여 SMS를 활성화 합니다.
 
 SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
-![[그림 17] 발신번호 관리](http://static.toastoven.net/prod_sms/image_17.png)
+![[그림 17] 발신번호 관리](http://static.toastoven.net/prod_sms/img_17.png)
 <center>[그림 17] 발신번호 관리</center>
 
 ### 인증 타입 선택
@@ -218,7 +218,7 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 1.핸드폰 인증  
 1-1본인 명의로 등록된 핸드폰으로 발신하고자 할 때에는 [그림 18]의 '핸드폰인증'으로 즉시 발신번호 등록
 
-![[그림 18] 핸드폰인증](http://static.toastoven.net/prod_sms/image_18.png)
+![[그림 18] 핸드폰인증](http://static.toastoven.net/prod_sms/img_18.png)
 <center>[그림 18] 핸드폰인증</center>
 
 1-2개인 정보 입력 후 인증 절차 수행  
@@ -228,7 +228,7 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
 1-3발신번호 등록 내용 확인  
 
-![[그림 20] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/img_20.png)
+![[그림 20] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/image_20.png)
 <center>[그림 20] 발신번호 등록 확인</center>
 
 1-4정상적으로 등록을 완료한 발신번호는 [그림 21]의 [발신번호 조회] 화면에서 확인 가능  
@@ -237,25 +237,25 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 <center>[그림 21] 발신번호 조회</center>
 
 2.서류 인증  
-2-1사업자 등록증 등의 서류로 인증받은 전화번호로 발신하고자 할 때에는 [그림 22]의 '서류인증'으로 발신번호 등록  
+2-1통신서비스 이용증명원 서류로 인증받은 전화번호로 발신하고자 할 때에는 [그림 22]의 '서류인증'으로 발신번호 등록  
 2-2발신번호를 입력하고 Enter 키를 눌러 한 개 이상의 번호 등록  
 
-![[그림 22] 서류 인증](http://static.toastoven.net/prod_sms/img_22.png)
+![[그림 22] 서류 인증](http://static.toastoven.net/prod_sms/image_22.png)
 <center>[그림 22] 서류 인증</center>
 
 2-3인증에 필요한 서류를 업로드  
 
-![[그림 23] 첨부 파일 및 요청내용 작성 팝업](http://static.toastoven.net/prod_sms/img_23.png)
+![[그림 23] 첨부 파일 및 요청내용 작성 팝업](http://static.toastoven.net/prod_sms/image_23.png)
 <center>[그림 23] 첨부 파일 및 요청내용 작성 팝업</center>
 
 2-4심사 요청이 완료되었음을 확인  
 
-![[그림 24] 발신번호 등록](http://static.toastoven.net/prod_sms/img_24.png)
+![[그림 24] 발신번호 등록](http://static.toastoven.net/prod_sms/image_24.png)
 <center>[그림 24] 발신번호 등록</center>
 
 2-5심사가 완료된 발신번호는 [그림 25] 화면에서 확인  
 
-![[그림 25] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/image_25.png)
+![[그림 25] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/img_25.png)
 <center>[그림 25] 발신번호 등록 확인</center>
 
 ## 080 수신거부 서비스
