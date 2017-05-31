@@ -1,6 +1,6 @@
 ## Notification > SMS > Developer's Guide
 
-이전 버전보기 :   <select onchange="location.href=this.value"><option value="/ko/Notification/SMS/Developer%60s%20Guide/">API v2.0</option><option selected value="/ko/Notification/SMS/Developer%60s%20Guide_v1/">API v1.0</option></select>
+이전 버전보기 :   <select onchange="location.href=this.value"><option value="/zh/Notification/SMS/zh/Developer%60s%20Guide/">API v2.0</option><option selected value="/zh/Notification/SMS/zh/Developer%60s%20Guide_v1/">API v1.0</option></select>
 
 ## SMS 발송
 
