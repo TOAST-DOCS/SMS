@@ -1,6 +1,6 @@
 ## Notification > SMS > Developer's Guide
 
-이전 버전보기 :   <select onchange="location.href=this.value"><option selected value="/ja/Notification/SMS/ja/Developer%60s%20Guide/">API v2.0</option><option value="/ja/Notification/SMS/ja/Developer%60s%20Guide_v1/">API v1.0</option></select>
+이전 버전보기 :   <select onchange="location.href=this.value"><option selected value="/en/Notification/SMS/en/Developer%60s%20Guide/">API v2.0</option><option value="/en/Notification/SMS/en/Developer%60s%20Guide_v1/">API v1.0</option></select>
 
 ### [버전 개선사항]
 API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습니다.<br/>
@@ -27,9 +27,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method| URI|
-|---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/sender/sms|
+```
+POST  /sms/v2.0/appKeys/{appKey}/sender/sms
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -223,9 +224,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/sms|
+```
+GET  /sms/v2.0/appKeys/{appKey}/sender/sms
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -332,9 +334,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/sms/{requestId}|
+```
+GET  /sms/v2.0/appKeys/{appKey}/sender/sms/{requestId}
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -426,9 +429,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/sender/mms|
+```
+POST  /sms/v2.0/appKeys/{appKey}/sender/mms
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -572,9 +576,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/attachfile/binaryUpload|
+```
+POST  /sms/v2.0/appKeys/{appKey}/attachfile/binaryUpload
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -733,9 +738,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/mms|
+```
+GET  /sms/v2.0/appKeys/{appKey}/sender/mms
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -851,9 +857,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/mms/{requestId}|
+```
+GET  /sms/v2.0/appKeys/{appKey}/sender/mms/{requestId}
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -954,9 +961,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/sender/auth/sms|
+```
+POST  /sms/v2.0/appKeys/{appKey}/sender/auth/sms
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -1095,9 +1103,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/auth/sms|
+```
+GET  /sms/v2.0/appKeys/{appKey}/sender/auth/sms
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -1204,9 +1213,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/sender/auth/sms/{requestId}|
+```
+GET  /sms/v2.0/appKeys/{appKey}/sender/auth/sms/{requestId}
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -1294,9 +1304,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 ### 광고성 SMS 발송
 [URL]
 
-|Http method|	URI|
-|---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/sender/ad-sms|
+```
+POST  /sms/v2.0/appKeys/{appKey}/sender/ad-sms
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -1320,9 +1331,10 @@ API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습�
 ### 광고성 MMS 발송
 [URL]
 
-|Http method|	URI|
-|---|---|
-|POST|	/sms/v2.0/appKeys/{appKey}/sender/ad-mms|
+```
+POST  /sms/v2.0/appKeys/{appKey}/sender/ad-mms
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -1484,9 +1496,10 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/templates|
+```
+GET  /sms/v2.0/appKeys/{appKey}/templates
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
@@ -1603,9 +1616,10 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|GET|	/sms/v2.0/appKeys/{appKey}/templates/{templateId}|
+```
+GET  /sms/v2.0/appKeys/{appKey}/templates/{templateId}
+Content-Type: application/json;charset=UTF-8
+```
 
 [Path parameter]
 
