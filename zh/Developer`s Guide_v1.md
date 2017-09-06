@@ -1,6 +1,6 @@
 ## Notification > SMS > Developer's Guide
 
-이전 버전보기 :   <select onchange="location.href=this.value"><option value="/zh/Notification/SMS/zh/Developer%60s%20Guide/">API v2.0</option><option selected value="/zh/Notification/SMS/zh/Developer%60s%20Guide_v1/">API v1.0</option></select>
+이전 버전보기 :   <select onchange="location.href=this.value"><option value="/en/Notification/SMS/en/Developer%60s%20Guide/">API v2.0</option><option selected value="/en/Notification/SMS/en/Developer%60s%20Guide_v1/">API v1.0</option></select>
 
 ## SMS 발송
 <span style="color:red">[2017.11.23 Deprecated 예정]</span><br/>
@@ -59,8 +59,8 @@
 |sendNo|	String|	O|	발신번호|
 |recipientList|	List|	O|	수신자 리스트|
 |- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|- countryCode|	String|	X|	국가코드<br/>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.)|
-|- internationalRecipientNo| String| X| 국가코드가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
+|- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
+|- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
 |- templateParameter|	Object|	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
 |-- #key#|	String|	X|	치환 키(##key##)|
 |-- #value#|	Object|	X|	치환 키에 매핑되는 Value값|
@@ -160,7 +160,7 @@
     "sendNo": "{발신번호}",
     "recipientList": [
     {
-        "internationalRecipientNo": "{국가코드가 포함된 수신번호}"
+        "internationalRecipientNo": "{국가번호가 포함된 수신번호}"
     },
     {
         "recipientNo":"{수신번호}",
@@ -284,7 +284,7 @@
 |-- categoryName|	String|	카테고리명|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가코드|
+|-- countryCode|	String|	국가번호|
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
@@ -376,7 +376,7 @@
 |-- categoryName|	String|	카테고리명|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가코드|
+|-- countryCode|	String|	국가번호|
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
@@ -435,8 +435,8 @@
 |attachFileIdList|	List:Integer|	옵션|	첨부파일 아이디 리스트|
 |recipientList|	List|	필수|	수신자 리스트|
 |- recipientNo|	String|	필수|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|- countryCode|	String|	옵션|	국가코드<br/>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.)|
-|- internationalRecipientNo| String| X| 국가코드가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
+|- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
+|- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
 |- templateParameter|	Object|	옵션|	템플릿 파라미터(템플릿 아이디 입력 시)|
 |-- #key#|	String|	옵션|	치환 키(##key##)|
 |-- #value#|	Object|	옵션|	치환 키에 매핑되는 Value값|
@@ -774,7 +774,7 @@
 |-- title|	String|	제목|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가코드|
+|-- countryCode|	String|	국가번호|
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
@@ -875,7 +875,7 @@
 |-- title|	String|	제목|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가코드|
+|-- countryCode|	String|	국가번호|
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
@@ -936,8 +936,8 @@
 |sendNo|	String|	O|	발신번호|
 |recipientList|	List|	O|	수신자 리스트|
 |- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|- countryCode|	String|	X|	국가코드<br/>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.)|
-|- internationalRecipientNo| String| X| 국가코드가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
+|- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
+|- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
 |- templateParameter|	Object|	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
 |-- #key#|	String|	X|	치환 키(##key##)|
 |-- #value#|	Object|	X|	치환 키에 매핑되는 Value값|
@@ -1113,7 +1113,7 @@
 |-- categoryName|	String|	카테고리명|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가코드|
+|-- countryCode|	String|	국가번호|
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
@@ -1205,7 +1205,7 @@
 |-- categoryName|	String|	카테고리명|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가코드|
+|-- countryCode|	String|	국가번호|
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
