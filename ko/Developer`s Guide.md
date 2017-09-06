@@ -35,7 +35,7 @@ Content-Type: application/json;charset=UTF-8
 [Path parameter]
 
 |값|	타입|	설명|
-|---|---|
+|---|---|---|
 |appKey|	String|	고유의 appKey|
 
 [Request body]
