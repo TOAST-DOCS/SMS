@@ -1714,6 +1714,59 @@ Content-Type: application/json;charset=UTF-8
 |--- createDate|	String|	첨부파일 등록날짜|
 |--- createUser|	String|	첨부파일 등록유저|
 
+## 080 수신거부 서비스
+
+### 수신거부 대상자 조회
+
+#### 요청
+
+[URL]
+
+```
+GET  /sms/v2.0/appKeys/{appKey}/blockservice/recipients
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Query parameter]
+
+|값|	타입|	필수|	설명|
+|---|---|---|---|
+|unsubscribeNo|	String|	필수 |	080수신거부번호 |
+|startRequestDate|	String|	옵션 |	수신거부 요청 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	옵션 |	수신거부 요청 종료 값(yyyy-MM-dd HH:mm:ss)|
+|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
+|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+
+### 응답
+```
+{
+    "header": {
+        "isSuccessful": boolean,
+        "resultCode": Integer,
+        "resultMessage": String
+    },
+    "body": {
+        "pageNum": Integer,
+        "pageSize": Integer,
+        "totalCount": Integer,
+        "data": [
+            {
+                "unsubscribeNo": String,
+                "recipientNo": String,
+                "requestDate": String
+            }
+        ]
+    }
+}
+```
+
+
 ## 발신 조회 코드
 ### 수신 결과 코드
 <table class="table table-striped table-hover">
