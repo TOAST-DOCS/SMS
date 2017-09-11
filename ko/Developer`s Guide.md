@@ -35,7 +35,7 @@ Content-Type: application/json;charset=UTF-8
 [Path parameter]
 
 |값|	타입|	설명|
-|---|---|
+|---|---|---|
 |appKey|	String|	고유의 appKey|
 
 [Request body]
@@ -746,7 +746,7 @@ Content-Type: application/json;charset=UTF-8
 [Path parameter]
 
 |값|	타입|	설명|
-|---|---|
+|---|---|---|
 |appKey|	String|	고유의 appKey|
 
 [Query parameter] 1번 or 2번 조건 필수
@@ -1221,7 +1221,7 @@ Content-Type: application/json;charset=UTF-8
 [Path parameter]
 
 |값|	타입|	설명|
-|---|---|---|---|
+|---|---|---|
 |appKey|	String|	고유의 appKey|
 |requestId|	String|	요청아이디|
 
