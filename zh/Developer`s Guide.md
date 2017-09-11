@@ -1743,7 +1743,7 @@ Content-Type: application/json;charset=UTF-8
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
-### 응답
+#### 응답
 ```
 {
     "header": {
