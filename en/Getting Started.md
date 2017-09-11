@@ -293,10 +293,15 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 ![[그림 30] 080 수신거부 광고성 문자 발송](http://static.toastoven.net/prod_sms/image_30.png)
 ![[그림 31] 080 수신거부 광고성 문자 본문 변경](http://static.toastoven.net/prod_sms/image_31.png)
 
+### 수신거부 대상자 조회
+1. 수신거부 요청 일시를 옵션으로 수신거부를 요청한 대상자를 조회할 수 있습니다.
+![[그림 32] 수신거부 대상자 조회](http://static.toastoven.net/prod_sms/image_32.png)
+<center>[그림 32] 수신거부 대상자 조회</center>
+
 ## 통계
 ### 통계 조회
-![[그림 32] 통계 조회 ](http://static.toastoven.net/prod_alimtalk/img16.png)
-<center>[그림 32] 통계 조회</center>
+![[그림 33] 통계 조회 ](http://static.toastoven.net/prod_sms/image_33.png)
+<center>[그림 33] 통계 조회</center>
 
 * 발송 요청 기간, 템플릿, 발송 타입, 발송 내용 별로 통계를 조회할 수 있습니다.
 * 발송요청, 성공, 실패건을 그래프와 표로 확인할 수 있습니다.
