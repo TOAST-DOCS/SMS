@@ -1,4 +1,9 @@
 ## Notification > SMS > Release Notes
+
+### 2017.10.19
+#### 버그 수정
+* [Console] 인증용 SMS 발송 결과가 업데이트 안되는 버그 수정
+
 ### 2017.09.21
 #### 기능 추가
 * [Console, API] 080수신거부 대상자 조회
