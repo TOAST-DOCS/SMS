@@ -1766,6 +1766,131 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+## 발신 번호
+
+### 발신 번호 등록 요청
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|POST|	/sms/v2.0/appKeys/{appKey}/reqeusts/sendNos|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Request Body]
+```
+{
+  "sendNos" : [
+    String,
+    String
+  ],
+  "fileIds" : [
+    Integer
+  ],
+  "comment" :  String
+}
+
+```
+
+#### 응답
+```
+{
+  "header" : {
+    "isSuccessful" :  Boolean,
+    "resultCode" :  Integer,
+    "resultMessage" :  String
+  }
+}
+```
+
+### 발신 번호 서류 업로드
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|POST|	/sms/v2.0/appKeys/{appKey}/requests/attachFiles/authDocuments|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Request Body]
+```
+multipart/form-data ...
+```
+
+#### 응답
+```
+{
+  "header" : {
+    "isSuccessful" :  Boolean,
+    "resultCode" :  Integer,
+    "resultMessage" :  String
+    },
+    "file" : {
+      "fileId" :  Integer
+    }
+  }
+```
+
+### 발신번호 인증 요청 내역 조회 API
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|GET|	/sms/v2.0/appKeys/{appKey}/requests/sendNos?status={status}|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Query parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|status|	String|	서류 인증 상태<br/>- SRS01	발신번호 등록 요청<br/>- SRS02	심사중<br/>- SRS03	등록 완료<br/>- SRS04	등록 불가<br/>- SRS05	핸드폰 인증 대기<br/>- SRS06	핸드폰 인증 실패<br/>- SRS07	수동 등록 완료|
+
+#### 응답
+```
+{
+  "header" : {
+    "isSuccessful" :  Boolean,
+    "resultCode" :  Integer,
+    "resultMessage" :  String
+    },
+    "sendNos" : [
+    {
+      "sendNo" :  String,
+      "fileIds" : [
+      Integer
+      ],
+      "comment" :  String,
+      "status" :  String,
+      "createDate" :  String,
+      "updateDate" :  String,
+      "confirmDate" :  String
+    }
+    ]
+}
+```
+
 
 ## 발신 조회 코드
 ### 수신 결과 코드
