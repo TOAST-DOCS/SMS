@@ -62,7 +62,7 @@ Content-Type: application/json;charset=UTF-8
 |templateId|	String|	X|	발송 템플릿 아이디|
 |body|	String|	O|	본문 내용('EUC-KR' 기준으로 90 Byte 제한)|
 |sendNo|	String|	O|	발신번호|
-|recipientList|	List|	O|	수신자 리스트|
+|recipientList|	List|	O|	수신자 리스트(최대 1000명)|
 |- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
 |- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
 |- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
@@ -466,7 +466,7 @@ Content-Type: application/json;charset=UTF-8
 |body|	String|	필수|	본문 <br/> ('EUC-KR' 기준으로 2000Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
 |sendNo|	String|	필수|	발신번호|
 |attachFileIdList|	List:Integer|	옵션|	첨부파일 아이디 리스트|
-|recipientList|	List|	필수|	수신자 리스트|
+|recipientList|	List|	필수|	수신자 리스트(최대 1000명)|
 |- recipientNo|	String|	필수|	수신번호<br/>countryCode와 조합하여 사용 가능|
 |- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
 |- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
@@ -996,7 +996,7 @@ Content-Type: application/json;charset=UTF-8
 |templateId|	String|	X|	발송 템플릿 아이디|
 |body|	String|	O|	본문 내용('EUC-KR' 기준 90 Byte 제한)|
 |sendNo|	String|	O|	발신번호|
-|recipientList|	List|	O|	수신자 리스트|
+|recipientList|	List|	O|	수신자 리스트(최대 1000명)|
 |- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
 |- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
 |- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.|
