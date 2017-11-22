@@ -1,12 +1,5 @@
 ## Notification > SMS > Developer's Guide
 
-이전 버전보기 :   <select onchange="location.href=this.value"><option selected value="/en/Notification/SMS/en/Developer%60s%20Guide/">API v2.0</option><option value="/en/Notification/SMS/en/Developer%60s%20Guide_v1/">API v1.0</option></select>
-
-### [버전 개선사항]
-API v1.0 ->  2.0 변경되면서 다음과 같이 발송 API가 변경되었습니다.<br/>
-* v1.0 : 다수의 수신자 리스트의 발송 요청이 실패했을 경우, 실패한 수신자 이후 수신자는 미발송 <span style="color:red"> [2017.11.23 Deprecated 예정]</span><br/>
-* v2.0 : 모든 수신자에게 발송하며, response에서 수신자별 발송 결과를 제공. 발송 실패가 있어도 요청 결과는 성공. <br/>
-
 ## SMS 발송
 
 ### [API 도메인]
