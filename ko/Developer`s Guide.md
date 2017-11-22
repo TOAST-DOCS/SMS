@@ -62,7 +62,7 @@ Content-Type: application/json;charset=UTF-8
 |templateId|	String|	X|	발송 템플릿 아이디|
 |body|	String|	O|	본문 내용('EUC-KR' 기준으로 90 Byte 제한)|
 |sendNo|	String|	O|	발신번호|
-|recipientList|	List|	O|	수신자 리스트|
+|recipientList|	List|	O|	수신자 리스트(최대 1000명)|
 |- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
 |- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
 |- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
@@ -466,7 +466,7 @@ Content-Type: application/json;charset=UTF-8
 |body|	String|	필수|	본문 <br/> ('EUC-KR' 기준으로 2000Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
 |sendNo|	String|	필수|	발신번호|
 |attachFileIdList|	List:Integer|	옵션|	첨부파일 아이디 리스트|
-|recipientList|	List|	필수|	수신자 리스트|
+|recipientList|	List|	필수|	수신자 리스트(최대 1000명)|
 |- recipientNo|	String|	필수|	수신번호<br/>countryCode와 조합하여 사용 가능|
 |- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
 |- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
@@ -996,7 +996,7 @@ Content-Type: application/json;charset=UTF-8
 |templateId|	String|	X|	발송 템플릿 아이디|
 |body|	String|	O|	본문 내용('EUC-KR' 기준 90 Byte 제한)|
 |sendNo|	String|	O|	발신번호|
-|recipientList|	List|	O|	수신자 리스트|
+|recipientList|	List|	O|	수신자 리스트(최대 1000명)|
 |- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
 |- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
 |- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.|
@@ -1763,6 +1763,131 @@ Content-Type: application/json;charset=UTF-8
             }
         ]
     }
+}
+```
+
+## 발신 번호
+
+### 발신 번호 등록 요청
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|POST|	/sms/v2.0/appKeys/{appKey}/reqeusts/sendNos|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Request Body]
+```
+{
+  "sendNos" : [
+    String,
+    String
+  ],
+  "fileIds" : [
+    Integer
+  ],
+  "comment" :  String
+}
+
+```
+
+#### 응답
+```
+{
+  "header" : {
+    "isSuccessful" :  Boolean,
+    "resultCode" :  Integer,
+    "resultMessage" :  String
+  }
+}
+```
+
+### 발신 번호 서류 업로드
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|POST|	/sms/v2.0/appKeys/{appKey}/requests/attachFiles/authDocuments|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Request Body]
+```
+multipart/form-data ...
+```
+
+#### 응답
+```
+{
+  "header" : {
+    "isSuccessful" :  Boolean,
+    "resultCode" :  Integer,
+    "resultMessage" :  String
+    },
+    "file" : {
+      "fileId" :  Integer
+    }
+  }
+```
+
+### 발신번호 인증 요청 내역 조회 API
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|GET|	/sms/v2.0/appKeys/{appKey}/requests/sendNos?status={status}|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Query parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|status|	String|	서류 인증 상태<br/>- SRS01	발신번호 등록 요청<br/>- SRS02	심사중<br/>- SRS03	등록 완료<br/>- SRS04	등록 불가<br/>- SRS05	핸드폰 인증 대기<br/>- SRS06	핸드폰 인증 실패<br/>- SRS07	수동 등록 완료|
+
+#### 응답
+```
+{
+  "header" : {
+    "isSuccessful" :  Boolean,
+    "resultCode" :  Integer,
+    "resultMessage" :  String
+    },
+    "sendNos" : [
+    {
+      "sendNo" :  String,
+      "fileIds" : [
+      Integer
+      ],
+      "comment" :  String,
+      "status" :  String,
+      "createDate" :  String,
+      "updateDate" :  String,
+      "confirmDate" :  String
+    }
+    ]
 }
 ```
 
