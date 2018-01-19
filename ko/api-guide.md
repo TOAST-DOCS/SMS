@@ -1442,24 +1442,6 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 appKey|
 
 [Request body]
-
-```xml
-{
-    "title" :  "SMS제목",
-    "body":"SMS내용",
-    "sendNo":"ABCDEFG",
-    "templateId":"TEMPLATE",
-    "tagExpression":[
-        "tag1",
-        "AND",
-        "tag2"
-     ],
-    "userId":"user_id",
-    "adYn":"N",
-    "autoSendYn":"N"
-}
-```
-
 ```
 {
     "body":"SMS내용",
