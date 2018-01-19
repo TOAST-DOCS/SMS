@@ -4,7 +4,7 @@
 
 ### 상품 활성화
 
-Console에서 [서비스선택] > [Notification] > [SMS]를 선택하여 서비스를 활성화 시킵니다. 
+Console에서 [서비스선택] > [Notification] > [SMS]를 선택하여 서비스를 활성화 시킵니다.
 
 ![[그림 1] SMS 서비스 활성화](http://static.toastoven.net/prod_sms/service_enable.JPG)
 <center>[그림 1] SMS 서비스 활성화</center>
@@ -20,7 +20,7 @@ Console에서 [서비스선택] > [Notification] > [SMS]를 선택하여 서비�
 4. 발송하고 싶은 시간이 있다면 에약전송란에 입력합니다.
 5. 보내기 버튼을 클릭합니다.
 
-![[그림 2] SMS 발송](http://static.toastoven.net/prod_sms/image_02.png)
+![[그림 2] SMS 발송](http://static.toastoven.net/prod_sms/sms_img02.png)
 <center>[그림 2] SMS 발송</center>
 
 ### 일반 LMS 발송
@@ -32,7 +32,7 @@ Console에서 [서비스선택] > [Notification] > [SMS]를 선택하여 서비�
 4. 발송하고 싶은 시간이 있다면 에약전송란에 입력합니다.
 5. 보내기 버튼을 클릭합니다.
 
-![[그림 3] MMS 발송](http://static.toastoven.net/prod_sms/image_03.png)
+![[그림 3] MMS 발송](http://static.toastoven.net/prod_sms/sms_img03.png)
 <center>[그림 3] MMS 발송</center>
 
 ### MMS 발송(첨부파일 발송)
@@ -45,25 +45,26 @@ Console에서 [서비스선택] > [Notification] > [SMS]를 선택하여 서비�
 5. 발송하고 싶은 시간이 있다면 에약전송란에 입력합니다.
 6. 보내기 버튼을 클릭합니다.
 
-![[그림 4] MMS 발송(첨부파일 발송)](http://static.toastoven.net/prod_sms/image_04.png)
+![[그림 4] MMS 발송(첨부파일 발송)](http://static.toastoven.net/prod_sms/sms_img04.png)
 <center>[그림 4] MMS 발송(첨부파일 발송)</center>
 
 ### 템플릿 발송
 
 템플릿 사용여부에 ‘사용’ 선택 및 템플릿 선택 버튼을 클릭합니다.
 
-![[그림 5] 템플릿 발송](http://static.toastoven.net/prod_sms/image_05.png)
+![[그림 5] 템플릿 발송](http://static.toastoven.net/prod_sms/sms_img05.png)
 <center>[그림 5] 템플릿 발송</center>
 
 원하는 템플릿을 선택합니다.  
 적용 버튼을 클릭하여 템플릿 적용 상태를 확인 후 발송합니다.
 
-![[그림 6] 템플릿 적용](http://static.toastoven.net/prod_sms/img_06.png)
+![[그림 6] 템플릿 적용](http://static.toastoven.net/prod_sms/sms_img06.png)
 <center>[그림 6] 템플릿 적용</center>
 
 
 ### 대량 업로드 발송
 엑셀/CSV 포맷의 템플릿 파일을 통해 여러 수신번호로 SMS/MMS를 발송할 수 있는 기능입니다.
+
 
 #### 템플릿 파일
 템플릿 파일은 '대량발송업로드' 탭 선택 후 '템플릿 다운로드' 버튼을 클릭하여 다운로드 받을 수 있습니다.
@@ -107,6 +108,10 @@ Console에서 [서비스선택] > [Notification] > [SMS]를 선택하여 서비�
 
 ![[그림 7.3] 대량SMS발송 예약](http://static.toastoven.net/prod_sms/image_07_03.png)
 <center>[그림 7.3] 대량SMS발송 예약</center>
+
+### 태그 발송
+태그의 조건에 맞는 UID로 발송할 수 있는 기능입니다.
+태그 등록은 태그관리 탭에서 가능하며, UID & 전화번호 저장은 UID 관리에서 가능합니다.
 
 ## 대량SMS발송
 
@@ -159,37 +164,67 @@ Console에서 [서비스선택] > [Notification] > [SMS]를 선택하여 서비�
 ![[그림 11] SMS 요청 상세보기](http://static.toastoven.net/prod_sms/img_11.png)
 <center>[그림 11] SMS 요청 상세보기</center>
 
+### SMS 예약 발송 조회
+
+예약 발송된 목록들을 조회할 수 있습니다.
+예약대기/발송완료/발송실패 모두 조회 가능하며, 발송완료된 건들은 "SMS 요청별 조회" 탭에서 확인가능합니다.
+
+### 태그 SMS 발송 조회
+
+## 태그 발송 조회
+
+### 발송 요청별 조회
+태그 발송 요청 건들을 조회할 수 있습니다. 클릭 시 하단에 수신자별 조회에서 각 수신자별 조회가 가능합니다.
+
+![[그림 12] 발송 요청별 조회 화면](http://static.toastoven.net/prod_sms/sms_img07.png)
+<center>[그림 12] 발송 요청별 조회 화면</center>
+
+### 수신자별 조회
+하나의 요청에서 발송한 수신자 리스트를 조회할 수 있습니다.
+![[그림 13] 수신자 리스트 조회 화면 화면](http://static.toastoven.net/prod_sms/sms_img08.png)
+<center>[그림 13] 수신자 리스트 조회 화면</center>
+
 ## 템플릿
 
 ### 템플릿 관리
 
 기본 템플릿 화면
 
-![[그림 12] 템플릿 관리 화면](http://static.toastoven.net/prod_sms/image_12.png)
-<center>[그림 12] 템플릿 관리 화면</center>
+![[그림 14] 템플릿 관리 화면](http://static.toastoven.net/prod_sms/image_12.png)
+<center>[그림 14] 템플릿 관리 화면</center>
 
 카테고리 추가 버튼 클릭 시 카테고리 추가가 가능합니다.  
 반드시 카테고리를 선택한 상태에서 추가 버튼을 클릭해야 합니다.
 
-![[그림 13] 카테고리 등록](http://static.toastoven.net/prod_sms/image_13.png)
-<center>[그림 13] 카테고리 등록</center>
+![[그림 15] 카테고리 등록](http://static.toastoven.net/prod_sms/image_13.png)
+<center>[그림 15] 카테고리 등록</center>
 
 카테고리 수정 버튼을 클릭 시 카테고리 수정이 가능합니다.  
 반드시 카테고리를 선택한 상태에서 수정 버튼을 클릭해야 합니다.
 
-![[그림 14] 카테고리 수정](http://static.toastoven.net/prod_sms/image_14.png)
-<center>[그림 14] 카테고리 수정</center>
+![[그림 16] 카테고리 수정](http://static.toastoven.net/prod_sms/image_14.png)
+<center>[그림 16] 카테고리 수정</center>
 
 템플릿 추가 버튼 클릭 시 템플릿 추가가 가능합니다.  
 반드시 카테고리를 선택한 상태에서 템플릿 추가 버튼을 클릭해야 합니다.
 
-![[그림 15] 템플릿 추가](http://static.toastoven.net/prod_sms/image_15.png)
-<center>[그림 15] 템플릿 추가</center>
+![[그림 17] 템플릿 추가](http://static.toastoven.net/prod_sms/image_15.png)
+<center>[그림 17] 템플릿 추가</center>
 
 템플릿을 선택하여 수정이 가능합니다.
 
-![[그림 16] 템플릿 추가정보 입력](http://static.toastoven.net/prod_sms/image_16.png)
-<center>[그림 16] 템플릿 추가정보 입력</center>
+![[그림 18] 템플릿 추가정보 입력](http://static.toastoven.net/prod_sms/image_16.png)
+<center>[그림 18] 템플릿 추가정보 입력</center>
+
+## 태그 관리
+등록된 UID에 태그를 붙이거나 삭제할 수 있는 페이지입니다.
+![[그림 19] 태그 관리 화면](http://static.toastoven.net/prod_sms/sms_img09.png)
+<center>[그림 19] 태그 관리 화면</center>
+
+## UID 관리
+UID 및 핸드폰번호를 등록하고 삭제할 수 있습니다.
+![[그림 20] 태그 관리 화면](http://static.toastoven.net/prod_sms/sms_img10.png)
+<center>[그림 20] 태그 관리 화면</center>
 
 ## 발신 번호 등록
 
@@ -197,7 +232,7 @@ Console에서 [서비스선택] > [Notification] > [SMS]를 선택하여 서비�
 ```
 * 유선전화번호 : 02-YYY-YYYY (지역번호 포함하여 등록)
 * 이동통신전화번호 : 010-ABYY-YYYY
-* 대표 전화번호 : 15YY, 16YY, 18YY(번호 앞에 지역번호 사용 금지)
+* 대표 전화번호 : 15YY, 16YY, 18YY(번호 man_01,01012345678앞에 지역번호 사용 금지)
 * 공통서비스 식별번호 : 0N0계열(번호 앞에 지역번호 사용 금지)
 * 최소 8자리 ~ 최대 11자리까지의 발신번호 입력 가능
 * 존재하지 않는 번호 대역으로 메시지 전송 불가(예:070-0YYY, 070-1YYY, 010-0YYY, 010-1YYY)
@@ -210,53 +245,53 @@ Console에서 [서비스선택] > [Notification] > [SMS]를 선택하여 서비�
 
 SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
-![[그림 17] 발신번호 관리](http://static.toastoven.net/prod_sms/img_17.png)
-<center>[그림 17] 발신번호 관리</center>
+![[그림 21] 발신번호 관리](http://static.toastoven.net/prod_sms/img_17.png)
+<center>[그림 21] 발신번호 관리</center>
 
 ### 인증 타입 선택
 
 1.핸드폰 인증  
 1-1본인 명의로 등록된 핸드폰으로 발신하고자 할 때에는 [그림 18]의 '핸드폰인증'으로 즉시 발신번호 등록
 
-![[그림 18] 핸드폰인증](http://static.toastoven.net/prod_sms/img_18.png)
-<center>[그림 18] 핸드폰인증</center>
+![[그림 22] 핸드폰인증](http://static.toastoven.net/prod_sms/img_18.png)
+<center>[그림 22] 핸드폰인증</center>
 
 1-2개인 정보 입력 후 인증 절차 수행  
 
-![[그림 19] 휴대폰 인증 팝업](http://static.toastoven.net/prod_sms/img_19.png)
-<center>[그림 19] 휴대폰 인증 팝업</center>
+![[그림 23] 휴대폰 인증 팝업](http://static.toastoven.net/prod_sms/img_19.png)
+<center>[그림 23] 휴대폰 인증 팝업</center>
 
 1-3발신번호 등록 내용 확인  
 
-![[그림 20] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/image_20.png)
-<center>[그림 20] 발신번호 등록 확인</center>
+![[그림 24] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/image_20.png)
+<center>[그림 24] 발신번호 등록 확인</center>
 
 1-4정상적으로 등록을 완료한 발신번호는 [그림 21]의 [발신번호 조회] 화면에서 확인 가능  
 
-![[그림 21] 발신번호 조회](http://static.toastoven.net/prod_sms/image_21.png)
-<center>[그림 21] 발신번호 조회</center>
+![[그림 25] 발신번호 조회](http://static.toastoven.net/prod_sms/image_21.png)
+<center>[그림 25] 발신번호 조회</center>
 
 2.서류 인증  
 2-1통신서비스 이용증명원 서류로 인증받은 전화번호로 발신하고자 할 때에는 [그림 22]의 '서류인증'으로 발신번호 등록  
 2-2발신번호를 입력하고 Enter 키를 눌러 한 개 이상의 번호 등록  
 
-![[그림 22] 서류 인증](http://static.toastoven.net/prod_sms/image_22.png)
-<center>[그림 22] 서류 인증</center>
+![[그림 26] 서류 인증](http://static.toastoven.net/prod_sms/image_22.png)
+<center>[그림 26] 서류 인증</center>
 
 2-3인증에 필요한 서류를 업로드  
 
-![[그림 23] 첨부 파일 및 요청내용 작성 팝업](http://static.toastoven.net/prod_sms/image_23.png)
-<center>[그림 23] 첨부 파일 및 요청내용 작성 팝업</center>
+![[그림 27] 첨부 파일 및 요청내용 작성 팝업](http://static.toastoven.net/prod_sms/image_23.png)
+<center>[그림 27] 첨부 파일 및 요청내용 작성 팝업</center>
 
 2-4심사 요청이 완료되었음을 확인  
 
-![[그림 24] 발신번호 등록](http://static.toastoven.net/prod_sms/image_24.png)
-<center>[그림 24] 발신번호 등록</center>
+![[그림 28] 발신번호 등록](http://static.toastoven.net/prod_sms/image_24.png)
+<center>[그림 28] 발신번호 등록</center>
 
 2-5심사가 완료된 발신번호는 [그림 25] 화면에서 확인  
 
-![[그림 25] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/img_25.png)
-<center>[그림 25] 발신번호 등록 확인</center>
+![[그림 29] 발신번호 등록 확인](http://static.toastoven.net/prod_sms/img_25.png)
+<center>[그림 29] 발신번호 등록 확인</center>
 
 ## 080 수신거부 서비스
 080 수신거부 서비스는 광고 문자 발송 시, 수신자에게 수신거부를 제공하는 서비스입니다. <br>
@@ -266,19 +301,19 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 1. 080수신거부 설정 탭으로 이동하면 가입화면을 확인할 수 있습니다.
 2. 080 수신거부 서비스 신청하기 버튼을 누르면 업체명을 입력할 수 있습니다.
   - 입력하는 업체명은 080 수신거부 번호로 전화를 걸 때, 안내되는 업체명입니다.
-![[그림 26] 080 수신거부 서비스 가입화면](http://static.toastoven.net/prod_sms/image_26.png)
-![[그림 27] 080 수신거부 서비스 가입 업체명](http://static.toastoven.net/prod_sms/image_27.png)
+![[그림 30] 080 수신거부 서비스 가입화면](http://static.toastoven.net/prod_sms/image_26.png)
+![[그림 31] 080 수신거부 서비스 가입 업체명](http://static.toastoven.net/prod_sms/image_27.png)
 
 ### 등록 예약
 1. 가입 신청을 완료하면 등록 예약 상태로 변경됩니다.
 2. 080 수신거부 서비스 개통은 영업일 기준 3~4일이 소요되고, 개통이 완료되면 사용할 수 있습니다.
-![[그림 28] 080 수신거부 서비스 등록 예약](http://static.toastoven.net/prod_sms/image_28.png)
+![[그림 32] 080 수신거부 서비스 등록 예약](http://static.toastoven.net/prod_sms/image_28.png)
 
 ### 등록 완료
 1. 개통이 완료되면, 아래와 같은 화면에서 사용 시작 일시와 상태를 확인할 수 있습니다.
 2. **080 수신거부 서비스 등록 예약, 사용중 상태에서 SMS 상품 이용 종료를 할 수 없습니다.** 해지 후, 상품 이용 종료가 가능합니다.
 3. 해지를 원하시면 해지 버튼을 누르면 해지됩니다.
-![[그림 29] 080 수신거부 서비스 사용](http://static.toastoven.net/prod_sms/image_29.png)
+![[그림 33] 080 수신거부 서비스 사용](http://static.toastoven.net/prod_sms/image_29.png)
 
 ### 광고성 문자 발송
 1. 080 수신거부 서비스 사용중 상태만 광고성 문자 발송할 수 있습니다.
@@ -290,18 +325,18 @@ SMS 프로젝트의 "**발신번호 관리**" 탭 클릭
 
 [무료수신거부]080XXXXXXX
 ```
-![[그림 30] 080 수신거부 광고성 문자 발송](http://static.toastoven.net/prod_sms/image_30.png)
-![[그림 31] 080 수신거부 광고성 문자 본문 변경](http://static.toastoven.net/prod_sms/image_31.png)
+![[그림 34] 080 수신거부 광고성 문자 발송](http://static.toastoven.net/prod_sms/image_30.png)
+![[그림 35] 080 수신거부 광고성 문자 본문 변경](http://static.toastoven.net/prod_sms/image_31.png)
 
 ### 수신거부 대상자 조회
 1. 수신거부 요청 일시를 옵션으로 수신거부를 요청한 대상자를 조회할 수 있습니다.
-![[그림 32] 수신거부 대상자 조회](http://static.toastoven.net/prod_sms/image_32.png)
-<center>[그림 32] 수신거부 대상자 조회</center>
+![[그림 36] 수신거부 대상자 조회](http://static.toastoven.net/prod_sms/image_32.png)
+<center>[그림 36] 수신거부 대상자 조회</center>
 
 ## 통계
 ### 통계 조회
-![[그림 33] 통계 조회 ](http://static.toastoven.net/prod_sms/image_33.png)
-<center>[그림 33] 통계 조회</center>
+![[그림 37] 통계 조회 ](http://static.toastoven.net/prod_sms/image_33.png)
+<center>[그림 37] 통계 조회</center>
 
 * 발송 요청 기간, 템플릿, 발송 타입, 발송 내용 별로 통계를 조회할 수 있습니다.
 * 발송요청, 성공, 실패건을 그래프와 표로 확인할 수 있습니다.

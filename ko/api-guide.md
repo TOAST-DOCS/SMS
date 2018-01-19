@@ -1347,6 +1347,482 @@ Content-Type: application/json;charset=UTF-8
 [무료 수신거부]080XXXXXXX
 ```
 
+
+
+
+## 태그 발송
+
+### 태그 SMS 발송
+
+#### 요청
+
+[URL]
+
+```
+POST /sms/v2.0/appKeys/{appKey}/tag-sender/sms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Request body]
+
+```
+{
+    "body":"SMS내용",
+    "sendNo":"ABCDEFG",
+    "templateId":"TEMPLATE",
+    "tagExpression":[
+        "tag1",
+        "AND",
+        "tag2"
+     ],
+    "userId":"user_id",
+    "adYn":"N",
+    "autoSendYn":"N"
+}
+```
+
+|값|	타입|	필수|	설명|
+|---|---|---|---|
+| body | String | O | 문자 내용 |
+| sendNo | String | O | 발신번호 |
+| templateId | String | X | 템플릿 아이디 |
+| tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
+| userId | String | X | 요청한 유저의 아이디 |
+| adYn | String | X | 광고 여부(기본N) |
+| autoSendYn | String | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
+
+
+#### 응답
+```
+{
+    "header" : {
+        "isSuccessful" :  true,
+        "resultCode" :  0,
+        "resultMessage" :  "."
+    },
+    "body" : {
+        "data" : {
+            "requestId" :  ""
+        }
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header|	Object|	헤더 영역|
+|- isSuccessful|	Boolean|	성공여부|
+|- resultCode|	Integer|	실패 코드|
+|- resultMessage|	String|	실패 메시지|
+|body|	Object|	본문 영역|
+|- data|	Object|	데이터 영역|
+|-- requestId|	String|	요청 아이디|
+
+### 태그 LMS 발송
+
+#### 요청
+
+[URL]
+
+```
+POST  /sms/v2.0/appKeys/{appKey}/tag-sender/mms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Request body]
+
+```xml
+{
+    "title" :  "SMS제목",
+    "body":"SMS내용",
+    "sendNo":"ABCDEFG",
+    "templateId":"TEMPLATE",
+    "tagExpression":[
+        "tag1",
+        "AND",
+        "tag2"
+     ],
+    "userId":"user_id",
+    "adYn":"N",
+    "autoSendYn":"N"
+}
+```
+
+```
+{
+    "body":"SMS내용",
+    "sendNo":"ABCDEFG",
+    "templateId":"TEMPLATE",
+    "attachFileIdList" : [
+     1,
+     2,
+     3
+    ],
+    "tagExpression":[
+        "tag1",
+        "AND",
+        "tag2"
+     ],
+    "userId":"user_id",
+    "adYn":"N",
+    "autoSendYn":"N"
+}
+```
+
+|값|	타입|	필수|	설명|
+|---|---|---|---|
+| title | String | O | 문자 제목 |
+| body | String | O | 문자 내용 |
+| sendNo | String | O | 발신번호 |
+| templateId | String | X | 템플릿 아이디 |
+| tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
+| attachFileIdList | List<Integer> | X | 첨부파일 아이디(fileId) |
+| userId | String | X | 요청한 유저의 아이디 |
+| adYn | String | X | 광고 여부(기본N) |
+| autoSendYn | String | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
+
+
+#### 응답
+```
+{
+    "header" : {
+        "isSuccessful" :  true,
+        "resultCode" :  0,
+        "resultMessage" :  "."
+    },
+    "body" : {
+        "data" : {
+            "requestId" :  ""
+        }
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header|	Object|	헤더 영역|
+|- isSuccessful|	Boolean|	성공여부|
+|- resultCode|	Integer|	실패 코드|
+|- resultMessage|	String|	실패 메시지|
+|body|	Object|	본문 영역|
+|- data|	Object|	데이터 영역|
+|-- requestId|	String|	요청 아이디|
+
+
+### 태그 발송 리스트 조회
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v2.0/appKeys/{appKey}/tag-sender?sendType={sendType}&requestId={requestId}&startRequestDate={startRequestDate}&endRequestDate={endRequestDate}&statusCode={statusCode}&pageNum={pageNum}&pageSize={pageSize}
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Request body]
+
+```
+X
+```
+
+* requestId 또는 startRequestDate + endRequestDate는 필수입니다.
+
+|값|	타입|	필수|	설명|
+|---|---|---|---|
+| appKey | String| O | 앱키 |
+| sendType | required, String | O | 발송 타입<br>SMS : "0",<br>MMS : "1" |
+| requestId | String | O | 요청 아이디 |
+| startRequestDate | String | O | 발송 날짜 시작 |
+| endRequestDate | String | O | 발송 날짜 종료 |
+| statusCode | String | X | 발송상태코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
+| pageNum | optional, Integer | X | 페이지 번호 |
+| pageSize | optional, Integer | X | 조회건수 |
+
+#### 응답
+```
+{
+    "header" : {
+    "isSuccessful" :  true,
+    "resultCode" :  0,
+    "resultMessage" :  "."
+    },
+    "body":{
+        "pageNum":0,
+        "pageSize":0,
+        "totalCount":0,
+        "data" :[{
+                "requestId": "20171220141558eonMsyDI6P0",
+                "requestIp": "127.0.0.1",
+                "sendType": "0",
+                "templateId": "TPL04",
+                "templateName": "치환테스트(SMS)",
+                "masterStatusCode": "READY",
+                "sendNo": "15883796",
+                "requestDate": "2017-12-20 14:15:58",
+                "tagExpression": [
+                    "Kb6BjCY1"
+                ],
+                "title": "",
+                "body": "SMS 발송 입니다##content##",
+                "adYn": "N",
+                "autoSendYn": "Y",
+                "sendErrorCount": 0,
+                "createUser": "zisu.kim",
+                "createDate": "2017-12-20 14:15:58.0",
+                "updateUser": "zisu.kim",
+                "updateDate": "2017-12-20 14:15:58.0"
+            }
+        ]
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header|	Object|	헤더 영역|
+|- isSuccessful|	Boolean|	성공여부|
+|- resultCode|	Integer|	실패 코드|
+|- resultMessage|	String|	실패 메시지|
+|body|	Object|	본문 영역|
+|- data|	Object|	데이터 영역|
+|-- requestId | String | 요청 아이디 |
+|-- requestIp | String | 요청 아이피 |
+|-- requestDate | String | 요청 시간 |
+|-- tagSendStatus | String | 태그 발송 상태 |
+|-- tagExpression | List | 태그 표현식 |
+|-- templateId | String | 템플릿 아이디 |
+|-- templateName | String | 템플릿명 |
+|-- senderName | String | 발신자명 |
+|-- senderMail | String | 발신자주소 |
+|-- title | String | 제목 |
+|-- body | String | 내용 |
+|-- attachYn | String | 첨부파일여부 |
+|-- adYn | String | 광고여부 |
+|-- createUser | String | 생성자 |
+|-- createDate | String | 생성일시 |
+|-- updateUser | String | 수정자 |
+|-- updateDate | String | 수정일시 |
+
+
+### 태그 발송 수신자 리스트 조회
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v2.0/appKeys/{appKey}/tag-sender/{requestId}?recipientNum={recipientNum}&startRequestDate={startRequestDate}&endRequestDate={endRequestDate}&startResultDate={startResultDate}&endResultDate={endResultDate}&msgStatusName={msgStatusName}&resultCode={resultCode}&pageNum={pageNum}&pageSize={pageSize}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+| requestId | String | 요청 아이디 |
+[Request body]
+
+```
+X
+```
+
+* requestId 또는 startRequestDate + endRequestDate는 필수입니다.
+
+|값|	타입|	필수|	설명|
+|---|---|---|---|
+| recipientNum | String | X | 수신자 번호 |
+| startRequestDate | String | O | 발송 요청 시작 날짜 |
+| endRequestDate | String | O | 발송 요청 종료 날짜 |
+| startResultDate | String | X | 수신 시작 날짜 |
+| endResultDate | | | |
+| msgStatusName | | | |
+| resultCode | | | |
+| pageNum | | | |
+| pageSize | | | |
+
+#### 응답
+```
+{
+    "header" : {
+    "isSuccessful" :  true,
+    "resultCode" :  0,
+    "resultMessage" :  "."
+    },
+    "body":{
+        "pageNum":0,
+        "pageSize":0,
+        "totalCount":0,
+        "data" :[{
+                "requestId": "20171220141558eonMsyDI6P0",
+                "requestIp": "127.0.0.1",
+                "sendType": "0",
+                "templateId": "TPL04",
+                "templateName": "치환테스트(SMS)",
+                "masterStatusCode": "READY",
+                "sendNo": "15883796",
+                "requestDate": "2017-12-20 14:15:58",
+                "tagExpression": [
+                    "Kb6BjCY1"
+                ],
+                "title": "",
+                "body": "SMS 발송 입니다##content##",
+                "adYn": "N",
+                "autoSendYn": "Y",
+                "sendErrorCount": 0,
+                "createUser": "zisu.kim",
+                "createDate": "2017-12-20 14:15:58.0",
+                "updateUser": "zisu.kim",
+                "updateDate": "2017-12-20 14:15:58.0"
+            }
+        ]
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header|	Object|	헤더 영역|
+|- isSuccessful|	Boolean|	성공여부|
+|- resultCode|	Integer|	실패 코드|
+|- resultMessage|	String|	실패 메시지|
+|body|	Object|	본문 영역|
+|- data|	Object|	데이터 영역|
+|-- requestId | String | 요청 아이디 |
+|-- requestIp | String | 요청 아이피 |
+| sendType | String | 발송 타입(0:SMS, 1:LMS/MMS)|
+| templateId | String | 템플릿 아이디 |
+| templateName | String | 템플릿명 |
+| masterStatusCode | String | 마스터 상태코드 |
+| sendNo | String | 발송번호 |
+| requestDate | String | 요청일시 |
+| tagExpression | List<String> | 태그 표현식 |
+| title | String | 제목 |
+| body | String | 본문 |
+| adYn | String | 광고여부 |
+| autoSendYn | String | 자동발송여부 |
+| sendErrorCount | Integer | 발송 에러 수 |
+| createUser | String | 생성자 |
+| createDate | String | 생성일시 |
+| updateUser | String | 수정자 |
+| updateDate | String | 수정일시 |
+
+### 태그 발송 수신자 리스트 상세 조회
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v2.0/appKeys/{appKey}/tag-sender/{requestId}/{recipientSeq}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+| requestId | String | 요청 아이디 |
+| recipientSeq | String | 시퀀스 |
+
+[Request body]
+
+```
+X
+```
+
+#### 응답
+```
+{
+    "header" : {
+    "isSuccessful" :  true,
+    "resultCode" :  0,
+    "resultMessage" :  "."
+},
+"body":{
+"data" :{
+            "requestId": "20171220152855qS0QZ2UAP92",
+            "recipientSeq": 0,
+            "sendType": "0",
+            "messageType": "SMS",
+            "templateId": "TPL06",
+            "templateName": "치환테스트(MMS)",
+            "sendNo": "15883796",
+            "recipientNum": "01000000000",
+            "title": "제목입니다",
+            "body": "내용입니다",
+            "requestDate": "2017-12-20 15:28:55.0",
+            "msgStatusName": "READY",
+            "msgStatus": "1",
+            "resultCode": "SUCCESS",
+            "receiveDate": "2017-12-25 14:06:04.0",
+            "attachFileList": [
+                {
+                    "fileId": 58217,
+                    "filePath": "10869/toast-mt-2017-07-28/1459/58217",
+                    "fileName": "스크린샷 2017-07-12 오전 10.00.12.jpg",
+                    "fileSize":null,
+                    "createDate": "2017-07-28 14:59:31.0",
+                    "updateDate": "2017-07-28 14:59:35.0"
+                }
+            ]
+        }
+}
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header|	Object|	헤더 영역|
+|- isSuccessful|	Boolean|	성공여부|
+|- resultCode|	Integer|	실패 코드|
+|- resultMessage|	String|	실패 메시지|
+|body|	Object|	본문 영역|
+|- data|	Object|	데이터 영역|
+|-- requestId | String | 요청 아이디 |
+|-- recipientSeq | Integer | 요청 아이디 |
+|-- sendType | String | 발송 타입 |
+|-- messageType | String | 메세지 타입 |
+|-- templateId | String | 템플릿 아이디 |
+|-- templateName | String | 템플릿명 |
+|-- sendNo | String | 발신번호 |
+|-- title | String | 제목 |
+|-- body | String | 내용 |
+|-- recipientNum | String | 수신번호 |
+|-- requestDate | String | 요청일시 |
+|-- msgStatusName | String | 메시지상태이름 |
+|-- resultCode | String | 수신코드 |
+|-- receiveDate | String | 수신일시 |
+|-- attachFileList | List | 첨부파일 리스트 |
+|---- filePath | String | 첨부파일 - 경로 |
+|---- fileName | String | 첨부파일 - 파일명 |
+|---- fileSize | Long | 첨부파일 - 사이즈 |
+|---- fileSequence | Integer | 첨부파일 - 파일 번호 |
+|---- createDate | String | 첨부파일 - 생성일시 |
+|---- updateDate | String | 첨부파일 - 수정일시 |
+
+
+
+
 ## 템플릿
 
 ### 템플릿 발송(본문 수정이 필요 없는 경우)
@@ -1883,6 +2359,3 @@ multipart/form-data ...
     ]
 }
 ```
-
-
-
