@@ -2341,3 +2341,76 @@ multipart/form-data ...
     ]
 }
 ```
+
+### 등록된 발신번호 리스트 조회 API
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|GET|	/sms/v2.0/appKeys/{appKey}/sendNos?sendNo={sendNo}&useYn={useYn}&blockYn={blockYn}
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Query parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+| sendNo | String | 발신 번호 |
+| useYn | String | 사용 여부 |
+| blockYn | String | 차단 여부 |
+
+#### 응답
+```
+{
+    "header" : {
+        "isSuccessful" :  true,
+        "resultCode" :  0,
+        "resultMessage" :  ""
+    },
+    "body" : {
+        "pageNum" :  0,
+        "pageSize" :  0,
+        "totalCount" :  0,
+        "data" : [
+        {
+            "serviceId" :  0,
+            "sendNo" :  "",
+            "useYn" :  "",
+            "blockYn" :  "",
+            "blockReason" :  "",
+            "createDate" :  "",
+            "createUser" :  "",
+            "updateDate" :  "",
+            "updateUser" :  ""
+        }
+        ]
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header|	Object|	헤더 영역|
+|- isSuccessful|	Boolean|	성공여부|
+|- resultCode|	Integer|	실패 코드|
+|- resultMessage|	String|	실패 메시지|
+|body|	Object|	본문 영역|
+|- pageNum|	Integer|	페이지 번호|
+|- pageSize|	Integer|	리스트 출력 사이즈|
+|- totalCount|	Integer|	총 데이터 수|
+|-- serviceId | Integer | 서비스 아이디 |
+|-- sendNo | String | 발신번호 |
+|-- useYn | String | 사용여부 |
+|-- blockYn | String | 차단여부 |
+|-- blockReason | String | 차단사유 |
+|-- createDate | String | 생성일시 |
+|-- createUser | String | 생성자 |
+|-- updateDate | String | 수정일시 |
+|-- updateUser | String | 수정자 |
