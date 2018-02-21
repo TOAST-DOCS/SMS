@@ -1,4 +1,4 @@
-## Notification > SMS > 콘솔 사용 가이드
+## Notification > SMS > Console Guide
 
 ## 상품 이용
 

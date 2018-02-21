@@ -1,4 +1,4 @@
-## Notification > SMS > 오류 코드
+## Notification > SMS > Error Code
 
 ## API 응답 코드
 | service | isSuccess | resultCode | resultMessage |
