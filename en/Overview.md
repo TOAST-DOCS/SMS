@@ -1,4 +1,4 @@
-## Notification > SMS > 개요
+## Notification > SMS > Overview
 
 SMS/LMS/MMS 발송, 발송 예약 기능, 템플릿 관리, 발송 내역 조회 기능을 제공하는 문자 메세지 발송 시스템입니다.
 손쉬운 연동을 위한 RESTful API를 제공합니다.

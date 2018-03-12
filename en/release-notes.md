@@ -1,4 +1,4 @@
-## Notification > SMS > 릴리스 노트
+## Notification > SMS > Release Notes
 
 ### 2018.02.22
 #### 기능 추가
