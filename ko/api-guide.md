@@ -1,4 +1,4 @@
-## Notification > SMS > API 가이드
+## Notification > SMS > API Guide
 
 ## SMS 발송
 
@@ -1380,7 +1380,8 @@ Content-Type: application/json;charset=UTF-8
 ```
 {
     "body":"SMS내용",
-    "sendNo":"ABCDEFG",
+    "sendNo":"01012345678",
+    "requestDate":"2018-03-22 10:00",
     "templateId":"TEMPLATE",
     "tagExpression":[
         "tag1",
@@ -1397,6 +1398,7 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|
 | body | String | O | 문자 내용 |
 | sendNo | String | O | 발신번호 |
+|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
 | templateId | String | X | 템플릿 아이디 |
 | tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
 | userId | String | X | 요청한 유저의 아이디 |
@@ -1451,7 +1453,8 @@ Content-Type: application/json;charset=UTF-8
 ```
 {
     "body":"SMS내용",
-    "sendNo":"ABCDEFG",
+    "sendNo":"01012345678",
+    "requestDate":"2018-03-22 10:00",
     "templateId":"TEMPLATE",
     "attachFileIdList" : [
      1,
@@ -1474,6 +1477,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | O | 문자 제목 |
 | body | String | O | 문자 내용 |
 | sendNo | String | O | 발신번호 |
+|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
 | templateId | String | X | 템플릿 아이디 |
 | tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
 | attachFileIdList | List<Integer> | X | 첨부파일 아이디(fileId) |
@@ -2220,6 +2224,43 @@ Content-Type: application/json;charset=UTF-8
             }
         ]
     }
+}
+```
+
+### 수신거부 대상자 삭제
+
+#### 요청
+
+[URL]
+
+```
+DELETE  /sms/v2.0/appKeys/{appKey}/blockservice/recipients/removes?unsubscribeNo={unsubscribeNo}&updateUser={updateUser}&recipientNoList={recipientNo},{recipientNo}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Query parameter]
+
+|값|	타입|	필수|	설명|
+|---|---|---|---|
+|unsubscribeNo|	String|	필수 |	080수신거부번호 |
+|updateUser|	String|	필수 |	수신거부 삭제자|
+|recipientNo|	String|	필수 |	삭제할 수신거부 번호|
+
+#### 응답
+```
+{
+    "header": {
+        "isSuccessful": boolean,
+        "resultCode": Integer,
+        "resultMessage": String
+    },
+    "body": null
 }
 ```
 
