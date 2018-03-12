@@ -1,4 +1,4 @@
-## Notification > SMS > API 가이드
+## Notification > SMS > API Guide
 
 ## SMS 발송
 
