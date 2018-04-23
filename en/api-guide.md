@@ -156,6 +156,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+[curl]
+```
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "{발신번호}","recipientList":[{"recipientNo": "{수신번호}"}],"userId": "{userId}"}'
+```
+
 #### 단문 SMS 발송 예제(국가 코드가 포함된 수신 번호)
 
 <table>
@@ -211,6 +216,11 @@ Content-Type: application/json;charset=UTF-8
     }
   }
 }
+```
+
+[curl]
+```
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "{발신번호}","recipientList": [{"internationalRecipientNo": "{국가번호가 포함된 수신번호}"},{"recipientNo":"{수신번호}","countryCode":"{국가번호}"}],"userId": ""}'
 ```
 
 ### 단문 SMS 발송리스트 조회
@@ -563,6 +573,11 @@ Content-Type: application/json;charset=UTF-8
     }
   }
 }
+```
+
+[curl]
+```
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/mms -d '{"title": "{제목}","body": "{본문 내용}","sendNo": "{발신번호}","recipientList": [{"recipientNo": "{수신번호}","templateParameter": { }}],"userId": ""}'
 ```
 
 ### 장문 MMS 발송(첨부파일 포함)
@@ -1094,6 +1109,11 @@ Content-Type: application/json;charset=UTF-8
     }
   }
 }
+```
+
+[curl]
+```
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신번호}","recipientList":[{"recipientNo": "{수신번호}","templateParameter": { }}],"userId": ""}'
 ```
 
 ### 인증용 SMS 발송리스트 조회
