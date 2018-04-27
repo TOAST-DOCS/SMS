@@ -1336,7 +1336,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Request Body]
 위에 SMS 발송과 동일.
-[[Request Body 참고](./Developer`s Guide/#sms_2)]
+[[Request Body 참고](./api-guide/#sms_2)]
 
 <span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
 080번호는 콘솔의 080수신거부 설정 탭에서 확인 가능합니다.
@@ -1363,7 +1363,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Request Body]
 위에 MMS 발송과 동일.
-[[Request Body 참고](./Developer`s Guide/#mms_1)]
+[[Request Body 참고](.api-guide/#mms_1)]
 
 <span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
 080번호는 콘솔의 080수신거부 설정 탭에서 확인 가능합니다.
