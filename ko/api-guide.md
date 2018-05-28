@@ -253,8 +253,8 @@ Content-Type: application/json;charset=UTF-8
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide/#_39)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide/#_40)]|
+|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -324,7 +324,7 @@ Content-Type: application/json;charset=UTF-8
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -417,7 +417,7 @@ Content-Type: application/json;charset=UTF-8
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -774,8 +774,8 @@ Content-Type: application/json;charset=UTF-8
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide/#_39)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide/#_40)]|
+|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -850,7 +850,7 @@ Content-Type: application/json;charset=UTF-8
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -952,7 +952,7 @@ Content-Type: application/json;charset=UTF-8
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -1146,8 +1146,8 @@ Content-Type: application/json;charset=UTF-8
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
 |msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./Developer`s Guide/#_39)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./Developer`s Guide/#_40)]|
+|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
+|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
 
@@ -1217,7 +1217,7 @@ Content-Type: application/json;charset=UTF-8
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -1310,7 +1310,7 @@ Content-Type: application/json;charset=UTF-8
 |-- recipientNo|	String|	수신번호|
 |-- msgStatus|	String|	메시지 상태 코드|
 |-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./Developer`s Guide/#emma-v3)]|
+|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
 |-- resultCodeName|	String|	수신 결과 코드명|
 |-- telecomCode|	Integer|	통신사코드|
 |-- telecomCodeName|	String|	통신사명|
@@ -1336,7 +1336,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Request Body]
 위에 SMS 발송과 동일.
-[[Request Body 참고](./Developer`s Guide/#sms_2)]
+[[Request Body 참고](./api-guide/#sms_2)]
 
 <span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
 080번호는 콘솔의 080수신거부 설정 탭에서 확인 가능합니다.
@@ -1363,7 +1363,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Request Body]
 위에 MMS 발송과 동일.
-[[Request Body 참고](./Developer`s Guide/#mms_1)]
+[[Request Body 참고](./api-guide/#mms_1)]
 
 <span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
 080번호는 콘솔의 080수신거부 설정 탭에서 확인 가능합니다.
