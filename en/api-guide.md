@@ -2481,3 +2481,77 @@ multipart/form-data ...
 |-- createUser | String | 생성자 |
 |-- updateDate | String | 수정일시 |
 |-- updateUser | String | 수정자 |
+
+## 통계 조회
+
+### 통합 통계 조회
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|GET|	/sms/v2.0/appKeys/{appKey}}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Query parameter]
+
+|값|	타입|	필수 |설명|
+|---|---|---|---|
+| searchType | String | O | 통계 구분<br/>DATE:날짜별, TIME:시간별, DAY:요일별 |
+| from | String | O | 통계 조회 시작 날짜<br/>yyyy-MM-dd HH:mm |
+| to | String | O | 통계 조회 종료 날짜<br/>yyyy-MM-dd HH:mm |
+| messageType | X | String | 메세지 타입<br/>SMS:단문, LMS:장문, MMS:첨부파일, AUTH:인증용 |
+| contentType | X | String | 컨텐츠 타입<br/>NORMAL:일반, AD:광고 |
+| templateId | X | String | 템플릿 아이디 |
+
+#### 응답
+```
+{
+    "header" : {
+        "isSuccessful" : true,
+        "resultCode" : 0,
+        "resultMessage" : "SUCCESS""
+    },
+    "body" : {
+        "data" :
+        [
+          {
+            "divisionName" : "2018-06-01",
+            "statisticsView" :
+            {
+              "requestedCount" : 10,
+              "succeedCount" : 10,
+              "failedCount" : 0,
+              "pendingCount" : 0,
+              "succeedRate" : "100.00",
+              "failedRate" : "0.00",
+              "pendingRate" : "0.00"
+            }
+          }
+        ]
+    }
+}
+```
+|값| 타입|설명|
+|---|---|---|
+| header | Object | |
+| - isSuccessful | Boolean | 성공여부 |
+| - resultCode | Integer | 결과코드 |
+| - resultMessage | String | 결과메세지 |
+| body.data | List | |
+| - divisionName | String | 표시이름<br/>날짜,시간,요일 |
+| - statisticsView | Object | |
+| -- requestedCount | Integer | 요청 카운트 |
+| -- succeedCount | Integer | 성공 카운트 |
+| -- failedCount | Integer | 실패 카운트 |
+| -- pendingCount | Integer | 발송중 카운트 |
+| -- succeedRate | String | 성공 비율 |
+| -- failedRate | String | 실패 비율 |
+| -- pendingRate | String | 발송중 비율 |
