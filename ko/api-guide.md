@@ -611,8 +611,8 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	필수|	설명|
 |---|----|----|---|
-|fileName|	String|	필수|	파일이름(확장자 jpg,jpeg만 가능)|
-|fileBody|	Byte[]|	필수|	파일의 Byte[] 값|
+|fileName|	String|	필수|	45글자 이내<br/>파일이름(확장자 jpg,jpeg(소문자)만 가능)|
+|fileBody|	Byte[]|	필수|	파일의 Byte[] 값<br/>300K 이하|
 |createUser|	String|	필수|	파일 업로드 유저 정보|
 
 #### 응답
