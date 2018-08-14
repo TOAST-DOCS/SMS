@@ -1,8 +1,6 @@
 ## Notification > SMS > API Guide
 
-# v2.1 API 소개
-
-## 개요
+## v2.1 API 소개
 
 ### v2.0과 달라진 사항
 1) 일반 발송(SMS/LMS/MMS/AUTH) 시 SenderGroupingKey, RecipientGroupingKey 필드를 추가하여 발송할 수 있습니다.
@@ -2832,7 +2830,20 @@ Content-Type: application/json;charset=UTF-8
 
 
 
-# v2.0 API 소개
+## v2.0 API 소개
+
+### [API 도메인]
+
+|환경|	도메인|
+|---|---|
+|Real|	https://api-sms.cloud.toast.com|
+
+### [주의 사항]
+* SMS은 본문 길이 90byte이하의 단문메시지이며, MMS는 본문 길이 2,000byte이하, 제목 40byte 이하로 발송해야 합니다. 해당 byte 이상 발송 시, 내용이 잘려 나갈 수 있습니다.</br>
+* 본문과 제목은 euc-kr 기준으로 발송 됩니다. 따라서 euc-kr 인코딩이 지원하지 않는 이모티콘은 발송 실패 처리 됩니다.</br>
+
+
+## 단문 SMS
 
 ### 단문 SMS 발송
 
