@@ -1,6 +1,8 @@
 ## Notification > SMS > API Guide
 
-## v2.1 API 소개
+# v2.1 API 소개
+
+## 개요
 
 ### v2.0과 달라진 사항
 1) 일반 발송(SMS/LMS/MMS/AUTH) 시 SenderGroupingKey, RecipientGroupingKey 필드를 추가하여 발송할 수 있습니다.
@@ -2422,11 +2424,11 @@ multipart/form-data ...
 |body.pageNum|	Integer|	현재 페이지 번호|
 |body.pageSize|	Integer|	조회된 데이터 건수|
 |body.totalCount|	Integer|	총 데이터 건수|
-|body.data[].authType|	String|	요청 인증 타입<br/>SMS_AUTH:SMS인증, DOCUMENT_AUTH:서류인증, REGIST_AUTH:수동인증|
+|body.data[].authType|	String|	요청 인증 타입<br/>- SMS_AUTH:SMS인증<br/>- DOCUMENT_AUTH:서류인증<br/>- REGIST_AUTH:수동인증|
 |body.data[].sendNos[]|	List<String>|	등록요청 발신번호 리스트|
 |body.data[].comment|	String|	커멘트 항목|
 |body.data[].fileIds[]|	List<Integer>|	서류 인증 시 업로드한 파일 아이디(내부용)|
-|body.data[].status|	String|	요청상태<br/>REGIST_REQUEST(SRS01), EXAMINE(SRS02), COMPLETE(SRS03), REJECT(SRS04), CERTIFYING(SRS05), CERTIFY_FAILED(SRS06), MANUAL_REGIST(SRS07)|
+|body.data[].status|	String|	요청상태<br/>- REGIST_REQUEST(SRS01)<br/>- EXAMINE(SRS02)<br/>- COMPLETE(SRS03)<br/>- REJECT(SRS04)<br/>- CERTIFYING(SRS05)<br/>- CERTIFY_FAILED(SRS06)<br/>- MANUAL_REGIST(SRS07)|
 |body.data[].createDate|	String| 등록 일시	|
 |body.data[].updateDate|	String| 수정 일시	|
 |body.data[].confirmDate|	String| 승인/거절 일시	|
@@ -2575,6 +2577,8 @@ multipart/form-data ...
 |body.data[].succeedRate | String | 성공 비율 |
 |body.data[].failedRate | String | 실패 비율 |
 |body.data[].pendingRate | String | 발송중 비율 |
+
+## 예약 발송
 
 ### 예약 발송 목록 조회
 
@@ -2771,7 +2775,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-PUT /sms/v2.0/appKeys/{appKey}/reservations/cancel
+PUT /sms/v2.1/appKeys/{appKey}/reservations/cancel
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2828,7 +2832,7 @@ Content-Type: application/json;charset=UTF-8
 
 
 
-## v2.0 API
+# v2.0 API 소개
 
 ### 단문 SMS 발송
 
