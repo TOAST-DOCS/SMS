@@ -2599,10 +2599,10 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|sendType| String| 발송타입<br/>(0:SMS,1:LMS/MMS,2:AUTH) |
-|requestId|	String|	조건 필수 (1번) |	요청 아이디|
-|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|sendType| String| 옵션 | 발송타입<br/>(0:SMS,1:LMS/MMS,2:AUTH) |
+|requestId|	String|	옵션 |	요청 아이디|
+|startRequestDate|	String|	옵션 |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	옵션 |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String|	옵션|	발신번호|
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
