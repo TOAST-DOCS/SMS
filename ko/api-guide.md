@@ -1,4 +1,4 @@
-## Notification > SMS > API Guide
+## Notification > SMS > API v2.1 가이드
 
 ## v2.1 API 소개
 
