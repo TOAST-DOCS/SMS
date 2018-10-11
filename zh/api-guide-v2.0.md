@@ -1,4 +1,4 @@
-## Notification > SMS > API v2.0 Guide
+## Notification > SMS > API v2.0 가이드
 
 ## v2.0 API 소개
 
@@ -1404,6 +1404,9 @@ Content-Type: application/json;charset=UTF-8
     "sendNo":"01012345678",
     "requestDate":"2018-03-22 10:00",
     "templateId":"TEMPLATE",
+    "templateParameter" : {
+        "key" : "value"
+    },
     "tagExpression":[
         "tag1",
         "AND",
@@ -1421,6 +1424,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo | String | O | 발신번호 |
 |requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
 | templateId | String | X | 템플릿 아이디 |
+| templateParameter | Map<String, String> | X | 템플릿 파라미터 |
 | tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
 | userId | String | X | 요청한 유저의 아이디 |
 | adYn | String | X | 광고 여부(기본N) |
@@ -1477,6 +1481,9 @@ Content-Type: application/json;charset=UTF-8
     "sendNo":"01012345678",
     "requestDate":"2018-03-22 10:00",
     "templateId":"TEMPLATE",
+    "templateParameter" : {
+        "key" : "value"
+    },
     "attachFileIdList" : [
      1,
      2,
@@ -1500,6 +1507,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo | String | O | 발신번호 |
 |requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
 | templateId | String | X | 템플릿 아이디 |
+| templateParameter | Map<String, String> | X | 템플릿 파라미터 |
 | tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
 | attachFileIdList | List<Integer> | X | 첨부파일 아이디(fileId) |
 | userId | String | X | 요청한 유저의 아이디 |
