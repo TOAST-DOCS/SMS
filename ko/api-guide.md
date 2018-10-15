@@ -60,21 +60,21 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-|templateId|	String|	X|	발송 템플릿 아이디|
-|body|	String|	O|	본문 내용('EUC-KR' 기준으로 90 Byte 제한)|
-|sendNo|	String|	O|	발신번호|
-|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-|senderGroupingKey| String| X | 발신자 그룹키 |
-|recipientList[].recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|recipientList[].countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
-|recipientList[].internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
-|recipientList[].templateParameter|	Object|	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
-|recipientList[].templateParameter.{key}|	String|	X|	치환 키(##key##)|
-|recipientList[].templateParameter.{value}|	Object|	X|	치환 키에 매핑되는 Value값|
-|recipientList[].recipientGroupingKey| String| X | 수신자 그룹키 |
-|userId|	String|	X | 발송 구분자 ex)admin,system |
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+|templateId|	String | 10 |	X|	발송 템플릿 아이디|
+|body|	String|90 Byte(EUC-KR 기준) |	O|	본문 내용|
+|sendNo|	String| 13 |	O|	발신번호|
+|requestDate| String| - | X | 예약일시(yyyy-MM-dd HH:mm)|
+|senderGroupingKey| String| 100 | X | 발신자 그룹키 |
+|recipientList[].recipientNo| String| 20 |	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
+|recipientList[].countryCode|	String| 8 |	X|	국가번호 [기본값: 82(한국)] |
+|recipientList[].internationalRecipientNo| String|  20 | X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
+|recipientList[].templateParameter|	Object|  - |	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
+|recipientList[].templateParameter.{key}| String| - |	X|	치환 키(##key##)|
+|recipientList[].templateParameter.{value}|	Object| - |	X|	치환 키에 매핑되는 Value값|
+|recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
+|userId|	String|	100 | X | 발송 구분자 ex)admin,system |
 
 #### 응답
 
@@ -256,24 +256,23 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter] 1번 or 2번 조건 필수
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-|requestId|	String|	조건 필수 (1번) |	요청 아이디|
-|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String|	옵션|	발신번호|
-|recipientNo|	String|	옵션|	수신번호|
-|templateId|	String|	옵션|	템플릿번호|
-|msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String|	옵션|	발송자 그룹키|
-|recipientGroupingKey|	String|	옵션|	수신자 그룹키|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|requestId|	String| 25 |	조건 필수 (1번) |	요청 아이디|
+|startRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|startResultDate|	String| - |	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endResultDate|	String| - |	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|sendNo|	String| 13 |	옵션|	발신번호|
+|recipientNo|	String| 20 |	옵션|	수신번호|
+|templateId|	String| 10 |	옵션|	템플릿번호|
+|msgStatus|	String| 1 |	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
+|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
+|pageNum|	Integer| - |	옵션|	페이지 번호(Default : 1)|
+|pageSize|	Integer| 1000 |	옵션|	조회 건수(Default : 15)|
 
 #### 응답
 
@@ -489,22 +488,22 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-|templateId|	String|	X|	발송 템플릿 아이디|
-|title|	String|	O|	제목 <br/> ('EUC-KR' 기준으로 40Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
-|body|	String|	O|	본문 <br/> ('EUC-KR' 기준으로 2000Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
-|sendNo|	String|	O|	발신번호|
-|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-|senderGroupingKey| String| X | 발신자 그룹키 |
-|recipientList[].recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|recipientList[].countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
-|recipientList[].internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
-|recipientList[].templateParameter|	Object|	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
-|recipientList[].templateParameter.{key}|	String|	X|	치환 키(##key##)|
-|recipientList[].templateParameter.{value}|	Object|	X|	치환 키에 매핑되는 Value값|
-|recipientList[].recipientGroupingKey| String| X | 수신자 그룹키 |
-|userId|	String|	X | 발송 구분자 ex)admin,system |
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+|templateId|	String| 10 |	X|	발송 템플릿 아이디|
+|title|	String| 40 Byte(EUC-KR 기준) |	O|	제목|
+|body|	String| 2000 Byte(EUC-KR 기준)|	O|	본문 |
+|sendNo|	String| 13 |	O|	발신번호|
+|requestDate| String| - | X | 예약일시(yyyy-MM-dd HH:mm)|
+|senderGroupingKey| String| 100 | X | 발신자 그룹키 |
+|recipientList[].recipientNo| String| 20 |	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
+|recipientList[].countryCode| String| 8 |	X|	국가번호 [기본값: 82(한국)] |
+|recipientList[].internationalRecipientNo| String| 20 | X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
+|recipientList[].templateParameter|	Object| - |	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
+|recipientList[].templateParameter.{key}|	String| - |	X|	치환 키(##key##)|
+|recipientList[].templateParameter.{value}|	Object| - |	X|	치환 키에 매핑되는 Value값|
+|recipientList[].recipientGroupingKey| String| 1000 | X | 수신자 그룹키 |
+|userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
 
 #### 응답
 
@@ -643,11 +642,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
-|---|----|----|---|
-|fileName|	String|	필수|	45글자 이내<br/>파일이름(확장자 jpg,jpeg(소문자)만 가능)|
-|fileBody|	Byte[]|	필수| * 파일 byte[]를 Base64로 인코딩한 값.<br/>* 또는 byte 배열 값<br/>300K 이하|
-|createUser|	String|	필수|	파일 업로드 유저 정보|
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|----|---|----|---|
+|fileName|	String|	45 | 필수|	파일이름(확장자 jpg,jpeg(소문자)만 가능)|
+|fileBody|	Byte[]| 300Kbyte |	필수| * 파일 byte[]를 Base64로 인코딩한 값.<br/>* 또는 byte 배열 값|
+|createUser|	String|	100 | 필수|	파일 업로드 유저 정보|
 
 #### 응답
 
@@ -777,23 +776,23 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter] 1번 or 2번 조건 필수
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-|requestId|	String|	조건 필수 (1번) |	요청 아이디|
-|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String|	옵션|	발신번호|
-|recipientNo|	String|	옵션|	수신번호|
-|templateId|	String|	옵션|	템플릿번호|
-|msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String|	옵션|	발송자 그룹키|
-|recipientGroupingKey|	String|	옵션|	수신자 그룹키|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+|requestId|	String| 25 |	조건 필수 (1번) |	요청 아이디|
+|startRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|startResultDate|	String| - |	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endResultDate|	String| - |	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|sendNo|	String| 13 |	옵션|	발신번호|
+|recipientNo|	String| 20 |	옵션|	수신번호|
+|templateId|	String| 10 |	옵션|	템플릿번호|
+|msgStatus|	String| 1 |	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
+|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
+|pageNum|	Integer| - |	옵션|	페이지 번호(Default : 1)|
+|pageSize|	Integer| 1000 |	옵션|	조회 건수(Default : 15)|
 
 #### 응답
 
@@ -1036,21 +1035,21 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-|templateId|	String|	X|	발송 템플릿 아이디|
-|body|	String|	O|	본문 내용('EUC-KR' 기준으로 90 Byte 제한)|
-|sendNo|	String|	O|	발신번호|
-|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-|senderGroupingKey| String| X | 발신자 그룹키 |
-|recipientList[].recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|recipientList[].countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
-|recipientList[].internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
-|recipientList[].templateParameter|	Object|	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
-|recipientList[].templateParameter.{key}|	String|	X|	치환 키(##key##)|
-|recipientList[].templateParameter.{value}|	Object|	X|	치환 키에 매핑되는 Value값|
-|recipientList[].recipientGroupingKey| String| X | 수신자 그룹키 |
-|userId|	String|	X | 발송 구분자 ex)admin,system |
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+|templateId|	String| 10 |	X|	발송 템플릿 아이디|
+|body|	String| 90 Byte(EUC-KR 기준) |	O|	본문 내용|
+|sendNo|	String| 13 |	O|	발신번호|
+|requestDate| String| - | X | 예약일시(yyyy-MM-dd HH:mm)|
+|senderGroupingKey| String| 100 | X | 발신자 그룹키 |
+|recipientList[].recipientNo|	String| 20 |	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
+|recipientList[].countryCode|	String| 8 |	X|	국가번호 [기본값: 82(한국)] |
+|recipientList[].internationalRecipientNo| String| 20 | X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
+|recipientList[].templateParameter|	Object| - |	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
+|recipientList[].templateParameter.{key}| String| - |	X|	치환 키(##key##)|
+|recipientList[].templateParameter.{value}| Object| - |	X|	치환 키에 매핑되는 Value값|
+|recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
+|userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
 
 
 #### 응답
@@ -1177,24 +1176,23 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter] 1번 or 2번 조건 필수
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-|requestId|	String|	조건 필수 (1번) |	요청 아이디|
-|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String|	옵션|	발신번호|
-|recipientNo|	String|	옵션|	수신번호|
-|templateId|	String|	옵션|	템플릿번호|
-|msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String|	옵션|	발송자 그룹키|
-|recipientGroupingKey|	String|	옵션|	수신자 그룹키|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|requestId|	String| 25 |	조건 필수 (1번) |	요청 아이디|
+|startRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|startResultDate|	String| - |	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endResultDate|	String| - |	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|sendNo|	String| 13 |	옵션|	발신번호|
+|recipientNo|	String| 20 |	옵션|	수신번호|
+|templateId|	String| 10 |	옵션|	템플릿번호|
+|msgStatus|	String| 1 |	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
+|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
+|pageNum|	Integer| - |	옵션|	페이지 번호(Default : 1)|
+|pageSize|	Integer| 1000 |	옵션|	조회 건수(Default : 15)|
 
 #### 응답
 
@@ -1464,17 +1462,17 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-| body | String | O | 문자 내용 |
-| sendNo | String | O | 발신번호 |
-| requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-| templateId | String | X | 템플릿 아이디 |
-| templateParameter | Map<String, String> | X | 템플릿 파라미터 |
-| tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
-| userId | String | X | 요청한 유저의 아이디 |
-| adYn | String | X | 광고 여부(기본N) |
-| autoSendYn | String | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+| body | String | 90 Byte(EUC-KR 기준) | O | 문자 내용 |
+| sendNo | String | 13 | O | 발신번호 |
+| requestDate| String| - | X | 예약일시(yyyy-MM-dd HH:mm)|
+| templateId | String | 10 | X | 템플릿 아이디 |
+| templateParameter | Map<String, String> | - | X | 템플릿 파라미터 |
+| tagExpression | List<String> | - | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
+| userId | String | 100 | X | 요청한 유저의 아이디 |
+| adYn | String | 1 | X | 광고 여부(기본N) |
+| autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
 
 
 #### 응답
@@ -1543,19 +1541,19 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-| title | String | O | 문자 제목 |
-| body | String | O | 문자 내용 |
-| sendNo | String | O | 발신번호 |
-| requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-| templateId | String | X | 템플릿 아이디 |
-| templateParameter | Map<String, String> | X | 템플릿 파라미터 |
-| tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
-| attachFileIdList | List<Integer> | X | 첨부파일 아이디(fileId) |
-| userId | String | X | 요청한 유저의 아이디 |
-| adYn | String | X | 광고 여부(기본N) |
-| autoSendYn | String | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+| title | String | 40 Byte(EUC-KR 기준) | O | 문자 제목 |
+| body | String | 2000 Byte(EUC-KR 기준) | O | 문자 내용 |
+| sendNo | String | 13 | O | 발신번호 |
+| requestDate| String| - | X | 예약일시(yyyy-MM-dd HH:mm)|
+| templateId | String | 10 | X | 템플릿 아이디 |
+| templateParameter | Map<String, String> | - | X | 템플릿 파라미터 |
+| tagExpression | List<String> | - | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
+| attachFileIdList | List<Integer> | - | X | 첨부파일 아이디(fileId) |
+| userId | String | 100 | X | 요청한 유저의 아이디 |
+| adYn | String | 1 | X | 광고 여부(기본N) |
+| autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
 
 
 #### 응답
@@ -1606,16 +1604,16 @@ X
 
 * requestId 또는 startRequestDate + endRequestDate는 필수입니다.
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-| appKey | String| O | 앱키 |
-| sendType | required, String | O | 발송 타입<br>SMS : "0",<br>MMS : "1" |
-| requestId | String | O | 요청 아이디 |
-| startRequestDate | String | O | 발송 날짜 시작 |
-| endRequestDate | String | O | 발송 날짜 종료 |
-| statusCode | String | X | 발송상태코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
-| pageNum | optional, Integer | X | 페이지 번호 |
-| pageSize | optional, Integer | X | 조회건수 |
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+| appKey | String| - | O | 앱키 |
+| sendType | required, String | 1 | O | 발송 타입<br>SMS : "0",<br>MMS : "1" |
+| requestId | String | - | O | 요청 아이디 |
+| startRequestDate | String | - | O | 발송 날짜 시작 |
+| endRequestDate | String | - | O | 발송 날짜 종료 |
+| statusCode | String | 10 | X | 발송상태코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
+| pageNum | optional, Integer | - | X | 페이지 번호 |
+| pageSize | optional, Integer | 1000 | X | 조회건수 |
 
 #### 응답
 ```
@@ -1706,17 +1704,17 @@ X
 
 * requestId 또는 startRequestDate + endRequestDate는 필수입니다.
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-| recipientNum | String | X | 수신자 번호 |
-| startRequestDate | String | O | 발송 요청 시작 날짜 |
-| endRequestDate | String | O | 발송 요청 종료 날짜 |
-| startResultDate | String | X | 수신 시작 날짜 |
-| endResultDate | | | |
-| msgStatusName | | | |
-| resultCode | | | |
-| pageNum | | | |
-| pageSize | | | |
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+| recipientNum | String | 20 | X | 수신자 번호 |
+| startRequestDate | String | - | O | 발송 요청 시작 날짜 |
+| endRequestDate | String | - | O | 발송 요청 종료 날짜 |
+| startResultDate | String | - | X | 수신 시작 날짜 |
+| endResultDate | String | - | X | 수신 종료 날짜 |
+| msgStatusName | String | 10 |  X | 메세지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청중<br/> - COMPLETED : 발송요청 완료<br/> - FAILED : 발송 실패  |
+| resultCode | String | 10 | X | 수신 결과 코드 |
+| pageNum | Integer | - | X | 페이지 번호 |
+| pageSize | Integer | 1000 | X | 조회 건수 |
 
 #### 응답
 ```
@@ -2222,13 +2220,13 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-|unsubscribeNo|	String|	필수 |	080수신거부번호 |
-|startRequestDate|	String|	옵션 |	수신거부 요청 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	옵션 |	수신거부 요청 종료 값(yyyy-MM-dd HH:mm:ss)|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|unsubscribeNo|	String| 25 |	필수 |	080수신거부번호 |
+|startRequestDate|	String| - |	옵션 |	수신거부 요청 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	옵션 |	수신거부 요청 종료 값(yyyy-MM-dd HH:mm:ss)|
+|pageNum|	Integer| - |	옵션|	페이지 번호(Default : 1)|
+|pageSize|	Integer| 1000 |	옵션|	조회 건수(Default : 15)|
 
 #### 응답
 ```
@@ -2272,11 +2270,11 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-|unsubscribeNo|	String|	필수 |	080수신거부번호 |
-|updateUser|	String|	필수 |	수신거부 삭제자|
-|recipientNo|	String|	필수 |	삭제할 수신거부 번호|
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|unsubscribeNo|	String| 20 |	필수 |	080수신거부번호 |
+|updateUser|	String|	100 | 필수 |	수신거부 삭제자|
+|recipientNo|	String|	20 | 필수 |	삭제할 수신거부 번호|
 
 #### 응답
 ```
@@ -2532,14 +2530,14 @@ multipart/form-data ...
 
 [Query parameter]
 
-|값|	타입|	필수 |설명|
-|---|---|---|---|
-| searchType | String | O | 통계 구분<br/>DATE:날짜별, TIME:시간별, DAY:요일별 |
-| from | String | O | 통계 조회 시작 날짜<br/>yyyy-MM-dd HH:mm |
-| to | String | O | 통계 조회 종료 날짜<br/>yyyy-MM-dd HH:mm |
-| messageType | X | String | 메세지 타입<br/>SMS:단문, LMS:장문, MMS:첨부파일, AUTH:인증용 |
-| contentType | X | String | 컨텐츠 타입<br/>NORMAL:일반, AD:광고 |
-| templateId | X | String | 템플릿 아이디 |
+|값|	타입|	최대 길이 | 필수 |설명|
+|---|---|---|---|---|
+| searchType | String | 10 | O | 통계 구분<br/>DATE:날짜별, TIME:시간별, DAY:요일별 |
+| from | String |  - |O | 통계 조회 시작 날짜<br/>yyyy-MM-dd HH:mm |
+| to | String | - | O | 통계 조회 종료 날짜<br/>yyyy-MM-dd HH:mm |
+| messageType | String | 10 |  X |  메세지 타입<br/>SMS:단문, LMS:장문, MMS:첨부파일, AUTH:인증용 |
+| contentType | String | 10 |  X |  컨텐츠 타입<br/>NORMAL:일반, AD:광고 |
+| templateId | String | 10 |  X |  템플릿 아이디 |
 
 #### 응답
 ```
@@ -2605,18 +2603,18 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
-|---|---|---|---|
-|sendType| String| 옵션 | 발송타입<br/>(0:SMS,1:LMS/MMS,2:AUTH) |
-|requestId|	String|	옵션 |	요청 아이디|
-|startRequestDate|	String|	옵션 |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	옵션 |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String|	옵션|	발신번호|
-|recipientNo|	String|	옵션|	수신번호|
-|templateId|	String|	옵션|	템플릿번호|
-|messageStatus|	String|	옵션|	메세지상태<br/>(RESERVED:예약대기,SENDING:발송중,COMPLETED:발송완료,FAILED:발송실패,CANCEL:예약취소)|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|sendType| String| 1 |  옵션 | 발송타입<br/>(0:SMS,1:LMS/MMS,2:AUTH) |
+|requestId|	String| 25 |	옵션 |	요청 아이디|
+|startRequestDate|	String| - |	옵션 |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	옵션 |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
+|sendNo|	String| 13 | 옵션|	발신번호|
+|recipientNo|	String| 20 |	옵션|	수신번호|
+|templateId|	String| 10 |	옵션|	템플릿번호|
+|messageStatus|	String| 10 |	옵션|	메세지상태<br/>(RESERVED:예약대기,SENDING:발송중,COMPLETED:발송완료,FAILED:발송실패,CANCEL:예약취소)|
+|pageNum|	Integer| - |	옵션|	페이지 번호(Default : 1)|
+|pageSize|	Integer| 1000 |	옵션|	조회 건수(Default : 15)|
 
 #### 응답
 
@@ -2805,11 +2803,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
+|값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|
-|reservationList[].requestId| String| O | 요청 아이디|
-|reservationList[].recipientSeq| Integer| O | 수신자 시퀀스|
-|updateUser| String| O | 취소 요청자|
+|reservationList[].requestId| String| 25 | O | 요청 아이디|
+|reservationList[].recipientSeq| Integer| - | O | 수신자 시퀀스|
+|updateUser| String| 100 | O | 취소 요청자|
 
 [Response body]
 ```
