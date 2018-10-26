@@ -1,4 +1,4 @@
-## Notification > SMS > Error Code
+## Notification > SMS > 오류 코드
 
 ## API 응답 코드
 | service | isSuccess | resultCode | resultMessage |
@@ -32,6 +32,8 @@
 | 발송/조회 | false | -2018 | 수신자 번호가 비어있는 경우 |
 | 발송/조회 | false | -2019 | 수신자 번호가 유효하지 않는 경우 |
 | 발송/조회 | false | -2021 | 시스템 에러(큐 저장 실패) |
+| 발송/조회 | false | -2022 | 요청일시를 현재 시간보다 이전으로 설정한 경우 |
+| 발송/조회 | false | -2023 | Emoji로 발송 요청한 경우 |
 | 발송/조회 | false | -4000 | 조회 범위가 한달이 넘어간 경우 |
 | 템플릿 | false | -2100 | 템플릿 아이디가 비어있는 경우 |
 | 템플릿 | false | -2101 | 이미 등록된 템플릿 아이디 |
