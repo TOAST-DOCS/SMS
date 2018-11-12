@@ -1420,6 +1420,85 @@ Content-Type: application/json;charset=UTF-8
 
 
 
+## 결과 업데이트 기준 메세지 조회
+* 해당 API는 메세지 발송 결과 업데이트 시간 기준으로 조회 됩니다.
+* 단말기 발송 결과를 서비스에서 가져가 사용하시는 경우 이 API를 사용해주세요.
+
+### 메세지 조회
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v2.1/appKeys/{appKey}/message-results?startUpdateDate={startUpdateDate}&endUpdateDate={endUpdateDate}&messageType={messageType}&pageNum={pageNum}&pageSize={pageSize}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 appKey|
+
+[Query parameter]
+
+|값|	타입|	필수|	설명|
+|---|---|---|---|
+|startUpdateDate|	String|	필수|	결과 업데이트 조회 시작 시간 <br/>yyyy-MM-dd HH:mm:ss|
+|endUpdateDate|	String|	필수|	결과 업데이트 조회 종료 시간 <br/>yyyy-MM-dd HH:mm:ss|
+|messageType|	String|	옵션|	메세지 타입 (SMS/LMS/MMS/AUTH)|
+| pageNum | Integer | 옵션 | 페이지 번호(default:1) |
+| pageSize | Integer | 옵션 |조회건수(default:15) |
+
+#### 응답
+```
+{
+  "header":{
+    "isSuccessful":true,
+    "resultCode":0,
+    "resultMessage":"Success."
+  },
+  "body":{
+    "pageNum":1,
+    "pageSize":15,
+    "totalCount":1,
+    "data":{
+      "resultUpdateList":[
+        {
+          "messageType":"SMS",
+          "requestId":"",
+          "recipientSeq":0,
+          "resultCode":"1000",
+          "resultCodeName":"성공",
+          "requestDate":"2018-10-04 16:16:00.0",
+          "resultDate":"2018-10-04 16:17:10.0",
+          "updateDate":"2018-10-04 16:17:15.0",
+          "senderGroupingKey":"senderGroupingKey",
+          "recipientGroupingKey":"recipientGroupingKey"
+        }
+      ]
+    }
+  }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.resultUpdateList[].messageType|String| 메세지 타입(SMS/LMS/MMS/AUTH)|
+|body.data.resultUpdateList[].requestId | String | 요청 아이디 |
+|body.data.resultUpdateList[].recipientSeq | Integer | 수신자 시퀀스 |
+|body.data.resultUpdateList[].resultCode | String | 결과 코드 |
+|body.data.resultUpdateList[].resultCodeName | String | 결과 코드명 |
+|body.data.resultUpdateList[].requestDate | String | 요청 일시(yyyy-MM-dd HH:mm:ss.S) |
+|body.data.resultUpdateList[].resultDate | String | 수신 일시(yyyy-MM-dd HH:mm:ss.S) |
+|body.data.resultUpdateList[].updateDate | String | 결과 업데이트 일시(yyyy-MM-dd HH:mm:ss.S) |
+|body.data.resultUpdateList[].senderGroupingKey | String | 발신자 그룹 키 |
+|body.data.resultUpdateList[].recipientGroupingKey | String | 수신자 그룹 키 |
+
 
 ## 태그 발송
 
@@ -1696,6 +1775,7 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	고유의 appKey|
 | requestId | String | 요청 아이디 |
+
 [Request body]
 
 ```
