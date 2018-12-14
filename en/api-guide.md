@@ -1463,8 +1463,7 @@ Content-Type: application/json;charset=UTF-8
     "pageNum":1,
     "pageSize":15,
     "totalCount":1,
-    "data":{
-      "resultUpdateList":[
+    "data":[
         {
           "messageType":"SMS",
           "requestId":"",
@@ -1474,11 +1473,12 @@ Content-Type: application/json;charset=UTF-8
           "requestDate":"2018-10-04 16:16:00.0",
           "resultDate":"2018-10-04 16:17:10.0",
           "updateDate":"2018-10-04 16:17:15.0",
+          "telecomCode": "10003",
+          "telecomCodeName": "LGU",
           "senderGroupingKey":"senderGroupingKey",
           "recipientGroupingKey":"recipientGroupingKey"
         }
-      ]
-    }
+    ]
   }
 }
 ```
@@ -1496,6 +1496,8 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultUpdateList[].requestDate | String | 요청 일시(yyyy-MM-dd HH:mm:ss.S) |
 |body.data.resultUpdateList[].resultDate | String | 수신 일시(yyyy-MM-dd HH:mm:ss.S) |
 |body.data.resultUpdateList[].updateDate | String | 결과 업데이트 일시(yyyy-MM-dd HH:mm:ss.S) |
+|body.data.resultUpdateList[].telecomCode | String | 통신사 코드 |
+|body.data.resultUpdateList[].telecomCodeName | String | 통신사 코드명 |
 |body.data.resultUpdateList[].senderGroupingKey | String | 발신자 그룹 키 |
 |body.data.resultUpdateList[].recipientGroupingKey | String | 수신자 그룹 키 |
 
@@ -2696,7 +2698,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String| 13 | 옵션|	발신번호|
 |recipientNo|	String| 20 |	옵션|	수신번호|
 |templateId|	String| 10 |	옵션|	템플릿번호|
-|messageStatus|	String| 10 |	옵션|	메세지상태<br/>(RESERVED:예약대기,SENDING:발송중,COMPLETED:발송완료,FAILED:발송실패,CANCEL:예약취소)|
+|messageStatus|	String| 10 |	옵션|	메세지상태<br/>(RESERVED:예약대기,SENDING:발송중,COMPLETED:발송완료,FAILED:발송실패,CANCEL:예약취소,DUPLICATED:중복발송)|
 |pageNum|	Integer| - |	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer| 1000 |	옵션|	조회 건수(Default : 15)|
 
@@ -2761,7 +2763,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].templateName|	String|	템플릿명|
 |body.data[].title|	String|	제목|
 |body.data[].body|	String|	본문내용|
-|body.data[].messageStatus|	String|	메세지상태<br/>(RESERVED:예약대기,SENDING:발송중,COMPLETED:발송완료,FAILED:발송실패,CANCEL:예약취소)|
+|body.data[].messageStatus|	String|	메세지상태<br/>(RESERVED:예약대기,SENDING:발송중,COMPLETED:발송완료,FAILED:발송실패,CANCEL:예약취소,DUPLICATED:중복발송)|
 |body.data[].createUser|	String|	등록자|
 |body.data[].createDate|	String|	등록일시|
 |body.data[].updateDate|	String|	수정일시|
@@ -2848,7 +2850,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.templateName|	String|	템플릿명|
 |body.data.title|	String|	제목|
 |body.data.body|	String|	본문내용|
-|body.data.messageStatus|	String|	메세지상태<br/>(RESERVED:예약대기,SENDING:발송중,COMPLETED:발송완료,FAILED:발송실패,CANCEL:예약취소)|
+|body.data.messageStatus|	String|	메세지상태<br/>(RESERVED:예약대기,SENDING:발송중,COMPLETED:발송완료,FAILED:발송실패,CANCEL:예약취소,DUPLICATED:중복발송)|
 |body.data.createUser|	String|	등록자|
 |body.data.createDate|	String|	등록일시|
 |body.data.attachFileList[].fileId|	Integer|	파일아이디|
