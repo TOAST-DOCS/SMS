@@ -2378,9 +2378,11 @@ Content-Type: application/json;charset=UTF-8
 
 [URL]
 
-|Http method|	URI|
-|---|---|
-|POST|	/sms/v2.1/appKeys/{appKey}/reqeusts/sendNos|
+```
+POST /sms/v2.1/appKeys/{appKey}/reqeusts/sendNos|
+Content-Type: application/json;charset=UTF-8
+```
+	
 
 [Path parameter]
 
@@ -2419,10 +2421,10 @@ Content-Type: application/json;charset=UTF-8
 #### 요청
 
 [URL]
-
-|Http method|	URI|
-|---|---|
-|POST|	/sms/v2.1/appKeys/{appKey}/requests/attachFiles/authDocuments|
+```
+POST /sms/v2.1/appKeys/{appKey}/requests/attachFiles/authDocuments
+Content-Type : multipart/form-data;
+```
 
 [Path parameter]
 
@@ -2431,9 +2433,11 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 appKey|
 
 [Request Body]
-```
-multipart/form-data ...
-```
+
+|값|타입|설명|
+|---|---|---|
+| attachFile | MultiPartFile | MultiPartFile로 받을 수 있는 파일 데이터 |
+
 
 #### 응답
 ```
