@@ -62,7 +62,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
-|templateId|	String | 10 |	X|	발송 템플릿 아이디|
+|templateId|	String | 50 |	X|	발송 템플릿 아이디|
 |body|	String|90 Byte(EUC-KR 기준) |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신번호|
 |requestDate| String| - | X | 예약일시(yyyy-MM-dd HH:mm)|
@@ -265,7 +265,7 @@ Content-Type: application/json;charset=UTF-8
 |endResultDate|	String| - |	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	옵션|	발신번호|
 |recipientNo|	String| 20 |	옵션|	수신번호|
-|templateId|	String| 10 |	옵션|	템플릿번호|
+|templateId|	String| 50 |	옵션|	템플릿번호|
 |msgStatus|	String| 1 |	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
 |resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
 |subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
@@ -490,7 +490,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
-|templateId|	String| 10 |	X|	발송 템플릿 아이디|
+|templateId|	String| 50 |	X|	발송 템플릿 아이디|
 |title|	String| 40 Byte(EUC-KR 기준) |	O|	제목|
 |body|	String| 2000 Byte(EUC-KR 기준)|	O|	본문 |
 |sendNo|	String| 13 |	O|	발신번호|
@@ -785,7 +785,7 @@ Content-Type: application/json;charset=UTF-8
 |endResultDate|	String| - |	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	옵션|	발신번호|
 |recipientNo|	String| 20 |	옵션|	수신번호|
-|templateId|	String| 10 |	옵션|	템플릿번호|
+|templateId|	String| 50 |	옵션|	템플릿번호|
 |msgStatus|	String| 1 |	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
 |resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
 |subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
@@ -1037,7 +1037,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
-|templateId|	String| 10 |	X|	발송 템플릿 아이디|
+|templateId|	String| 50 |	X|	발송 템플릿 아이디|
 |body|	String| 90 Byte(EUC-KR 기준) |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신번호|
 |requestDate| String| - | X | 예약일시(yyyy-MM-dd HH:mm)|
@@ -1185,7 +1185,7 @@ Content-Type: application/json;charset=UTF-8
 |endResultDate|	String| - |	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	옵션|	발신번호|
 |recipientNo|	String| 20 |	옵션|	수신번호|
-|templateId|	String| 10 |	옵션|	템플릿번호|
+|templateId|	String| 50 |	옵션|	템플릿번호|
 |msgStatus|	String| 1 |	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
 |resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
 |subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
@@ -1548,7 +1548,7 @@ Content-Type: application/json;charset=UTF-8
 | body | String | 90 Byte(EUC-KR 기준) | O | 문자 내용 |
 | sendNo | String | 13 | O | 발신번호 |
 | requestDate| String| - | X | 예약일시(yyyy-MM-dd HH:mm)|
-| templateId | String | 10 | X | 템플릿 아이디 |
+| templateId | String | 50 | X | 템플릿 아이디 |
 | templateParameter | Map<String, String> | - | X | 템플릿 파라미터 |
 | tagExpression | List<String> | - | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
 | userId | String | 100 | X | 요청한 유저의 아이디 |
@@ -1628,7 +1628,7 @@ Content-Type: application/json;charset=UTF-8
 | body | String | 2000 Byte(EUC-KR 기준) | O | 문자 내용 |
 | sendNo | String | 13 | O | 발신번호 |
 | requestDate| String| - | X | 예약일시(yyyy-MM-dd HH:mm)|
-| templateId | String | 10 | X | 템플릿 아이디 |
+| templateId | String | 50 | X | 템플릿 아이디 |
 | templateParameter | Map<String, String> | - | X | 템플릿 파라미터 |
 | tagExpression | List<String> | - | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
 | attachFileIdList | List<Integer> | - | X | 첨부파일 아이디(fileId) |
@@ -2382,7 +2382,7 @@ Content-Type: application/json;charset=UTF-8
 POST /sms/v2.1/appKeys/{appKey}/reqeusts/sendNos|
 Content-Type: application/json;charset=UTF-8
 ```
-	
+
 
 [Path parameter]
 
@@ -2627,7 +2627,7 @@ Content-Type : multipart/form-data;
 | to | String | - | O | 통계 조회 종료 날짜<br/>yyyy-MM-dd HH:mm |
 | messageType | String | 10 |  X |  메세지 타입<br/>SMS:단문, LMS:장문, MMS:첨부파일, AUTH:인증용 |
 | contentType | String | 10 |  X |  컨텐츠 타입<br/>NORMAL:일반, AD:광고 |
-| templateId | String | 10 |  X |  템플릿 아이디 |
+| templateId | String | 50 |  X |  템플릿 아이디 |
 
 #### 응답
 ```
@@ -2701,7 +2701,7 @@ Content-Type: application/json;charset=UTF-8
 |endRequestDate|	String| - |	옵션 |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 | 옵션|	발신번호|
 |recipientNo|	String| 20 |	옵션|	수신번호|
-|templateId|	String| 10 |	옵션|	템플릿번호|
+|templateId|	String| 50 |	옵션|	템플릿번호|
 |messageStatus|	String| 10 |	옵션|	메세지상태<br/>(RESERVED:예약대기,SENDING:발송중,COMPLETED:발송완료,FAILED:발송실패,CANCEL:예약취소,DUPLICATED:중복발송)|
 |pageNum|	Integer| - |	옵션|	페이지 번호(Default : 1)|
 |pageSize|	Integer| 1000 |	옵션|	조회 건수(Default : 15)|
