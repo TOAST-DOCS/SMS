@@ -2461,7 +2461,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.1/appKeys/{appKey}/requests/sendNos?status={status}&pageNum={pageNum}&pageSize={pageSize}|
+|GET|	/sms/v2.1/appKeys/{appKey}/requests/sendNos?sendNo={sendNo}&status={status}&pageNum={pageNum}&pageSize={pageSize}|
 
 [Path parameter]
 
@@ -2473,6 +2473,7 @@ Content-Type : multipart/form-data;
 
 |값|	타입|	설명|
 |---|---|---|
+| sendNo|String | 등록 요청한 발신번호 |
 |status|	String|	서류 인증 상태<br/>- SRS01	발신번호 등록 요청<br/>- SRS02	심사중<br/>- SRS03	등록 완료<br/>- SRS04	등록 불가<br/>- SRS05	핸드폰 인증 대기<br/>- SRS06	핸드폰 인증 실패<br/>- SRS07	수동 등록 완료|
 |pageNum|	Integer| 페이지 번호(Default : 1)|
 |pageSize|	Integer| 조회 건수(Default : 15)|
