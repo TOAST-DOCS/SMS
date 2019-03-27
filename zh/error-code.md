@@ -4,6 +4,7 @@
 | service | isSuccess | resultCode | resultMessage |
 | - | - | - | - |
 | 공통 | true | 0 | 성공 |
+| 공통 | false | 4 | 파라미터 검증 실패<br/>- 단문 발송 시 본문의 길이가 4000글자를 넘어가는 경우<br/>- 장문/첨부 발송 시 제목의 길이가 120글자를 넘어가는 경우<br/>- 통계 조회 시 searchType, from, to 항목이 비어있는 경우 |
 | 공통 | false | -1000 | 유효하지 않은 앱키 |
 | 공통 | false | -1001 | 존재하지 않는 앱키 |
 | 공통 | false | -1002 | 사용 종료된 앱키 |
