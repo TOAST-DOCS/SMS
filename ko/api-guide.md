@@ -491,8 +491,8 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String| 50 |	X|	발송 템플릿 ID|
-|title|	String| 40 바이트(EUC-KR 기준) |	O|	제목|
-|body|	String| 2000 바이트(EUC-KR 기준)|	O|	본문 |
+|title|	String| 120 |	O|	제목|
+|body|	String| 4000|	O|	본문 |
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -1624,8 +1624,8 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-| title | String | 40 바이트(EUC-KR 기준) | O | 문자 제목 |
-| body | String | 2000 바이트(EUC-KR 기준) | O | 문자 내용 |
+| title | String | 120 | O | 문자 제목 |
+| body | String | 4000 | O | 문자 내용 |
 | sendNo | String | 13 | O | 발신 번호 |
 | requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 | templateId | String | 50 | X | 템플릿 ID |
