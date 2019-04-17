@@ -447,6 +447,7 @@ Content-Type: application/json;charset=UTF-8
 ## 장문 MMS
 
 ### 장문 MMS 발송(첨부 파일 미포함)
+※ MMS는 해외발송이 불가능합니다.
 
 #### 요청
 
@@ -497,7 +498,7 @@ Content-Type: application/json;charset=UTF-8
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
 |recipientList[].recipientNo| String| 20 |	O|	수신 번호<br/>countryCode와 조합하여 사용 가능|
-|recipientList[].countryCode| String| 8 |	X|	국가 번호 [기본값: 82(한국)] |
+|recipientList[].countryCode| String| 8 |	X|	국가 번호 [기본값: 82(한국)]<br/>MMS는 해외 발송 불가 |
 |recipientList[].internationalRecipientNo| String| 20 | X| 국가 번호가 포함된 수신 번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
 |recipientList[].templateParameter|	Object| - |	X|	템플릿 파라미터(템플릿 ID 입력 시)|
 |recipientList[].templateParameter.{key}|	String| - |	X|	치환 키(##key##)|
@@ -1393,6 +1394,8 @@ Content-Type: application/json;charset=UTF-8
 
 
 ### 광고성 MMS 발송
+※ MMS는 해외발송이 불가능합니다.
+
 [URL]
 
 ```
@@ -1580,6 +1583,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestId|	String|	요청 ID|
 
 ### 태그 LMS 발송
+※ LMS는 해외발송이 불가능합니다.
 
 #### 요청
 
