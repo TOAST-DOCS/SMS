@@ -1,23 +1,23 @@
-## Notification > SMS > API v2.0 가이드
+﻿## Notification > SMS > API v2.0ガイド
 
-## v2.0 API 소개
+## v2.0 APIの紹介
 
-### [API 도메인]
+### [APIドメイン]
 
-|환경|	도메인|
+|環境|	ドメイン|
 |---|---|
 |Real|	https://api-sms.cloud.toast.com|
 
-### [주의 사항]
-* SMS은 본문 길이 90byte이하의 단문메시지이며, MMS는 본문 길이 2,000byte이하, 제목 40byte 이하로 발송해야 합니다. 해당 byte 이상 발송 시, 내용이 잘려 나갈 수 있습니다.</br>
-* 본문과 제목은 euc-kr 기준으로 발송 됩니다. 따라서 euc-kr 인코딩이 지원하지 않는 이모티콘은 발송 실패 처리 됩니다.</br>
+### [注意事項]
+* SMSは、本文の長さが90byte以下の短文メッセージで、MMSは本文の長さが2,000byte以下、タイトル40byte以下で送信する必要があります。規定byte以上で送信すると、内容が途切れることがあります。</br>
+* 本文とタイトルはeuc-kr基準で送信されます。したがってeuc-krエンコードがサポートしていない顔文字は送信失敗処理されます。</br>
 
 
-## 단문 SMS
+## 短文SMS
 
-### 단문 SMS 발송
+### 短文SMSの送信
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -28,9 +28,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Request body]
 
@@ -52,22 +52,22 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|templateId|	String|	X|	발송 템플릿 아이디|
-|body|	String|	O|	본문 내용('EUC-KR' 기준으로 90 Byte 제한)|
-|sendNo|	String|	O|	발신번호|
-|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-|recipientList|	List|	O|	수신자 리스트(최대 1000명)|
-|- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
-|- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
-|- templateParameter|	Object|	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
-|-- #key#|	String|	X|	치환 키(##key##)|
-|-- #value#|	Object|	X|	치환 키에 매핑되는 Value값|
-|userId|	String|	X | 발송 구분자 ex)admin,system |
+|templateId|	String|	X|	送信テンプレートID|
+|body|	String|	O|	本文内容('EUC-KR'基準で90 Byte制限)|
+|sendNo|	String|	O|	発信番号|
+|requestDate| String| X | 予約日時(yyyy-MM-dd HH:mm)|
+|recipientList|	List|	O|	受信者リスト(最大1000人)|
+|- recipientNo|	String|	O|	受信番号<br/>countryCodeと組み合わせて使用可能|
+|- countryCode|	String|	X|	国番号[デフォルト値：82(韓国)] <br>(海外に送信時、euc-kr(ハングル、アルファベット)内容のみ可能です。) |
+|- internationalRecipientNo| String| X| 国番号を含む受信番号<br/>例)821012345678<br/>recipientNoがある場合、この値は無視されます。<br/>|
+|- templateParameter|	Object|	X|	テンプレートパラメータ(テンプレートID入力時)|
+|-- #key#|	String|	X|	置換キー(##key##)|
+|-- #value#|	Object|	X|	置換キーにマッピングされるValue値|
+|userId|	String|	X | 送信セパレータex)admin,system |
 
-#### 응답
+#### レスポンス
 
 ```
 {
@@ -92,22 +92,22 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	Object|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
-|-- statusCode|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
-|-- sendResultList|	List:Object|	발송 결과 리스트|
-|--- recipientNo| String | 수신번호|
-|--- resultCode| Integer | 결과코드|
-|--- resultMessage| String | 결과메시지|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	Object|	データ領域|
+|-- requestId|	String|	リクエストID|
+|-- statusCode|	String|	リクエストステータスコード(1：リクエスト中、2：リクエスト完了、3：リクエスト失敗)|
+|-- sendResultList|	List:Object|	送信結果リスト|
+|--- recipientNo| String | 受信番号|
+|--- resultCode| Integer | 結果コード|
+|--- resultMessage| String | 結果メッセージ|
 
-#### 단문 SMS 발송 예제(일반 국내 수신 번호)
+#### 短文SMSの送信例(一般国内受信番号)
 
 <table>
   <thead>
@@ -121,13 +121,13 @@ Content-Type: application/json;charset=UTF-8
   </tbody>
 </table>
 
-[Request body] 필수 값은 { }로 표시.
+[Request body]必須値は{ }で表示。
 ```
 {
-    "body": "{본문 내용}",
-    "sendNo": "{발신번호}",
+    "body": "{本文内容}",
+    "sendNo": "{発信番号}",
     "recipientList": [{
-        "recipientNo": "{수신번호}"
+        "recipientNo": "{受信番号}"
     }],
     "userId": ""
 }
@@ -147,7 +147,7 @@ Content-Type: application/json;charset=UTF-8
       "statusCode": "2",
       "sendResultList" : [
           {
-              "recipientNo" : {수신번호},
+              "recipientNo" : {受信番号},
               "resultCode" :  0,
               "resultMessage" : "SUCCESS"
           }
@@ -159,10 +159,10 @@ Content-Type: application/json;charset=UTF-8
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "{발신번호}","recipientList":[{"recipientNo": "{수신번호}"}],"userId": "{userId}"}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms -d '{"body": "{本文内容}","sendNo": "{発信番号}","recipientList":[{"recipientNo": "{受信番号}"}],"userId": "{userId}"}'
 ```
 
-#### 단문 SMS 발송 예제(국가 코드가 포함된 수신 번호)
+#### 短文SMS送信例(国コードが含まれている受信番号)
 
 <table>
   <thead>
@@ -177,18 +177,18 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 </table>
 
 
-[Request body] 필수 값은 { }로 표시.
+[Request body]必須値は{ }で表示。
 ```
 {
-    "body": "{본문 내용}",
-    "sendNo": "{발신번호}",
+    "body": "{本文内容}",
+    "sendNo": "{発信番号}",
     "recipientList": [
     {
-        "internationalRecipientNo": "{국가번호가 포함된 수신번호}"
+        "internationalRecipientNo": "{国番号を含む受信番号}"
     },
     {
-        "recipientNo":"{수신번호}",
-        "countryCode":"{국가번호}"
+        "recipientNo":"{受信番号}",
+        "countryCode":"{国番号}"
       }
     ],
     "userId": ""
@@ -209,7 +209,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
       "statusCode": "2",
       "sendResultList" : [
           {
-              "recipientNo" : {수신번호},
+              "recipientNo" : {受信番号},
               "resultCode" :  0,
               "resultMessage" : "SUCCESS"
           }
@@ -221,12 +221,12 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "{발신번호}","recipientList": [{"internationalRecipientNo": "{국가번호가 포함된 수신번호}"},{"recipientNo":"{수신번호}","countryCode":"{국가번호}"}],"userId": ""}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms -d '{"body": "{本文内容}","sendNo": "{発信番号}","recipientList": [{"internationalRecipientNo": "{国番号を含む受信番号}"},{"recipientNo":"{受信番号}","countryCode":"{国番号}"}],"userId": ""}'
 ```
 
-### 단문 SMS 발송리스트 조회
+### 短文SMS送信リストの照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -237,29 +237,29 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
-[Query parameter] 1번 or 2번 조건 필수
+[Query parameter] 1番or 2番の条件必須
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|requestId|	String|	조건 필수 (1번) |	요청 아이디|
-|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String|	옵션|	발신번호|
-|recipientNo|	String|	옵션|	수신번호|
-|templateId|	String|	옵션|	템플릿번호|
-|msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+|requestId|	String|	条件必須(1番) |	リクエストID|
+|startRequestDate|	String|	条件必須(2番) |	送信日時の開始値(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	条件必須(2番) |	送信日時の終了値(yyyy-MM-dd HH:mm:ss)|
+|startResultDate|	String|	オプション|	受信日時の開始値(yyyy-MM-dd HH:mm:ss)|
+|endResultDate|	String|	オプション|	受信日時の終了値(yyyy-MM-dd HH:mm:ss)|
+|sendNo|	String|	オプション|	発信番号|
+|recipientNo|	String|	オプション|	受信番号|
+|templateId|	String|	オプション|	テンプレート番号|
+|msgStatus|	String|	オプション|	メッセージステータスコード(1：リクエスト、2：処理中、3：成功)|
+|resultCode|	String|	オプション|	受信結果コード[[照会コード表](./error-code/#_2)]|
+|subResultCode|	String|	オプション|	受信結果詳細コード[[照会コード表](./error-code/#_3)]|
+|pageNum|	Integer|	オプション|	ページ番号(Default：1)|
+|pageSize|	Integer|	オプション|	照会件数(Default：15)|
 
-#### 응답
+#### レスポンス
 
 ```
 {
@@ -301,42 +301,42 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- pageNum|	Integer|	현재 페이지 번호|
-|- pageSize|	Integer|	조회된 데이터 건수|
-|- totalCount|	Integer|	총 데이터 건수|
-|- data|	List|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
-|-- requestDate|	String|	발신일시|
-|-- resultDate|	String|	수신일시|
-|-- templateId|	String|	템플릿아이디|
-|-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
-|-- categoryName|	String|	카테고리명|
-|-- body|	String|	본문내용|
-|-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가번호|
-|-- recipientNo|	String|	수신번호|
-|-- msgStatus|	String|	메시지 상태 코드|
-|-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|-- resultCodeName|	String|	수신 결과 코드명|
-|-- telecomCode|	Integer|	통신사코드|
-|-- telecomCodeName|	String|	통신사명|
-|-- excelSeq|	Integer|	엑셀 시퀀스 번호(엑셀로 발송한 경우 데이터 존재)|
-|-- mtPr|	Integer|	발송상세아이디(상세 조회 시 필수)|
-|-- sendType|	String|	발송 타입(0:SMS, 1:MMS, 2:Auth)|
-|-- userId|	String|	발송 요청 아이디|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- pageNum|	Integer|	現在のページ番号|
+|- pageSize|	Integer|	照会されたデータ件数|
+|- totalCount|	Integer|	総データ件数|
+|- data|	List|	データ領域|
+|-- requestId|	String|	リクエストID|
+|-- requestDate|	String|	発信日時|
+|-- resultDate|	String|	受信日時|
+|-- templateId|	String|	テンプレートID|
+|-- templateName|	String|	テンプレート名|
+|-- categoryId|	String|	カテゴリーID|
+|-- categoryName|	String|	カテゴリー名|
+|-- body|	String|	本文内容|
+|-- sendNo|	String|	発信番号|
+|-- countryCode|	String|	国番号|
+|-- recipientNo|	String|	受信番号|
+|-- msgStatus|	String|	メッセージステータスコード|
+|-- msgStatusName|	String|	メッセージステータスコード名|
+|-- resultCode|	String|	受信結果コード[[受信結果コード表](./error-code/#emma-v3)]|
+|-- resultCodeName|	String|	受信結果コード名|
+|-- telecomCode|	Integer|	サービスプロバイダーコード|
+|-- telecomCodeName|	String|	サービスプロバイダー名|
+|-- excelSeq|	Integer|	Excelシーケンス番号(Excelで送信した場合、データ存在)|
+|-- mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|-- sendType|	String|	送信タイプ(0：SMS、1：MMS、2：Auth)|
+|-- userId|	String|	送信リクエストID|
 
-### 단문 SMS 발송 단일 조회
+### 短文SMS送信の単一照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -347,18 +347,18 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
-|requestId|	String|	요청아이디|
+|appKey|	String|	固有のappKey|
+|requestId|	String|	リクエストID|
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|mtPr|	Integer|	필수|	발송상세아이디|
+|mtPr|	Integer|	必須|	送信詳細ID|
 
-#### 응답
+#### レスポンス
 
 ```
 {
@@ -397,41 +397,41 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	List|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
-|-- requestDate|	String|	발신일시|
-|-- resultDate|	String|	수신일시|
-|-- templateId|	String|	템플릿아이디|
-|-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
-|-- categoryName|	String|	카테고리명|
-|-- body|	String|	본문내용|
-|-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가번호|
-|-- recipientNo|	String|	수신번호|
-|-- msgStatus|	String|	메시지 상태 코드|
-|-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|-- resultCodeName|	String|	수신 결과 코드명|
-|-- telecomCode|	Integer|	통신사코드|
-|-- telecomCodeName|	String|	통신사명|
-|-- excelSeq|	Integer|	엑셀 시퀀스 번호(엑셀로 발송한 경우 데이터 존재)|
-|-- mtPr|	Integer|	발송상세아이디(상세 조회 시 필수)|
-|-- sendType|	String|	발송 타입(0:SMS, 1:MMS, 2:Auth)|
-|-- userId|	String|	발송 요청 아이디|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	List|	データ領域|
+|-- requestId|	String|	リクエストID|
+|-- requestDate|	String|	発信日時|
+|-- resultDate|	String|	受信日時|
+|-- templateId|	String|	テンプレートID|
+|-- templateName|	String|	テンプレート名|
+|-- categoryId|	String|	カテゴリーID|
+|-- categoryName|	String|	カテゴリー名|
+|-- body|	String|	本文内容|
+|-- sendNo|	String|	発信番号|
+|-- countryCode|	String|	国番号|
+|-- recipientNo|	String|	受信番号|
+|-- msgStatus|	String|	メッセージステータスコード|
+|-- msgStatusName|	String|	メッセージステータスコード名|
+|-- resultCode|	String|	受信結果コード[[受信結果コード表](./error-code/#emma-v3)]|
+|-- resultCodeName|	String|	受信結果コード名|
+|-- telecomCode|	Integer|	サービスプロバイダーコード|
+|-- telecomCodeName|	String|	サービスプロバイダー名|
+|-- excelSeq|	Integer|	Excelシーケンス番号(Excelで送信した場合、データ存在)|
+|-- mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|-- sendType|	String|	送信タイプ(0：SMS、1：MMS、2：Auth)|
+|-- userId|	String|	送信リクエストID|
 
-## 장문 MMS
+## 長文MMS
 
-### 장문 MMS 발송(첨부파일 미포함)
+### 長文MMSの送信(添付ファイルなし)
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -442,9 +442,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Request body]
 
@@ -466,24 +466,24 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|templateId|	String|	옵션|	발송 템플릿 아이디|
-|title|	String|	필수|	제목 <br/> ('EUC-KR' 기준으로 40Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
-|body|	String|	필수|	본문 <br/> ('EUC-KR' 기준으로 2000Byte 제한) <br/> (영문: 1byte, 한글: 2byte)|
-|sendNo|	String|	필수|	발신번호|
-|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-|attachFileIdList|	List:Integer|	옵션|	첨부파일 아이디 리스트|
-|recipientList|	List|	필수|	수신자 리스트(최대 1000명)|
-|- recipientNo|	String|	필수|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
-|- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
-|- templateParameter|	Object|	옵션|	템플릿 파라미터(템플릿 아이디 입력 시)|
-|-- #key#|	String|	옵션|	치환 키(##key##)|
-|-- #value#|	Object|	옵션|	치환 키에 매핑되는 Value값|
-|userId|	String|	옵션|	발송 구분자 ex)admin,system|
+|templateId|	String|	オプション|	送信テンプレートID|
+|title|	String|	必須|	タイトル <br/> ('EUC-KR'基準で40Byte制限) <br/> (アルファベット：1byte、ハングル：2byte)|
+|body|	String|	必須|	本文 <br/> ('EUC-KR'基準で2000Byte制限) <br/> (アルファベット：1byte、ハングル：2byte)|
+|sendNo|	String|	必須|	発信番号|
+|requestDate| String| X | 予約日時(yyyy-MM-dd HH:mm)|
+|attachFileIdList|	List:Integer|	オプション|	添付ファイルIDリスト|
+|recipientList|	List|	必須|	受信者リスト(最大1000人)|
+|- recipientNo|	String|	必須|	受信番号<br/>countryCodeと組み合わせて使用可能|
+|- countryCode|	String|	X|	国番号[デフォルト値：82(韓国)] <br>(海外に送信時、euc-kr(ハングル、アルファベット)内容のみ可能です。) |
+|- internationalRecipientNo| String| X| 国番号を含む受信番号<br/>例)821012345678<br/>recipientNoがある場合、この値は無視されます。<br/>|
+|- templateParameter|	Object|	オプション|	テンプレートパラメータ(テンプレートID入力時)|
+|-- #key#|	String|	オプション|	置換キー(##key##)|
+|-- #value#|	Object|	オプション|	置換キーにマッピングされるValue値|
+|userId|	String|	オプション|	送信セパレータex)admin,system|
 
-#### 응답
+#### レスポンス
 
 ```
 {
@@ -508,22 +508,22 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	Object|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
-|-- statusCode|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
-|-- sendResultList|	List:Object|	발송 결과 리스트|
-|--- recipientNo| String | 수신번호|
-|--- resultCode| Integer | 결과코드|
-|--- resultMessage| String | 결과메시지|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	Object|	データ領域|
+|-- requestId|	String|	リクエストID|
+|-- statusCode|	String|	リクエストステータスコード(1：リクエスト中、2：リクエスト完了、3：リクエスト失敗)|
+|-- sendResultList|	List:Object|	送信結果リスト|
+|--- recipientNo| String | 受信番号|
+|--- resultCode| Integer | 結果コード|
+|--- resultMessage| String | 結果メッセージ|
 
-#### 장문 MMS 발송 예제
+#### 長文MMSの送信例
 
 <table>
   <thead>
@@ -538,14 +538,14 @@ Content-Type: application/json;charset=UTF-8
 </table>
 
 
-[Request body] 필수 값은 { }로 표시.
+[Request body]必須値は{ }で表示。
 ```
 {
-    "title": "{제목}",
-    "body": "{본문 내용}",
-    "sendNo": "{발신번호}",
+    "title": "{タイトル}",
+    "body": "{本文内容}",
+    "sendNo": "{発信番号}",
     "recipientList": [{
-        "recipientNo": "{수신번호}",
+        "recipientNo": "{受信番号}",
         "templateParameter": { }
     }],
     "userId": ""
@@ -566,7 +566,7 @@ Content-Type: application/json;charset=UTF-8
       "statusCode": "2",
       "sendResultList" : [
           {
-              "recipientNo" : {수신번호},
+              "recipientNo" : {受信番号},
               "resultCode" :  0,
               "resultMessage" : "SUCCESS"
           }
@@ -578,14 +578,14 @@ Content-Type: application/json;charset=UTF-8
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/mms -d '{"title": "{제목}","body": "{본문 내용}","sendNo": "{발신번호}","recipientList": [{"recipientNo": "{수신번호}","templateParameter": { }}],"userId": ""}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/mms -d '{"title": "{タイトル}","body": "{本文内容}","sendNo": "{発信番号}","recipientList": [{"recipientNo": "{受信番号}","templateParameter": { }}],"userId": ""}'
 ```
 
-### 장문 MMS 발송(첨부파일 포함)
+### 長文MMSの送信(添付ファイル含む)
 
-#### 첨부파일 업로드
+#### 添付ファイルのアップロード
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -596,9 +596,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Request body]
 
@@ -610,18 +610,18 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|----|----|---|
-|fileName|	String|	필수|	45글자 이내<br/>파일이름(확장자 jpg,jpeg(소문자)만 가능)|
-|fileBody|	Byte[]|	필수|	파일의 Byte[] 값<br/>300K 이하|
-|createUser|	String|	필수|	파일 업로드 유저 정보|
+|fileName|	String|	必須|	45文字以内<br/>ファイル名(拡張子はjpg、jpeg(小文字)のみ可能)|
+|fileBody|	Byte[]|	必須|	ファイルのByte[]値<br/>300K以下|
+|createUser|	String|	必須|	ファイルアップロードユーザー情報|
 
-#### 응답
+#### レスポンス
 
 ```
 {
     "header": {
-        "isSuccessful": Boolean,
+        "isSuccessful": boolean,
         "resultCode": Integer,
         "resultMessage": String
     },
@@ -635,19 +635,19 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	Object|	데이터 영역|
-|-- fileId|	Integer|	파일아이디|
-|-- fileName|	String|	파일명|
-|-- filePath|	String|	첨부파일 기본Path <br/> (https://domain/attachFile/filePath/fileName)|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	Object|	データ領域|
+|-- fileId|	Integer|	ファイルID|
+|-- fileName|	String|	ファイル名|
+|-- filePath|	String|	添付ファイル基本Path <br/> (https://domain/attachFile/filePath/fileName)|
 
-#### 첨부파일 업로드 예제
+#### 添付ファイルのアップロード例
 
 <table>
   <thead>
@@ -665,9 +665,9 @@ Content-Type: application/json;charset=UTF-8
 [Request body]
 ```
 {
-  "fileName": "{파일 이름}",
-  "createUser": "{요청 아이디}",
-  "fileBody": "{파일 byte 값}"
+  "fileName": "{ファイル名}",
+  "createUser": "{リクエストID}",
+  "fileBody": "{ファイルbyte値}"
 }
 ```
 
@@ -689,7 +689,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-#### 첨부파일 발송 예제
+#### 添付ファイルの送信例
 
 <table>
   <thead>
@@ -704,17 +704,17 @@ Content-Type: application/json;charset=UTF-8
 </table>
 
 
-[Request body] 필수 값은 { }로 표시.
+[Request body]必須値は{ }で表示。
 ```
 {
-    "title": "{제목}",
-    "body": "{본문 내용}",
-    "sendNo": "{발신번호}",
+    "title": "{タイトル}",
+    "body": "{本文内容}",
+    "sendNo": "{発信番号}",
     "attachFileIdList": [
-        "{파일 업로드 후 response의 fileId}"
+        "{ファイルアップロード後のresponseのfileId}"
     ],
     "recipientList": [{
-        "recipientNo": "{수신번호}",
+        "recipientNo": "{受信番号}",
         "templateParameter": { }
     }],
     "userId": ""
@@ -735,7 +735,7 @@ Content-Type: application/json;charset=UTF-8
       "statusCode": "2",
       "sendResultList" : [
           {
-              "recipientNo" : {수신번호},
+              "recipientNo" : {受信番号},
               "resultCode" :  0,
               "resultMessage" : "SUCCESS"
           }
@@ -745,9 +745,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### 장문 MMS 발송리스트 조회
+### 長文MMS送信リストの照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -758,34 +758,34 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
-[Query parameter] 1번 or 2번 조건 필수
+[Query parameter] 1番or 2番の条件必須
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|requestId|	String|	조건 필수 (1번) |	요청 아이디|
-|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String|	옵션|	발신번호|
-|recipientNo|	String|	옵션|	수신번호|
-|templateId|	String|	옵션|	템플릿번호|
-|msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+|requestId|	String|	条件必須(1番) |	リクエストID|
+|startRequestDate|	String|	条件必須(2番) |	送信日時の開始値(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	条件必須(2番) |	送信日時の終了値(yyyy-MM-dd HH:mm:ss)|
+|startResultDate|	String|	オプション|	受信日時の開始値(yyyy-MM-dd HH:mm:ss)|
+|endResultDate|	String|	オプション|	受信日時の終了値(yyyy-MM-dd HH:mm:ss)|
+|sendNo|	String|	オプション|	発信番号|
+|recipientNo|	String|	オプション|	受信番号|
+|templateId|	String|	オプション|	テンプレート番号|
+|msgStatus|	String|	オプション|	メッセージステータスコード(1：リクエスト、2：処理中、3：成功)|
+|resultCode|	String|	オプション|	受信結果コード[[照会コード表](./error-code/#_2)]|
+|subResultCode|	String|	オプション|	受信結果詳細コード[[照会コード表](./error-code/#_3)]|
+|pageNum|	Integer|	オプション|	ページ番号(Default：1)|
+|pageSize|	Integer|	オプション|	照会件数(Default：15)|
 
-#### 응답
+#### レスポンス
 
 ```
 {
     "header": {
-        "isSuccessful": Boolean,
+        "isSuccessful": boolean,
         "resultCode": Integer,
         "resultMessage": String
     },
@@ -826,47 +826,47 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- pageNum|	Integer|	현재 페이지 번호|
-|- pageSize|	Integer|	조회된 데이터 건수|
-|- totalCount|	Integer|	총 데이터 건수|
-|- data|	List|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
-|-- requestDate|	String|	발신일시|
-|-- resultDate|	String|	수신일시|
-|-- templateId|	String|	템플릿아이디|
-|-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
-|-- categoryName|	String|	카테고리명|
-|-- title|	String|	제목|
-|-- body|	String|	본문내용|
-|-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가번호|
-|-- recipientNo|	String|	수신번호|
-|-- msgStatus|	String|	메시지 상태 코드|
-|-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|-- resultCodeName|	String|	수신 결과 코드명|
-|-- telecomCode|	Integer|	통신사코드|
-|-- telecomCodeName|	String|	통신사명|
-|-- excelSeq|	Integer|	엑셀 시퀀스 번호(엑셀로 발송한 경우 데이터 존재)|
-|-- mtPr|	Integer|	발송상세아이디(상세 조회 시 필수)|
-|-- sendType|	String|	발송 타입(0:SMS, 1:MMS, 2:Auth)|
-|-- userId|	String|	발송 요청 아이디|
-|-- serviceType| Integer| 발송 모듈 타입(0:SMS, 2:MMS, 3:LMS) |
-|-- attachFileList|	List|	첨부파일 리스트|
-|--- filePath|	String|	첨부파일 기본Path <br/> (https://domain/attachFile/filePath/fileName)|
-|--- filename|	String|	첨부파일명|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- pageNum|	Integer|	現在のページ番号|
+|- pageSize|	Integer|	照会されたデータ件数|
+|- totalCount|	Integer|	総データ件数|
+|- data|	List|	データ領域|
+|-- requestId|	String|	リクエストID|
+|-- requestDate|	String|	発信日時|
+|-- resultDate|	String|	受信日時|
+|-- templateId|	String|	テンプレートID|
+|-- templateName|	String|	テンプレート名|
+|-- categoryId|	String|	カテゴリーID|
+|-- categoryName|	String|	カテゴリー名|
+|-- title|	String|	タイトル|
+|-- body|	String|	本文内容|
+|-- sendNo|	String|	発信番号|
+|-- countryCode|	String|	国番号|
+|-- recipientNo|	String|	受信番号|
+|-- msgStatus|	String|	メッセージステータスコード|
+|-- msgStatusName|	String|	メッセージステータスコード名|
+|-- resultCode|	String|	受信結果コード[[受信結果コード表](./error-code/#emma-v3)]|
+|-- resultCodeName|	String|	受信結果コード名|
+|-- telecomCode|	Integer|	サービスプロバイダーコード|
+|-- telecomCodeName|	String|	サービスプロバイダー名|
+|-- excelSeq|	Integer|	Excelシーケンス番号(Excelで送信した場合、データ存在)|
+|-- mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|-- sendType|	String|	送信タイプ(0：SMS、1：MMS、2：Auth)|
+|-- userId|	String|	送信リクエストID|
+|-- serviceType| Integer| 送信モジュールタイプ(0：SMS、2：MMS、3：LMS) |
+|-- attachFileList|	List|	添付ファイルリスト|
+|--- filePath|	String|	添付ファイルの基本Path <br/> (https://domain/attachFile/filePath/fileName)|
+|--- filename|	String|	添付ファイル名|
 
-### 장문 MMS 발송 단일 조회
+### 長文MMS送信の単一照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -877,23 +877,23 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
-|requestId|	String|	요청아이디|
+|appKey|	String|	固有のappKey|
+|requestId|	String|	リクエストID|
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|mtPr|	Integer|	필수|	발송상세아이디|
+|mtPr|	Integer|	必須|	送信詳細ID|
 
-#### 응답
+#### レスポンス
 
 ```
 {
     "header": {
-        "isSuccessful": Boolean,
+        "isSuccessful": boolean,
         "resultCode": Integer,
         "resultMessage": String
     },
@@ -931,46 +931,46 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	List|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
-|-- requestDate|	String|	발신일시|
-|-- resultDate|	String|	수신일시|
-|-- templateId|	String|	템플릿아이디|
-|-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
-|-- categoryName|	String|	카테고리명|
-|-- title|	String|	제목|
-|-- body|	String|	본문내용|
-|-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가번호|
-|-- recipientNo|	String|	수신번호|
-|-- msgStatus|	String|	메시지 상태 코드|
-|-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|-- resultCodeName|	String|	수신 결과 코드명|
-|-- telecomCode|	Integer|	통신사코드|
-|-- telecomCodeName|	String|	통신사명|
-|-- excelSeq|	Integer|	엑셀 시퀀스 번호(엑셀로 발송한 경우 데이터 존재)|
-|-- mtPr|	Integer|	발송상세아이디(상세 조회 시 필수)|
-|-- sendType|	String|	발송 타입(0:SMS, 1:MMS, 2:Auth)|
-|-- userId|	String|	발송 요청 아이디|
-|-- serviceType| Integer| 발송 모듈 타입(0:SMS, 2:MMS, 3:LMS) |
-|-- attachFileList|	List|	첨부파일 리스트|
-|--- filePath|	String|	첨부파일 기본Path <br/> (https://domain/attachFile/filePath/fileName)|
-|--- filename|	String|	첨부파일명|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	List|	データ領域|
+|-- requestId|	String|	リクエストID|
+|-- requestDate|	String|	発信日時|
+|-- resultDate|	String|	受信日時|
+|-- templateId|	String|	テンプレートID|
+|-- templateName|	String|	テンプレート名|
+|-- categoryId|	String|	カテゴリーID|
+|-- categoryName|	String|	カテゴリー名|
+|-- title|	String|	タイトル|
+|-- body|	String|	本文内容|
+|-- sendNo|	String|	発信番号|
+|-- countryCode|	String|	国番号|
+|-- recipientNo|	String|	受信番号|
+|-- msgStatus|	String|	メッセージステータスコード|
+|-- msgStatusName|	String|	メッセージステータスコード名|
+|-- resultCode|	String|	受信結果コード[[受信結果コード表](./error-code/#emma-v3)]|
+|-- resultCodeName|	String|	受信結果コード名|
+|-- telecomCode|	Integer|	サービスプロバイダーコード|
+|-- telecomCodeName|	String|	サービスプロバイダー名|
+|-- excelSeq|	Integer|	Excelシーケンス番号(Excelで送信した場合、データ存在)|
+|-- mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|-- sendType|	String|	送信タイプ(0：SMS、1：MMS、2：Auth)|
+|-- userId|	String|	送信リクエストID|
+|-- serviceType| Integer| 送信モジュールタイプ(0：SMS、2：MMS、3：LMS) |
+|-- attachFileList|	List|	添付ファイルリスト|
+|--- filePath|	String|	添付ファイルの基本Path <br/> (https://domain/attachFile/filePath/fileName)|
+|--- filename|	String|	添付ファイル名|
 
-## 인증용 SMS(긴급)
+## 認証用SMS(緊急)
 
-### 인증용 SMS 발송
+### 認証用SMSの送信
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -981,9 +981,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Request body]
 
@@ -1005,23 +1005,23 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|templateId|	String|	X|	발송 템플릿 아이디|
-|body|	String|	O|	본문 내용('EUC-KR' 기준 90 Byte 제한)|
-|sendNo|	String|	O|	발신번호|
-|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-|recipientList|	List|	O|	수신자 리스트(최대 1000명)|
-|- recipientNo|	String|	O|	수신번호<br/>countryCode와 조합하여 사용 가능|
-|- countryCode|	String|	X|	국가번호 [기본값: 82(한국)] <br>(국제 발송 시, euc-kr(한글,영문) 내용만 가능합니다.) |
-|- internationalRecipientNo| String| X| 국가번호가 포함된 수신번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.|
-|- templateParameter|	Object|	X|	템플릿 파라미터(템플릿 아이디 입력 시)|
-|-- #key#|	String|	X|	치환 키(##key##)|
-|-- #value#|	Object|	X|	치환 키에 매핑되는 Value값|
-|userId|	String|	X |	발송 구분자 ex)admin,system|
+|templateId|	String|	X|	送信テンプレートID|
+|body|	String|	O|	本文内容('EUC-KR'基準90 Byte制限)|
+|sendNo|	String|	O|	発信番号|
+|requestDate| String| X | 予約日時(yyyy-MM-dd HH:mm)|
+|recipientList|	List|	O|	受信者リスト(最大1000人)|
+|- recipientNo|	String|	O|	受信番号<br/>countryCodeと組み合わせて使用可能|
+|- countryCode|	String|	X|	国番号[デフォルト値：82(韓国)] <br>(海外に送信時、euc-kr(ハングル、アルファベット)内容のみ可能です。) |
+|- internationalRecipientNo| String| X| 国番号を含む受信番号<br/>例)821012345678<br/>recipientNoがある場合、この値は無視されます。|
+|- templateParameter|	Object|	X|	テンプレートパラメータ(テンプレートID入力時)|
+|-- #key#|	String|	X|	置換キー(##key##)|
+|-- #value#|	Object|	X|	置換キーにマッピングされるValue値|
+|userId|	String|	X |	送信セパレータex)admin,system|
 
 
-#### 응답
+#### レスポンス
 ```
 {
     "header": {
@@ -1045,22 +1045,22 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	Object|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
-|-- statusCode|	String|	요청 상태 코드(1:요청중, 2:요청완료, 3:요청실패)|
-|-- sendResultList|	List:Object|	발송 결과 리스트|
-|--- recipientNo| String | 수신번호|
-|--- resultCode| Integer | 결과코드|
-|--- resultMessage| String | 결과메시지|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	Object|	データ領域|
+|-- requestId|	String|	リクエストID|
+|-- statusCode|	String|	リクエストステータスコード(1：リクエスト中、2：リクエスト完了、3：リクエスト失敗)|
+|-- sendResultList|	List:Object|	送信結果リスト|
+|--- recipientNo| String | 受信番号|
+|--- resultCode| Integer | 結果コード|
+|--- resultMessage| String | 結果メッセージ|
 
-#### 예제
+#### 例
 
 <table>
   <thead>
@@ -1075,13 +1075,13 @@ Content-Type: application/json;charset=UTF-8
 </table>
 
 
-[Request body] 필수 값은 { }로 표시.
+[Request body]必須値は{ }で表示。
 ```
 {
-    "body": "{본문 내용}",
-    "sendNo": "{발신번호}",
+    "body": "{本文内容}",
+    "sendNo": "{発信番号}",
     "recipientList": [{
-        "recipientNo": "{수신번호}",
+        "recipientNo": "{受信番号}",
         "templateParameter": { }
     }],
     "userId": ""
@@ -1114,12 +1114,12 @@ Content-Type: application/json;charset=UTF-8
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신번호}","recipientList":[{"recipientNo": "{수신번호}","templateParameter": { }}],"userId": ""}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/auth/sms -d '{"body": "{本文内容}","sendNo": "{発信番号}","recipientList":[{"recipientNo": "{受信番号}","templateParameter": { }}],"userId": ""}'
 ```
 
-### 인증용 SMS 발송리스트 조회
+### 認証用SMS送信リストの照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -1130,29 +1130,29 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|----|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
-[Query parameter] 1번 or 2번 조건 필수
+[Query parameter] 1番or 2番の条件必須
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|requestId|	String|	조건 필수 (1번) |	요청 아이디|
-|startRequestDate|	String|	조건 필수 (2번) |	발송 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	조건 필수 (2번) |	발송 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String|	옵션|	수신 날짜 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String|	옵션|	수신 날짜 종료 값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String|	옵션|	발신번호|
-|recipientNo|	String|	옵션|	수신번호|
-|templateId|	String|	옵션|	템플릿번호|
-|msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
-|resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+|requestId|	String|	条件必須(1番) |	リクエストID|
+|startRequestDate|	String|	条件必須(2番) |	送信日時の開始値(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	条件必須(2番) |	送信日時の終了値(yyyy-MM-dd HH:mm:ss)|
+|startResultDate|	String|	オプション|	受信日時の開始値(yyyy-MM-dd HH:mm:ss)|
+|endResultDate|	String|	オプション|	受信日時の終了値(yyyy-MM-dd HH:mm:ss)|
+|sendNo|	String|	オプション|	発信番号|
+|recipientNo|	String|	オプション|	受信番号|
+|templateId|	String|	オプション|	テンプレート番号|
+|msgStatus|	String|	オプション|	メッセージステータスコード(1：リクエスト、2：処理中、3：成功)|
+|resultCode|	String|	オプション|	受信結果コード[[照会コード表](./error-code/#_2)]|
+|subResultCode|	String|	オプション|	受信結果詳細コード[[照会コード表](./error-code/#_3)]|
+|pageNum|	Integer|	オプション|	ページ番号(Default：1)|
+|pageSize|	Integer|	オプション|	照会件数(Default：15)|
 
-#### 응답
+#### レスポンス
 
 ```
 {
@@ -1194,42 +1194,42 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- pageNum|	Integer|	현재 페이지 번호|
-|- pageSize|	Integer|	조회된 데이터 건수|
-|- totalCount|	Integer|	총 데이터 건수|
-|- data|	List|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
-|-- requestDate|	String|	발신일시|
-|-- resultDate|	String|	수신일시|
-|-- templateId|	String|	템플릿아이디|
-|-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
-|-- categoryName|	String|	카테고리명|
-|-- body|	String|	본문내용|
-|-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가번호|
-|-- recipientNo|	String|	수신번호|
-|-- msgStatus|	String|	메시지 상태 코드|
-|-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|-- resultCodeName|	String|	수신 결과 코드명|
-|-- telecomCode|	Integer|	통신사코드|
-|-- telecomCodeName|	String|	통신사명|
-|-- excelSeq|	Integer|	엑셀 시퀀스 번호(엑셀로 발송한 경우 데이터 존재)|
-|-- mtPr|	Integer|	발송상세아이디(상세 조회 시 필수)|
-|-- sendType|	String|	발송 타입(0:SMS, 1:MMS, 2:Auth)|
-|-- userId|	String|	발송 요청 아이디|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- pageNum|	Integer|	現在のページ番号|
+|- pageSize|	Integer|	照会されたデータ件数|
+|- totalCount|	Integer|	総データ件数|
+|- data|	List|	データ領域|
+|-- requestId|	String|	リクエストID|
+|-- requestDate|	String|	発信日時|
+|-- resultDate|	String|	受信日時|
+|-- templateId|	String|	テンプレートID|
+|-- templateName|	String|	テンプレート名|
+|-- categoryId|	String|	カテゴリーID|
+|-- categoryName|	String|	カテゴリー名|
+|-- body|	String|	本文内容|
+|-- sendNo|	String|	発信番号|
+|-- countryCode|	String|	国番号|
+|-- recipientNo|	String|	受信番号|
+|-- msgStatus|	String|	メッセージステータスコード|
+|-- msgStatusName|	String|	メッセージステータスコード名|
+|-- resultCode|	String|	受信結果コード[[受信結果コード表](./error-code/#emma-v3)]|
+|-- resultCodeName|	String|	受信結果コード名|
+|-- telecomCode|	Integer|	サービスプロバイダーコード|
+|-- telecomCodeName|	String|	サービスプロバイダー名|
+|-- excelSeq|	Integer|	Excelシーケンス番号(Excelで送信した場合、データ存在)|
+|-- mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|-- sendType|	String|	送信タイプ(0：SMS、1：MMS、2：Auth)|
+|-- userId|	String|	送信リクエストID|
 
-### 인증용 SMS 발송 단일 조회
+### 認証用SMS送信の単一照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -1240,18 +1240,18 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
-|requestId|	String|	요청아이디|
+|appKey|	String|	固有のappKey|
+|requestId|	String|	リクエストID|
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|----|---|---|
-|mtPr|	Integer|	필수|	발송상세아이디|
+|mtPr|	Integer|	必須|	送信詳細ID|
 
-#### 응답
+#### レスポンス
 
 ```
 {
@@ -1290,38 +1290,38 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	List|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
-|-- requestDate|	String|	발신일시|
-|-- resultDate|	String|	수신일시|
-|-- templateId|	String|	템플릿아이디|
-|-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
-|-- categoryName|	String|	카테고리명|
-|-- body|	String|	본문내용|
-|-- sendNo|	String|	발신번호|
-|-- countryCode|	String|	국가번호|
-|-- recipientNo|	String|	수신번호|
-|-- msgStatus|	String|	메시지 상태 코드|
-|-- msgStatusName|	String|	메시지 상태 코드명|
-|-- resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|-- resultCodeName|	String|	수신 결과 코드명|
-|-- telecomCode|	Integer|	통신사코드|
-|-- telecomCodeName|	String|	통신사명|
-|-- excelSeq|	Integer|	엑셀 시퀀스 번호(엑셀로 발송한 경우 데이터 존재)|
-|-- mtPr|	Integer|	발송상세아이디(상세 조회 시 필수)|
-|-- sendType|	String|	발송 타입(0:SMS, 1:MMS, 2:Auth)|
-|-- userId|	String|	발송 요청 아이디|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	List|	データ領域|
+|-- requestId|	String|	リクエストID|
+|-- requestDate|	String|	発信日時|
+|-- resultDate|	String|	受信日時|
+|-- templateId|	String|	テンプレートID|
+|-- templateName|	String|	テンプレート名|
+|-- categoryId|	String|	カテゴリーID|
+|-- categoryName|	String|	カテゴリー名|
+|-- body|	String|	本文内容|
+|-- sendNo|	String|	発信番号|
+|-- countryCode|	String|	国番号|
+|-- recipientNo|	String|	受信番号|
+|-- msgStatus|	String|	メッセージステータスコード|
+|-- msgStatusName|	String|	メッセージステータスコード名|
+|-- resultCode|	String|	受信結果コード[[受信結果コード表](./error-code/#emma-v3)]|
+|-- resultCodeName|	String|	受信結果コード名|
+|-- telecomCode|	Integer|	サービスプロバイダーコード|
+|-- telecomCodeName|	String|	サービスプロバイダー名|
+|-- excelSeq|	Integer|	Excelシーケンス番号(Excelで送信した場合、データ存在)|
+|-- mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|-- sendType|	String|	送信タイプ(0：SMS、1：MMS、2：Auth)|
+|-- userId|	String|	送信リクエストID|
 
-## 광고 문자
-### 광고성 SMS 발송
+## 広告文字
+### 広告性SMS送信
 [URL]
 
 ```
@@ -1331,24 +1331,24 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
-[Request Body]
-위에 SMS 발송과 동일.
-[[Request Body 참고](./api-guide/#sms_2)]
+[Request body]
+上のSMS送信と同じ。
+[[Request Body参考](./api-guide/#sms_2)]
 
-<span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
-080번호는 콘솔의 080수신거부 설정 탭에서 확인 가능합니다.
+<span style="color:red">ただし、本文に下記の文言を入れる必要があります。</span>
+080番号はコンソールの080受信拒否設定タブで確認可能です。
 ```
-(광고)
+(広告)
 
-[무료 수신거부]080XXXXXXX
+[無料受信拒否]080XXXXXXX
 ```
 
 
-### 광고성 MMS 발송
+### 広告性MMS送信
 [URL]
 
 ```
@@ -1358,30 +1358,30 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
-[Request Body]
-위에 MMS 발송과 동일.
-[[Request Body 참고](./api-guide/#mms_1)]
+[Request body]
+上のMMS送信と同じ。
+[[Request Body参考](./api-guide/#mms_1)]
 
-<span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
-080번호는 콘솔의 080수신거부 설정 탭에서 확인 가능합니다.
+<span style="color:red">ただし、本文に下記の文言を入れる必要があります。</span>
+080番号はコンソールの080受信拒否設定タブで確認可能です。
 ```
-(광고)
+(広告)
 
-[무료 수신거부]080XXXXXXX
+[無料受信拒否]080XXXXXXX
 ```
 
 
 
 
-## 태그 발송
+## タグ送信
 
-### 태그 SMS 발송
+### タグSMS送信
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -1392,15 +1392,15 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Request body]
 
 ```
 {
-    "body":"SMS내용",
+    "body":"SMS内容",
     "sendNo":"01012345678",
     "requestDate":"2018-03-22 10:00",
     "templateId":"TEMPLATE",
@@ -1418,20 +1418,20 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-| body | String | O | 문자 내용 |
-| sendNo | String | O | 발신번호 |
-|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-| templateId | String | X | 템플릿 아이디 |
-| templateParameter | Map<String, String> | X | 템플릿 파라미터 |
-| tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
-| userId | String | X | 요청한 유저의 아이디 |
-| adYn | String | X | 광고 여부(기본N) |
-| autoSendYn | String | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
+| body | String | O | 内容 |
+| sendNo | String | O | 発信番号 |
+|requestDate| String| X | 予約日時(yyyy-MM-dd HH:mm)|
+| templateId | String | X | テンプレートID |
+| templateParameter | Map<String, String> | X | テンプレートパラメータ |
+| tagExpression | List<String> | O | タグ表現式<br/>ex) ["tagA","AND","tabB"] |
+| userId | String | X | リクエストしたユーザーのID |
+| adYn | String | X | 広告かどうか(基本N) |
+| autoSendYn | String | X | 自動送信(即時送信)するかどうか(基本Y) |
 
 
-#### 응답
+#### レスポンス
 ```
 {
     "header" : {
@@ -1447,19 +1447,19 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	Object|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	Object|	データ領域|
+|-- requestId|	String|	リクエストID|
 
-### 태그 LMS 발송
+### タグLMS送信
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -1470,14 +1470,14 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Request body]
 ```
 {
-    "body":"SMS내용",
+    "body":"SMS内容",
     "sendNo":"01012345678",
     "requestDate":"2018-03-22 10:00",
     "templateId":"TEMPLATE",
@@ -1487,7 +1487,7 @@ Content-Type: application/json;charset=UTF-8
     "attachFileIdList" : [
      1,
      2,
-     3
+3
     ],
     "tagExpression":[
         "tag1",
@@ -1500,22 +1500,22 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-| title | String | O | 문자 제목 |
-| body | String | O | 문자 내용 |
-| sendNo | String | O | 발신번호 |
-|requestDate| String| X | 예약일시(yyyy-MM-dd HH:mm)|
-| templateId | String | X | 템플릿 아이디 |
-| templateParameter | Map<String, String> | X | 템플릿 파라미터 |
-| tagExpression | List<String> | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
-| attachFileIdList | List<Integer> | X | 첨부파일 아이디(fileId) |
-| userId | String | X | 요청한 유저의 아이디 |
-| adYn | String | X | 광고 여부(기본N) |
-| autoSendYn | String | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
+| title | String | O | タイトル |
+| body | String | O | 内容 |
+| sendNo | String | O | 発信番号 |
+|requestDate| String| X | 予約日時(yyyy-MM-dd HH:mm)|
+| templateId | String | X | テンプレートID |
+| templateParameter | Map<String, String> | X | テンプレートパラメータ |
+| tagExpression | List<String> | O | タグ表現式<br/>ex) ["tagA","AND","tabB"] |
+| attachFileIdList | List<Integer> | X | 添付ファイルID(fileId) |
+| userId | String | X | リクエストしたユーザーのID |
+| adYn | String | X | 広告かどうか(基本N) |
+| autoSendYn | String | X | 自動送信(即時送信)するかどうか(基本Y) |
 
 
-#### 응답
+#### レスポンス
 ```
 {
     "header" : {
@@ -1531,20 +1531,20 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	Object|	데이터 영역|
-|-- requestId|	String|	요청 아이디|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	Object|	データ領域|
+|-- requestId|	String|	リクエストID|
 
 
-### 태그 발송 리스트 조회
+### タグ送信リストの照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -1554,9 +1554,9 @@ GET /sms/v2.0/appKeys/{appKey}/tag-sender?sendType={sendType}&requestId={request
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Request body]
 
@@ -1564,20 +1564,20 @@ GET /sms/v2.0/appKeys/{appKey}/tag-sender?sendType={sendType}&requestId={request
 X
 ```
 
-* requestId 또는 startRequestDate + endRequestDate는 필수입니다.
+* requestIdまたはstartRequestDate + endRequestDateは必須です。
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-| appKey | String| O | 앱키 |
-| sendType | required, String | O | 발송 타입<br>SMS : "0",<br>MMS : "1" |
-| requestId | String | O | 요청 아이디 |
-| startRequestDate | String | O | 발송 날짜 시작 |
-| endRequestDate | String | O | 발송 날짜 종료 |
-| statusCode | String | X | 발송상태코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
-| pageNum | optional, Integer | X | 페이지 번호 |
-| pageSize | optional, Integer | X | 조회건수 |
+| appKey | String| O | アプリケーションキー |
+| sendType | required, String | O | 送信タイプ<br>SMS："0"、<br>MMS："1" |
+| requestId | String | O | リクエストID |
+| startRequestDate | String | O | 送信日開始 |
+| endRequestDate | String | O | 送信日終了 |
+| statusCode | String | X | 送信ステータスコード<br>WAIT："MAS00"<br>READY："MAS01"<br>SENDREADY："MAS09"<br>SENDWAIT："MAS10"<br>SENDING："MAS11"<br>COMPLETE："MAS19"<br>CANCEL："MAS91"<br>FAIL："MAS99" |
+| pageNum | optional, Integer | X | ページ番号 |
+| pageSize | optional, Integer | X | 照会件数 |
 
-#### 응답
+#### レスポンス
 ```
 {
     "header" : {
@@ -1594,7 +1594,7 @@ X
                 "requestIp": "127.0.0.1",
                 "sendType": "0",
                 "templateId": "TPL04",
-                "templateName": "치환테스트(SMS)",
+                "templateName": "置換テスト(SMS)",
                 "masterStatusCode": "READY",
                 "sendNo": "15883796",
                 "requestDate": "2017-12-20 14:15:58",
@@ -1602,7 +1602,7 @@ X
                     "Kb6BjCY1"
                 ],
                 "title": "",
-                "body": "SMS 발송 입니다##content##",
+                "body": "SMS送信です##content##",
                 "adYn": "N",
                 "autoSendYn": "Y",
                 "sendErrorCount": 0,
@@ -1616,36 +1616,36 @@ X
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	Object|	데이터 영역|
-|-- requestId | String | 요청 아이디 |
-|-- requestIp | String | 요청 아이피 |
-|-- requestDate | String | 요청 시간 |
-|-- tagSendStatus | String | 태그 발송 상태 |
-|-- tagExpression | List | 태그 표현식 |
-|-- templateId | String | 템플릿 아이디 |
-|-- templateName | String | 템플릿명 |
-|-- senderName | String | 발신자명 |
-|-- senderMail | String | 발신자주소 |
-|-- title | String | 제목 |
-|-- body | String | 내용 |
-|-- attachYn | String | 첨부파일여부 |
-|-- adYn | String | 광고여부 |
-|-- createUser | String | 생성자 |
-|-- createDate | String | 생성일시 |
-|-- updateUser | String | 수정자 |
-|-- updateDate | String | 수정일시 |
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	Object|	データ領域|
+|-- requestId | String | リクエストID |
+|-- requestIp | String | リクエストIP |
+|-- requestDate | String | リクエスト時間 |
+|-- tagSendStatus | String | タグ送信ステータス |
+|-- tagExpression | List | タグ表現式 |
+|-- templateId | String | テンプレートID |
+|-- templateName | String | テンプレート名 |
+|-- senderName | String | 発信者名 |
+|-- senderMail | String | 発信者アドレス |
+|-- title | String | タイトル |
+|-- body | String | 内容 |
+|-- attachYn | String | 添付ファイル有無 |
+|-- adYn | String | 広告かどうか |
+|-- createUser | String | 作成者 |
+|-- createDate | String | 作成日時 |
+|-- updateUser | String | 修正者 |
+|-- updateDate | String | 修正日時 |
 
 
-### 태그 발송 수신자 리스트 조회
+### タグ送信受信者リストの照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -1656,31 +1656,31 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
-| requestId | String | 요청 아이디 |
+|appKey|	String|	固有のappKey|
+| requestId | String | リクエストID |
 [Request body]
 
 ```
 X
 ```
 
-* requestId 또는 startRequestDate + endRequestDate는 필수입니다.
+* requestIdまたはstartRequestDate + endRequestDateは必須です。
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-| recipientNum | String | X | 수신자 번호 |
-| startRequestDate | String | O | 발송 요청 시작 날짜 |
-| endRequestDate | String | O | 발송 요청 종료 날짜 |
-| startResultDate | String | X | 수신 시작 날짜 |
+| recipientNum | String | X | 受信者番号 |
+| startRequestDate | String | O | 送信リクエスト開始日 |
+| endRequestDate | String | O | 送信リクエスト終了日 |
+| startResultDate | String | X | 受信開始日 |
 | endResultDate | | | |
 | msgStatusName | | | |
 | resultCode | | | |
 | pageNum | | | |
 | pageSize | | | |
 
-#### 응답
+#### レスポンス
 ```
 {
     "header" : {
@@ -1697,7 +1697,7 @@ X
                 "requestIp": "127.0.0.1",
                 "sendType": "0",
                 "templateId": "TPL04",
-                "templateName": "치환테스트(SMS)",
+                "templateName": "置換テスト(SMS)",
                 "masterStatusCode": "READY",
                 "sendNo": "15883796",
                 "requestDate": "2017-12-20 14:15:58",
@@ -1705,7 +1705,7 @@ X
                     "Kb6BjCY1"
                 ],
                 "title": "",
-                "body": "SMS 발송 입니다##content##",
+                "body": "SMS送信です##content##",
                 "adYn": "N",
                 "autoSendYn": "Y",
                 "sendErrorCount": 0,
@@ -1719,36 +1719,36 @@ X
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	Object|	데이터 영역|
-|-- requestId | String | 요청 아이디 |
-|-- requestIp | String | 요청 아이피 |
-| sendType | String | 발송 타입(0:SMS, 1:LMS/MMS)|
-| templateId | String | 템플릿 아이디 |
-| templateName | String | 템플릿명 |
-| masterStatusCode | String | 마스터 상태코드 |
-| sendNo | String | 발송번호 |
-| requestDate | String | 요청일시 |
-| tagExpression | List<String> | 태그 표현식 |
-| title | String | 제목 |
-| body | String | 본문 |
-| adYn | String | 광고여부 |
-| autoSendYn | String | 자동발송여부 |
-| sendErrorCount | Integer | 발송 에러 수 |
-| createUser | String | 생성자 |
-| createDate | String | 생성일시 |
-| updateUser | String | 수정자 |
-| updateDate | String | 수정일시 |
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	Object|	データ領域|
+|-- requestId | String | リクエストID |
+|-- requestIp | String | リクエストIP |
+| sendType | String | 送信タイプ(0：SMS、1：LMS/MMS)|
+| templateId | String | テンプレートID |
+| templateName | String | テンプレート名 |
+| masterStatusCode | String | マスターステータスコード |
+| sendNo | String | 送信番号 |
+| requestDate | String | リクエスト日時 |
+| tagExpression | List<String> | タグ表現式 |
+| title | String | タイトル |
+| body | String | 本文 |
+| adYn | String | 広告かどうか |
+| autoSendYn | String | 自動送信するかどうか |
+| sendErrorCount | Integer | 送信エラー数 |
+| createUser | String | 作成者 |
+| createDate | String | 作成日時 |
+| updateUser | String | 修正者 |
+| updateDate | String | 修正日時 |
 
-### 태그 발송 수신자 리스트 상세 조회
+### タグ送信受信者リストの詳細照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -1759,11 +1759,11 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
-| requestId | String | 요청 아이디 |
-| recipientSeq | String | 시퀀스 |
+|appKey|	String|	固有のappKey|
+| requestId | String | リクエストID |
+| recipientSeq | String | シーケンス |
 
 [Request body]
 
@@ -1771,7 +1771,7 @@ Content-Type: application/json;charset=UTF-8
 X
 ```
 
-#### 응답
+#### レスポンス
 ```
 {
     "header" : {
@@ -1786,11 +1786,11 @@ X
             "sendType": "0",
             "messageType": "SMS",
             "templateId": "TPL06",
-            "templateName": "치환테스트(MMS)",
+            "templateName": "置換テスト(MMS)",
             "sendNo": "15883796",
             "recipientNum": "01000000000",
-            "title": "제목입니다",
-            "body": "내용입니다",
+            "title": "タイトルです",
+            "body": "内容です",
             "requestDate": "2017-12-20 15:28:55.0",
             "msgStatusName": "READY",
             "msgStatus": "1",
@@ -1800,7 +1800,7 @@ X
                 {
                     "fileId": 58217,
                     "filePath": "10869/toast-mt-2017-07-28/1459/58217",
-                    "fileName": "스크린샷 2017-07-12 오전 10.00.12.jpg",
+                    "fileName": "スクリーンショット2017-07-12午前10.00.12.jpg",
                     "fileSize":null,
                     "createDate": "2017-07-28 14:59:31.0",
                     "updateDate": "2017-07-28 14:59:35.0"
@@ -1811,51 +1811,51 @@ X
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	Object|	데이터 영역|
-|-- requestId | String | 요청 아이디 |
-|-- recipientSeq | Integer | 요청 아이디 |
-|-- sendType | String | 발송 타입 |
-|-- messageType | String | 메세지 타입 |
-|-- templateId | String | 템플릿 아이디 |
-|-- templateName | String | 템플릿명 |
-|-- sendNo | String | 발신번호 |
-|-- title | String | 제목 |
-|-- body | String | 내용 |
-|-- recipientNum | String | 수신번호 |
-|-- requestDate | String | 요청일시 |
-|-- msgStatusName | String | 메시지상태이름 |
-|-- resultCode | String | 수신코드 |
-|-- receiveDate | String | 수신일시 |
-|-- attachFileList | List | 첨부파일 리스트 |
-|---- filePath | String | 첨부파일 - 경로 |
-|---- fileName | String | 첨부파일 - 파일명 |
-|---- fileSize | Long | 첨부파일 - 사이즈 |
-|---- fileSequence | Integer | 첨부파일 - 파일 번호 |
-|---- createDate | String | 첨부파일 - 생성일시 |
-|---- updateDate | String | 첨부파일 - 수정일시 |
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	Object|	データ領域|
+|-- requestId | String | リクエストID |
+|-- recipientSeq | Integer | リクエストID |
+|-- sendType | String | 送信タイプ |
+|-- messageType | String | メッセージタイプ |
+|-- templateId | String | テンプレートID |
+|-- templateName | String | テンプレート名 |
+|-- sendNo | String | 発信番号 |
+|-- title | String | タイトル |
+|-- body | String | 内容 |
+|-- recipientNum | String | 受信番号 |
+|-- requestDate | String | リクエスト日時 |
+|-- msgStatusName | String | メッセージステータス名 |
+|-- resultCode | String | 受信コード |
+|-- receiveDate | String | 受信日時 |
+|-- attachFileList | List | 添付ファイルリスト |
+|---- filePath | String | 添付ファイル - パス |
+|---- fileName | String | 添付ファイル - ファイル名 |
+|---- fileSize | Long | 添付ファイル - サイズ |
+|---- fileSequence | Integer | 添付ファイル - ファイル番号 |
+|---- createDate | String | 添付ファイル - 作成日時 |
+|---- updateDate | String | 添付ファイル - 修正日時 |
 
 
 
 
-## 템플릿
+## テンプレート
 
-### 템플릿 발송(본문 수정이 필요 없는 경우)
+### テンプレート送信(本文修正が必要ない場合)
 
-#### 예제
-![[그림 1] 템플릿 등록](http://static.toastoven.net/prod_sms/img_26.png)
+#### 例
+![[図1]テンプレートの登録](http://static.toastoven.net/prod_sms/img_26.png)
 
 <table>
   <thead>
     <tr>
       <th>Http method</th>
-      <th>종류</th>
+      <th>種類</th>
       <th colspan="3">URL</th>
     </tr>
   </thead>
@@ -1873,17 +1873,17 @@ X
   </tbody>
 </table>
 
-Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발송.
+Request URLは、テンプレート登録時に選択した送信タイプに選択して送信。
 
-** Request parameter body 안의 값이 공란이면 해당 templateId의 body 내용으로 치환. **
+**Request parameter body内の値が空欄の時は、該当templateIdのbody内容に置換。**
 
-[Request body] 치환하고자 하는 키와 값을 key,value로 대입.
+[Request body]置換するキーと値をkey、valueに代入。
 
 ```
 {
-    "templateId": "{템플릿 아이디}",
+    "templateId": "{テンプレートID}",
     "recipientList": [{
-        "recipientNo": "{수신번호}",
+        "recipientNo": "{受信番号}",
         "templateParameter": {
           "key1" : "Toast Cloud",
           "key2" : "SMS"
@@ -1910,17 +1910,17 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 }
 ```
 
-![[그림 2] 템플릿 발송 성공](http://static.toastoven.net/prod_sms/img_27.png)
+![[図2]テンプレート送信に成功](http://static.toastoven.net/prod_sms/img_27.png)
 
-### 템플릿 발송(본문 수정이 필요한 경우)
+### テンプレート送信(本文修正が必要な場合)
 
-#### 템플릿 발송 예제
+#### テンプレート送信例
 
 <table>
   <thead>
     <tr>
       <th>Http method</th>
-      <th>종류</th>
+      <th>種類</th>
       <th colspan="3">URL</th>
     </tr>
   </thead>
@@ -1939,23 +1939,23 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 </table>
 
 
-Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발송.
+Request URLは、テンプレート登録時に選択した送信タイプに選択して送信。
 
-** 템플릿 아이디와 Request parameter body 안의 값이 있을 경우, 발신번호와 발신 내용이 템플릿 내용으로 치환되지 않습니다. **
+**テンプレートIDとRequest parameter body内の値がある場合、発信番号と発信内容がテンプレート内容に置換されません。**
 
-단, 템플릿 아이디를 입력했을 경우, 해당 템플릿으로 조회가 가능합니다.
+ただし、テンプレートIDを入力した場合、該当テンプレートで照会が可能です。
 
-위와 같은 경우는 템플릿 조회를 한 뒤, 템플릿의 내용을 수정하고 싶을 경우 사용할 수 있습니다.
+上記のような場合は、テンプレート照会を行った後、テンプレートの内容を修正したい場合に使用できます。
 
 [Request body]
 
 ```
 {
-    "templateId": "{템플릿 아이디}",
-    "body": "{발신 내용}",
-    "sendNo": "{발신번호}",
+    "templateId": "{テンプレートID}",
+    "body": "{発信内容}",
+    "sendNo": "{発信番号}",
     "recipientList": [{
-        "recipientNo": "{수신번호}",
+        "recipientNo": "{受信番号}",
         "templateParameter": { }
     }],
     "userId": ""
@@ -1980,9 +1980,9 @@ Request URL은 템플릿 등록시 선택한 발송타입으로 선택하여 발
 ```
 
 
-### 템플릿 리스트 조회
+### テンプレートリストの照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -1993,26 +1993,26 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|categoryId|	Integer|	옵션|	카테고리 아이디|
-|useYn|	String|	옵션|	사용 여부(Y/N)|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
-|all|	Boolean|	옵션|	전체 조회 여부|
+|categoryId|	Integer|	オプション|	カテゴリーID|
+|useYn|	String|	オプション|	使用(Y/N)|
+|pageNum|	Integer|	オプション|	ページ番号(Default：1)|
+|pageSize|	Integer|	オプション|	照会件数(Default：15)|
+|all|	Boolean|	オプション|	全体照会するかどうか|
 
-#### 응답
+#### レスポンス
 
 ```
 {
     "header": {
-        "isSuccessful": Boolean,
+        "isSuccessful": boolean,
         "resultCode": Integer,
         "resultMessage": String
     },
@@ -2057,52 +2057,52 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- pageNum|	Integer|	현재 페이지 번호|
-|- pageSize|	Integer|	조회된 데이터 건수|
-|- totalCount|	Integer|	총 데이터 건수|
-|- data|	List|	데이터 영역|
-|-- templateId|	String|	템플릿 아이디|
-|-- serviceId|	Integer|	서비스 아이디(내부용, 미사용 값)|
-|-- categoryId|	Integer|	카테고리 아이디|
-|-- categoryName|	String|	카테고리명|
-|-- sort|	Integer|	정렬값|
-|-- templateName|	String|	템플릿명|
-|-- templateDesc|	String|	템플릿설명|
-|-- useYn|	String|	사용여부|
-|-- priority|	String|	우선순위값(미사용 값)|
-|-- sendNo|	String|	발신번호|
-|-- sendType|	String|	발송타입(0:Sms, 1:mms, 2:auth)|
-|-- sendTypeName|	String|	발송타입명|
-|-- title|	String|	제목|
-|-- body|	String|	본문내용|
-|-- attachFileYn|	String|	첨부파일여부(Y/N)|
-|-- delYn”|	String|	삭제여부(Y/N), 현재 상태 표기용으로만 사용|
-|-- createDate|	String|	등록날짜|
-|-- createUser|	String|	등록유저|
-|-- updateDate|	String|	수정날짜|
-|-- updateUser|	String|	수정유저|
-|-- attachFileList|	List|	첨부파일 리스트|
-|--- fileId|	Integer|	첨부파일 아이디|
-|--- serviceId|	Integer|	서비스 아이디(내부용, 미사용 값)|
-|--- attachType|	Integer|	첨부파일 업로드 타입(0:임시,1:업로드,2:템플릿)|
-|--- templateId|	String|	템플릿 아이디|
-|--- filePath|	String|	첨부파일 경로|
-|--- fileName|	String|	첨부파일명|
-|--- fileSize|  Integer| 파일 사이즈|
-|--- createDate|	String|	첨부파일 등록날짜|
-|--- createUser|	String|	첨부파일 등록유저|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- pageNum|	Integer|	現在のページ番号|
+|- pageSize|	Integer|	照会されたデータ件数|
+|- totalCount|	Integer|	総データ件数|
+|- data|	List|	データ領域|
+|-- templateId|	String|	テンプレートID|
+|-- serviceId|	Integer|	サービスID(内部用、未使用値)|
+|-- categoryId|	Integer|	カテゴリーID|
+|-- categoryName|	String|	カテゴリー名|
+|-- sort|	Integer|	ソート値|
+|-- templateName|	String|	テンプレート名|
+|-- templateDesc|	String|	テンプレートの説明|
+|-- useYn|	String|	使用するかどうか|
+|-- priority|	String|	優先順位値(未使用値)|
+|-- sendNo|	String|	発信番号|
+|-- sendType|	String|	送信タイプ(0：Sms、1：mms、2：auth)|
+|-- sendTypeName|	String|	送信タイプ名|
+|-- title|	String|	タイトル|
+|-- body|	String|	本文内容|
+|-- attachFileYn|	String|	添付ファイル有無(Y/N)|
+|-- delYn”|	String|	削除するかどうか(Y/N)、現在ステータス表記用にのみ使用|
+|-- createDate|	String|	登録日|
+|-- createUser|	String|	登録ユーザー|
+|-- updateDate|	String|	修正日|
+|-- updateUser|	String|	修正ユーザー|
+|-- attachFileList|	List|	添付ファイルリスト|
+|--- fileId|	Integer|	添付ファイルID|
+|--- serviceId|	Integer|	サービスID(内部用、未使用値)|
+|--- attachType|	Integer|	添付ファイルアップロードタイプ(0：臨時、1：アップロード、2：テンプレート)|
+|--- templateId|	String|	テンプレートID|
+|--- filePath|	String|	添付ファイルのパス|
+|--- filename|	String|	添付ファイル名|
+|--- fileSize|  Integer| ファイルサイズ|
+|--- createDate|	String|	添付ファイルの登録日|
+|--- createUser|	String|	添付ファイルの登録ユーザー|
 
 
-### 템플릿 단일 조회
+### テンプレートの単一照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -2113,17 +2113,17 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
-|templateId|	String|	템플릿 아이디|
+|appKey|	String|	固有のappKey|
+|templateId|	String|	テンプレートID|
 
-#### 응답
+#### レスポンス
 
 ```
 {
     "header": {
-        "isSuccessful": Boolean,
+        "isSuccessful": boolean,
         "resultCode": Integer,
         "resultMessage": String
     },
@@ -2165,50 +2165,50 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- data|	List|	데이터 영역|
-|-- templateId|	String|	템플릿 아이디|
-|-- serviceId|	Integer|	서비스 아이디(내부용, 미사용 값)|
-|-- categoryId|	Integer|	카테고리 아이디|
-|-- categoryName|	String|	카테고리명|
-|-- sort|	Integer|	정렬값|
-|-- templateName|	String|	템플릿명|
-|-- templateDesc|	String|	템플릿설명|
-|-- useYn|	String|	사용여부|
-|-- priority|	String|	우선순위값(미사용 값)|
-|-- sendNo|	String|	발신번호|
-|-- sendType|	String|	발송타입(0:Sms, 1:mms, 2:auth)|
-|-- sendTypeName|	String|	발송타입명|
-|-- title|	String|	제목|
-|-- body|	String|	본문내용|
-|-- attachFileYn|	String|	첨부파일여부(Y/N)|
-|-- delYn”|	String|	삭제여부(Y/N), 현재 상태 표기용으로만 사용|
-|-- createDate|	String|	등록날짜|
-|-- createUser|	String|	등록유저|
-|-- updateDate|	String|	수정날짜|
-|-- updateUser|	String|	수정유저|
-|-- attachFileList|	List|	첨부파일 리스트|
-|--- fileId|	Integer|	첨부파일 아이디|
-|--- serviceId|	Integer|	서비스 아이디(내부용, 미사용 값)|
-|--- attachType|	Integer|	첨부파일 업로드 타입(0:임시,1:업로드,2:템플릿)|
-|--- templateId|	String|	템플릿 아이디|
-|--- filePath|	String|	첨부파일 경로|
-|--- fileName|	String|	첨부파일명|
-|--- fileSize|  Integer| 파일 사이즈|
-|--- createDate|	String|	첨부파일 등록날짜|
-|--- createUser|	String|	첨부파일 등록유저|
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- data|	List|	データ領域|
+|-- templateId|	String|	テンプレートID|
+|-- serviceId|	Integer|	サービスID(内部用、未使用値)|
+|-- categoryId|	Integer|	カテゴリーID|
+|-- categoryName|	String|	カテゴリー名|
+|-- sort|	Integer|	ソート値|
+|-- templateName|	String|	テンプレート名|
+|-- templateDesc|	String|	テンプレートの説明|
+|-- useYn|	String|	使用するかどうか|
+|-- priority|	String|	優先順位値(未使用値)|
+|-- sendNo|	String|	発信番号|
+|-- sendType|	String|	送信タイプ(0：Sms、1：mms、2：auth)|
+|-- sendTypeName|	String|	送信タイプ名|
+|-- title|	String|	タイトル|
+|-- body|	String|	本文内容|
+|-- attachFileYn|	String|	添付ファイル有無(Y/N)|
+|-- delYn”|	String|	削除するかどうか(Y/N)、現在ステータス表記用にのみ使用|
+|-- createDate|	String|	登録日|
+|-- createUser|	String|	登録ユーザー|
+|-- updateDate|	String|	修正日|
+|-- updateUser|	String|	修正ユーザー|
+|-- attachFileList|	List|	添付ファイルリスト|
+|--- fileId|	Integer|	添付ファイルID|
+|--- serviceId|	Integer|	サービスID(内部用、未使用値)|
+|--- attachType|	Integer|	添付ファイルアップロードタイプ(0：臨時、1：アップロード、2：テンプレート)|
+|--- templateId|	String|	テンプレートID|
+|--- filePath|	String|	添付ファイルのパス|
+|--- filename|	String|	添付ファイル名|
+|--- fileSize|  Integer| ファイルサイズ|
+|--- createDate|	String|	添付ファイルの登録日|
+|--- createUser|	String|	添付ファイルの登録ユーザー|
 
-## 080 수신거부 서비스
+## 080受信拒否サービス
 
-### 수신거부 대상자 조회
+### 受信拒否対象者の照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -2219,21 +2219,21 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|unsubscribeNo|	String|	필수 |	080수신거부번호 |
-|startRequestDate|	String|	옵션 |	수신거부 요청 시작 값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String|	옵션 |	수신거부 요청 종료 값(yyyy-MM-dd HH:mm:ss)|
-|pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
-|pageSize|	Integer|	옵션|	조회 건수(Default : 15)|
+|unsubscribeNo|	String|	必須 |	080受信拒否番号 |
+|startRequestDate|	String|	オプション |	受信拒否リクエストの開始値(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String|	オプション |	受信拒否リクエストの終了値(yyyy-MM-dd HH:mm:ss)|
+|pageNum|	Integer|	オプション|	ページ番号(Default：1)|
+|pageSize|	Integer|	オプション|	照会件数(Default：15)|
 
-#### 응답
+#### レスポンス
 ```
 {
     "header": {
@@ -2256,9 +2256,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### 수신거부 대상자 삭제
+### 受信拒否対象者の削除
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -2269,19 +2269,19 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|unsubscribeNo|	String|	필수 |	080수신거부번호 |
-|updateUser|	String|	필수 |	수신거부 삭제자|
-|recipientNo|	String|	필수 |	삭제할 수신거부 번호|
+|unsubscribeNo|	String|	必須 |	080受信拒否番号 |
+|updateUser|	String|	必須 |	受信拒否削除者|
+|recipientNo|	String|	必須 |	削除する受信拒否番号|
 
-#### 응답
+#### レスポンス
 ```
 {
     "header": {
@@ -2293,11 +2293,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-## 발신 번호
+## 発信番号
 
-### 발신 번호 등록 요청
+### 発信番号登録リクエスト
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -2308,11 +2308,11 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
-[Request Body]
+[Request body]
 ```
 {
   "sendNos" : [
@@ -2327,7 +2327,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 
-#### 응답
+#### レスポンス
 ```
 {
   "header" : {
@@ -2338,9 +2338,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### 발신 번호 서류 업로드
+### 発信番号書類のアップロード
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -2351,16 +2351,16 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
-[Request Body]
+[Request body]
 
-|값|타입|설명|
+|値|タイプ|説明|
 |---|---|---|
-| attachFile | MultiPartFile | MultiPartFile로 받을 수 있는 파일 데이터 |
-#### 응답
+| attachFile | MultiPartFile | MultiPartFileで受け取れないファイルデータ |
+#### レスポンス
 ```
 {
   "header" : {
@@ -2374,9 +2374,9 @@ Content-Type: application/json;charset=UTF-8
   }
 ```
 
-### 발신번호 인증 요청 내역 조회 API
+### 発信番号認証リクエスト履歴の照会API
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -2386,17 +2386,17 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Query parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|status|	String|	서류 인증 상태<br/>- SRS01	발신번호 등록 요청<br/>- SRS02	심사중<br/>- SRS03	등록 완료<br/>- SRS04	등록 불가<br/>- SRS05	핸드폰 인증 대기<br/>- SRS06	핸드폰 인증 실패<br/>- SRS07	수동 등록 완료|
+|status|	String|	書類認証ステータス<br/>- SRS01	発信番号登録リクエスト<br/>- SRS02	審査中<br/>- SRS03	登録完了<br/>- SRS04	登録不可<br/>- SRS05	携帯電話認証の待機<br/>- SRS06	携帯電話認証の失敗<br/>- SRS07	手動登録の完了|
 
-#### 응답
+#### レスポンス
 ```
 {
   "header" : {
@@ -2420,9 +2420,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### 등록된 발신번호 리스트 조회 API
+### 登録された発信番号リストの照会API
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -2432,19 +2432,19 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Query parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-| sendNo | String | 발신 번호 |
-| useYn | String | 사용 여부 |
-| blockYn | String | 차단 여부 |
+| sendNo | String | 発信番号 |
+| useYn | String | 使用するかどうか |
+| blockYn | String | 遮断するかどうか |
 
-#### 응답
+#### レスポンス
 ```
 {
     "header" : {
@@ -2473,31 +2473,31 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|- isSuccessful|	Boolean|	성공여부|
-|- resultCode|	Integer|	실패 코드|
-|- resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|- pageNum|	Integer|	페이지 번호|
-|- pageSize|	Integer|	리스트 출력 사이즈|
-|- totalCount|	Integer|	총 데이터 수|
-|-- serviceId | Integer | 서비스 아이디 |
-|-- sendNo | String | 발신번호 |
-|-- useYn | String | 사용여부 |
-|-- blockYn | String | 차단여부 |
-|-- blockReason | String | 차단사유 |
-|-- createDate | String | 생성일시 |
-|-- createUser | String | 생성자 |
-|-- updateDate | String | 수정일시 |
-|-- updateUser | String | 수정자 |
+|header|	Object|	ヘッダ領域|
+|- isSuccessful|	Boolean|	成否|
+|- resultCode|	Integer|	失敗コード|
+|- resultMessage|	String|	失敗メッセージ|
+|body|	Object|	本文領域|
+|- pageNum|	Integer|	ページ番号|
+|- pageSize|	Integer|	リスト出力サイズ|
+|- totalCount|	Integer|	総データ数|
+|-- serviceId | Integer | サービスID |
+|-- sendNo | String | 発信番号 |
+|-- useYn | String | 使用するかどうか |
+|-- blockYn | String | 遮断するかどうか |
+|-- blockReason | String | 遮断理由 |
+|-- createDate | String | 作成日時 |
+|-- createUser | String | 作成者 |
+|-- updateDate | String | 修正日時 |
+|-- updateUser | String | 修正者 |
 
-## 통계 조회
+## 統計照会
 
-### 통합 통계 조회
+### 統合統計照会
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -2507,22 +2507,22 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 appKey|
+|appKey|	String|	固有のappKey|
 
 [Query parameter]
 
-|값|	타입|	필수 |설명|
+|値|	タイプ|	必須 |説明|
 |---|---|---|---|
-| searchType | String | O | 통계 구분<br/>DATE:날짜별, TIME:시간별, DAY:요일별 |
-| from | String | O | 통계 조회 시작 날짜<br/>yyyy-MM-dd HH:mm |
-| to | String | O | 통계 조회 종료 날짜<br/>yyyy-MM-dd HH:mm |
-| messageType | X | String | 메세지 타입<br/>SMS:단문, LMS:장문, MMS:첨부파일, AUTH:인증용 |
-| contentType | X | String | 컨텐츠 타입<br/>NORMAL:일반, AD:광고 |
-| templateId | X | String | 템플릿 아이디 |
+| searchType | String | O | 統計区分<br/>DATE：日付別、TIME：時間別、DAY：曜日別 |
+| from | String | O | 統計照会の開始日<br/>yyyy-MM-dd HH:mm |
+| to | String | O | 統計照会の終了日<br/>yyyy-MM-dd HH:mm |
+| messageType | X | String | メッセージタイプ<br/>SMS：短文、LMS：長文、MMS：添付ファイル、AUTH：認証用 |
+| contentType | X | String | コンテンツタイプ<br/>NORMAL：一般、AD：広告 |
+| templateId | X | String | テンプレートID |
 
-#### 응답
+#### レスポンス
 ```
 {
     "header" : {
@@ -2550,19 +2550,19 @@ Content-Type: application/json;charset=UTF-8
     }
 }
 ```
-|값| 타입|설명|
+|値| タイプ|説明|
 |---|---|---|
 | header | Object | |
-| - isSuccessful | Boolean | 성공여부 |
-| - resultCode | Integer | 결과코드 |
-| - resultMessage | String | 결과메세지 |
+| - isSuccessful | Boolean | 成否 |
+| - resultCode | Integer | 結果コード |
+| - resultMessage | String | 結果メッセージ |
 | body.data | List | |
-| - divisionName | String | 표시이름<br/>날짜,시간,요일 |
+| - divisionName | String | 表示名<br/>日付、時間、曜日 |
 | - statisticsView | Object | |
-| -- requestedCount | Integer | 요청 카운트 |
-| -- succeedCount | Integer | 성공 카운트 |
-| -- failedCount | Integer | 실패 카운트 |
-| -- pendingCount | Integer | 발송중 카운트 |
-| -- succeedRate | String | 성공 비율 |
-| -- failedRate | String | 실패 비율 |
-| -- pendingRate | String | 발송중 비율 |
+| -- requestedCount | Integer | リクエスト数 |
+| -- succeedCount | Integer | 成功数 |
+| -- failedCount | Integer | 失敗数 |
+| -- pendingCount | Integer | 送信中の数 |
+| -- succeedRate | String | 成功の比率 |
+| -- failedRate | String | 失敗の比率 |
+| -- pendingRate | String | 送信中の比率 |
