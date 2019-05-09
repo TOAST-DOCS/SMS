@@ -1,4 +1,4 @@
-﻿## Notification > SMS > コンソール使用ガイド
+## Notification > SMS > コンソール使用ガイド
 ## SMS送信
 
 ### 一般SMS送信

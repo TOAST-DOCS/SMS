@@ -1,4 +1,4 @@
-﻿## Notification > SMS > API v2.1ガイド
+## Notification > SMS > API v2.1ガイド
 
 ## v2.1 API紹介
 

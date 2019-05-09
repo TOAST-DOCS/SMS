@@ -1,4 +1,4 @@
-﻿## Notification > SMS > 概要
+## Notification > SMS > 概要
 SMS、LMS、MMS送信、送信予約機能、テンプレート管理、送信履歴の照会機能を備えたメッセージ送信システムです。
 簡単に連携するためのRESTful APIを提供します。
 
