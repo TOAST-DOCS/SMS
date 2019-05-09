@@ -1,5 +1,4 @@
 ## Notification > SMS > Service Policy
-
 ## 발신번호 변작 금지
 + SMS 서비스 이용 시 반드시 본인(또는 자사) 소유의 발신번호를 등록 후 사용해야 합니다.
 + 타인(또는 타사) 발신번호를 사용하는 경우 <a href="https://www.msit.go.kr/web/msipContents/contentsView.do?cateId=mssw352&artId=1259891

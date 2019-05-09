@@ -1,5 +1,4 @@
 ﻿## Notification > SMS > API v2.0ガイド
-
 ## v2.0 APIの紹介
 
 ### [APIドメイン]

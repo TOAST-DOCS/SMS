@@ -1,5 +1,4 @@
 ﻿## Notification > SMS > エラーコード
-
 ## APIレスポンスコード
 | service | isSuccess | resultCode | resultMessage |
 | - | - | - | - |
