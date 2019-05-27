@@ -1,60 +1,60 @@
-## Notification > SMS > 개요
+## Notification > SMS > Overview 
 
-SMS, LMS, MMS 발송, 발송 예약 기능, 템플릿 관리, 발송 내역 조회 기능을 제공하는 문자 메시지 발송 시스템입니다.
-손쉬운 연동을 위한 RESTful API를 제공합니다.
+The text message delivery system enables to send SMS, LMS, or MMS, schedule delivery, manage templates, and query history of deliveries. 
+RESTful API is provided for easy integration. 
 
-## 특징
+## Specifications 
 
-- SMS, LMS, MMS 발송을 제공합니다.
-- 대량 발송을 지원합니다.
-  - Excel 파일로 수신자 목록을 입력하고 대량으로 SMS를 발송할 수 있습니다.
-- 예약 발송
-  -	원하는 시간에 문자를 발송할 수 있습니다.
-- 치환 태그 제공
-  -	치환 태그를 이용하여 수신자별 개별화된 SMS 내용을 발송할 수 있습니다.
-- 템플릿 기능 제공
-  - 자주 사용하는 SMS는 템플릿으로 등록하여 사용할 수 있습니다.
+- Send SMS, LMS, and MMS. 
+- Support Mass Delivery 
+  - Enter the list of recipients in excel and send SMS in mass. 
+- Schedule Delivery 
+  -	Text messages at a time of choice. 
+- Provide Replacement Tags 
+  -	Send personalized SMS for each recipient by using replacement tags. 
+- Support Templates
+  - Register frequently-used SMS as templates. 
 
-## 주요 기능
+## Main Features 
 
-고객의 애플리케이션에서 사용할 수 있는 문자 메시지 발송과 조회 RESTful API를 제공합니다.
-SMS 발송, 발송 내역 조회, 템플릿 관리를 할 수 있는 UI를 제공합니다.
+RESTful API is provided to send and query text messages from client's applications.   
+UIs are supported to send SMS, query delivery history, and manage templates. 
 
 
-## 참고
+## Reference 
 
-### 태그와 UID
+### Tags and UIDs
 
-#### 서비스 용어
-| 용어           | 설명                                       |
-| ------------ | ---------------------------------------- |
-| 태그(tag)      | UID를 분류하는 체계. <br>UID에 여러 개의 태그를 붙여 사용자가 쉽게 UID 정보를 검색하고 사용할 수 있습니다. |
-| UID          | 사용자를 구분하는 ID(식별자). <br>하나의 UID에는 여러 개의 연락처를 등록하여 발송에 사용할 수 있습니다. |
-| 연락처(contact) | 연락을 하기 위해 정해둔 곳. <br>Notification에서는 Push, Email, SMS, 총 3개의 서비스에서 연락처를 등록할 수 있습니다. <br>Push는 토큰, Email은 메일 주소, SMS는 전화번호를 말합니다. |
+#### Glossary
+| Term    | Description                                                  |
+| ------- | ------------------------------------------------------------ |
+| Tag     | A system that classifies UIDs. <br>Many tags can be attached to an UID so as to help users to easily search and use UID information. |
+| UID     | ID (identifier) that classifies users. <br>One UID can have multiple contacts to be applied for delivery. |
+| Contact | A specified location to contact. <br>Notification provides three products to register contact: Push, Email, and SMS. <br>Push regards to tokens; Email to mail addresses; and, SMS to phone numbers. |
 
-#### 태그를 사용하여 발송
-수신자 정보인 전화번호 대신, 태그를 선택하여 문자를 발송할 수 있는 기능입니다.
+#### Use Tags to Send SMS 
+You can text by selecting tags, instead of phone numbers, as recipient information. 
 
-1. UID를 등록합니다.
+1. Register UID.
 
-* **UID 관리** 탭에서 UID와 한 개, 또는 여러 개의 전화번호를 등록합니다.
-* 자세한 내용은 [UID 관리](./console-guide/#uid)를 참고해 주세요.
+* Go to **Manage UIDs** and register UID and one or many phone numbers. 
+* For more details, see [Manage UIDs](./console-guide/#uid).
 
-2. 태그를 등록합니다.
+2. Register tags.
 
-* **태그 관리** 탭에서 태그를 등록합니다.
-* 자세한 내용은 [태그 관리](./console-guide/#_15)를 참고해 주세요.
+* Go to **Manage Tags** to register tags. 
+* For more details, see [Manage Tags](./console-guide/#_15).
 
-3. 태그에 UID를 등록합니다.
+3. Register UID to a tag. 
 
-* **태그 관리** 탭에서 등록한 태그에 UID를 등록합니다.
+* Go to **Manage Tags** to register UID to a registered tag. 
 
-4. 태그를 선택한 후 문자를 발송합니다.
+4. Select tags to send text messages. 
 
-* **일반 발송** 탭에서 메일 주소 대신 **태그 발송**을 선택하여 태그를 등록합니다.
-* 메일은 태그에 등록된 UID의 전화번호로 발송됩니다.
-* 자세한 내용은 [태그를 사용한 문자 발송](./console-guide/#_8)를 참고해 주세요.
+* Go to **Send General SMS** and select **Send Tags** instead of mail addresses, and register tags.
+* Mails are to be sent to phone numbers of UID which is registered to a tag. 
+* For more details, see [Send SMS using Tags](./console-guide/#_8).
 
-#### 다른 서비스의 태그 기능과의 관계
-* 만약 같은 프로젝트에서 Push 또는 SMS 서비스를 사용하고 있다면, Email에서 사용하고 있는 태그와 UID 정보를 재등록 없이 함께 사용할 수 있습니다.
-* 각 서비스의 콘솔을 통해 같은 UID에 다른 연락처 정보를 추가할 수 있습니다.
+#### Tags of Other Services 
+* You can share your tag and UI information of Email, with Push or SMS in a same project, with no need of re-registration. 
+* Other contacts can be added to a same UID of each product console. 
