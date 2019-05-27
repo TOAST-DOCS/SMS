@@ -1,339 +1,350 @@
-## Notification > SMS > 콘솔 사용 가이드
+## Notification > SMS > Console Guide
 
-## SMS 발송
+## Sending SMS  
 
-### 일반 SMS 발송
+### Send General SMS
 
-일반 SMS(Short Message Service) 발송 가이드입니다.
+Following is the guide to send Short Message Service (SMS). 
 
 ![sms_01_201812](https://static.toastoven.net/prod_sms/sms_01_201812.png)
 
-1. **발송 유형**을 SMS로 선택합니다.
-2. **발신 번호**를 선택합니다. (발신번호는 **발신 번호 관리** 탭에서 추가할 수 있습니다.)
-3. 발송하고 싶은 시간이 있다면 **예약 발송**란에 입력합니다.
-4. **메시지 내용**을 입력합니다.
-5. **수신자 정보**는 국내 번호 또는 국가 코드가 포함된 번호 모두 제공합니다.
-	- 예) 01012345678, 821012345678
-6. **보내기** 버튼을 클릭합니다.
+1. Select SMS for **Text Type**. 
+2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
+3. To choose time of delivery, specify it **Scheduled Delivery**.
+4. Fill in the **Body** of message.
+5. **Recipient Information** provides all numbers including domestic numbers or country code.
+	- e.g.) 01012345678, 821012345678
+6. Click **Send**.
 
-### 일반 LMS 발송
+### Send General LMS
 
-일반 LMS(Long Message Service) 발송 가이드입니다.
+Following is the guide to send general Long Message Service (LMS).
 
 ![sms_02_201812](https://static.toastoven.net/prod_sms/sms_02_201812.png)
 
-1. **발송 유형**을 MMS로 선택합니다.
-2. **발신 번호**를 선택합니다. (발신번호는 **발신 번호 관리 탭**에서 추가할 수 있습니다.)
-3. 발송하고 싶은 시간이 있다면 **예약 발송**란에 입력합니다.
-4. **메시지 내용**을 입력합니다.
-5. **수신자 정보**는 국내 번호 또는 국가 코드가 포함된 번호 모두 제공합니다.
-	- 예) 01012345678, 821012345678
-6. **보내기** 버튼을 클릭합니다.
+1. Select MMS for **Text Type**. 
+2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
+3. To choose time of delivery, specify it in **Scheduled Delivery**.
+4. Fill in the **Body** of message.
+5. **Recipient Information** provides all numbers including domestic numbers or country code. 
+	- e.g.) 01012345678, 821012345678
+6. Click **Send**.
 
-### MMS 발송(첨부 파일 발송)
+### Send MMS (Send Attachment)
 
-MMS(Multimedia Messaging Service) 발송 가이드입니다.
+Multimedia Messaging Service (MMS) can be sent as below:
 
 ![sms_03_201812](https://static.toastoven.net/prod_sms/sms_03_201812.png)
 
-1. **발송 유형**을 MMS로 선택합니다.
-2. **발신 번호**를 선택합니다. (발신번호는 **발신 번호 관리** 탭에서 추가할 수 있습니다.)
-3. 발송하고 싶은 시간이 있다면 **예약 발송**란에 입력합니다.
-4. **첨부 파일 업로드** 버튼을 클릭하여 첨부 파일을 업로드합니다.
-5. **메시지 내용**을 입력합니다.
-6. **수신자 정보**는 국내 번호 또는 국가 코드가 포함된 번호 모두 제공합니다.
-	- 예) 01012345678, 821012345678
-7. **보내기** 버튼을 클릭합니다.
+1. Select MMS for **Text Type**.
+2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
+3. To choose time of delivery, specify it in **Scheduled Delivery**.
+4. Click **Upload Attachment** and upload attached files. 
+5. Fill in the **Body** of message.
+6. **Recipient Information** provides all numbers including domestic numbers or country code.
+	- e.g.) 01012345678, 821012345678
+7. Click **Send**.
 
-### 템플릿 발송
+### Send Templates 
 
-사용자가 만들어 놓은 템플릿을 사용하여 발송할 수 있습니다.
+You can send messages on user-created templates.
 
 ![sms_04_201812](https://static.toastoven.net/prod_sms/sms_04_201812.png)
 
-1. **템플릿 사용 여부**를 사용으로 선택하고 **템플릿 선택** 창에서 원하는 템플릿을 선택합니다.
-2. **발신 번호**를 선택합니다. (발신번호는 **발신 번호 관리** 탭에서 추가할 수 있습니다.)
-3. 발송하고 싶은 시간이 있다면 **예약 발송**란에 입력합니다.
-4. **메시지 내용**을 입력합니다.
-5. **수신자 정보**는 국내 번호 또는 국가 코드가 포함된 번호 모두 제공합니다.
-	- 예) 01012345678, 821012345678
-6. **보내기** 버튼을 클릭합니다.
+1. Enable **Use Templates** and select a template from **Select Templates**.
+2. Select **Sender Numbers** (numbers can be added from **Sender Number Management**.)
+3. To choose time of delivery, specify in **Scheduled Delivery**.
+4. Fill in the **Body** of message. 
+5. **Recipient Information** provides all numbers including domestic numbers or country code. 
+  - e.g.) 01012345678, 821012345678
+6. Click **Send**.
 
-### 대량 발송
+### Send Mass Messages
 
-Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신번호로 SMS/MMS를 발송할 수 있는 기능입니다.
+You can send SMS/MMS to many numbers via template files in Excel/CSV.  
 
-#### 템플릿 파일
+#### Template Files 
 
-템플릿 파일은 **대량 발송** 탭 선택 후 **템플릿 다운로드** 버튼을 클릭하여 다운로드할 수 있습니다.
+To download template files, select **Mass Delivery** and click **Download Templates**. 
 
 ![sms_05_201812](https://static.toastoven.net/prod_sms/sms_05_201812.png)
 
-템플릿 파일은 CSV 파일과 Excel(xls, xlsx) 파일을 제공합니다.
-메시지 내용에 있는 치환 키에 따라 CSV 및 Excel 파일에 열이 자동으로 생성됩니다.
+Template files are available either in CSV or Excel (xlx, xlsx). 
+Rows are automatically created in files according to the replacement key in message. 
 
-다운로드한 템플릿에 수신자 번호와 치환 데이터를 입력합니다.
+Fill out recipient numbers and replacement data in the downloaded template. 
 
 ![sms_06_201812](https://static.toastoven.net/prod_sms/sms_06_201812.png)
 
-> [주의] 템플릿 치환 기능을 사용할 경우, 제목 또는 내용에 '##key##'와 같이 치환 키를 ##으로 묶어 입력해주세요.
+> [Caution] To enable template replacement, bind the replacement key with ##, like '##key##'.  
 
-수신번호는 '+', '-', 공백문자를 포함하여 입력할 수 있습니다.
+Recipient numbers can include '+', '-', or space characters.  
 
-#### 템플릿 파일 유효성 검사
+#### Validity Check for Template Files 
 
-파일 업로드 시 템플릿 파일의 데이터에 오류가 있는 경우 오류 내용이 표시됩니다. 오류는 총 오류 건수와 최대 10건의 오류 내용을 출력합니다.
+When a template file includes data error while uploaded, such errors, including the total number and no more than 10 errors, are displayed.  
 
-오류 종류
+Type of Errors 
 
-- recipient\_no 열이 존재하지 않는 경우: recipient\_no 열은 수신번호를 입력하는 열로 필수로 입력해야 합니다\.
-- 파일에 입력된 데이터가 없는 경우
-- 수신번호가 잘못된 포맷으로 입력된 경우
-- 수신번호 또는 치환 데이터 입력이 누락된 경우
+- When the recipient\_no row does not exist: The recipient\_no row, which is for recipient numbers, is a required row. 
+- When there is no data input in file 
+- When recipient numbers are entered in a wrong format  
+- When recipient numbers or replacement data are missing 
 
-#### 발송 예약 선택(확인 후 진행/즉시 발송)
+#### Select Scheduled Delivery (Deliver after Check/Immediate Delivery)
 
-발송 정보 입력과 대량 발송 파일을 업로드한 후에 발송을 진행하려면 **발송 예약** 버튼을 클릭합니다. 발송 예약 시 수신 대상 번호를 확인 후 진행하는 **확인 후 예약발송**과 **예약 발송**을 선택할 수 있습니다.
+To send after delivery information and mass delivery files are uploaded, click **Schedule Delivery**. To schedule delivery, you may select either **Deliver after Check** or **Scheduled Delivery**. 
 
-- 확인 후 예약발송: 수신번호와 발송 내용을 **대량 SMS 발송 조회** 탭에서 확인 후 발송을 진행할 수 있습니다. 확인 후 발송을 진행하지 않으면 발송이 진행되지 않으므로 유의해 주세요.
-- 예약 발송: 수신번호와 발송 내용을 확인하지 않고 발송을 진행합니다. 발송 결과는 **대량 SMS 발송 조회** 탭에서 확인할 수 있습니다.
+- Scheduled Delivery after Check: Check recipient numbers and message body to send, from the **Query Mass SMS Delivery** tab and then send. Otherwise, you cannot send messages. 
+- Scheduled Delivery: Send immediately, without checking recipient numbers and text messages. Find delivery results on the **Query Mass SMS Delivery** tab.   
 
-### 태그 발송
+### Send Tags
 
-태그의 조건에 맞는 UID로 발송할 수 있는 기능입니다.
+Send with UID according to tag conditions. 
 
 ![sms_07_201812](https://static.toastoven.net/prod_sms/sms_07_201812.png)
 
-태그 등록은 **태그 관리** 탭에서 가능하며, UID & 전화번호 저장은 **UID 관리** 탭에서 가능합니다.
+Tags can be registered on **Tag Management**, while UID and phone numbers can be saved on the **UID Management** tab.  
 
-## SMS 조회
+## Query of SMS 
 
-### SMS 요청별 조회
+### Query by SMS Request 
 
-각 항목을 조건으로 조회할 수 있습니다.
-(요청 아이디 또는 발신 일시는 필수 값입니다)
+Each item can be queried by conditions. 
+(request id or date and time of delivery are required). 
 
 ![sms_08_201812](https://static.toastoven.net/prod_sms/sms_08_201812.png)
 
-**요청 아이디** 또는 **수신번호** 클릭 시 상세 보기 팝업이 노출됩니다.
+Click **Request ID** or **Recipient Numbers** to show pop-up window for details. 
 
-### SMS 예약 발송 조회
+### Query Scheduled SMS Delivery 
 
-예약 발송된 목록들을 조회할 수 있습니다.
+You can query the list of scheduled delivery. 
 
 ![sms_09_201812](https://static.toastoven.net/prod_sms/sms_09_201812.png)
 
-예약 대기/발송 완료/발송 실패 모두 조회 가능하며, 발송 완료된 건들은 **SMS 요청별 조회** 탭에서 확인 가능합니다.
+Waiting for Schedule/Delivery Completed/Delivery Failed can be queried, and completed delivery can be found on **Query per SMS Request**. 
 
-### 대량 SMS 발송 조회
+### Query Mass SMS Delivery 
 
-- 조회: 상단의 조회 폼에서 대량 SMS 발송 예약 건을 조회할 수 있습니다. 조회 건의 리스트 행을 선택하면 하단의 조회 폼에서 수신번호와 발송 정보(발송 내용, 발송 결과)를 확인할 수 있습니다.
-- 발송/취소: 대량 업로드 발송 예약 시 수신 대상자 확인 후 예약발송을 선택한 경우, '발송 준비 완료' 상태의 예약 건을 선택 후 **발송/취소** 버튼을 클릭하여 발송하거나 취소할 수 있습니다. 예약 발송의 경우 자동으로 현재 시간에 발송 처리됩니다.
-- 발송 실패 확인: 진행 상태가 '발송 완료' 상태인 예약 건에서 일부 발송 요청이 실패한 건은 발송 실패 건수를 확인할 수 있습니다. **실패 건수** 버튼을 클릭하면 실패된 수신번호와 발송 내용을 보여줍니다.
+- Query: You can query mass SMS delivery schedule in the above format. Select a column on the list of query, and check recipient numbers and delivery information (e.g. body and result of delivery). 
+- Send/Cancel: To schedule delivery of mass upload, check recipients and select scheduled delivery; then, select a schedule which is 'ready for delivery', and click **Send/Cancel** to deliver or cancel delivery.  For scheduled delivery, messages are automatically sent as of the current time. 
+- Check Failed Delivery: If delivery request fails while the progress status is 'Delivery Completed', the number of failure can be found. Click **Failure Cases** to check failed recipient numbers and messages. 
 
 ![sms_10_201812](https://static.toastoven.net/prod_sms/sms_10_201812.png)
 
-#### 대량 SMS 발송 진행 상태
+#### Delivery Status of Mass SMS  
 
-- 대기: 템플릿 파일 데이터를 읽는 작업을 진행하기 전 상태입니다.
-- 발송 준비: 템플릿 파일 데이터를 로드 중인 상태입니다.
-- 발송 준비 완료: 템플릿 파일 데이터를 모두 로드하여 SMS 발송 준비가 완료된 상태입니다. 예약 건(리스트의 행)을 선택하면 하단의 리스트에서 수신번호와 발송 내용을 확인할 수 있습니다.
-- 발송 대기: SMS 발송 작업을 진행하기 전 상태입니다.
-- 발송 중: SMS 발송이 진행 중인 상태입니다. 예약 건(리스트의 행)을 선택하면 발송 진행률을 확인할 수 있습니다.
-- 발송 완료: SMS 발송 요청이 정상적으로 완료된 상태입니다.
-- 발송 실패: 발송 진행 중 발송 오류가 발생한 경우입니다.
-- 발송 취소: 사용자가 발송을 취소한 상태입니다.
+- Waiting: Template file data are yet to be read.
+- Preparing: Loading template file data.
+- Ready: All template file data are loaded and SMS delivery is ready. Select a schedule (column on the list) and you can find recipient numbers and delivery information. 
+- Waiting for Delivery: SMS delivery is yet to be processed. 
+- Delivering: SMS delivery is currently underway. Select a schedule (column on the list) to check the delivery progress rate. 
+- Delivery Completed: Request for SMS delivery has been properly completed.
+- Delivery Failed: Error occurred during delivery.
+- Delivery Canceled: User has canceled delivery. 
 
-#### 수신자 별 SMS 발송 조회
+#### Query SMS Delivery per Recipient 
 
-대량 SMS 발송 예약 건(리스트의 행)을 선택하시면 하단의 리스트에서 수신번호별 SMS 발송 내용과 발송 결과를 조회할 수 있습니다.
+Select a schedule of mass SMS delivery (column on the list) to check delivery information of each recipient number and the result. 
 
 ![sms_11_201812](https://static.toastoven.net/prod_sms/sms_11_201812.png)
 
-상세한 발송 내용을 보려면 **상세 보기** 버튼을 클릭하면 상세 내용을 확인할 수 있습니다.
+To find more details of delivery, click **View Details**. 
 
 ![sms_12_201812](https://static.toastoven.net/prod_sms/sms_12_201812.png)
 
-성공적으로 치환된 데이터를 확인할 수 있습니다.
+You can find successfully replaced data. 
 
-### 태그 SMS 발송 조회
+### Query Tagged SMS Delivery 
 
-#### 발송 요청별 조회
+#### Query by Delivery Request 
 
-태그 발송 요청 건들을 조회할 수 있습니다. 클릭 시 하단에 수신자별 조회에서 각 수신자별 조회가 가능합니다.
+You can query requests for tag delivery. Click to query each recipient as below.  
 
 ![sms_13_201812](https://static.toastoven.net/prod_sms/sms_13_201812.png)
 
-#### 수신자별 조회
+#### Query by Recipient 
 
-하나의 요청에서 발송한 수신자 리스트를 조회할 수 있습니다.
+You can query the list of recipients sent from one request. 
 
 ![sms_14_201812](https://static.toastoven.net/prod_sms/sms_14_201812.png)
 
-상세한 발송 내용을 보려면 **상세 보기** 버튼을 클릭하면 상세 내용을 확인할 수 있습니다.
+Click **View Details** to see delivery details. 
 
 ![sms_15_201812](https://static.toastoven.net/prod_sms/sms_15_201812.png)
 
-## 템플릿 관리
+## Template Management 
 
-### 카테고리 추가
+### Add Categories 
 
-**카테고리 추가** 버튼 클릭 시 카테고리 추가가 가능합니다.
+Click **Add Categories** to add categories. 
 
 ![sms_16_201812](https://static.toastoven.net/prod_sms/sms_16_201812.png)
 
 ![sms_17_201812](https://static.toastoven.net/prod_sms/sms_17_201812.png)
 
-반드시 카테고리를 선택한 상태에서 **카테고리 추가** 버튼을 클릭해야 합니다.
+Make sure to click **Add Categories** while a category is selected. 
 
-### 카테고리 수정
+### Modify Categories 
 
-**카테고리 수정** 버튼을 클릭 시 카테고리 수정이 가능합니다.
+Click **Modify Categories** to modify categories.  
 
 ![sms_18_201812](https://static.toastoven.net/prod_sms/sms_18_201812.png)
 
-반드시 카테고리를 선택한 상태에서 **카테고리 수정** 버튼을 클릭해야 합니다.
+Make sure to click **Modify Categories** while a category is selected. 
 
-### 템플릿 추가
+### Add Templates
 
-**템플릿 추가** 버튼 클릭 시 템플릿 추가가 가능합니다.
+Click **Add Templates** to add templates. 
 
 ![sms_19_201812](https://static.toastoven.net/prod_sms/sms_19_201812.png)
 
-반드시 카테고리를 선택한 상태에서 **템플릿 추가** 버튼을 클릭해야 합니다.
+Make sure to click **Add Templates** while a category is selected. 
 
-### 템플릿 수정
+### Modify Templates 
 
-템플릿을 선택하여 수정이 가능합니다.
+Select a template to modify. 
 
 ![sms_20_201812](https://static.toastoven.net/prod_sms/sms_20_201812.png)
 
-## 태그 관리
+## Tag Management
 
-등록된 UID에 태그를 붙이거나 삭제할 수 있는 페이지입니다.
+Tags can be added or deleted for a registered UID. 
 
 ![sms_21_201812](https://static.toastoven.net/prod_sms/sms_21_201812.png)
 
-## UID 관리
+## UID Management 
 
-UID 및 휴대폰 번호를 등록하고 삭제할 수 있습니다.
+UIDs and mobile phone numbers can be registered or deleted. 
 
 ![sms_22_201812](https://static.toastoven.net/prod_sms/sms_22_201812.png)
 
-**UID 등록** 버튼을 클릭합니다.
+Click **Register UIDs**. 
 
 ![sms_23_201812](https://static.toastoven.net/prod_sms/sms_23_201812.png)
 
-CSV 형식의 템플릿으로 대량의 UID를 추가할 수 있습니다.
+Mass UIDs can be added in the CSV template. 
 
-템플릿 작성 후 업로드 시 확인된 번호 개수를 확인할 수 있습니다.
+Find the number counts while uploading a template which is created. 
 
 ![sms_24_201812](https://static.toastoven.net/prod_sms/sms_24_201812.png)
 
-## 발신 번호 관리
+## Sender Number Management 
 
-### 발신 번호 등록 형식
+### Registration Format for Sender Numbers
 
 ```
-* 유선전화번호 : 02-YYY-YYYY (지역번호 포함하여 등록)
-* 이동통신 전화번호 : 010-ABYY-YYYY
-* 대표 전화번호 : 15YY, 16YY, 18YY(번호 앞에 지역번호 사용 금지)
-* 공통서비스 식별 번호 : 0N0 계열(번호 앞에 지역번호 사용 금지)
-* 최소 8자리 ~ 최대 11자리까지의 발신번호 입력 가능
-* 존재하지 않는 번호 대역으로 메시지 전송 불가(예:070-0YYY, 070-1YYY, 010-0YYY, 010-1YYY)
+* Fixed phone number: 02-YYY-YYYY (including area code)
+* Mobile phone number: 010-ABYY-YYYY
+* Official phone number: 15YY, 16YY, 18YY (area code prohibited ahead of the number)
+* Common service identification number: 0N0 (area code prohibited ahead of the number)
+* Sender numbers are available between 8 and 11 characters 
+* Unavailable to send messaged from invalid number bandwidth (e.g.:070-0YYY, 070-1YYY, 010-0YYY, 010-1YYY)
 ```
 
-#### ※ 참고
+#### ※ For reference
 
-- 휴대폰 번호 중 통신사 부가 서비스인 '발신번호 도용 차단 서비스'에 가입되어 있는 번호로는 메시지가 전송되지 않음.(웹/시스템 문자 전송)
+- Numbers that are subscribed to 'Blocking Sender Number Abuses' as part of additional telecom services, do not receive messages (web/system text delivery).  
 
-### 발신 번호 등록 방법
+### Registering Sender Numbers
 
-### 인증 타입 선택
+### Select Authentication Type
 
-1. 휴대폰 인증
-![sms_26_201812](https://static.toastoven.net/prod_sms/sms_26_201812.png)
-![sms_27_201812](https://static.toastoven.net/prod_sms/sms_27_201812.png)
+1. Authentication on Mobile Phone 
+  ![sms_26_201812](https://static.toastoven.net/prod_sms/sms_26_201812.png)
+  ![sms_27_201812](https://static.toastoven.net/prod_sms/sms_27_201812.png)
+  -  After authentication is completed, check sender number registration from **Status of Sender Number Screening**.   
+  - Enter personal information and execute authentication. 
+  - To send messages on your own mobile phone, **Authenticate on Mobile Phone** to immediately register sender numbers.  
 
-	- 인증 완료 후 발신번호 등록 내용을 하단 **발신번호 심사 현황** 패널에서 확인합니다.
-	- 개인 정보를 입력 후 인증 절차를 수행합니다.
-	- 본인 명의로 등록된 휴대폰으로 발신하고자 할 때에는 **휴대폰 인증**으로 즉시 발신번호를 등록할 수 있습니다.
-
-2. 서류 인증
-![sms_28_201812](https://static.toastoven.net/prod_sms/sms_28_201812.png)
-![sms_29_201812](https://static.toastoven.net/prod_sms/sms_29_201812.png)
-	- 인증 완료 후 발신번호 등록 내용을 하단 **발신번호 심사 현황** 패널에서 확인합니다.
-	- 인증에 필요한 서류를 업로드합니다.
-	- 통신서비스 이용증명원 서류로 인증받은 전화번호로 발신하고자 할 때에는 **서류인증**으로 발신번호를 등록할 수 있습니다.
-	- 발신번호를 입력하고 Enter 키를 눌러 한 개 이상의 번호를 등록할 수 있습니다.
+2. Authenticate by Documents
+  ![sms_28_201812](https://static.toastoven.net/prod_sms/sms_28_201812.png)
+  ![sms_29_201812](https://static.toastoven.net/prod_sms/sms_29_201812.png)
+  - After authentication is completed, check sender number registration in **Sender Number Evaluation Status**. 
+  - Upload required documents for authentication. 
+  - To make calls to phone numbers authenticated on documents by telecom service providers, register numbers by **Document Authentication**. 
+  - Enter sender number and press Enter to register more than one number. 
 
 
-정상적으로 등록을 완료한 발신번호는 **발신번호 조회** 화면에서 확인할 수 있습니다.
+Sender numbers that are properly registered can be found on the **Query Sender Numbers** page. 
 
 ![sms_31_201812](https://static.toastoven.net/prod_sms/sms_31_201812.png)
 
-## 080 수신거부 설정
+## Setting for Rejection of Receiving 080 Numbers 
 
-080 수신거부 서비스는 광고 문자 발송 시, 수신자에게 수신거부를 제공하는 서비스입니다.
-광고성 정보 전송 시, 수신자가 수신거부나 수신 동의의 철회를 무료로 할 수 있도록 <span style="color:red">무료 수신거부 방법을 반드시 기재</span>해야 합니다.
+The rejection of receiving 080 numbers service allows recipients to reject receiving of ad messages. 
+Advertisement messages<span style="color:red"> must include how to reject receiving charge-free </span> for recipients to reject or withdraw consent of receiving.   
 
-### 가입
+### Subscription
 
-**080 수신 거부 설정** 탭으로 이동하면 가입 화면을 확인할 수 있습니다.
-**080 수신 거부 번호 추가 신청** 버튼을 누르면 업체명을 입력할 수 있습니다.
+Go to **Setting for rejection of receiving 080 numbers** to find the subscription page. 
+Click **Add 080 Numbers to Reject Receiving** to enter business names. 
 
-* 입력하는 업체명은 080 수신거부 번호로 전화를 걸 때, 안내되는 업체명입니다.
+* Business names refer to such businesses which are guided when you make calls via 080 numbers rejected of receiving.   
 
 ![sms_33_201812](https://static.toastoven.net/prod_sms/sms_33_201812.png)
 
-### 등록 예약
+### Registration Scheduled
 
-가입 신청을 완료하면 등록 예약 상태로 변경됩니다.
-080 수신거부 서비스 개통은 영업일 기준 3~4일이 소요되고, 개통이 완료되면 사용할 수 있습니다.
+When subscription is fully applied, the status is changed to Registration Scheduled.  It takes 3 to 4 business days to open the rejection of receiving 080-number service, and the service is enabled after opening. 
 
-### 등록 완료
+### Registration Completed
 
-개통이 완료되면, 사용 시작 일시와 상태를 확인할 수 있습니다.
-**080 수신거부 서비스 등록 예약, 사용 중 상태에서 SMS 상품 이용 종료를 할 수 없습니다.** 해지 후, 상품 이용 종료가 가능합니다.
-해지를 원하시면 **해지** 버튼을 누르면 해지됩니다.
+When the service is completely open, you can find the start date and status of service.  
+**While the rejection of 080-number is scheduled for registration or in service, SMS Service cannot be closed.** Service can be closed only after it is canceled.  
+To cancel the service, press **Cancel Service**. 
 
-### 광고성 문자 발송
+### Send Ad Messages 
 
-1. 080 수신거부 서비스 사용 중 상태에서만 광고성 문자 발송할 수 있습니다.
-2. 발송 타입을 **광고용**으로 변경하면 수신거부 번호 선택 창이 나옵니다.
-3. **선택 적용** 버튼을 누르면, 발송 내용이 아래 문구로 변경됩니다.
-4. 광고성 발송 시, 아래 문구는 필수로 포함되어야 합니다. 문구가 빠져있을 시, 발송 실패합니다.
+1. Ad messages can be sent only when the rejection 080-number service is enable. 
+2. When the delivery type is changed into **For Advertisement**, you can find an option to select numbers to reject receiving. 
+3. Click **Apply Option**, and the message body is changed to the phrase as below. 
+4. To send ad messages, following phrase must be included; otherwise, sending fails. 
 
 ```
-(광고)
+(Ad)
 
-[무료 수신거부]080XXXXXXX
+[Reject receiving charge-free]080XXXXXXX
 ```
 
 ![sms_34_201812](https://static.toastoven.net/prod_sms/sms_34_201812.png)
 
-### 수신거부 대상자 조회
+### Query Target of Rejection 
 
-수신거부 요청 일시를 옵션으로 수신거부를 요청한 대상자를 하단 패널에서 조회할 수 있습니다.
+Rejection targets, requested with request date and time as optional, can be queried from the panel at the bottom.    
 
-## 발송 설정
+## Setting for Duplicates 
 
-### 중복 발송 설정
+### Set Duplicate Delivery 
 
-* 중복된 메시지를 발송하지 않도록 설정할 수 있습니다.
-* 중복 발송 차단 설정을 한 경우 설정된 시간(단위:분) 동안 동일한 요청에 대해 발송 실패 처리됩니다.
-* 차단 가능한 최대 시간은 1시간입니다.
-* 중복 판단 기준은 다음과 같습니다.
-    * 메시지 타입(SMS/LMS/MMS/AUTH), 발송 타입(일반/대량/태그), 발신번호, 수신번호, 제목, 본문, 첨부파일
+* By setting, duplicate messages may not be sent. 
+* When the duplicate delivery setting is blocked, delivery is processed as failure for same requests during specified period (unit:minute). 
+* The maximum available block time is 1 hour. 
+* A message is determined as duplicate by the following criteria: 
+    * Message type (SMS/LMS/MMS/AUTH), delivery type (general/mass/tag), sender number, recipient number, title, body, and attached file
 
 ![sms_35_201812](https://static.toastoven.net/prod_sms/sms_35_201812.png)
 
-## 통계
+## Statistics 
 
-### 통계 조회
+### Query Statistics 
 
 ![sms_36_201812](https://static.toastoven.net/prod_sms/sms_36_201812.png)
 
-* 발송 요청 기간, 템플릿, 발송 타입, 발송 내용 별로 통계를 조회할 수 있습니다.
-* 발송 요청, 성공, 실패 건을 그래프와 표로 확인할 수 있습니다.
+* Statistics are available by delivery request period, template, delivery type, or content of delivery. 
+* Request of delivery, success, or failure can be found on graph or table. 
 
+## Guide for Notice of Personal Information Assignor 
+
+When the Customer uses TOAST > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act. 
+
+Accordingly, the Company may provide guidelines as below for the Customer, to abide by relevant regulations in the use of TOAST SMS Service and not to be adversely affected for not disclosing his assignment status:
+
+(Example)
+
+[Notice of Personal Information Assignor] 
+To use TOAST SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
+
+Assignor: NHN 
+Content of Business: Send SMS in lieu of customers

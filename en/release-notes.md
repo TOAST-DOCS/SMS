@@ -1,401 +1,365 @@
-## Notification > SMS > 릴리스 노트
+## Notification > SMS > Release Notes 
 
-### 2019.05.28
+### March 26, 2019
 
-#### 기능 개선
-* [Console/API] 예약 발송 성능 개선
-
-#### 버그 수정
-* [API] 템플릿 상세 조회 시, 유효하지 않은 템플릿으로 조회를 시도하는 경우 정의된 코드로 응답하도록 개선
-* [Console] 템플릿 등록/수정 시 허용되지 않는 문자에 대한 처리
-    * 템플릿 등록/수정 시 허용되지 않는 문자(이모지)로 등록 시 시스템 오류가 아닌 정의된 오류로 응답하도록 수정되었습니다.
-* [Console/API] 발신 번호 인증용 첨부 파일 업로드 시 비어 있는 첨부 파일에 대한 유효성 검사 추가
-    * 첨부 파일 업로드 시 내용이 비어 있는 경우 시스템 오류로 응답하지 않고 정의된 오류로 응답하도록 수정되었습니다.
-
-### 2019.04.23
-
-#### 기능 개선
-* [API] LMS/MMS 길이 제한 증가
-    * LMS/MMS 제목을 최대 120글자까지 저장할 수 있도록 개선되었습니다.
-    * 단말기/통신사에 따라 제목 길이는 다르게 전송될 수 있습니다.
-* [API] LMS/MMS로 국제 발송 시 에러로 응답하도록 개선
-    * LMS/MMS로 국제 발송 시 -2024 에러로 응답하도록 개선되었습니다
-    * LMS/MMS는 국제 발송을 지원하지 않습니다.
-* [Console] 템플릿 관리 화면의 길이 제한 개선
-    * 템플릿 등록/수정 시 치환자는 길이 제한에 포함되지 않도록 개선되었습니다.
-
-#### 버그 수정
-* [Console] 수신거부 리스트 조회 시 간헐적으로 조회가 되지 않는 현상
-    * 수신거부 리스트 조회 시 간헐적으로 조회가 되지 않는 문제가 해결되었습니다.
-* [Console] 템플릿 첨부파일 등록 오류
-    * 첨부파일이 포함된 템플릿 등록 시, 첨부파일이 정상적으로 등록되지 않는 문제가 수정되었습니다.
-* [API] API 응답 오류 수정
-    * 존재하지 않는 API 호출 시 서버 에러(500)로 응답하지 않고 -9998로 응답하도록 개선되었습니다.
-* [Console] 존재하지 않는 템플릿 단일 조회 에러 수정
-    * 콘솔에서 직접 존재하지 않는 템플릿을 호출하는 경우 예상치 못한 에러가 발생하던 문제가 수정되었습니다.
-* [API] 예약 발송 버그 수정
-    * 예약 발송 시 예약 시간을 현재 시간으로 지정하고 수신자가 많은 경우 간헐적으로 중복발송 되던 현상이 개선되었습니다.
-
-### 2019.03.26
-
-#### 기능 개선
-* [Console/API] 발송 이력 보관 기간 변경
-    * 조회 가능한 발송 이력이 현재 기준으로 6개월 전까지로 제한되었습니다.
-* [Console] 템플릿 목록 조회 화면 개선
-    * 템플릿 목록 조회 화면의 속도가 개선되었습니다.
-* [API] 발신번호 등록 요청 유효성 검사 개선
-    * 발신번호 등록 요청 시 유효하지 않는 첨부파일 아이디로 요청한 경우 실패하도록 유효성 검사가 추가되었습니다.
+#### Updated
+* [Console/API] Retention period changed for delivery history 
+    * Delivery history can be queried down to 6 months before.  
+* [Console] Query page improved for template list 
+    * The query page for template list has improved in speed. 
+* [API] Validity check improved for the request of sender number registration 
+    * Added validity check to send failure if request for sender number registration is made under invalid attached file ID 
 
 
-### 2019.02.26
+### Feb. 26, 2019
 
-#### 기능 개선
-* [Console] 메세지 발송 요청 화면의 발신번호 입력창 개선
-    * 발신번호 입력창에서 검색이 가능하도록 개선되었습니다.
-* [Console/API] 080 수신거부 가이드 문구 유효성 검사 개선
-    * 광고 발송 시 본문에 필수로 들어가야 하는 "(광고) [무료수신거부]080xxxxxxx" 문구에 대해 공백 체크를 하지 않도록 개선되었습니다.
-* [API] 발신번호 인증 요청 내역 조회 조건에 발신번호 추가
-    * 발신번호(sendNo)로 요청 내역을 조회할 수 있도록 추가되었습니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#api_1)] 참고하시기 바랍니다.
-
-
-### 2019.02.19
-
-#### 기능 추가
-* [Console/API] 템플릿 아이디 길이 증가
-    * 템플릿 아이디 길이 제한이 기존 10글자에서 50글자로 변경되었습니다.
-
-### 2018.12.27
-
-#### 기능 추가
-* [Console/API] 중복 발송 제한 기능
-    * 중복 발송 사용 여부와 중복 발송 차단 시간을 설정할 수 있습니다.
-    * 기본 설정은 미사용이며, 해당 기능을 사용할 경우 동일한 메세지에 대해 설정한 시간만큼 재발송되지 않게됩니다.
-    * 자세한 사항은 [[Console 가이드](./console-guide/#_28)] 참고하시기 바랍니다.
-
-#### 기능 개선
-* [Console] 다운로드한 CSV 파일을 엑셀에서 열 경우 한글 깨지는 현상 해결
-    * 엑셀에서 CSV 파일을 열더라도 한글이 깨지지 않도록 BOM 타입을 추가하였습니다.
-* [API] 결과 업데이트 기준 메세지 조회 API 필드 추가
-    * 결과 업데이트 기준 메세지 조회 API 필드에 통신사 코드가 추가되었습니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#_28)] 참고하시기 바랍니다.
-
-### 2018.11.27
-
-#### 기능 추가
-* [API] 발송 결과 업데이트 조회 API 추가
-    * 발송 결과가 업데이트된 시간을 기준으로 조회할 수 있는 API가 추가되었습니다.
-* [Console/API] 발송 결과 업데이트 주기 변경
-    * 단말기의 수신 결과 업데이트 갱신 주기가 기존 1분에서 5초로 변경됩니다.
-
-#### 기능 개선
-* [API] 발신 번호 체크 기능 변경
-    * 발신 번호 등록 시 기존에 "-"(Hyphen)으로 등록되있는 경우 Hyphen 없이 발송 요청하더라도 성공하도록 수정되었습니다.
-* [API] 템플릿으로 발송 요청 시 요청 파라미터의 우선순위가 높아지도록 수정
-    * 템플릿으로 발송 요청 시 요청 파라미터에 제목, 본문, 발신번호, 첨부파일이 포함된 경우 템플릿에 저장된 데이터를 사용되지 않도록 수정되었습니다.
-* [Console/API] 발송 목록 기간 조회 시 분단위 날짜로 요청온 경우 59초까지 조회 되도록 수정
-    * 발송 목록 조회에서 기간을 지정한 경우, :"년/월/일 시:분"으로 조회한 경우 59초까지 조회가 됩니다.
-    * 예) 2018-11-20 00:00 ~ 2018-11-20 01:00으로 조회된 경우 2018-11-20 00:00:00 ~ 2018-11-20 01:00:59 사이의 데이터 조회
-* [Console/API] 제목/본문에 발송 불가능한 문자(이모지)가 포함된 경우 정의된 에러로 응답하도록 개선
-    * 문자 발송 시 발송 불가능한 문자(이모지)로 요청온 경우 -2023 응답 코드로 응답되도록 수정되었습니다.
-* [API] 태그 발송 시, 템플릿 파라미터를 사용할 수 있도록 개선
-    * 태그로 발송 요청 시, 템플릿 파라미터로도 발송할 수 있도록 개선되었습니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#sms_11)] 참고하시기 바랍니다.
-
-#### 버그 수정
-* [API] 잘못된 에러 코드 응답 개선
-    * 문자 발송 요청 시, 요청 필드에 이미 지난 시간을 입력하는 경우 -2021 에러로 응답하지 않고 -2022 에러로 응답하도록 수정되었습니다.
-    * -2021은 시스템에서 발생하는 에러로 메세지큐에 저장하다 실패하는 경우 발생되는 에러코드 입니다.
-
-### 2018.08.28
-#### 기능 개선
-* [Console/API] 첨부파일 업로드 시 파일명 길이 제한
-    * 첨부파일명 길이가 45글자가 넘어가면 서버 에러가 발생하는 현상이 있었습니다.
-    * 확장자 포함 45글자까지만 허용하고, 그 이후에는 실패 코드를 응답하게 됩니다.
-* [API] 발신자/수신자별 그룹핑할 수 있는 파라미터 제공
-    * v2.1 API부터 문자 발송 시 파라미터에 senderGroupingKey, recipientGroupingKey를 넣을 경우 조회 API에서 필터링하여 조회할 수 있는 기능이 추가되었습니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#sms_1)] 참고하시기 바랍니다.
-    * Console 화면은 다음 점검 때 적용될 예정입니다.
-* [API] 발신번호 인증 요청 내역 조회 API에 페이징 파라미터 적용
-    * 발신번호 인증 요청 내역 조회 API에서 페이징 파라미터로 노출 항목 개수를 제어할 수 있도록 개선되었습니다.
-* [API] 예약 발송 목록 조회/취소 API 추가
-    * 예약 발송 목록을 조회하고 취소할 수 있는 API가 추가되었습니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#_73)] 참고하시기 바랍니다.
-
-### 2018.06.26
-#### 기능 개선
-* [Console] 대량/태그 발송 대기 상태 안내 메일 문구 변경
-    * 대량/태그 메일 발송 시 '확인 후 예약 발송'을 클릭 후 실제 발송을 하지 않는 경우 발송되는 메일의 문구가 변경되었습니다.
-
-### 2018.05.29
-#### 기능 개선
-* [Console] 서류 인증을 통한 발신번호 등록 유효성 검사 추가
-    * 발신번호 입력 후 서류 인증 팝업 노출 전에 번호 유효성 검사를 체크하도록 수정되었습니다.
-* [Console] 대량 발송 업로드 파일(엑셀,csv) 용량 제한
-    * 대량 발송 수신자 업로드 파일이 최대 5M로 제한되었습니다.
-* [Console] 템플릿 생성 개수 제한
-    * 생성 가능한 최대 템플릿 개수가 100개로 제한됩니다.
-* [Console] 템플릿 삭제 후 동일 아이디 생성 시 노출되는 알랏 문구 변경
-    * 템플릿 삭제 후 동일 아이디로 재생성 시 노출되는 에러 알랏창 문구가 개선되었습니다.
-* [Console] 대량 발송 상태가 "대기"인 상태에서 취소 가능하도록 변경
-    * 대량 발송의 상태가 "대기"인 상태에서도 취소가 가능하도록 개선되었습니다.
-
-### 2018.04.24
-#### 기능 추가
-* [Console] 대량/태그 발송 내역 파일(csv) Export 기능 추가
-    * 대량/태그 발송 내역을 CSV 파일로 다운받을 수 있습니다.
-
-#### 기능 개선
-* [Console] 080 수신 번호 다중 사용 가능
-    * 하나의 프로젝트에서 여러 개의 080 번호를 사용할 수 있습니다.
-* [Console] 080 수신 거부 업체명 변경 가능
-    * 080 수신거부 서비스 페이지에서 업체명 수정이 가능합니다.
-* [Console] 상품 페이지 내에 있던 탭 메뉴, 콘솔로 이동
-    * 콘솔로 탭 메뉴를 옮겨, 좌측 서브 메뉴나 우측 상단에서 페이지를 이동할 수 있습니다.
-* [Console] 대량발송요청 조회 탭의 수신자별 조회에서 "처리중" 요청 상태 삭제
-    * 사용되지 않는 "처리중" 상태는 삭제되었습니다.
-* [Console] 카테고리/템플릿명과 설명 글자 제한
-    * 카테고리/템플릿 명은 50글자, 설명은 100글자로 제한되었습니다.
-* [Console] UID & Contact 등록 화면에 CSV 파일 다운로드 버튼 추가
-    * UID & Contact 등록 화면에 Sample 데이터가 담긴 CSV 파일을 다운로드 할 수 있습니다.
-
-#### 버그 수정
-* [Console] 대량 발송 파일 업로드 오류 개선
-    * 유효하지 않는 첨부파일 업로드 후 동일한 파일명으로 재 업로드시 동작하지 않는 문제가 수정되었습니다.
-* [Console] 핸드폰 번호 입력 창 유효성 검사 추가
-    * 핸드폰 번호를 입력하는 Input Box에 대해 동일하게 유효성 검사가 추가되었습니다.
-    * 최소 8글자, 최대 15글자로 제한되며 숫자 또는 하이픈(-)만 입력 가능합니다.
-* [API] 발신번호 인증 요청 내역 조회 에러 수정
-    * 발신번호 인증 요청 내역에서 상태 코드를 필터로 넣을 경우 정상적인 데이터가 반환되지 않는 문제가 수정되었습니다.
+#### Updated 
+* [Console] Input windows improved for sender number on the page requesting for message delivery   
+    * Search is available on the input window for sender numbers 
+* [Console/API] Validity checks improved for guidance message for rejection of receiving 080 numbes  
+    * Improved to not check space for "(Ad) [Reject Receiving Charge-free] 080xxxxxxx", which is required in the body of ad messages 
+* [API] Sender numbers added as part of query conditions requesting for history of sender number authentication 
+    * Added to query request history with sender numbers (sendNo).
+    * See [[API Guide](./api-guide/#api_1)] for more details.
 
 
-### 2018.03.22
-#### 기능 추가
-* [Console] csv 다운로드 기능 추가
-    * SMS 요청별 조회, 080 수신거부 설정 화면에 csv 다운로드 기능이 추가되었습니다.
-        * SMS 요청별 조회에서는 검색 조건을 기준으로 csv 파일 다운로드가 가능합니다.
-        * 080 수신거부 설정 화면에서는 수신거부 대상자 리스트를 csv 파일로 다운로드 가능합니다.
-* [Console/API] 080 수신거부 대상자 삭제 기능 추가
-    * Console 및 API를 통해 수신 거부 대상자를 삭제할 수 있습니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#_55)] 참고하시기 바랍니다.
-* [API] 예약 발송 추가
-    * SMS/MMS/AUTH 발송 시 예약 발송이 가능합니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#sms_2)] 참고하시기 바랍니다.
+### Feb. 19, 2019
 
-#### 버그 수정
-* [Console] SMS 요청별 조회 화면에서 요청 상태를 "실패"로 선택 후 조회가 안되는 현상 수정
-    * 요청 상태를 "실패"로 선택 시 데이터가 조회되지 않는 문제가 수정되었습니다.
-* [Console] 광고성 발송 선택 시 자동으로 입력되는 Guide ment 오류 수정
-    * 광고성 발송 선택 시 자동으로 입력되는 본문 내용에 오류가 있어 수정되었습니다.
-        * "[무료 수신 거부]" -> "[무료 수신거부]"
+#### Added
+* [Console/API] Longer template ID
+    * Allowed length of template ID has changed to 50 characters, from 10 
 
-### 2018.02.22
-#### 기능 추가
-* [Console/API] 태그 발송 기능 추가
-    * 태그 발송 기능이 추가되었습니다.
-    * 태그 및 UID와 수신자 번호를 관리할 수 있는 기능이 추가되었습니다.
+### Dec. 27, 2018
 
-#### 기능 개선
-* [Console] 사용자 메세지 개선
-    * 일부 화면 및 팝업 메세지가 개선되었습니다.
-* [Console] 일반/대량 발송 예약 취소 기능 추가
-    * SMS 예약 발송 조회 화면에서 예약 취소 기능이 제공됩니다.
-    * 대량 SMS 발송 조회 화면에서 요청 단위로 예약 취소 기능이 제공됩니다.
-* [API] 발신번호 리스트 조회 API 추가
-    * 발신번호 조회 API가 추가되었습니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#api_2)] 참고하시기 바랍니다.
+#### Added
+* [Console/API] Restriction of Duplicate Delivery 
+    * You may set whether to enable duplicate delivery, as well as block time 
+    * The service is disabled by default, and if it is enabled, a same message is not re-sent during configured time period. 
+    * See [[Console Guide](./console-guide/#_28)] for more details.  
 
-#### 버그 수정
-* [Console] 발신 번호 관리 페이지에 탭이 잘못 노출되는 현상
-    * 발신 번호 관리 탭에서 "발신 번호 등록", "발신 번호 조회" 화면으로 진입 시 상단의 탭이 잘못 표시되는 오류가 수정되었습니다.
-* [Console] 대량 발송 화면에서 상세조회 버튼 클릭 오류 수정
-    * 상세 조회 클릭 시 스크립트 오류가 발생하여 정상적으로 노출되지 않는 문제가 수정되었습니다.
-* [API] 첨부파일 버그 수정
-    * 유효하지 않는 첨부파일 아이디(fileId)를 사용하더라도 정상적으로 발송처리되던 문제가 수정되었습니다.
+#### Updated 
+* [Console] Korean goes unbroken if downloaded CSV file opens up with excel 
+    * Added BOM type, so as Korean opens unbroken even on CSV file from excel  
+* [API] Query Message API field added, as of result updates 
+    * Telecom providers' codes are added to Query Message API field as of result updates.   
+    * See [[API Guide](./api-guide/#_28)] for more details.  
+
+### Nov. 27, 2018
+
+#### Added
+* [API] Query Delivery Result Updates API Added
+    * Added API to query delivery results as of updated time 
+* [Console/API] Update cycle changed for delivery results 
+    * Cycle of updates of receiving result on device changes from 1 minute to 5 seconds. 
+
+#### Updated
+* [API] Change of Sender Number Checks 
+    * If sender number is registered with "-" (hyphen), delivery request is available even without hyphen. 
+* [API] Parameters that are requested with templates are elevated to higher on the priority list 
+    * In case a parameter, requested with templates, includes title, body, sender number, and attached file, data saved in the templates shall not be applied. 
+* [Console/API] Query of delivery list by the minute is available up to the next 59 seconds.  *(전체적으로, '시간/날짜' 표기 구조가 영어와 한글이 다르기 때문에 수정되어야 하지 않을까 싶습니다. 일단 한글기준으로 번역했습니다.)*
+    * If period is specified in the query of delivery list, such as :"year/month/day hour:minute", you can query up to the next 59 seconds. 
+    * e.g.) To query 2018-11-20 00:00 ~ 2018-11-20 01:00, query data between 2018-11-20 00:00:00 ~ 2018-11-20 01:00:59 
+* [Console/API] If title/body includes unavailable characters (emojis) to send, respond with defined errors.
+    * If request includes unavailable characters (emojis) to send text messages, 2023 Response Code is sent as response.  
+* [API] Template parameters are available for tag delivery.  
+    * You can send with template parameters to send request by tags. 
+    * See [[API Guide](./api-guide/#sms_11)] for more details. 
+
+#### Bugs Fixed 
+* [API] Fixed invalid error code response 
+    * For text delivery request, if a request field includes past time, it is responded with -2022 error, not -2021. 
+    * -2021은 시스템에서 발생하는 에러로 메세지큐에 저장하다 실패하는 경우 발생되는 에러코드 입니다. Error code -2021 occurs in a system when it fails to save in a message queue. 
+
+### August 28, 2018
+#### Updated 
+* [Console/API] Length restriction in file name of attachment when uploaded 
+    * Server error occurred when the length of an attached file name exceeded 45 characters. 
+    * Allows up to 45 characters only, including extension, and after 45, it shall be responded with failure code.  
+* [API] Parameters to group by sender/recipient  
+    * As of v2.1 API, if parameters include senderGroupingKey or recipientGroupingKey for message delivery, query is available after filtering in Query API. 
+    * See [[API Guide](./api-guide/#sms_1)] for more details.  
+    * Changes on the console page will be applied during next maintenance. 
+* [API] Paging parameter applied for the Query Request for Sender Number Authentication API 
+    * The number of exposed items can be controlled by paging parameter in the Query Request for Sender Number Authentication API. 
+* [API] Query/Cancel Scheduled Delivery API Added
+    * Added API to list and cancel scheduled delivery.
+    * See [[API Guide](./api-guide/#_73)] for more details.
+
+### June 26, 2018
+#### Updated
+* [Console] Change guiding email text regarding ready for mass/tag delivery  
+    * Changed email text, sent when message is not actually sent after 'Scheduled Delivery after Check' is clicked.   
+
+### May 29, 2018
+#### Updated
+* [Console] Validity checks added for sender number registration via document authentication 
+    * Modified to check number validity after sender number is entered and before pop-up is exposed on document authentication.
+* [Console] File volume restricted for the upload of mass delivery (excel or csv)
+    * The largest recipient uploading file for mass delivery is restricted to 5M. 
+* [Console] Restriction of the number of template creation  
+    * The largest available number of template creation is restricted to 100. 
+* [Console] Change in alert message exposed when same ID of deleted template is created 
+    * Improved the alert message on errors exposed when same ID of a deleted template is recreated.   
+* [Console] Allowed to cancel mass delivery when it is "ready"
+    * It is possible to cancel mass delivery even when it is "ready". 
+
+### April 24, 2018
+#### Added
+* [Console] Added exporting files (csv) for the history of mass/tag delivery 
+    * Mass/tag delivery history can be downloaded in csv files. 
+
+#### Updated
+* [Console] Available to use many 080 numbers  
+    * Many 080 numbers are available in a single project. 
+* [Console] Name change of business rejected for receiving 080 numbers  
+    * Name change of business is available on the page of rejection of receiving 080 numbers. 
+* [Console] Tab menu on service page moved to console 
+    * Tab menu can be located on console, to move to pages, from the menu on the left or on the top right.  
+* [Console] "Processing" status deleted from query by recipient on the query of mass delivery request
+    * The "Processing" status which is not used, has been deleted. 
+* [Console] Characters restricted in category/template name and description 
+    * Category/template name can have no more than 50 characters, or 100 for description. 
+* [Console] Download CSV Files added on the UID & Contact registration page 
+    * CSV files, including sample data, can be downloaded on the UID & Contact Registration page. 
+
+#### Bugs Fixed 
+* [Console] Fixed error of uploading mass delivery files  
+    * Fixed the issue of failed operations of an attached file in the same name when it is re-uploaded after uploaded with invalid attached file 
+* [Console] Added validity check for the input window of mobile phone numbers 
+    * Same validity check is added to the input box for mobile phone numbers.
+    * Characters are restricted between 8 and 15, allowing numbers or hyphen (-) only. 
+* [API] Modified error in query history of sender number authentication 
+    * Fixed the issue of not returning normal data when status code was inserted as filter in the history of requesting sender number authentication.
 
 
-### 2017.12.21
-#### 버그 수정
-* [Console] Console 발송 버그 수정.
-    * 90byte 내용을 발송할 때, 본문 띄어쓰기가 2byte로 계산되어 일부 내용이 잘려서 발송되는 버그 수정.
-    * 본문에 "< 문자열을 포함하여 발송할 경우, &lt ;로 치환되어 발송되는 버그 수정.
+### March. 22, 2018
+#### Added 
+* [Console] Downloading CSV added 
+    * Added the feature of downloading CSV on the page of query by SMS request, and of setting for rejection of receiving 080 numbers.
+        * CSV files can be downloaded by search conditions, for the query by SMS request.
+        * On the page of rejection of receiving 080 numbers, the list of rejection targets can be downloaded in csv files. 
+* [Console/API] Deletion of rejection target of receiving 080 numbers 
+    * Target of rejection can be deleted on console or API.
+    * See [[API Guide](./api-guide/#_55)] for more details. 
+* [API] Scheduled delivery added
+    * Scheduled delivery is available for SMS/MMS/AUTH. 
+    * See [[API Guide](./api-guide/#sms_2)] for more details. 
 
-### 2017.11.23
-#### 기능 추가
-* [API] 발신번호 등록 요청/조회 API 추가
-    * 콘솔에서만 가능했던 발신번호 등록 요청/조회가 API로 제공됩니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#_56)] 참고하시기 바랍니다.
+#### Bugs Fixed 
+* [Console] Fixed the bug in which query was unavailable after request status was selected as "failure" on the query page by SMS request 
+    * Fixed the issue of unavailability of data query when the request status was selected as "failure". 
+* [Console] Fixed the error of Guide ment, which was automatically entered with the selection of ad delivery
+    * Modified as the automatically entered body message includes error
+        * "[Reject Receiving Charge-free]" -> "[RejectReceiving Charge-free]" 
 
-#### 기능 삭제
+### Feb. 22 ,2018
+#### Added
+* [Console/API] Tag delivery added
+    * The function of tag delivery has been added. 
+    * Managing tags, UIDs, and recipient numbers are available now. 
+
+#### Updated 
+* [Console] User message improvement 
+    * Messages on pages and pop-ups have been partially improved. 
+* [Console] Cancellation of general/mass delivery schedules  
+    * Schedule can be canceled on the page of query scheduled delivery of SMS. 
+    * Cancellation is available by the request on the page of query mass SMS delivery
+* [API] List Sender Number API added
+    * Added Query Sender Number API. 
+    * See [[API Guide](./api-guide/#api_2)] for more details.
+
+#### Bugs Fixed 
+* [Console] Incorrect exposure of tabs on the sender number management page 
+    * Fixed the error by which wrong tabs show on top, when the sender number management tab is displayed on the "sender number registration" or "sender number query" page. 
+* [Console] Fixed the error in the click of Show Details on the mass delivery page 
+    * Fixed the issue by which Show Details are clicked to result in script error and not properly exposed.
+* [API] Fixed the bug of attached files
+    * Fixed the issue by which delivery was normally processed even with invalid attached file ID. 
+
+
+### Dec. 21, 2017
+#### Bugs Fixed
+* [Console] Fixed delivery bugs on console.
+    * Fixed the bug by which 90-byte messages are partially sent, with each space is deemed as 2 bytes.   
+    * Fixed the bug by which "< character strings in the body message are replaced by &It ;. 
+
+### Nov. 23, 2017
+#### Added
+* [API] Request/Query Sender Number Registration API added 
+    * Request/Query Sender Number Registration which was available only on console is now provided in APIs.
+    * See [[API Guide](./api-guide/#_56)] for more details. 
+
+#### Deleted 
 * [API] v1.0 API deprecated
 
-#### 기능 개선
-* [Console] 예약 발송 페이지 추가
-    * 예약된 발송 목록을 예약 발송 페이지에서 확인할 수 있습니다.
-    * 예약된 시간이 지나서 발송이 되면 발송 목록 화면에서 조회 가능합니다.
-* [Console] 통계 항목 추가
-    * 발송 완료 후 결과 대기중인 건이 실패 건으로 수집되고 있었습니다.
-    * 대기 항목이 추가되어 실패 건으로 부터 분리되어 표시됩니다.
-* [API] 수신번호 미입력 유효성 에러 메세지 추가
-    * 수신번호 미 입력 시 System Error로 반환하지 않고, 잘못된 수신번호 오류로 응답합니다.
-* [API] 유효하지 않는 수신번호 에러 메시지 추가
-    * 유효하지 않는 번호를 입력한 상태에서 국가 코드가 null이 들어온 경우 System Error로 반환하지 않고, 잘못된 수신번호 오류로 응답합니다.
+#### Updated 
+* [Console] Added Schedule Delivery page 
+    * Check scheduled delivery list on the page. 
+    * If delivery is made after scheduled time, query on the page of delivery list. 
+* [Console] Added item for statistics 
+    * Cases waiting for result after completely delivered were collected as failure. 
+    * Waiting Item has been added to be separately managed from failed cases. 
+* [API] Added valid error message with no input of recipient number  
+    * When recipient number is missing, it is not returned as system error but responded as invalid recipient number.  
+* [API] Added error message for invalid recipient numbers 
+    * When the country code is null with the input of invalid number, it is not returned as system error but as invalid recipient number.  
 
-#### 버그 수정
-* [Console] 예약 발송 시 requestId 값으로 조회가 안되는 현상
-    * 예약 발송 후 발송조회 화면에서 requestId 값으로 조회가 안되는 현상이 수정되었습니다.
+#### Bugs Fixed
+* [Console] Query unavailable with requestId for scheduled delivery 
+    * Modified the issue in which query was unavailable with requestId, after scheduled delivery, on the page of query delivery. 
 
-### 2017.10.19
-#### 버그 수정
-* [Console] 인증용 SMS 발송 결과가 업데이트 안되는 버그 수정
+### Oct. 19, 2017
+#### Bugs Fixed 
+* [Console] Fixed the bug in which delivery result of SMS for authentication is not updated
 
-### 2017.09.21
-#### 기능 추가
-* [Console, API] 080수신거부 대상자 조회
-    * 080수신거부 한 수신자 조회 기능과 API가 추가되었습니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#_52)] 참고하시기 바랍니다.
+### Sept. 21, 2017
+#### Added
+* [Console, API] Query target of rejection receiving 080 numbers
+    * Added querying recipients rejecting 080 numbers and API 
+    * See [[API Guide](./api-guide/#_52)] for more details.  
 
-### 2017.08.24
-#### 기능 추가
-* [Console] 발신번호 승인/반려 안내 메일 발송
-    * 발신번호 승인/반려 시 사용자에게 안내 메일을 발송합니다.
-* [Console] 080 수신거부 승인/해지 메일 발송
-    * 080 수신거부 승인/해지 시 사용자에게 안내 메일을 발송합니다.
-* [API] 지원하지 않는 ContentType에 대한 에러 응답 추가
-    * API 요청 헤더에 ContentType이 지원하지 않는 값으로 설정된 경우 시스템 에러가 아닌 명확한 에러 형태로 반환되도록 수정되었습니다.
+### August 24, 2017
+#### Added 
+* [Console] Send email guidance on approval/denial of sender numbers
+    * Guidance is sent to users by email regarding sender number approval or denial. 
+* [Console] Send emails on approval/denial of rejection of receiving 080 numbers 
+    * Guidance is sent to users by email regarding approval/denial of rejection receiving 080 numbers. 
+* [API] Error response added to unsupported ContentType
+    * Modified to return as clear error, not a system error, if API requesting header is set with unsupported ContentType. 
 
-#### 버그 수정
-* [Console] 카테고리/템플릿 등록 시 사용여부가 "사용"으로만 저장되는 현상 수정
-    * 카테고리/템플릿 등록 시 사용 여부를 "미사용"으로 체크하더라도 "사용"으로 저장되는 버그가 수정되었습니다.
+#### Bugs Fixed
+* [Console] Fixed the bug by which category/template registration is saved only as "enabled" 
+    * The bug by which category/template registration is saved only as "Enabled" even though the status was actually checked as "Disabled". 
 
-### 2017.04.20
-#### 기능 추가
-* [API] 080수신거부 서비스 기능 추가
-    * 080수신거부 서비스에 가입하여 광고성 SMS를 발송할 수 있습니다. [[API 가이드](./api-guide/#sms_11)]
-    * 가입 관련 자세한 사항은 [[080 수신거부 서비스](./console-guide/#080)] 참고하시기 바랍니다.
+### April 20, 2017
+#### Added 
+* [API]  Rejection of Receiving 080 Numbers added 
+    * You may join the rejection service of receiving 080 numbers to send ad messages. [[API Guide](./api-guide/#sms_11)]
+    * See [[Rejection of Receiving 080 Numbers](./console-guide/#080)] for more details on subscription.
 
-### 2017.03.23
-#### 기능 개선/변경
-* [Console] 대량 발신 조회 시, 결과 사유 셀렉트 창 그룹화하였습니다.
+### March 23, 2017
+#### Updated/Changed 
+* [Console] In the query of mass delivery, select window for cause of result has been grouped. 
 
-#### 버그 수정
-* [Console] 예약 발송 후 상세 보기 화면 공백으로 나오는 버그 수정하였습니다.
-
-
-### 2017.02.23
-#### 버그 수정
-* [Console] MMS 대량 발송 조회 시 발송 건수 오류로 pagination 비정상 작동 버그 수정되었습니다.
-
-### 2017.01.19
-#### 기능 개선/변경
-* [API] 다수의 수신자 리스트로 발송 시 인원 수 제한 추가되었습니다.
-    * AS-IS : 다수의 수신자 리스트 인원 수에 대한 제한이 없음
-    * TO-BE : 한 요청에 대한 수신자 리스트 1000명으로 제한
-
-#### 버그 수정
-* [Console] 발송 조회에서 필드 내용 클릭시 ellipsis가 필드 오른쪽에 생기는 버그 수정되었습니다.
-    * AS-IS : 제목,내용이 긴 경우 ellipsis가 필드 오른쪽에 생김
-    * TO-BE : 제목,내용이 길어져도 ellipsis가 해당 필드 위에 정상적으로 생김
-
-### 2016.12.22
-#### 기능 개선/변경
-* [Console] 발송 요청 실패 건에 대해서 조회할 수 있는 기능 추가되었습니다.
-    * AS-IS : SMS, MMS 발송 시, 실패할 경우 실패 응답은 받지만 Console에서 조회할 수 없음
-    * TO-BE : SMS, MMS 발송 시, 실패할 경우 요청 상태를 실패로 변경하여 조회할 수 있도록 변경
-* [API] 다수의 수신자리스트에게 발송 시 유효성 검사 정상 건만 발송되도록 로직 변경되었습니다.
-    * AS-IS : 다수의 수신자 리스트의 발송 요청이 실패했을 경우, 실패한 수신자 이후 수신자는 미발송
-    * TO-BE : 모든 수신자에게 발송하며, response에서 수신자별 발송 결과를 제공. 발송 실패가 있어도 요청 결과는 성공. <br/>
-    자세한 사항은 [[API 가이드](./api-guide/)] 참고하시기 바랍니다.
-* 요금 정산 방식 변경되었습니다.
-    * AS-IS : 문자 발송 요청 시간을 기준으로 과금
-    * TO-BE : 문자 발송 결과를 응답 받는 시간으로 과금
+#### Bugs Fixed 
+* [Console] Fixed the bug by which show details of scheduled delivery are returned as empty.
 
 
+### Feb. 23, 2017
+#### Bugs Fixed
+* [Console] Fixed the bug of abnormal operations of pagination due to error of delivery count in the query of mass MMS delivery.
 
-#### 버그 수정
-* [API] MMS 첨부파일 발송 시, 존재하지 않은 첨부파일일 경우 서버에러 발생하는 버그 수정되었습니다.
-    * AS-IS : 존재하지 않은 첨부파일 아이디로 발송할 경우 서버에러 실패 응답
-    * TO-BE : MMS 첨부파일 발송에서 존재하지 않은 첨부파일이 있는 경우 실패 원인을 에러 메시지로 제공함
-* [Console] 대량 발송에서 CSV 템플릿 파일 공백 버그 수정되었습니다.
-    * AS-IS : CSV 템플릿 파일에서 필드 사이에 ,기준으로 공백이 있는 경우 파싱 오류
-    * TO-BE : CSV 템플릿 파일에서 필드 사이에 ,기준으로 공백이 있는 경우 정상 작동
+### Jan. 19, 2017
+#### Updated 
+* [API] Restriction of individuals added to send to a number of recipients.
+    * AS-IS: No restriction was available for a number of recipients.
+    * TO-BE: Each request can have no more than 1000 recipients.
 
-### 2016.12.08
-#### 기능 개선/변경
-* [Console] 템플릿 기능 개선되었습니다.
-    * AS-IS : 템플릿을 삭제할 경우, 해당 템플릿으로 발송한 내역에 템플릿 정보가 표시되지 않음
-    * TO-BE : 템플릿을 삭제해도, 해당 템플릿으로 발송한 내역에 템플릿 정보를 볼 수 있다. 단, 삭제한 템플릿 아이디는 재사용 불가능하고 발신 내역에 조회되는 템플릿 내용은 최근 수정한 템플릿 정보로 표시
-* [Console] 발신 조회 시, 결과 사유 셀렉트창 개선되었습니다.
-    * AS-IS : 결과 사유를 전체로 선택했을 경우, 상세 결과 사유 셀렉트창이 전체로 표시
-    * TO-BE : 결과 사유를 전체로 선택했을 경우, 상세 결과 사유 셀렉트창 보이지 않게 수정
-* [Console] 발신번호 등록 시, 유효성 검사 강화하였습니다.
-    * AS-IS : 중복 검사만 체크
-    * TO-BE : 중복검사 + 발신번호 등록 형식 체크 &nbsp;&nbsp;[[발신번호 등록 형식](./console-guide/#_16)]
+#### Bugs Fixed
+* [Console] Fixed the bug, in query delivery, by which field is clicked to show ellipsis on the right of the field.
+    * AS-IS: Long title and body results in ellipsis created on the right of the field.  
+    * TO-BE: Regardless of the length, ellipsis is normally created in the above of each field. 
+
+### Dec. 22, 2016
+#### Updated
+* [Console] Added the function by which query is available for failed delivery cases. 
+    * AS-IS: For failed SMS or MMS delivery, response is available but cannot be queried on console. 
+    * TO-BE: If SMS or MMS delivery fails, the request status can be changed to failure so as to allow query. 
+* [API] Changed the logic to allow only normal cases from validity checks to be sent to a number of recipients.
+    * AS-IS: If request of sending for a number of recipients fails, message is not sent to other recipients after failed recipient.  
+    * TO-BE: Message is sent to all recipients, and delivery result by recipient is provided at the response. Even with failed delivery, result of request becomes successful. <br/>See [[API Guide](./api-guide/)] for more details. 
+* Method of calculating charges has changed. 
+    * AS-IS: Charged on the basis of request time of text delivery 
+    * TO-BE: Charged by the response time for delivery result
 
 
-#### 버그 수정
-* [Console] MMS 템플릿 등록 시, 제목을 입력하지 않아도 등록되는 버그 수정되었습니다.
-    * 현상 : MMS 템플릿 등록 시, 제목을 입력하지 않아도 템플릿이 등록됨
-    * 해결 : MMS 템플릿 등록 시, 제목 공란 체크 로직 추가
 
-### 2016.11.24
-#### 기능 개선/변경
-* [Console] 대량 발송 기능 개선되었습니다.
-    * 치환 기능 개선: 치환 발송을 할 경우 기존에는 템플릿을 선택했을 경우에만 치환 기능이 적용되었으나 템플릿을 선택하지 않고 제목이나 본문에 치환 키를 입력할 경우 치환되도록 개선
-    * 템플릿 파일 업로드 개선: 엑셀과 같은 일부 편집기에서 편집 이력이 있는 셀의 경우 셀 데이터가 없을 경우에도 빈 문자열 데이터가 포함되어 저장됨. 입력 범위 밖의 빈 문자열의 경우 템플릿 파일 업로드 시 유효성 검사에서 무시하도록 변경
-    * 유의 안내 문구 추가: 엑셀과 같은 일부 편집기에서 CSV 템플릿 파일을 작성할 경우 유니코드 정보가 저장되지 않아 문자가 깨지는 이슈가 있음. 해당 이슈에 대한 내용을 템플릿 다운로드와 발송 예약 시 유의 안내 문구 표시
+#### Bugs Fixed 
+* [API] Fixed the bug in which server error occurred for the sending of MMS attachment when the file was unavailable attached file 
+    * AS-IS: Responded with server error when sent by unavailable attached file ID   
+    * TO-BE: Provide error messages for causes of failure, when there is unavailable attached file for MMS attachment delivery   M
+* [Console] Fixed the bug of space in CSV template files for mass delivery.
+    * AS-IS: Error in parsing when there is space between fields in CSV template files 
+    * TO-BE: Normal operations for spaces by , between fields in CSV template files 
 
-#### 버그 수정
-* [Console] 대량 발송 페이지 오류 수정되었습니다.
-    * 이벤트 오류 수정: 요청 리스트의 헤더를 클릭할 경우 '발송 요청 건을 선택 후 조회할 수 있습니다.' alert 가 표시되는 오류 수정
+### Dec. 8, 2016
+#### Updated
+* [Console] Improved template features. 
+    * AS-IS: When a template was deleted, information was not shown on the delivery history of the template 
+    * TO-BE: Even when a template is deleted, template information is available on the delivery history of such template. Nevertheless, template, once deleted, cannot be used again, and queried template on the deliver history is to be replaced by recently-modified template.
+* [Console] In the query of delivery, the window for selection of cause of result has been improved. 
+    * AS-IS: When all is selected for the cause of result, the selection window for the cause of result shows all. 
+    * TO-BE: When all is selected for the cause of result, the selection windows for the cause of result is not available. 
+* [Console] For sender number registration, validity check has been enforced. 
+    * AS-IS: Check duplicate checks only
+    * TO-BE: Duplicate checks + Check sender number registration format  &nbsp;&nbsp;[[Format of Sender Number Registration](./console-guide/#_16)]
 
-### 2016.10.20
-#### 기능 개선/변경
-* [Console] 대량 업로드 발송 기능 개선되었습니다.
-    * 대량 업로드 발송 CSV 포맷 지원 : 기존 대량 업로드 발송시 엑셀 파일 뿐만 아니라 CSV파일을 통해서도 발송 할 수 있도록 확장 (CSV 템플릿 제공)
-    * 선택적 대상자 확인 프로세스: 기존 대량 업로드 발송시 대상자 확인 후 발송 할 수 있었던 프로세스에서 선택적으로 대상자를 확인 할 수 있도록 개선
-    * 대량 업로드 발송 파일 validation 강화 : 대량 업로드 발송시 파일에 잘못된 포맷의 수신자 번호 입력 또는 누락된 데이터가 있는지 오류를 확인 해주는 기능이 추가
-    * 대량SMS발송 탭 추가 : 대량 업로드 발송시 대상자 확인과 발송 진행 상태를 확인 할 수 있는 대량SMS발송 탭이 추가
-    * 참고 : Notification > SMS > Getting Started > 대량 업로드 발송
-* [Console] SMS 요청별 조회 탭에서 결과 사유 셀렉트 창 그룹화로 변경되었습니다.
-    * 참고 : Notification > SMS > Getting Started > SMS 요청별 조회
-* [API] SMS 발송 API request body 본문 내용 공란일 경우 발송 실패로 변경되었습니다.
-    * AS-IS : 공란일 경우 Response는 성공이지만, 실제로 내용이 없기 때문에 미발송. 조회 시, 메시지 형식 오류로 표시됨
-    * TO-BE : 공란일 경우 본문 내용이 없다는 내용과 함께 응답 실패
 
-#### 버그 수정
-* [Console] 파이어폭스 브라우저에서 SMS 발송 후 비정상 작동 수정되었습니다.
-    * 현상 : 발송 후, 발신번호 셀렉트 창에서 선택이 되지 않거나, 필드 초기화 되지 않는 이슈
-    * 해결 : 발송 후, 필드 초기화 및 정상적으로 동작하도록 수정
+#### Bugs Fixed
+* [Console] Fixed the bug by which MMS template was registered even without title. 
+    * Issue: Regarding MMS template registration, template can be registered without a title. 
+    * Solution: To register MMS templates, a check is added to enter title. 
 
-### 2016.09.29
-#### 기능 개선/변경
-* [Console] SMS 웹 페이지에서 발송 시, 수신자 번호 입력란에 국가 코드가 포함된 수신자 번호로 발송 가능하도록 수정되었습니다.
-    * 참고 : Notification > SMS > Getting Started > 일반 SMS 발송, 일반 LMS 발송, MMS 발송
+### Nov. 24, 2016
+#### Updated
+* [Console] Features of mass delivery improved.  
+    * Replacement: Replacement delivery was available by selecting templates only, but now it is available by entering replacement key on the title or body without selecting a template. tT
+    * Uploading Template Files: In some editors, like excel, even when there is no available data for cell which has editing history, empty character string data are included in saving. Now, it has been changed that empty character strings which are not within the range of input are ignored from validity checks to upload template files. 
+    * Caution Messages Added: In some editors, like excel, CSV template files are created and uni codes are not saved, which results in broken characters. Cautions on such issue are to be provided for template downloads and schedule delivery.  
 
-#### 버그 수정
-* [API] SMS 발송 조회 API response 값 중 userId 항목에 항상 null값이 응답하는 버그 수정되었습니다.
-    * 현상 : SMS 발송 조회 API response 값 중 userId 항목에 항상 null값이 응답하는 현상.
-    * 해결 : SMS 발송 조회 API response 값 중 userId 항목이 정상적인 데이터로 응답.
-* [API] 인증용 SMS 단일 발송 조회 API response 값 중 sendType 항목에 비정상 데이터로 응답하는 버그 수정되었습니다.
-    * 현상 : 인증용 SMS 단일 발송 조회 API response 값 중 sendType이 SMS 타입인 0인 문제.
-    * 해결 : 인증용 SMS 단일 발송 조회 API response 값 중 sendType이 정상적인 데이터 2로 응답. (0:SMS, 1:MMS, 2:Auth)
+#### Bugs Fixed
+* [Console] Modified error on the mass delivery page. 
+    * Modified event errors: Modified the error in which an alert shows like 'Select a delivery request to query', at the click of the header of the request list. 
 
-### 2016.08.18
-#### 기능 개선/변경
-* [API] 국가 코드가 포함된 수신자 번호 입력 필드 추가되었습니다.
-    * 참고 : Notification > SMS > Developer's Guide > [단문 SMS 발송, 장문 MMS 발송, 인증용 SMS 발송] API 명세서 (internationalRecipientNo 필드 추가)
+### Oct. 20, 2016
+#### Updated
+* [Console] Mass upload delivery has improved. 
+    * CSV Format Supported for Mass Upload Delivery: Mass upload delivery becomes available not only on excel but CSV file (with CSV template provided) 
+    * Check Process of Selective Targets: Allows to selectively check target of delivery of mass upload
+    * Enforced File Validation for Mass Upload Delivery: Check if there is any invalid format of recipient number or missing data in the file  
+    * Tab Added for Mass SMS Delivery: Mass SMS Delivery tab has been added to check target and progress status of mass upload delivery 
+    * For reference: Notification > SMS > Getting Started > Mass Upload Delivery 
+* [Console] The Query by SMS Request tab has changed to Group Window Selecting for Reasons. 
+    * For reference: Notification > SMS > Getting Started > Query by SMS Request
+* [API] If the request body of Send SMS API is empty, delivery is deemed as failure. 
+    * AS-IS: If the body is empty, response may be successful but since content is missing, it is deemed as undelivered. When queried, it shows error in message type. 
+    * TO-BE: If the body is empty, response fails along with the message that body message is empty. 
 
-#### 버그 수정
-* [Console] SMS 템플릿 사용여부 변경이 정상적으로 안되는 문제 수정되었습니다.
-    * 현상 : 사용여부를 사용/미사용 변경하더라도 다시 템플릿 호출 시 정상적으로 반영되지 않는 현상
-    * 해결 : 사용여부 필드가 정상적으로 저장 및 노출되도록 수정
+#### Bugs Fixed
+* [Console] Modified abnormal operations after SMS delivery, on Firefox .
+    * Issue: After delivery, sender numbers could not be selected or field was not returned to default.  
+    * Solution: Modified to return field to default or normally operate 
 
-### 2016.08.04
-#### 버그 수정
-* [API] SMS 발신번호가 핸드폰 인증으로 등록된 경우 MMS 발송이 안되는 버그 수정되었습니다.
-    * 현상 : 핸드폰 인증으로 저장되는 발신번호가 국제번호 형태(82-1x-xxxx-xxxx)로 저장이 되며, 이로인해 MMS 발송이 안되는 문제가 있음
-    * 해결 : 국제번호로 저장되던 방식을 대한민국 핸드폰 번호 형태(01x-xxxx-xxxx)로 변경하여 저장되도록 수정
-* [API] countryCode 공백으로 입력 시 문자 발송이 안되는 버그 수정되었습니다.
-    * 현상 : countryCode에 빈 값(null, "") 전송 시 응답은 성공으로 노출되나 정상적으로 발송이 안되는 현상
-    * 해결 : countryCode에 빈 값이 넘어올 경우 국가 번호 82가 기본적으로 설정되도록 수정
+### Sept. 29, 2016
+#### Updated 
+* [Console] Modified to allow sending SMS from the web page, to recipient numbers which include country code. 
+    * Reference: Notification > SMS > Getting Started > Send General SMS, General LMS, and MMS
+
+#### Bugs Fixed
+* [API] Fixed the bug in which userId is always responded with null, among responses for Query SMS Delivery API.
+    * Isuse: userId was responded always with null, among responses for Query SMS Delivery API.
+    * Solution: userId is responded with normal data, among responses for Query SMS Delivery API.
+* [API] Fixed the bug in which sendType is responded with abnormal data, among responses for Query Single SMS Delivery for Authentication.
+    * Issue: SMS type for sendType is 0, among responses for Query Single SMS Delivery for Authentication API.
+    * Solution: Send 2, which is normal data, for sendType, among responses for Query Single SMS Delivery for Authentication. (0:SMS, 1:MMS, 2:Auth)
+
+### Aug. 18, 2016
+#### Updated
+* [API] Field added for recipient numbers, including country code
+    * Reference: Notification > SMS > Developer's Guide > [Send Single SMS, Send Long MMS, Send SMS for Authentication] API Specifications (internationalRecipientNo field added)
+
+#### Bugs Fixed
+* [Console] Allowed to normally change to enable or disable SMS template.
+    * Issue: Even after service is changed to Enable/Disable, it was not normally applied when template was called.
+    * Solution: Modified to normally save and expose the enable/disable field 
+
+### Aug. 4, 2016
+#### Bugs Fixed
+* [API] Modified to allow MMS sending if SMS sender number is registered by mobile phone authentication.
+    * Issue: Send numbers saved by mobile phone authentication were saved in the format of international numbers, which prohibited MMS delivery.  
+    * Solution: Modified to change the saving format to the Korean mobile phone numbers (01x-xxxx-xxxx).
+* [API] Modified to allow sending messages even if the countryCode is missing.
+    * Issue: When the countryCode is sent as empty value (null, ""), response is successfully exposed but not normally sent 
+    * Solution: Modified to set 82 as the default country code, if it comes with empty value
+
