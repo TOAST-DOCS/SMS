@@ -2919,3 +2919,319 @@ Content-Type: application/json;charset=UTF-8
 |header.resultMessage|	String| Failure message |
 |body.data.requestedCount|	Integer| Number of failed requests |
 |body.data.canceledCount|	Integer| Number of successful cancellation |
+
+## 발송 결과 파일 다운로드
+
+### 파일 다운로드 예약 내역 조회 - 공통
+
+[URL]
+
+```
+GET /sms/v2.1/appKeys/{appKey}/download-reservations?downloadId={downloadId}&downloadType={downloadType}&downloadStatusCode={downloadStatusCode}&pageNum={pageNum}&pageSize={pageSize}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Query parameter]
+
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+|downloadType|	String|	10 | 필수 | 다운로드 타입<br/>- BLOCK : 수신거부<br/>- NORMAL : 일반 발송<br/>- MASS : 대량 발송<br/>- TAG : 태그 발송|
+|downloadId|	String|	25 | 옵션 | 다운로드 아이디|
+|downloadStatusCode|	String| 10 | 옵션 |	다운로드 아이디|
+|pageNum|	Integer|	- | 옵션 | 페이지 번호(기본값 : 1)|
+|pageSize|	Integer|	1000 | 옵션 | 조회 수(기본값 : 15)|
+
+#### 응답
+
+```json
+{
+  "header":{
+    "isSuccessful":true,
+    "resultCode":0,
+    "resultMessage":"SUCCESS"
+  },
+  "body":{
+    "totalCount":0,
+    "data":[
+      {
+        "downloadId":"",
+        "downloadType":"",
+        "fileType":"",
+        "parameter":"",
+        "size":0,
+        "downloadStatusCode":"",
+        "resultMessage":"",
+        "expiredDate":"",
+        "createUser":"",
+        "createDate":"",
+        "updateDate":""
+      }
+    ]
+  }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.totalCount| Integer | 전체 건수|
+|body.data[].downloadId| String | 다운로드 ID |
+|body.data[].downloadType| String | 다운로드 유형<br/>- BLOCK : 수신거부<br/>- NORMAL : 일반 발송<br/>- MASS : 대량 발송<br/>- TAG : 태그 발송 |
+|body.data[].fileType| String | 파일 타입 |
+|body.data[].parameter| String | 요청 파라미터 |
+|body.data[].size| Integer | 조회 데이터 크기 |
+|body.data[].downloadStatusCode| String | 파일 생성 상태<br/>- READY : 생성 준비<br/>- MAKING : 생성중<br/>- COMPLETED : 생성 완료<br/>- FAILED : 생성 실패<br/>- EXPIRED : 다운로드 기간 만료 |
+|body.data[].resultMessage| String | 결과 메시지(실패 시 응답) |
+|body.data[].expiredDate| String | 파일 만료 일시 |
+|body.data[].createUser| String | 파일 생성 요청자 |
+|body.data[].createDate| String | 파일 생성 요청 일시 |
+|body.data[].updateDate| String | 파일 생성 완료/실패 일시 |
+
+
+### SMS 요청별 조회 파일 다운로드 생성 요청
+
+#### 요청 
+
+[URL]
+
+```
+POST /sms/v2.1/appKeys/{appKey}/sender/download-reservations
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Request body]
+
+```
+{
+  "requestId":"20190601100630ReZQ6KZzAH0",
+  "startRequestDate":"2019-06-01 00:00:00",
+  "endRequestDate":"2019-06-08 00:00:00",
+  "startResultDate":"2019-06-01 00:00:00",
+  "endResultDate":"2019-06-08 00:00:00",
+  "sendNo":"15446859",
+  "recipientNo":"01000000000",
+  "templateId":"TemplateId",
+  "msgStatus":"3",
+  "resultCode":"MTR2",
+  "subResultCode":"MTR2_3",
+  "senderGroupingKey":"{발송자 그룹키}",
+  "recipientGroupingKey":"{수신자 그룹키}",
+  "isIncludeTitleAndBody":true
+}
+```
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|requestId|	String| 25 |	조건 필수 (1번) |	요청 ID|
+|startRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endResultDate|	String| - |	옵션|	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|sendNo|	String| 13 |	옵션|	발신 번호|
+|recipientNo|	String| 20 |	옵션|	수신 번호|
+|templateId|	String| 50 |	옵션|	템플릿 번호|
+|msgStatus|	String| 1 |	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
+|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
+|isIncludeTitleAndBody | Boolean | - | 옵션 | 제목/본문 포함 여부 |
+
+[Response body]
+```
+{
+  "header":{
+    "isSuccessful":true,
+    "resultCode":0,
+    "resultMessage":"SUCCESS"
+  },
+  "body":{
+    "data":{
+      "donwloadId":"20190610100630ReZQ6KZzAH0",
+      "downloadType":"NORMAL",
+      "fileType":"CSV",
+      "downloadStatusCode":"COMPLETED",
+      "expiredDate":"2019-07-09 10:06:00.0"
+    }
+  }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.donwloadId|	String|	다운로드 ID|
+|body.data.downloadType|	String|	다운로드 유형<br/>- BLOCK : 수신거부<br/>- NORMAL : 일반 발송<br/>- MASS : 대량 발송<br/>- TAG : 태그 발송|
+|body.data.fileType|	String|	파일 타입(현재 csv만 지원)|
+|body.data.downloadStatusCode|	String|	파일 생성 상태<br/>- READY : 생성 준비<br/>- MAKING : 생성중<br/>- COMPLETED : 생성 완료<br/>- FAILED : 생성 실패<br/>- EXPIRED : 다운로드 기간 만료|
+|body.data.expiredDate|	String|	다운로드 기간 만료 일시|
+
+### 대량 SMS 발송 조회 파일 다운로드 생성 요청
+
+#### 요청
+
+[URL]
+
+```
+POST /sms/v2.1/appKeys/{appKey}/sender/massSms/receive/{requestId}/download-reservations
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|requestId| String | 요청 ID |
+
+[Request body]
+
+```
+{
+  "startRequestDate":"2019-06-01 00:00:00",
+  "endRequestDate":"2019-06-08 00:00:00",
+  "startResultDate":"2019-06-01 00:00:00",
+  "endResultDate":"2019-06-08 00:00:00",
+  "recipientNo":"01000000000",
+  "msgStatus":"3",
+  "resultCode":"MTR2",
+  "subResultCode":"MTR2_3",
+  "isIncludeTitleAndBody":true
+}
+```
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	필수 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endResultDate|	String| - |	옵션|	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|recipientNo|	String| 20 |	옵션|	수신 번호|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|msgStatus|	String| 1 |	옵션|	메시지 상태 코드(0:실패, 1:준비, 2:발송중, 3:성공, 4:취소, 5:중복)|
+|isIncludeTitleAndBody | Boolean | - | 옵션 | 제목/본문 포함 여부 |
+
+[Response body]
+```
+{
+  "header":{
+    "isSuccessful":true,
+    "resultCode":0,
+    "resultMessage":"SUCCESS"
+  },
+  "body":{
+    "data":{
+      "donwloadId":"20190610100630ReZQ6KZzAH0",
+      "downloadType":"NORMAL",
+      "fileType":"CSV",
+      "downloadStatusCode":"COMPLETED",
+      "expiredDate":"2019-07-09 10:06:00.0"
+    }
+  }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.donwloadId|	String|	다운로드 ID|
+|body.data.downloadType|	String|	다운로드 유형<br/>- BLOCK : 수신거부<br/>- NORMAL : 일반 발송<br/>- MASS : 대량 발송<br/>- TAG : 태그 발송|
+|body.data.fileType|	String|	파일 타입(현재 csv만 지원)|
+|body.data.downloadStatusCode|	String|	파일 생성 상태<br/>- READY : 생성 준비<br/>- MAKING : 생성중<br/>- COMPLETED : 생성 완료<br/>- FAILED : 생성 실패<br/>- EXPIRED : 다운로드 기간 만료|
+|body.data.expiredDate|	String|	다운로드 기간 만료 일시|
+
+### 태그 SMS 발송 조회 파일 다운로드 생성 요청
+
+#### 요청
+
+[URL]
+
+```
+POST /sms/v2.1/appKeys/{appKey}/tag-sender/{requestId}/download-reservations
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|requestId| String | 요청 ID |
+
+[Request body]
+
+```
+{
+  "startRequestDate":"2019-06-01 00:00:00",
+  "endRequestDate":"2019-06-08 00:00:00",
+  "startResultDate":"2019-06-01 00:00:00",
+  "endResultDate":"2019-06-08 00:00:00",
+  "recipientNo":"01000000000",
+  "msgStatus":"3",
+  "resultCode":"MTR2",
+  "subResultCode":"MTR2_3",
+  "isIncludeTitleAndBody":true
+}
+```
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	필수 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endResultDate|	String| - |	옵션|	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|recipientNo|	String| 20 |	옵션|	수신 번호|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|msgStatus|	String| 1 |	옵션|	메시지 상태 코드(0:실패, 1:준비, 2:발송중, 3:성공, 4:취소, 5:중복)|
+|isIncludeTitleAndBody | Boolean | - | 옵션 | 제목/본문 포함 여부 |
+
+[Response body]
+```
+{
+  "header":{
+    "isSuccessful":true,
+    "resultCode":0,
+    "resultMessage":"SUCCESS"
+  },
+  "body":{
+    "data":{
+      "donwloadId":"20190610100630ReZQ6KZzAH0",
+      "downloadType":"NORMAL",
+      "fileType":"CSV",
+      "downloadStatusCode":"COMPLETED",
+      "expiredDate":"2019-07-09 10:06:00.0"
+    }
+  }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.donwloadId|	String|	다운로드 ID|
+|body.data.downloadType|	String|	다운로드 유형<br/>- BLOCK : 수신거부<br/>- NORMAL : 일반 발송<br/>- MASS : 대량 발송<br/>- TAG : 태그 발송|
+|body.data.fileType|	String|	파일 타입(현재 csv만 지원)|
+|body.data.downloadStatusCode|	String|	파일 생성 상태<br/>- READY : 생성 준비<br/>- MAKING : 생성중<br/>- COMPLETED : 생성 완료<br/>- FAILED : 생성 실패<br/>- EXPIRED : 다운로드 기간 만료|
+|body.data.expiredDate|	String|	다운로드 기간 만료 일시|
