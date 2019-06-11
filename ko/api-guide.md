@@ -3005,6 +3005,29 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].updateDate| String | 파일 생성 완료/실패 일시 |
 
 
+### 파일 다운로드 - 공통
+
+[URL]
+
+```
+GET /sms/v2.1/appKeys/{appKey}/download-reservations/{downloadId}/download
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|downloadId| String | 다운로드 ID|
+
+[Response body]
+
+```
+file byte
+```
+
+
 ### SMS 요청별 조회 파일 다운로드 생성 요청
 
 #### 요청 

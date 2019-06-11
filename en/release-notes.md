@@ -1,20 +1,20 @@
 ## Notification > SMS > Release Notes
 
-### 2019.06.25
+### June 25, 2019
 
-### 기능 개선
-* [Console] SMS 요청별 조회에 발신자 그룹키, 수신자 그룹키 조건 추가
-    * SMS 요청별 조회에서 발신자 그룹키와 수신자 그룹키 조회 조건이 추가되었습니다.
-* [Console] 발송 목록 조회 후 파일 다운로드 예약 시 제목/본문 포함 여부를 선택할 수 있는 체크박스 추가
-    * 일반/대량/태그 발송 목록 조회 후 다운로드 요청 시, 제목/본문 포함 여부를 선택할 수 있는 체크박스가 추가되었습니다. 
-* [API] 일반/대량/태그 발송 목록 파일 생성/조회/다운로드 기능 추가
-    * 일반/대량/태그 발송 목록을 파일로 다운로드 받을 수 있도록 API가 추가되었습니다.
+### Feature Updates 
+* [Console] Added sender's group key and recipient's group key in the query of request by SMS 
+    * Sender's group key and recipient's group key have been added as part of query conditions for each SMS request.
+* [Console] Added check boxes to include or exclude title/body in scheduling a file downloading after query of delivery list  
+    * Check boxes have been added to include title/body or not, in the request of downloading after query of general/mass/tag delivery list.
+* [API] Added Create/Query/Download delivery list in files for General/Mass/Tag messages   
+    * APIs have been added to download general/mass/tag delivery list in files.
 
-### 버그 수정
-* [Console] 예약 발송 목록 조회 및 상세 조회 시 템플릿 파라미터가 치환이 안되어 보여지는 문제 수정
-    * 예약 발송 목록 조회 및 상세 조회 화면에서 템플릿 파라미터가 치환되지 않는 문제가 수정되었습니다.
-* [Console/API] 통계 수집 버그 수정
-    * 중복 발송 상태를 결과 수신 대기 상태로 수집하지 않고 발송 실패로 수집하도록 수정되었습니다. 
+### Bug Fixes 
+* [Console] Fixed template parameter which is not replaced and therefore not visible, in the query of scheduled delivery list and details 
+    * The issue of template parameter which was not properly replaced in the query of scheduled delivery list and details has been fixed. 
+* [Console/API] Fixed bugs in collecting statistics 
+    * It has been modified to collect duplicate delivery as failed delivery, not as ready for receiving 
 
 ### March 26, 2019
 
