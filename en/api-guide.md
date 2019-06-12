@@ -2922,7 +2922,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## 발송 결과 파일 다운로드
 
-### SMS 요청별 조회 파일 생성 요청
+### 조회 파일 생성 요청
 
 #### 요청 
 
@@ -2977,7 +2977,8 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
 |isIncludeTitleAndBody | Boolean | - | 옵션 | 제목/본문 포함 여부 |
 
-[Response body]
+#### 응답
+
 ```
 {
   "header":{
@@ -3009,7 +3010,9 @@ Content-Type: application/json;charset=UTF-8
 |body.data.expiredDate|	String|	다운로드 기간 만료 일시|\
 
 
-### 파일 생성 요청 내역 조회
+### 발송결과 파일생성 요청내역 조회
+
+#### 요청
 
 [URL]
 
@@ -3082,7 +3085,9 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].updateDate| String | 파일 생성 완료/실패 일시 |
 
 
-### 개별 다운로드 요청
+### 발송결과 파일 다운로드 요청
+
+#### 요청
 
 [URL]
 
@@ -3098,7 +3103,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 앱키|
 |downloadId| String | 다운로드 ID|
 
-[Response body]
+#### 응답
 
 ```
 file byte
