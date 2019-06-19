@@ -3019,7 +3019,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.1/appKeys/{appKey}/download-reservations?downloadId={downloadId}&downloadType={downloadType}&downloadStatusCode={downloadStatusCode}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.1/appKeys/{appKey}/download-reservations?downloadId={downloadId}&downloadStatusCode={downloadStatusCode}&pageNum={pageNum}&pageSize={pageSize}
 Content-Type: application/json;charset=UTF-8
 ```
 
