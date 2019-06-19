@@ -2948,6 +2948,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
+  "sendType":"1",
   "requestId":"20190601100630ReZQ6KZzAH0",
   "startRequestDate":"2019-06-01 00:00:00",
   "endRequestDate":"2019-06-08 00:00:00",
@@ -2967,6 +2968,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
+|sendType| String| 1| 필수| 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
 |requestId|	String| 25 |	조건 필수(1번) |	요청 ID|
 |startRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
 |endRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|

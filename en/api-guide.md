@@ -345,7 +345,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].telecomCode|	Integer| Code of telecom provider |
 |body.data[].telecomCodeName|	String| Name of telecom provider |
 |body.data[].mtPr|	Integer| Detail delivery ID (required to query details) |
-|body.data[].sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].senderGroupingKey|	String| Sender's group key |
@@ -438,7 +438,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.telecomCode|	Integer| Telecom provider code |
 |body.data.telecomCodeName|	String| Telecom provider name |
 |body.data.mtPr|	Integer| Detail delivery ID (required to query details) |
-|body.data.sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data.userId|	String| Delivery request ID |
 |body.data.adYn|	String| Ad or not |
 |body.data.senderGroupingKey|	String| Sender's group key |
@@ -872,7 +872,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].telecomCode|	Integer| Code of telecom provider |
 |body.data[].telecomCodeName|	String| Name of telecom provider |
 |body.data[].mtPr|	Integer| Detail delivery ID (required to query details) |
-|body.data[].sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].attachFileList[].fileId|	Integer| File ID |
@@ -981,7 +981,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].telecomCode|	Integer| Code of telecom provider |
 |body.data[].telecomCodeName|	String| Name of telecome provider |
 |body.data[].mtPr|	Integer| Detail delivery ID (required to query details) |
-|body.data[].sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].attachFileList[].fileId|	Integer| File ID |
@@ -1263,7 +1263,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].telecomCode|	Integer| Code of telecom provider |
 |body.data[].telecomCodeName|	String| Name of telecom provider |
 |body.data[].mtPr|	Integer| Detail delivery ID (required to query details) |
-|body.data[].sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data[].userId|	String| Request ID for sending |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].senderGroupingKey|	String| Sender's group key |
@@ -1356,7 +1356,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.telecomCode|	Integer| Code of telecom provider |
 |body.data.telecomCodeName|	String| Name of telecom provider |
 |body.data.mtPr|	Integer| Detail delivery ID (required to query details) |
-|body.data.sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data.userId|	String| Request ID for sending |
 |body.data.adYn|	String| Ad or not |
 |body.data.senderGroupingKey|	String| Sender's group key |
@@ -2149,7 +2149,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].useYn|	String| Use or not |
 |body.data[].priority|	String| Priority value (unused) |
 |body.data[].sendNo|	String| Sender number |
-|body.data[].sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data[].sendTypeName|	String| Name of delivery type |
 |body.data[].title|	String| Title |
 |body.data[].body|	String| Body message |
@@ -2256,7 +2256,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.useYn|	String| Use or not |
 |body.data.priority|	String| Priority value (unused) |
 |body.data.sendNo|	String| Sender number |
-|body.data.sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data.sendTypeName|	String| Name of delivery type |
 |body.data.title|	String| Title |
 |body.data.body|	String| Body message |
@@ -2755,7 +2755,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].sendNo|	String| Sender number |
 |body.data[].recipientNo|	String| Recipient number |
 |body.data[].countryCode|	String| Country code |
-|body.data[].sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data[].messageType|	String| Message type<br/>(SMS,LMS,MMS,AUTH) |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].templateId|	String| Template ID |
@@ -2842,7 +2842,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.sendNo|	String| Sender number |
 |body.data.recipientNo|	String| Recipient number |
 |body.data.countryCode|	String| Country code |
-|body.data.sendType|	String| Delivery type (0:Sms, 1:Mms, 2:Auth) |
+|body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data.messageType|	String| Message type <br/>(SMS,LMS,MMS,AUTH) |
 |body.data.adYn|	String| Ad or not |
 |body.data.templateId|	String| Template ID |
@@ -2943,6 +2943,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
+  "sendType":"1",
   "requestId":"20190601100630ReZQ6KZzAH0",
   "startRequestDate":"2019-06-01 00:00:00",
   "endRequestDate":"2019-06-08 00:00:00",
@@ -2962,6 +2963,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
+|sendType| String| 1| O| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |requestId|	String| 25 |	조건 필수(1번) |	요청 ID|
 |startRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
 |endRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|

@@ -345,7 +345,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
 |body.data[].mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
@@ -438,7 +438,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.telecomCode|	Integer|	통신사 코드|
 |body.data.telecomCodeName|	String|	통신사명|
 |body.data.mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
-|body.data.sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
@@ -875,7 +875,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
 |body.data[].mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
@@ -984,7 +984,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
 |body.data[].mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
@@ -1266,7 +1266,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
 |body.data[].mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
@@ -1359,7 +1359,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.telecomCode|	Integer|	통신사 코드|
 |body.data.telecomCodeName|	String|	통신사명|
 |body.data.mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
-|body.data.sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
@@ -2162,7 +2162,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].useYn|	String|	사용 여부|
 |body.data[].priority|	String|	우선순위값(미사용값)|
 |body.data[].sendNo|	String|	발신 번호|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].sendTypeName|	String|	발송 유형명|
 |body.data[].title|	String|	제목|
 |body.data[].body|	String|	본문 내용|
@@ -2269,7 +2269,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.useYn|	String|	사용 여부|
 |body.data.priority|	String|	우선순위값(미사용값)|
 |body.data.sendNo|	String|	발신 번호|
-|body.data.sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.sendTypeName|	String|	발송 유형명|
 |body.data.title|	String|	제목|
 |body.data.body|	String|	본문 내용|
@@ -2768,7 +2768,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].sendNo|	String|	발신 번호|
 |body.data[].recipientNo|	String|	수신 번호|
 |body.data[].countryCode|	String|	국가 번호|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].messageType|	String|	메시지타입<br/>(SMS,LMS,MMS,AUTH)|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].templateId|	String|	템플릿 ID|
@@ -2855,7 +2855,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.sendNo|	String|	발신 번호|
 |body.data.recipientNo|	String|	수신 번호|
 |body.data.countryCode|	String|	국가 번호|
-|body.data.sendType|	String|	발송 유형(0:Sms, 1:Mms, 2:Auth)|
+|body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	메시지타입<br/>(SMS,LMS,MMS,AUTH)|
 |body.data.adYn|	String|	광고 여부|
 |body.data.templateId|	String|	템플릿 ID|
@@ -2957,6 +2957,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
+  "sendType":"1",
   "requestId":"20190601100630ReZQ6KZzAH0",
   "startRequestDate":"2019-06-01 00:00:00",
   "endRequestDate":"2019-06-08 00:00:00",
@@ -2976,6 +2977,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
+|sendType| String| 1| 필수| (0:Sms, 1:Lms/Mms, 2:Auth) |
 |requestId|	String| 25 |	조건 필수(1번) |	요청 ID|
 |startRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
 |endRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
