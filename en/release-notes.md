@@ -7,8 +7,8 @@
     * Sender's group key and recipient's group key have been added as part of query conditions for each SMS request.
 * [Console] Added check boxes to include or exclude title/body in scheduling a file downloading after query of delivery list  
     * Check boxes have been added to include title/body or not, in the request of downloading after query of general/mass/tag delivery list.
-* [API] Added Create/Query/Download delivery list in files for General/Mass/Tag messages   
-    * APIs have been added to download general/mass/tag delivery list in files.
+* [API] Added Create/Query/Download delivery list in files for General messages   
+    * APIs have been added to download general delivery list in files.
 
 ### Bug Fixes 
 * [Console] Fixed template parameter which is not replaced and therefore not visible, in the query of scheduled delivery list and details 
