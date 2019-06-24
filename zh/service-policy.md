@@ -1,26 +1,28 @@
 ## Notification > SMS > Service Policy
 
-## 발신번호 변작(변조) 금지
-+ SMS 서비스를 이용할 때 반드시 본인(또는 자사) 소유의 발신번호를 등록한 후 사용해야 합니다.
-+ 타인(또는 타사) 발신번호를 사용하는 경우 <a href="https://www.msit.go.kr/web/msipContents/contentsView.do?cateId=mssw352&artId=1259891
-" target="_blank">(미래창조과학부고시 제2015-32호) 거짓으로 표시된 전화번호로 인한 이용자의 피해 예방 등에 관한 고시]</a> 및 <a href="https://www.toast.com/terms/terms-service
-" target="_blank">[TOAST 이용 약관]</a>에 따라 아래와 같이 조치할 수 있으니 주의하시기 바랍니다. 
+## Prevention of Caller Number Fabrication 
++ To enable SMS, your own (or corporate-owned) caller number must be registered first. 
++ If you use other's (or other company's) caller number,  in accordance with <a href="https://www.msit.go.kr/web/msipContents/contentsView.do?cateId=mssw352&artId=1259891" target="_blank">(Notice 2015-32 by the Ministry of Science, ICT and Future Planning) Public notice on preventing damage on users due to falsified phone numbers]</a> and <a href="https://www.toast.com/terms/terms-service" target="_blank">[TOAST Terms of Services]</a>, take note that following measures may be taken. 
 
 ```
-ㆍ발신번호를 거짓으로 표시하여 송신하는 경우, 해당 문제에 대한 조사가 완료될 때까지 이용자의 회선 또는 서비스 중지
-  (단, 악의적인 목적 없이 실수로 변작된 경우 이용자의 소명을 받고 심사 후 서비스 재개 가능)
-ㆍ등록된 발신번호 외 다른 번호로 발신할 수 있게 시스템이 구축되어 있는 이용자의 서비스 이용 제한 
-ㆍ기타 발신번호 변작으로 인한 모든 손실에 대한 손해 배상 청구  
+ㆍIf a message is sent from falsified sender number, such circuit or service of the user shall be suspended until investigation on the corresponding issue is completed. 
+  (Nevertheless, if such falsification turns out to be made by mistake, without malicious purposes, service may be resumed upon user's calling and evaluation.)
+ㆍService shall be restricted if the user's system is designed to send messages also from other numbers, as well as registered sender numbers.  
+ㆍDamages shall be claimed for all other losses incurred out of sender number falsification
 ```
 
-## 개인 정보 수탁사 고지 안내
+## Guide for Notice of Personal Information Assignor 
 
-'고객'이 TOAST Cloud > SMS 상품 이용 시, '고객' - '당사' 간 개인 정보 처리에 관한 업무 위수탁 관계가 발생하는 바 정보통신망법 및 개인 정보보호법에 따라 위탁자인 '고객'은 개인 정보처리 방침을 통해 '당사'에 개인 정보를 위탁한 현황(수탁자 및 업무의 내용)을 공개하여야 합니다.
+When the Customer uses TOAST > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act. 
 
-이에, '당사'에서는 '고객'이 TOAST Cloud의 SMS 상품을 이용함에 있어 관련 법령을 준수하고, 위탁 현황 미공개로 인하여 과태료 등의 불이익을 받지 않도록 아래와 같이 가이드 할 수 있습니다.
+Accordingly, the Company may provide guidelines as below for the Customer, to abide by relevant regulations in the use of TOAST SMS Service and not to be adversely affected for not disclosing his assignment status:
 
-(예시)
-[개인 정보 수탁사 고지 안내]
-SMS 상품 이용 시 고객사에서 운영하시는'개인 정보처리방침' > 위탁 현황에 다음의 내용을 표기해주세요.
-수탁사 : 엔에이치엔
-업무의 내용 : 문자 발송 대행
+(Example)
+
+[Notice of Personal Information Assignor] 
+To use TOAST SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
+
+Assignor: NHN 
+Content of Business: Send SMS in lieu of customers
+
+
