@@ -1,296 +1,291 @@
-## Notification > SMS > 오류 코드
+## Notification > SMS > Error Codes
 
-## API 응답 코드
+## API Response Codes
 | service | isSuccess | resultCode | resultMessage |
 | - | - | - | - |
-| 공통 | true | 0 | 성공 |
-| 공통 | false | 4 | 파라미터 검증 실패<br/>- 단문 발송 시 본문의 길이가 4000글자를 넘어가는 경우<br/>- 장문/첨부 발송 시 제목의 길이가 120글자를 넘어가는 경우<br/>- 통계 조회 시 searchType, from, to 항목이 비어있는 경우 |
-| 공통 | false | -1000 | 유효하지 않은 앱키 |
-| 공통 | false | -1001 | 존재하지 않는 앱키 |
-| 공통 | false | -1002 | 사용 종료된 앱키 |
-| 공통 | false | -1003 | 프로젝트에 포함되지 않는 멤버 |
-| 공통 | false | -1004 | 허용되지 않는 IP |
-| 공통 | false | -9996 | 유효하지 않는 contectType. Only application/JSON |
-| 공통 | false | -9997 | 유효하지 않는 JSON 형식 |
-| 공통 | false | -9998 | 존재하지 않는 API |
-| 공통 | false | -9999 | 시스템 오류(예기치 못한 오류) |
-| 발송/조회 | false | -1006 | 유효하지 않는 발송 메시지(messageType) 유형 |
-| 발송/조회 | false | -2000 | 유효하지 않는 날짜 형식 |
-| 발송/조회 | false | -2001 | 수신자가 비어 있는 경우 |
-| 발송/조회 | false | -2002 | 첨부 파일 이름이 잘못된 경우 |
-| 발송/조회 | false | -2003 | 첨부 파일 확장자가 jpg, jpeg가 아닌 경우 |
-| 발송/조회 | false | -2004 | 첨부 파일이 존재하지 않는 경우 |
-| 발송/조회 | false | -2005 | 첨부 파일 사이즈가 300KB이 넘는 경우 |
-| 발송/조회 | false | -2006 | 템플릿에 설정된 발송 유형과 요청온 발송 유형이 맞지 않는 경우 |
-| 발송/조회 | false | -2008 | 요청 ID(requestId)가 잘못된 경우 |
-| 발송/조회 | false | -2009 | 첨부 파일 업로드 도중 서버오류로 인해 정상적으로 업로드되지 않은 경우 |
-| 발송/조회 | false | -2010 | 첨부 파일 업로드 유형이 잘못된 경우(서버 오류) |
-| 발송/조회 | false | -2011 | 필수 조회 파라미터가 비어 있는 경우(requestId 또는 startRequestDate, endRequestdate)
-| 발송/조회 | false | -2012 | 상세 조회 파라미터가 잘못된 경우(requestId 또는 mtPr) |
-| 발송/조회 | false | -2014 | 제목 또는 본문이 비어 있는 경우 |
-| 발송/조회 | false | -2016 | 수신자가 1,000명이 넘어간 경우 |
-| 발송/조회 | false | -2017 | Excel 생성이 실패한 경우 |
-| 발송/조회 | false | -2018 | 수신자 번호가 비어 있는 경우 |
-| 발송/조회 | false | -2019 | 수신자 번호가 유효하지 않는 경우 |
-| 발송/조회 | false | -2021 | 시스템 오류(큐 저장 실패) |
-| 발송/조회 | false | -2022 | 요청 일시를 현재 시간보다 이전으로 설정한 경우 |
-| 발송/조회 | false | -2023 | 제목 또는 본문에 허용되지 않는 문자(Emoji 등)가 포함된 경우 |
-| 발송/조회 | false | -2024 | LMS/MMS로 국제 발송을 전송하는 경우 |
-| 발송/조회 | false | -4000 | 조회 범위가 한달이 넘어간 경우 |
-| 템플릿 | false | -2100 | 템플릿 ID가 비어 있는 경우 |
-| 템플릿 | false | -2101 | 이미 등록된 템플릿 ID |
-| 템플릿 | false | -2102 | 템플릿 이름이 비어 있는 경우 |
-| 템플릿 | false | -2103 | 발신 번호가 비어 있는 경우 |
-| 템플릿 | false | -2104 | 발송 유형이 비어 있는 경우(0: sms, 1: mms, 2: auth) |
-| 템플릿 | false | -2105 | 본문이 비어 있는 경우 |
-| 템플릿 | false | -2106 | 사용 여부가 잘못된 경우 |
-| 템플릿 | false | -2107 | 유효하지 않는 템플릿 ID(수정/삭제 시) |
-| 템플릿 | false | -2108 | 카테고리 ID가 비어 있는 경우 |
-| 템플릿 | false | -2109 | 템플릿 ID가 50글자를 초과하는 경우 |
-| 템플릿 | false | -2110 | 템플릿이 존재하지 않는 경우 |
-| 카테고리 | false | -2200 | 유효하지 않는 카테고리 파라미터(등록 시) |
-| 카테고리 | false | -2201 | 유효하지 않는 카테고리 파라미터(수정 시) |
-| 카테고리 | false | -2202 | 유효하지 않는 카테고리(카테고리 조회 실패) |
-| 발신 번호 등록 요청 | false | -2301 | 이미 등록된 발신번호 |
-| 발신 번호 등록 요청 | false | -2302 | 등록 요청한 발신번호 리스트 파라미터가 비어있는 상태  |
-| 발신 번호 등록 요청 | false | -2304 | 유효하지 않는 등록 파라미터(첨부파일) |
-| 발신 번호 | false | -2312 | 발신 번호가 비어있거나 미등록 상태 |
-| 발신 번호 | false | -2313 | 차단된 발신 번호 |
-| 발신 번호 | false | -2314 | 발신 번호 등록 요청 파라미터가 유효하지 않음 |
-| 통계 | false | -2700 | 유효하지 않는 통계 범위 |
-| 통계 | false | -2701 | 유효하지 않는 통계 검색 파라미터 |
-| 통계 | false | -2703 | 유효하지 않는 통계 세부 범위 |
-| 080 수신거부 | false | -6000 | 수신 거부 기능을 사용하고 있지 않음 |
-| 080 수신거부 | false | -6001 | 수신 거부된 번호 |
-| 080 수신거부 | false | -6003 | 본문에 수신 거부 안내 메시지가 없음 |
-| 080 수신거부 | false | -6004 | 수신 거부 번호가 사용되고 있지 않음 |
-| 태그 | false | -7000 | 태그 내부 오류(APi 호출 실패) |
-| 태그 | false | -7001 | 유효하지 않는 파라미터 |
-| 태그 | false | -7002 | .csv 읽기 실패 |
+| Common | true | 0 | Successful |
+| Common | false | -1000 | Invalid appkey |
+| Common | false | -1001 | Unavailable appkey |
+| Common | false | -1002 | Closed appkey |
+| Common | false | -1003 | Member not included in the project |
+| Common | false | -1004 | Not allowed IP |
+| Common | false | -9996 | Invalid contectType. Only application/JSON |
+| Common | false | -9997 | Invalid JSON format |
+| Common | false | -9998 | Unavailable API |
+| Common | false | -9999 | System error (unexpected error) |
+| Send/Query | false | -1006 | Invalid delivery message format (messageType) |
+| Send/Query | false | -2000 | Invalid date format |
+| Send/Query | false | -2001 | Recipient is missing |
+| Send/Query | false | -2002 | Name of attached file is invalid |
+| Send/Query | false | -2003 | Extension of attached file is not jpg or jpeg |
+| Send/Query | false | -2004 | Attached file is not available |
+| Send/Query | false | -2005 | Attached file is sized 300KB or more |
+| Send/Query | false | -2006 | Delivery type in template setting is not consistent with requested type |
+| Send/Query | false | -2008 | Request ID (requestId) is invalid |
+| Send/Query | false | -2009 | Attached file is not properly uploaded due to server error |
+| Send/Query | false | -2010 | Upload type of attachment is invalid (server error) |
+|Send/Query | false | -2011 | Required query parameters are missing (requestId or startRequestDate, endRequestdate)
+| Send/Query | false | -2012 | When detailed query parameter is invalid (requestId or mtPr) |
+| Send/Query | false | -2014 | Title or body is missing  |
+| Send/Query | false | -2016 | The number of recipients is over 1,000 |
+| Send/Query | false | -2017 | Failed to create excel |
+| Send/Query | false | -2018 | Recipient number is missing |
+| Send/Query | false | -2019 | Recipient number is invalid  |
+| Send/Query | false | -2021 | System error (failed in saving queue) |
+| Send/Query | false | -2022 | Request date and time is set earlier than the current time |
+| Send/Query | false | -2023 | Title or body includes characters that are not allowed (e.g. emojis) |
+| Send/Query | false | -4000 | Query range is more than a month |
+| Template | false | -2100 | Template ID is missing |
+| Template | false | -2101 | Already-registered Template ID |
+| Template | false | -2102 | Template name is missing |
+| Template | false | -2103 | Sender number is missing |
+| Template | false | -2104 | Delivery type is missing (0: sms, 1: mms, 2: auth) |
+| Template | false | -2105 | Body is missing |
+| Template | false | -2106 | Incorrect if service is enabled |
+| Template | false | -2107 | Invalid template ID (to modify/delete) |
+| Template | false | -2108 | Category ID is missing|
+| Template | false | -2109 | Template ID exceeds 50 characters |
+| Template | false | -2110 | Template is unavailable |
+| Category | false | -2200 | Invalid category parameter (to register) |
+| Category | false | -2201 | Invalid category parameter (to modify) |
+| Category | false | -2202 | Invalid category (failed to query category |
+| Sender Number | false | -2312 | Sender number is missing or unregistered |
+| Sender Number | false | -2313 | Blocked sender number |
+| Sender Number | false | -2314 | Request parameter for sender number registration is invalid |
+| Statistics | false | -2700 | Invalid range of statistics |
+| Statistics | false | -2701 | Invalid statistics search parameter |
+| Statistics | false | -2703 | Invalid detail range of statistics |
+| 080 Call Rejection | false | -6000 | Call rejection is not in service |
+| 080 Call Rejection | false | -6001 | Call-reject numbers |
+| 080 Call Rejection | false | -6003 | Body does not include guide message on call rejection |
+| 080 Call Rejection | false | -6004 | Call rejection numbers are not in service |
+| Tag | false | -7000 | Internal tag error (failed to call API) |
+| Tag | false | -7001 | Invalid parameter |
+| Tag | false | -7002 | Failed to read .csv file  |
 
-## 발신 조회 코드
-### 수신 결과 코드
+## Query Delivery Codes 
+### Result Code of Receiving 
 <table class="table table-striped table-hover">
 <thead>
 	<tr>
-    <th>코드값</th>
-    <th>의미</th>
+    <th>Code Value</th>
+    <th>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td>MTR1</td>
-    <td>성공</td>
+    <td>Successful</td>
   </tr>
   <tr>
     <td>MTR2</td>
-    <td>실패</td>
+    <td>Failed</td>
   </tr>
 </tbody>
 </table>
 
-### 수신 결과 상세 코드
+### Detail Result Code of Receiving 
 <table class="table table-striped table-hover">
 <thead>
 	<tr>
-    <th>코드값</th>
-    <th>의미</th>
+    <th>Code Value</th>
+    <th>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td>MTR2_1</td>
-    <td>유효성 검사 실패</td>
+    <td>Validity Check Failed</td>
   </tr>
   <tr>
     <td>MTR2_2</td>
-    <td>통신사 문제</td>
+    <td>Issue of Telecom Provider</td>
   </tr>
   <tr>
     <td>MTR2_3</td>
-    <td>단말기 문제</td>
+    <td>Issue of Device</td>
   </tr>
 </tbody>
 </table>
 
-## EMMA v.3 수신 결과 코드
-EMMA Version: EMMA V3.3.0 이상
+## EMMA v.3 Result Code of Receiving 
+EMMA Version: EMMA V3.3.0 or higher
 
-1) 이통사: 이통사 전송 후 받은 결과 코드이다.
+1) Telecom Provider: Result codes received after transferred to telecom provider.
 
-2) IB G/W: Infobank G/W가 메시지 수신 후 전달하는 결과 코드이다.
+2) IB G/W: Result codes delivered after Infobank G/W receives messages.
 
-3) IB EMMA: EMMA가 메시지 전송 요청에 대해 처리한 오류 코드이다.
+3) IB EMMA: Error codes processed by EMMA regarding message delivery requests. 
 
 <table class="table table-striped table-hover">
 <thead>
 	<tr>
-		<th>구분</th>
-		<th>코드값</th>
-		<th>분류</th>
-		<th>의미</th>
+		<th>Category</th>
+		<th>Code Value</th>
+		<th>Classification</th>
+		<th>Description</th>
 	</tr>
 </thead>
 <tbody>
 	<tr>
-		<td rowspan=29>이통사</td>
+		<td rowspan=29>Telecom Provider</td>
 		<td>1000</td>
-		<td>success</td>
-		<td>성공</td>
+		<td>Success</td>
+		<td>Successful</td>
 	</tr>
 	<tr>
 		<td>2000</td>
 		<td>failure</td>
-		<td>전송 시간 초과</td>
+		<td>Delivery time exceeded</td>
 	</tr>
 	<tr>
 		<td>2001</td>
 		<td>failure</td>
-		<td>전송 실패 (무선망단)</td>
+		<td>Delivery failed (mobile network)</td>
 	</tr>
 	<tr>
 		<td>2002</td>
 		<td>failure</td>
-		<td>전송 실패 (무선망 -> 단말기단)</td>
+		<td>Delivery failed (mobile network -> device)</td>
 	</tr>
 	<tr>
 		<td>2003</td>
 		<td>failure</td>
-		<td>단말기 전원 꺼짐</td>
+		<td>Device power off</td>
 	</tr>
 	<tr>
 		<td>2004</td>
 		<td>failure</td>
-		<td>단말기 메시지 버퍼 풀</td>
+		<td>Device message buffer pool</td>
 	</tr>
 	<tr>
 		<td>2005</td>
 		<td>failure</td>
-		<td>음영 지역</td>
+		<td>Grey area</td>
 	</tr>
 	<tr>
 		<td>2006</td>
 		<td>failure</td>
-		<td>메시지 삭제됨</td>
+		<td>Message deleted</td>
 	</tr>
 	<tr>
 		<td>2007</td>
 		<td>failure</td>
-		<td>일시적인 단말 문제</td>
+		<td>Temporary device issue</td>
 	</tr>
 	<tr>
 		<td>3000</td>
 		<td>Invalid</td>
-		<td>전송할 수 없음</td>
+		<td>Unavailable to transfer</td>
 	</tr>
 	<tr>
 		<td>3001</td>
 		<td>Invalid</td>
-		<td>가입자 없음</td>
+		<td>No subscriber available</td>
 	</tr>
 	<tr>
 		<td>3002</td>
 		<td>Invalid</td>
-		<td>성인 인증 실패</td>
+		<td>Adult authentication failed</td>
 	</tr>
 	<tr>
 		<td>3003</td>
 		<td>Invalid</td>
-		<td>수신 번호 형식 오류</td>
+		<td>Error of recipient number type</td>
 	</tr>
 	<tr>
 		<td>3004</td>
 		<td>Invalid</td>
-		<td>단말기 서비스 일시 정지</td>
+		<td>Temporary service suspension on device</td>
 	</tr>
 	<tr>
 		<td>3005</td>
 		<td>Invalid</td>
-		<td>단말기 호 처리 상태</td>
+		<td>Device call processing status</td>
 	</tr>
 	<tr>
 		<td>3006</td>
 		<td>Invalid</td>
-		<td>착신 거절</td>
+		<td>Incoming call denied </td>
 	</tr>
 	<tr>
 		<td>3007</td>
 		<td>Invalid</td>
-		<td>콜백 URL을 받을 수 없는 폰</td>
+		<td>Phone unavailable to receive callback URL </td>
 	</tr>
 	<tr>
 		<td>3008</td>
 		<td>Invalid</td>
-		<td>기타 단말기 문제</td>
+		<td>Other device issues</td>
 	</tr>
 	<tr>
 		<td>3009</td>
 		<td>Invalid</td>
-		<td>메시지 형식 오류</td>
+		<td>Message format error </td>
 	</tr>
 	<tr>
 		<td>3010</td>
 		<td>Invalid</td>
-		<td>MMS 미지원 단말</td>
+		<td>Device not supporting MMS</td>
 	</tr>
 	<tr>
 		<td>3011</td>
 		<td>Invalid</td>
-		<td>서버 오류</td>
+		<td>Server error</td>
 	</tr>
 	<tr>
 		<td>3012</td>
 		<td>Invalid</td>
-		<td>스팸</td>
+		<td>Spam</td>
 	</tr>
 	<tr>
 		<td>3013</td>
 		<td>Invalid</td>
-		<td>서비스 거부</td>
+		<td>Service rejected</td>
 	</tr>
 	<tr>
 		<td>3014</td>
 		<td>Invalid</td>
-		<td>기타</td>
+		<td>Others </td>
 	</tr>
 	<tr>
 		<td>3015</td>
 		<td>Invalid</td>
-		<td>전송 경로 없음</td>
+		<td>No transfer route available</td>
 	</tr>
 	<tr>
 		<td>3016</td>
 		<td>Invalid</td>
-		<td>첨부 파일 크기 제한 실패</td>
+		<td>Size restriction failed for attached file</td>
 	</tr>
 	<tr>
 		<td>3017</td>
 		<td>Invalid</td>
-		<td>발신 번호(=회신 번호) 변작 방지 서비스에 의거한 번호 형식 오류</td>
+		<td>Number format error due to sender number (=reply number) falsification prevention service </td>
 	</tr>
 	<tr>
 		<td>3018</td>
 		<td>Invalid</td>
-		<td>발신 번호(=회신 번호) 변작 방지 서비스에 가입된 휴대폰 개인 가입자 번호</td>
+		<td>Personal mobile phone number subscribed to sender number (=reply number) falsification prevention service </td>
 	</tr>
 	<tr>
 		<td>3019</td>
 		<td>Invalid</td>
-		<td>발신 번호(=회신 번호) 인포뱅크에 번호 사전 등록제를 통해 등록되지 않은 번호</td>
+		<td>Numbers not registered at sender number(=reply number) InfoBank via pre-registration of numbers </td>
 	</tr>
 	<tr>
 		<td rowspan=20>IB G/W</td>
 		<td>1001</td>
 		<td rowspan=20></td>
-		<td>Server Busy (RS 내부 저장 Queue Full)</td>
+		<td>Server Busy (internal RS saving queue Full)</td>
 	</tr>
 	<tr>
 		<td>1002</td>
-		<td>수신 번호 형식 오류</td>
+		<td> Error in recipient number format</td>
 	</tr>
 	<tr>
 		<td>1003</td>
-		<td>회신 번호 형식 오류</td>
+		<td> Error in reply number format</td>
 	</tr>
 	<tr>
 		<td>1004</td>
@@ -298,63 +293,63 @@ EMMA Version: EMMA V3.3.0 이상
 	</tr>
 	<tr>
 		<td>1005</td>
-		<td>사용 건수 초과</td>
+		<td> Available usage exceeded</td>
 	</tr>
 	<tr>
 		<td>1006</td>
-		<td>첨부 파일 없음</td>
+		<td>No Attached file available</td>
 	</tr>
 	<tr>
 		<td>1007</td>
-		<td>첨부 파일 있음</td>
+		<td> Attached file available </td>
 	</tr>
 	<tr>
 		<td>1008</td>
-		<td>첨부 파일 저장 실패</td>
+		<td>Failed to save attached file</td>
 	</tr>
 	<tr>
 		<td>1009</td>
-		<td>CLIENT_MSG_KEY 없음</td>
+		<td> No CLIENT_MSG_KEY available</td>
 	</tr>
 	<tr>
 		<td>1010</td>
-		<td>CONTENT 없음</td>
+		<td>No content available</td>
 	</tr>
 	<tr>
 		<td>1011</td>
-		<td>CALLBACK 없음</td>
+		<td> No callback available</td>
 	</tr>
 	<tr>
 		<td>1012</td>
-		<td>RECIPIENT_INFO 없음</td>
+		<td> No RECIPIENT_INFO available </td>
 	</tr>
 	<tr>
 		<td>1013</td>
-		<td>SUBJECT 없음</td>
+		<td> No subject available </td>
 	</tr>
 	<tr>
 		<td>1014</td>
-		<td>첨부 파일 KEY 없음</td>
+		<td>No attached file key available </td>
 	</tr>
 	<tr>
 		<td>1015</td>
-		<td>첨부 파일 NAME 없음</td>
+		<td>No attached file name available </td>
 	</tr>
 	<tr>
 		<td>1016</td>
-		<td>첨부 파일 크기 없음</td>
+		<td> No attached file size available</td>
 	</tr>
 	<tr>
 		<td>1017</td>
-		<td>첨부 파일 Content 없음</td>
+		<td> No attached file content available</td>
 	</tr>
 	<tr>
 		<td>1018</td>
-		<td>전송 권한 없음</td>
+		<td> No transfer authority available</td>
 	</tr>
 	<tr>
 		<td>1019</td>
-		<td>TTL 초과</td>
+		<td>TTL exceeded</td>
 	</tr>
 	<tr>
 		<td>1020</td>
@@ -364,75 +359,75 @@ EMMA Version: EMMA V3.3.0 이상
 		<td rowspan=24>IB EMMA</td>
 		<td>E900</td>
 		<td rowspan=24>Invalid-IB</td>
-		<td>전송 키가 없는 경우</td>
+		<td>No transfer key available</td>
 	</tr>
 	<tr>
 		<td>E901</td>
-		<td>수신 번호가 없는 경우</td>
+		<td>No recipient number available</td>
 	</tr>
 	<tr>
 		<td>E902</td>
-		<td>(동보인 경우) 수신 번호 순번이 없는 경우</td>
+		<td>Order of recipient number (for broadcasts) is unavailable </td>
 	</tr>
 	<tr>
 		<td>E903</td>
-		<td>제목 없는 경우</td>
+		<td>No title available</td>
 	</tr>
 	<tr>
 		<td>E904</td>
-		<td>메시지가 없는 경우</td>
+		<td>No message available</td>
 	</tr>
 	<tr>
 		<td>E905</td>
-		<td>회신 번호가 없는 경우</td>
+		<td>No reply number available</td>
 	</tr>
 	<tr>
 		<td>E906</td>
-		<td>메시지 키가 없는 경우</td>
+		<td>No message key available</td>
 	</tr>
 	<tr>
 		<td>E907</td>
-		<td>동보(broadcast message) 여부가 없는 경우</td>
+		<td>Availability of broadcast message is unavailable </td>
 	</tr>
 	<tr>
 		<td>E908</td>
-		<td>서비스 유형이 없는 경우</td>
+		<td>No service type available</td>
 	</tr>
 	<tr>
 		<td>E909</td>
-		<td>전송 요청 시각이 없는 경우</td>
+		<td>Request hour for transfer is unavailable</td>
 	</tr>
 	<tr>
 		<td>E910</td>
-		<td>TTL 타임이 없는 경우</td>
+		<td>TTL time unavailable</td>
 	</tr>
 	<tr>
 		<td>E911</td>
-		<td>서비스 유형이 MMS MT인 경우, 첨부 파일 확장자가 없는 경우</td>
+		<td>No attached file extension available, in the case of MMS MT</td>
 	</tr>
 	<tr>
 		<td>E912</td>
-		<td>서비스 유형이 MMS MT인 경우, attach_file 폴더에 첨부 파일이 없는 경우</td>
+		<td>No attached file available for attach_file folder, in the case of MMS MT</td>
 	</tr>
 	<tr>
 		<td>E913</td>
-		<td>서비스 유형이 MMS MT인 경우, 첨부 파일 크기가 0인 경우</td>
+		<td>If attached file is sized 0, in the case of MMS MT</td>
 	</tr>
 	<tr>
 		<td>E914</td>
-		<td>서비스 유형이 MMS MT인 경우, 메시지 테이블에는 파일 그룹 키가 있는데 파일 테이블에 데이터가 없는 경우</td>
+		<td>If data are available at message table but not at file table, in the case of MMS MT</td>
 	</tr>
 	<tr>
 		<td>E915</td>
-		<td>중복메시지</td>
+		<td>Duplicate message </td>
 	</tr>
 	<tr>
 		<td>E916</td>
-		<td>인증 서버 차단번호</td>
+		<td>Prohibited number for authenticated server</td>
 	</tr>
 	<tr>
 		<td>E917</td>
-		<td>고객 DB 차단번호</td>
+		<td>Prohibited number for customer database</td>
 	</tr>
 	<tr>
 		<td>E918</td>
@@ -440,65 +435,65 @@ EMMA Version: EMMA V3.3.0 이상
 	</tr>
 	<tr>
 		<td>E919</td>
-		<td>발송 제한 시간인 경우, 메시지 재발송 처리가 금지된 경우</td>
+		<td>Resending message is prohibited during when delivery is restricted</td>
 	</tr>
 	<tr>
 		<td>E920</td>
-		<td>서비스 유형이 LMS MT인 경우, 메시지 테이블에 파일 그룹 키가 있는 경우</td>
+		<td>If file group key is available at message table, in the case of LMS MT</td>
 	</tr>
 	<tr>
 		<td>E921</td>
-		<td>서비스 유형이 MMS MT인 경우, 메시지 테이블에 파일 그룹 키가 없는 경우</td>
+		<td>If file group key is unavailable at message table, in the case of MMS MT</td>
 	</tr>
 	<tr>
 		<td>E922</td>
-		<td>동보(broadcast) 단어 제약 문자 사용 오류</td>
+		<td>Error in restricted use of characters for broadcast words </td>
 	</tr>
 	<tr>
 		<td>E999</td>
-		<td>기타오류</td>
+		<td> Other errors </td>
 	</tr>
 	<tr>
-		<td rowspan=10>IB 인증 서버</td>
+		<td rowspan=10> IB authentication server</td>
 		<td>1000</td>
 		<td rowspan=10></td>
-		<td> 성공 </td>
+		<td> Successful </td>
 	</tr>
 	<tr>
 		<td>1001</td>
-		<td>ID 존재하지 않음</td>
+		<td> Unavailable ID </td>
 	</tr>
 	<tr>
 		<td>1002</td>
-		<td>인증 오류</td>
+		<td> Authentication error </td>
 	</tr>
 	<tr>
 		<td>1003</td>
-		<td>서버 내부 오류 (DB 접속 실패 등)</td>
+		<td> Internal server error (e.g. failed database access)</td>
 	</tr>
 	<tr>
 		<td>1004</td>
-		<td>클라이언트 비밀번호 틀림</td>
+		<td> Invalid client password </td>
 	</tr>
 	<tr>
 		<td>1005</td>
-		<td>공개 키가 이미 등록 되어 있음</td>
+		<td> Public key already registered </td>
 	</tr>
 	<tr>
 		<td>1006</td>
-		<td>클라이언트 공개 키 중복</td>
+		<td> Client public key duplicated</td>
 	</tr>
 	<tr>
 		<td>1007</td>
-		<td>IP Address 인증 실패</td>
+		<td>IP Address authentication failed </td>
 	</tr>
 	<tr>
 		<td>1008</td>
-		<td>MAC 주소 인증 실패</td>
+		<td>MAC address authentication failed </td>
 	</tr>
 	<tr>
 		<td>1009</td>
-		<td>서비스 거부됨 (고객 접속 금지)</td>
+		<td>Service denied (customer access prohibited)</td>
 	</tr>
 </tbody>
 </table>
