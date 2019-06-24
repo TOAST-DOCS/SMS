@@ -2,7 +2,7 @@
 
 ### June 25, 2019
 
-### Feature Updates 
+#### Feature Updates 
 * [Console] Added sender's group key and recipient's group key in the query of request by SMS 
     * Sender's group key and recipient's group key have been added as part of query conditions for each SMS request.
 * [Console] Added check boxes to include or exclude title/body in scheduling a file downloading after query of delivery list  
@@ -10,11 +10,23 @@
 * [API] Added Create/Query/Download delivery list in files for General/Mass/Tag messages   
     * APIs have been added to download general/mass/tag delivery list in files.
 
-### Bug Fixes 
+#### Bug Fixes 
 * [Console] Fixed template parameter which is not replaced and therefore not visible, in the query of scheduled delivery list and details 
     * The issue of template parameter which was not properly replaced in the query of scheduled delivery list and details has been fixed. 
 * [Console/API] Fixed bugs in collecting statistics 
     * It has been modified to collect duplicate delivery as failed delivery, not as ready for receiving 
+
+### May 28, 2019
+
+#### Updates
+* [Console/API] Performance improved for scheduled delivery 
+
+#### Bug Fixes
+* [API] Fixed to respond with defined codes for the query of template details, when it is tried with invalid template 
+* [Console] Processing disallowed characters for template registration/modification
+    * When a template is registered/modified, if disallowed characters (emojis) are tried, defined errors, not system errors, are sent as response.
+* [Console/API] Validity checks added for empty attached files when uploading attached files for sender number authentication  
+    * If attached file is missing for upload, defined error is sent as response, instead of a system error. 
 
 ### March 26, 2019
 
