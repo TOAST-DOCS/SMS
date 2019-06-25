@@ -2925,7 +2925,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestedCount|	Integer|	キャンセルリクエスト件数|
 |body.data.canceledCount|	Integer|	キャンセル成功件数|
 
-﻿## 送信結果ファイルのダウンロード
+## 送信結果ファイルのダウンロード
 
 ### 照会ファイル作成リクエスト
 
