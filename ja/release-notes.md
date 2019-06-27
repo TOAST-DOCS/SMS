@@ -1,4 +1,4 @@
-## Notification > SMS > 릴리스 노트
+## Notification > SMS > リリースノート
 
 ### 2019.06.25
 
