@@ -2920,11 +2920,11 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestedCount|	Integer| Number of failed requests |
 |body.data.canceledCount|	Integer| Number of successful cancellation |
 
-## 발송 결과 파일 다운로드
+## Download Delivery Result Files 
 
-### 조회 파일 생성 요청
+### Request for Creating Query Files 
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -2935,9 +2935,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String| Original appkey |
 
 [Request body]
 
@@ -2955,31 +2955,31 @@ Content-Type: application/json;charset=UTF-8
   "msgStatus":"3",
   "resultCode":"MTR2",
   "subResultCode":"MTR2_3",
-  "senderGroupingKey":"{발송자 그룹 키}",
-  "recipientGroupingKey":"{수신자 그룹 키}",
+  "senderGroupingKey":"{sender's group key}",
+  "recipientGroupingKey":"{recipient's group key}",
   "isIncludeTitleAndBody":true
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
 |sendType| String| 1| O| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
-|requestId|	String| 25 |	조건 필수(1번) |	요청 ID|
-|startRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String| - |	옵션|	수신 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String| 13 |	옵션|	발신 번호|
-|recipientNo|	String| 20 |	옵션|	수신 번호|
-|templateId|	String| 50 |	옵션|	템플릿 번호|
-|msgStatus|	String| 1 |	옵션| 메시지 상태 코드(1: 요청, 2: 처리 중, 3:성공) |
-|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹 키|
-|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹 키|
-|isIncludeTitleAndBody | Boolean | - | 옵션 | 제목, 본문 포함 여부 |
+|requestId|	String| 25 |	Conditionally required (no.1) | Request ID |
+|startRequestDate|	String| - |	Conditionally required (no.2) | Start date of delivery (yyyy-MM-dd HH:mm:ss) |
+|endRequestDate|	String| - |	Conditionally required (no.2) | End date of delivery (yyyy-MM-dd HH:mm:ss) |
+|startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
+|endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
+|sendNo|	String| 13 | Optional | Sender number |
+|recipientNo|	String| 20 | Optional | Receiving number |
+|templateId|	String| 50 | Optional | Template number |
+|msgStatus|	String| 1 | Optional | Message status code (1: requesting 2: processing, 3:successful) |
+|resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
+|subResultCode|	String| 10 | Optional | Detail code of receiving [[Table on Query Codes](./error-code/#_3)] |
+|senderGroupingKey|	String| 100 | Optional | Sender's group key |
+|recipientGroupingKey|	String| 100 | Optional | Recipient's group key |
+|isIncludeTitleAndBody | Boolean | - | Optional | Title and body included or not |
 
-#### 응답
+#### Response
 
 ```
 {
@@ -3000,21 +3000,21 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.donwloadId|	String|	다운로드 ID|
-|body.data.downloadType|	String|	다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송|
-|body.data.fileType|	String|	파일 타입(현재 csv만 지원)|
-|body.data.downloadStatusCode|	String|	파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료|
-|body.data.expiredDate|	String|	다운로드 기간 만료 일시|\
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.donwloadId|	String| Download ID |
+|body.data.downloadType|	String| Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery |
+|body.data.fileType|	String| File type (currently supports csv only) |
+|body.data.downloadStatusCode|	String| Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
+|body.data.expiredDate|	String|	Date and time of expiration for download period|\
 
 
-### 발송 결과 파일 생성 요청 내역 조회
+### Query Request History for Delivery Result of File Creation
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -3025,20 +3025,20 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String| Original appkey |
 
 [Query parameter]
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|downloadId|	String|	25 | 옵션 | 다운로드 아이디|
-|downloadStatusCode|	String| 10 | 옵션 |	다운로드 파일 상태 코드|
-|pageNum|	Integer|	- | 옵션 | 페이지 번호(기본값: 1)|
-|pageSize|	Integer|	1000 | 옵션 | 조회 수(기본값: 15)|
+|downloadId|	String|	25 | Optional | Download ID |
+|downloadStatusCode|	String| 10 | Optional | Status code of download file |
+|pageNum|	Integer|	- | Optional | Page number (default: 1) |
+|pageSize|	Integer|	1000 | Optional | Number of queries (default: 15) |
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -3068,28 +3068,28 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.totalCount| Integer | 전체 건수|
-|body.data[].downloadId| String | 다운로드 ID |
-|body.data[].downloadType| String | 다운로드 유형<br/>- BLOCK: 수신 거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송 |
-|body.data[].fileType| String | 파일 타입 |
-|body.data[].parameter| String | 요청 파라미터 |
-|body.data[].size| Integer | 조회 데이터 크기 |
-|body.data[].downloadStatusCode| String | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
-|body.data[].resultMessage| String | 결과 메시지(실패 시 응답) |
-|body.data[].expiredDate| String | 파일 만료 일시 |
-|body.data[].createUser| String | 파일 생성 요청자 |
-|body.data[].createDate| String | 파일 생성 요청 일시 |
-|body.data[].updateDate| String | 파일 생성 완료, 실패 일시 |
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.totalCount| Integer | Total count |
+|body.data[].downloadId| String | Download ID |
+|body.data[].downloadType| String | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery |
+|body.data[].fileType| String | File type |
+|body.data[].parameter| String | Request parameter |
+|body.data[].size| Integer | Size of query data |
+|body.data[].downloadStatusCode| String | Status of file creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
+|body.data[].resultMessage| String | Result message (respond when it fails) |
+|body.data[].expiredDate| String | Date and time of file expiration |
+|body.data[].createUser| String | Requester for file creation |
+|body.data[].createDate| String | Date and time of request for file creation |
+|body.data[].updateDate| String | Date and time of completion or failure of file creation |
 
 
-### 발송 결과 파일 다운로드 요청
+### Request for Downloading Delivery Result Files 
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -3100,12 +3100,12 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|downloadId| String | 다운로드 ID|
+|appKey|	String| Original appkey |
+|downloadId| String | Download ID |
 
-#### 응답
+#### Response
 
 ```
 file byte
