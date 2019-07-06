@@ -1940,6 +1940,272 @@ X
 |body.data.attachFileList[].updateDate | String | 첨부 파일 - 수정 날짜 |
 
 
+## 카테고리
+
+### 카테고리 등록
+
+#### 요청
+
+[URL]
+
+```
+POST  /sms/v2.2/appKeys/{appKey}/categories
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Request body]
+
+```
+{
+   "categoryParentId" : 0,
+   "categoryName" : "",
+   "categoryDesc" : "",
+   "useYn" : ""
+}
+```
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+| categoryParentId |	Integer|	- | 필수 | 부모 카테고리 ID |
+| categoryName | String | 50 | 필수 | 카테고리 ID |
+| categoryDesc |	String| 100 |	옵션 |	카테고리명|
+| useYn |	String| 1 |	필수| 사용 여부(Y/N)|
+
+
+#### 응답
+
+```
+{
+   "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+   }
+}
+```
+
+
+### 카테고리 리스트 조회
+
+#### 요청
+
+[URL]
+
+```
+GET  /sms/v2.2/appKeys/{appKey}/categories
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Query parameter]
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
+|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+
+#### 응답
+
+```
+{  
+   "header":{  
+      "isSuccessful":true,
+      "resultCode":0,
+      "resultMessage":"SUCCESS"
+   },
+   "body":{  
+      "pageNum":1,
+      "pageSize":15,
+      "totalCount":1,
+      "data":[  
+         {  
+            "categoryId":137612,
+            "categoryParentId":0,
+            "depth":0,
+            "categoryName":"카테고리",
+            "categoryDesc":"최상위 카테고리",
+            "useYn":"Y",
+            "createDate":"2018-04-17 15:39:56.0",
+            "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
+            "updateDate":"2018-04-17 15:39:56.0",
+            "updateUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022"
+         }
+      ]
+   }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.pageNum|	Integer|	현재 페이지 번호|
+|body.pageSize|	Integer|	조회된 데이터 수|
+|body.totalCount|	Integer|	총 데이터 수|
+|body.data[].categoryId|	Integer|	카테고리 ID|
+|body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
+|body.data[].depth|	Integer|	카테고리 깊이|
+|body.data[].categoryName|	String|	카테고리명|
+|body.data[].categorycategoryDescame|	String|	카테고리 설명|
+|body.data[].useYn|	String|	사용 여부|
+|body.data[].createDate|	String|	등록 날짜|
+|body.data[].createUser|	String|	등록한 사용자|
+|body.data[].updateDate|	String|	수정 날짜|
+|body.data[].updateUser|	String|	수정한 사용자|
+
+### 카테고리 단건 조회
+
+#### 요청
+
+[URL]
+
+```
+GET  /sms/v2.2/appKeys/{appKey}/categories/{categoryId}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|categoryId|	String|	카테고리 ID|
+
+#### 응답
+
+```
+{  
+   "header":{  
+      "isSuccessful":true,
+      "resultCode":0,
+      "resultMessage":"SUCCESS"
+   },
+   "body":{  
+      "data":[  
+         {  
+            "categoryId":137612,
+            "categoryParentId":0,
+            "depth":0,
+            "categoryName":"카테고리",
+            "categoryDesc":"최상위 카테고리",
+            "useYn":"Y",
+            "createDate":"2018-04-17 15:39:56.0",
+            "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
+            "updateDate":"2018-04-17 15:39:56.0",
+            "updateUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022"
+         }
+      ]
+   }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data[].categoryId|	Integer|	카테고리 ID|
+|body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
+|body.data[].depth|	Integer|	카테고리 깊이|
+|body.data[].categoryName|	String|	카테고리명|
+|body.data[].categorycategoryDescame|	String|	카테고리 설명|
+|body.data[].useYn|	String|	사용 여부|
+|body.data[].createDate|	String|	등록 날짜|
+|body.data[].createUser|	String|	등록한 사용자|
+|body.data[].updateDate|	String|	수정 날짜|
+|body.data[].updateUser|	String|	수정한 사용자|
+
+
+### 카테고리 수정
+
+#### 요청
+
+[URL]
+
+```
+PUT  /sms/v2.2/appKeys/{appKey}/categories/{categoryId}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|categoryId|	String|	카테고리 ID|
+
+[Request body]
+
+```
+{
+   "categoryName" : "",
+   "categoryDesc" : "",
+   "useYn" : ""
+}
+```
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+| categoryName | String | 50 | 필수 | 카테고리 ID |
+| categoryDesc |	String| 100 |	옵션 |	카테고리명|
+| useYn |	String| 1 |	필수| 사용 여부(Y/N)|
+
+
+#### 응답
+
+```
+{
+   "header" : {
+      "isSuccessful" : true,
+      "resultCode" : "",
+      "resultMessage" : ""
+   }
+}
+```
+
+### 카테고리 삭제
+
+#### 요청
+
+[URL]
+
+```
+DELETE  /sms/v2.2/appKeys/{appKey}/categories/{categoryId}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|categoryId|	String|	카테고리 ID|
+
+#### 응답
+
+```
+{
+   "header" : {
+      "isSuccessful" : true,
+      "resultCode" : "",
+      "resultMessage" : ""
+   }
+}
+```
+
+
 
 
 ## 템플릿
@@ -1951,7 +2217,7 @@ X
 [URL]
 
 ```
-GET  /sms/v2.2/appKeys/{appKey}/templates
+POST  /sms/v2.2/appKeys/{appKey}/templates
 Content-Type: application/json;charset=UTF-8
 ```
 
