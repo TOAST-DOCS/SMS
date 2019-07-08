@@ -1966,7 +1966,8 @@ Content-Type: application/json;charset=UTF-8
    "categoryParentId" : 0,
    "categoryName" : "",
    "categoryDesc" : "",
-   "useYn" : ""
+   "useYn" : "",
+   "createUser" : ""
 }
 ```
 
@@ -1976,20 +1977,44 @@ Content-Type: application/json;charset=UTF-8
 | categoryName | String | 50 | 필수 | 카테고리 ID |
 | categoryDesc |	String| 100 |	옵션 |	카테고리명|
 | useYn |	String| 1 |	필수| 사용 여부(Y/N)|
+| createUser |	String| 100 | 옵션| 등록한 사용자|
 
 
 #### 응답
 
 ```
-{
-   "header": {
-        "isSuccessful": true,
-        "resultCode": "",
-        "resultMessage": ""
+{  
+   "header":{  
+      "isSuccessful":true,
+      "resultCode":0,
+      "resultMessage":"SUCCESS"
+   },
+   "body":{  
+      "data":{  
+         "categoryId":0,
+         "categoryParentId":0,
+         "depth":0,
+         "categoryName":"",
+         "categoryDesc":"",
+         "useYn":"",
+         "createUser":""
+      }
    }
 }
 ```
 
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data[].categoryId|	Integer|	카테고리 ID|
+|body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
+|body.data[].depth|	Integer|	카테고리 깊이|
+|body.data[].categoryName|	String|	카테고리명|
+|body.data[].categorycategoryDescame|	String|	카테고리 설명|
+|body.data[].useYn|	String|	사용 여부|
+|body.data[].createUser|	String|	등록한 사용자|
 
 ### 카테고리 리스트 조회
 
@@ -2033,6 +2058,7 @@ Content-Type: application/json;charset=UTF-8
             "categoryId":137612,
             "categoryParentId":0,
             "depth":0,
+            "sort" :0,
             "categoryName":"카테고리",
             "categoryDesc":"최상위 카테고리",
             "useYn":"Y",
@@ -2057,6 +2083,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
 |body.data[].depth|	Integer|	카테고리 깊이|
+|body.data[].sort|	Integer|	카테고리 정렬 순서|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].categorycategoryDescame|	String|	카테고리 설명|
 |body.data[].useYn|	String|	사용 여부|
@@ -2098,6 +2125,7 @@ Content-Type: application/json;charset=UTF-8
             "categoryId":137612,
             "categoryParentId":0,
             "depth":0,
+            "sort":0,
             "categoryName":"카테고리",
             "categoryDesc":"최상위 카테고리",
             "useYn":"Y",
@@ -2119,6 +2147,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
 |body.data[].depth|	Integer|	카테고리 깊이|
+|body.data[].sort|	Integer|	카테고리 정렬 순서|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].categorycategoryDescame|	String|	카테고리 설명|
 |body.data[].useYn|	String|	사용 여부|
@@ -2152,7 +2181,8 @@ Content-Type: application/json;charset=UTF-8
 {
    "categoryName" : "",
    "categoryDesc" : "",
-   "useYn" : ""
+   "useYn" : "",
+   "updateUser" : ""
 }
 ```
 
@@ -2161,6 +2191,7 @@ Content-Type: application/json;charset=UTF-8
 | categoryName | String | 50 | 필수 | 카테고리 ID |
 | categoryDesc |	String| 100 |	옵션 |	카테고리명|
 | useYn |	String| 1 |	필수| 사용 여부(Y/N)|
+| updateUser |	String| 100 |	옵션| 수정한 사용자|
 
 
 #### 응답
