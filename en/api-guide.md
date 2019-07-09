@@ -1987,6 +1987,7 @@ Content-Type: application/json;charset=UTF-8
          "categoryId":0,
          "categoryParentId":0,
          "depth":0,
+         "sort":0,
          "categoryName":"",
          "categoryDesc":"",
          "useYn":"",
@@ -2004,6 +2005,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
 |body.data[].depth|	Integer|	카테고리 깊이|
+|body.data[].sort|	Integer|	카테고리 정렬 순서|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].categorycategoryDescame|	String|	카테고리 설명|
 |body.data[].useYn|	String|	사용 여부|
