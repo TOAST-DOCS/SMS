@@ -15,8 +15,11 @@
 |---|---|
 |Real|	https://api-sms.cloud.toast.com|
 
+
+<span id="precautions"></span>
 ### [注意事項]
 * SMSは本文の長さが90バイト以下の短文メッセージで、MMSは本文の長さが2,000バイト以下、タイトルは40バイト以下で送信する必要があります。規定バイトを超えて送信すると、内容が途切れることがあります。</br>
+   * 예시) SMS 발송일 경우 요청 파라미터 내 본문 길이를 255자 이하로 입력하여 요청할 수 있지만, 단말기 수신시 90 바이트 이하로 잘린 내용으로 수신하실 수 있습니다.</br>
 * 本文とタイトルはeuc-kr基準で送信されます。したがってeuc-krエンコードでサポートしない絵文字は送信に失敗します。</br>
 
 ## 短文SMS
@@ -65,7 +68,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ| 最大 |	必須|	説明|
 |---|---|---|---|---|
 |templateId|	String | 50 |	X|	送信テンプレートID|
-|body|	String|90バイト(EUC-KR基準) |	O|	本文内容|
+|body|	String| 255 [[注意事項](./api-guide/#precautions)] |	O|	本文内容|
 |sendNo|	String| 13 |	O|	発信番号|
 |requestDate| String| - | X | 予約日時(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 発信者グループキー |
@@ -1040,7 +1043,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ| 最大 |	必須|	説明|
 |---|---|---|---|---|
 |templateId|	String| 50 |	X|	送信テンプレートID|
-|body|	String| 90バイト(EUC-KR基準) |	O|	本文内容|
+|body|	String| 255 [[注意事項](./api-guide/#precautions)] |	O|	本文内容|
 |sendNo|	String| 13 |	O|	発信番号|
 |requestDate| String| - | X | 予約日時(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 発信者グループキー |
@@ -1547,7 +1550,7 @@ Content-Type: application/json;charset=UTF-8
 
 |値|	タイプ|	最大 | 必須|	説明|
 |---|---|---|---|---|
-| body | String | 90バイト(EUC-KR基準) | O | 内容 |
+|body|	String| 255 [[注意事項](./api-guide/#precautions)] |	O|	本文内容|
 | sendNo | String | 13 | O | 発信番号 |
 | requestDate| String| - | X | 予約日時(yyyy-MM-dd HH:mm)|
 | templateId | String | 50 | X | テンプレートID |

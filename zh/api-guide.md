@@ -15,8 +15,10 @@
 |---|---|
 |Real|	https://api-sms.cloud.toast.com|
 
+<span id="precautions"></span>
 ### [Caution]
 * SMS is a short message with 90 or less bytes for the text body , while MMS cannot have more than 2,000 bytes for body, and 40 bytes or less for title. If more bytes are sent than specified, messages may be cut. </br>
+   * 예시) SMS 발송일 경우 요청 파라미터 내 본문 길이를 255자 이하로 입력하여 요청할 수 있지만, 단말기 수신시 90 바이트 이하로 잘린 내용으로 수신하실 수 있습니다.</br>
 * Body and title are sent in the euc-kr standard. Therefore, emoticons that are not supported by the euc-kr encoding shall fail in delivery. </br>
 
 ## Short SMS
@@ -65,7 +67,7 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
 |templateId|	String | 50 |	X| Delivery template ID |
-|body|	String|90 bytes (in EUC-KR) |	O| Body |
+|body|	String| 255 [[Precautions](./api-guide/#precautions)] |	O|	Body |
 |sendNo|	String| 13 |	O| Sender number |
 |requestDate| String| - | X | Request date and time (yyyy-MM-dd HH:mm) |
 |senderGroupingKey| String| 100 | X | Sender's group key |
@@ -1038,7 +1040,7 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
 |templateId|	String| 50 |	X| Delivery template ID |
-|body|	String| 90 bytes (in EUC-KR) |	O| Body message |
+|body|	String| 255 [[Precautions](./api-guide/#precautions)] |	O|	Body |
 |sendNo|	String| 13 |	O| Sender number |
 |requestDate| String| - | X | Date and time of schedule (yyyy-MM-dd HH:mm) |
 |senderGroupingKey| String| 100 | X | Sender's group key |
@@ -1547,7 +1549,7 @@ Content-Type: application/json;charset=UTF-8
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| body | String | 90 bytes (in EUC-KR) | O | Body message |
+|body|	String| 255 [[Precautions](./api-guide/#precautions)] |	O|	Body |
 | sendNo | String | 13 | O | Sender number |
 | requestDate| String| - | X | Date and time of schedule (yyyy-MM-dd HH:mm) |
 | templateId | String | 50 | X | Template ID |
