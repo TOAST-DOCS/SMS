@@ -69,7 +69,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String | 50 |	X|	발송 템플릿 ID|
-|body|	String| 255 [주의사항 참고](./api-guide/#precautions) |	O|	본문 내용|
+|body|	String| 255 [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -1045,7 +1045,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String| 50 |	X|	발송 템플릿 ID|
-|body|	String| 255 [주의사항 참고](./api-guide/#precautions) |	O|	본문 내용|
+|body|	String| 255 [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -1558,7 +1558,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-|body|	String| 255 [주의사항 참고](./api-guide/#precautions) |	O|	본문 내용|
+|body|	String| 255 [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
 | sendNo | String | 13 | O | 발신 번호 |
 | requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 | templateId | String | 50 | X | 템플릿 ID |
