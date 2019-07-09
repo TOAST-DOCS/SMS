@@ -5,7 +5,7 @@
 ### v2.1과 달라진 사항
 1) 템플릿으로 발송 요청 시 요청 파라미터의 우선순위가 높아지도록 수정되었습니다.
    - 예시) 템플릿으로 발송 요청 시 요청 파라미터에 제목, 본문, 발신번호, 첨부파일이 포함된 경우 템플릿에 저장된 데이터를 사용되지 않도록 수정
-2) 문자 발송시 제목/본문에 대한 유효성 검사 강화
+2) 문자 발송시 제목/본문에 대한 유효성 검사가 강화되었습니다.
     * 아래와 같이 문자 발송시 제목/본문 길이 제한이 강화됩니다.
     * SMS(본문: 최대 255자), LMS/MMS(제목: 최대 120자, 본문: 최대 4000자)
 
@@ -17,8 +17,10 @@
 |---|---|
 |Real|	https://api-sms.cloud.toast.com|
 
+<span id="precautions"></span>
 ### [주의 사항]
 * SMS은 본문 길이 90 바이트 이하의 단문 메시지이며, MMS는 본문 길이 2,000 바이트 이하, 제목 40 바이트 이하로 발송해야 합니다. 해당 바이트 이상 발송 시, 내용이 잘릴 수 있습니다.</br>
+   * 예시) SMS 발송일 경우 요청 파라미터 내 본문 길이를 255자 이하로 입력하여 요청할 수 있지만, 단말기 수신시 90 바이트 이하로 잘린 내용으로 수신하실 수 있습니다.</br>
 * 본문과 제목은 euc-kr 기준으로 발송됩니다. 따라서 euc-kr 인코딩에서 지원하지 않는 이모티콘은 발송에 실패합니다.</br>
 
 ## 단문 SMS
@@ -67,7 +69,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String | 50 |	X|	발송 템플릿 ID|
-|body|	String|90 바이트(EUC-KR 기준) |	O|	본문 내용|
+|body|	String| 255 [주의사항 참고](./api-guide/#precautions) |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -1043,7 +1045,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String| 50 |	X|	발송 템플릿 ID|
-|body|	String| 90 바이트(EUC-KR 기준) |	O|	본문 내용|
+|body|	String| 255 [주의사항 참고](./api-guide/#precautions) |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -1556,7 +1558,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-| body | String | 90 바이트(EUC-KR 기준) | O | 문자 내용 |
+|body|	String| 255 [주의사항 참고](./api-guide/#precautions) |	O|	본문 내용|
 | sendNo | String | 13 | O | 발신 번호 |
 | requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 | templateId | String | 50 | X | 템플릿 ID |
