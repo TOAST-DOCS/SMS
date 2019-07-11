@@ -39,16 +39,26 @@
 | Template | false | -2101 | Already-registered Template ID |
 | Template | false | -2102 | Template name is missing |
 | Template | false | -2103 | Sender number is missing |
-| Template | false | -2104 | Delivery type is missing (0: sms, 1: mms, 2: auth) |
+| Template | false | -2104 | Delivery type is missing (0: sms, 1: mms) |
 | Template | false | -2105 | Body is missing |
 | Template | false | -2106 | Incorrect if service is enabled |
 | Template | false | -2107 | Invalid template ID (to modify/delete) |
 | Template | false | -2108 | Category ID is missing|
 | Template | false | -2109 | Template ID exceeds 50 characters |
 | Template | false | -2110 | Template is unavailable |
+| Template | false | -2111 | 유효하지 않는 템플릿 파라미터인 경우 |
+| Template | false | -2112 | 최대 등록 가능한 템플릿 갯수를 초과한 경우(최대: 1000)  |
+| Template | false | -2113 | 이미 삭제된 템플릿 ID  |
+| Template | false | -2114 | 제목이 비어있는 경우  |
+| Template | false | -2115 | 제목이 120글자를 초과하는 경우  |
+| Template | false | -2116 | 발송 유형이 SMS일때, 본문 길이가 255글자를 초과하는 경우  |
+| Template | false | -2117 | 발송 유형이 LMS/MMS일때, 본문 길이가 4000글자를 초과하는 경우  |
 | Category | false | -2200 | Invalid category parameter (to register) |
 | Category | false | -2201 | Invalid category parameter (to modify) |
 | Category | false | -2202 | Invalid category (failed to query category |
+| Category | false | -2203 | 부모 카테고리가 존재하지 않은 경우 |
+| Category | false | -2204 | 사용 여부가 잘못된 경우 |
+| Category | false | -2205 | 최상위 카테고리를 삭제하려는 경우 |
 | Sender Number | false | -2312 | Sender number is missing or unregistered |
 | Sender Number | false | -2313 | Blocked sender number |
 | Sender Number | false | -2314 | Request parameter for sender number registration is invalid |

@@ -1968,12 +1968,14 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-| categoryParentId |	Integer|	- | 필수 | 부모 카테고리 ID |
+| categoryParentId |	Integer|	- | 옵션 | 부모 카테고리 ID [기본값: 0(최상위 카테고리)]  |
 | categoryName | String | 50 | 필수 | 카테고리 ID |
 | categoryDesc |	String| 100 |	옵션 |	카테고리명|
 | useYn |	String| 1 |	필수| 사용 여부(Y/N)|
 | createUser |	String| 100 | 옵션| 등록한 사용자|
 
+##### Description
+- categoryParentId 필드가 요청 파라미터에 없는 경우, 최상위 카테고리 하위에 생성됩니다.
 
 #### 응답
 
