@@ -18,7 +18,7 @@
 <span id="precautions"></span>
 ### [Caution]
 * SMS is a short message with 90 or less bytes for the text body , while MMS cannot have more than 2,000 bytes for body, and 40 bytes or less for title. If more bytes are sent than specified, messages may be cut. </br>
-   * 예시) SMS 발송일 경우 요청 파라미터 내 본문 길이를 255자 이하로 입력하여 요청할 수 있지만, 단말기 수신시 90 바이트 이하로 잘린 내용으로 수신하실 수 있습니다.</br>
+   * 예시) SMS 발송일 경우, 요청 파라미터 내 본문 길이를 255자 이하로 입력하여 요청할 수 있지만 단말기 수신 시 90 바이트 이하로 잘린 내용으로 수신됩니다.</br>
 * Body and title are sent in the euc-kr standard. Therefore, emoticons that are not supported by the euc-kr encoding shall fail in delivery. </br>
 
 ## Short SMS
@@ -1968,14 +1968,14 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-| categoryParentId |	Integer|	- | 옵션 | 부모 카테고리 ID [기본값: 0(최상위 카테고리)]  |
+| categoryParentId |	Integer|	- | 옵션 | 부모 카테고리 ID [기본값: 최상위 카테고리]  |
 | categoryName | String | 50 | 필수 | 카테고리 ID |
 | categoryDesc |	String| 100 |	옵션 |	카테고리명|
 | useYn |	String| 1 |	필수| 사용 여부(Y/N)|
 | createUser |	String| 100 | 옵션| 등록한 사용자|
 
 ##### Description
-- categoryParentId 필드가 요청 파라미터에 없는 경우, 최상위 카테고리 하위에 생성됩니다.
+- categoryParentId 값이 비어있는 경우, 최상위 카테고리 바로 아래에 등록됩니다.
 
 #### 응답
 

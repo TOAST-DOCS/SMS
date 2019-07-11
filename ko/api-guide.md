@@ -20,7 +20,7 @@
 <span id="precautions"></span>
 ### [주의 사항]
 * SMS은 본문 길이 90 바이트 이하의 단문 메시지이며, MMS는 본문 길이 2,000 바이트 이하, 제목 40 바이트 이하로 발송해야 합니다. 해당 바이트 이상 발송 시, 내용이 잘릴 수 있습니다.</br>
-   * 예시) SMS 발송일 경우 요청 파라미터 내 본문 길이를 255자 이하로 입력하여 요청할 수 있지만, 단말기 수신시 90 바이트 이하로 잘린 내용으로 수신하실 수 있습니다.</br>
+   * 예시) SMS 발송일 경우, 요청 파라미터 내 본문 길이를 255자 이하로 입력하여 요청할 수 있지만 단말기 수신 시 90 바이트 이하로 잘린 내용으로 수신됩니다.</br>
 * 본문과 제목은 euc-kr 기준으로 발송됩니다. 따라서 euc-kr 인코딩에서 지원하지 않는 이모티콘은 발송에 실패합니다.</br>
 
 ## 단문 SMS
@@ -1980,14 +1980,14 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-| categoryParentId |	Integer|	- | 옵션 | 부모 카테고리 ID [기본값: 0(최상위 카테고리)]  |
+| categoryParentId |	Integer|	- | 옵션 | 부모 카테고리 ID [기본값: 최상위 카테고리]  |
 | categoryName | String | 50 | 필수 | 카테고리 ID |
 | categoryDesc |	String| 100 |	옵션 |	카테고리명|
 | useYn |	String| 1 |	필수| 사용 여부(Y/N)|
 | createUser |	String| 100 | 옵션| 등록한 사용자|
 
 ##### Description
-- categoryParentId 필드가 요청 파라미터에 없는 경우, 최상위 카테고리 하위에 생성됩니다.
+- categoryParentId 값이 비어있는 경우, 최상위 카테고리 바로 아래에 등록됩니다.
 
 
 #### 응답
