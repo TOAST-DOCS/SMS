@@ -53,6 +53,7 @@
 | Template | false | -2115 | 제목이 120글자를 초과하는 경우  |
 | Template | false | -2116 | 발송 유형이 SMS일때, 본문 길이가 255글자를 초과하는 경우  |
 | Template | false | -2117 | 발송 유형이 LMS/MMS일때, 본문 길이가 4000글자를 초과하는 경우  |
+| Template | false | -2043 | 템플릿에 등록할 첨부파일이 이미 다른 템플릿에 등록되어 있는 경우 |
 | Category | false | -2200 | Invalid category parameter (to register) |
 | Category | false | -2201 | Invalid category parameter (to modify) |
 | Category | false | -2202 | Invalid category (failed to query category |
