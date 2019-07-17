@@ -1,5 +1,6 @@
 ## Notification > SMS > Service Policy
 
+<span id='fabrication-number'></span>
 ## Prevention of Caller Number Fabrication 
 + To enable SMS, your own (or corporate-owned) caller number must be registered first. 
 + If you use other's (or other company's) caller number,  in accordance with <a href="https://www.msit.go.kr/web/msipContents/contentsView.do?cateId=mssw352&artId=1259891" target="_blank">(Notice 2015-32 by the Ministry of Science, ICT and Future Planning) Public notice on preventing damage on users due to falsified phone numbers]</a> and <a href="https://www.toast.com/terms/terms-service" target="_blank">[TOAST Terms of Services]</a>, take note that following measures may be taken. 
@@ -11,6 +12,7 @@
 ㆍDamages shall be claimed for all other losses incurred out of sender number falsification
 ```
 
+<span id="private-policy"></span>
 ## Guide for Notice of Personal Information Assignor 
 
 When the Customer uses TOAST > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act. 
@@ -26,6 +28,7 @@ Assignor: NHN
 Content of Business: Send SMS in lieu of customers
 
 
+<span id="fraud-number"></span>
 ## 번호도용 문자차단 서비스 확인
 ‘번호도용문자차단’ 서비스는 타인이 임의로 내 휴대전화 번호를 문자 범죄에 악용하거나 스팸을 발송할 수 없게 지켜주는 서비스입니다.
 
@@ -45,6 +48,7 @@ Content of Business: Send SMS in lieu of customers
   + SKT 고객센터(15--0011), KT올레 고객센터(100), LG U+고객센터 (1544-0010)
 
 
+<span id="spam-number"></span>
 ## 통신사 스팸차단 서비스
 + 귀찮은 광고성 스팸문자를 이동통신사에서 자동으로 차단해주는 서비스입니다.
 + 이동통신사별 조합 기준에 따라 스팸으로 판단되는 문자를 휴대폰 문자 수신함이 아닌 스팸 보관함으로 전송됩니다.
