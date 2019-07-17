@@ -2,19 +2,19 @@
 
 ### July 23, 2019
 
-#### 기능 개선
-* [API] 카테고리 API 추가
-    * 카테고리 등록/조회/수정/삭제 기능을 API로 제공합니다.
-* [API] 템플릿 API 추가
-    * 템플릿 등록/조회/수정/삭제 기능을 API로 제공합니다.
-* [API] 문자 발송시 제목/본문에 대한 유효성 검사 강화
-    * v2.2 API부터 문자 발송시 제목/본문 길이 제한이 강화됩니다.
-    * SMS(본문: 최대 255자), LMS/MMS(제목: 최대 120자, 본문: 최대 4000자)
-* [API] 템플릿으로 발송 요청 시 요청 파라미터의 우선순위가 높아지도록 수정
-    * v2.2 API부터 템플릿으로 발송 요청 시 요청 파라미터에 제목, 본문, 발신번호, 첨부파일이 포함된 경우 템플릿에 저장된 데이터를 사용되지 않도록 수정되었습니다.
+#### Feature Updates 
+* [API] Category API Added
+    * Provide APIs for Register/Query/Edit/Delete Category.
+* [API] Template API Added
+    * Provide APIs for Register/Query/Edit/Delete Template.
+* [API] Validity Checks Tightened for Title/Body in Text Delivery
+    * More restrictions in the length of title/body, from v2.2 API.
+    * SMS (Body: Up to 255 characters), LMS/MMS (Title: Up to 120, Body: Up to 4000 characters)
+* [API] Template Delivery Higher on Priority of Request Parameter
+    * Modified, as of v2.2 API, that data saved on a template cannot be used when request parameter includes title, body, sender number, or attached files, if delivery is requested via template.
 
-#### 버그 수정
-* [API] 예약 발송 상세 조회 시, 유효하지 않은 요청ID로 조회를 시도하는 경우 정의된 코드로 응답하도록 개선
+#### Bug Fixes 
+* [API] Updated for the query of scheduled delivery details, to respond with defined codes when the query is attempted with invalid request ID.
 
 ### June 25, 2019
 
