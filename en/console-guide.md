@@ -1,5 +1,7 @@
 ## Notification > SMS > Console Guide
 
+> To enable SMS Service, you may first register sender numbers on [Console > SMS > Sender Number Management] (Article 84 of Telecommunications Business Law).
+
 ## Sending SMS  
 
 ### Send General SMS
