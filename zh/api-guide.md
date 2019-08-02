@@ -2951,7 +2951,9 @@ Content-Type : multipart/form-data;
     "resultMessage" :  String
     },
     "file" : {
-      "fileId" :  Integer
+      "fileId" :  Integer,
+      "fileName" : String,
+      "filePath" : String
     }
   }
 ```
