@@ -23,6 +23,7 @@ UIs are supported to send SMS, query delivery history, and manage templates.
 
 ## Reference 
 
+<span id='tag-uid'></span>
 ### Tags and UIDs
 
 #### Glossary

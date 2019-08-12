@@ -3,11 +3,11 @@
 ## v2.2 API Overview  
 
 ### Changes from v 2.1
-1) 템플릿으로 발송 요청 시 요청 파라미터의 우선순위가 높아지도록 수정되었습니다.
-   - 예시) 템플릿으로 발송 요청 시 요청 파라미터에 제목, 본문, 발신번호, 첨부파일이 포함된 경우 템플릿에 저장된 데이터를 사용되지 않도록 수정
-2) 문자 발송시 제목/본문에 대한 유효성 검사 강화
-    * 아래와 같이 문자 발송시 제목/본문 길이 제한이 강화됩니다.
-    * SMS(본문: 최대 255자), LMS/MMS(제목: 최대 120자, 본문: 최대 4000자)
+1. Modified to raise request parameter for delivery via template to a higher on the priority.
+   - e.g.) Modified, that data saved on a template cannot be used when request parameter includes title, body, sender number, or attached files, if delivery is requested via template
+2. Validity checks tightend for title/body in text delivery.
+    * More restrictions in the length of title/body, like below. 
+    * SMS (Body: up to 255 characters), LMS/MMS (title: up to 120, and body: up to 4000 characters)
 
 ### [API Domain]
 
@@ -18,7 +18,7 @@
 <span id="precautions"></span>
 ### [Caution]
 * SMS is a short message with 90 or less bytes for the text body , while MMS cannot have more than 2,000 bytes for body, and 40 bytes or less for title. If more bytes are sent than specified, messages may be cut. </br>
-   * 예시) SMS 발송일 경우, 요청 파라미터 내 본문 길이를 255자 이하로 입력하여 요청할 수 있지만 단말기 수신 시 90 바이트 이하로 잘린 내용으로 수신됩니다.</br>
+   * e.g.) In the case of SMS delivery, body length of request parameter can have less than 255 characters; but, it is received with less than 90 bytes on a device. </br>
 * Body and title are sent in the euc-kr standard. Therefore, emoticons that are not supported by the euc-kr encoding shall fail in delivery. </br>
 
 ## Short SMS
@@ -668,8 +668,8 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 ```
 
 ##### Description
-- 첨부 파일(필드명: attachFileIdList)을 포함한 장문 MMS 발송을 위해서는 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
+- To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
+- See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
 
 ### List Delivery of Long MMS Request
 
@@ -1943,11 +1943,11 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 
-## 카테고리
+## Category
 
-### 카테고리 등록
+### Register
 
-#### 요청
+####  Request 
 
 [URL]
 
@@ -1958,9 +1958,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String| Original appkey |
 
 [Request body]
 
@@ -1974,18 +1974,18 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| categoryParentId |	Integer|	- | 옵션 | 부모 카테고리 ID [기본값: 최상위 카테고리]  |
-| categoryName | String | 50 | 필수 | 카테고리 ID |
-| categoryDesc |	String| 100 |	옵션 |	카테고리명|
-| useYn |	String| 1 |	필수| 사용 여부(Y/N)|
-| createUser |	String| 100 | 옵션| 등록한 사용자|
+| categoryParentId |	Integer|	- | Optional | Parent category ID [Default: Highest category] |
+| categoryName | String | 50 | Required | Category ID |
+| categoryDesc |	String| 100 |	Optional | Category name |
+| useYn |	String| 1 | Required | Use or Not (Y/N) |
+| createUser |	String| 100 | Optional | Registered user |
 
 ##### Description
-- categoryParentId 값이 비어있는 경우, 최상위 카테고리 바로 아래에 등록됩니다.
+- categoryParentId, if empty, is registered right below the highest category. 
 
-#### 응답
+#### Response
 
 ```
 {  
@@ -2009,23 +2009,23 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].categoryId|	Integer|	카테고리 ID|
-|body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
-|body.data[].depth|	Integer|	카테고리 깊이|
-|body.data[].sort|	Integer|	카테고리 정렬 순서|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].categorycategoryDescame|	String|	카테고리 설명|
-|body.data[].useYn|	String|	사용 여부|
-|body.data[].createUser|	String|	등록한 사용자|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data[].categoryId|	Integer| Category ID |
+|body.data[].categoryParentId|	Integer| Parent category ID |
+|body.data[].depth|	Integer| Depth of category |
+|body.data[].sort|	Integer| Sorting order of category |
+|body.data[].categoryName|	String| Category name |
+|body.data[].categorycategoryDescame|	String| Category description |
+|body.data[].useYn|	String| Use or not |
+|body.data[].createUser|	String| Registered user |
 
-### 카테고리 리스트 조회
+### List Category  
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -2036,18 +2036,18 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String| Original appkey |
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|pageNum|	Integer| - | Optional | Page number (default : 1) |
+|pageSize|	Integer| 1000 | Optional | Query count (default: 15) |
 
-#### 응답
+#### Response
 
 ```
 {  
@@ -2066,8 +2066,8 @@ Content-Type: application/json;charset=UTF-8
             "categoryParentId":0,
             "depth":0,
             "sort" :0,
-            "categoryName":"카테고리",
-            "categoryDesc":"최상위 카테고리",
+            "categoryName":"Category",
+            "categoryDesc":"Highest category",
             "useYn":"Y",
             "createDate":"2018-04-17 15:39:56.0",
             "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
@@ -2079,29 +2079,29 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].categoryId|	Integer|	카테고리 ID|
-|body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
-|body.data[].depth|	Integer|	카테고리 깊이|
-|body.data[].sort|	Integer|	카테고리 정렬 순서|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].categorycategoryDescame|	String|	카테고리 설명|
-|body.data[].useYn|	String|	사용 여부|
-|body.data[].createDate|	String|	등록 날짜|
-|body.data[].createUser|	String|	등록한 사용자|
-|body.data[].updateDate|	String|	수정 날짜|
-|body.data[].updateUser|	String|	수정한 사용자|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure messagae |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data[].categoryId|	Integer| Category ID |
+|body.data[].categoryParentId|	Integer| Parent category ID |
+|body.data[].depth|	Integer| Depth of category |
+|body.data[].sort|	Integer| Sorting order of category |
+|body.data[].categoryName|	String| Category name |
+|body.data[].categorycategoryDescame|	String| Category description |
+|body.data[].useYn|	String| Use or not |
+|body.data[].createDate|	String| Date of registration |
+|body.data[].createUser|	String| Registered user |
+|body.data[].updateDate|	String| Date of modification |
+|body.data[].updateUser|	String| Modified user |
 
-### 카테고리 단건 조회
+### Get Category 
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -2112,12 +2112,12 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|appKey|	String| Original appkey |
+|categoryId|	String| Category ID |
 
-#### 응답
+#### Response
 
 ```
 {  
@@ -2133,8 +2133,8 @@ Content-Type: application/json;charset=UTF-8
             "categoryParentId":0,
             "depth":0,
             "sort":0,
-            "categoryName":"카테고리",
-            "categoryDesc":"최상위 카테고리",
+            "categoryName":"Category",
+            "categoryDesc":"Highest category",
             "useYn":"Y",
             "createDate":"2018-04-17 15:39:56.0",
             "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
@@ -2146,27 +2146,27 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].categoryId|	Integer|	카테고리 ID|
-|body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
-|body.data[].depth|	Integer|	카테고리 깊이|
-|body.data[].sort|	Integer|	카테고리 정렬 순서|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].categorycategoryDescame|	String|	카테고리 설명|
-|body.data[].useYn|	String|	사용 여부|
-|body.data[].createDate|	String|	등록 날짜|
-|body.data[].createUser|	String|	등록한 사용자|
-|body.data[].updateDate|	String|	수정 날짜|
-|body.data[].updateUser|	String|	수정한 사용자|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data[].categoryId|	Integer| Category ID |
+|body.data[].categoryParentId|	Integer| Parent category ID |
+|body.data[].depth|	Integer| Depth of category |
+|body.data[].sort|	Integer| Sorting order of category |
+|body.data[].categoryName|	String| Category name |
+|body.data[].categorycategoryDescame|	String| Category description |
+|body.data[].useYn|	String| Use or not |
+|body.data[].createDate|	String| Date of registration |
+|body.data[].createUser|	String| Registered user |
+|body.data[].updateDate|	String| Date of modification |
+|body.data[].updateUser|	String| Modified user |
 
 
-### 카테고리 수정
+### Modify 
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -2177,10 +2177,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|appKey|	String| Original appkey |
+|categoryId|	String| Category ID |
 
 [Request body]
 
@@ -2193,15 +2193,15 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| categoryName | String | 50 | 필수 | 카테고리 ID |
-| categoryDesc |	String| 100 |	옵션 |	카테고리명|
-| useYn |	String| 1 |	필수| 사용 여부(Y/N)|
-| updateUser |	String| 100 |	옵션| 수정한 사용자|
+| categoryName | String | 50 | Required | Category ID |
+| categoryDesc |	String| 100 |	Optional | Category name |
+| useYn |	String| 1 | Required | Use or not|
+| updateUser |	String| 100 | Optional | Modified user |
 
 
-#### 응답
+#### Response
 
 ```
 {
@@ -2213,9 +2213,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### 카테고리 삭제
+### Delete
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -2226,12 +2226,12 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|appKey|	String| Original appkey |
+|categoryId|	String| Category ID |
 
-#### 응답
+#### Response
 
 ```
 {
@@ -2247,9 +2247,9 @@ Content-Type: application/json;charset=UTF-8
 ## Templates
 
 
-### 템플릿 등록
+### Register
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -2260,9 +2260,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String| Original appkey |
 
 [Request body]
 
@@ -2284,21 +2284,21 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| categoryId |	Integer|	- | 필수 |	카테고리 ID |
-| templateId | String | 50 | 필수 | 템플릿 ID |
-| templateName |	String| 50 |	필수 |	템플릿명|
-| templateDesc |	String| 100 |	옵션 |	템플릿 설명|
-| sendNo | String | 13 | 필수 | 발신 번호 |
-| sendType | String| 1| 필수| 발송 유형(0:Sms, 1:Lms/Mms) |
-| title | String | 120 | 옵션 | 문자 제목(발송 유형이 Lms/MmS인 경우 필수) |
-| body | String | 4000 | 필수 | 문자 내용 |
-| useYn |	String| 1 |	필수|	사용 여부(Y/N)|
-| attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
+| categoryId |	Integer|	- | Required |	Category ID |
+| templateId | String | 50 | Required | Template ID |
+| templateName |	String| 50 |	Required | Template name |
+| templateDesc |	String| 100 |	Optional | Template description |
+| sendNo | String | 13 | Required | Sender number |
+| sendType | String| 1| Required | Delivery type (0:Sms, 1:Lms/Mms) |
+| title | String | 120 | Optional | Text title (required, if delivery type is LMS/MMS) |
+| body | String | 4000 | Required | Text body |
+| useYn |	String| 1 | Required |	Use or not|
+| attachFileIdList | List<Integer> | - | X | Attached file ID(fileId) |
 
 
-#### 응답
+#### Response
 
 ```
 {
@@ -2310,7 +2310,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-#### 템플릿 등록 예시
+#### Example of Registration 
 
 | Http method | URL |
 | - | - |
@@ -2321,12 +2321,12 @@ Content-Type: application/json;charset=UTF-8
 {
    "categoryId" : 199376 ,
    "templateId" : "TemplateId",
-   "templateName" : "템플릿 발송 예시",
-   "templateDesc" : "템플릿 발송 예시",
+   "templateName" : "Example of template delivery",
+   "templateDesc" : "Example of template delivery",
    "sendNo" : "01012341234",
    "sendType" : "1",
    "title" : "example",
-   "body" : "일반 발송 테스트용 입니다.\r\n##key1## 님 안녕하세요.\r\n##key2## 입니다.",
+   "body" : "Test for general delivery.Dear \r\n##key1##. This is \r\n##key2##.",
    "useYn" : "Y",
    "attachFileIdList" : [
      123123,
@@ -2347,8 +2347,8 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 ##### Description
-- 첨부 파일(필드명: attachFileIdList)을 포함한 템플릿 등록은 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
+- To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
+- See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
 
 
 ### Send Templates (requiring no body updates)
@@ -2408,7 +2408,7 @@ For Request URL, choose a delivery type selected to register templates.
 }
 ```
 
-![[그림 1] 템플릿 발송 성공](http://static.toastoven.net/prod_sms/img_27.png)
+![[그림 1] Template](http://static.toastoven.net/prod_sms/img_27.png)
 
 ### Send Templates (requiring body updates)
 
@@ -2694,9 +2694,9 @@ Content-Type: application/json;charset=UTF-8
 |body.data.attachFileList[].createUser|	String| Registered user of attachment |
 
 
-### 템플릿 수정
+### Modify
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -2707,9 +2707,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String| Original appkey |
 
 [Request body]
 
@@ -2729,19 +2729,19 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| templateName |	String| 50 |	필수 |	템플릿명|
-| templateDesc |	String| 100 |	옵션 |	템플릿 설명|
-| sendNo | String | 13 | 필수 | 발신 번호 |
-| sendType | String| 1| 필수| 발송 유형(0:Sms, 1:Lms/Mms) |
-| title | String | 120 | 옵션 | 문자 제목(발송 유형이 Lms/MmS인 경우 필수) |
-| body | String | 4000 | 필수 | 문자 내용 |
-| useYn |	String| 1 |	필수|	사용 여부(Y/N)|
-| attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
+| templateName |	String| 50 |	Required | Template name |
+| templateDesc |	String| 100 |	Optional | Template description |
+| sendNo | String | 13 | Required | Sender number |
+| sendType | String| 1| Required | Delivery type (0:Sms, 1:Lms/Mms) |
+| title | String | 120 | Optional | Text title (required, if delivery type is Lms/MmS) |
+| body | String | 4000 | Required | Text body |
+| useYn |	String| 1 | Required |	Use or not|
+| attachFileIdList | List<Integer> | - | X | Attached file ID(fileId) |
 
 
-#### 응답
+#### Response
 
 ```
 {
@@ -2753,9 +2753,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### 템플릿 삭제
+### Delete
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -2766,12 +2766,12 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|templateId|	String|	템플릿 ID|
+|appKey|	String| Original appkey |
+|templateId|	String| Template ID |
 
-#### 응답
+#### Response
 
 ```
 {
@@ -2951,7 +2951,9 @@ Content-Type : multipart/form-data;
     "resultMessage" :  String
     },
     "file" : {
-      "fileId" :  Integer
+      "fileId" :  Integer,
+      "fileName" : String,
+      "filePath" : String
     }
   }
 ```
