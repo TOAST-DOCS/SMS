@@ -46,20 +46,20 @@
 | Template | false | -2108 | Category ID is missing|
 | Template | false | -2109 | Template ID exceeds 50 characters |
 | Template | false | -2110 | Template is unavailable |
-| Template | false | -2111 | 유효하지 않는 템플릿 파라미터인 경우 |
-| Template | false | -2112 | 최대 등록 가능한 템플릿 갯수를 초과한 경우(최대: 1000)  |
-| Template | false | -2113 | 이미 삭제된 템플릿 ID  |
-| Template | false | -2114 | 제목이 비어있는 경우  |
-| Template | false | -2115 | 제목이 120글자를 초과하는 경우  |
-| Template | false | -2116 | 발송 유형이 SMS일때, 본문 길이가 255글자를 초과하는 경우  |
-| Template | false | -2117 | 발송 유형이 LMS/MMS일때, 본문 길이가 4000글자를 초과하는 경우  |
-| Template | false | -2043 | 템플릿에 등록할 첨부파일이 이미 다른 템플릿에 등록되어 있는 경우 |
+| Template | false | -2111 | Invalid template parameter |
+| Template | false | -2112 | Exceeded the maximum available number of templates for registration (Max: 1000)  |
+| Template | false | -2113 | Template ID already deleted  |
+| Template | false | -2114 | Title is empty |
+| Template | false | -2115 | Title exceeds 120 characters  |
+| Template | false | -2116 | Body length exceeds 255 characters, for SMS delivery |
+| Template | false | -2117 | Body length exceeds 4000 characters, for LMS/MMS delivery |
+| Template | false | -2043 | Attached file for template registration is already registered at another template|
 | Category | false | -2200 | Invalid category parameter (to register) |
 | Category | false | -2201 | Invalid category parameter (to modify) |
 | Category | false | -2202 | Invalid category (failed to query category |
-| Category | false | -2203 | 부모 카테고리가 존재하지 않은 경우 |
-| Category | false | -2204 | 사용 여부가 잘못된 경우 |
-| Category | false | -2205 | 최상위 카테고리를 삭제하려는 경우 |
+| Category | false | -2203 | Parent category does not exist  |
+| Category | false | -2204 | Use or not is invalid  |
+| Category | false | -2205 | Deleting the highest category  |
 | Sender Number | false | -2312 | Sender number is missing or unregistered |
 | Sender Number | false | -2313 | Blocked sender number |
 | Sender Number | false | -2314 | Request parameter for sender number registration is invalid |
