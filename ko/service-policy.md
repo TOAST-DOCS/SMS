@@ -1,6 +1,7 @@
 ## Notification > SMS > 서비스 정책
 
-## 발신번호 변작(변조) 금지
+<span id='fabrication-number'></span>
+## 발신 번호 변작(변조) 금지
 + SMS 서비스를 이용할 때 반드시 본인(또는 자사) 소유의 발신번호를 등록한 후 사용해야 합니다.
 + 타인(또는 타사) 발신번호를 사용하는 경우 <a href="https://www.msit.go.kr/web/msipContents/contentsView.do?cateId=mssw352&artId=1259891
 " target="_blank">(미래창조과학부고시 제2015-32호) 거짓으로 표시된 전화번호로 인한 이용자의 피해 예방 등에 관한 고시]</a> 및 <a href="https://www.toast.com/terms/terms-service
@@ -13,6 +14,7 @@
 ㆍ기타 발신번호 변작으로 인한 모든 손실에 대한 손해 배상 청구  
 ```
 
+<span id="private-policy"></span>
 ## 개인 정보 수탁사 고지 안내
 
 '고객'이 TOAST Cloud > SMS 상품 이용 시, '고객' - '당사' 간 개인 정보 처리에 관한 업무 위수탁 관계가 발생하는 바 정보통신망법 및 개인 정보보호법에 따라 위탁자인 '고객'은 개인 정보처리 방침을 통해 '당사'에 개인 정보를 위탁한 현황(수탁자 및 업무의 내용)을 공개하여야 합니다.
