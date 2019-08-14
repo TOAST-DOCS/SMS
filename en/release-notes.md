@@ -1,5 +1,16 @@
 ## Notification > SMS > Release Notes
 
+### August 27, 2019
+
+#### Feature Updates
+* [Console] Allowed more length for a business name,  for the setting of Rejection of Receiving 080 Numbers
+    * Updated to save up to 100 characters for a business name 
+* [Console] Added a column on an excel sheet when downloading files on the list of each request 
+
+#### Bug Fixes
+* [Console] Fixed an issue in which delivery result is not available due to 'telecom provider's issue', when recipient's number has been managed by the prevention service of sender number falsification  
+* [Console] Fixed an issue in which the warning window does not show, if query of each SMS request exceeds the maximum period (30 days)
+
 ### July 23, 2019
 
 #### Feature Updates 

@@ -1,6 +1,17 @@
 ## Notification > SMS > Release Notes
 
-### 2019.07.23
+### August 27, 2019
+
+#### Feature Updates
+* [Console] Allowed more length for a business name,  for the setting of Rejection of Receiving 080 Numbers
+    * Updated to save up to 100 characters for a business name 
+* [Console] Added a column on an excel sheet when downloading files on the list of each request 
+
+#### Bug Fixes
+* [Console] Fixed an issue in which delivery result is not available due to 'telecom provider's issue', when recipient's number has been managed by the prevention service of sender number falsification  
+* [Console] Fixed an issue in which the warning window does not show, if query of each SMS request exceeds the maximum period (30 days)
+
+### July 23, 2019
 
 #### Feature Updates 
 * [API] Category API Added
@@ -23,8 +34,8 @@
     * Sender's group key and recipient's group key have been added as part of query conditions for each SMS request.
 * [Console] Added check boxes to include or exclude title/body in scheduling a file downloading after query of delivery list  
     * Check boxes have been added to include title/body or not, in the request of downloading after query of general/mass/tag delivery list.
-* [API] Added Create/Query/Download delivery list in files for General/Mass/Tag messages   
-    * APIs have been added to download general/mass/tag delivery list in files.
+* [API] Added Create/Query/Download delivery list in files for General messages   
+    * APIs have been added to download general delivery list in files.
 
 #### Bug Fixes 
 * [Console] Fixed template parameter which is not replaced and therefore not visible, in the query of scheduled delivery list and details 
