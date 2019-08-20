@@ -253,7 +253,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String|	옵션|	발신번호|
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
-|msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
+|msgStatus|	String|	옵션|	메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패)|
 |resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
 |subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
@@ -774,7 +774,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String|	옵션|	발신번호|
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
-|msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
+|msgStatus|	String|	옵션|	메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패)|
 |resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
 |subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|
@@ -1146,7 +1146,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String|	옵션|	발신번호|
 |recipientNo|	String|	옵션|	수신번호|
 |templateId|	String|	옵션|	템플릿번호|
-|msgStatus|	String|	옵션|	메시지 상태 코드(1:요청, 2:처리중, 3:성공)|
+|msgStatus|	String|	옵션|	메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패)|
 |resultCode|	String|	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
 |subResultCode|	String|	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|

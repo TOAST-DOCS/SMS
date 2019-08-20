@@ -270,7 +270,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String| 13 | Optional | Sender number |
 |recipientNo|	String| 20 | Optional | Recipient number |
 |templateId|	String| 50 | Optional | Template number |
-|msgStatus|	String| 1 | Optional | Message status code (1:requesting, 2: processing, 3: successful) |
+|msgStatus|	String| 1 | Optional | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
 |resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
 |subResultCode|	String| 10 | Optional | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)] |
 |senderGroupingKey|	String| 100 | Optional | Sender's group key |
@@ -698,7 +698,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String| 13 | Optional | Sender number |
 |recipientNo|	String| 20 | Optional | Recipient numbe |
 |templateId|	String| 50 | Optional | Template number |
-|msgStatus|	String| 1 | Optional | Message status code (1:requesting, 2:processing, 3:successful) |
+|msgStatus|	String| 1 | Optional | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
 |resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
 |subResultCode|	String| 10 | Optional | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)] |
 |senderGroupingKey|	String| 100 | Optional | Sender's group key |
@@ -1098,7 +1098,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String| 13 | Optional | Sender number |
 |recipientNo|	String| 20 | Optional | Recipient number |
 |templateId|	String| 50 | Optional | Template number |
-|msgStatus|	String| 1 | Optional | Message status code (1:Requesting 2: Processing, 3:Successful) |
+|msgStatus|	String| 1 | Optional | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
 |resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
 |subResultCode|	String| 10 | Optional | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)] |
 |senderGroupingKey|	String| 100 | Optional | Sender's group key |
@@ -3482,7 +3482,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String| 13 | Optional | Sender number |
 |recipientNo|	String| 20 | Optional | Receiving number |
 |templateId|	String| 50 | Optional | Template number |
-|msgStatus|	String| 1 | Optional | Message status code (1: requesting 2: processing, 3:successful) |
+|msgStatus|	String| 1 | Optional | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
 |resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
 |subResultCode|	String| 10 | Optional | Detail code of receiving [[Table on Query Codes](./error-code/#_3)] |
 |senderGroupingKey|	String| 100 | Optional | Sender's group key |

@@ -253,7 +253,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String| Optional | Sender number |
 |recipientNo|	String| Optional | Recipient number |
 |templateId|	String| Optional | Template number |
-|msgStatus|	String| Optional | Message status code (1:requesting, 2: processing, 3: successful) |
+|msgStatus|	String| Optional | Message status code (0:Failed, 1: Requesting, 2: Processing, 3:Successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
 |resultCode|	String| Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
 |subResultCode|	String| Optional | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)] |
 |pageNum|	Integer| Optional | Page number (Default : 1) |
@@ -774,7 +774,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String| Optional | Sender number |
 |recipientNo|	String| Optional | Recipient number |
 |templateId|	String| Optional | Template number |
-|msgStatus|	String| Optional | Message status code (1:requesting, 2:processing, 3:sucessful) |
+|msgStatus|	String| Optional | Message status code (0:Failed, 1: Requesting, 2: Processing, 3:Successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
 |resultCode|	String| Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
 |subResultCode|	String| Optional | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)] |
 |pageNum|	Integer| Optional | Page number (default : 1) |
@@ -1146,7 +1146,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String| Optional | Sender number |
 |recipientNo|	String| Optional | Recipient number |
 |templateId|	String| Optional | Template number |
-|msgStatus|	String| Optional | Message status code (1: requested, 2: processing, 3: successful) |
+|msgStatus|	String| Optional | Message status code (0:Failed, 1: Requesting, 2: Processing, 3:Successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
 |resultCode|	String| Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
 |subResultCode|	String| Optional | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)] |
 |pageNum|	Integer| Optional | Page number (default : 1) |

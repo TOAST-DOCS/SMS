@@ -252,7 +252,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String|	オプション|	発信番号|
 |recipientNo|	String|	オプション|	受信番号|
 |templateId|	String|	オプション|	テンプレート番号|
-|msgStatus|	String|	オプション|	メッセージステータスコード(1：リクエスト、2：処理中、3：成功)|
+|msgStatus|	String|	オプション|	メッセージステータスコード(0：失敗、1：リクエスト、2：処理中、3：成功、4：送信取消、5:重複送信)|
 |resultCode|	String|	オプション|	受信結果コード[[照会コード表](./error-code/#_2)]|
 |subResultCode|	String|	オプション|	受信結果詳細コード[[照会コード表](./error-code/#_3)]|
 |pageNum|	Integer|	オプション|	ページ番号(Default：1)|
@@ -773,7 +773,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String|	オプション|	発信番号|
 |recipientNo|	String|	オプション|	受信番号|
 |templateId|	String|	オプション|	テンプレート番号|
-|msgStatus|	String|	オプション|	メッセージステータスコード(1：リクエスト、2：処理中、3：成功)|
+|msgStatus|	String|	オプション|	メッセージステータスコード(0：失敗、1：リクエスト、2：処理中、3：成功、4：送信取消、5:重複送信)|
 |resultCode|	String|	オプション|	受信結果コード[[照会コード表](./error-code/#_2)]|
 |subResultCode|	String|	オプション|	受信結果詳細コード[[照会コード表](./error-code/#_3)]|
 |pageNum|	Integer|	オプション|	ページ番号(Default：1)|
@@ -1145,7 +1145,7 @@ Content-Type: application/json;charset=UTF-8
 |sendNo|	String|	オプション|	発信番号|
 |recipientNo|	String|	オプション|	受信番号|
 |templateId|	String|	オプション|	テンプレート番号|
-|msgStatus|	String|	オプション|	メッセージステータスコード(1：リクエスト、2：処理中、3：成功)|
+|msgStatus|	String|	オプション|	メッセージステータスコード(0：失敗、1：リクエスト、2：処理中、3：成功、4：送信取消、5:重複送信)|
 |resultCode|	String|	オプション|	受信結果コード[[照会コード表](./error-code/#_2)]|
 |subResultCode|	String|	オプション|	受信結果詳細コード[[照会コード表](./error-code/#_3)]|
 |pageNum|	Integer|	オプション|	ページ番号(Default：1)|
