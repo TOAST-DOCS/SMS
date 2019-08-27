@@ -44,7 +44,7 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
     + U+ 番号盗用メッセージ遮断[[解除する](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
 + サービスプロバイダーサポート
     + 携帯電話114 + 通話ボタン
-    + SKTサポート(15--0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
+    + SKTサポート(1599-0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
 
 
 <span id="spam-number"></span>
@@ -65,4 +65,4 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
     + U+ 迷惑メール遮断[[解除する](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
 + サービスプロバイダーサポート
     + 携帯電話114 + 通話ボタン
-    + SKTサポート(1566-0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
+    + SKTサポート(1599-0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)

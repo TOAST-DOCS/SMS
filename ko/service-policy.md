@@ -45,7 +45,7 @@ SMS 상품 이용 시 고객사에서 운영하시는'개인 정보처리방침'
     + U+ 번호 도용 문자 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
 + 통신사 고객 센터
     + 휴대폰 114 + 통화 버튼
-    + SKT 고객 센터(15--0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
+    + SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
 
 
 <span id="spam-number"></span>
@@ -66,4 +66,4 @@ SMS 상품 이용 시 고객사에서 운영하시는'개인 정보처리방침'
     + U+ 스팸 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
 + 통신사 고객 센터
     + 휴대폰 114 + 통화 버튼
-    + SKT 고객 센터(1566-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
+    + SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
