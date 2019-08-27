@@ -33,18 +33,18 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 
 ### ご確認ください
 + 移動サービスプロバイダー(SKT、KT、LGU+ およびMVNO事業者)から無料で提供されており、加入時に同意すると登録される場合があります。
-メッセージ送信後、正常な番号にもかかわらずサイトでメッセージ送信結果が'失敗'になる場合、'番号盗用メッセージ遮断サービス'の加入状況を確認してください。
++ メッセージ送信後、正常な番号にもかかわらずサイトでメッセージ送信結果が'失敗'になる場合、'番号盗用メッセージ遮断サービス'の加入状況を確認してください。
 + '番号盗用メッセージ遮断サービス'を解除した後、送信してください。
 + 解除申請後、適用されるまで約7日かかります。
 
 ### サービスプロバイダー別の番号盗用メッセージ遮断サービス解除案内
 + サービスプロバイダーWebサイト
-  + SKT番号盗用メッセージ遮断[[解除する](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
-  + KT番号盗用メッセージ遮断[[解除する](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
-  + U+ 番号盗用メッセージ遮断[[解除する](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
+    + SKT番号盗用メッセージ遮断[[解除する](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
+    + KT番号盗用メッセージ遮断[[解除する](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
+    + U+ 番号盗用メッセージ遮断[[解除する](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
 + サービスプロバイダーサポート
-  + 携帯電話114 + 通話ボタン
-  + SKTサポート(15--0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
+    + 携帯電話114 + 通話ボタン
+    + SKTサポート(15--0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
 
 
 <span id="spam-number"></span>
@@ -60,9 +60,9 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 
 ### サービスプロバイダー別番号盗用メッセージ遮断サービス解除案内
 + サービスプロバイダーWebサイト
-  + SKT迷惑メールフィルタリング[[解除する](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
-  + KT迷惑メール遮断[[解除する](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
-  + U+ 迷惑メール遮断[[解除する](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
+    + SKT迷惑メールフィルタリング[[解除する](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
+    + KT迷惑メール遮断[[解除する](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
+    + U+ 迷惑メール遮断[[解除する](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
 + サービスプロバイダーサポート
-  + 携帯電話114 + 通話ボタン
-  + SKTサポート(1566-0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
+    + 携帯電話114 + 通話ボタン
+    + SKTサポート(1566-0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)

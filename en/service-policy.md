@@ -33,18 +33,18 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 
 ### Please Check 
 + As a free service provided by each telecommunication provider (e.g. SKT, KT, LGU+, or MVNO providers), it only requires your agreement to get registered. 
-If your text delivery is confirmed as 'Failure' on the website, even after it is sent to an appropriate number, see if your 'Filter Messages from Spoofed Numbers' service is enabled. 
++ If your text delivery is confirmed as 'Failure' on the website, even after it is sent to an appropriate number, see if your 'Filter Messages from Spoofed Numbers' service is enabled. 
 + Disable 'Filter Messages from Spoofed Numbers' first, and then try sending your message.  
 + It takes about 7 days to get disabled after it is applied. 
 
 ### Disabling Filter Messages from Spoofed Numbers for Each Provider 
 + On Website  
-  + For SKT: [[Go to Disable Service](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
-  + For KT: [[Go to Disable Service](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
-  + For U+: [[Go to Disable Service](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
+    + For SKT: [[Go to Disable Service](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
+    + For KT: [[Go to Disable Service](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
+    + For U+: [[Go to Disable Service](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
 + Via Customer Center 
-  + Press 114 on mobile phone + Call
-  + Call 15--0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
+    + Press 114 on mobile phone + Call
+    + Call 15--0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
 
 
 <span id="spam-number"></span>
@@ -60,11 +60,11 @@ If your text delivery is confirmed as 'Failure' on the website, even after it is
 
 ### Disabling Filter Spams for Each Provider 
 + On Website 
-  + For SKT: [[Go to Disable Service](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
-  + For KT: [[Go to Disable Service](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
-  + For U+: [[Go to Disable Service](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
+    + For SKT: [[Go to Disable Service](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
+    + For KT: [[Go to Disable Service](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
+    + For U+: [[Go to Disable Service](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
 + Via Customer Center
-  + Press 114 on mobile phone + Call
-  + Call 1566-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
+    + Press 114 on mobile phone + Call
+    + Call 1566-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
 
 

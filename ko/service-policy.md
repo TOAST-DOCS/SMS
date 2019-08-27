@@ -34,18 +34,18 @@ SMS 상품 이용 시 고객사에서 운영하시는'개인 정보처리방침'
 
 ### 확인하세요
 + 이동통신사(SKT, KT, LGU+ 및 MVNO 사업자 포함)에서 무료로 제공되고 있어 가입 시 동의하면 등록될 수 있습니다.
-문자 발송 후 정상적인 번호인데도 사이트에서 문자 전송 결과가 '실패'로 확인되면 '번호 도용 문자 차단 서비스' 가입 여부를 확인하세요.
++ 문자 발송 후 정상적인 번호인데도 사이트에서 문자 전송 결과가 '실패'로 확인되면 '번호 도용 문자 차단 서비스' 가입 여부를 확인하세요.
 + '번호 도용 문자 차단 서비스'를 해지한 후 전송하시기 바랍니다.
 + 해지 신청 후 적용까지는 약 7일이 소요됩니다.
 
 ### 통신사별 번호 도용 문자 차단 서비스 해지 안내
 + 통신사 홈페이지
-  + SKT 번호 도용 문자 차단 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
-  + KT 번호 도용 문자 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
-  + U+ 번호 도용 문자 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
+    + SKT 번호 도용 문자 차단 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
+    + KT 번호 도용 문자 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
+    + U+ 번호 도용 문자 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
 + 통신사 고객 센터
-  + 휴대폰 114 + 통화 버튼
-  + SKT 고객 센터(15--0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
+    + 휴대폰 114 + 통화 버튼
+    + SKT 고객 센터(15--0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
 
 
 <span id="spam-number"></span>
@@ -61,9 +61,9 @@ SMS 상품 이용 시 고객사에서 운영하시는'개인 정보처리방침'
 
 ### 통신사별 번호도용 문자 차단 서비스 해지 안내
 + 통신사 홈페이지
-  + SKT 스팸 필터링 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
-  + KT 스팸 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
-  + U+ 스팸 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
+    + SKT 스팸 필터링 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
+    + KT 스팸 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
+    + U+ 스팸 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
 + 통신사 고객 센터
-  + 휴대폰 114 + 통화 버튼
-  + SKT 고객 센터(1566-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
+    + 휴대폰 114 + 통화 버튼
+    + SKT 고객 센터(1566-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
