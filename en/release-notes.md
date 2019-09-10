@@ -1,18 +1,19 @@
 ## Notification > SMS > Release Notes
 
-### 2019.09.24
+### Sept. 24, 2019 
 
-#### 기능 개선
-* [Console] 웹콘솔 조회 탭 기능 개선
-    * 요청별 발송 목록 조회와 예약 발송 목록 조회 페이지가 통합되었습니다.
-    * 메시지 조회 시 기본적으로 등록일시 기준으로 조회가 됩니다.
-* [Console] 템플릿 관리 탭 내 발신번호 등록 버튼 추가
-    * 발송 화면에만 적용되어 있던 발신번호 등록 버튼이 템플릿 관리 탭에도 추가되었습니다.
+#### Feature Updates 
+* [Console] Updated Query Tab of Web Console 
+    * Combined the **List Delivery per Request** page and the **List Scheduled Delivery** page.  
+    * Messages are queried by date of registration.  
+* [Console] Added **Register Sender Number** within **Template Management** 
+    * Added the **Register Sender Number** button for delivery page, also onto the **Template Management** tab. 
+* [Console] Deleted the **Cancel All Schedules** button from the **Query Scheduled SMS Delivery** tab. 
 
-#### 버그 수정
-* [Console/API] 예약 발송 일부가 발송되지 않는 현상 수정
-    * 현재 시간으로 예약 시 일부 예약 메시지가 발송 안되는 문제가 간헐적으로 있었습니다.
-    * 현재 시간으로 예약하더라도 전체 예약 메시지가 나가도록 수정되었습니다.
+#### Bug Fixes 
+* [Console/API] Fixed Partial Failure in Scheduled Delivery
+    * Infrequently, messages scheduled as of current time were partially not delivered. 
+    * Fixed the issue so as messages, which are scheduled even as of current time, can all be delivered. 
 
 ### August 27, 2019
 
