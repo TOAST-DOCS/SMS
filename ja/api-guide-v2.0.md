@@ -8,8 +8,15 @@
 |Real|	https://api-sms.cloud.toast.com|
 
 ### [注意事項]
-* SMSは、本文の長さが90byte以下の短文メッセージで、MMSは本文の長さが2,000byte以下、タイトル40byte以下で送信する必要があります。規定byte以上で送信すると、内容が途切れることがあります。</br>
-* 本文とタイトルはeuc-kr基準で送信されます。したがってeuc-krエンコードがサポートしていない顔文字は送信失敗処理されます。</br>
+* サポートする文字数は下記の通りです。
+* 最大サポート文字数は保存基準で、文字切れ防止のため、標準規格で作成してください。
+* エンコードはEUC-KR基準で送信され、サポートしていない顔文字は送信に失敗します。
+
+| 分類 | 最大サポート | 標準規格 |
+| --- | --- | --- |
+| SMS本文 | 255文字 | 90バイト(全角45文字、半角90文字) |
+| MMSタイトル | 120文字 | 40バイト(全角20文字、半角40文字) |
+| MMS本文 | 4,000文字 | 2,000バイト(全角1,000文字、半角2,000文字) |
 
 
 ## 短文SMS
@@ -54,7 +61,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	必須|	説明|
 |---|---|---|---|
 |templateId|	String|	X|	送信テンプレートID|
-|body|	String|	O|	本文内容('EUC-KR'基準で90 Byte制限)|
+|body|	String|	O|	本文内容(EUC-KR基準で標準：90バイト、最大：255文字)|
 |sendNo|	String|	O|	発信番号|
 |requestDate| String| X | 予約日時(yyyy-MM-dd HH:mm)|
 |recipientList|	List|	O|	受信者リスト(最大1000人)|
@@ -1007,7 +1014,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	必須|	説明|
 |---|---|---|---|
 |templateId|	String|	X|	送信テンプレートID|
-|body|	String|	O|	本文内容('EUC-KR'基準90 Byte制限)|
+|body|	String|	O|	本文内容(EUC-KR基準で標準：90バイト、最大：255文字)|
 |sendNo|	String|	O|	発信番号|
 |requestDate| String| X | 予約日時(yyyy-MM-dd HH:mm)|
 |recipientList|	List|	O|	受信者リスト(最大1000人)|
@@ -1419,7 +1426,7 @@ Content-Type: application/json;charset=UTF-8
 
 |値|	タイプ|	必須|	説明|
 |---|---|---|---|
-| body | String | O | 内容 |
+| body | String | O | 本文内容(EUC-KR基準で標準：90バイト、最大：255文字) |
 | sendNo | String | O | 発信番号 |
 |requestDate| String| X | 予約日時(yyyy-MM-dd HH:mm)|
 | templateId | String | X | テンプレートID |

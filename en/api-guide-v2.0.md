@@ -9,8 +9,15 @@
 |Real|	https://api-sms.cloud.toast.com|
 
 ### [Caution]
-* SMS is a short message with 90 or less bytes for the text body , while MMS cannot have more than 2,000 bytes for body, and 40 bytes or less for title. If more bytes are sent than specified, messages may be cut.</br>
-* Body and title are sent in the euc-kr standard. Therefore, emoticons that are not supported by the euc-kr encoding shall fail in delivery. </br>
+* Character lengths are supported as follows.
+* The maximum supported character counts are based on those saved; please write in standard specifications to prevent any text cutoff.
+* Delivery is made upon EUC-KR encoding and it fails for unsupported emoticons.
+
+| Category | Maximum Support | Standard Specifications |
+| --- | --- | --- |
+| SMS Body | 255 characters | 90 bytes (45 characters for Korean, or 90 for English) |
+| MMS Title | 120 characters | 40 bytes (20 characters for Korean, or 40 for English) |
+| MMS Body | 4,000 characters | 2,000 bytes (1,000 characters for Korean, or 2,000 for English) |
 
 
 ## SMS for Short-Messages
@@ -55,7 +62,7 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type | Required | Description |
 |---|---|---|---|
 |templateId|	String|	X| Delivery template ID |
-|body|	String|	O| Body (less than 90 bytes in 'EUC-KR') |
+|body|	String|	O| Text Body (as of EUC-KR, standard: 90 bytes, Max: 255 characters) |
 |sendNo|	String|	O| Sender number |
 |requestDate| String| X | Request date and time (yyyy-MM-dd HH:mm) |
 |recipientList|	List|	O| List of recipients (up to 1000) |
@@ -1008,7 +1015,7 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type | Required | Description |
 |---|---|---|---|
 |templateId|	String|	X| Delivery template ID |
-|body|	String|	O| Text body (no more than 90 bytes in 'EUC-KR') |
+|body|	String|	O| Text Body (as of EUC-KR, standard: 90 bytes, Max: 255 characters) |
 |sendNo|	String|	O| Sender number |
 |requestDate| String| X | Request date and time (yyyy-MM-dd HH:mm) |
 |recipientList|	List|	O| List of recipients (up to 1000) |
@@ -1422,7 +1429,7 @@ Content-Type: application/json;charset=UTF-8
 
 |Value| Type | Required | Description |
 |---|---|---|---|
-| body | String | O | SMS body |
+| body | String | O | Text Body (as of EUC-KR, standard: 90 bytes, Max: 255 characters) |
 | sendNo | String | O | Sender number |
 |requestDate| String| X | Date and time of request (yyyy-MM-dd HH:mm) |
 | templateId | String | X | Template ID |

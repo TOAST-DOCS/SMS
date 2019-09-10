@@ -14,8 +14,15 @@
 |Real|	https://api-sms.cloud.toast.com|
 
 ### [주의 사항]
-* SMS은 본문 길이 90 바이트 이하의 단문 메시지이며, MMS는 본문 길이 2,000 바이트 이하, 제목 40 바이트 이하로 발송해야 합니다. 해당 바이트 이상 발송 시, 내용이 잘릴 수 있습니다.</br>
-* 본문과 제목은 euc-kr 기준으로 발송됩니다. 따라서 euc-kr 인코딩에서 지원하지 않는 이모티콘은 발송에 실패합니다.</br>
+* 지원하는 문자 길이는 아래와 같습니다.
+* 최대 지원 글자 수는 저장 기준이며 문자 잘림을 방지하기 위해서 표준 규격으로 작성해주세요.
+* 인코딩은 EUC-KR 기준으로 발송되며 지원하지 않는 이모티콘은 발송에 실패합니다.
+
+| 분류  | 최대 지원 | 표준 규격 |
+| --- | --- | --- |
+| SMS 본문 | 255자 | 90바이트(한글 45자, 영문 90자) |
+| MMS 제목 | 120자 | 40바이트(한글 20자, 영문 40자) |
+| MMS 본문 | 4,000자 | 2,000바이트(한글 1,000자, 영문 2,000자) |
 
 ## 단문 SMS
 
@@ -63,7 +70,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String | 50 |	X|	발송 템플릿 ID|
-|body|	String|90 바이트(EUC-KR 기준) |	O|	본문 내용|
+|body|	String|표준: 90바이트, 최대: 255자(EUC-KR 기준) |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -1039,7 +1046,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String| 50 |	X|	발송 템플릿 ID|
-|body|	String| 90 바이트(EUC-KR 기준) |	O|	본문 내용|
+|body|	String| 표준: 90바이트, 최대: 255자(EUC-KR 기준) |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -1552,7 +1559,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-| body | String | 90 바이트(EUC-KR 기준) | O | 문자 내용 |
+| body | String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) | O | 문자 내용 |
 | sendNo | String | 13 | O | 발신 번호 |
 | requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 | templateId | String | 50 | X | 템플릿 ID |
