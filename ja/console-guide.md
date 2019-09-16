@@ -8,7 +8,7 @@
 
 一般SMS(Short Message Service)送信ガイドです。
 
-![sms_01_201812](https://static.toastoven.net/prod_sms/sms_01_201812.png)
+![sms_01_201909](https://static.toastoven.net/prod_sms/sms_01_201909.png)
 
 1. **送信タイプ**はSMSを選択します。
 2.**発信番号**を選択します。 (発信番号は**発信番号管理**タブで追加できます。)
@@ -22,7 +22,7 @@
 
 一般LMS(Long Message Service)の送信ガイドです。
 
-![sms_02_201812](https://static.toastoven.net/prod_sms/sms_02_201812.png)
+![sms_02_201909](https://static.toastoven.net/prod_sms/sms_02_201909.png)
 
 1. **送信タイプ**はMMSを選択します。
 2. **発信番号**を選択します。 (発信番号は**発信番号管理タブ**で追加できます。)
@@ -36,7 +36,7 @@
 
 MMS(Multimedia Messaging Service)の送信ガイドです。
 
-![sms_03_201812](https://static.toastoven.net/prod_sms/sms_03_201812.png)
+![sms_03_201909](https://static.toastoven.net/prod_sms/sms_03_201909.png)
 
 1. **送信タイプ**はMMSを選択します。
 2.**発信番号**を選択します。 (発信番号は**発信番号管理**タブで追加できます。)
@@ -51,7 +51,7 @@ MMS(Multimedia Messaging Service)の送信ガイドです。
 
 ユーザーが作ったテンプレートを使用して送信できます。
 
-![sms_04_201812](https://static.toastoven.net/prod_sms/sms_04_201812.png)
+![sms_04_201909](https://static.toastoven.net/prod_sms/sms_04_201909.png)
 
 1.**テンプレート使用**を使用に選択し、**テンプレート選択**ウィンドウで希望するテンプレートを選択します。
 2.**発信番号**を選択します。 (発信番号は**発信番号管理**タブで追加できます。)
@@ -69,7 +69,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 テンプレートファイルは**大量送信**タブ選択後、**テンプレートダウンロード**ボタンをクリックしてダウンロードできます。
 
-![sms_05_201812](https://static.toastoven.net/prod_sms/sms_05_201812.png)
+![sms_05_201909](https://static.toastoven.net/prod_sms/sms_05_201909.png)
 
 テンプレートファイルは、CSVファイルとExcel(xls, xlsx)ファイルを提供します。
 メッセージ内容にある置換キーに応じて、CSVおよびExcelファイルに列が自動的に作成されます。
@@ -104,7 +104,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 タグの条件に合ったUIDで送信できる機能です。
 
-![sms_07_201812](https://static.toastoven.net/prod_sms/sms_07_201812.png)
+![sms_07_1_201909](https://static.toastoven.net/prod_sms/sms_07_1_201909.png)
 
 タグ登録は**タグ管理**タブで、UIDと電話番号の保存は**UID管理**タブで行えます。
 
@@ -200,7 +200,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 **テンプレート追加**ボタンをクリックすると、テンプレートを追加できます。
 
-![sms_19_201812](https://static.toastoven.net/prod_sms/sms_19_201812.png)
+![sms_19_201909](https://static.toastoven.net/prod_sms/sms_19_201909.png)
 
 カテゴリーを選択した状態で**テンプレート追加**ボタンをクリックする必要があります。
 
@@ -208,7 +208,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 テンプレートを選択し、修正できます。
 
-![sms_20_201812](https://static.toastoven.net/prod_sms/sms_20_201812.png)
+![sms_20_201909](https://static.toastoven.net/prod_sms/sms_20_201909.png)
 
 ## タグの管理
 
@@ -312,7 +312,7 @@ CSV形式のテンプレートで大量のUIDを追加できます。
 [無料受信拒否]080XXXXXXX
 ```
 
-![sms_34_201812](https://static.toastoven.net/prod_sms/sms_34_201812.png)
+![sms_34_1_201909](https://static.toastoven.net/prod_sms/sms_34_1_201909.png)
 
 ### 受信拒否対象者の照会
 

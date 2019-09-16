@@ -8,7 +8,7 @@
 
 일반 SMS(Short Message Service) 발송 가이드입니다.
 
-![sms_01_201812](https://static.toastoven.net/prod_sms/sms_01_201812.png)
+![sms_01_201909](https://static.toastoven.net/prod_sms/sms_01_201909.png)
 
 1. **발송 유형**을 SMS로 선택합니다.
 2. **발신 번호**를 선택합니다. (발신번호는 **발신 번호 관리** 탭에서 추가할 수 있습니다.)
@@ -22,7 +22,7 @@
 
 일반 LMS(Long Message Service) 발송 가이드입니다.
 
-![sms_02_201812](https://static.toastoven.net/prod_sms/sms_02_201812.png)
+![sms_02_201909](https://static.toastoven.net/prod_sms/sms_02_201909.png)
 
 1. **발송 유형**을 MMS로 선택합니다.
 2. **발신 번호**를 선택합니다. (발신번호는 **발신 번호 관리 탭**에서 추가할 수 있습니다.)
@@ -36,7 +36,7 @@
 
 MMS(Multimedia Messaging Service) 발송 가이드입니다.
 
-![sms_03_201812](https://static.toastoven.net/prod_sms/sms_03_201812.png)
+![sms_03_201909](https://static.toastoven.net/prod_sms/sms_03_201909.png)
 
 1. **발송 유형**을 MMS로 선택합니다.
 2. **발신 번호**를 선택합니다. (발신번호는 **발신 번호 관리** 탭에서 추가할 수 있습니다.)
@@ -51,7 +51,7 @@ MMS(Multimedia Messaging Service) 발송 가이드입니다.
 
 사용자가 만들어 놓은 템플릿을 사용하여 발송할 수 있습니다.
 
-![sms_04_201812](https://static.toastoven.net/prod_sms/sms_04_201812.png)
+![sms_04_201909](https://static.toastoven.net/prod_sms/sms_04_201909.png)
 
 1. **템플릿 사용 여부**를 사용으로 선택하고 **템플릿 선택** 창에서 원하는 템플릿을 선택합니다.
 2. **발신 번호**를 선택합니다. (발신번호는 **발신 번호 관리** 탭에서 추가할 수 있습니다.)
@@ -69,7 +69,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신번호로 SMS/MMS를
 
 템플릿 파일은 **대량 발송** 탭 선택 후 **템플릿 다운로드** 버튼을 클릭하여 다운로드할 수 있습니다.
 
-![sms_05_201812](https://static.toastoven.net/prod_sms/sms_05_201812.png)
+![sms_05_201909](https://static.toastoven.net/prod_sms/sms_05_201909.png)
 
 템플릿 파일은 CSV 파일과 Excel(xls, xlsx) 파일을 제공합니다.
 메시지 내용에 있는 치환 키에 따라 CSV 및 Excel 파일에 열이 자동으로 생성됩니다.
@@ -104,7 +104,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신번호로 SMS/MMS를
 
 태그의 조건에 맞는 UID로 발송할 수 있는 기능입니다.
 
-![sms_07_201812](https://static.toastoven.net/prod_sms/sms_07_201812.png)
+![sms_07_1_201909](https://static.toastoven.net/prod_sms/sms_07_1_201909.png)
 
 태그 등록은 **태그 관리** 탭에서 가능하며, UID & 전화번호 저장은 **UID 관리** 탭에서 가능합니다.
 
@@ -200,7 +200,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신번호로 SMS/MMS를
 
 **템플릿 추가** 버튼 클릭 시 템플릿 추가가 가능합니다.
 
-![sms_19_201812](https://static.toastoven.net/prod_sms/sms_19_201812.png)
+![sms_19_201909](https://static.toastoven.net/prod_sms/sms_19_201909.png)
 
 반드시 카테고리를 선택한 상태에서 **템플릿 추가** 버튼을 클릭해야 합니다.
 
@@ -208,7 +208,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신번호로 SMS/MMS를
 
 템플릿을 선택하여 수정이 가능합니다.
 
-![sms_20_201812](https://static.toastoven.net/prod_sms/sms_20_201812.png)
+![sms_20_201909](https://static.toastoven.net/prod_sms/sms_20_201909.png)
 
 ## 태그 관리
 
@@ -312,7 +312,7 @@ CSV 형식의 템플릿으로 대량의 UID를 추가할 수 있습니다.
 [무료 수신거부]080XXXXXXX
 ```
 
-![sms_34_201812](https://static.toastoven.net/prod_sms/sms_34_201812.png)
+![sms_34_1_201909](https://static.toastoven.net/prod_sms/sms_34_1_201909.png)
 
 ### 수신거부 대상자 조회
 

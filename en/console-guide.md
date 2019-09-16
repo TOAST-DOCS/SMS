@@ -8,7 +8,7 @@
 
 Following is the guide to send Short Message Service (SMS). 
 
-![sms_01_201812](https://static.toastoven.net/prod_sms/sms_01_201812.png)
+![sms_01_201909](https://static.toastoven.net/prod_sms/sms_01_201909.png)
 
 1. Select SMS for **Text Type**. 
 2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
@@ -22,7 +22,7 @@ Following is the guide to send Short Message Service (SMS).
 
 Following is the guide to send general Long Message Service (LMS).
 
-![sms_02_201812](https://static.toastoven.net/prod_sms/sms_02_201812.png)
+![sms_02_201909](https://static.toastoven.net/prod_sms/sms_02_201909.png)
 
 1. Select MMS for **Text Type**. 
 2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
@@ -36,7 +36,7 @@ Following is the guide to send general Long Message Service (LMS).
 
 Multimedia Messaging Service (MMS) can be sent as below:
 
-![sms_03_201812](https://static.toastoven.net/prod_sms/sms_03_201812.png)
+![sms_03_201909](https://static.toastoven.net/prod_sms/sms_03_201909.png)
 
 1. Select MMS for **Text Type**.
 2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
@@ -51,7 +51,7 @@ Multimedia Messaging Service (MMS) can be sent as below:
 
 You can send messages on user-created templates.
 
-![sms_04_201812](https://static.toastoven.net/prod_sms/sms_04_201812.png)
+![sms_04_201909](https://static.toastoven.net/prod_sms/sms_04_201909.png)
 
 1. Enable **Use Templates** and select a template from **Select Templates**.
 2. Select **Sender Numbers** (numbers can be added from **Sender Number Management**.)
@@ -69,7 +69,7 @@ You can send SMS/MMS to many numbers via template files in Excel/CSV.
 
 To download template files, select **Mass Delivery** and click **Download Templates**. 
 
-![sms_05_201812](https://static.toastoven.net/prod_sms/sms_05_201812.png)
+![sms_05_201909](https://static.toastoven.net/prod_sms/sms_05_201909.png)
 
 Template files are available either in CSV or Excel (xlx, xlsx). 
 Rows are automatically created in files according to the replacement key in message. 
@@ -104,7 +104,7 @@ To send after delivery information and mass delivery files are uploaded, click *
 
 Send with UID according to tag conditions. 
 
-![sms_07_201812](https://static.toastoven.net/prod_sms/sms_07_201812.png)
+![sms_07_1_201909](https://static.toastoven.net/prod_sms/sms_07_1_201909.png)
 
 Tags can be registered on **Tag Management**, while UID and phone numbers can be saved on the **UID Management** tab.  
 
@@ -200,7 +200,7 @@ Make sure to click **Modify Categories** while a category is selected.
 
 Click **Add Templates** to add templates. 
 
-![sms_19_201812](https://static.toastoven.net/prod_sms/sms_19_201812.png)
+![sms_19_201909](https://static.toastoven.net/prod_sms/sms_19_201909.png)
 
 Make sure to click **Add Templates** while a category is selected. 
 
@@ -208,7 +208,7 @@ Make sure to click **Add Templates** while a category is selected.
 
 Select a template to modify. 
 
-![sms_20_201812](https://static.toastoven.net/prod_sms/sms_20_201812.png)
+![sms_20_201909](https://static.toastoven.net/prod_sms/sms_20_201909.png)
 
 ## Tag Management
 
@@ -310,7 +310,7 @@ To cancel the service, press **Cancel Service**.
 [Reject receiving charge-free]080XXXXXXX
 ```
 
-![sms_34_201812](https://static.toastoven.net/prod_sms/sms_34_201812.png)
+![sms_34_1_201909](https://static.toastoven.net/prod_sms/sms_34_1_201909.png)
 
 ### Query Target of Rejection 
 
