@@ -3488,6 +3488,8 @@ Content-Type: application/json;charset=UTF-8
   "requestId":"20190601100630ReZQ6KZzAH0",
   "startRequestDate":"2019-06-01 00:00:00",
   "endRequestDate":"2019-06-08 00:00:00",
+  "startCreateDate":"2019-06-01 00:00:00",
+  "endCreateDate":"2019-06-08 00:00:00",
   "startResultDate":"2019-06-01 00:00:00",
   "endResultDate":"2019-06-08 00:00:00",
   "sendNo":"15446859",
@@ -3505,9 +3507,11 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
 |sendType| String| 1| 필수| 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
-|requestId|	String| 25 |	조건 필수(1번) |	요청 ID|
-|startRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String| 25 |	필수 |	요청 ID|
+|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	필수 |	발송 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	필수 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	필수 |	등록 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String| - |	옵션|	수신 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	옵션|	발신 번호|
@@ -3560,7 +3564,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.2/appKeys/{appKey}/download-reservations?downloadId={downloadId}&downloadStatusCode={downloadStatusCode}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.2/appKeys/{appKey}/download-reservations
 Content-Type: application/json;charset=UTF-8
 ```
 
