@@ -261,13 +261,17 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String| Original appkey |
 
-[Query parameter] No.1 or 2 is conditionally required 
+[Query parameter]
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다. 
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|requestId|	String| 25 |	Conditionally required (no.1) | Request ID |
-|startRequestDate|	String| - |	Conditionally required (no. 2) | Start date of delivery (yyyy-MM-dd HH:mm:ss) |
-|endRequestDate|	String| - |	Conditionally required (no. 2) | End date of delivery (yyyy-MM-dd HH:mm:ss) |
+|requestId|	String| 25 |	Required | Request ID |
+|startRequestDate|	String| - |	Required | Start date of delivery (yyyy-MM-dd HH:mm:ss) |
+|endRequestDate|	String| - |	Required | End date of delivery (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Required | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Required | End date of registration (yyyy-MM-dd HH:mm:ss) |
 |startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
 |endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
 |sendNo|	String| 13 | Optional | Sender number |
@@ -779,13 +783,17 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String| Original appkey |
 
-[Query parameter] No. 1 or 2 conditionally required
+[Query parameter]
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 |Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|requestId|	String| 25 |	Conditionally required (no.1) | Request ID |
-|startRequestDate|	String| - |	Conditionally required (no. 2) | Start date of sending (yyyy-MM-dd HH:mm:ss) |
-|endRequestDate|	String| - |	Conditionally required (no. 2) | End date of sending (yyyy-MM-dd HH:mm:ss) |
+|requestId|	String| 25 |	Required | Request ID |
+|startRequestDate|	String| - |	Required | Start date of sending (yyyy-MM-dd HH:mm:ss) |
+|endRequestDate|	String| - |	Required | End date of sending (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Required | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Required | End date of registration (yyyy-MM-dd HH:mm:ss) |
 |startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
 |endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
 |sendNo|	String| 13 | Optional | Sender number |
@@ -1179,12 +1187,16 @@ Content-Type: application/json;charset=UTF-8
 |---|----|---|
 |appKey|	String| Original appkey |
 
-[Query parameter] No. 1 or 2 is conditionally required 
+[Query parameter]
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다. 
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|requestId|	String| 25 |	Conditionally required (no.1) | Request ID |
-|startRequestDate|	String| - |	Conditionally required (no.2) | Start date of sending (yyyy-MM-dd HH:mm:ss) |
+|requestId|	String| 25 |	Required | Request ID |
+|startRequestDate|	String| - |	Required | Start date of sending (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Required | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Required | End date of registration (yyyy-MM-dd HH:mm:ss) |
 |endRequestDate|	String| - |	Conditionally required (no.2) | End date of sending (yyyy-MM-dd HH:mm:ss) |
 |startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
 |endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
@@ -1675,7 +1687,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.1/appKeys/{appKey}/tag-sender?sendType={sendType}&requestId={requestId}&startRequestDate={startRequestDate}&endRequestDate={endRequestDate}&statusCode={statusCode}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.1/appKeys/{appKey}/tag-sender
 ```
 
 [Path parameter]
@@ -1684,13 +1696,8 @@ GET /sms/v2.1/appKeys/{appKey}/tag-sender?sendType={sendType}&requestId={request
 |---|---|---|
 |appKey|	String| Original appkey |
 
-[Request body]
-
-```
-X
-```
-
-* requestId or startRequestDate + endRequestDate is required.
+[Query parameter]
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
 
 	Value|	Type| Max Length | Required|	Description|
 |---|---|---|---|---|
@@ -1699,6 +1706,8 @@ X
 | requestId | String | - | O | Request ID |
 | startRequestDate | String | - | O | Start date of delivery |
 | endRequestDate | String | - | O | End date of delivery |
+| startCreateDate |	String| - |	O | Start date of registration |
+| endCreateDate |	String| - |	O | End date of registration |
 | statusCode | String | 10 | X | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
 | pageNum | optional, Integer | - | X | Page number |
 | pageSize | optional, Integer | 1000 | X | Number of queries |
@@ -1774,7 +1783,7 @@ X
 [URL]
 
 ```
-GET /sms/v2.1/appKeys/{appKey}/tag-sender/{requestId}?recipientNum={recipientNum}&startRequestDate={startRequestDate}&endRequestDate={endRequestDate}&startResultDate={startResultDate}&endResultDate={endResultDate}&msgStatusName={msgStatusName}&resultCode={resultCode}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.1/appKeys/{appKey}/tag-sender/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1785,12 +1794,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 | requestId | String | Request ID |
 
-[Request body]
-
-```
-X
-```
-
+[Query parameter]
 * requestId or startRequestDate + endRequestDate is required.
 
 	Value| Type| Max Length |Required|Description|
@@ -2684,7 +2688,7 @@ Content-Type : multipart/form-data;
 [URL]
 
 ```
-GET /sms/v2.1/appKeys/{appKey}/reservations?sendType={sendType}&startRequestDate={startRequestDate}&endRequestDate={endRequestDate}&sendNo={sendNo}&recipientNo={recipientNo}&templateId={templateId}&requestId={requestId}&messageStatus={messageStatus}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.1/appKeys/{appKey}/reservations
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2702,6 +2706,8 @@ Content-Type: application/json;charset=UTF-8
 |requestId|	String| 25 |	Optional | Request ID |
 |startRequestDate|	String| - |	Optional | Start date of sending (yyyy-MM-dd HH:mm:ss) |
 |endRequestDate|	String| - |	Optional | End date of sending (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Optional | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Optional | End date of registration (yyyy-MM-dd HH:mm:ss) |
 |sendNo|	String| 13 | Optional | Sender number |
 |recipientNo|	String| 20 | Optional | Recipient number |
 |templateId|	String| 50 | Optional | Template number |
@@ -2947,6 +2953,8 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Request body]
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 ```
 {
@@ -2954,6 +2962,8 @@ Content-Type: application/json;charset=UTF-8
   "requestId":"20190601100630ReZQ6KZzAH0",
   "startRequestDate":"2019-06-01 00:00:00",
   "endRequestDate":"2019-06-08 00:00:00",
+  "startCreateDate":"2019-06-01 00:00:00",
+  "endCreateDate":"2019-06-08 00:00:00",
   "startResultDate":"2019-06-01 00:00:00",
   "endResultDate":"2019-06-08 00:00:00",
   "sendNo":"15446859",
@@ -2974,6 +2984,8 @@ Content-Type: application/json;charset=UTF-8
 |requestId|	String| 25 |	Conditionally required (no.1) | Request ID |
 |startRequestDate|	String| - |	Conditionally required (no.2) | Start date of delivery (yyyy-MM-dd HH:mm:ss) |
 |endRequestDate|	String| - |	Conditionally required (no.2) | End date of delivery (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Required | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Required | End date of registration (yyyy-MM-dd HH:mm:ss) |
 |startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
 |endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
 |sendNo|	String| 13 | Optional | Sender number |

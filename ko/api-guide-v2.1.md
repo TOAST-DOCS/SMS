@@ -261,13 +261,17 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	고유의 앱키|
 
-[Query parameter] 1번 or 2번 조건 필수
+[Query parameter] 
+* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-|requestId|	String| 25 |	조건 필수 (1번) |	요청 ID|
-|startRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String| 25 |	필수 |	요청 ID|
+|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	필수 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	필수 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	필수 |	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String| - |	옵션|	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	옵션|	발신 번호|
@@ -782,13 +786,17 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	고유의 앱키|
 
-[Query parameter] 1번 or 2번 조건 필수
+[Query parameter]
+* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
-|requestId|	String| 25 |	조건 필수 (1번) |	요청 ID|
-|startRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String| 25 |	필수 |	요청 ID|
+|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	필수 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	필수 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	필수 |	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String| - |	옵션|	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	옵션|	발신 번호|
@@ -1182,13 +1190,17 @@ Content-Type: application/json;charset=UTF-8
 |---|----|---|
 |appKey|	String|	고유의 앱키|
 
-[Query parameter] 1번 or 2번 조건 필수
+[Query parameter]
+* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-|requestId|	String| 25 |	조건 필수 (1번) |	요청 ID|
-|startRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	조건 필수 (2번) |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String| 25 |	필수 |	요청 ID|
+|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	필수 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	필수 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	필수 |	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String| - |	옵션|	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	옵션|	발신 번호|
@@ -1692,13 +1704,8 @@ GET /sms/v2.1/appKeys/{appKey}/tag-sender?sendType={sendType}&requestId={request
 |---|---|---|
 |appKey|	String|	고유의 앱키|
 
-[Request body]
-
-```
-X
-```
-
-* requestId 또는 startRequestDate + endRequestDate는 필수입니다.
+[Query parameter]
+* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
 
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
@@ -1707,6 +1714,8 @@ X
 | requestId | String | - | O | 요청 ID |
 | startRequestDate | String | - | O | 발송 날짜 시작 |
 | endRequestDate | String | - | O | 발송 날짜 종료 |
+| startCreateDate |	String | - | O |	등록 날짜 시작|
+| endCreateDate | String | - |	O |	등록 날짜 종료|
 | statusCode | String | 10 | X | 발송 상태 코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
 | pageNum | optional, Integer | - | X | 페이지 번호 |
 | pageSize | optional, Integer | 1000 | X | 조회 수 |
@@ -2715,6 +2724,8 @@ Content-Type: application/json;charset=UTF-8
 |requestId|	String| 25 |	옵션 |	요청 ID|
 |startRequestDate|	String| - |	옵션 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
 |endRequestDate|	String| - |	옵션 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	옵션 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	옵션 |	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 | 옵션|	발신 번호|
 |recipientNo|	String| 20 |	옵션|	수신 번호|
 |templateId|	String| 50 |	옵션|	템플릿 번호|
@@ -2961,6 +2972,8 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 앱키|
 
 [Request body]
+* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 ```
 {
@@ -2968,6 +2981,8 @@ Content-Type: application/json;charset=UTF-8
   "requestId":"20190601100630ReZQ6KZzAH0",
   "startRequestDate":"2019-06-01 00:00:00",
   "endRequestDate":"2019-06-08 00:00:00",
+  "startCreateDate":"2019-06-01 00:00:00",
+  "endCreateDate":"2019-06-08 00:00:00",
   "startResultDate":"2019-06-01 00:00:00",
   "endResultDate":"2019-06-08 00:00:00",
   "sendNo":"15446859",
@@ -2985,9 +3000,11 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
 |sendType| String| 1| 필수| 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
-|requestId|	String| 25 |	조건 필수(1번) |	요청 ID|
-|startRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	조건 필수(2번) |	발송 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String| 25 |	필수 |	요청 ID|
+|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	필수 |	발송 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	필수 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	필수 |	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String| - |	옵션|	수신 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	옵션|	발신 번호|

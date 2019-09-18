@@ -265,13 +265,17 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 
-[Query parameter] 1番or 2番の条件必須
+[Query parameter]
+* requestIdまたはstartRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 |値|	タイプ|	最大 | 必須|	説明|
 |---|---|---|---|---|
-|requestId|	String| 25 |	条件必須(1番) |	リクエストID|
-|startRequestDate|	String| - |	条件必須(2番) |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	条件必須(2番) |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String| 25 |	必須 |	リクエストID|
+|startRequestDate|	String| - |	必須 |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	必須 |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	必須 |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	必須 |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String| - |	オプション|	受信日の開始値(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String| - |	オプション|	受信日の終了値(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	オプション|	発信番号|
@@ -694,13 +698,17 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 
-[Query parameter] 1番or 2番の条件必須
+[Query parameter]
+* requestIdまたはstartRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 |値|	タイプ| 最大 |	必須|	説明|
 |---|---|---|---|---|
-|requestId|	String| 25 |	条件必須(1番) |	リクエストID|
-|startRequestDate|	String| - |	条件必須(2番) |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	条件必須(2番) |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String| 25 |	必須 |	リクエストID|
+|startRequestDate|	String| - |	必須 |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	必須 |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	必須 |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	必須 |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String| - |	オプション|	受信日の開始値(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String| - |	オプション|	受信日の終了値(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	オプション|	発信番号|
@@ -1094,13 +1102,17 @@ Content-Type: application/json;charset=UTF-8
 |---|----|---|
 |appKey|	String|	固有のアプリケーションキー|
 
-[Query parameter] 1番or 2番の条件必須
+[Query parameter]
+* requestIdまたはstartRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 |値|	タイプ|	最大 | 必須|	説明|
 |---|---|---|---|---|
-|requestId|	String| 25 |	条件必須(1番) |	リクエストID|
-|startRequestDate|	String| - |	条件必須(2番) |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	条件必須(2番) |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
+|requestId|	String| 25 |	必須 |	リクエストID|
+|startRequestDate|	String| - |	必須 |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
+|endRequestDate|	String| - |	必須 |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	必須 |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	必須 |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
 |startResultDate|	String| - |	オプション|	受信日の開始値(yyyy-MM-dd HH:mm:ss)|
 |endResultDate|	String| - |	オプション|	受信日の終了値(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 |	オプション|	発信番号|
@@ -1588,7 +1600,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.2/appKeys/{appKey}/tag-sender?sendType={sendType}&requestId={requestId}&startRequestDate={startRequestDate}&endRequestDate={endRequestDate}&statusCode={statusCode}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.2/appKeys/{appKey}/tag-sender
 ```
 
 [Path parameter]
@@ -1597,13 +1609,8 @@ GET /sms/v2.2/appKeys/{appKey}/tag-sender?sendType={sendType}&requestId={request
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 
-[Request body]
-
-```
-X
-```
-
-* requestIdまたはstartRequestDate + endRequestDateは必須です。
+[Query parameter]
+* requestIdまたはstartRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
 
 |値|	タイプ| 最大 |	必須|	説明|
 |---|---|---|---|---|
@@ -1612,6 +1619,8 @@ X
 | requestId | String | - | O | リクエストID |
 | startRequestDate | String | - | O | 送信日の開始 |
 | endRequestDate | String | - | O | 送信日の終了 |
+| startCreateDate |	String | - |	O |	送信日の開始値|
+| endCreateDate |	String | - |	O |	送信日の終了値|
 | statusCode | String | 10 | X | 送信ステータスコード<br>WAIT："MAS00"<br>READY："MAS01"<br>SENDREADY："MAS09"<br>SENDWAIT："MAS10"<br>SENDING："MAS11"<br>COMPLETE："MAS19"<br>CANCEL："MAS91"<br>FAIL："MAS99" |
 | pageNum | optional, Integer | - | X | ページ番号 |
 | pageSize | optional, Integer | 1000 | X | 照会数 |
@@ -1687,7 +1696,7 @@ X
 [URL]
 
 ```
-GET /sms/v2.2/appKeys/{appKey}/tag-sender/{requestId}?recipientNum={recipientNum}&startRequestDate={startRequestDate}&endRequestDate={endRequestDate}&startResultDate={startResultDate}&endResultDate={endResultDate}&msgStatusName={msgStatusName}&resultCode={resultCode}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.2/appKeys/{appKey}/tag-sender/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1698,12 +1707,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	固有のアプリケーションキー|
 | requestId | String | リクエストID |
 
-[Request body]
-
-```
-X
-```
-
+[Query parameter]
 * requestIdまたはstartRequestDate + endRequestDateは必須です。
 
 |値|	タイプ| 最大 |	必須|	説明|
@@ -3193,7 +3197,7 @@ Content-Type : multipart/form-data;
 [URL]
 
 ```
-GET /sms/v2.2/appKeys/{appKey}/reservations?sendType={sendType}&startRequestDate={startRequestDate}&endRequestDate={endRequestDate}&sendNo={sendNo}&recipientNo={recipientNo}&templateId={templateId}&requestId={requestId}&messageStatus={messageStatus}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.2/appKeys/{appKey}/reservations
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3211,6 +3215,8 @@ Content-Type: application/json;charset=UTF-8
 |requestId|	String| 25 |	オプション |	リクエストID|
 |startRequestDate|	String| - |	オプション |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
 |endRequestDate|	String| - |	オプション |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
+|startCreateDate|	String| - |	オプション |	送信日の開始値(yyyy-MM-dd HH:mm:ss)|
+|endCreateDate|	String| - |	オプション |	送信日の終了値(yyyy-MM-dd HH:mm:ss)|
 |sendNo|	String| 13 | オプション|	発信番号|
 |recipientNo|	String| 20 |	オプション|	受信番号|
 |templateId|	String| 50 |	オプション|	テンプレート番号|
@@ -3456,6 +3462,8 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	固有のアプリケーションキー|
 
 [Request body]
+* requestIdまたはstartRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
+* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
 
 ```
 {
@@ -3463,6 +3471,8 @@ Content-Type: application/json;charset=UTF-8
   "requestId":"20190601100630ReZQ6KZzAH0",
   "startRequestDate":"2019-06-01 00:00:00",
   "endRequestDate":"2019-06-08 00:00:00",
+  "startCreateDate":"2019-06-01 00:00:00",
+  "endCreateDate":"2019-06-08 00:00:00",
   "startResultDate":"2019-06-01 00:00:00",
   "endResultDate":"2019-06-08 00:00:00",
   "sendNo":"15446859",
