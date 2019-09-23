@@ -267,7 +267,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestIdまたはstartRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* 登録日時と発信日時を同時に照会する場合、発信日時は無視されます。
 
 |値|	タイプ|	最大 | 必須|	説明|
 |---|---|---|---|---|
@@ -700,7 +700,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestIdまたはstartRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* 登録日時と発信日時を同時に照会する場合、発信日時は無視されます。
 
 |値|	タイプ| 最大 |	必須|	説明|
 |---|---|---|---|---|
@@ -1104,7 +1104,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestIdまたはstartRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* 登録日時と発信日時を同時に照会する場合、発信日時は無視されます。
 
 |値|	タイプ|	最大 | 必須|	説明|
 |---|---|---|---|---|
@@ -3463,7 +3463,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 * requestIdまたはstartRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* 登録日時と発信日時を同時に照会する場合、発信日時は無視されます。
 
 ```
 {

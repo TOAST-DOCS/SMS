@@ -266,7 +266,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다. 
+* To query registered date and sent date at the same time, sent date shall be ignored. 
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
@@ -698,7 +698,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
 |Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
@@ -1102,7 +1102,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다. 
+* To query registered date and sent date at the same time, sent date shall be ignored. 
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
@@ -3463,7 +3463,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 * requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
 ```
 {
