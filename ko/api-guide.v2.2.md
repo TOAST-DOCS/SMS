@@ -1,10 +1,15 @@
-## Notification > SMS > API v2.3 Guide
+## Notification > SMS > API v2.2 Guide
 
-## v2.3 API 소개
+## v2.2 API 소개
 
-### v2.2과 달라진 사항
-1. 인증용 SMS 발송 API에 대한 본문 유효성 검사가 추가되었습니다.
-   - 자세한 사항은 [[인증용 SMS 발송 API](./api-guide/#precautions-authword)] 참고하시기 바랍니다.
+### v2.1과 달라진 사항
+1. 템플릿으로 발송 요청 시 요청 파라미터의 우선순위가 높아지도록 수정되었습니다.
+   - 예시) 템플릿으로 발송 요청 시 요청 파라미터에 제목, 본문, 발신번호, 첨부파일이 포함된 경우 템플릿에 저장된 데이터를 사용되지 않도록 수정
+2. 문자 발송 시 제목/본문에 대한 유효성 검사가 강화되었습니다.
+    * 아래와 같이 문자 발송 시 제목/본문 길이 제한이 강화됩니다.
+    * SMS(본문: 최대 255자), LMS/MMS(제목: 최대 120자, 본문: 최대 4000자)
+
+
 
 ### [API 도메인]
 
@@ -33,7 +38,7 @@
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/sms
+POST  /sms/v2.2/appKeys/{appKey}/sender/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -129,7 +134,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms|
 
 [Request body]
 ```
@@ -186,14 +191,14 @@ Content-Type: application/json;charset=UTF-8
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
 ```
 
 #### 단문 SMS 발송 예제(국가 코드가 포함된 수신 번호)
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms|
 
 
 [Request body]
@@ -241,7 +246,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "본문","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "본문","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
 ```
 
 ### 단문 SMS 발송리스트 조회
@@ -251,7 +256,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/sms
+GET  /sms/v2.2/appKeys/{appKey}/sender/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -369,7 +374,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/sms/{requestId}
+GET  /sms/v2.2/appKeys/{appKey}/sender/sms/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -465,7 +470,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/mms
+POST  /sms/v2.2/appKeys/{appKey}/sender/mms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -563,7 +568,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms|
 
 [Request body]
 ```
@@ -621,7 +626,7 @@ Content-Type: application/json;charset=UTF-8
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms -d '{"title": "{제목}","body": "{본문 내용}","sendNo": "{발신 번호}","recipientList": [{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms -d '{"title": "{제목}","body": "{본문 내용}","sendNo": "{발신 번호}","recipientList": [{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
 ```
 
 ### 장문 MMS 발송(첨부 파일 포함)
@@ -630,7 +635,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 
 | Http method | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms |
+| POST | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 [Request body]
 ```
@@ -685,7 +690,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/mms
+GET  /sms/v2.2/appKeys/{appKey}/sender/mms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -816,7 +821,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/mms/{requestId}
+GET  /sms/v2.2/appKeys/{appKey}/sender/mms/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -921,20 +926,12 @@ Content-Type: application/json;charset=UTF-8
 
 ### 인증용 SMS 발송
 
-<span id="precautions-authword"></span>
-1. 인증용 SMS 발송 시 본문 내 포함되어야 할 인증 문구 안내
-   | 구분  | 인증 문구 |
-   | --- | --- | 
-   | 인증용 SMS(긴급) | auth, password, verif, にんしょう, 認証, 비밀번호, 인증 |
-   - 예시 1-1) 인증용 SMS 발송 API 요청시 전문(템플릿 치환자 포함)에 인증 문구가 포함되어 있지 않은 경우 발송 실패됩니다.
-   - 예시 1-2) 인증 문구가 영문인 경우 대소문자 구분 없이 유효성 검사가 진행됩니다.
-
 #### 요청
 
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/auth/sms
+POST  /sms/v2.2/appKeys/{appKey}/sender/auth/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -971,7 +968,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String| 50 |	X|	발송 템플릿 ID|
-|body|	String| 표준: 90바이트, 최대: 255자 (EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용 [[주의사항](./api-guide/#precautions-authword)] |
+|body|	String| 표준: 90바이트, 최대: 255자 (EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -1030,7 +1027,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/auth/sms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms|
 
 [Request body]
 ```
@@ -1087,7 +1084,7 @@ Content-Type: application/json;charset=UTF-8
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신 번호}","recipientList":[{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신 번호}","recipientList":[{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
 ```
 
 ### 인증용 SMS 발송리스트 조회
@@ -1097,7 +1094,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/auth/sms
+GET  /sms/v2.2/appKeys/{appKey}/sender/auth/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1215,7 +1212,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/auth/sms/{requestId}
+GET  /sms/v2.2/appKeys/{appKey}/sender/auth/sms/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1309,7 +1306,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/ad-sms
+POST  /sms/v2.2/appKeys/{appKey}/sender/ad-sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1339,7 +1336,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/ad-mms
+POST  /sms/v2.2/appKeys/{appKey}/sender/ad-mms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1374,7 +1371,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/message-results?startUpdateDate={startUpdateDate}&endUpdateDate={endUpdateDate}&messageType={messageType}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.2/appKeys/{appKey}/message-results?startUpdateDate={startUpdateDate}&endUpdateDate={endUpdateDate}&messageType={messageType}&pageNum={pageNum}&pageSize={pageSize}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1454,7 +1451,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/tag-sender/sms
+POST /sms/v2.2/appKeys/{appKey}/tag-sender/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1530,7 +1527,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/tag-sender/mms
+POST  /sms/v2.2/appKeys/{appKey}/tag-sender/mms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1612,7 +1609,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/tag-sender
+GET /sms/v2.2/appKeys/{appKey}/tag-sender
 ```
 
 [Path parameter]
@@ -1708,7 +1705,7 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/tag-sender/{requestId}
+GET /sms/v2.2/appKeys/{appKey}/tag-sender/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1791,7 +1788,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/tag-sender/{requestId}/{recipientSeq}
+GET /sms/v2.2/appKeys/{appKey}/tag-sender/{requestId}/{recipientSeq}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1877,7 +1874,7 @@ X
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/attachfile/binaryUpload
+POST  /sms/v2.2/appKeys/{appKey}/attachfile/binaryUpload
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1939,7 +1936,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http method | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/attachfile/binaryUpload |
+| POST | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/attachfile/binaryUpload |
 
 [Request body]
 ```
@@ -1977,7 +1974,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/categories
+POST  /sms/v2.2/appKeys/{appKey}/categories
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2056,7 +2053,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/categories
+GET  /sms/v2.2/appKeys/{appKey}/categories
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2132,7 +2129,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/categories/{categoryId}
+GET  /sms/v2.2/appKeys/{appKey}/categories/{categoryId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2197,7 +2194,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-PUT  /sms/v2.3/appKeys/{appKey}/categories/{categoryId}
+PUT  /sms/v2.2/appKeys/{appKey}/categories/{categoryId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2246,7 +2243,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-DELETE  /sms/v2.3/appKeys/{appKey}/categories/{categoryId}
+DELETE  /sms/v2.2/appKeys/{appKey}/categories/{categoryId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2281,7 +2278,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/templates
+POST  /sms/v2.2/appKeys/{appKey}/templates
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2342,7 +2339,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http method | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/templates |
+| POST | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/templates |
 
 [Request body]
 ```
@@ -2385,8 +2382,8 @@ Content-Type: application/json;charset=UTF-8
 
 |Http method| 종류 | URL|
 | - | - | - |
-| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms |
-| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms |
+| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 Request URL은 템플릿 등록시 선택한 발송 유형으로 선택하여 발송합니다.
 
@@ -2444,8 +2441,8 @@ Request URL은 템플릿 등록시 선택한 발송 유형으로 선택하여 �
 
 |Http method| 종류 | URL|
 | - | - | - |
-| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms |
-| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms |
+| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 
 Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 발송합니다.
@@ -2510,7 +2507,7 @@ Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 �
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/templates
+GET  /sms/v2.2/appKeys/{appKey}/templates
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2623,7 +2620,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/templates/{templateId}
+GET  /sms/v2.2/appKeys/{appKey}/templates/{templateId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2730,7 +2727,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-PUT  /sms/v2.3/appKeys/{appKey}/templates/{templateId}
+PUT  /sms/v2.2/appKeys/{appKey}/templates/{templateId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2789,7 +2786,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-DELETE  /sms/v2.3/appKeys/{appKey}/templates/{templateId}
+DELETE  /sms/v2.2/appKeys/{appKey}/templates/{templateId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2822,7 +2819,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/blockservice/recipients
+GET  /sms/v2.2/appKeys/{appKey}/blockservice/recipients
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2872,7 +2869,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-DELETE  /sms/v2.3/appKeys/{appKey}/blockservice/recipients/removes?unsubscribeNo={unsubscribeNo}&updateUser={updateUser}&recipientNoList={recipientNo},{recipientNo}
+DELETE  /sms/v2.2/appKeys/{appKey}/blockservice/recipients/removes?unsubscribeNo={unsubscribeNo}&updateUser={updateUser}&recipientNoList={recipientNo},{recipientNo}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2911,7 +2908,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/reqeusts/sendNos|
+POST /sms/v2.2/appKeys/{appKey}/reqeusts/sendNos|
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2954,7 +2951,7 @@ Content-Type: application/json;charset=UTF-8
 
 [URL]
 ```
-POST /sms/v2.3/appKeys/{appKey}/requests/attachFiles/authDocuments
+POST /sms/v2.2/appKeys/{appKey}/requests/attachFiles/authDocuments
 Content-Type : multipart/form-data;
 ```
 
@@ -2995,7 +2992,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}/requests/sendNos?sendNo={sendNo}&status={status}&pageNum={pageNum}&pageSize={pageSize}|
+|GET|	/sms/v2.2/appKeys/{appKey}/requests/sendNos?sendNo={sendNo}&status={status}&pageNum={pageNum}&pageSize={pageSize}|
 
 [Path parameter]
 
@@ -3070,7 +3067,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}/sendNos?sendNo={sendNo}&useYn={useYn}&blockYn={blockYn}&pageNum={pageNum}&pageSize={pageSize}
+|GET|	/sms/v2.2/appKeys/{appKey}/sendNos?sendNo={sendNo}&useYn={useYn}&blockYn={blockYn}&pageNum={pageNum}&pageSize={pageSize}
 
 [Path parameter]
 
@@ -3145,7 +3142,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
+|GET|	/sms/v2.2/appKeys/{appKey}}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
 
 [Path parameter]
 
@@ -3216,7 +3213,7 @@ Content-Type : multipart/form-data;
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/reservations
+GET /sms/v2.2/appKeys/{appKey}/reservations
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3316,7 +3313,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/reservations/{requestId}/{recipientSeq}
+GET /sms/v2.2/appKeys/{appKey}/reservations/{requestId}/{recipientSeq}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3406,7 +3403,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-PUT /sms/v2.3/appKeys/{appKey}/reservations/cancel
+PUT /sms/v2.2/appKeys/{appKey}/reservations/cancel
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3471,7 +3468,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/sender/download-reservations
+POST /sms/v2.2/appKeys/{appKey}/sender/download-reservations
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3567,7 +3564,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/download-reservations
+GET /sms/v2.2/appKeys/{appKey}/download-reservations
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3642,7 +3639,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/download-reservations/{downloadId}/download
+GET /sms/v2.2/appKeys/{appKey}/download-reservations/{downloadId}/download
 Content-Type: application/json;charset=UTF-8
 ```
 
