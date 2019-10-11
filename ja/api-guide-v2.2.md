@@ -2892,7 +2892,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST /sms/v2.2/appKeys/{appKey}/reqeusts/sendNos|
+POST /sms/v2.2/appKeys/{appKey}/requests/sendNos|
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2917,6 +2917,12 @@ Content-Type: application/json;charset=UTF-8
 }
 
 ```
+
+|値|	タイプ|	最大 | 必須|	説明|
+|---|---|---|---|---|
+| sendNos[] |	List<String> | - | 必須 |	発信番号|
+| fileIds[] |	List<integer> | - | オプション | 업로드한 서류의 파일 아이디|
+| comment | String | 4000 | オプション | 발신번호 승인자에게 남길 말  |
 
 #### レスポンス
 ```

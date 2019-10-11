@@ -2334,6 +2334,12 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+| sendNos[] |	List<String> | - | 필수 |	발신 번호|
+| fileIds[] |	List<Integer> | - | 옵션 | 업로드한 서류의 파일 아이디|
+| comment | String | 4000 | 옵션 | 발신번호 승인자에게 남길 말  |
+
 #### 응답
 ```
 {
