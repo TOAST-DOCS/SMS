@@ -846,13 +846,22 @@ Content-Type: application/json;charset=UTF-8
         "sendType":"0",
         "userId":"tester",
         "adYn":"N",
-        "attachFileList":[
-          {
-            "fileId":0,
-            "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-            "fileName":"small_img.jpg"
-          }
-        ],
+        "attachFileList": [{
+               fileId: Integer,
+               serviceId: Integer,
+               attachType: String,
+               templateId: Integer,
+               filePath: String,
+               fileName: String,
+               saveFileName: String,
+               fileSize: Long,
+               createDate: String,
+               createUser: String,
+               updateDate: String,
+               updateUser: String,
+               uploadType: String,
+               existFileName: String
+        }],
         "resultMessage":"",
         "senderGroupingKey":"SenderGroupingKey",
         "recipientGroupingKey":"RecipientGroupingKey"
@@ -893,8 +902,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].userId|	String|	送信リクエストID|
 |body.data[].adYn|	String|	広告かどうか|
 |body.data[].attachFileList[].fileId|	Integer|	ファイルID|
+|body.data[].attachFileList[].serviceId|	Integer|	サービスID|
+|body.data[].attachFileList[].attachType|	Integer|	添付ファイルタイプ|
+|body.data[].attachFileList[].templateId|	String|	テンプレートID|
 |body.data[].attachFileList[].filePath|	String|	ファイル保存パス(内部用)|
 |body.data[].attachFileList[].fileName|	String|	ファイル名|
+|body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイルの名前|
+|body.data[].attachFileList[].fileSize|	Long|	添付ファイルの大きさ|
+|body.data[].attachFileList[].createDate|	String|	作成日時|
+|body.data[].attachFileList[].createUser|	String|	作成者|
+|body.data[].attachFileList[].updateDate|	String|	修正日時|
+|body.data[].attachFileList[].updateUser|	String|	修正者|
+|body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
+|body.data[].attachFileList[].existFileName|	String|	保存された添付ファイルの名前|
 |body.data[].senderGroupingKey|	String|	発信者グループキー|
 |body.data[].recipientGroupingKey|	String|	受信者グループキー|
 
@@ -956,13 +976,22 @@ Content-Type: application/json;charset=UTF-8
       "sendType":"0",
       "userId":"tester",
       "adYn":"N",
-      "attachFileList":[
-        {
-          "fileId":0,
-          "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-          "fileName":"small_img.jpg"
-        }
-      ],
+      "attachFileList": [{
+               fileId: Integer,
+               serviceId: Integer,
+               attachType: String,
+               templateId: Integer,
+               filePath: String,
+               fileName: String,
+               saveFileName: String,
+               fileSize: Long,
+               createDate: String,
+               createUser: String,
+               updateDate: String,
+               updateUser: String,
+               uploadType: String,
+               existFileName: String
+      }],
       "resultMessage":"",
       "senderGroupingKey":"SenderGroupingKey",
       "recipientGroupingKey":"RecipientGroupingKey"
@@ -1002,8 +1031,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].userId|	String|	送信リクエストID|
 |body.data[].adYn|	String|	広告かどうか|
 |body.data[].attachFileList[].fileId|	Integer|	ファイルID|
+|body.data[].attachFileList[].serviceId|	Integer|	サービスID|
+|body.data[].attachFileList[].attachType|	Integer|	添付ファイルタイプ|
+|body.data[].attachFileList[].templateId|	String|	テンプレートID|
 |body.data[].attachFileList[].filePath|	String|	ファイル保存パス(内部用)|
 |body.data[].attachFileList[].fileName|	String|	ファイル名|
+|body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイルの名前|
+|body.data[].attachFileList[].fileSize|	Long|	添付ファイルの大きさ|
+|body.data[].attachFileList[].createDate|	String|	作成日時|
+|body.data[].attachFileList[].createUser|	String|	作成者|
+|body.data[].attachFileList[].updateDate|	String|	修正日時|
+|body.data[].attachFileList[].updateUser|	String|	修正者|
+|body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
+|body.data[].attachFileList[].existFileName|	String|	保存された添付ファイルの名前|
 |body.data[].senderGroupingKey|	String|	発信者グループキー|
 |body.data[].recipientGroupingKey|	String|	受信者グループキー|
 

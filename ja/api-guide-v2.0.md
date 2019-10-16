@@ -824,8 +824,20 @@ Content-Type: application/json;charset=UTF-8
             "userId": String,
             "serviceType": String,
             "attachFileList": [{
+                fileId: Integer,
+                serviceId: Integer,
+                attachType: String,
+                templateId: Integer,
                 filePath: String,
-                fileName: String
+                fileName: String,
+                saveFileName: String,
+                fileSize: Long,
+                createDate: String,
+                createUser: String,
+                updateDate: String,
+                updateUser: String,
+                uploadType: String,
+                existFileName: String
             }]
         }]
     }
@@ -867,8 +879,20 @@ Content-Type: application/json;charset=UTF-8
 |-- userId|	String|	送信リクエストID|
 |-- serviceType| Integer| 送信モジュールタイプ(0：SMS、2：MMS、3：LMS) |
 |-- attachFileList|	List|	添付ファイルリスト|
+|--- fileId|	Integer|	ファイルID|
+|--- serviceId|	Integer|	サービスID|
+|--- attachType|	Integer|	添付ファイルタイプ|
+|--- templateId|	String|	テンプレートID|
 |--- filePath|	String|	添付ファイルの基本Path <br/> (https://domain/attachFile/filePath/fileName)|
 |--- filename|	String|	添付ファイル名|
+|--- saveFileName|	String|	保存された添付ファイルの名前|
+|--- fileSize|	Long|	添付ファイルの大きさ|
+|--- createDate|	String|	作成日時|
+|--- createUser|	String|	作成者|
+|--- updateDate|	String|	修正日時|
+|--- updateUser|	String|	修正者|
+|--- uploadType|	String|	アップロードタイプ|
+|--- existFileName|	String|	保存された添付ファイルの名前|
 
 ### 長文MMS送信の単一照会
 
@@ -929,8 +953,20 @@ Content-Type: application/json;charset=UTF-8
             "userId": String,
             "serviceType": String,
             "attachFileList": [{
+                fileId: Integer,
+                serviceId: Integer,
+                attachType: String,
+                templateId: Integer,
                 filePath: String,
-                fileName: String
+                fileName: String,
+                saveFileName: String,
+                fileSize: Long,
+                createDate: String,
+                createUser: String,
+                updateDate: String,
+                updateUser: String,
+                uploadType: String,
+                existFileName: String
             }]
         }]
     }
@@ -969,8 +1005,20 @@ Content-Type: application/json;charset=UTF-8
 |-- userId|	String|	送信リクエストID|
 |-- serviceType| Integer| 送信モジュールタイプ(0：SMS、2：MMS、3：LMS) |
 |-- attachFileList|	List|	添付ファイルリスト|
+|--- fileId|	Integer|	ファイルID|
+|--- serviceId|	Integer|	サービスID|
+|--- attachType|	Integer|	添付ファイルタイプ|
+|--- templateId|	String|	テンプレートID|
 |--- filePath|	String|	添付ファイルの基本Path <br/> (https://domain/attachFile/filePath/fileName)|
 |--- filename|	String|	添付ファイル名|
+|--- saveFileName|	String|	保存された添付ファイルの名前|
+|--- fileSize|	Long|	添付ファイルの大きさ|
+|--- createDate|	String|	作成日時|
+|--- createUser|	String|	作成者|
+|--- updateDate|	String|	修正日時|
+|--- updateUser|	String|	修正者|
+|--- uploadType|	String|	アップロードタイプ|
+|--- existFileName|	String|	保存された添付ファイルの名前|
 
 ## 認証用SMS(緊急)
 

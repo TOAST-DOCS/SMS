@@ -825,8 +825,20 @@ Content-Type: application/json;charset=UTF-8
             "userId": String,
             "serviceType": String,
             "attachFileList": [{
+                fileId: Integer,
+                serviceId: Integer,
+                attachType: String,
+                templateId: Integer,
                 filePath: String,
-                fileName: String
+                fileName: String,
+                saveFileName: String,
+                fileSize: Long,
+                createDate: String,
+                createUser: String,
+                updateDate: String,
+                updateUser: String,
+                uploadType: String,
+                existFileName: String
             }]
         }]
     }
@@ -868,8 +880,21 @@ Content-Type: application/json;charset=UTF-8
 |-- userId|	String|	발송 요청 아이디|
 |-- serviceType| Integer| 발송 모듈 타입(0:SMS, 2:MMS, 3:LMS) |
 |-- attachFileList|	List|	첨부파일 리스트|
-|--- filePath|	String|	첨부파일 기본Path <br/> (https://domain/attachFile/filePath/fileName)|
+|--- fileId|	Integer|	파일 아이디|
+|--- serviceId|	Integer|	서비스 아이디|
+|--- attachType|	Integer|	첨부파일 타입|
+|--- templateId|	String|	템플릿 아이디|
+|--- filePath|	String|	첨부파일 기본 Path <br/> (https://domain/attachFile/filePath/fileName)|
 |--- filename|	String|	첨부파일명|
+|--- saveFileName|	String|	저장된 첨부파일명|
+|--- fileSize|	Long|	첨부파일 크기|
+|--- createDate|	String|	생성 일시|
+|--- createUser|	String|	생성자|
+|--- updateDate|	String|	수정 일시|
+|--- updateUser|	String|	수정자|
+|--- uploadType|	String|	업로드 타입|
+|--- existFileName|	String|	저장된 첨부파일명|
+
 
 ### 장문 MMS 발송 단일 조회
 
@@ -930,8 +955,20 @@ Content-Type: application/json;charset=UTF-8
             "userId": String,
             "serviceType": String,
             "attachFileList": [{
+                fileId: Integer,
+                serviceId: Integer,
+                attachType: String,
+                templateId: Integer,
                 filePath: String,
-                fileName: String
+                fileName: String,
+                saveFileName: String,
+                fileSize: Long,
+                createDate: String,
+                createUser: String,
+                updateDate: String,
+                updateUser: String,
+                uploadType: String,
+                existFileName: String
             }]
         }]
     }
@@ -970,8 +1007,20 @@ Content-Type: application/json;charset=UTF-8
 |-- userId|	String|	발송 요청 아이디|
 |-- serviceType| Integer| 발송 모듈 타입(0:SMS, 2:MMS, 3:LMS) |
 |-- attachFileList|	List|	첨부파일 리스트|
-|--- filePath|	String|	첨부파일 기본Path <br/> (https://domain/attachFile/filePath/fileName)|
+|--- fileId|	Integer|	파일 아이디|
+|--- serviceId|	Integer|	서비스 아이디|
+|--- attachType|	Integer|	첨부파일 타입|
+|--- templateId|	String|	템플릿 아이디|
+|--- filePath|	String|	첨부파일 기본 Path <br/> (https://domain/attachFile/filePath/fileName)|
 |--- filename|	String|	첨부파일명|
+|--- saveFileName|	String|	저장된 첨부파일명|
+|--- fileSize|	Long|	첨부파일 크기|
+|--- createDate|	String|	생성 일시|
+|--- createUser|	String|	생성자|
+|--- updateDate|	String|	수정 일시|
+|--- updateUser|	String|	수정자|
+|--- uploadType|	String|	업로드 타입|
+|--- existFileName|	String|	저장된 첨부파일명|
 
 ## 인증용 SMS(긴급)
 
