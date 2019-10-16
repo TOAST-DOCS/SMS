@@ -754,13 +754,13 @@ Content-Type: application/json;charset=UTF-8
         "sendType":"0",
         "userId":"tester",
         "adYn":"N",
-        "attachFileList":[
-          {
-            "fileId":0,
-            "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-            "fileName":"small_img.jpg"
-          }
-        ],
+        "attachFileList": [{
+               fileId: Integer,
+               filePath: String,
+               fileName: String,
+               saveFileName: String,
+               uploadType: String
+         }],
         "resultMessage":"",
         "senderGroupingKey":"SenderGroupingKey",
         "recipientGroupingKey":"RecipientGroupingKey"
@@ -803,6 +803,8 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].attachFileList[].fileId|	Integer| File ID |
 |body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
 |body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
@@ -864,13 +866,13 @@ Content-Type: application/json;charset=UTF-8
       "sendType":"0",
       "userId":"tester",
       "adYn":"N",
-      "attachFileList":[
-        {
-          "fileId":0,
-          "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-          "fileName":"small_img.jpg"
-        }
-      ],
+      "attachFileList": [{
+               fileId: Integer,
+               filePath: String,
+               fileName: String,
+               saveFileName: String,
+               uploadType: String
+      }],
       "resultMessage":"",
       "senderGroupingKey":"SenderGroupingKey",
       "recipientGroupingKey":"RecipientGroupingKey"
@@ -912,6 +914,8 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].attachFileList[].fileId|	Integer| File ID |
 |body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
 |body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
@@ -1107,7 +1111,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
-* To query registered date and sent date at the same time, sent date shall be ignored. 
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
@@ -1616,6 +1620,7 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 
 [Query parameter]
 * requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
 |Value|	Type| Max Length | Required|	Description|
 |---|---|---|---|---|
@@ -3478,7 +3483,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "sendType":"1"발신
+  "sendType":"1",
   "requestId":"20190601100630ReZQ6KZzAH0",
   "startRequestDate":"2019-06-01 00:00:00",
   "endRequestDate":"2019-06-08 00:00:00",

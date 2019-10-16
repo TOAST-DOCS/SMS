@@ -844,13 +844,22 @@ Content-Type: application/json;charset=UTF-8
         "sendType":"0",
         "userId":"tester",
         "adYn":"N",
-        "attachFileList":[
-          {
-            "fileId":0,
-            "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-            "fileName":"small_img.jpg"
-          }
-        ],
+        "attachFileList": [{
+               fileId: Integer,
+               serviceId: Integer,
+               attachType: String,
+               templateId: Integer,
+               filePath: String,
+               fileName: String,
+               saveFileName: String,
+               fileSize: Long,
+               createDate: String,
+               createUser: String,
+               updateDate: String,
+               updateUser: String,
+               uploadType: String,
+               existFileName: String
+         }],
         "resultMessage":"",
         "senderGroupingKey":"SenderGroupingKey",
         "recipientGroupingKey":"RecipientGroupingKey"
@@ -891,8 +900,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].attachFileList[].fileId|	Integer| File ID |
+|body.data[].attachFileList[].serviceId|	Integer|	Service ID|
+|body.data[].attachFileList[].attachType|	Integer|	Type of Attachment|
+|body.data[].attachFileList[].templateId|	String|	Template ID|
 |body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
 |body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].fileSize|	Long|	File Size|
+|body.data[].attachFileList[].createDate|	String|	Date and time of creation |
+|body.data[].attachFileList[].createUser|	String|	Creator|
+|body.data[].attachFileList[].updateDate|	String|	Date and time of modification|
+|body.data[].attachFileList[].updateUser|	String|	Modifier|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
+|body.data[].attachFileList[].existFileName|	String|	Name of saved file|
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
@@ -954,13 +974,22 @@ Content-Type: application/json;charset=UTF-8
       "sendType":"0",
       "userId":"tester",
       "adYn":"N",
-      "attachFileList":[
-        {
-          "fileId":0,
-          "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-          "fileName":"small_img.jpg"
-        }
-      ],
+      "attachFileList": [{
+            fileId: Integer,
+            serviceId: Integer,
+            attachType: String,
+            templateId: Integer,
+            filePath: String,
+            fileName: String,
+            saveFileName: String,
+            fileSize: Long,
+            createDate: String,
+            createUser: String,
+            updateDate: String,
+            updateUser: String,
+            uploadType: String,
+            existFileName: String
+      }],
       "resultMessage":"",
       "senderGroupingKey":"SenderGroupingKey",
       "recipientGroupingKey":"RecipientGroupingKey"
@@ -1000,8 +1029,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].attachFileList[].fileId|	Integer| File ID |
+|body.data[].attachFileList[].serviceId|	Integer|	Service ID|
+|body.data[].attachFileList[].attachType|	Integer|	Type of Attachment|
+|body.data[].attachFileList[].templateId|	String|	Template ID|
 |body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
 |body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].fileSize|	Long|	File Size|
+|body.data[].attachFileList[].createDate|	String|	Date and time of creation |
+|body.data[].attachFileList[].createUser|	String|	Creator|
+|body.data[].attachFileList[].updateDate|	String|	Date and time of modification|
+|body.data[].attachFileList[].updateUser|	String|	Modifier|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
+|body.data[].attachFileList[].existFileName|	String|	Name of saved file|
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 

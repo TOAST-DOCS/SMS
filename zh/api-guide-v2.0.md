@@ -825,8 +825,20 @@ Content-Type: application/json;charset=UTF-8
             "userId": String,
             "serviceType": String,
             "attachFileList": [{
+                fileId: Integer,
+                serviceId: Integer,
+                attachType: String,
+                templateId: Integer,
                 filePath: String,
-                fileName: String
+                fileName: String,
+                saveFileName: String,
+                fileSize: Long,
+                createDate: String,
+                createUser: String,
+                updateDate: String,
+                updateUser: String,
+                uploadType: String,
+                existFileName: String
             }]
         }]
     }
@@ -868,8 +880,20 @@ Content-Type: application/json;charset=UTF-8
 |-- userId|	String| Delivery request ID |
 |-- serviceType| Integer| Delivery module type (0:SMS, 2:MMS, 3:LMS) |
 |-- attachFileList|	List| List of attached files |
+|--- fileId|	Integer|	File ID|
+|--- serviceId|	Integer|	Service ID|
+|--- attachType|	Integer|	Attachment Type|
+|--- templateId|	String|	Template ID|
 |--- filePath|	String| Default path of attached files <br/> (https://domain/attachFile/filePath/fileName) |
 |--- filename|	String| Name of attached file |
+|--- saveFileName|	String|	Name of saved file|
+|--- fileSize|	Long|	Size of file|
+|--- createDate|	String|	Date and time of creation |
+|--- createUser|	String|	Creator|
+|--- updateDate|	String|	Date and time of creation|
+|--- updateUser|	String|	Modifier|
+|--- uploadType|	String|	Upload Type|
+|--- existFileName|	String|	Name of saved file|
 
 ### Query Single Delivery of Long MMS  
 
@@ -930,8 +954,20 @@ Content-Type: application/json;charset=UTF-8
             "userId": String,
             "serviceType": String,
             "attachFileList": [{
+                fileId: Integer,
+                serviceId: Integer,
+                attachType: String,
+                templateId: Integer,
                 filePath: String,
-                fileName: String
+                fileName: String,
+                saveFileName: String,
+                fileSize: Long,
+                createDate: String,
+                createUser: String,
+                updateDate: String,
+                updateUser: String,
+                uploadType: String,
+                existFileName: String
             }]
         }]
     }
@@ -970,8 +1006,20 @@ Content-Type: application/json;charset=UTF-8
 |-- userId|	String| Delivery request ID |
 |-- serviceType| Integer| Delivery module type (0:SMS, 2:MMS, 3:LMS) |
 |-- attachFileList|	List| List of attached files |
+|--- fileId|	Integer|	File ID|
+|--- serviceId|	Integer|	Service ID|
+|--- attachType|	Integer|	Type of attachment|
+|--- templateId|	String|	Template ID|
 |--- filePath|	String| Default path of attached files <br/> (https://domain/attachFile/filePath/fileName) |
-|--- filename|	String| Name of attached files |
+|--- filename|	String| Name of attached file |
+|--- saveFileName|	String|	Name of saved file|
+|--- fileSize|	Long|	Size of file|
+|--- createDate|	String|	Date and time of creation |
+|--- createUser|	String|	Creator|
+|--- updateDate|	String|	Date and time of creation|
+|--- updateUser|	String|	Modifier|
+|--- uploadType|	String|	Type of uploaded|
+|--- existFileName|	String|	Name of saved file|
 
 ## SMS for Authentication (emergency)
 
@@ -2338,8 +2386,8 @@ Content-Type: application/json;charset=UTF-8
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| sendNos[] |	List<String> | - | Required |	Sender Numbers|
-| fileIds[] |	List<Integer> | - | Optional | 업로드한 서류의 파일 아이디|
+| sendNos[] |	List | - | Required |	Sender Numbers|
+| fileIds[] |	List| - | Optional | 업로드한 서류의 파일 아이디|
 | comment | String | 4000 | Optional | 발신번호 승인자에게 남길 말  |
 
 #### Response

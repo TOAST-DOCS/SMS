@@ -761,13 +761,22 @@ Content-Type: application/json;charset=UTF-8
         "sendType":"0",
         "userId":"tester",
         "adYn":"N",
-        "attachFileList":[
-          {
-            "fileId":0,
-            "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-            "fileName":"small_img.jpg"
-          }
-        ],
+        "attachFileList": [{
+               fileId: Integer,
+               serviceId: Integer,
+               attachType: String,
+               templateId: Integer,
+               filePath: String,
+               fileName: String,
+               saveFileName: String,
+               fileSize: Long,
+               createDate: String,
+               createUser: String,
+               updateDate: String,
+               updateUser: String,
+               uploadType: String,
+               existFileName: String
+         }],
         "resultMessage":"",
         "senderGroupingKey":"SenderGroupingKey",
         "recipientGroupingKey":"RecipientGroupingKey"
@@ -808,8 +817,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
-|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용)|
-|body.data[].attachFileList[].fileName|	String|	파일명|
+|body.data[].attachFileList[].serviceId|	Integer|	서비스 ID|
+|body.data[].attachFileList[].attachType|	Integer|	파일 타입|
+|body.data[].attachFileList[].templateId|	String|	템플릿 아이디|
+|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용) |
+|body.data[].attachFileList[].filename|	String|	파일명|
+|body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
+|body.data[].attachFileList[].fileSize|	Long|	첨부파일 크기|
+|body.data[].attachFileList[].createDate|	String|	생성 일시|
+|body.data[].attachFileList[].createUser|	String|	생성자|
+|body.data[].attachFileList[].updateDate|	String|	수정 일시|
+|body.data[].attachFileList[].updateUser|	String|	수정자|
+|body.data[].attachFileList[].uploadType|	String|	업로드 타입|
+|body.data[].attachFileList[].existFileName|	String|	저장된 파일명|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 
@@ -871,13 +891,22 @@ Content-Type: application/json;charset=UTF-8
       "sendType":"0",
       "userId":"tester",
       "adYn":"N",
-      "attachFileList":[
-        {
-          "fileId":0,
-          "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-          "fileName":"small_img.jpg"
-        }
-      ],
+      "attachFileList": [{
+            fileId: Integer,
+            serviceId: Integer,
+            attachType: String,
+            templateId: Integer,
+            filePath: String,
+            fileName: String,
+            saveFileName: String,
+            fileSize: Long,
+            createDate: String,
+            createUser: String,
+            updateDate: String,
+            updateUser: String,
+            uploadType: String,
+            existFileName: String
+      }],
       "resultMessage":"",
       "senderGroupingKey":"SenderGroupingKey",
       "recipientGroupingKey":"RecipientGroupingKey"
@@ -917,8 +946,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
-|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용)|
-|body.data[].attachFileList[].fileName|	String|	파일명|
+|body.data[].attachFileList[].serviceId|	Integer|	서비스 ID|
+|body.data[].attachFileList[].attachType|	Integer|	파일 타입|
+|body.data[].attachFileList[].templateId|	String|	템플릿 아이디|
+|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용) |
+|body.data[].attachFileList[].filename|	String|	파일명|
+|body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
+|body.data[].attachFileList[].fileSize|	Long|	첨부파일 크기|
+|body.data[].attachFileList[].createDate|	String|	생성 일시|
+|body.data[].attachFileList[].createUser|	String|	생성자|
+|body.data[].attachFileList[].updateDate|	String|	수정 일시|
+|body.data[].attachFileList[].updateUser|	String|	수정자|
+|body.data[].attachFileList[].uploadType|	String|	업로드 타입|
+|body.data[].attachFileList[].existFileName|	String|	저장된 파일명|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 

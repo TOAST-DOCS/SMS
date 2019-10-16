@@ -756,13 +756,13 @@ Content-Type: application/json;charset=UTF-8
         "sendType":"0",
         "userId":"tester",
         "adYn":"N",
-        "attachFileList":[
-          {
-            "fileId":0,
-            "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-            "fileName":"small_img.jpg"
-          }
-        ],
+        "attachFileList": [{
+               fileId: Integer,
+               filePath: String,
+               fileName: String,
+               saveFileName: String,
+               uploadType: String
+         }],
         "resultMessage":"",
         "senderGroupingKey":"SenderGroupingKey",
         "recipientGroupingKey":"RecipientGroupingKey"
@@ -803,8 +803,10 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
-|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용)|
-|body.data[].attachFileList[].fileName|	String|	파일명|
+|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용) |
+|body.data[].attachFileList[].filename|	String|	파일명|
+|body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
+|body.data[].attachFileList[].uploadType|	String|	업로드 타입|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 
@@ -866,13 +868,13 @@ Content-Type: application/json;charset=UTF-8
       "sendType":"0",
       "userId":"tester",
       "adYn":"N",
-      "attachFileList":[
-        {
-          "fileId":0,
-          "filePath":"26606/toast-mt-2018-02-08/1639/107303/",
-          "fileName":"small_img.jpg"
-        }
-      ],
+      "attachFileList": [{
+            fileId: Integer,
+            filePath: String,
+            fileName: String,
+            saveFileName: String,
+            uploadType: String
+      }],
       "resultMessage":"",
       "senderGroupingKey":"SenderGroupingKey",
       "recipientGroupingKey":"RecipientGroupingKey"
@@ -912,8 +914,10 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
-|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용)|
-|body.data[].attachFileList[].fileName|	String|	파일명|
+|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용) |
+|body.data[].attachFileList[].filename|	String|	파일명|
+|body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
+|body.data[].attachFileList[].uploadType|	String|	업로드 타입|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 
