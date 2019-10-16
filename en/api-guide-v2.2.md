@@ -680,6 +680,11 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
+- 첨부 이미지 제한 사항
+    - 지원 코덱 : jpg
+    - 첨부 이미지 개수 : 3개 이하
+    - 첨부 이미지 사이즈 : 300K 이하
+    - 첨부 이미지 해상도 : 1000 x 1000 이하
 
 ### List Delivery of Long MMS Request
 
@@ -2360,6 +2365,11 @@ Content-Type: application/json;charset=UTF-8
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
+- 첨부 이미지 제한 사항
+    - 지원 코덱 : jpg
+    - 첨부 이미지 개수 : 3개 이하
+    - 첨부 이미지 사이즈 : 300K 이하
+    - 첨부 이미지 해상도 : 1000 x 1000 이하
 
 
 ### Send Templates (requiring no body updates)
