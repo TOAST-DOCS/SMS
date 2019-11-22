@@ -1,20 +1,31 @@
 ## Notification > SMS > Release Notes
 
+### Nov. 26, 2019
+
+#### Feature Updates 
+* [Console] Added the Feature of Ad Delivery Restriction Time
+    * Night-time ad delivery can be restricted. 
+* [Console] Changed Mailing Period for Guide on Failed Mass/Tag Message Delivery 
+    * In case mass/tag messages are not actually delivered even after [Confirm and Send] is selected without time scheduled, they are 'Processed as Failure' one day after registered, and guiding mail is sent to users. 
+    * If  a message is not actually delivered after [Confirm and Send] is selected with time scheduled, it is 'Processed as Failure' one day after scheduled time and guiding mail is sent to user. 
+* [Console] Updated to show byte counts for title or body on the deliver page 
+* [Console] Updated to query by the 'Sender Registrant' on the General/Mass/Tag delivery page 
+
 ### Oct. 29, 2019
 
 #### Feature Updates 
-* [Console] 예약 발송 일괄 취소 기능 추가
-    * 예약 발송 건 중 예약 대기 상태인 메시지만 발송을 취소할 수 있습니다.
-* [Console] SMS 서비스 비활성화 시 잔여 리소스 경고 창 안내
-    * 080 수신 거부 서비스를 사용 중인 경우, 080 수신 거부 서비스 해지 이후 SMS 서비스를 비활성화할 수 있습니다.
-* [Console/API] 광고 메시지 발송 시 080 수신 거부 번호 상태가 사용 중인 경우에만 발송할 수 있게 개선
-    * 080 수신 거부 번호 상태가 '사용 중'인 상태일 때만 발송할 수 있습니다.
-* [API] 인증용 메시지 발송 시 인증 문구 유효성 검사 강화 
-    * 인증용 메시지 발송 시 인증 문구가 포함되어 있지 않은 경우 메시지를 발송할 수 없습니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#precautions-authword)] 참고하시기 바랍니다.
+* [Console] Canceling scheduled delivery in batch   
+    * Delivery can be canceled only for the messages waiting to be scheduled 
+* [Console] Warning message for remaining resources with SMS service disabled 
+    * While the 080 number rejection service is enabled, it must be disabled first to disable the SMS service.
+* [Console/API] Sending ad messages only when the 080 number rejection service is enabled  
+    * Delivery is available only when the 080 number rejection service is 'Enabled'. 
+* [API] Tighter validity checks for the delivery of certification messages 
+    * Message delivery is unavailable when authentication message is not included 
+    * For more details, see [[API User Guide](./api-guide/#precautions-authword)]. 
 
 #### Bug Fixes 
-* [API] 발신 번호 인증 요청 내역 조회 시 comment 필드가 정상적으로 노출되지 않는 문제 수정
+* [API] Fixed the issue in which the comment field is not properly shown when querying history of sender number authentication requests 
 
 
 ### Sept. 24, 2019 
@@ -144,7 +155,7 @@
     * If sender number is registered with "-" (hyphen), delivery request is available even without hyphen. 
 * [API] Parameters that are requested with templates are elevated to higher on the priority list 
     * In case a parameter, requested with templates, includes title, body, sender number, and attached file, data saved in the templates shall not be applied. 
-* [Console/API] Query of delivery list by the minute is available up to the next 59 seconds.  *(전체적으로, '시간/날짜' 표기 구조가 영어와 한글이 다르기 때문에 수정되어야 하지 않을까 싶습니다. 일단 한글기준으로 번역했습니다.)*
+* [Console/API] Query of delivery list by the minute is available up to the next 59 seconds.
     * If period is specified in the query of delivery list, such as :"year/month/day hour:minute", you can query up to the next 59 seconds. 
     * e.g.) To query 2018-11-20 00:00 ~ 2018-11-20 01:00, query data between 2018-11-20 00:00:00 ~ 2018-11-20 01:00:59 
 * [Console/API] If title/body includes unavailable characters (emojis) to send, respond with defined errors.
@@ -156,7 +167,7 @@
 #### Bugs Fixed 
 * [API] Fixed invalid error code response 
     * For text delivery request, if a request field includes past time, it is responded with -2022 error, not -2021. 
-    * -2021은 시스템에서 발생하는 에러로 메세지큐에 저장하다 실패하는 경우 발생되는 에러코드 입니다. Error code -2021 occurs in a system when it fails to save in a message queue. 
+    * Error code -2021 occurs in a system when it fails to save in a message queue. 
 
 ### August 28, 2018
 #### Updated 

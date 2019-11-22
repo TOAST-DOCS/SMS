@@ -364,7 +364,7 @@ EMMA Version: EMMA V3.3.0 or higher
 	</tr>
 	<tr>
 		<td>1020</td>
-		<td>charset conversion error {@확인 - 한글로 수정해도 되나요.}</td>
+		<td>charset conversion error</td>
 	</tr>
 	<tr>
 		<td rowspan=24>IB EMMA</td>

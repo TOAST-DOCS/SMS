@@ -3,8 +3,8 @@
 ## v2.3 API Overview  
 
 ### Changes from v 2.2
-1. 인증용 SMS 발송 API에 대한 본문 유효성 검사가 추가되었습니다.
-   - 자세한 사항은 [[인증용 SMS 발송 API](./api-guide/#precautions-authword)] 참고하시기 바랍니다.
+1. Validity checks for the main text for Send Authentication SMS API has been added.
+- For more details, see [[Send Authentication SMS API](./api-guide/#precautions-authword)].
 
 ### [API Domain]
 
@@ -677,11 +677,11 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
-- 첨부 이미지 제한 사항
-    - 지원 코덱 : jpg
-    - 첨부 이미지 개수 : 3개 이하
-    - 첨부 이미지 사이즈 : 300K 이하
-    - 첨부 이미지 해상도 : 1000 x 1000 이하
+- Restrictions for Attached Images 
+    * Supported Codec: .jpg 
+    * Number of Attached Images: Less than 3 
+    * Size of Attached Image: Less than 300KB 
+    * Resolution of Image: Less than 1000 x 1000  
 
 ### List Delivery of Long MMS Request
 
@@ -929,14 +929,14 @@ Content-Type: application/json;charset=UTF-8
 ### Send SMS for Authentication
 
 <span id="precautions-authword"></span>
-1. 인증용 SMS 발송 시 본문 내 포함되어야 할 인증 문구 안내
+1. Guide for authentication words required to be included for sending authentication SMS 
 
-| 구분  | 인증 문구 |
-| --- | --- | 
-| 인증용 SMS(긴급) | auth, password, verif, にんしょう, 認証, 비밀번호, 인증 |
+| Category | Authentication Words |
+| --- | --- |
+| Authentication SMS (for emergency) | auth, password, verif, にんしょう, 認証, 비밀번호, 인증 |
 
-- 예시 1-1) 인증용 SMS(긴급) API 발송 요청 시 전문(템플릿 치환자 포함)에 인증 문구가 포함되어 있지 않은 경우 발송에 실패합니다.
-- 예시 1-2) 인증 문구가 영문인 경우 대소문자 구분 없이 유효성 검사가 진행됩니다.
+- Example 1) Delivery shall fail if the full text (including template replacement) does not include authentication words, in the request of Send Authentication SMS API (for emergency) 
+- Example 2) Validity for English words shall be checked regardless of small or capital letters 
 
 #### Request
 
@@ -2376,11 +2376,11 @@ Content-Type: application/json;charset=UTF-8
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
-- 첨부 이미지 제한 사항
-    - 지원 코덱 : jpg
-    - 첨부 이미지 개수 : 3개 이하
-    - 첨부 이미지 사이즈 : 300K 이하
-    - 첨부 이미지 해상도 : 1000 x 1000 이하
+- Restrictions for Attached Images 
+    * Supported Codec: .jpg 
+    * Number of Attached Images: Less than 3 
+    * Size of Attached Image: Less than 300KB 
+    * Resolution of Image: Less than 1000 x 1000  
 
 
 ### Send Templates (requiring no body updates)
@@ -2943,8 +2943,8 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
 | sendNos[] |	List<String> | - | Required |	Sender Numbers|
-| fileIds[] |	List<Integer> | - | Optional | 업로드한 서류의 파일 아이디|
-| comment | String | 4000 | Optional | 발신번호 승인자에게 남길 말  |
+| fileIds[] |	List<Integer> | - | Optional | File ID for updated document|
+| comment | String | 4000 | Optional | Messages for the administrator who approved sender number  |
 
 #### Response
 ```

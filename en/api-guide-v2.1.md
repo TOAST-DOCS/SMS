@@ -2454,8 +2454,8 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
 | sendNos[] |	List<String> | - | Required |	Sender Numbers|
-| fileIds[] |	List<Integer> | - | Optional | 업로드한 서류의 파일 아이디|
-| comment | String | 4000 | Optional | 발신번호 승인자에게 남길 말  |
+| fileIds[] |	List<Integer> | - | Optional | File ID for updated document|
+| comment | String | 4000 | Optional | Messages for the administrator who approved sender number  |
 
 #### Response
 ```
