@@ -2819,7 +2819,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### 수신 거부 대상자 등록
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -2830,10 +2830,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|unsubscribeNo |    String | 080 수신거부번호|
+|appKey|	String|	固有のアプリケーションキー|
+|unsubscribeNo |    String | 080受信拒否番号|
 
 [Request body]
 
@@ -2843,11 +2843,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|値|	タイプ|	最大文字数 | 必須|	説明|
 |---|---|---|---|---|
-| recipientNoList | List<String> | 10 | O | 수신 거부 대상자 번호 |
+| recipientNoList | List<String> | 10 | O | 추가할 수신 거부 대상자 번호 |
 
-#### 응답
+#### レスポンス
 
 ```
 {

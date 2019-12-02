@@ -2264,7 +2264,7 @@ Content-Type: application/json;charset=UTF-8
 ## Rejection of Receiving 080 Numbers
 ### 수신 거부 대상자 등록
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -2275,10 +2275,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|unsubscribeNo |    String | 080 수신거부번호|
+|appKey|	String|	Original appkey|
+|unsubscribeNo |    String | 080 numbers to reject receiving|
 
 [Request body]
 
@@ -2288,11 +2288,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| recipientNoList | List<String> | 10 | O | 수신 거부 대상자 번호 |
+| recipientNoList | List<String> | 10 | O | 추가할 수신 거부 대상자 번호 |
 
-#### 응답
+#### Response
 
 ```
 {
