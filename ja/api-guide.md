@@ -2817,6 +2817,48 @@ Content-Type: application/json;charset=UTF-8
 
 ## 080受信拒否サービス
 
+### 수신 거부 대상자 등록
+
+#### 요청
+
+[URL]
+
+```
+POST /sms/v2.3/appKeys/{appKey}/blockservice/{unsubscribeNo}/recipients
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|unsubscribeNo |    String | 080 수신거부번호|
+
+[Request body]
+
+```
+{
+    "recipientNoList":["0100000000", "0100000001"]
+}
+```
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+| recipientNoList | List<String> | 10 | O | 수신 거부 대상자 번호 |
+
+#### 응답
+
+```
+{
+   "header":{
+       "isSuccessful":true,
+       "resultCode":0,
+       "resultMessage":"Success"
+   }
+}
+```
+
 ### 受信拒否対象者の照会
 
 #### リクエスト
