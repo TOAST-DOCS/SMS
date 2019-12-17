@@ -2869,7 +2869,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST /sms/v2.2/appKeys/{appKey}/blockservice/{unsubscribeNo}/recipients
+POST /sms/v2.2/appKeys/{appKey}/blockservice/recipients
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2878,18 +2878,19 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	설명|
 |---|---|---|
 |appKey|	String|	고유의 앱키|
-|unsubscribeNo |    String | 080 수신거부번호|
 
 [Request body]
 
 ```
 {
+    "unsubscribeNo":"0800000000",
     "recipientNoList":["0100000000", "0100000001"]
 }
 ```
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
+|unsubscribeNo |    String | 25 | O | 080 수신거부번호|
 | recipientNoList | List<String> | 10 | O | 수신 거부 대상자 번호 |
 
 #### 응답

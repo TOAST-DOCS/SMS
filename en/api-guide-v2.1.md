@@ -2336,7 +2336,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/blockservice/{unsubscribeNo}/recipients
+POST /sms/v2.1/appKeys/{appKey}/blockservice/recipients
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2345,18 +2345,19 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type | Description |
 |---|---|---|
 |appKey|	String|	Original appkey|
-|unsubscribeNo |    String | 080 numbers to reject receiving|
 
 [Request body]
 
 ```
 {
+    "unsubscribeNo":"0800000000",
     "recipientNoList":["0100000000", "0100000001"]
 }
 ```
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
+|unsubscribeNo |    String | 25 | O | 080 numbers to reject receiving|
 | recipientNoList | List<String> | 10 | O | 추가할 수신 거부 대상자 번호 |
 
 #### Response
