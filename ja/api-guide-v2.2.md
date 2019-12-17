@@ -2853,7 +2853,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/blockservice/{unsubscribeNo}/recipients
+POST /sms/v2.2/appKeys/{appKey}/blockservice/{unsubscribeNo}/recipients
 Content-Type: application/json;charset=UTF-8
 ```
 
