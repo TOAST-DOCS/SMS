@@ -2817,7 +2817,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## 080受信拒否サービス
 
-### 수신 거부 대상자 등록
+### ﻿受信拒否対象者を登録
 
 #### リクエスト
 
@@ -2846,7 +2846,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	最大文字数 | 必須|	説明|
 |---|---|---|---|---|
 |unsubscribeNo |    String | 25 | O | 080受信拒否番号|
-| recipientNoList | List<String> | 10 | O | 추가할 수신 거부 대상자 번호 |
+| recipientNoList | List<String> | 10 | O | 追加する受信拒否対象者番号 |
 
 #### レスポンス
 
