@@ -1,11 +1,30 @@
 ## Notification > SMS > Release Notes
 
-### 2020. 01. 21.
-#### 기능 개선/변경
-* [Console] 대량 발송 및 태그 발송에 대한 예약 기능 변경
-    * 대량 발송이나 태그 발송 시 예약 시간을 지정한 경우, **확인 후 예약 발송** 버튼이 삭제되고, **예약 발송** 버튼만 표시되도록 수정
-* [Console/API] 발송 예약 시, 지난 시간에 대한 유효성 검사 강화
-    * 예약 시간은 현재 시간에서 3시간 전까지만 지정할 수 있도록 수정
+### 2020.02.25
+### 기능 개선/변경
+* [ETC] 수신 거부 과금 정책 변경
+    * 수신 거부 과금 정책이 시간 단위 과금에서 월단위 과금으로 변경됩니다.
+* [API] 태그 관리 API 추가
+    * 아래 나열되는 API가 오픈됩니다.
+        * 태그 조회/등록/수정/삭제
+        * UID 목록조회/단건조회/등록/삭제
+        * 연락처 등록/삭제
+* [Console/API] 발신번호 등록 시 서류 업로드 파일 사이즈 증가
+    * 서류 업로드 파일 용량이 10MB로 증가됩니다. 
+* [Console] 발신번호 등록 시 동일 서류 업로드가 안되는 현상 수정
+    * 파일명이 동일한 서류를 업로드한 경우 아무런 동작이 없었던 문제가 수정되었습니다.
+* [API] 예약 목록 조회 필터 추가 및 예약 목록 검색 결과 취소 API 공개
+    * 예약 목록 조회에 senderGroupingKey, recipientGroupingKey 필터 조건이 추가되었습니다.
+    * 현재 제공되던 단건 예약 취소 API 이외에 여러 조건으로 취소할 수 있는 API가 추가되었습니다.
+* [Console] 발신 목록 검색 결과 파일 다운로드 시 에러 현상 수정
+    * 발송 데이터가 많은 경우 파일 생성이 실패하던 문제가 수정되었습니다.
+
+### Jan. 21, 2020
+#### Feature Updates/Changes 
+* [Console] Change of Scheduling for Mass/Tag Message Delivery
+    * When mass or tag delivery time is scheduled, the **Check and Schedule Delivery** button is deleted, to show the **Schedule Delivery** button only.  
+* [Console/API] To schedule delivery, tighter validity check is applied on past time.  
+    * Updated to specify scheduling down to three hours only from current time.
 
 ### 2019. 12. 24.
 #### 기능 개선/변경

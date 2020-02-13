@@ -3735,3 +3735,530 @@ Content-Type: application/json;charset=UTF-8
 ```
 file byte
 ```
+
+## タグ管理
+
+### タグ照会
+
+#### リクエスト
+
+[URL]
+
+```
+GET /sms/v2.2/appKeys/{appKey}/tags?pageNum={pageNum}&pageSize={pageSize}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+
+[Query parameter]
+
+|値|	タイプ| 最大長さ |	必須|	説明|
+|---|---|---|---|---|
+|pageNum|	Integer|	- | オプション | オプション | ページ番号(デフォルト値：1)|
+|pageSize|	Integer|	1000 | オプション | オプション | 照会数(デフォルト値：15)|
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 1,
+        "totalCount": 1,
+        "data": [
+            {
+                "tagId": "ABCD1234",
+                "tagName": "TAG",
+                "createdDate": "2019-01-01 00:00:00",
+                "updatedDate": "2019-01-01 00:00:00"
+            }
+        ]
+    }
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+|body.pageNum|	Integer|	ページ番号|
+|body.pageSize|	Integer|	照会数|
+|body.totalCount|	Integer|	総件数|
+|body.data[].tagId| String | タグID |
+|body.data[].tagName| String | タグ名 |
+|body.data[].createdDate| String | 作成日時 |
+|body.data[].tagId| String | 修正日時 |
+
+### タグ登録
+
+[URL]
+
+```
+POST /sms/v2.2/appKeys/{appKey}/tags
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+
+[Request body]
+
+```json
+{
+  "tagName": "TAG"
+}
+```
+
+|値|	タイプ| 最大長さ |	必須|	説明|
+|---|---|---|---|---|
+| tagName | String | 30 | 必須 | タグ名 |
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "tagId": "ABCD1234"
+        }
+    }
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+|body.data.tagId| String | タグID |
+
+### タグ 수정
+
+[URL]
+
+```
+PUT /sms/v2.2/appKeys/{appKey}/tags/{tagId}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+|tagId|	String|	タグID|
+
+[Request body]
+
+```json
+{
+  "tagName": "TAG"
+}
+```
+
+|値|	タイプ| 最大長さ |	必須|	説明|
+|---|---|---|---|---|
+| tagName | String | 30 | 必須 | タグ名 |
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+
+### タグ 삭제
+
+[URL]
+
+```
+DELETE /sms/v2.2/appKeys/{appKey}/tags/{tagId}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+|tagId|	String|	タグID|
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+
+
+## UIDの管理
+
+### UIDの照会
+
+#### リクエスト
+
+[URL]
+
+```
+GET /sms/v2.2/appKeys/{appKey}/uids?wheres={wheres}&offsetUid={offsetUid}&offset={offset}&limit={limit}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+
+[Query parameter]
+
+|値|	タイプ| 最大長さ |	必須|	説明|
+|---|---|---|---|---|
+|wheres|	List<String>|	- | オプション | 照会条件。<br/>英数字、括弧で構成された文字列。<br/>括弧は1個、AND、ORは3個まで使用できる。<br/>(例) tagId1,AND,tagId2|
+|offsetUid|	String|	- | オプション | offset UID|
+|offset | Integer | - | オプション | offset(Default : 0)|
+|limit | Integer | 1000 | オプション | 照会件数(Default：15)|
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "uids": [
+                {
+                    "uid": "UID",
+                    "tags": [
+                        {
+                            "tagId": "ABCD1234",
+                            "tagName": "TAG",
+                            "createdDate": "2019-01-01 00:00:00",
+                            "updatedDate": "2019-01-01 00:00:00"
+                        }
+                    ],
+                    "contacts": [
+                        {
+                            "contactType": "PHONE_NUMBER",
+                            "contact": "test@nhn.com",
+                            "createdDate": "2019-01-01 00:00:00"
+                        }
+                    ]
+                }
+            ],
+            "isLast": false,
+            "totalCount": 5
+        }
+    }
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+|body.data.uids[].uid| String | UID |
+|body.data.uids[].tags[].tagId| String | タグID |
+|body.data.uids[].tags[].tagName| String | タグ名 |
+|body.data.uids[].tags[].createdDate| String | タグ 作成日時 |
+|body.data.uids[].tags[].updatedDate| String | タグ 修正日時 |
+|body.data.uids[].contacts[].contactType| String | 連絡先タイプ |
+|body.data.uids[].contacts[].contact| String | 連絡先(携帯電話番号) |
+|body.data.uids[].contacts[].createdDate| String | 連絡先作成日時 |
+|body.data.uids[].isLast| Boolean| 最後のリストかどうか |
+|body.data.uids[].totalCount| Integer| 総データ件数 |
+
+### UID単件照会
+
+#### リクエスト
+
+[URL]
+
+```
+GET /sms/v2.2/appKeys/{appKey}/uids/{uid}
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+|uid|	String|	UID|
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "uid": "UID",
+            "tags": [
+                {
+                    "tagId": "ABCD1234",
+                    "tagName": "TAG",
+                    "createdDate": "2019-01-01 00:00:00",
+                    "updatedDate": "2019-01-01 00:00:00"
+                }
+            ],
+            "contacts": [
+                {
+                    "contactType": "PHONE_NUMBER",
+                    "contact": "0100000000",
+                    "createdDate": "2019-01-01 00:00:00"
+                }
+            ]
+        }
+    }
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+|body.data.uid| String | UID |
+|body.data.tags[].tagId| String | タグID |
+|body.data.tags[].tagName| String | タグ名 |
+|body.data.tags[].createdDate| String | タグ 作成日時 |
+|body.data.tags[].updatedDate| String | タグ 修正日時 |
+|body.data.contacts[].contactType| String | 連絡先タイプ |
+|body.data.contacts[].contact| String | 連絡先(携帯電話番号) |
+|body.data.contacts[].createdDate| String | 連絡先 作成日時 |
+
+### UIDの登録
+
+[URL]
+
+```
+POST /sms/v2.2/appKeys/{appKey}/uids
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+
+[Request body]
+
+```json
+{
+  "uids": [
+  {
+      "uid": "UID",
+      "tagIds": ["ABCD1234"],
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "0100000000"
+        }
+      ]
+  }]
+}
+```
+
+|値|	タイプ| 最大長さ |	必須|	説明|
+|---|---|---|---|---|
+| uid | String | - | 必須 | UID |
+| tagIds[] | String | - | 必須 | タグIDリスト |
+| contacts[].contactType | String | - | 必須 | 連絡先タイプ(PHONE_NUMBER) |
+| contacts[].contact | String | - | 必須 | 連絡先 (携帯電話番号) |
+
+[注意]
+* tagIdsが与えられている場合、contactsは必須値ではない。
+* contactsが与えられている場合、tagIdsは必須値ではない。
+* 本サービスの場合、contactTypeは必ず"PHONE_NUMBER"値でリクエストする必要がある。
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+
+
+### UIDの削除
+
+[URL]
+
+```
+DELETE /sms/v2.2/appKeys/{appKey}/uids/{uid}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+|uid|	String|	UID|
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+
+### 携帯電話番号 등록
+
+[URL]
+
+```
+POST /sms/v2.2/appKeys/{appKey}/uids/{uid}/phone-numbers
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+|uid | String | UID |
+
+[Request body]
+
+```json
+{
+  "phoneNumber": "0100000000"
+}
+```
+
+|値|	タイプ| 最大長さ |	必須|	説明|
+|---|---|---|---|---|
+| phoneNumber| String | - | 必須 | 携帯電話番号 |
+
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+
+### 携帯電話番号 삭제
+
+[URL]
+
+```
+DELETE /sms/v2.2/appKeys/{appKey}/uids/{uid}/phone-numbers/{phoneNumber}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|値|	タイプ|	説明|
+|---|---|---|
+|appKey|	String|	固有のアプリケーションキー|
+|uid | String | UID |
+|phoneNumber | String | 携帯電話番号 |
+
+#### レスポンス
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|値|	タイプ|	説明|
+|---|---|---|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|

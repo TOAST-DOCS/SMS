@@ -3527,6 +3527,169 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestedCount|	Integer|	취소 요청 건수|
 |body.data.canceledCount|	Integer|	취소 성공 건수|
 
+
+### 예약 발송 취소 - 다중 필터  
+
+#### 요청
+* 예약 취소 요청은 상태가 예약중(RESERVED)인 경우에만 가능합니다.
+* 이미 발송된 메시지는 취소할 수 없습니다.
+
+[URL]
+
+```
+PUT /sms/v2.3/appKeys/{appKey}/reservations/search-cancels
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Request body]
+
+```json
+{
+  "searchParameter" : {
+      "sendType" : "0",
+      "startRequestDate" : "2020-02-01 00:00",
+      "endRequestDate" : "2020-02-01 10:00",
+      "startCreateDate" : "2020-02-01 00:00",
+      "endCreateDate" : "2020-02-01 10:00",
+      "sendNo" : "15880000",
+      "recipientNo" : "0100000000",
+      "templateId" : "TemplateId",
+      "requestId" : "20200201010630ReZQ6KZzAH0",
+      "createUser" : "CreateUser",
+      "senderGroupingKey" : "SenderGroupingKey"
+  },
+  "updateUser" : "UpdateUser"
+}
+```
+
+* startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
+* 등록 날짜 / 예약 날짜를 동시에 조회하는 경우, 예약 날짜는 무시됩니다.
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+| searchParameter.sendType | String | 1 | 필수 | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
+| searchParameter.startRequestDate | String | - | 필수 | 예약 날짜 시작 |
+| searchParameter.endRequestDate | String | - | 필수 | 예약 날짜 종료 |
+| searchParameter.startCreateDate | String | - | 필수 | 등록 날짜 시작 |
+| searchParameter.endCreateDate | String | - | 필수 | 등록 날짜 종료  |
+| searchParameter.sendNo | String | 20 | 옵션 | 발신 번호 |
+| searchParameter.recipientNo | String | 20 | 옵션 | 수신 번호 |
+| searchParameter.templateId | String | 50 | 옵션 | 템플릿 ID |
+| searchParameter.requestId | String | 25 | 옵션 | 요청 아이디 |
+| searchParameter.createUser | String | 100 | 옵션 | 예약 발송 생성자  |
+| searchParameter.senderGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
+| searchParameter.recipientGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
+| updateUser | String | 100 | 필수 | 예약 취소 요청자 |
+
+#### 응답
+
+```json
+{
+  "header":{
+    "resultCode":0,
+    "resultMessage":"success",
+    "isSuccessful":true
+  },
+  "body":{
+    "data":{
+      "reservationCancelId":"20200210113330OepQ1sAzSDa",
+      "requestedDateTime":"2020-02-10 11:33:30",
+      "reservationCancelStatus":"READY"
+    }
+  }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.reservationCancelId|	Integer|	예약 취소 ID|
+|body.data.requestedDateTime|	String|	예약 취소 시간(yyyy-MM-dd HH:mm:ss)|
+|body.data.reservationCancelStatus|	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+
+
+### 예약 발송 취소 요청 목록 조회 - 다중 필터
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v2.3/appKeys/{appKey}/reservations/search-cancels?startRequestedDateTime={startRequestedDateTime}&endRequestedDateTime={endRequestedDateTime}&reservationCancelId={reservationCancelId}&pageNum={pageNum}&pageSize={pageSize}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Query parameter]
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|startRequestedDateTime| String| - |  옵션 | 예약 취소 요청 시작 시간(yyyy-MM-dd HH:mm:ss) |
+|endRequestedDateTime|	String| - |	옵션 |	예약 취소 요청 종료 시간(yyyy-MM-dd HH:mm:ss) |
+|reservationCancelId|	String| 25 |	옵션 | 예약 취소 ID |
+|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
+|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+
+#### 응답
+
+```
+{
+    "header":{
+        "resultCode":0,
+        "resultMessage":"success",
+        "isSuccessful":true
+    },
+    "body":{
+        "data":[
+            {
+                "reservationCancelId":"",
+                "searchParameter":{
+
+                },
+                "requestedDateTime":"",
+                "completedDateTime":"",
+                "reservationCancelStatus":"",
+                "totalCount":0,
+                "successCount":0,
+                "createUser":"",
+                "createdDateTime":"",
+                "updatedDateTime":""
+            }
+        ]
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data[].reservationCancelId |	String|	 예약 취소 ID |
+|body.data[].searchParameter |	Map<String, Object> | 예약 취소 요청 파라미터 |
+|body.data[].requestedDateTime |	String|	예약 취소 요청 시간 |
+|body.data[].completedDateTime |	String|	예약 취소 완료 시간 |
+|body.data[].reservationCancelStatus |	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+|body.data[].totalCount |	Integer| 예약 취소 대상 건수 |
+|body.data[].successCount |	Integer| 예약 취소 성공 건수 |
+|body.data[].createUser |	String| 예약 취소 요청자	|
+|body.data[].createdDateTime |	String|	예약 취소 요청 생성 시간 |
+|body.data[].updatedDateTime |	String|	예약 취소 수정 시간 |
+
+
 ## 발송 결과 파일 다운로드
 
 ### 조회 파일 생성 요청
@@ -3723,3 +3886,530 @@ Content-Type: application/json;charset=UTF-8
 ```
 file byte
 ```
+
+## 태그 관리
+
+### 태그 조회
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v2.3/appKeys/{appKey}/tags?pageNum={pageNum}&pageSize={pageSize}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Query parameter]
+
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+|pageNum|	Integer|	- | 옵션 | 페이지 번호(기본값: 1)|
+|pageSize|	Integer|	1000 | 옵션 | 조회 수(기본값: 15)|
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 1,
+        "totalCount": 1,
+        "data": [
+            {
+                "tagId": "ABCD1234",
+                "tagName": "TAG",
+                "createdDate": "2019-01-01 00:00:00",
+                "updatedDate": "2019-01-01 00:00:00"
+            }
+        ]
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.pageNum|	Integer|	현재 페이지 번호|
+|body.pageSize|	Integer|	조회된 데이터 수|
+|body.totalCount|	Integer|	총 데이터 수|
+|body.data[].tagId| String | 태그 ID |
+|body.data[].tagName| String | 태그 이름 |
+|body.data[].createdDate| String | 생성 일시 |
+|body.data[].tagId| String | 수정 일시 |
+
+### 태그 등록
+
+[URL]
+
+```
+POST /sms/v2.3/appKeys/{appKey}/tags
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Request body]
+
+```json
+{
+  "tagName": "TAG"
+}
+```
+
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+| tagName | String | 30 | 필수 | 태그 이름 |
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "tagId": "ABCD1234"
+        }
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.tagId| String | 태그 ID |
+
+### 태그 수정
+
+[URL]
+
+```
+PUT /sms/v2.3/appKeys/{appKey}/tags/{tagId}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|tagId|	String|	태그 ID|
+
+[Request body]
+
+```json
+{
+  "tagName": "TAG"
+}
+```
+
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+| tagName | String | 30 | 필수 | 태그 이름 |
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+
+### 태그 삭제
+
+[URL]
+
+```
+DELETE /sms/v2.3/appKeys/{appKey}/tags/{tagId}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|tagId|	String|	태그 ID|
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+
+
+## UID 관리
+
+### UID 조회
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v2.3/appKeys/{appKey}/uids?wheres={wheres}&offsetUid={offsetUid}&offset={offset}&limit={limit}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Query parameter]
+
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+|wheres|	List<String>|	- | 옵션 | 조회 조건.<br/>알파뱃, 숫자, 괄호로 이루어진 문자열 배열.<br/>괄호는 1개, AND/OR은 3개까지 사용 가능<br/>(예시) tagId1,AND,tagId2|
+|offsetUid|	String|	- | 옵션 | 조회를 시작할 uid|
+|offset | Integer | - | 옵션 | offset 0(기본값)|
+|limit | Integer | 1000 | 옵션 | 조회 건수 15(기본값)|
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "uids": [
+                {
+                    "uid": "UID",
+                    "tags": [
+                        {
+                            "tagId": "ABCD1234",
+                            "tagName": "TAG",
+                            "createdDate": "2019-01-01 00:00:00",
+                            "updatedDate": "2019-01-01 00:00:00"
+                        }
+                    ],
+                    "contacts": [
+                        {
+                            "contactType": "PHONE_NUMBER",
+                            "contact": "test@nhn.com",
+                            "createdDate": "2019-01-01 00:00:00"
+                        }
+                    ]
+                }
+            ],
+            "isLast": false,
+            "totalCount": 5
+        }
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.uids[].uid| String | UID |
+|body.data.uids[].tags[].tagId| String | 태그 ID |
+|body.data.uids[].tags[].tagName| String | 태그 이름 |
+|body.data.uids[].tags[].createdDate| String | 태그 생성 일시 |
+|body.data.uids[].tags[].updatedDate| String | 태그 수정 일시 |
+|body.data.uids[].contacts[].contactType| String | 연락처 타입 |
+|body.data.uids[].contacts[].contact| String | 연락처(휴대폰 번호) |
+|body.data.uids[].contacts[].createdDate| String | 연락처 생성 일시 |
+|body.data.uids[].isLast| Boolean| 마지막 리스트 여부 |
+|body.data.uids[].totalCount| Integer| 총 데이터 건수 |
+
+### UID 단건 조회
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v2.3/appKeys/{appKey}/uids/{uid}
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|uid|	String|	UID|
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "uid": "UID",
+            "tags": [
+                {
+                    "tagId": "ABCD1234",
+                    "tagName": "TAG",
+                    "createdDate": "2019-01-01 00:00:00",
+                    "updatedDate": "2019-01-01 00:00:00"
+                }
+            ],
+            "contacts": [
+                {
+                    "contactType": "PHONE_NUMBER",
+                    "contact": "0100000000",
+                    "createdDate": "2019-01-01 00:00:00"
+                }
+            ]
+        }
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.uid| String | UID |
+|body.data.tags[].tagId| String | 태그 ID |
+|body.data.tags[].tagName| String | 태그 이름 |
+|body.data.tags[].createdDate| String | 태그 생성 일시 |
+|body.data.tags[].updatedDate| String | 태그 수정 일시 |
+|body.data.contacts[].contactType| String | 연락처 타입 |
+|body.data.contacts[].contact| String | 연락처(휴대폰 번호) |
+|body.data.contacts[].createdDate| String | 연락처 생성 일시 |
+
+### UID 등록
+
+[URL]
+
+```
+POST /sms/v2.3/appKeys/{appKey}/uids
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Request body]
+
+```json
+{
+  "uids": [
+  {
+      "uid": "UID",
+      "tagIds": ["ABCD1234"],
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "0100000000"
+        }
+      ]
+  }]
+}
+```
+
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+| uid | String | - | 필수 | UID |
+| tagIds[] | String | - | 필수 | 태그 ID 목록 |
+| contacts[].contactType | String | - | 필수 | 연락처 타입(PHONE_NUMBER) |
+| contacts[].contact | String | - | 필수 | 연락처 (휴대폰 번호) |
+
+[주의]
+* tagIds가 주어지는 경우 contacts는 필수 값이 아닙니다.
+* contacts가 주어지는 경우 tagIds는 필수 값이 아닙니다.
+* 본 상품의 경우, contactType은 반드시 "PHONE_NUMBER" 값으로 요청해야 합니다.
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+
+
+### UID 삭제
+
+[URL]
+
+```
+DELETE /sms/v2.3/appKeys/{appKey}/uids/{uid}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|uid|	String|	UID|
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+
+### 휴대폰 번호 등록
+
+[URL]
+
+```
+POST /sms/v2.3/appKeys/{appKey}/uids/{uid}/phone-numbers
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|uid | String | UID |
+
+[Request body]
+
+```json
+{
+  "phoneNumber": "0100000000"
+}
+```
+
+|값|	타입| 최대 길이 |	필수|	설명|
+|---|---|---|---|---|
+| phoneNumber| String | - | 필수 | 휴대폰 번호 |
+
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+
+### 휴대폰 번호 삭제
+
+[URL]
+
+```
+DELETE /sms/v2.3/appKeys/{appKey}/uids/{uid}/phone-numbers/{phoneNumber}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+|uid | String | UID |
+|phoneNumber | String | 휴대폰 번호 |
+
+#### 응답
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|

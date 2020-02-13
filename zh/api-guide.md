@@ -3513,6 +3513,167 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestedCount|	Integer| Number of failed requests |
 |body.data.canceledCount|	Integer| Number of successful cancellation |
 
+### 예약 발송 취소 - 다중 필터  
+
+#### 요청
+* 예약 취소 요청은 상태가 예약중(RESERVED)인 경우에만 가능합니다.
+* 이미 발송된 메시지는 취소할 수 없습니다.
+
+[URL]
+
+```
+PUT /sms/v2.3/appKeys/{appKey}/reservations/search-cancels
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Request body]
+
+```json
+{
+  "searchParameter" : {
+      "sendType" : "0",
+      "startRequestDate" : "2020-02-01 00:00",
+      "endRequestDate" : "2020-02-01 10:00",
+      "startCreateDate" : "2020-02-01 00:00",
+      "endCreateDate" : "2020-02-01 10:00",
+      "sendNo" : "15880000",
+      "recipientNo" : "0100000000",
+      "templateId" : "TemplateId",
+      "requestId" : "20200201010630ReZQ6KZzAH0",
+      "createUser" : "CreateUser",
+      "senderGroupingKey" : "SenderGroupingKey"
+  },
+  "updateUser" : "UpdateUser"
+}
+```
+
+* startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
+* 등록 날짜 / 예약 날짜를 동시에 조회하는 경우, 예약 날짜는 무시됩니다.
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+| searchParameter.sendType | String | 1 | 필수 | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
+| searchParameter.startRequestDate | String | - | 필수 | 예약 날짜 시작 |
+| searchParameter.endRequestDate | String | - | 필수 | 예약 날짜 종료 |
+| searchParameter.startCreateDate | String | - | 필수 | 등록 날짜 시작 |
+| searchParameter.endCreateDate | String | - | 필수 | 등록 날짜 종료  |
+| searchParameter.sendNo | String | 20 | 옵션 | 발신 번호 |
+| searchParameter.recipientNo | String | 20 | 옵션 | 수신 번호 |
+| searchParameter.templateId | String | 50 | 옵션 | 템플릿 ID |
+| searchParameter.requestId | String | 25 | 옵션 | 요청 아이디 |
+| searchParameter.createUser | String | 100 | 옵션 | 예약 발송 요청 생성자  |
+| searchParameter.senderGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
+| searchParameter.recipientGroupingKey | String | 100 | 옵션 | 수신자 그룹키 |
+| updateUser | String | 100 | 필수 | 예약 취소 요청자 |
+
+#### 응답
+
+```json
+{
+  "header":{
+    "resultCode":0,
+    "resultMessage":"success",
+    "isSuccessful":true
+  },
+  "body":{
+    "data":{
+      "reservationCancelId":"20200210113330OepQ1sAzSDa",
+      "requestedDateTime":"2020-02-10 11:33:30",
+      "reservationCancelStatus":"READY"
+    }
+  }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.reservationCancelId|	Integer|	예약 취소 ID|
+|body.data.requestedDateTime|	String|	예약 취소 요청 시간(yyyy-MM-dd HH:mm:ss)|
+|body.data.reservationCancelStatus|	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+
+
+### 예약 발송 취소 요청 목록 조회 - 다중 필터
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v2.3/appKeys/{appKey}/reservations/search-cancels?startRequestedDateTime={startRequestedDateTime}&endRequestedDateTime={endRequestedDateTime}&reservationCancelId={reservationCancelId}&pageNum={pageNum}&pageSize={pageSize}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Query parameter]
+
+|값|	타입|	최대 길이 | 필수|	설명|
+|---|---|---|---|---|
+|startRequestedDateTime| String| - |  옵션 | 예약 취소 요청 시작 시간(yyyy-MM-dd HH:mm:ss) |
+|endRequestedDateTime|	String| - |	옵션 |	예약 취소 요청 종료 시간(yyyy-MM-dd HH:mm:ss) |
+|reservationCancelId|	String| 25 |	옵션 | 예약 취소 ID |
+|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
+|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+
+#### 응답
+
+```
+{
+    "header":{
+        "resultCode":0,
+        "resultMessage":"success",
+        "isSuccessful":true
+    },
+    "body":{
+        "data":[
+            {
+                "reservationCancelId":"",
+                "searchParameter":{
+
+                },
+                "requestedDateTime":"",
+                "completedDateTime":"",
+                "reservationCancelStatus":"",
+                "totalCount":0,
+                "successCount":0,
+                "createUser":"",
+                "createdDateTime":"",
+                "updatedDateTime":""
+            }
+        ]
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data[].reservationCancelId |	String|	 예약 취소 ID |
+|body.data[].searchParameter |	Map<String, Object> | 예약 취소 요청 파라미터 |
+|body.data[].requestedDateTime |	String|	예약 취소 요청 시간 |
+|body.data[].completedDateTime |	String|	예약 취소 완료 시간 |
+|body.data[].reservationCancelStatus |	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+|body.data[].totalCount |	Integer| 예약 취소 대상 건수 |
+|body.data[].successCount |	Integer| 예약 취소 성공 건수 |
+|body.data[].createUser |	String| 예약 취소 요청자	|
+|body.data[].createdDateTime |	String|	예약 취소 요청 생성 시간 |
+|body.data[].updatedDateTime |	String|	예약 취소 수정 시간 |
+
 ## Download Delivery Result Files 
 
 ### Request for Creating Query Files 
@@ -3709,3 +3870,530 @@ Content-Type: application/json;charset=UTF-8
 ```
 file byte
 ```
+
+## Tag Management
+
+### Query Tags
+
+#### Request
+
+[URL]
+
+```
+GET /sms/v2.3/appKeys/{appKey}/tags?pageNum={pageNum}&pageSize={pageSize}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+
+[Query parameter]
+
+|Value| Type | Max Length | Required | Description |
+|---|---|---|---|---|
+|pageNum|	Integer|	- | Optional | Page number (Default : 1)|
+|pageSize|	Integer|	1000 | Optional | Number of queries (Default : 15)|
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 1,
+        "totalCount": 1,
+        "data": [
+            {
+                "tagId": "ABCD1234",
+                "tagName": "TAG",
+                "createdDate": "2019-01-01 00:00:00",
+                "updatedDate": "2019-01-01 00:00:00"
+            }
+        ]
+    }
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.pageNum|	Integer|	Page number|
+|body.pageSize|	Integer|	Number of queries|
+|body.totalCount|	Integer|	Total data count|
+|body.data[].tagId| String | Tag ID |
+|body.data[].tagName| String | Tag name |
+|body.data[].createdDate| String | Date and time of creation |
+|body.data[].tagId| String | Date and time of modification |
+
+### Register Tags
+
+[URL]
+
+```
+POST /sms/v2.3/appKeys/{appKey}/tags
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+
+[Request body]
+
+```json
+{
+  "tagName": "TAG"
+}
+```
+
+|Value| Type | Max Length | Required | Description |
+|---|---|---|---|---|
+| tagName | String | 30 | Required | Tag name |
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "tagId": "ABCD1234"
+        }
+    }
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.tagId| String | Tag ID |
+
+### Modify Tags
+
+[URL]
+
+```
+PUT /sms/v2.3/appKeys/{appKey}/tags/{tagId}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+|tagId|	String|	Tag ID|
+
+[Request body]
+
+```json
+{
+  "tagName": "TAG"
+}
+```
+
+|Value| Type | Max Length | Required | Description |
+|---|---|---|---|---|
+| tagName | String | 30 | Required | Tag name |
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+
+### Delete Tags
+
+[URL]
+
+```
+DELETE /sms/v2.3/appKeys/{appKey}/tags/{tagId}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+|tagId|	String|	Tag ID|
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+
+
+## UID Management
+
+### Query UIDs
+
+#### Request
+
+[URL]
+
+```
+GET /sms/v2.3/appKeys/{appKey}/uids?wheres={wheres}&offsetUid={offsetUid}&offset={offset}&limit={limit}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+
+[Query parameter]
+
+|Value| Type | Max Length | Required | Description |
+|---|---|---|---|---|
+|wheres|	List<String>|	- | Optional | Query conditions.<br/>Character strings comprised of alphabets, numbers, and parentheses.<br/>Allows one parenthesis, and up to three AND or ORs.<br/>e.g.) tagId1,AND,tagId2|
+|offsetUid|	String|	- | Optional | offset UID|
+|offset | Integer | - | Optional | offset (default: 0)|
+|limit | Integer | 1000 | Optional | Number of queries (default: 15)|
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "uids": [
+                {
+                    "uid": "UID",
+                    "tags": [
+                        {
+                            "tagId": "ABCD1234",
+                            "tagName": "TAG",
+                            "createdDate": "2019-01-01 00:00:00",
+                            "updatedDate": "2019-01-01 00:00:00"
+                        }
+                    ],
+                    "contacts": [
+                        {
+                            "contactType": "PHONE_NUMBER",
+                            "contact": "test@nhn.com",
+                            "createdDate": "2019-01-01 00:00:00"
+                        }
+                    ]
+                }
+            ],
+            "isLast": false,
+            "totalCount": 5
+        }
+    }
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.uids[].uid| String | UID |
+|body.data.uids[].tags[].tagId| String | Tag ID |
+|body.data.uids[].tags[].tagName| String | Tag name |
+|body.data.uids[].tags[].createdDate| String | Date and time of tag creation |
+|body.data.uids[].tags[].updatedDate| String | Date and time of tag modification |
+|body.data.uids[].contacts[].contactType| String | Contact type(PHONE_NUMBER) |
+|body.data.uids[].contacts[].contact| String | Contact (phone number) |
+|body.data.uids[].contacts[].createdDate| String | Date and time of contact creation |
+|body.data.uids[].isLast| Boolean| Last on list or not |
+|body.data.uids[].totalCount| Integer| Total number of data |
+
+### Get UIDs
+
+#### Request
+
+[URL]
+
+```
+GET /sms/v2.3/appKeys/{appKey}/uids/{uid}
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+|uid|	String|	UID|
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "uid": "UID",
+            "tags": [
+                {
+                    "tagId": "ABCD1234",
+                    "tagName": "TAG",
+                    "createdDate": "2019-01-01 00:00:00",
+                    "updatedDate": "2019-01-01 00:00:00"
+                }
+            ],
+            "contacts": [
+                {
+                    "contactType": "PHONE_NUMBER",
+                    "contact": "0100000000",
+                    "createdDate": "2019-01-01 00:00:00"
+                }
+            ]
+        }
+    }
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.uid| String | UID |
+|body.data.tags[].tagId| String | Tag ID |
+|body.data.tags[].tagName| String | Tag name |
+|body.data.tags[].createdDate| String | Date and time of tag creation |
+|body.data.tags[].updatedDate| String | Date and time of tag modification |
+|body.data.contacts[].contactType| String | Contact type |
+|body.data.contacts[].contact| String | Contact(phone number) |
+|body.data.contacts[].createdDate| String | Date and time of contact creation |
+
+### Register UIDs
+
+[URL]
+
+```
+POST /sms/v2.3/appKeys/{appKey}/uids
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+
+[Request body]
+
+```json
+{
+  "uids": [
+  {
+      "uid": "UID",
+      "tagIds": ["ABCD1234"],
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "0100000000"
+        }
+      ]
+  }]
+}
+```
+
+|Value| Type | Max Length | Required | Description |
+|---|---|---|---|---|
+| uid | String | - | Required | UID |
+| tagIds[] | String | - | Required | List of tag IDs |
+| contacts[].contactType | String | - | Required | Contact type(PHONE_NUMBER) |
+| contacts[].contact | String | - | Required | Contact (phone number) |
+
+[주의]
+* When tagIds is provided, contacts is not required.
+* When contacts is provided, tagIds is not required.
+* For this product, contactType must be requested in the "PHONE_NUMBER" value.
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+
+
+### Delete UIDs
+
+[URL]
+
+```
+DELETE /sms/v2.3/appKeys/{appKey}/uids/{uid}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+|uid|	String|	UID|
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+
+### Register Phone Number
+
+[URL]
+
+```
+POST /sms/v2.3/appKeys/{appKey}/uids/{uid}/phone-numbers
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+|uid | String | UID |
+
+[Request body]
+
+```json
+{
+  "phoneNumber": "0100000000"
+}
+```
+
+|Value| Type | Max Length | Required | Description |
+|---|---|---|---|---|
+| phoneNumber| String | - | Required | Phone number |
+
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+
+### 휴대폰 번호 삭제
+
+[URL]
+
+```
+DELETE /sms/v2.3/appKeys/{appKey}/uids/{uid}/phone-numbers/{phoneNumber}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+|Value|	Type|	Description|
+|---|---|---|
+|appKey|	String|	Original appKey|
+|uid | String | UID |
+|phoneNumber | String | Phone number |
+
+#### Response
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": null
+}
+```
+
+|Value|	Type|	Description|
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
