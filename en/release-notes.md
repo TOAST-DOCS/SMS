@@ -26,12 +26,13 @@
 * [Console/API] To schedule delivery, tighter validity check is applied on past time.  
     * Updated to specify scheduling down to three hours only from current time.
 
-### 2019. 12. 24.
-#### 기능 개선/변경
-* [Console] 수신 거부 사용자 조회 화면 개선
-    * 080 수신 거부 번호에 대해 검색 필터링 기능을 추가했습니다.
-* [API] 수신 거부 대상자 등록 API 추가
-    * 080 수신 거부 번호에 수신 거부 대상자를 등록할 수 있도록 API를 추가했습니다.
+### Dec 24, 2019
+
+#### Feature Updates
+* [Console] Updated Query Page for Unsuscribed Users
+    * Added the filter-search feature for unsusbribed 080 numbers 
+* [API] Added API for Registering Unsubscribed Users
+    * Added API to register users who unsubscribe 080 numbers 
 
 ### Nov. 26, 2019
 

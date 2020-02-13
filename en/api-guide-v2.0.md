@@ -2263,7 +2263,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## Rejection of Receiving 080 Numbers
 
-### 수신 거부 대상자 등록
+### Register Unsubsribers
 
 #### Request
 
@@ -2292,7 +2292,7 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
 |unsubscribeNo |    String | 25 | O | 080 numbers to reject receiving|
-| recipientNoList | List<String> | 10 | O | 추가할 수신 거부 대상자 번호 |
+| recipientNoList | List<String> | 10 | O | Contact number of unsubscribers to be added |
 
 #### Response
 
