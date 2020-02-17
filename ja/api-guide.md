@@ -3515,7 +3515,7 @@ Content-Type: application/json;charset=UTF-8
 ### 예약 발송 취소 - 다중 필터  
 
 #### 요청
-* 예약 취소 요청은 상태가 예약중(RESERVED)인 경우에만 가능합니다.
+* 예약 취소 요청은 상태가 '예약 중(RESERVED)'인 경우에만 가능합니다.
 * 이미 발송된 메시지는 취소할 수 없습니다.
 
 [URL]

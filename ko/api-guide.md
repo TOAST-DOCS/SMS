@@ -3531,7 +3531,7 @@ Content-Type: application/json;charset=UTF-8
 ### 예약 발송 취소 - 다중 필터  
 
 #### 요청
-* 예약 취소 요청은 상태가 예약중(RESERVED)인 경우에만 가능합니다.
+* 예약 취소 요청은 상태가 '예약 중(RESERVED)'인 경우에만 가능합니다.
 * 이미 발송된 메시지는 취소할 수 없습니다.
 
 [URL]
@@ -3785,7 +3785,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.downloadType|	String|	다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송|
 |body.data.fileType|	String|	파일 타입(현재 csv만 지원)|
 |body.data.downloadStatusCode|	String|	파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료|
-|body.data.expiredDate|	String|	다운로드 기간 만료 일시|\
+|body.data.expiredDate|	String|	다운로드 기간 만료 일시|
 
 
 ### 발송 결과 파일 생성 요청 내역 조회

@@ -3117,7 +3117,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.downloadType|	String| Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery |
 |body.data.fileType|	String| File type (currently supports csv only) |
 |body.data.downloadStatusCode|	String| Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
-|body.data.expiredDate|	String|	Date and time of expiration for download period|\
+|body.data.expiredDate|	String|	Date and time of expiration for download period|
 
 
 ### Query Request History for Delivery Result of File Creation
