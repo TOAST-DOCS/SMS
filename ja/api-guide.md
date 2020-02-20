@@ -3512,11 +3512,11 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestedCount|	Integer|	キャンセルリクエスト件数|
 |body.data.canceledCount|	Integer|	キャンセル成功件数|
 
-### 예약 발송 취소 - 다중 필터  
+### 予約送信キャンセル - 多重フィルタ
 
 #### 요청
-* 예약 취소 요청은 상태가 '예약 중(RESERVED)'인 경우에만 가능합니다.
-* 이미 발송된 메시지는 취소할 수 없습니다.
+* 予約キャンセルリクエストは、状態が「予約中(RESERVED)」の場合にのみ行うことができます。
+* 送信済のメッセージはキャンセルできません。
 
 [URL]
 
@@ -3527,9 +3527,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	固有のアプリケーションキー|
 
 [Request body]
 
@@ -3552,26 +3552,26 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-* startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜 / 예약 날짜를 동시에 조회하는 경우, 예약 날짜는 무시됩니다.
+* startRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
+* 登録日時と予約日時を同時に照会する場合、予約日時は無視されます。
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|값|	타입|	최대 길이 | 必須|	설명|
 |---|---|---|---|---|
-| searchParameter.sendType | String | 1 | 필수 | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
-| searchParameter.startRequestDate | String | - | 필수 | 예약 날짜 시작 |
-| searchParameter.endRequestDate | String | - | 필수 | 예약 날짜 종료 |
-| searchParameter.startCreateDate | String | - | 필수 | 등록 날짜 시작 |
-| searchParameter.endCreateDate | String | - | 필수 | 등록 날짜 종료  |
-| searchParameter.sendNo | String | 20 | 옵션 | 발신 번호 |
-| searchParameter.recipientNo | String | 20 | 옵션 | 수신 번호 |
-| searchParameter.templateId | String | 50 | 옵션 | 템플릿 ID |
-| searchParameter.requestId | String | 25 | 옵션 | 요청 아이디 |
-| searchParameter.createUser | String | 100 | 옵션 | 예약 발송 생성자  |
-| searchParameter.senderGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
-| searchParameter.recipientGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
-| updateUser | String | 100 | 필수 | 예약 취소 요청자 |
+| searchParameter.sendType | String | 1 | 必須 | 送信タイプ(0：Sms、1：LMS/Mms、2：Auth) |
+| searchParameter.startRequestDate | String | - | 必須 | 送信日の開始値(yyyy-MM-dd HH:mm) |
+| searchParameter.endRequestDate | String | - | 必須 | 送信日の終了値(yyyy-MM-dd HH:mm) |
+| searchParameter.startCreateDate | String | - | 必須 | 送信日の開始値(yyyy-MM-dd HH:mm) |
+| searchParameter.endCreateDate | String | - | 必須 | 送信日の開始値(yyyy-MM-dd HH:mm:ss)  |
+| searchParameter.sendNo | String | 20 | オプション | 発信番号 |
+| searchParameter.recipientNo | String | 20 | オプション | 受信番号 |
+| searchParameter.templateId | String | 50 | オプション | テンプレートID |
+| searchParameter.requestId | String | 25 | オプション | リクエストID |
+| searchParameter.createUser | String | 100 | オプション | 登録したユーザー |
+| searchParameter.senderGroupingKey | String | 100 | オプション | 発信者グループキー |
+| searchParameter.recipientGroupingKey | String | 100 | オプション | 受信者グループキー |
+| updateUser | String | 100 | 必須 | 予約キャンセルリクエスト者 |
 
-#### 응답
+#### レスポンス
 
 ```json
 {
@@ -3590,7 +3590,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
 |header.isSuccessful|	Boolean|	성공 여부|
 |header.resultCode|	Integer|	실패 코드|
@@ -3600,7 +3600,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.reservationCancelStatus|	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
 
 
-### 예약 발송 취소 요청 목록 조회 - 다중 필터
+### 予約送信キャンセルリクエストリスト照会 - 多重フィルタ
 
 #### 요청
 
@@ -3613,21 +3613,21 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	固有のアプリケーションキー|
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|値|	タイプ| 最大長さ |	必須|	説明|
 |---|---|---|---|---|
-|startRequestedDateTime| String| - |  옵션 | 예약 취소 요청 시작 시간(yyyy-MM-dd HH:mm:ss) |
-|endRequestedDateTime|	String| - |	옵션 |	예약 취소 요청 종료 시간(yyyy-MM-dd HH:mm:ss) |
-|reservationCancelId|	String| 25 |	옵션 | 예약 취소 ID |
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|startRequestedDateTime| String| - |  オプション | 予約キャンセルリクエスト開始時間(yyyy-MM-dd HH:mm:ss) |
+|endRequestedDateTime|	String| - |	オプション |	予約キャンセルリクエスト終了時間(yyyy-MM-dd HH:mm:ss) |
+|reservationCancelId|	String| 25 |	オプション | 予約キャンセル ID |
+|pageNum|	Integer| - |	オプション|	ページ番号(デフォルト値：1)|
+|pageSize|	Integer| 1000 |	オプション|	照会数(デフォルト値：15)|
 
-#### 응답
+#### レスポンス
 
 ```
 {
@@ -3657,21 +3657,21 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].reservationCancelId |	String|	 예약 취소 ID |
-|body.data[].searchParameter |	Map<String, Object> | 예약 취소 요청 파라미터 |
-|body.data[].requestedDateTime |	String|	예약 취소 요청 시간 |
-|body.data[].completedDateTime |	String|	예약 취소 완료 시간 |
-|body.data[].reservationCancelStatus |	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
-|body.data[].totalCount |	Integer| 예약 취소 대상 건수 |
-|body.data[].successCount |	Integer| 예약 취소 성공 건수 |
-|body.data[].createUser |	String| 예약 취소 요청자	|
-|body.data[].createdDateTime |	String|	예약 취소 요청 생성 시간 |
-|body.data[].updatedDateTime |	String|	예약 취소 수정 시간 |
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+|body.data[].reservationCancelId |	String|	 予約キャンセル ID |
+|body.data[].searchParameter |	Map<String, Object> | 予約キャンセルリクエストパラメータ |
+|body.data[].requestedDateTime |	String|	予約キャンセルリクエスト時間 |
+|body.data[].completedDateTime |	String|	予約キャンセル完了時間 |
+|body.data[].reservationCancelStatus |	String|	予約キャンセル状態<br/>- READY : 予約準備<br/>- PROCESSING : 予約キャンセル中<br/>- COMPLETED : 予約キャンセル完了<br/>- FAILED : 予約キャンセル失敗 |
+|body.data[].totalCount |	Integer| 予約キャンセル対象件数 |
+|body.data[].successCount |	Integer| 予約キャンセル成功件数 |
+|body.data[].createUser |	String| 予約キャンセルリクエスト者	|
+|body.data[].createdDateTime |	String|	予約キャンセルリクエスト作成時間 |
+|body.data[].updatedDateTime |	String|	予約キャンセル修正時間 |
 
 ## 送信結果ファイルのダウンロード
 
@@ -3983,7 +3983,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultMessage|	String|	失敗メッセージ|
 |body.data.tagId| String | タグID |
 
-### タグ 수정
+### タグ 修正
 
 [URL]
 
@@ -4030,7 +4030,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
 
-### タグ 삭제
+### タグ削除
 
 [URL]
 
@@ -4311,7 +4311,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
 
-### 携帯電話番号 등록
+### 携帯電話番号 登録
 
 [URL]
 
@@ -4359,7 +4359,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
 
-### 携帯電話番号 삭제
+### 携帯電話番号削除
 
 [URL]
 
