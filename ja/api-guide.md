@@ -3514,7 +3514,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### 予約送信キャンセル - 多重フィルタ
 
-#### 요청
+#### リクエスト
 * 予約キャンセルリクエストは、状態が「予約中(RESERVED)」の場合にのみ行うことができます。
 * 送信済のメッセージはキャンセルできません。
 
@@ -3555,7 +3555,7 @@ Content-Type: application/json;charset=UTF-8
 * startRequestDate + endRequestDateまたはstartCreateDate + endCreateDateは必須です。
 * 登録日時と予約日時を同時に照会する場合、予約日時は無視されます。
 
-|값|	타입|	최대 길이 | 必須|	설명|
+|値|	タイプ| 最大 |	必須|	説明|
 |---|---|---|---|---|
 | searchParameter.sendType | String | 1 | 必須 | 送信タイプ(0：Sms、1：LMS/Mms、2：Auth) |
 | searchParameter.startRequestDate | String | - | 必須 | 送信日の開始値(yyyy-MM-dd HH:mm) |
@@ -3592,17 +3592,17 @@ Content-Type: application/json;charset=UTF-8
 
 |値|	タイプ|	説明|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.reservationCancelId|	Integer|	예약 취소 ID|
-|body.data.requestedDateTime|	String|	예약 취소 시간(yyyy-MM-dd HH:mm:ss)|
-|body.data.reservationCancelStatus|	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+|body.data.reservationCancelId|	Integer|	予約キャンセル ID|
+|body.data.requestedDateTime|	String|	予約キャンセルリクエスト時間(yyyy-MM-dd HH:mm:ss)|
+|body.data.reservationCancelStatus|	String|	予約キャンセル状態<br/>- READY : 予約準備<br/>- PROCESSING : 予約キャンセル中<br/>- COMPLETED : 予約キャンセル完了<br/>- FAILED : 予約キャンセル失敗 |
 
 
 ### 予約送信キャンセルリクエストリスト照会 - 多重フィルタ
 
-#### 요청
+#### リクエスト
 
 [URL]
 

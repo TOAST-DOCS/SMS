@@ -3710,7 +3710,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	Failure code|
 |header.resultMessage|	String|	Failure message|
 
-### 휴대폰 번호 삭제
+### Delete phone number
 
 [URL]
 
