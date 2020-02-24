@@ -3584,7 +3584,7 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.requestId | String | 25 | 옵션 | 요청 아이디 |
 | searchParameter.createUser | String | 100 | 옵션 | 예약 발송 생성자  |
 | searchParameter.senderGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
-| searchParameter.recipientGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
+| searchParameter.recipientGroupingKey | String | 100 | 옵션 | 수신자 그룹키 |
 | updateUser | String | 100 | 필수 | 예약 취소 요청자 |
 
 #### 응답
