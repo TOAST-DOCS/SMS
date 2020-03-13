@@ -63,7 +63,8 @@ Content-Type: application/json;charset=UTF-8
          "recipientGroupingKey":"recipientGroupingKey"
       }
    ],
-   "userId":"UserId"
+   "userId":"UserId",
+   "statsId":""
 }
 ```
 
@@ -82,6 +83,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}|	Object| - |	X| Value which is mapped for replacement key |
 |recipientList[].recipientGroupingKey| String| 100 | X | Recipient group key |
 |userId|	String|	100 | X | Delivery delimiter e.g) admin,system |
+| statsId | String | 10 | X | 통계 아이디(발신 검색 조건에는 포함되지 않습니다) |
 
 #### Response
 
@@ -208,7 +210,8 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
          "recipientGroupingKey":"RecipientGroupingKey"
       }
    ],
-   "userId":""
+   "userId":"",
+   "statsId":"statsId"
 }
 ```
 
@@ -495,7 +498,8 @@ Content-Type: application/json;charset=UTF-8
          "recipientGroupingKey":"recipientGroupingKey"
       }
    ],
-   "userId":"UserId"
+   "userId":"UserId",
+   "statsId":"statsId"
 }
 ```
 
@@ -515,6 +519,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}|	Object| - |	X| Value which is mapped for replacement key |
 |recipientList[].recipientGroupingKey| String| 1000 | X | Recipient group key |
 |userId|	String| 100 |	X | Delivery delimiter  e.g.) admin,system |
+| statsId | String | 10 | X | 통계 아이디(발신 검색 조건에는 포함되지 않습니다) |
 
 #### Response
 
@@ -973,7 +978,8 @@ Content-Type: application/json;charset=UTF-8
          "recipientGroupingKey":"recipientGroupingKey"
       }
    ],
-   "userId":"UserId"
+   "userId":"UserId",
+   "statsId":"statsId"
 }
 ```
 
@@ -992,7 +998,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}| Object| - |	X| Value which is mapped for replacement key |
 |recipientList[].recipientGroupingKey| String| 100 | X | Recipient's group key |
 |userId|	String| 100 |	X | Delivery delimiter e.g.) admin,system |
-
+| statsId | String | 10 | X | 통계 아이디(발신 검색 조건에는 포함되지 않습니다) |
 
 #### Response
 ```
@@ -1487,7 +1493,8 @@ Content-Type: application/json;charset=UTF-8
      ],
     "userId":"user_id",
     "adYn":"N",
-    "autoSendYn":"N"
+    "autoSendYn":"N",
+    "statsId":"statsId"
 }
 ```
 
@@ -1502,7 +1509,7 @@ Content-Type: application/json;charset=UTF-8
 | userId | String | 100 | X | Requester ID |
 | adYn | String | 1 | X | Ad or not (default: N) |
 | autoSendYn | String | 1 | X | Auto delivery or not (immediate delivery) (default: Y) |
-
+| statsId | String | 10 | X | 통계 아이디(발신 검색 조건에는 포함되지 않습니다) |
 
 #### Response
 ```
@@ -1566,7 +1573,8 @@ Content-Type: application/json;charset=UTF-8
      ],
     "userId":"user_id",
     "adYn":"N",
-    "autoSendYn":"N"
+    "autoSendYn":"N",
+    "statsId":"statsId"
 }
 ```
 
@@ -1583,7 +1591,7 @@ Content-Type: application/json;charset=UTF-8
 | userId | String | 100 | X | Requester ID |
 | adYn | String | 1 | X | Ad or not (default: N) |
 | autoSendYn | String | 1 | X | Auto delivery or not (immediate delivery) (default: Y) |
-
+| statsId | String | 10 | X | 통계 아이디(발신 검색 조건에는 포함되지 않습니다) |
 
 #### Response
 ```
@@ -2987,7 +2995,7 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 | sendNos[] |	List<String> | - | Required |	Sender Numbers|
 | fileIds[] |	List<Integer> | - | Optional | File ID for updated document|
-| comment | String | 4000 | Optional | Messages for the administrator who approved sender number  |
+| comment | String | 4000 | Optional | Messages for the administrator who approved sender number |
 
 #### Response
 ```
@@ -3189,7 +3197,151 @@ Content-Type : multipart/form-data;
 
 ## Query Statistics
 
-### Query Integrated Statistics 
+### 통계 조회 - 이벤트 기반
+* 이벤트 발생 시간 기준으로 수집된 통계입니다.
+* 다음 시간 기준으로 통계가 수집됩니다.
+    * 요청 개수(requested) : 발송 요청 시간
+    * 발송 개수(sent) : 벤더사(통신 사업자)로 발송 요청한 시간
+    * 성공 개수(received) : 실제 단말기 수신 시간
+    * 실패 개수(sentFailed) : 실패 응답이 발생한 시간  
+
+#### Request
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+
+[Path parameter]
+
+|Value| Type | Description |
+|---|---|---|
+|appKey|	String|	Original appkey|
+
+[Query parameter]
+
+|값|	타입|	최대 길이 | Required |설명|
+|---|---|---|---|---|
+| statisticsType | String | - | Required | Type of statistics<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
+| statsIds | List<String> | - | Optional | 통계 아이디 리스트 |
+| messageType | String | - | Optional | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
+| isAd | Boolean | - | Optional | 광고 여부<br/>true/false |
+| templateIds | List<String> | - | Optional | 템플릿 아이디 리스트 |
+| from | String | - | Optional | 통계 조회 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | Optional | 통계 조회 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
+
+#### Response
+```
+{
+    "header" : {
+        "isSuccessful" : true,
+        "resultCode" : 0,
+        "resultMessage" : "SUCCESS""
+    },
+    "body" : {
+        "data" :
+        [
+          {
+            "eventDateTime" : "",
+            "events" :
+            {
+              "requested" : 10,
+              "sent" : 10,
+              "sentFailed" : 0,
+              "received" : 0
+            }
+          }
+        ]
+    }
+}
+```
+
+|Value| Type | Description |
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
+|body.data.events[].requested |	Integer|	요청 개수|
+|body.data.events[].sent |	Integer|	발송 개수|
+|body.data.events[].sentFailed |	Integer|	실패 개수|
+|body.data.events[].received |	Integer|	성공 개수|
+
+### 통계 조회 - 요청 시간 기반
+* 발송 요청 시간 기준으로 수집된 통계입니다.
+* 다음 시간 기준으로 통계가 수집됩니다.
+    * 요청 개수(requested) : 발송 요청 시간
+    * 발송 개수(sent) : 발송 요청 시간(개수가 증가하는 시점은 벤더사(통신 사업자)로 발송 요청한 시간)
+    * 성공 개수(received) : 발송 요청 시간(개수가 증가하는 시점은 실제 단말기 수신 시간)
+    * 실패 개수(sentFailed) : 발송 요청 시간(개수가 증가하는 시점은 실패 응답이 발생한 시간)  
+
+#### Request
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+
+[Path parameter]
+
+|Value| Type | Description |
+|---|---|---|
+|appKey|	String|	Original appkey|
+
+[Query parameter]
+
+|값|	타입|	최대 길이 | Required |설명|
+|---|---|---|---|---|
+| statisticsType | String | - | Required | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
+| statsIds | List<String> | - | Optional | 통계 아이디 리스트 |
+| messageType | String | - | Optional | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
+| isAd | Boolean | - | Optional | 광고 여부<br/>true/false |
+| templateIds | List<String> | - | Optional | 템플릿 아이디 리스트 |
+| from | String | - | Optional | 통계 조회 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | Optional | 통계 조회 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
+
+#### Response
+```
+{
+    "header" : {
+        "isSuccessful" : true,
+        "resultCode" : 0,
+        "resultMessage" : "SUCCESS""
+    },
+    "body" : {
+        "data" :
+        [
+          {
+            "eventDateTime" : "",
+            "events" :
+            {
+              "requested" : 10,
+              "sent" : 10,
+              "sentFailed" : 0,
+              "received" : 0,
+              "pending" : 0
+            }
+          }
+        ]
+    }
+}
+```
+
+|Value| Type | Description |
+|---|---|---|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
+|body.data.events[].requested |	Integer|	요청 개수|
+|body.data.events[].sent |	Integer|	발송 개수|
+|body.data.events[].sentFailed |	Integer|	실패 개수|
+|body.data.events[].received |	Integer|	성공 개수|
+|body.data.events[].pending |	Integer|	발송 중 개수|
+
+### (구)Query Integrated Statistics 
 
 #### Request
 
@@ -3513,11 +3665,11 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestedCount|	Integer| Number of failed requests |
 |body.data.canceledCount|	Integer| Number of successful cancellation |
 
-### 예약 발송 취소 - 다중 필터  
+### Cancel Scheduled Delivery - Multiple Filter
 
-#### 요청
-* 예약 취소 요청은 상태가 '예약 중(RESERVED)'인 경우에만 가능합니다.
-* 이미 발송된 메시지는 취소할 수 없습니다.
+#### Request
+* Request for schedule cancellation is available only when the statu is 'Scheduled'. 
+* Cannot cancel already delivered messages. 
 
 [URL]
 
@@ -3528,9 +3680,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Request body]
 
@@ -3553,26 +3705,26 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-* startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜 / 예약 날짜를 동시에 조회하는 경우, 예약 날짜는 무시됩니다.
+* startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* To query registered date and reserved date at the same time, reserved date shall be ignored.
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-| searchParameter.sendType | String | 1 | 필수 | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
-| searchParameter.startRequestDate | String | - | 필수 | 예약 날짜 시작 |
-| searchParameter.endRequestDate | String | - | 필수 | 예약 날짜 종료 |
-| searchParameter.startCreateDate | String | - | 필수 | 등록 날짜 시작 |
-| searchParameter.endCreateDate | String | - | 필수 | 등록 날짜 종료  |
-| searchParameter.sendNo | String | 20 | 옵션 | 발신 번호 |
-| searchParameter.recipientNo | String | 20 | 옵션 | 수신 번호 |
-| searchParameter.templateId | String | 50 | 옵션 | 템플릿 ID |
-| searchParameter.requestId | String | 25 | 옵션 | 요청 아이디 |
-| searchParameter.createUser | String | 100 | 옵션 | 예약 발송 요청 생성자  |
-| searchParameter.senderGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
-| searchParameter.recipientGroupingKey | String | 100 | 옵션 | 수신자 그룹키 |
-| updateUser | String | 100 | 필수 | 예약 취소 요청자 |
+| searchParameter.sendType | String | 1 | Required | Delivery type(0:Sms, 1:Lms/Mms, 2:Auth) |
+| searchParameter.startRequestDate | String | - | Required | Start date of delivery |
+| searchParameter.endRequestDate | String | - | Required | End date of delivery |
+| searchParameter.startCreateDate | String | - | Required |  Start date of registration |
+| searchParameter.endCreateDate | String | - | Required | End date of registration  |
+| searchParameter.sendNo | String | 20 | Optional | Sender number |
+| searchParameter.recipientNo | String | 20 | Optional | Recipient number |
+| searchParameter.templateId | String | 50 | Optional | Delivery template ID |
+| searchParameter.requestId | String | 25 | Optional | Request ID |
+| searchParameter.createUser | String | 100 | Optional | Request Creator of Scheduled Delivery   |
+| searchParameter.senderGroupingKey | String | 100 | Optional | Sender group key |
+| searchParameter.recipientGroupingKey | String | 100 | Optional | Recipient group key |
+| updateUser | String | 100 | Required | Requester of Scheduled Cancellation |
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -3591,19 +3743,19 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.reservationCancelId|	Integer|	예약 취소 ID|
-|body.data.requestedDateTime|	String|	예약 취소 요청 시간(yyyy-MM-dd HH:mm:ss)|
-|body.data.reservationCancelStatus|	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.reservationCancelId|	Integer|	Schedule Cancellation ID|
+|body.data.requestedDateTime|	String|	Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss)|
+|body.data.reservationCancelStatus|	String|	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
 
 
-### 예약 발송 취소 요청 목록 조회 - 다중 필터
+### List Request of Scheduled Delivery Cancellation - Multiple Filter
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -3614,21 +3766,21 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|startRequestedDateTime| String| - |  옵션 | 예약 취소 요청 시작 시간(yyyy-MM-dd HH:mm:ss) |
-|endRequestedDateTime|	String| - |	옵션 |	예약 취소 요청 종료 시간(yyyy-MM-dd HH:mm:ss) |
-|reservationCancelId|	String| 25 |	옵션 | 예약 취소 ID |
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|startRequestedDateTime| String| - |  Optional | Request Start Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss) |
+|endRequestedDateTime|	String| - |	Optional |	Request End Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss) |
+|reservationCancelId|	String| 25 |	Optional | Schedule Cancellation ID |
+|pageNum|	Integer| - |	Optional|	Page number (default: 1)|
+|pageSize|	Integer| 1000 |	Optional|	Number of queries (default: 15)|
 
-#### 응답
+#### Response
 
 ```
 {
@@ -3658,21 +3810,21 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].reservationCancelId |	String|	 예약 취소 ID |
-|body.data[].searchParameter |	Map<String, Object> | 예약 취소 요청 파라미터 |
-|body.data[].requestedDateTime |	String|	예약 취소 요청 시간 |
-|body.data[].completedDateTime |	String|	예약 취소 완료 시간 |
-|body.data[].reservationCancelStatus |	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
-|body.data[].totalCount |	Integer| 예약 취소 대상 건수 |
-|body.data[].successCount |	Integer| 예약 취소 성공 건수 |
-|body.data[].createUser |	String| 예약 취소 요청자	|
-|body.data[].createdDateTime |	String|	예약 취소 요청 생성 시간 |
-|body.data[].updatedDateTime |	String|	예약 취소 수정 시간 |
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data[].reservationCancelId |	String|	 Schedule Cancellation ID |
+|body.data[].searchParameter |	Map<String, Object> | Request Parameter for Schedule Cancellation |
+|body.data[].requestedDateTime |	String|	Request Time for Schedule Cancellation  |
+|body.data[].completedDateTime |	String|	Request End Time for Schedule Cancellation |
+|body.data[].reservationCancelStatus |	String|	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
+|body.data[].totalCount |	Integer| Number of Scheduled Cancellation Targets |
+|body.data[].successCount |	Integer| Number of Successful Schedule Cancellation |
+|body.data[].createUser |	String| Requester of Scheduled Cancellation	|
+|body.data[].createdDateTime |	String|	Request Creation Time for Schedule Cancellation |
+|body.data[].updatedDateTime |	String|	Modified Time for Scheduled Cancellation |
 
 ## Download Delivery Result Files 
 
