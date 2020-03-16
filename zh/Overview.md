@@ -59,3 +59,21 @@ You can text by selecting tags, instead of phone numbers, as recipient informati
 #### Tags of Other Services 
 * You can share your tag and UI information of Email, with Push or SMS in a same project, with no need of re-registration. 
 * Other contacts can be added to a same UID of each product console. 
+
+### 통계 이벤트 키와 통계
+#### 서비스 용어
+| 용어           | 설명                                       |
+| ------------ | ---------------------------------------- |
+| 통계 이벤트 키 | 통계를 특정 단위로 묶어서 보고 싶을 때 사용하는 이벤트 키입니다. |
+| statsId | 통꼐 이벤트 키의 고유 아이디 값입니다. API로 호출 시 해당 값을 주로 이용합니다. |
+
+#### 메시지 발송 시 특정 단위로 통계를 추출하고 싶은 경우
+1. **통계 이벤트 키 관리** 탭에서 통계 이벤트 키를 등록합니다. API를 사용하여 발송하는 경우 통계 아이디(statsId)를 이 화면에서 획득해야 합니다.
+2. Console 화면 또는 API로 메시지 전송 시 통계 이벤트 키를 함꼐 보내야 합니다.
+2-1. Console 화면의 경우 
+    * **SMS 발송** 탭에서 문자 발송 시, 통계 이벤트 키를 선택합니다.
+    * 메시지 정보를 모두 입력 후 **보내기** 버튼을 클릭합니다.
+    * **통계** 탭에서 일정 시간이 지난 후 통계 정보를 확인할 수 있습니다.
+2-2. API로 발송하는 경우
+    * **통계 이벤트 키 관리** 탭에서 획득한 statsId를 메시지 전송 파라미터에 같이 넣어줍니다.
+    * **통계** 탭에서 일정 시간이 지난 후 통계 정보를 확인할 수 있습니다.
