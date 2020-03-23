@@ -1,23 +1,30 @@
 ## Notification > SMS > Release Notes
 
-### 2020. 02. 25.
+### 2020. 03. 24
 ### 기능 개선/변경
-* [ETC] 수신 거부 과금 정책 변경
-    * 수신 거부 과금 정책이 시간 단위 과금에서 월 단위 과금으로 변경됩니다.
-* [API] 태그 관리 API 추가
-    * 다음 API가 추가됩니다.
-        * 태그 조회/등록/수정/삭제
-        * UID 목록 조회/단건 조회/등록/삭제
-        * 연락처 등록/삭제
-* [Console/API] 발신 번호 등록 시 서류 업로드 파일 크기 증가
-    * 서류 업로드 파일 용량이 10MB로 증가됩니다.
-* [Console] 발신 번호 등록 시 동일 서류 업로드가 안 되는 현상 수정
-    * 파일명이 동일한 서류를 업로드하면 아무 동작이 없던 문제를 수정했습니다.
-* [API] 예약 목록 조회 필터 추가 및 예약 목록 검색 결과 취소 API 공개
-    * 예약 목록 조회에 senderGroupingKey, recipientGroupingKey 조건을 추가했습니다.
-    * 단건 예약 취소 API 이외에 여러 조건으로 취소할 수 있는 API를 추가했습니다.
-* [Console] 발신 목록 검색 결과 파일 다운로드 시 오류 수정
-    * 발송 데이터가 많은 경우 파일 생성에 실패하던 문제를 수정했습니다.
+* [Console/API] 통계 개선
+    * 메시지 발송 시 **통계 이벤트 키(statsId)**를 포함하여 전송하는 경우, 통계 화면에서 **통계 이벤트 키** 단위로 조회가 가능합니다.
+    * 기존에 사용하던 **통계** 페이지는 **(구)통계** 페이지로 명칭이 변경됩니다.
+    * **통계 이벤트 키 관리**와 **통계** 페이지가 추가됩니다.
+
+### Feb. 25, 2020
+### Feature Updates
+* [ETC] Changed Charging Policy for Unsubscription
+    * The hourly charging policy for unsubscription has been changed into monthly-based policy. 
+* [API] Added API for Tag Management
+    * Following APIs have been added: 
+        * Query/Register/Modify/Delete Tags
+        * List/Get/Register/Delete UIDs
+        * Register/Delete Contact
+* [Console/API] Increased Size of Document Upload Files along with Sender Number Registration 
+    * Document upload file volume has been increased to 10MB.
+* [Console] Fixed Unavailability of Same Document Uploads for Sender Number Registration 
+    * Failure in uploading documents in same file names has been fixed. 
+* [API] Added Filters for List Scheduled and API for Cancel Search Result of List Scheduled 
+    * Added senderGroupingKey, recipientGroupingKey conditions to List Scheduled 
+    * Added API to cancel in many conditions, other than Cancel Single Schedule API
+* [Console] Fixed Error in Downloading Search Result from List of Sent Messages 
+    * Fixed failure in file creation when there is a lot of data to send 
 
 ### Jan. 21, 2020
 #### Feature Updates/Changes 

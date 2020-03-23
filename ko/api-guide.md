@@ -63,7 +63,8 @@ Content-Type: application/json;charset=UTF-8
          "recipientGroupingKey":"recipientGroupingKey"
       }
    ],
-   "userId":"UserId"
+   "userId":"UserId",
+   "statsId":"statsId"
 }
 ```
 
@@ -82,6 +83,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}|	Object| - |	X|	치환 키에 매핑되는 Value값|
 |recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
 |userId|	String|	100 | X | 발송 구분자 ex)admin,system |
+|statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
 #### 응답
 
@@ -146,7 +148,8 @@ Content-Type: application/json;charset=UTF-8
          "recipientNo":"01000000001",
          "recipientGroupingKey":"RecipientGroupingKey2"
       }
-   ]
+   ],
+   "statsId":"statsId"
 }
 ```
 
@@ -208,7 +211,8 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
          "recipientGroupingKey":"RecipientGroupingKey"
       }
    ],
-   "userId":""
+   "userId":"",
+   "statsId":"statsId"
 }
 ```
 
@@ -244,7 +248,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "본문","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
 ```
 
-### 단문 SMS 발송리스트 조회
+### 단문 SMS 발송리스트 검색
 
 #### 요청
 
@@ -263,7 +267,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
@@ -278,12 +282,12 @@ Content-Type: application/json;charset=UTF-8
 |recipientNo|	String| 20 |	옵션|	수신 번호|
 |templateId|	String| 50 |	옵션|	템플릿 번호|
 |msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
-|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
 |senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
 #### 응답
 
@@ -336,7 +340,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].requestId|	String|	요청 ID|
 |body.data[].requestDate|	String|	발신 일시|
@@ -355,14 +359,14 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultCodeName|	String|	수신 결과 코드명|
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
+|body.data[].mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 
-### 단문 SMS 발송 단일 조회
+### 단문 SMS 발송 단일 검색
 
 #### 요청
 
@@ -448,7 +452,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultCodeName|	String|	수신 결과 코드명|
 |body.data.telecomCode|	Integer|	통신사 코드|
 |body.data.telecomCodeName|	String|	통신사명|
-|body.data.mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
+|body.data.mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
@@ -496,7 +500,8 @@ Content-Type: application/json;charset=UTF-8
          "recipientGroupingKey":"recipientGroupingKey"
       }
    ],
-   "userId":"UserId"
+   "userId":"UserId",
+   "statsId":"statsId"
 }
 ```
 
@@ -516,6 +521,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}|	Object| - |	X|	치환 키에 매핑되는 Value값|
 |recipientList[].recipientGroupingKey| String| 1000 | X | 수신자 그룹키 |
 |userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
+|statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
 #### 응답
 
@@ -581,7 +587,8 @@ Content-Type: application/json;charset=UTF-8
          "recipientNo":"01000000001",
          "recipientGroupingKey":"RecipientGroupingKey2"
       }
-   ]
+   ],
+   "statsId":"statsId"
 }
 ```
 
@@ -643,7 +650,8 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
     "recipientList": [{
         "recipientNo": "01010000000",
         "recipientGroupingKey":"RecipientGroupingKey"
-    }]
+    }],
+    "statsId":"statsId"
 }
 ```
 
@@ -683,7 +691,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
     - 첨부 이미지 사이즈 : 300K 이하
     - 첨부 이미지 해상도 : 1000 x 1000 이하
 
-### 장문 MMS 발송리스트 조회
+### 장문 MMS 발송리스트 검색
 
 #### 요청
 
@@ -702,7 +710,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
 
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
@@ -717,12 +725,12 @@ Content-Type: application/json;charset=UTF-8
 |recipientNo|	String| 20 |	옵션|	수신 번호|
 |templateId|	String| 50 |	옵션|	템플릿 번호|
 |msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
-|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
 |senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
 #### 응답
 
@@ -784,7 +792,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultMessage|	String|	실패 메시지|
 |body|	Object|	본문 영역|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].requestId|	String|	요청 ID|
 |body.data[].requestDate|	String|	발신 일시|
@@ -803,7 +811,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultCodeName|	String|	수신 결과 코드명|
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
+|body.data[].mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
@@ -816,7 +824,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 
 
-### 장문 MMS 발송 단일 조회
+### 장문 MMS 발송 단일 검색
 
 #### 요청
 
@@ -895,7 +903,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultMessage|	String|	실패 메시지|
 |body|	Object|	본문 영역|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].requestId|	String|	요청 ID|
 |body.data[].requestDate|	String|	발신 일시|
@@ -914,7 +922,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultCodeName|	String|	수신 결과 코드명|
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
+|body.data[].mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
@@ -975,7 +983,8 @@ Content-Type: application/json;charset=UTF-8
          "recipientGroupingKey":"recipientGroupingKey"
       }
    ],
-   "userId":"UserId"
+   "userId":"UserId",
+   "statsId":"statsId"
 }
 ```
 
@@ -994,6 +1003,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}| Object| - |	X|	치환 키에 매핑되는 Value값|
 |recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
 |userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
+|statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
 
 #### 응답
@@ -1058,7 +1068,8 @@ Content-Type: application/json;charset=UTF-8
          "recipientNo":"01000000001",
          "recipientGroupingKey":"RecipientGroupingKey2"
       }
-   ]
+   ],
+   "statsId":"statsId"
 }
 ```
 
@@ -1101,7 +1112,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신 번호}","recipientList":[{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
 ```
 
-### 인증용 SMS 발송리스트 조회
+### 인증용 SMS 발송리스트 검색
 
 #### 요청
 
@@ -1120,7 +1131,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
@@ -1135,12 +1146,12 @@ Content-Type: application/json;charset=UTF-8
 |recipientNo|	String| 20 |	옵션|	수신 번호|
 |templateId|	String| 50 |	옵션|	템플릿 번호|
 |msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
-|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
 |senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
 #### 응답
 
@@ -1193,7 +1204,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].requestId|	String|	요청 ID|
 |body.data[].requestDate|	String|	발신 일시|
@@ -1212,14 +1223,14 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultCodeName|	String|	수신 결과 코드명|
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
+|body.data[].mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 
-### 인증용 SMS 발송 단일 조회
+### 인증용 SMS 발송 단일 검색
 
 #### 요청
 
@@ -1305,7 +1316,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultCodeName|	String|	수신 결과 코드명|
 |body.data.telecomCode|	Integer|	통신사 코드|
 |body.data.telecomCodeName|	String|	통신사명|
-|body.data.mtPr|	Integer|	발송 상세 ID(상세 조회 시 필수)|
+|body.data.mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
@@ -1374,11 +1385,11 @@ Content-Type: application/json;charset=UTF-8
 
 
 
-## 결과 업데이트 기준 메시지 조회
-* 해당 API는 메시지 발송 결과 업데이트 시간 기준으로 조회됩니다.
+## 결과 업데이트 기준 메시지 검색
+* 해당 API는 메시지 발송 결과 업데이트 시간 기준으로 검색됩니다.
 * 단말기 발송 결과를 서비스에서 가져가 사용하시는 경우 이 API를 사용해주세요.
 
-### 메시지 조회
+### 메시지 검색
 
 #### 요청
 
@@ -1399,11 +1410,11 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|startUpdateDate|	String|	필수|	결과 업데이트 조회 시작 시간 <br/>yyyy-MM-dd HH:mm:ss|
-|endUpdateDate|	String|	필수|	결과 업데이트 조회 종료 시간 <br/>yyyy-MM-dd HH:mm:ss|
+|startUpdateDate|	String|	필수|	결과 업데이트 검색 시작 시간 <br/>yyyy-MM-dd HH:mm:ss|
+|endUpdateDate|	String|	필수|	결과 업데이트 검색 종료 시간 <br/>yyyy-MM-dd HH:mm:ss|
 |messageType|	String|	옵션|	메시지 타입 (SMS/LMS/MMS/AUTH)|
 | pageNum | Integer | 옵션 | 페이지 번호(기본값:1) |
-| pageSize | Integer | 옵션 |조회 수(기본값:15) |
+| pageSize | Integer | 옵션 |검색 수(기본값:15) |
 
 #### 응답
 ```
@@ -1493,7 +1504,8 @@ Content-Type: application/json;charset=UTF-8
      ],
     "userId":"user_id",
     "adYn":"N",
-    "autoSendYn":"N"
+    "autoSendYn":"N",
+    "statsId":"statsId"
 }
 ```
 
@@ -1508,6 +1520,7 @@ Content-Type: application/json;charset=UTF-8
 | userId | String | 100 | X | 요청한 유저 ID |
 | adYn | String | 1 | X | 광고 여부(기본값: N) |
 | autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부 (기본값: Y) |
+|statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
 
 #### 응답
@@ -1573,7 +1586,8 @@ Content-Type: application/json;charset=UTF-8
      ],
     "userId":"user_id",
     "adYn":"N",
-    "autoSendYn":"N"
+    "autoSendYn":"N",
+    "statsId":"statsId"
 }
 ```
 
@@ -1590,6 +1604,7 @@ Content-Type: application/json;charset=UTF-8
 | userId | String | 100 | X | 요청한 유저 ID |
 | adYn | String | 1 | X | 광고 여부(기본값: N) |
 | autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
+| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
 
 #### 응답
@@ -1616,7 +1631,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestId|	String|	요청 ID|
 
 
-### 태그 발송 리스트 조회
+### 태그 발송 리스트 검색
 
 #### 요청
 
@@ -1646,7 +1661,7 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 | endCreateDate |	String| - |	O |	등록 날짜 종료 |
 | statusCode | String | 10 | X | 발송 상태 코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
 | pageNum | optional, Integer | - | X | 페이지 번호 |
-| pageSize | optional, Integer | 1000 | X | 조회 수 |
+| pageSize | optional, Integer | 1000 | X | 검색 수 |
 
 #### 응답
 ```
@@ -1712,7 +1727,7 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 |body.data[].updateDate | String | 수정 날짜 |
 
 
-### 태그 발송 수신자 리스트 조회
+### 태그 발송 수신자 리스트 검색
 
 #### 요청
 
@@ -1743,7 +1758,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName | String | 10 |  X | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송요청 완료<br/> - FAILED : 발송 실패  |
 | resultCode | String | 10 | X | 수신 결과 코드 |
 | pageNum | Integer | - | X | 페이지 번호 |
-| pageSize | Integer | 1000 | X | 조회 수 |
+| pageSize | Integer | 1000 | X | 검색 수 |
 
 #### 응답
 ```
@@ -1795,7 +1810,7 @@ Content-Type: application/json;charset=UTF-8
 
 
 
-### 태그 발송 수신자 리스트 상세 조회
+### 태그 발송 수신자 리스트 상세 검색
 
 #### 요청
 
@@ -2060,7 +2075,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].useYn|	String|	사용 여부|
 |body.data[].createUser|	String|	등록한 사용자|
 
-### 카테고리 리스트 조회
+### 카테고리 리스트 검색
 
 #### 요청
 
@@ -2082,7 +2097,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
 #### 응답
 
@@ -2122,7 +2137,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
@@ -2136,7 +2151,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].updateDate|	String|	수정 날짜|
 |body.data[].updateUser|	String|	수정한 사용자|
 
-### 카테고리 단건 조회
+### 카테고리 단건 검색
 
 #### 요청
 
@@ -2468,9 +2483,9 @@ Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 �
 
 **템플릿 ID와 Request parameter body 안의 값이 있을 경우, 발신 번호와 발신 내용이 템플릿 내용으로 치환되지 않습니다.**
 
-단, 템플릿 ID를 입력했을 경우, 해당 템플릿으로 조회할 수 있습니다.
+단, 템플릿 ID를 입력했을 경우, 해당 템플릿으로 검색할 수 있습니다.
 
-위와 같은 경우는 템플릿을 조회한 뒤, 템플릿의 내용을 수정하고 싶을 때 사용할 수 있습니다.
+위와 같은 경우는 템플릿을 검색한 뒤, 템플릿의 내용을 수정하고 싶을 때 사용할 수 있습니다.
 
 [Request body]
 
@@ -2519,7 +2534,7 @@ Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 �
 ```
 
 
-### 템플릿 리스트 조회
+### 템플릿 리스트 검색
 
 #### 요청
 
@@ -2599,7 +2614,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].templateId|	String|	템플릿 ID|
 |body.data[].serviceId|	Integer|	서비스 ID(내부용, 미사용값)|
@@ -2632,7 +2647,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].attachFileList[].createUser|	String|	첨부 파일 등록 사용자|
 
 
-### 템플릿 단일 조회
+### 템플릿 단일 검색
 
 #### 요청
 
@@ -2706,7 +2721,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data.templateId|	String|	템플릿 ID|
 |body.data.serviceId|	Integer|	서비스 ID(내부용, 미사용값)|
@@ -2874,7 +2889,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### 수신 거부 대상자 조회
+### 수신 거부 대상자 검색
 
 #### 요청
 
@@ -2899,7 +2914,7 @@ Content-Type: application/json;charset=UTF-8
 |startRequestDate|	String| - |	옵션 |	수신 거부 요청 시작값(yyyy-MM-dd HH:mm:ss)|
 |endRequestDate|	String| - |	옵션 |	수신 거부 요청 종료값(yyyy-MM-dd HH:mm:ss)|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
 #### 응답
 ```
@@ -3052,7 +3067,7 @@ Content-Type : multipart/form-data;
   }
 ```
 
-### 발신 번호 인증 요청 내역 조회 API
+### 발신 번호 인증 요청 내역 검색 API
 
 #### 요청
 
@@ -3075,7 +3090,7 @@ Content-Type : multipart/form-data;
 | sendNo|String | 등록 요청한 발신 번호 |
 |status|	String|	서류 인증 상태<br/>- SRS01	발신 번호 등록 요청<br/>- SRS02	심사중<br/>- SRS03	등록 완료<br/>- SRS04	등록 불가<br/>- SRS05	휴대폰 인증 대기<br/>- SRS06	휴대폰 인증 실패<br/>- SRS07	수동 등록 완료|
 |pageNum|	Integer| 페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 조회 수(기본값 : 15)|
+|pageSize|	Integer| 검색 수(기본값 : 15)|
 
 #### 응답
 ```
@@ -3114,7 +3129,7 @@ Content-Type : multipart/form-data;
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].authType|	String|	요청 인증 타입<br/>- SMS_AUTH:SMS인증<br/>- DOCUMENT_AUTH:서류인증<br/>- REGIST_AUTH:수동인증|
 |body.data[].sendNos[]|	List<String>|	등록요청 발신 번호 리스트|
@@ -3127,7 +3142,7 @@ Content-Type : multipart/form-data;
 
 
 
-### 등록된 발신 번호 리스트 조회 API
+### 등록된 발신 번호 리스트 검색 API
 
 #### 요청
 
@@ -3151,7 +3166,7 @@ Content-Type : multipart/form-data;
 | useYn | String | 사용 여부 |
 | blockYn | String | 차단 여부 |
 |pageNum|	Integer| 페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 조회 수(기본값 : 15)|
+|pageSize|	Integer| 검색 수(기본값 : 15)|
 
 #### 응답
 ```
@@ -3188,7 +3203,7 @@ Content-Type : multipart/form-data;
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].serviceId | Integer | 서비스 ID |
 |body.data[].sendNo | String | 발신 번호 |
@@ -3200,9 +3215,154 @@ Content-Type : multipart/form-data;
 |body.data[].updateDate | String | 수정 날짜 |
 |body.data[].updateUser | String | 수정한 사용자 |
 
-## 통계 조회
+## 통계
 
-### 통합 통계 조회
+### 통계 검색 - 이벤트 기반
+* 이벤트 발생 시간 기준으로 수집된 통계입니다.
+* 다음 시간 기준으로 통계가 수집됩니다.
+    * 요청 개수(requested): 발송 요청 시간
+    * 발송 개수(sent): 통신 사업자(벤더)로 발송 요청한 시간
+    * 성공 개수(received): 실제 단말기 수신 시간
+    * 실패 개수(sentFailed): 실패 응답이 발생한 시간  
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Query parameter]
+
+|값|	타입|	최대 길이 | 필수 |설명|
+|---|---|---|---|---|
+| statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
+| statsIds | List<String> | - | 옵션 | 통계 ID 리스트 |
+| messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
+| isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
+| templateIds | List<String> | - | 옵션 | 템플릿 ID 리스트 |
+| from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
+
+#### 응답
+```
+{
+    "header" : {
+        "isSuccessful" : true,
+        "resultCode" : 0,
+        "resultMessage" : "SUCCESS""
+    },
+    "body" : {
+        "data" :
+        [
+          {
+            "eventDateTime" : "",
+            "events" :
+            {
+              "requested" : 10,
+              "sent" : 10,
+              "sentFailed" : 0,
+              "received" : 0
+            }
+          }
+        ]
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
+|body.data.events[].requested |	Integer|	요청 개수|
+|body.data.events[].sent |	Integer|	발송 개수|
+|body.data.events[].sentFailed |	Integer|	실패 개수|
+|body.data.events[].received |	Integer|	성공 개수|
+
+### 통계 검색 - 요청 시간 기반
+* 발송 요청 시간 기준으로 수집된 통계입니다.
+* 다음 시간 기준으로 통계가 수집됩니다.
+    * 요청 개수(requested): 발송 요청 시간
+    * 발송 개수(sent): 발송 요청 시간으로, 개수가 증가하는 시점은 통신 사업자(밴더)로 발송 요청한 시간
+    * 성공 개수(received): 발송 요청 시간으로, 개수가 증가하는 시점은 실제 단말기 수신 시간
+    * 실패 개수(sentFailed): 발송 요청 시간으로, 개수가 증가하는 시점은 실패 응답이 발생한 시간 
+
+#### 요청
+
+[URL]
+
+|Http method|	URI|
+|---|---|
+|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+
+[Path parameter]
+
+|값|	타입|	설명|
+|---|---|---|
+|appKey|	String|	고유의 앱키|
+
+[Query parameter]
+
+|값|	타입|	최대 길이 | 필수 |설명|
+|---|---|---|---|---|
+| statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
+| statsIds | List<String> | - | 옵션 | 통계 ID 리스트 |
+| messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
+| isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
+| templateIds | List<String> | - | 옵션 | 템플릿 ID 리스트 |
+| from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
+
+#### 응답
+```
+{
+    "header" : {
+        "isSuccessful" : true,
+        "resultCode" : 0,
+        "resultMessage" : "SUCCESS""
+    },
+    "body" : {
+        "data" :
+        [
+          {
+            "eventDateTime" : "",
+            "events" :
+            {
+              "requested" : 10,
+              "sent" : 10,
+              "sentFailed" : 0,
+              "received" : 0,
+              "pending" : 0
+            }
+          }
+        ]
+    }
+}
+```
+
+|값|	타입|	설명|
+|---|---|---|
+|header.isSuccessful|	Boolean|	성공 여부|
+|header.resultCode|	Integer|	실패 코드|
+|header.resultMessage|	String|	실패 메시지|
+|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
+|body.data.events[].requested |	Integer|	요청 개수|
+|body.data.events[].sent |	Integer|	발송 개수|
+|body.data.events[].sentFailed |	Integer|	실패 개수|
+|body.data.events[].received |	Integer|	성공 개수|
+|body.data.events[].pending |	Integer|	발송 중 개수|
+
+
+### (구)통합 통계 검색
 
 #### 요청
 
@@ -3223,8 +3383,8 @@ Content-Type : multipart/form-data;
 |값|	타입|	최대 길이 | 필수 |설명|
 |---|---|---|---|---|
 | searchType | String | 10 | O | 통계 구분<br/>DATE:날짜별, TIME:시간별, DAY:요일별 |
-| from | String |  - |O | 통계 조회 시작 날짜<br/>yyyy-MM-dd HH:mm |
-| to | String | - | O | 통계 조회 종료 날짜<br/>yyyy-MM-dd HH:mm |
+| from | String |  - |O | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm |
+| to | String | - | O | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm |
 | messageType | String | 10 |  X |  메시지 타입<br/>SMS:단문, LMS:장문, MMS:첨부 파일, AUTH:인증용 |
 | contentType | String | 10 |  X |  콘텐츠 타입<br/>NORMAL: 일반, AD: 광고 |
 | templateId | String | 50 |  X |  템플릿 ID |
@@ -3274,7 +3434,7 @@ Content-Type : multipart/form-data;
 
 ## 예약 발송
 
-### 예약 발송 목록 조회
+### 예약 발송 목록 검색
 
 #### 요청
 
@@ -3306,7 +3466,7 @@ Content-Type: application/json;charset=UTF-8
 |templateId|	String| 50 |	옵션|	템플릿 번호|
 |messageStatus|	String| 10 |	옵션|	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패,CANCEL:예약 취소,DUPLICATED:중복 발송)|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
 #### 응답
 
@@ -3353,7 +3513,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].requestId|	String|	요청 ID|
 |body.data[].recipientSeq|	Integer|	수신자 시퀀스|
@@ -3374,7 +3534,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createDate|	String|	등록 날짜|
 |body.data[].updateDate|	String|	수정 날짜|
 
-### 예약 발송 상세 조회
+### 예약 발송 상세 검색
 
 #### 요청
 
@@ -3440,7 +3600,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data.requestId|	String|	요청 ID|
 |body.data.recipientSeq|	Integer|	수신자 시퀀스|
@@ -3569,7 +3729,7 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 * startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜 / 예약 날짜를 동시에 조회하는 경우, 예약 날짜는 무시됩니다.
+* 등록 날짜 / 예약 날짜를 동시에 검색하는 경우, 예약 날짜는 무시됩니다.
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
@@ -3616,7 +3776,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.reservationCancelStatus|	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
 
 
-### 예약 발송 취소 요청 목록 조회 - 다중 필터
+### 예약 발송 취소 요청 목록 검색 - 다중 필터
 
 #### 요청
 
@@ -3641,7 +3801,7 @@ Content-Type: application/json;charset=UTF-8
 |endRequestedDateTime|	String| - |	옵션 |	예약 취소 요청 종료 시간(yyyy-MM-dd HH:mm:ss) |
 |reservationCancelId|	String| 25 |	옵션 | 예약 취소 ID |
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	조회 수(기본값 : 15)|
+|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
 #### 응답
 
@@ -3692,7 +3852,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## 발송 결과 파일 다운로드
 
-### 조회 파일 생성 요청
+### 검색 파일 생성 요청
 
 #### 요청
 
@@ -3711,7 +3871,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜/발송 날짜를 동시에 조회하는 경우, 발송 날짜는 무시됩니다.
+* 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
 
 ```
 {
@@ -3749,8 +3909,8 @@ Content-Type: application/json;charset=UTF-8
 |recipientNo|	String| 20 |	옵션|	수신 번호|
 |templateId|	String| 50 |	옵션|	템플릿 번호|
 |msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
-|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[조회 코드표](./error-code/#_2)]|
-|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[조회 코드표](./error-code/#_3)]|
+|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
+|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
 |senderGroupingKey|	String| 100 |	옵션|	발송자 그룹 키|
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹 키|
 |isIncludeTitleAndBody | Boolean | - | 옵션 | 제목, 본문 포함 여부 |
@@ -3788,7 +3948,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.expiredDate|	String|	다운로드 기간 만료 일시|
 
 
-### 발송 결과 파일 생성 요청 내역 조회
+### 발송 결과 파일 생성 요청 내역 검색
 
 #### 요청
 
@@ -3812,7 +3972,7 @@ Content-Type: application/json;charset=UTF-8
 |downloadId|	String|	25 | 옵션 | 다운로드 아이디|
 |downloadStatusCode|	String| 10 | 옵션 |	다운로드 파일 상태 코드|
 |pageNum|	Integer|	- | 옵션 | 페이지 번호(기본값: 1)|
-|pageSize|	Integer|	1000 | 옵션 | 조회 수(기본값: 15)|
+|pageSize|	Integer|	1000 | 옵션 | 검색 수(기본값: 15)|
 
 #### 응답
 
@@ -3854,7 +4014,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].downloadType| String | 다운로드 유형<br/>- BLOCK: 수신 거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송 |
 |body.data[].fileType| String | 파일 타입 |
 |body.data[].parameter| String | 요청 파라미터 |
-|body.data[].size| Integer | 조회 데이터 크기 |
+|body.data[].size| Integer | 검색 데이터 크기 |
 |body.data[].downloadStatusCode| String | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
 |body.data[].resultMessage| String | 결과 메시지(실패 시 응답) |
 |body.data[].expiredDate| String | 파일 만료 일시 |
@@ -3889,7 +4049,7 @@ file byte
 
 ## 태그 관리
 
-### 태그 조회
+### 태그 검색
 
 #### 요청
 
@@ -3911,7 +4071,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |pageNum|	Integer|	- | 옵션 | 페이지 번호(기본값: 1)|
-|pageSize|	Integer|	1000 | 옵션 | 조회 수(기본값: 15)|
+|pageSize|	Integer|	1000 | 옵션 | 검색 수(기본값: 15)|
 
 #### 응답
 
@@ -3944,7 +4104,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	조회된 데이터 수|
+|body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].tagId| String | 태그 ID |
 |body.data[].tagName| String | 태그 이름 |
@@ -4087,7 +4247,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## UID 관리
 
-### UID 조회
+### UID 검색
 
 #### 요청
 
@@ -4108,10 +4268,10 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
-|wheres|	List<String>|	- | 옵션 | 조회 조건.<br/>알파뱃, 숫자, 괄호로 이루어진 문자열 배열.<br/>괄호는 1개, AND/OR은 3개까지 사용 가능<br/>(예시) tagId1,AND,tagId2|
-|offsetUid|	String|	- | 옵션 | 조회를 시작할 uid|
+|wheres|	List<String>|	- | 옵션 | 검색 조건.<br/>알파뱃, 숫자, 괄호로 이루어진 문자열 배열.<br/>괄호는 1개, AND/OR은 3개까지 사용 가능<br/>(예시) tagId1,AND,tagId2|
+|offsetUid|	String|	- | 옵션 | 검색을 시작할 uid|
 |offset | Integer | - | 옵션 | offset 0(기본값)|
-|limit | Integer | 1000 | 옵션 | 조회 건수 15(기본값)|
+|limit | Integer | 1000 | 옵션 | 검색 건수 15(기본값)|
 
 #### 응답
 
@@ -4167,7 +4327,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.uids[].isLast| Boolean| 마지막 리스트 여부 |
 |body.data.uids[].totalCount| Integer| 총 데이터 건수 |
 
-### UID 단건 조회
+### UID 단건 검색
 
 #### 요청
 
