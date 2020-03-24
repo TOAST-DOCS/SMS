@@ -84,7 +84,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}|	Object| - |	X|	置換キーにマッピングされるValue値|
 |recipientList[].recipientGroupingKey| String| 100 | X | 受信者グループキー |
 |userId|	String|	100 | X | 送信セパレータex)admin,system |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
 #### レスポンス
 
@@ -520,7 +520,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}|	Object| - |	X|	置換キーにマッピングされるValue値|
 |recipientList[].recipientGroupingKey| String| 1000 | X | 受信者グループキー |
 |userId|	String| 100 |	X | 送信セパレータex)admin,system |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
 #### レスポンス
 
@@ -989,7 +989,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ| 最大 |	必須|	説明|
 |---|---|---|---|---|
 |templateId|	String| 50 |	X|	送信テンプレートID|
-|body|	String| 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] |	O|	本文内容 [[注意事項](./api-guide/#precautions-authword)] |
+|body|	String| 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] |	O|	本文内容[[注意事項](./api-guide/#precautions-authword)] |
 |sendNo|	String| 13 |	O|	発信番号|
 |requestDate| String| - | X | 予約日時(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 発信者グループキー |
@@ -1001,7 +1001,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}| Object| - |	X|	置換キーにマッピングされるValue値|
 |recipientList[].recipientGroupingKey| String| 100 | X | 受信者グループキー |
 |userId|	String| 100 |	X | 送信セパレータex)admin,system |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
 #### レスポンス
 ```
@@ -1510,7 +1510,7 @@ Content-Type: application/json;charset=UTF-8
 | userId | String | 100 | X | リクエストしたユーザーID |
 | adYn | String | 1 | X | 広告かどうか(デフォルト値：N) |
 | autoSendYn | String | 1 | X | 自動送信(即時送信)するかどうか(デフォルト値：Y) |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
 #### レスポンス
 ```
@@ -1592,7 +1592,7 @@ Content-Type: application/json;charset=UTF-8
 | userId | String | 100 | X | リクエストしたユーザーID |
 | adYn | String | 1 | X | 広告かどうか(デフォルト値：N) |
 | autoSendYn | String | 1 | X | 自動送信(即時送信)するかどうか(基本Y) |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
 #### レスポンス
 ```
@@ -2366,7 +2366,7 @@ Content-Type: application/json;charset=UTF-8
    "useYn" : "Y",
    "attachFileIdList" : [
      123123,
-     456456
+456456
    ]
 }
 ```
@@ -2995,7 +2995,7 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 | sendNos[] |	List<String> | - | 必須 |	発信番号|
 | fileIds[] |	List<Integer> | - | オプション | アップロードした書類のファイルID|
-| comment | String | 4000 | オプション | 発信番号承認者へのコメント  |
+| comment | String | 4000 | オプション | 発信番号承認者へのコメント |
 
 #### レスポンス
 ```
@@ -3197,15 +3197,15 @@ Content-Type : multipart/form-data;
 
 ## 統計照会
 
-### 통계 검색 - 이벤트 기반
-* 이벤트 발생 시간 기준으로 수집된 통계입니다.
-* 다음 시간 기준으로 통계가 수집됩니다.
-    * 요청 개수(requested): 발송 요청 시간
-    * 발송 개수(sent): 통신 사업자(벤더)로 발송 요청한 시간
-    * 성공 개수(received): 실제 단말기 수신 시간
-    * 실패 개수(sentFailed): 실패 응답이 발생한 시간    
+### 統計検索 - イベントベース
+* イベント発生時間を基準に収集された統計です。
+* 次の時間を基準に統計が収集されます。
+    * リクエスト数(requested)：送信リクエスト時間
+    * 送信数(sent)：通信事業者(ベンダー)に送信リクエストした時間
+    * 成功数(received)：実際の端末受信時間
+    * 失敗数(sentFailed)：失敗レスポンスが発生した時間  
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -3215,23 +3215,23 @@ Content-Type : multipart/form-data;
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	固有のアプリケーションキー|
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수 |설명|
+|値|	タイプ|	最大長 | 必須 |説明|
 |---|---|---|---|---|
-| statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
-| statsIds | List<String> | - | 옵션 | 통계 ID 리스트 |
-| messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
-| isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
-| templateIds | List<String> | - | 옵션 | 템플릿 아이디 리스트 |
-| from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
+| statisticsType | String | - | 必須 | 統計区分<br/>NORMAL：基本、 MINUTELY：分別、HOURLY：時間別、DAILY：日別、BY_DAY：時間別、DAY：曜日別 |
+| statsIds | List<String> | - | オプション | 統計IDリスト |
+| messageType | String | - | オプション | メッセージタイプ<br/>SMS、LMS、MMS、AUTH |
+| isAd | Boolean | - | オプション | 広告かどうか<br/>true/false |
+| templateIds | List<String> | - | オプション | テンプレートIDリスト |
+| from | String | - | オプション | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | オプション | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 
-#### 응답
+#### レスポンス
 ```
 {
     "header" : {
@@ -3257,26 +3257,26 @@ Content-Type : multipart/form-data;
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
-|body.data.events[].requested |	Integer|	요청 개수|
-|body.data.events[].sent |	Integer|	발송 개수|
-|body.data.events[].sentFailed |	Integer|	실패 개수|
-|body.data.events[].received |	Integer|	성공 개수|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+|body.data.eventDateTime |	String|	表示名<br/>分別、時間別、曜日別、月別|
+|body.data.events[].requested |	Integer|	リクエスト数|
+|body.data.events[].sent |	Integer|	送信数|
+|body.data.events[].sentFailed |	Integer|	失敗数|
+|body.data.events[].received |	Integer|	成功数|
 
-### 통계 검색 - 요청 시간 기반
-* 발송 요청 시간 기준으로 수집된 통계입니다.
-* 다음 시간 기준으로 통계가 수집됩니다.
-    * 요청 개수(requested): 발송 요청 시간
-    * 발송 개수(sent): 발송 요청 시간으로, 개수가 증가하는 시점은 통신 사업자(밴더)로 발송 요청한 시간
-    * 성공 개수(received): 발송 요청 시간으로, 개수가 증가하는 시점은 실제 단말기 수신 시간
-    * 실패 개수(sentFailed): 발송 요청 시간으로, 개수가 증가하는 시점은 실패 응답이 발생한 시간  
+### 統計検索 - リクエスト時間ベース
+* 送信リクエスト時間を基準に収集された統計です。
+* 次の時間を基準に統計が収集されます。
+    * リクエスト数(requested)：送信リクエスト時間
+    * 送信数(sent)：送信リクエスト時間です。数が増加するタイミングは、通信事業者(ベンダー)に送信リクエストした時間です。
+    * 成功数(received)：送信リクエスト時間です。数が増加するタイミングは実際の端末受信時間です。
+    * 失敗数(sentFailed):送信リクエスト時間です。数が増加するタイミングは失敗レスポンスが発生した時間です。 
 
-#### 요청
+#### リクエスト
 
 [URL]
 
@@ -3286,23 +3286,23 @@ Content-Type : multipart/form-data;
 
 [Path parameter]
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	固有のアプリケーションキー|
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수 |설명|
+|値|	タイプ|	最大長 | 必須 |説明|
 |---|---|---|---|---|
-| statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
-| statsIds | List<String> | - | 옵션 | 통계 ID 리스트 |
-| messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
-| isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
-| templateIds | List<String> | - | 옵션 | 템플릿 ID 리스트 |
-| from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
+| statisticsType | String | - | 必須 | 統計区分<br/>NORMAL：基本、 MINUTELY：分別、HOURLY：時間別、DAILY：日別、BY_DAY：時間別、DAY：曜日別 |
+| statsIds | List<String> | - | オプション | 統計IDリスト |
+| messageType | String | - | オプション | メッセージタイプ<br/>SMS、LMS、MMS、AUTH |
+| isAd | Boolean | - | オプション | 広告かどうか<br/>true/false |
+| templateIds | List<String> | - | オプション | テンプレートIDリスト |
+| from | String | - | オプション | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | オプション | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 
-#### 응답
+#### レスポンス
 ```
 {
     "header" : {
@@ -3329,19 +3329,19 @@ Content-Type : multipart/form-data;
 }
 ```
 
-|값|	타입|	설명|
+|値|	タイプ|	説明|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
-|body.data.events[].requested |	Integer|	요청 개수|
-|body.data.events[].sent |	Integer|	발송 개수|
-|body.data.events[].sentFailed |	Integer|	실패 개수|
-|body.data.events[].received |	Integer|	성공 개수|
-|body.data.events[].pending |	Integer|	발송 중 개수|
+|header.isSuccessful|	Boolean|	成否|
+|header.resultCode|	Integer|	失敗コード|
+|header.resultMessage|	String|	失敗メッセージ|
+|body.data.eventDateTime |	String|	表示名<br/>分別、時間別、曜日別、月別|
+|body.data.events[].requested |	Integer|	リクエスト数|
+|body.data.events[].sent |	Integer|	送信数|
+|body.data.events[].sentFailed |	Integer|	失敗数|
+|body.data.events[].received |	Integer|	成功数|
+|body.data.events[].pending |	Integer|	送信中の数|
 
-### (구)統合統計照会
+### (旧)統合統計照会
 
 #### リクエスト
 
@@ -3748,9 +3748,9 @@ Content-Type: application/json;charset=UTF-8
 |header.isSuccessful|	Boolean|	成否|
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
-|body.data.reservationCancelId|	Integer|	予約キャンセル ID|
+|body.data.reservationCancelId|	Integer|	予約キャンセルID|
 |body.data.requestedDateTime|	String|	予約キャンセルリクエスト時間(yyyy-MM-dd HH:mm:ss)|
-|body.data.reservationCancelStatus|	String|	予約キャンセル状態<br/>- READY : 予約準備<br/>- PROCESSING : 予約キャンセル中<br/>- COMPLETED : 予約キャンセル完了<br/>- FAILED : 予約キャンセル失敗 |
+|body.data.reservationCancelStatus|	String|	予約キャンセル状態<br/>- READY :予約準備<br/>- PROCESSING :予約キャンセル中<br/>- COMPLETED :予約キャンセル完了<br/>- FAILED :予約キャンセル失敗 |
 
 
 ### 予約送信キャンセルリクエストリスト照会 - 多重フィルタ
@@ -3774,9 +3774,9 @@ Content-Type: application/json;charset=UTF-8
 
 |値|	タイプ| 最大長さ |	必須|	説明|
 |---|---|---|---|---|
-|startRequestedDateTime| String| - |  オプション | 予約キャンセルリクエスト開始時間(yyyy-MM-dd HH:mm:ss) |
+|startRequestedDateTime| String| - | オプション | 予約キャンセルリクエスト開始時間(yyyy-MM-dd HH:mm:ss) |
 |endRequestedDateTime|	String| - |	オプション |	予約キャンセルリクエスト終了時間(yyyy-MM-dd HH:mm:ss) |
-|reservationCancelId|	String| 25 |	オプション | 予約キャンセル ID |
+|reservationCancelId|	String| 25 |	オプション | 予約キャンセルID |
 |pageNum|	Integer| - |	オプション|	ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 1000 |	オプション|	照会数(デフォルト値：15)|
 
@@ -3815,11 +3815,11 @@ Content-Type: application/json;charset=UTF-8
 |header.isSuccessful|	Boolean|	成否|
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
-|body.data[].reservationCancelId |	String|	 予約キャンセル ID |
+|body.data[].reservationCancelId |	String|	予約キャンセルID |
 |body.data[].searchParameter |	Map<String, Object> | 予約キャンセルリクエストパラメータ |
 |body.data[].requestedDateTime |	String|	予約キャンセルリクエスト時間 |
 |body.data[].completedDateTime |	String|	予約キャンセル完了時間 |
-|body.data[].reservationCancelStatus |	String|	予約キャンセル状態<br/>- READY : 予約準備<br/>- PROCESSING : 予約キャンセル中<br/>- COMPLETED : 予約キャンセル完了<br/>- FAILED : 予約キャンセル失敗 |
+|body.data[].reservationCancelStatus |	String|	予約キャンセル状態<br/>- READY :予約準備<br/>- PROCESSING :予約キャンセル中<br/>- COMPLETED :予約キャンセル完了<br/>- FAILED :予約キャンセル失敗 |
 |body.data[].totalCount |	Integer| 予約キャンセル対象件数 |
 |body.data[].successCount |	Integer| 予約キャンセル成功件数 |
 |body.data[].createUser |	String| 予約キャンセルリクエスト者	|
@@ -4136,7 +4136,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultMessage|	String|	失敗メッセージ|
 |body.data.tagId| String | タグID |
 
-### タグ 修正
+### タグ修正
 
 [URL]
 
@@ -4293,8 +4293,8 @@ Content-Type: application/json;charset=UTF-8
 |body.data.uids[].uid| String | UID |
 |body.data.uids[].tags[].tagId| String | タグID |
 |body.data.uids[].tags[].tagName| String | タグ名 |
-|body.data.uids[].tags[].createdDate| String | タグ 作成日時 |
-|body.data.uids[].tags[].updatedDate| String | タグ 修正日時 |
+|body.data.uids[].tags[].createdDate| String | タグ作成日時 |
+|body.data.uids[].tags[].updatedDate| String | タグ修正日時 |
 |body.data.uids[].contacts[].contactType| String | 連絡先タイプ |
 |body.data.uids[].contacts[].contact| String | 連絡先(携帯電話番号) |
 |body.data.uids[].contacts[].createdDate| String | 連絡先作成日時 |
@@ -4358,11 +4358,11 @@ GET /sms/v2.3/appKeys/{appKey}/uids/{uid}
 |body.data.uid| String | UID |
 |body.data.tags[].tagId| String | タグID |
 |body.data.tags[].tagName| String | タグ名 |
-|body.data.tags[].createdDate| String | タグ 作成日時 |
-|body.data.tags[].updatedDate| String | タグ 修正日時 |
+|body.data.tags[].createdDate| String | タグ作成日時 |
+|body.data.tags[].updatedDate| String | タグ修正日時 |
 |body.data.contacts[].contactType| String | 連絡先タイプ |
 |body.data.contacts[].contact| String | 連絡先(携帯電話番号) |
-|body.data.contacts[].createdDate| String | 連絡先 作成日時 |
+|body.data.contacts[].createdDate| String | 連絡先作成日時 |
 
 ### UIDの登録
 
@@ -4402,7 +4402,7 @@ Content-Type: application/json;charset=UTF-8
 | uid | String | - | 必須 | UID |
 | tagIds[] | String | - | 必須 | タグIDリスト |
 | contacts[].contactType | String | - | 必須 | 連絡先タイプ(PHONE_NUMBER) |
-| contacts[].contact | String | - | 必須 | 連絡先 (携帯電話番号) |
+| contacts[].contact | String | - | 必須 | 連絡先(携帯電話番号) |
 
 [注意]
 * tagIdsが与えられている場合、contactsは必須値ではない。
@@ -4464,7 +4464,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
 
-### 携帯電話番号 登録
+### 携帯電話番号登録
 
 [URL]
 
