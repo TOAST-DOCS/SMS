@@ -1,11 +1,11 @@
 ## Notification > SMS > Release Notes
 
 ### March 24, 2020
-### 기능 개선/변경 Feature Updates
-* [Console/API] 통계 개선 Updated Statistics
-    * 메시지 발송 시 **통계 이벤트 키(statsId)**를 포함하여 전송하는 경우, 통계 화면에서 **통계 이벤트 키** 단위로 조회가 가능합니다.
-    * 기존에 사용하던 **통계** 페이지는 **(구)통계** 페이지로 명칭이 변경됩니다.
-    * **통계 이벤트 키 관리**와 **통계** 페이지가 추가됩니다.
+### Feature Updates
+* [Console/API] Updated Statistics
+    * When **Statistis Event Key (statsId)** is included for a delivery, you can query by **Statistics Event Key** on the statistics page. 
+    * The **Statistics** page of the past shall be replaced by **(Old) Statistics**. 
+    * Added the **Statistics Event Key Management** and the **Statistics** page.   
 
 ### February 25, 2020
 ### Feature Updates
@@ -141,7 +141,7 @@
 
 ### March 26, 2019
 
-#### Updated
+#### Updates
 * [Console/API] Retention period changed for delivery history 
     * Delivery history can be queried down to 6 months before.  
 * [Console] Query page improved for template list 
@@ -152,7 +152,7 @@
 
 ### February 26, 2019
 
-#### Updated 
+#### Updates
 * [Console] Input windows improved for sender number on the page requesting for message delivery   
     * Search is available on the input window for sender numbers 
 * [Console/API] Validity checks improved for guidance message for rejection of receiving 080 numbes  
@@ -205,7 +205,7 @@
     * You can send with template parameters to send request by tags. 
     * See [[API Guide](./api-guide/#sms_11)] for more details. 
 
-#### Bugs Fixed 
+#### Bugs Fixes
 * [API] Fixed invalid error code response 
     * For text delivery request, if a request field includes past time, it is responded with -2022 error, not -2021. 
     * Error code -2021 occurs in a system when it fails to save in a message queue. 
@@ -378,7 +378,7 @@
     * See [[Rejection of Receiving 080 Numbers](./console-guide/#080)] for more details on subscription.
 
 ### March 23, 2017
-#### Updated/Changed 
+#### Updated 
 * [Console] In the query of mass delivery, select window for cause of result has been grouped. 
 
 #### Bugs Fixed 
