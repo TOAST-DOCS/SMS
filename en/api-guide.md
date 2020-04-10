@@ -83,7 +83,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}|	Object| - |	X| Value which is mapped for replacement key |
 |recipientList[].recipientGroupingKey| String| 100 | X | Recipient group key |
 |userId|	String|	100 | X | Delivery delimiter e.g) admin,system |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### Response
 
@@ -519,7 +519,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}|	Object| - |	X| Value which is mapped for replacement key |
 |recipientList[].recipientGroupingKey| String| 1000 | X | Recipient group key |
 |userId|	String| 100 |	X | Delivery delimiter  e.g.) admin,system |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### Response
 
@@ -998,7 +998,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].templateParameter.{value}| Object| - |	X| Value which is mapped for replacement key |
 |recipientList[].recipientGroupingKey| String| 100 | X | Recipient's group key |
 |userId|	String| 100 |	X | Delivery delimiter e.g.) admin,system |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### Response
 ```
@@ -1509,7 +1509,7 @@ Content-Type: application/json;charset=UTF-8
 | userId | String | 100 | X | Requester ID |
 | adYn | String | 1 | X | Ad or not (default: N) |
 | autoSendYn | String | 1 | X | Auto delivery or not (immediate delivery) (default: Y) |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### Response
 ```
@@ -1591,7 +1591,7 @@ Content-Type: application/json;charset=UTF-8
 | userId | String | 100 | X | Requester ID |
 | adYn | String | 1 | X | Ad or not (default: N) |
 | autoSendYn | String | 1 | X | Auto delivery or not (immediate delivery) (default: Y) |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### Response
 ```
@@ -2448,7 +2448,7 @@ For Request URL, choose a delivery type selected to register templates.
 }
 ```
 
-![[그림 1] Template](http://static.toastoven.net/prod_sms/img_27.png)
+![[Figure 1] Template](http://static.toastoven.net/prod_sms/img_27.png)
 
 ### Send Templates (requiring body updates)
 
@@ -3197,13 +3197,13 @@ Content-Type : multipart/form-data;
 
 ## Query Statistics
 
-### 통계 검색 - 이벤트 기반
-* 이벤트 발생 시간 기준으로 수집된 통계입니다.
-* 다음 시간 기준으로 통계가 수집됩니다.
-    * 요청 개수(requested): 발송 요청 시간
-    * 발송 개수(sent): 통신 사업자(벤더)로 발송 요청한 시간
-    * 성공 개수(received): 실제 단말기 수신 시간
-    * 실패 개수(sentFailed): 실패 응답이 발생한 시간    
+### Search Statistics - Based on Events 
+* Statistics are collected based on time of event occurrence. 
+* Statistics are collected based on the following time criteria: 
+    * Request Count (requested): Delivery request time 
+    * Delivery Count (sent): Delivery request time to telco provider (vendor) 
+    * Success Count(received): Actual received time on device  
+    * Failure Count (sentFailed): Response time of failure      
 
 #### Request
 
@@ -3221,15 +3221,15 @@ Content-Type : multipart/form-data;
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | Required |설명|
+|Value|	Type|	Maximum Length | Required |Description|
 |---|---|---|---|---|
-| statisticsType | String | - | Required | Type of statistics<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
-| statsIds | List<String> | - | Optional | 통계 ID 리스트 |
-| messageType | String | - | Optional | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
-| isAd | Boolean | - | Optional | 광고 여부<br/>true/false |
-| templateIds | List<String> | - | Optional | 템플릿 ID 리스트 |
-| from | String | - | Optional | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | Optional | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
+| statisticsType | String | - | Required | Type of statistics<br/>NORMAL:Default, MINUTELY:By the minute, HOURLY: By the hour, DAILY: By the day, BY_DAY:By hour, DAY:By day |
+| statsIds | List<String> | - | Optional | Statistics ID List |
+| messageType | String | - | Optional | Message Type <br/>SMS, LMS, MMS, AUTH |
+| isAd | Boolean | - | Optional | Ad or Not <br/>true/false |
+| templateIds | List<String> | - | Optional | Template ID List |
+| from | String | - | Optional | Start Date of Statistics Search<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | Optional | End Date of Statistics Search <br/>yyyy-MM-dd HH:mm:ss |
 
 #### Response
 ```
@@ -3262,20 +3262,20 @@ Content-Type : multipart/form-data;
 |header.isSuccessful|	Boolean|	Successful or not|
 |header.resultCode|	Integer|	Failure code|
 |header.resultMessage|	String|	Failure message|
-|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
-|body.data.events[].requested |	Integer|	요청 개수|
-|body.data.events[].sent |	Integer|	발송 개수|
-|body.data.events[].sentFailed |	Integer|	실패 개수|
-|body.data.events[].received |	Integer|	성공 개수|
+|body.data.eventDateTime |	String|	Display name<br/> Minutely, Hourly, Daily, Monthly|
+|body.data.events[].requested |	Integer|	Request count|
+|body.data.events[].sent |	Integer|	Delivery count|
+|body.data.events[].sentFailed |	Integer|	Failure count|
+|body.data.events[].received |	Integer|	Success count|
 
-### 통계 검색 - 요청 시간 기반
-* 발송 요청 시간 기준으로 수집된 통계입니다.
-* 다음 시간 기준으로 통계가 수집됩니다.
-    * 요청 개수(requested): 발송 요청 시간
-    * 발송 개수(sent): 발송 요청 시간으로, 개수가 증가하는 시점은 통신 사업자(밴더)로 발송 요청한 시간
-    * 성공 개수(received): 발송 요청 시간으로, 개수가 증가하는 시점은 실제 단말기 수신 시간
-    * 실패 개수(sentFailed): 발송 요청 시간으로, 개수가 증가하는 시점은 실패 응답이 발생한 시간
-
+### Statistics Search - Based on Request Time 
+* Statistics are collected based on delivery request time. 
+* Statistics are collected based on the following criteria: 
+    * Request Count (requested): Delivery request time 
+    * Delivery Count (sent): Delivery request time, with the increase incurred when delivery is requested to telecom provider (vendor)
+    * Success count (received): Delivery request time, with the increase incurred on the actual received time on device
+    * Failure Count (sentFailed): Delivery request time, with the increase incurred on the response time of failure
+    
 #### Request
 
 [URL]
@@ -3292,15 +3292,15 @@ Content-Type : multipart/form-data;
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | Required |설명|
+|Value|	Type|	Max Length | Required |Description|
 |---|---|---|---|---|
-| statisticsType | String | - | Required | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
-| statsIds | List<String> | - | Optional | 통계 ID 리스트 |
-| messageType | String | - | Optional | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
-| isAd | Boolean | - | Optional | 광고 여부<br/>true/false |
-| templateIds | List<String> | - | Optional | 템플릿 ID 리스트 |
-| from | String | - | Optional | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | Optional | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
+| statisticsType | String | - | Required | Statistics Category <br/>NORMAL:Default, MINUTELY:By the minute, HOURLY:By the hour, DAILY: By the day, BY_DAY:By time, DAY:By day |
+| statsIds | List<String> | - | Optional | Statistics ID List |
+| messageType | String | - | Optional | Message Type <br/>SMS, LMS, MMS, AUTH |
+| isAd | Boolean | - | Optional | Ad or not <br/>true/false |
+| templateIds | List<String> | - | Optional | Template ID List |
+| from | String | - | Optional | Start date of statistics search <br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | Optional | End date of statistics search <br/>yyyy-MM-dd HH:mm:ss |
 
 #### Response
 ```
@@ -3334,14 +3334,14 @@ Content-Type : multipart/form-data;
 |header.isSuccessful|	Boolean|	Successful or not|
 |header.resultCode|	Integer|	Failure code|
 |header.resultMessage|	String|	Failure message|
-|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
-|body.data.events[].requested |	Integer|	요청 개수|
-|body.data.events[].sent |	Integer|	발송 개수|
-|body.data.events[].sentFailed |	Integer|	실패 개수|
-|body.data.events[].received |	Integer|	성공 개수|
-|body.data.events[].pending |	Integer|	발송 중 개수|
+|body.data.eventDateTime |	String|	Display name <br/>Minutely,Hourly, Daily, and Monthly|
+|body.data.events[].requested |	Integer|	Request count|
+|body.data.events[].sent |	Integer|	Delivery count|
+|body.data.events[].sentFailed |	Integer|	Failure count|
+|body.data.events[].received |	Integer|	Success count|
+|body.data.events[].pending |	Integer|	Under Delivery Count|
 
-### (구)Query Integrated Statistics 
+### (Old)Query Integrated Statistics 
 
 #### Request
 
