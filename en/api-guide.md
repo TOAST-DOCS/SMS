@@ -3228,6 +3228,7 @@ Content-Type : multipart/form-data;
 | messageType | String | - | Optional | Message Type <br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | Optional | Ad or Not <br/>true/false |
 | templateIds | List<String> | - | Optional | Template ID List |
+| requestIds | List<String> | - | Optional | Request ID List |
 | from | String | - | Optional | Start Date of Statistics Search<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | Optional | End Date of Statistics Search <br/>yyyy-MM-dd HH:mm:ss |
 
@@ -3282,7 +3283,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+|GET|	/sms/v2.3/appKeys/{appKey}}/stats/legacy|
 
 [Path parameter]
 
@@ -3299,6 +3300,7 @@ Content-Type : multipart/form-data;
 | messageType | String | - | Optional | Message Type <br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | Optional | Ad or not <br/>true/false |
 | templateIds | List<String> | - | Optional | Template ID List |
+| requestIds | List<String> | - | Optional | Request ID List |
 | from | String | - | Optional | Start date of statistics search <br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | Optional | End date of statistics search <br/>yyyy-MM-dd HH:mm:ss |
 

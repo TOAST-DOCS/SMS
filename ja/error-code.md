@@ -363,7 +363,7 @@ EMMA Version： EMMA V3.3.0以上
 	</tr>
 	<tr>
 		<td>1020</td>
-		<td>charset conversion error {@確認 - ハングルに修正してもいいですか。}</td>
+		<td>charset conversion error</td>
 	</tr>
 	<tr>
 		<td rowspan=24>IB EMMA</td>
@@ -462,48 +462,6 @@ EMMA Version： EMMA V3.3.0以上
 	<tr>
 		<td>E999</td>
 		<td>その他のエラー</td>
-	</tr>
-	<tr>
-		<td rowspan=10>IB認証サーバー</td>
-		<td>1000</td>
-		<td rowspan=10></td>
-		<td> 成功 </td>
-	</tr>
-	<tr>
-		<td>1001</td>
-		<td>IDが存在しない</td>
-	</tr>
-	<tr>
-		<td>1002</td>
-		<td>認証エラー</td>
-	</tr>
-	<tr>
-		<td>1003</td>
-		<td>サーバー内部エラー(DB接続失敗など)</td>
-	</tr>
-	<tr>
-		<td>1004</td>
-		<td>クライアントパスワードの不一致</td>
-	</tr>
-	<tr>
-		<td>1005</td>
-		<td>公開鍵がすでに登録されている</td>
-	</tr>
-	<tr>
-		<td>1006</td>
-		<td>クライアント公開鍵の重複</td>
-	</tr>
-	<tr>
-		<td>1007</td>
-		<td>IP Address認証失敗</td>
-	</tr>
-	<tr>
-		<td>1008</td>
-		<td>MACアドレス認証失敗</td>
-	</tr>
-	<tr>
-		<td>1009</td>
-		<td>サービス拒否(顧客の接続禁止)</td>
 	</tr>
 </tbody>
 </table>

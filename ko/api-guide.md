@@ -3248,6 +3248,7 @@ Content-Type : multipart/form-data;
 | messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
 | templateIds | List<String> | - | 옵션 | 템플릿 ID 리스트 |
+| requestIds | List<String> | - | 옵션 | 요청 ID 리스트 |
 | from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
 
@@ -3302,7 +3303,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+|GET|	/sms/v2.3/appKeys/{appKey}}/stats/legacy|
 
 [Path parameter]
 
@@ -3319,6 +3320,7 @@ Content-Type : multipart/form-data;
 | messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
 | templateIds | List<String> | - | 옵션 | 템플릿 ID 리스트 |
+| requestIds | List<String> | - | 옵션 | 요청 ID 리스트 |
 | from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
 
