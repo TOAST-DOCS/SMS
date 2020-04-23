@@ -369,7 +369,7 @@ EMMA Version: EMMA V3.3.0 이상
 	</tr>
 	<tr>
 		<td>1020</td>
-		<td>charset conversion error {@확인 - 한글로 수정해도 되나요.}</td>
+		<td>charset conversion error</td>
 	</tr>
 	<tr>
 		<td rowspan=24>IB EMMA</td>
@@ -468,48 +468,6 @@ EMMA Version: EMMA V3.3.0 이상
 	<tr>
 		<td>E999</td>
 		<td>기타오류</td>
-	</tr>
-	<tr>
-		<td rowspan=10>IB 인증 서버</td>
-		<td>1000</td>
-		<td rowspan=10></td>
-		<td> 성공 </td>
-	</tr>
-	<tr>
-		<td>1001</td>
-		<td>ID 존재하지 않음</td>
-	</tr>
-	<tr>
-		<td>1002</td>
-		<td>인증 오류</td>
-	</tr>
-	<tr>
-		<td>1003</td>
-		<td>서버 내부 오류 (DB 접속 실패 등)</td>
-	</tr>
-	<tr>
-		<td>1004</td>
-		<td>클라이언트 비밀번호 틀림</td>
-	</tr>
-	<tr>
-		<td>1005</td>
-		<td>공개 키가 이미 등록 되어 있음</td>
-	</tr>
-	<tr>
-		<td>1006</td>
-		<td>클라이언트 공개 키 중복</td>
-	</tr>
-	<tr>
-		<td>1007</td>
-		<td>IP Address 인증 실패</td>
-	</tr>
-	<tr>
-		<td>1008</td>
-		<td>MAC 주소 인증 실패</td>
-	</tr>
-	<tr>
-		<td>1009</td>
-		<td>서비스 거부됨 (고객 접속 금지)</td>
 	</tr>
 </tbody>
 </table>

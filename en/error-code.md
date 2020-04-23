@@ -464,47 +464,5 @@ EMMA Version: EMMA V3.3.0 or higher
 		<td>E999</td>
 		<td> Other errors </td>
 	</tr>
-	<tr>
-		<td rowspan=10> IB authentication server</td>
-		<td>1000</td>
-		<td rowspan=10></td>
-		<td> Successful </td>
-	</tr>
-	<tr>
-		<td>1001</td>
-		<td> Unavailable ID </td>
-	</tr>
-	<tr>
-		<td>1002</td>
-		<td> Authentication error </td>
-	</tr>
-	<tr>
-		<td>1003</td>
-		<td> Internal server error (e.g. failed database access)</td>
-	</tr>
-	<tr>
-		<td>1004</td>
-		<td> Invalid client password </td>
-	</tr>
-	<tr>
-		<td>1005</td>
-		<td> Public key already registered </td>
-	</tr>
-	<tr>
-		<td>1006</td>
-		<td> Client public key duplicated</td>
-	</tr>
-	<tr>
-		<td>1007</td>
-		<td>IP Address authentication failed </td>
-	</tr>
-	<tr>
-		<td>1008</td>
-		<td>MAC address authentication failed </td>
-	</tr>
-	<tr>
-		<td>1009</td>
-		<td>Service denied (customer access prohibited)</td>
-	</tr>
 </tbody>
 </table>

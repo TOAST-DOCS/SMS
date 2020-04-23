@@ -248,7 +248,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "본문","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
 ```
 
-### 단문 SMS 발송리스트 검색
+### 단문 SMS 발송목록 검색
 
 #### 요청
 
@@ -691,7 +691,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
     - 첨부 이미지 사이즈 : 300K 이하
     - 첨부 이미지 해상도 : 1000 x 1000 이하
 
-### 장문 MMS 발송리스트 검색
+### 장문 MMS 발송목록 검색
 
 #### 요청
 
@@ -1112,7 +1112,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신 번호}","recipientList":[{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
 ```
 
-### 인증용 SMS 발송리스트 검색
+### 인증용 SMS 발송목록 검색
 
 #### 요청
 
@@ -1631,7 +1631,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestId|	String|	요청 ID|
 
 
-### 태그 발송 리스트 검색
+### 태그 발송 목록 검색
 
 #### 요청
 
@@ -1727,7 +1727,7 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 |body.data[].updateDate | String | 수정 날짜 |
 
 
-### 태그 발송 수신자 리스트 검색
+### 태그 발송 수신자 목록 검색
 
 #### 요청
 
@@ -1810,7 +1810,7 @@ Content-Type: application/json;charset=UTF-8
 
 
 
-### 태그 발송 수신자 리스트 상세 검색
+### 태그 발송 수신자 목록 상세 검색
 
 #### 요청
 
@@ -2075,7 +2075,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].useYn|	String|	사용 여부|
 |body.data[].createUser|	String|	등록한 사용자|
 
-### 카테고리 리스트 검색
+### 카테고리 목록 검색
 
 #### 요청
 
@@ -2534,7 +2534,7 @@ Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 �
 ```
 
 
-### 템플릿 리스트 검색
+### 템플릿 목록 검색
 
 #### 요청
 
@@ -3132,7 +3132,7 @@ Content-Type : multipart/form-data;
 |body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
 |body.data[].authType|	String|	요청 인증 타입<br/>- SMS_AUTH:SMS인증<br/>- DOCUMENT_AUTH:서류인증<br/>- REGIST_AUTH:수동인증|
-|body.data[].sendNos[]|	List<String>|	등록요청 발신 번호 리스트|
+|body.data[].sendNos[]|	List<String>|	등록요청 발신 번호 목록|
 |body.data[].comment|	String|	커멘트 항목|
 |body.data[].fileIds[]|	List<Integer>|	서류 인증 시 업로드한 파일 ID(내부용)|
 |body.data[].status|	String|	요청상태<br/>- REGIST_REQUEST(SRS01)<br/>- EXAMINE(SRS02)<br/>- COMPLETE(SRS03)<br/>- REJECT(SRS04)<br/>- CERTIFYING(SRS05)<br/>- CERTIFY_FAILED(SRS06)<br/>- MANUAL_REGIST(SRS07)|
@@ -3142,7 +3142,7 @@ Content-Type : multipart/form-data;
 
 
 
-### 등록된 발신 번호 리스트 검색 API
+### 등록된 발신 번호 목록 검색 API
 
 #### 요청
 
@@ -3244,10 +3244,11 @@ Content-Type : multipart/form-data;
 |값|	타입|	최대 길이 | 필수 |설명|
 |---|---|---|---|---|
 | statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
-| statsIds | List<String> | - | 옵션 | 통계 ID 리스트 |
+| statsIds | List<String> | - | 옵션 | 통계 ID 목록 |
 | messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
-| templateIds | List<String> | - | 옵션 | 템플릿 ID 리스트 |
+| templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
+| requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
 | from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
 
@@ -3302,7 +3303,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+|GET|	/sms/v2.3/appKeys/{appKey}}/stats/legacy|
 
 [Path parameter]
 
@@ -3315,10 +3316,11 @@ Content-Type : multipart/form-data;
 |값|	타입|	최대 길이 | 필수 |설명|
 |---|---|---|---|---|
 | statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
-| statsIds | List<String> | - | 옵션 | 통계 ID 리스트 |
+| statsIds | List<String> | - | 옵션 | 통계 ID 목록 |
 | messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
-| templateIds | List<String> | - | 옵션 | 템플릿 ID 리스트 |
+| templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
+| requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
 | from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
 
@@ -4324,7 +4326,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.uids[].contacts[].contactType| String | 연락처 타입 |
 |body.data.uids[].contacts[].contact| String | 연락처(휴대폰 번호) |
 |body.data.uids[].contacts[].createdDate| String | 연락처 생성 일시 |
-|body.data.uids[].isLast| Boolean| 마지막 리스트 여부 |
+|body.data.uids[].isLast| Boolean| 마지막 목록 여부 |
 |body.data.uids[].totalCount| Integer| 총 데이터 건수 |
 
 ### UID 단건 검색
