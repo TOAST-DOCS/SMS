@@ -3228,7 +3228,7 @@ Content-Type : multipart/form-data;
 | messageType | String | - | オプション | メッセージタイプ<br/>SMS、LMS、MMS、AUTH |
 | isAd | Boolean | - | オプション | 広告かどうか<br/>true/false |
 | templateIds | List<String> | - | オプション | テンプレートIDリスト |
-| requestIds | List<String> | - | オプション | リクエストIDリスト |
+| requestIds | List<String> | 5 | オプション | リクエストIDリスト |
 | from | String | - | オプション | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | オプション | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 
@@ -3300,7 +3300,7 @@ Content-Type : multipart/form-data;
 | messageType | String | - | オプション | メッセージタイプ<br/>SMS、LMS、MMS、AUTH |
 | isAd | Boolean | - | オプション | 広告かどうか<br/>true/false |
 | templateIds | List<String> | - | オプション | テンプレートIDリスト |
-| requestIds | List<String> | - | オプション | リクエストIDリスト |
+| requestIds | List<String> | 5 | オプション | リクエストIDリスト |
 | from | String | - | オプション | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | オプション | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 
