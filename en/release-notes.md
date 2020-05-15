@@ -1,6 +1,6 @@
 ## Notification > SMS > Release Notes
 
-### Aprol 28, 2020
+### April 28, 2020
 ### Feature Updates
 * [Console] Backup is available for delivery list data older than 180 days 
     * Newly added a feature of creating backup files in OBS or AWS S3 for delivery data (general/mass/tag) that are older than 180 days.
