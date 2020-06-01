@@ -685,7 +685,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 - [[添付ファイルアップロード](./api-guide/#binaryUpload)]</a> ガイドを参照してください。
 - 付イメージ制限事項
     - サポートコーデック：.jpg
-    - 添付イメージ数：3個以下
+    - 添付イメージ数：2個以下
     - 添付イメージサイズ：300KB以下
     - 添付イメージ解像度：1000 x 1000以下
 
@@ -2389,7 +2389,7 @@ Content-Type: application/json;charset=UTF-8
 - [[添付ファイルアップロード](./api-guide/#binaryUpload)]</a> ガイドを参照してください。
 - 付イメージ制限事項
     - サポートコーデック：.jpg
-    - 添付イメージ数：3個以下
+    - 添付イメージ数：2個以下
     - 添付イメージサイズ：300KB以下
     - 添付イメージ解像度：1000 x 1000以下
 
