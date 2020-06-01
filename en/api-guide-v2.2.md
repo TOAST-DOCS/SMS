@@ -660,7 +660,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
   },
   "body": {
     "data": {
-      "requestId": "1-201607-424631-1",
+      "requestId": "20180810100630ReZQ6KZzAH0",
       "statusCode": "2",
       "senderGroupingKey": "SenderGrouping",
       "sendResultList" : [
