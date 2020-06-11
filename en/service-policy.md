@@ -67,4 +67,13 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
     + Press 114 on mobile phone + Call
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
 
-
+<span id="rejection-of-receiving-080"></span>
+### 080 수신 거부 Unsubscribing 080 Numbers
++ With Unsubscribe 080 Numbers, recipients can reject receiving ad messages.  re  수신 거부 서비스는 광고 문자 발송 시, 수신자에게 수신 거부를 제공하는 서비스입니다.
++ Ads must sent along with how to unsubscribe for free, so that recipients can reject or withdraw consent to receiving ads, without a charge.   Advertisement 광고성 정보 전송 시, 수신자가 수신 거부나 수신 동의 철회를 무료로 할 수 있도록 무료 수신 거부 방법을 반드시 포함해야 합니다.
+### Please Check 
++ Charges for Unsubscribe 080 Numbers are not based on the delivery time, but upon the public release of each number (monthly fixed charges),    수신 거부 서비스는 발송 시간이 아니라. 080 서비스 번호가 개통된 이후부터 과금됩니다(월 정액).
++ It takes about 3 to 4 days to get a new number for unsubscription, and one-off or repetitive service cancellation or application is not recommended.  수신 거부 번호는 새로 발급받기까지 3~4일 정도 걸리므로. 일시적이고 반복적인 해지와 신청은 권고하지 않습니다.
++ Please note that a service opening cannot be cancelled while registration is reserved. 약 상태에서는 개통을 취소할 수 없으므로, 등록 시 유의해 주시기 바랍니다.
++ Registered 080 numbers for unsubscription cannot be applied for any other projects.  등록된 080 수신 거부 번호는 다른 프로젝트에서 사용할 수 없습니다.
++ When 080 수신 거부 번호가 해지된 경우 또는 외부에서 신청한 080 번호인 경우에는 발송에 실패합니다.
