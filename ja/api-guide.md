@@ -3211,7 +3211,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+|GET|	/sms/v2.3/appKeys/{appKey}/stats|
 
 [Path parameter]
 
@@ -3224,13 +3224,13 @@ Content-Type : multipart/form-data;
 |値|	タイプ|	最大長 | 必須 |説明|
 |---|---|---|---|---|
 | statisticsType | String | - | 必須 | 統計区分<br/>NORMAL：基本、 MINUTELY：分別、HOURLY：時間別、DAILY：日別、BY_DAY：時間別、DAY：曜日別 |
+| from | String | - | 必須 | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | 必須 | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | オプション | 統計IDリスト |
 | messageType | String | - | オプション | メッセージタイプ<br/>SMS、LMS、MMS、AUTH |
 | isAd | Boolean | - | オプション | 広告かどうか<br/>true/false |
 | templateIds | List<String> | - | オプション | テンプレートIDリスト |
 | requestIds | List<String> | 5 | オプション | リクエストIDリスト |
-| from | String | - | オプション | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | オプション | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 
 #### レスポンス
 ```
@@ -3283,7 +3283,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/stats/legacy|
+|GET|	/sms/v2.3/appKeys/{appKey}/stats/legacy|
 
 [Path parameter]
 
@@ -3296,13 +3296,13 @@ Content-Type : multipart/form-data;
 |値|	タイプ|	最大長 | 必須 |説明|
 |---|---|---|---|---|
 | statisticsType | String | - | 必須 | 統計区分<br/>NORMAL：基本、 MINUTELY：分別、HOURLY：時間別、DAILY：日別、BY_DAY：時間別、DAY：曜日別 |
+| from | String | - | 必須 | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | 必須 | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | オプション | 統計IDリスト |
 | messageType | String | - | オプション | メッセージタイプ<br/>SMS、LMS、MMS、AUTH |
 | isAd | Boolean | - | オプション | 広告かどうか<br/>true/false |
 | templateIds | List<String> | - | オプション | テンプレートIDリスト |
 | requestIds | List<String> | 5 | オプション | リクエストIDリスト |
-| from | String | - | オプション | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | オプション | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 
 #### レスポンス
 ```
@@ -3351,7 +3351,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
+|GET|	/sms/v2.3/appKeys/{appKey}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
 
 [Path parameter]
 
