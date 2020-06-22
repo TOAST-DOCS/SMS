@@ -665,7 +665,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
   },
   "body": {
     "data": {
-      "requestId": "1-201607-424631-1",
+      "requestId": "20180810100630ReZQ6KZzAH0",
       "statusCode": "2",
       "senderGroupingKey": "SenderGrouping",
       "sendResultList" : [
@@ -687,7 +687,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 - [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
 - 첨부 이미지 제한 사항
     - 지원 코덱 : jpg
-    - 첨부 이미지 개수 : 3개 이하
+    - 첨부 이미지 개수 : 2개 이하
     - 첨부 이미지 사이즈 : 300K 이하
     - 첨부 이미지 해상도 : 1000 x 1000 이하
 
@@ -3231,7 +3231,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+|GET|	/sms/v2.3/appKeys/{appKey}/stats|
 
 [Path parameter]
 
@@ -3244,13 +3244,13 @@ Content-Type : multipart/form-data;
 |값|	타입|	최대 길이 | 필수 |설명|
 |---|---|---|---|---|
 | statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
+| from | String | - | 필수 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | 필수 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | 옵션 | 통계 ID 목록 |
 | messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
 | templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
 | requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
-| from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
 
 #### 응답
 ```
@@ -3303,7 +3303,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/stats/legacy|
+|GET|	/sms/v2.3/appKeys/{appKey}/stats/legacy|
 
 [Path parameter]
 
@@ -3316,13 +3316,13 @@ Content-Type : multipart/form-data;
 |값|	타입|	최대 길이 | 필수 |설명|
 |---|---|---|---|---|
 | statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:시간별, DAY:요일별 |
+| from | String | - | 필수 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | 필수 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | 옵션 | 통계 ID 목록 |
 | messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
 | templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
 | requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
-| from | String | - | 옵션 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | 옵션 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
 
 #### 응답
 ```
@@ -3372,7 +3372,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
+|GET|	/sms/v2.3/appKeys/{appKey}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
 
 [Path parameter]
 

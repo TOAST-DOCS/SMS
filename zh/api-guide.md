@@ -662,7 +662,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
   },
   "body": {
     "data": {
-      "requestId": "1-201607-424631-1",
+      "requestId": "20180810100630ReZQ6KZzAH0",
       "statusCode": "2",
       "senderGroupingKey": "SenderGrouping",
       "sendResultList" : [
@@ -684,7 +684,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
 - Restrictions for Attached Images 
     * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 3 
+    * Number of Attached Images: Less than 2 
     * Size of Attached Image: Less than 300KB 
     * Resolution of Image: Less than 1000 x 1000  
 
@@ -2386,7 +2386,7 @@ Content-Type: application/json;charset=UTF-8
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
 - Restrictions for Attached Images 
     * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 3 
+    * Number of Attached Images: Less than 2 
     * Size of Attached Image: Less than 300KB 
     * Resolution of Image: Less than 1000 x 1000  
 
@@ -3211,7 +3211,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/stats|
+|GET|	/sms/v2.3/appKeys/{appKey}/stats|
 
 [Path parameter]
 
@@ -3224,13 +3224,13 @@ Content-Type : multipart/form-data;
 |Value|	Type|	Maximum Length | Required |Description|
 |---|---|---|---|---|
 | statisticsType | String | - | Required | Type of statistics<br/>NORMAL:Default, MINUTELY:By the minute, HOURLY: By the hour, DAILY: By the day, BY_DAY:By hour, DAY:By day |
+| from | String | - | Required | Start Date of Statistics Search<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | Required | End Date of Statistics Search <br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | Optional | Statistics ID List |
 | messageType | String | - | Optional | Message Type <br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | Optional | Ad or Not <br/>true/false |
 | templateIds | List<String> | - | Optional | Template ID List |
 | requestIds | List<String> | 5 | Optional | Request ID List |
-| from | String | - | Optional | Start Date of Statistics Search<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | Optional | End Date of Statistics Search <br/>yyyy-MM-dd HH:mm:ss |
 
 #### Response
 ```
@@ -3283,7 +3283,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/stats/legacy|
+|GET|	/sms/v2.3/appKeys/{appKey}/stats/legacy|
 
 [Path parameter]
 
@@ -3296,13 +3296,13 @@ Content-Type : multipart/form-data;
 |Value|	Type|	Max Length | Required |Description|
 |---|---|---|---|---|
 | statisticsType | String | - | Required | Statistics Category <br/>NORMAL:Default, MINUTELY:By the minute, HOURLY:By the hour, DAILY: By the day, BY_DAY:By time, DAY:By day |
+| from | String | - | Required | Start date of statistics search <br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | Required | End date of statistics search <br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | Optional | Statistics ID List |
 | messageType | String | - | Optional | Message Type <br/>SMS, LMS, MMS, AUTH |
 | isAd | Boolean | - | Optional | Ad or not <br/>true/false |
 | templateIds | List<String> | - | Optional | Template ID List |
 | requestIds | List<String> | 5 | Optional | Request ID List |
-| from | String | - | Optional | Start date of statistics search <br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | Optional | End date of statistics search <br/>yyyy-MM-dd HH:mm:ss |
 
 #### Response
 ```
@@ -3351,7 +3351,7 @@ Content-Type : multipart/form-data;
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
+|GET|	/sms/v2.3/appKeys/{appKey/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
 
 [Path parameter]
 

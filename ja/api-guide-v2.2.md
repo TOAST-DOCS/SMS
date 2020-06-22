@@ -660,7 +660,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
   },
   "body": {
     "data": {
-      "requestId": "1-201607-424631-1",
+      "requestId": "20180810100630ReZQ6KZzAH0",
       "statusCode": "2",
       "senderGroupingKey": "SenderGrouping",
       "sendResultList" : [
@@ -680,11 +680,11 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 ##### 説明
 - 添付ファイル(フィールド名：attachFileIdList)を含む長文MMSを送信するためには、事前に添付ファイルのアップロードを行う必要があります。<br>
 - [[添付ファイルアップロード](./api-guide/#binaryUpload)]</a> ガイドを参照してください。
-- 첨부 이미지 제한 사항
-    - 지원 코덱 : jpg
-    - 첨부 이미지 개수 : 3개 이하
-    - 첨부 이미지 사이즈 : 300K 이하
-    - 첨부 이미지 해상도 : 1000 x 1000 이하
+- 付イメージ制限事項
+    - サポートコーデック：.jpg
+    - 添付イメージ数：2個以下
+    - 添付イメージサイズ：300KB以下
+    - 添付イメージ解像度：1000 x 1000以下
 
 ### 長文MMS送信リストの照会
 
@@ -2407,11 +2407,11 @@ Content-Type: application/json;charset=UTF-8
 ##### 説明
 - 添付ファイル(フィールド名：attachFileIdList)を含むテンプレートの登録するためには、事前に添付ファイルのアップロードを行う必要があります。<br>
 - [[添付ファイルアップロード](./api-guide/#binaryUpload)]</a> ガイドを参照してください。
-- 첨부 이미지 제한 사항
-    - 지원 코덱 : jpg
-    - 첨부 이미지 개수 : 3개 이하
-    - 첨부 이미지 사이즈 : 300K 이하
-    - 첨부 이미지 해상도 : 1000 x 1000 이하
+- 付イメージ制限事項
+    - サポートコーデック：.jpg
+    - 添付イメージ数：2個以下
+    - 添付イメージサイズ：300KB以下
+    - 添付イメージ解像度：1000 x 1000以下
 
 
 ### テンプレート送信(本文修正が必要ない場合)

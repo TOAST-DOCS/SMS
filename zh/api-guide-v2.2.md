@@ -660,7 +660,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
   },
   "body": {
     "data": {
-      "requestId": "1-201607-424631-1",
+      "requestId": "20180810100630ReZQ6KZzAH0",
       "statusCode": "2",
       "senderGroupingKey": "SenderGrouping",
       "sendResultList" : [
@@ -682,7 +682,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
 - Restrictions for Attached Images 
     * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 3 
+    * Number of Attached Images: Less than 2 
     * Size of Attached Image: Less than 300KB 
     * Resolution of Image: Less than 1000 x 1000  
 
@@ -2407,7 +2407,7 @@ Content-Type: application/json;charset=UTF-8
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
 - Restrictions for Attached Images 
     * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 3 
+    * Number of Attached Images: Less than 2 
     * Size of Attached Image: Less than 300KB 
     * Resolution of Image: Less than 1000 x 1000  
 

@@ -67,4 +67,15 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
     + Press 114 on mobile phone + Call
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
 
+<span id="rejection-of-receiving-080"></span>
 
+### Unsubscribing 080 Numbers
++ With Unsubscribe 080 Numbers, recipients can reject receiving ad messages.  
++ Ads must be sent along with how to unsubscribe for free, so that recipients can reject or withdraw consent to receiving ads, without a charge.   
+
+### Please Check 
++ Charges for Unsubscribe 080 Numbers are not based on the delivery time, but upon the public release of each number (monthly fixed charges).
++ It takes about 3 to 4 days to get a new number for unsubscription, so one-off or repetitive service cancellation or application is not recommended. 
++ Please note that a service opening cannot be cancelled while registration is reserved. 
++ Once registered for unsubscription, 080 numbers cannot be used for any other projects.  
++ 080 numbers that are cancelled from unsubscription or applied externally, delivery shall fail.  
