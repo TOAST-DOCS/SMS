@@ -189,7 +189,14 @@ Content-Type: application/json;charset=UTF-8
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"body": "{본문 내용}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01050080083","recipientGroupingKey":"RecipientGroupingKey2"}]}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms'
 ```
 
 #### 단문 SMS 발송 예제(국가 코드가 포함된 수신 번호)
@@ -245,7 +252,14 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "본문","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"body": "본문","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821050080083"}]}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms'
 ```
 
 ### 단문 SMS 발송목록 검색
@@ -366,6 +380,18 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+S_DATE='2020-08-01T00:00:00'
+E_DATE='2020-08-10T00:00:00'
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${S_DATE}"'&endRequestDate='"${E_DATE}"
+```
+
 ### 단문 SMS 발송 단일 검색
 
 #### 요청
@@ -458,6 +484,18 @@ Content-Type: application/json;charset=UTF-8
 |body.data.adYn|	String|	광고 여부|
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
 |body.data.recipientGroupingKey|	String|	수신자 그룹키|
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+R_ID=20200803154552jU1kQvuaDk0
+R_SEQ=1
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${R_ID}"'?mtPr='"${R_SEQ}"
+```
 
 ## 장문 MMS
 
@@ -628,7 +666,14 @@ Content-Type: application/json;charset=UTF-8
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms -d '{"title": "{제목}","body": "{본문 내용}","sendNo": "{발신 번호}","recipientList": [{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"title": "{제목}","body": "{본문 내용}","sendNo": "15446859","recipientList": [{"recipientNo": "01050080083","templateParameter": { }}],"userId": ""}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms'
 ```
 
 ### 장문 MMS 발송(첨부 파일 포함)
@@ -690,6 +735,19 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
     - 첨부 이미지 개수 : 2개 이하
     - 첨부 이미지 사이즈 : 300K 이하
     - 첨부 이미지 해상도 : 1000 x 1000 이하
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"title": "{제목}","body": "{본문 내용}","sendNo": "15446859","attachFileIdList": [0],"recipientList": [{"recipientNo": "01050080083","templateParameter": { }}],"userId": ""}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms'
+```
+
 
 ### 장문 MMS 발송목록 검색
 
@@ -823,6 +881,18 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+S_DATE='2020-08-01T00:00:00'
+E_DATE='2020-08-10T00:00:00'
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${S_DATE}"'&endRequestDate='"${E_DATE}"
+```
+
 
 ### 장문 MMS 발송 단일 검색
 
@@ -933,6 +1003,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].attachFileList[].uploadType|	String|	업로드 타입|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
+
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+R_ID=20200803154435di4K7nwb2J2
+R_SEQ=1
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${R_ID}"'?mtPr='"${R_SEQ}"
+```
 
 ## 인증용 SMS(긴급)
 
@@ -1109,8 +1192,17 @@ Content-Type: application/json;charset=UTF-8
 
 [curl]
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신 번호}","recipientList":[{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"body": "인증 테스트","sendNo": "15446859","recipientList":[{"recipientNo": "01050080083","templateParameter": { }}],"userId": ""}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms'
 ```
+
+
 
 ### 인증용 SMS 발송목록 검색
 
@@ -1230,6 +1322,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹키|
 
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+S_DATE='2020-08-01T00:00:00'
+E_DATE='2020-08-11T00:00:00'
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${S_DATE}"'&endRequestDate='"${E_DATE}"
+```
+
 ### 인증용 SMS 발송 단일 검색
 
 #### 요청
@@ -1323,6 +1428,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
 |body.data.recipientGroupingKey|	String|	수신자 그룹키|
 
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+R_ID=20200810151355i3V51xjqEJ3
+R_SEQ=1
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${R_ID}"'?mtPr='"${R_SEQ}"
+```
+
 ## 광고 문자
 ### 광고성 SMS 발송
 
@@ -1346,11 +1464,24 @@ Content-Type: application/json;charset=UTF-8
 [[Request Body 참고](./api-guide/#sms_2)]
 
 <span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+
 080 번호는 콘솔의 **080 수신 거부 설정** 탭에서 확인할 수 있습니다.
 ```
 (광고)
 
 [무료 수신 거부]080XXXXXXX
+```
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"body": "(광고) 테스트\n [무료 수신 거부]0808880327","sendNo": "15446859","recipientList":[{"recipientNo": "01050080083","templateParameter": { }}],"userId": ""}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-sms'
 ```
 
 
@@ -1376,6 +1507,7 @@ Content-Type: application/json;charset=UTF-8
 [[Request Body 참고](./api-guide/#mms_1)]
 
 <span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+
 080 번호는 콘솔의 **080 수신 거부 설정** 탭에서 확인할 수 있습니다.
 ```
 (광고)
@@ -1383,6 +1515,17 @@ Content-Type: application/json;charset=UTF-8
 [무료 수신 거부]080XXXXXXX
 ```
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"title": "{제목}","body": "(광고) 테스트\n [무료 수신 거부]0808880327","sendNo": "15446859","recipientList": [{"recipientNo": "01050080083","templateParameter": { }}],"userId": ""}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-mms'
+```
 
 
 ## 결과 업데이트 기준 메시지 검색
@@ -1399,6 +1542,7 @@ Content-Type: application/json;charset=UTF-8
 GET /sms/v2.3/appKeys/{appKey}/message-results?startUpdateDate={startUpdateDate}&endUpdateDate={endUpdateDate}&messageType={messageType}&pageNum={pageNum}&pageSize={pageSize}
 Content-Type: application/json;charset=UTF-8
 ```
+
 
 [Path parameter]
 
@@ -1466,6 +1610,20 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultUpdateList[].senderGroupingKey | String | 발신자 그룹 키 |
 |body.data.resultUpdateList[].recipientGroupingKey | String | 수신자 그룹 키 |
 
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"title": "{제목}","body": "(광고) 테스트\n [무료 수신 거부]0808880327","sendNo": "15446859","recipientList": [{"recipientNo": "01050080083","templateParameter": { }}],"userId": ""}'
+S_DATE='2020-08-01T00:00:00'
+E_DATE='2020-08-10T00:00:00'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${S_DATE}"'&endRequestDate='"${E_DATE}"
+```
 
 ## 태그 발송
 
@@ -1545,6 +1703,18 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.data.requestId|	String|	요청 ID|
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"body":"본문","sendNo":"15446859","templateParameter":{"key":"value"},"tagExpression":["TsNuyRPF"],"userId":"user_id","adYn":"N","autoSendYn":"N","statsId":"statsId"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/sms'
+```
 
 ### 태그 LMS 발송
 ※ LMS는 해외발송이 불가능합니다.
@@ -1630,6 +1800,17 @@ Content-Type: application/json;charset=UTF-8
 |header.resultMessage|	String|	실패 메시지|
 |body.data.requestId|	String|	요청 ID|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"title":"제목","body":"본문","sendNo":"15446859","templateParameter":{"key":"value"},"tagExpression":["TsNuyRPF"],"userId":"user_id","adYn":"N","autoSendYn":"Y"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/mms'
+```
 
 ### 태그 발송 목록 검색
 
@@ -1726,6 +1907,17 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 |body.data[].updateUser | String | 수정한 사용자 |
 |body.data[].updateDate | String | 수정 날짜 |
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+R_ID=20200810174242wQCePWBUlj1
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${R_ID}"
+```
+
 
 ### 태그 발송 수신자 목록 검색
 
@@ -1808,6 +2000,16 @@ Content-Type: application/json;charset=UTF-8
 |body.data.createDate | String | 등록 일시 |
 |body.data.updateDate | String | 수정 날짜 |
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+R_ID=20200810174242wQCePWBUlj1
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/'"${R_ID}"
+```
 
 
 ### 태그 발송 수신자 목록 상세 검색
@@ -1894,6 +2096,18 @@ X
 |body.data.attachFileList[].createDate | String | 첨부 파일 - 생성 일시 |
 |body.data.attachFileList[].updateDate | String | 첨부 파일 - 수정 날짜 |
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+R_ID=20200810174242wQCePWBUlj1
+R_SEQ=1
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/'"${R_ID}"'/'"${R_SEQ}"
+```
+
 
 <span id="binaryUpload"></span>
 ## 첨부 파일
@@ -1959,8 +2173,6 @@ Content-Type: application/json;charset=UTF-8
 |body.data.filePath|	String|	첨부 파일 기본 경로 <br/> (https://domain/attachFile/filePath/fileName)|
 
 
-
-
 #### 첨부 파일 업로드 예제
 
 | Http method | URL |
@@ -1992,6 +2204,21 @@ Content-Type: application/json;charset=UTF-8
         }
     }
 }
+```
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"fileName":"attachement.jpg","createUser":"API Guide","fileBody":"1234567890"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload'
+
+아래 응답이 옴
+{"header":{"isSuccessful":false,"resultCode":-9997,"resultMessage":"Invalid API parameters."},"body":null}
 ```
 
 ## 카테고리
@@ -2075,6 +2302,18 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].useYn|	String|	사용 여부|
 |body.data[].createUser|	String|	등록한 사용자|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"categoryParentId":0,"categoryName":"API Guide","categoryDesc":"API 가이드 테스트","useYn":"Y","createUser":"API Guide"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/categories'
+```
+
 ### 카테고리 목록 검색
 
 #### 요청
@@ -2151,6 +2390,16 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].updateDate|	String|	수정 날짜|
 |body.data[].updateUser|	String|	수정한 사용자|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/categories'
+```
+
 ### 카테고리 단건 검색
 
 #### 요청
@@ -2215,6 +2464,17 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].updateDate|	String|	수정 날짜|
 |body.data[].updateUser|	String|	수정한 사용자|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+C_ID=3492
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}"
+```
+
 
 ### 카테고리 수정
 
@@ -2265,6 +2525,19 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"categoryParentId":788,"categoryName":"secondMMS","categoryDesc":"second category MMS","useYn":"Y","createUser":"467d9790-ea74-11e5-9ad3-005056ac76e8"}'
+C_ID=3492
+
+curl -X PUT \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}"
+```
+
 ### 카테고리 삭제
 
 #### 요청
@@ -2295,7 +2568,17 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+C_ID=123109230
 
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}"
+```
 
 
 ## 템플릿
@@ -2410,6 +2693,18 @@ Content-Type: application/json;charset=UTF-8
     - 첨부 이미지 개수 : 3개 이하
     - 첨부 이미지 사이즈 : 300K 이하
     - 첨부 이미지 해상도 : 1000 x 1000 이하
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"categoryId":199376,"templateId":"TemplateId","templateName":"템플릿 발송 예시","templateDesc":"템플릿 발송 예시","sendNo":"01012341234","sendType":"1","title":"example","body":"일반 발송 테스트용 입니다.\r\n##key1## 님 안녕하세요.\r\n##key2## 입니다.","useYn":"Y"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/templates'
+```
 
 
 ### 템플릿 발송(본문 수정이 필요 없는 경우)
@@ -2646,6 +2941,18 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].attachFileList[].createDate|	String|	첨부 파일 등록 날짜|
 |body.data[].attachFileList[].createUser|	String|	첨부 파일 등록 사용자|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/templates'
+```
+
+
 
 ### 템플릿 단일 검색
 
@@ -2753,6 +3060,17 @@ Content-Type: application/json;charset=UTF-8
 |body.data.attachFileList[].createDate|	String|	첨부 파일 등록 날짜|
 |body.data.attachFileList[].createUser|	String|	첨부 파일 등록 사용자|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+T_ID=tempId-psGPs
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${T_ID}"
+```
 
 ### 템플릿 수정
 
@@ -2813,6 +3131,18 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+T_ID=tempId-psGPs
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${T_ID}"
+```
+
 ### 템플릿 삭제
 
 #### 요청
@@ -2841,6 +3171,18 @@ Content-Type: application/json;charset=UTF-8
       "resultMessage" : ""
    }
 }
+```
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+T_ID=aofijaeo
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${T_ID}"
 ```
 
 
@@ -2887,6 +3229,18 @@ Content-Type: application/json;charset=UTF-8
        "resultMessage":"Success"
    }
 }
+```
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"unsubscribeNo":"0800000000","recipientNoList":["0100000000","0100000001"]}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients'
 ```
 
 ### 수신 거부 대상자 검색
@@ -2939,6 +3293,16 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients'
+```
+
 ### 수신 거부 대상자 삭제
 
 #### 요청
@@ -2974,6 +3338,19 @@ Content-Type: application/json;charset=UTF-8
     },
     "body": null
 }
+```
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+U_NO=0808880327
+U_USER=API-Guide
+R_NO=8615140367447
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${U_NO}"'&updateUser='"${U_USER}"'&recipientNoList='"${R_NO}"
 ```
 
 ## 발신 번호
@@ -3028,6 +3405,18 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"sendNos":["1588"],"fileIds":[1],"comment":"테스트"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/reqeusts/sendNos'
+```
+
 ### 발신 번호 서류 업로드
 
 #### 요청
@@ -3065,6 +3454,17 @@ Content-Type : multipart/form-data;
       "filePath" : String
     }
   }
+```
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X POST \
+-H 'Content-Type: multipart/form-data' \
+-F 'attachFile=@/mnt/d/developer-experiences.pdf' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/requests/attachFiles/authDocuments'
 ```
 
 ### 발신 번호 인증 요청 내역 검색 API
@@ -3140,6 +3540,15 @@ Content-Type : multipart/form-data;
 |body.data[].updateDate|	String| 수정 날짜	|
 |body.data[].confirmDate|	String| 승인/거절 일시	|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/requests/sendNos'
+```
 
 
 ### 등록된 발신 번호 목록 검색 API
@@ -3215,6 +3624,17 @@ Content-Type : multipart/form-data;
 |body.data[].updateDate | String | 수정 날짜 |
 |body.data[].updateUser | String | 수정한 사용자 |
 
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sendNos'
+```
+
 ## 통계
 
 ### 통계 검색 - 이벤트 기반
@@ -3288,6 +3708,19 @@ Content-Type : multipart/form-data;
 |body.data.events[].sent |	Integer|	발송 개수|
 |body.data.events[].sentFailed |	Integer|	실패 개수|
 |body.data.events[].received |	Integer|	성공 개수|
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+S_TYPE=NORMAL
+FROM=2020-08-01T00:00:00
+TO=2020-08-10T00:00:00
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${S_TYPE}"'&from='"${FROM}"'&to='"${TO}"
+```
 
 ### 통계 검색 - 요청 시간 기반
 * 발송 요청 시간 기준으로 수집된 통계입니다.
@@ -3536,6 +3969,17 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createDate|	String|	등록 날짜|
 |body.data[].updateDate|	String|	수정 날짜|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations'
+```
+
+
 ### 예약 발송 상세 검색
 
 #### 요청
@@ -3625,6 +4069,17 @@ Content-Type: application/json;charset=UTF-8
 |body.data.attachFileList[].filePath|	String|	파일경로(내부용)|
 |body.data.attachFileList[].fileName|	String|	파일명|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+R_ID=1
+R_SEQ=1
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}"
+```
 
 ### 예약 발송 취소
 
@@ -3688,6 +4143,19 @@ Content-Type: application/json;charset=UTF-8
 |header.resultMessage|	String|	실패 메시지|
 |body.data.requestedCount|	Integer|	취소 요청 건수|
 |body.data.canceledCount|	Integer|	취소 성공 건수|
+
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"reservationList":[{"requestId":"1","recipientSeq":1}],"updateUser":"API Guide"}'
+
+curl -X PUT \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/cancel'
+```
 
 
 ### 예약 발송 취소 - 다중 필터  
@@ -3778,6 +4246,19 @@ Content-Type: application/json;charset=UTF-8
 |body.data.reservationCancelStatus|	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
 
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"searchParameter":{"sendType":"0","startRequestDate":"2020-02-01 00:00","endRequestDate":"2020-02-01 10:00","startCreateDate":"2020-02-01 00:00","endCreateDate":"2020-02-01 10:00","sendNo":"15880000","recipientNo":"0100000000","templateId":"TemplateId","requestId":"20200201010630ReZQ6KZzAH0","createUser":"CreateUser","senderGroupingKey":"SenderGroupingKey"},"updateUser":"API Guide"}'
+
+curl -X PUT \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/search-cancels'
+```
+
+
 ### 예약 발송 취소 요청 목록 검색 - 다중 필터
 
 #### 요청
@@ -3850,6 +4331,18 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createUser |	String| 예약 취소 요청자	|
 |body.data[].createdDateTime |	String|	예약 취소 요청 생성 시간 |
 |body.data[].updatedDateTime |	String|	예약 취소 수정 시간 |
+
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/search-cancels'
+```
 
 
 ## 발송 결과 파일 다운로드
@@ -3950,6 +4443,21 @@ Content-Type: application/json;charset=UTF-8
 |body.data.expiredDate|	String|	다운로드 기간 만료 일시|
 
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"sendType":"1""startRequestDate":"2020-08-01T00:00:00","endRequestDate":"2020-08-08T00:00:00"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/download-reservations'
+
+아래와 같이 응답됨
+{"header":{"isSuccessful":false,"resultCode":-9997,"resultMessage":"Invalid API parameters."},"body":null}
+```
+
 ### 발송 결과 파일 생성 요청 내역 검색
 
 #### 요청
@@ -4024,6 +4532,18 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createDate| String | 파일 생성 요청 일시 |
 |body.data[].updateDate| String | 파일 생성 완료, 실패 일시 |
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations'
+
+위 API와 URI가 다름
+```
+
 
 ### 발송 결과 파일 다운로드 요청
 
@@ -4047,6 +4567,17 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 file byte
+```
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+D_ID=1
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations/'"${D_ID}"'/download'
 ```
 
 ## 태그 관리
@@ -4113,6 +4644,16 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createdDate| String | 생성 일시 |
 |body.data[].tagId| String | 수정 일시 |
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/tags'
+```
+
 ### 태그 등록
 
 [URL]
@@ -4164,6 +4705,18 @@ Content-Type: application/json;charset=UTF-8
 |header.resultMessage|	String|	실패 메시지|
 |body.data.tagId| String | 태그 ID |
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"tagName":"API-Guide"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/tags'
+```
+
 ### 태그 수정
 
 [URL]
@@ -4211,6 +4764,19 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"tagName":"API-Guide2"}'
+T_ID=Xw7XJ4vd
+
+curl -X PUT \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/tags/'"${T_ID}"
+```
+
 ### 태그 삭제
 
 [URL]
@@ -4245,6 +4811,17 @@ Content-Type: application/json;charset=UTF-8
 |header.isSuccessful|	Boolean|	성공 여부|
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+T_ID=Xw7XJ4vd
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/tags/'"${T_ID}"
+```
 
 
 ## UID 관리
@@ -4329,6 +4906,16 @@ Content-Type: application/json;charset=UTF-8
 |body.data.uids[].isLast| Boolean| 마지막 목록 여부 |
 |body.data.uids[].totalCount| Integer| 총 데이터 건수 |
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/uids'
+```
+
 ### UID 단건 검색
 
 #### 요청
@@ -4391,6 +4978,17 @@ GET /sms/v2.3/appKeys/{appKey}/uids/{uid}
 |body.data.contacts[].contactType| String | 연락처 타입 |
 |body.data.contacts[].contact| String | 연락처(휴대폰 번호) |
 |body.data.contacts[].createdDate| String | 연락처 생성 일시 |
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+USER_ID=00100
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"
+```
 
 ### UID 등록
 
@@ -4456,6 +5054,17 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+DATA='{"uids":[{"uid":"USER ID","contacts":[{"contactType":"PHONE_NUMBER","contact":"0100000000"}]}]}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'
+```
 
 ### UID 삭제
 
@@ -4491,6 +5100,17 @@ Content-Type: application/json;charset=UTF-8
 |header.isSuccessful|	Boolean|	성공 여부|
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+USER_ID=00100
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"
+```
 
 ### 휴대폰 번호 등록
 
@@ -4540,6 +5160,19 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+USER_ID=00100
+DATA='{"phoneNumber":"0100000000"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers"
+```
+
 ### 휴대폰 번호 삭제
 
 [URL]
@@ -4575,3 +5208,16 @@ Content-Type: application/json;charset=UTF-8
 |header.isSuccessful|	Boolean|	성공 여부|
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
+
+
+[curl]
+```
+ENDPOINT=https://api-sms.cloud.toast.com
+APP_KEY=JabyrYk4G07YvZTw
+USER_ID=00100
+P_NO=0100000000
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}"
+```
