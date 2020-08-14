@@ -85,6 +85,21 @@ Content-Type: application/json;charset=UTF-8
 |userId|	String|	100 | X | 발송 구분자 ex)admin,system |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "body": "본문",
+    "sendNo": "15446859",
+    "recipientList": [{
+            "internationalRecipientNo": "821000000000"
+        }
+    ]
+}'
+```
+
 #### 응답
 
 ```
@@ -187,11 +202,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-[curl]
-```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
-```
-
 #### 단문 SMS 발송 예제(국가 코드가 포함된 수신 번호)
 
 | Http metho | URL |
@@ -243,11 +253,6 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 }
 ```
 
-[curl]
-```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "본문","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
-```
-
 ### 단문 SMS 발송목록 검색
 
 #### 요청
@@ -288,6 +293,13 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -389,6 +401,13 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	필수|	설명|
 |---|---|---|---|
 |mtPr|	Integer|	필수|	발송 상세 ID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -523,6 +542,25 @@ Content-Type: application/json;charset=UTF-8
 |userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "title": "{제목}",
+    "body": "{본문 내용}",
+    "sendNo": "15446859",
+    "attachFileIdList": [0],
+    "recipientList": [{
+            "recipientNo": "01000000000",
+            "templateParameter": {}
+        }
+    ],
+    "userId": ""
+}'
+```
+
 #### 응답
 
 ```
@@ -626,11 +664,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-[curl]
-```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms -d '{"title": "{제목}","body": "{본문 내용}","sendNo": "{발신 번호}","recipientList": [{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
-```
-
 ### 장문 MMS 발송(첨부 파일 포함)
 
 #### 첨부 파일 발송 예제
@@ -731,6 +764,13 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -847,6 +887,13 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	필수|	설명|
 |---|---|---|---|
 |mtPr|	Integer|	필수|	발송 상세 ID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -1005,6 +1052,23 @@ Content-Type: application/json;charset=UTF-8
 |userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "body": "인증 테스트",
+    "sendNo": "15446859",
+    "recipientList": [{
+            "recipientNo": "01000000000",
+            "templateParameter": {}
+        }
+    ],
+    "userId": ""
+}'
+```
+
 
 #### 응답
 ```
@@ -1107,10 +1171,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-[curl]
-```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신 번호}","recipientList":[{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
-```
 
 ### 인증용 SMS 발송목록 검색
 
@@ -1152,6 +1212,14 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+````
 
 #### 응답
 
@@ -1254,6 +1322,13 @@ Content-Type: application/json;charset=UTF-8
 |---|----|---|---|
 |mtPr|	Integer|	필수|	발송 상세 ID|
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 
 ```
@@ -1346,11 +1421,29 @@ Content-Type: application/json;charset=UTF-8
 [[Request Body 참고](./api-guide/#sms_2)]
 
 <span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+
 080 번호는 콘솔의 **080 수신 거부 설정** 탭에서 확인할 수 있습니다.
 ```
 (광고)
 
 [무료 수신 거부]080XXXXXXX
+```
+
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "body": "(광고) 테스트\n [무료 수신 거부]0808880327",
+    "sendNo": "15446859",
+    "recipientList": [{
+            "recipientNo": "01000000000",
+            "templateParameter": {}
+        }
+    ],
+    "userId": ""
+}'
 ```
 
 
@@ -1376,6 +1469,7 @@ Content-Type: application/json;charset=UTF-8
 [[Request Body 참고](./api-guide/#mms_1)]
 
 <span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+
 080 번호는 콘솔의 **080 수신 거부 설정** 탭에서 확인할 수 있습니다.
 ```
 (광고)
@@ -1383,7 +1477,23 @@ Content-Type: application/json;charset=UTF-8
 [무료 수신 거부]080XXXXXXX
 ```
 
-
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
+-H 'Content-Type: application/json;charset=UTF-8'
+--data-raw '{
+    "title": "{제목}",
+    "body": "(광고) 테스트\n [무료 수신 거부]0808880327",
+    "sendNo": "15446859",
+    "recipientList": [{
+            "recipientNo": "01000000000",
+            "templateParameter": {}
+        }
+    ],
+    "userId": ""
+}'
+```
 
 ## 결과 업데이트 기준 메시지 검색
 * 해당 API는 메시지 발송 결과 업데이트 시간 기준으로 검색됩니다.
@@ -1400,6 +1510,7 @@ GET /sms/v2.3/appKeys/{appKey}/message-results?startUpdateDate={startUpdateDate}
 Content-Type: application/json;charset=UTF-8
 ```
 
+
 [Path parameter]
 
 |값|	타입|	설명|
@@ -1415,6 +1526,13 @@ Content-Type: application/json;charset=UTF-8
 |messageType|	String|	옵션|	메시지 타입 (SMS/LMS/MMS/AUTH)|
 | pageNum | Integer | 옵션 | 페이지 번호(기본값:1) |
 | pageSize | Integer | 옵션 |검색 수(기본값:15) |
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 ```
@@ -1465,7 +1583,6 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultUpdateList[].telecomCodeName | String | 통신사 코드명 |
 |body.data.resultUpdateList[].senderGroupingKey | String | 발신자 그룹 키 |
 |body.data.resultUpdateList[].recipientGroupingKey | String | 수신자 그룹 키 |
-
 
 ## 태그 발송
 
@@ -1522,6 +1639,24 @@ Content-Type: application/json;charset=UTF-8
 | autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부 (기본값: Y) |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/sms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "body": "본문",
+    "sendNo": "15446859",
+    "templateParameter": {
+        "key": "value"
+    },
+    "tagExpression": ["TsNuyRPF"],
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "N",
+    "statsId": "statsId"
+}'
+```
 
 #### 응답
 ```
@@ -1606,6 +1741,25 @@ Content-Type: application/json;charset=UTF-8
 | autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
 | statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/mms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "title": "제목",
+    "body": "본문",
+    "sendNo": "15446859",
+    "templateParameter": {
+        "key": "value"
+    },
+    "tagExpression": ["TsNuyRPF"],
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "Y"
+}'
+```
+
 
 #### 응답
 ```
@@ -1629,7 +1783,6 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.data.requestId|	String|	요청 ID|
-
 
 ### 태그 발송 목록 검색
 
@@ -1662,6 +1815,13 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 | statusCode | String | 10 | X | 발송 상태 코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
 | pageNum | optional, Integer | - | X | 페이지 번호 |
 | pageSize | optional, Integer | 1000 | X | 검색 수 |
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${REQUEST_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 ```
@@ -1760,6 +1920,13 @@ Content-Type: application/json;charset=UTF-8
 | pageNum | Integer | - | X | 페이지 번호 |
 | pageSize | Integer | 1000 | X | 검색 수 |
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 ```
 {
@@ -1808,8 +1975,6 @@ Content-Type: application/json;charset=UTF-8
 |body.data.createDate | String | 등록 일시 |
 |body.data.updateDate | String | 수정 날짜 |
 
-
-
 ### 태그 발송 수신자 목록 상세 검색
 
 #### 요청
@@ -1833,6 +1998,13 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 X
+```
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
 ```
 
 #### 응답
@@ -1894,7 +2066,6 @@ X
 |body.data.attachFileList[].createDate | String | 첨부 파일 - 생성 일시 |
 |body.data.attachFileList[].updateDate | String | 첨부 파일 - 수정 날짜 |
 
-
 <span id="binaryUpload"></span>
 ## 첨부 파일
 
@@ -1930,6 +2101,18 @@ Content-Type: application/json;charset=UTF-8
 |fileBody|	Byte[]| 300K |	필수| 파일 byte[]를 Base64로 인코딩한 값.<br/>* 또는 바이트 배열 값|
 |createUser|	String|	100 | 필수|	파일 업로드 사용자 정보|
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "fileName": "attachement.jpg",
+    "createUser": "API Guide",
+    "fileBody": "1234567890"
+}'
+```
+
 #### 응답
 
 ```
@@ -1957,8 +2140,6 @@ Content-Type: application/json;charset=UTF-8
 |body.data.fileId|	Integer|	파일 ID|
 |body.data.fileName|	String|	파일명|
 |body.data.filePath|	String|	첨부 파일 기본 경로 <br/> (https://domain/attachFile/filePath/fileName)|
-
-
 
 
 #### 첨부 파일 업로드 예제
@@ -2033,9 +2214,23 @@ Content-Type: application/json;charset=UTF-8
 | useYn |	String| 1 |	필수| 사용 여부(Y/N)|
 | createUser |	String| 100 | 옵션| 등록한 사용자|
 
+
 ##### Description
 - categoryParentId 값이 비어있는 경우, 최상위 카테고리 바로 아래에 등록됩니다.
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "categoryParentId": 0,
+    "categoryName": "API Guide",
+    "categoryDesc": "API 가이드 테스트",
+    "useYn": "Y",
+    "createUser": "API Guide"
+}'
+```
 
 #### 응답
 
@@ -2098,6 +2293,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -2168,6 +2370,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	고유의 앱키|
 |categoryId|	String|	카테고리 ID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -2252,6 +2461,20 @@ Content-Type: application/json;charset=UTF-8
 | useYn |	String| 1 |	필수| 사용 여부(Y/N)|
 | updateUser |	String| 100 |	옵션| 수정한 사용자|
 
+#### cURL
+```
+curl -X PUT \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "categoryParentId": 788,
+    "categoryName": "secondMMS",
+    "categoryDesc": "second category MMS",
+    "useYn": "Y",
+    "createUser": "467d9790-ea74-11e5-9ad3-005056ac76e8"
+}'
+```
+
 
 #### 응답
 
@@ -2283,6 +2506,13 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 앱키|
 |categoryId|	String|	카테고리 ID|
 
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 
 ```
@@ -2294,9 +2524,6 @@ Content-Type: application/json;charset=UTF-8
    }
 }
 ```
-
-
-
 
 ## 템플릿
 
@@ -2350,6 +2577,23 @@ Content-Type: application/json;charset=UTF-8
 | useYn |	String| 1 |	필수|	사용 여부(Y/N)|
 | attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "categoryId": 199376,
+    "templateId": "TemplateId",
+    "templateName": "템플릿 발송 예시",
+    "templateDesc": "템플릿 발송 예시",
+    "sendNo": "01012341234",
+    "sendType": "1",
+    "title": "example",
+    "body": "일반 발송 테스트용 입니다.\r\n##key1## 님 안녕하세요.\r\n##key2## 입니다.",
+    "useYn": "Y"
+}'
+```
 
 #### 응답
 
@@ -2399,8 +2643,6 @@ Content-Type: application/json;charset=UTF-8
    }
 }
 ```
-
-
 
 ##### Description
 - 첨부 파일(필드명: attachFileIdList)을 포함한 템플릿 등록은 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
@@ -2558,6 +2800,13 @@ Content-Type: application/json;charset=UTF-8
 |categoryId|	Integer|	옵션|	카테고리 ID|
 |useYn|	String|	옵션|	사용 여부(Y/N)|
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 
 ```
@@ -2665,6 +2914,13 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 앱키|
 |templateId|	String|	템플릿 ID|
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 
 ```
@@ -2753,7 +3009,6 @@ Content-Type: application/json;charset=UTF-8
 |body.data.attachFileList[].createDate|	String|	첨부 파일 등록 날짜|
 |body.data.attachFileList[].createUser|	String|	첨부 파일 등록 사용자|
 
-
 ### 템플릿 수정
 
 #### 요청
@@ -2801,6 +3056,13 @@ Content-Type: application/json;charset=UTF-8
 | attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
 
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 
 ```
@@ -2831,6 +3093,13 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 앱키|
 |templateId|	String|	템플릿 ID|
 
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 
 ```
@@ -2842,7 +3111,6 @@ Content-Type: application/json;charset=UTF-8
    }
 }
 ```
-
 
 ## 080 수신 거부 서비스
 
@@ -2876,6 +3144,17 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 |unsubscribeNo |    String | 25 | O | 080 수신거부번호|
 | recipientNoList | List<String> | 10 | O | 수신 거부 대상자 번호 |
+
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "unsubscribeNo": "0800000000",
+    "recipientNoList": ["0100000000", "0100000001"]
+}'
+```
 
 #### 응답
 
@@ -2915,6 +3194,13 @@ Content-Type: application/json;charset=UTF-8
 |endRequestDate|	String| - |	옵션 |	수신 거부 요청 종료값(yyyy-MM-dd HH:mm:ss)|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 ```
@@ -2963,6 +3249,13 @@ Content-Type: application/json;charset=UTF-8
 |unsubscribeNo|	String| 20 |	필수 |	080 수신 거부 번호 |
 |updateUser|	String|	100 | 필수 |	수신 거부 삭제자|
 |recipientNo|	String|	20 | 필수 |	삭제할 수신 거부 번호|
+
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${UNSUB_NO}"'&updateUser='"${UPDATE_USER}"'&recipientNoList='"${RECIPIENT_NO}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 ```
@@ -3016,6 +3309,17 @@ Content-Type: application/json;charset=UTF-8
 | fileIds[] |	List<Integer> | - | 옵션 | 업로드한 서류의 파일 아이디|
 | comment | String | 4000 | 옵션 | 발신번호 승인자에게 남길 말  |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reqeusts/sendNos' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "sendNos": ["1588"],
+    "fileIds": [1],
+    "comment": "테스트"
+}'
+```
 
 #### 응답
 ```
@@ -3049,6 +3353,15 @@ Content-Type : multipart/form-data;
 |값|타입|설명|
 |---|---|---|
 | attachFile | MultiPartFile | MultiPartFile로 받을 수 있는 파일 데이터 |
+
+
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/requests/attachFiles/authDocuments' \
+-H 'Content-Type: multipart/form-data' \
+-F 'attachFile=@/home/doc.dpf'
+```
 
 
 #### 응답
@@ -3091,6 +3404,13 @@ Content-Type : multipart/form-data;
 |status|	String|	서류 인증 상태<br/>- SRS01	발신 번호 등록 요청<br/>- SRS02	심사중<br/>- SRS03	등록 완료<br/>- SRS04	등록 불가<br/>- SRS05	휴대폰 인증 대기<br/>- SRS06	휴대폰 인증 실패<br/>- SRS07	수동 등록 완료|
 |pageNum|	Integer| 페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 검색 수(기본값 : 15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/requests/sendNos' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 ```
@@ -3140,8 +3460,6 @@ Content-Type : multipart/form-data;
 |body.data[].updateDate|	String| 수정 날짜	|
 |body.data[].confirmDate|	String| 승인/거절 일시	|
 
-
-
 ### 등록된 발신 번호 목록 검색 API
 
 #### 요청
@@ -3167,6 +3485,13 @@ Content-Type : multipart/form-data;
 | blockYn | String | 차단 여부 |
 |pageNum|	Integer| 페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 검색 수(기본값 : 15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sendNos' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 ```
@@ -3251,6 +3576,13 @@ Content-Type : multipart/form-data;
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
 | templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
 | requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${STATISTICS_TYPE}"'&from='"${FROM}"'&to='"${TO}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 ```
@@ -3470,6 +3802,13 @@ Content-Type: application/json;charset=UTF-8
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 
 ```
@@ -3536,6 +3875,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createDate|	String|	등록 날짜|
 |body.data[].updateDate|	String|	수정 날짜|
 
+
 ### 예약 발송 상세 검색
 
 #### 요청
@@ -3554,6 +3894,13 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 앱키|
 |requestId|	String|	요청 ID|
 |recipientSeq|	Integer|	수신자 시퀀스|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -3625,7 +3972,6 @@ Content-Type: application/json;charset=UTF-8
 |body.data.attachFileList[].filePath|	String|	파일경로(내부용)|
 |body.data.attachFileList[].fileName|	String|	파일명|
 
-
 ### 예약 발송 취소
 
 #### 요청
@@ -3662,6 +4008,21 @@ Content-Type: application/json;charset=UTF-8
 |reservationList[].requestId| String| 25 | O | 요청 ID|
 |reservationList[].recipientSeq| Integer| - | O | 수신자 시퀀스|
 |updateUser| String| 100 | O | 취소 요청자|
+
+#### cURL
+```
+curl -X PUT \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/cancel' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "reservationList": [{
+            "requestId": "1",
+            "recipientSeq": 1
+        }
+    ],
+    "updateUser": "API Guide"
+}'
+```
 
 #### 응답
 
@@ -3749,6 +4110,29 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.recipientGroupingKey | String | 100 | 옵션 | 수신자 그룹키 |
 | updateUser | String | 100 | 필수 | 예약 취소 요청자 |
 
+#### cURL
+```
+curl -X PUT \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "searchParameter": {
+        "sendType": "0",
+        "startRequestDate": "2020-02-01 00:00",
+        "endRequestDate": "2020-02-01 10:00",
+        "startCreateDate": "2020-02-01 00:00",
+        "endCreateDate": "2020-02-01 10:00",
+        "sendNo": "15880000",
+        "recipientNo": "0100000000",
+        "templateId": "TemplateId",
+        "requestId": "20200201010630ReZQ6KZzAH0",
+        "createUser": "CreateUser",
+        "senderGroupingKey": "SenderGroupingKey"
+    },
+    "updateUser": "API Guide"
+}'
+```
+
 #### 응답
 
 ```json
@@ -3778,6 +4162,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.reservationCancelStatus|	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
 
 
+
 ### 예약 발송 취소 요청 목록 검색 - 다중 필터
 
 #### 요청
@@ -3804,6 +4189,13 @@ Content-Type: application/json;charset=UTF-8
 |reservationCancelId|	String| 25 |	옵션 | 예약 취소 ID |
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -3917,6 +4309,18 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹 키|
 |isIncludeTitleAndBody | Boolean | - | 옵션 | 제목, 본문 포함 여부 |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/download-reservations' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "sendType": "1",
+    "startRequestDate": "2020-08-01T00:00:00",
+    "endRequestDate": "2020-08-08T00:00:00"
+}'
+```
+
 #### 응답
 
 ```
@@ -4024,6 +4428,13 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createDate| String | 파일 생성 요청 일시 |
 |body.data[].updateDate| String | 파일 생성 완료, 실패 일시 |
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 
 ### 발송 결과 파일 다운로드 요청
 
@@ -4042,6 +4453,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	고유의 앱키|
 |downloadId| String | 다운로드 ID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations/'"${DOWNLOAD_RESERVATION_ID}"'/download' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -4074,6 +4492,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 |pageNum|	Integer|	- | 옵션 | 페이지 번호(기본값: 1)|
 |pageSize|	Integer|	1000 | 옵션 | 검색 수(기본값: 15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -4140,6 +4565,16 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 | tagName | String | 30 | 필수 | 태그 이름 |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "tagName": "API-Guide"
+}'
+```
+
 #### 응답
 
 ```json
@@ -4192,6 +4627,16 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 | tagName | String | 30 | 필수 | 태그 이름 |
 
+#### cURL
+```
+curl -X PUT \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "tagName": "API-Guide2"
+}'
+```
+
 #### 응답
 
 ```json
@@ -4227,6 +4672,13 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 앱키|
 |tagId|	String|	태그 ID|
 
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 
 ```json
@@ -4245,7 +4697,6 @@ Content-Type: application/json;charset=UTF-8
 |header.isSuccessful|	Boolean|	성공 여부|
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
-
 
 ## UID 관리
 
@@ -4274,6 +4725,13 @@ Content-Type: application/json;charset=UTF-8
 |offsetUid|	String|	- | 옵션 | 검색을 시작할 uid|
 |offset | Integer | - | 옵션 | offset 0(기본값)|
 |limit | Integer | 1000 | 옵션 | 검색 건수 15(기본값)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -4345,6 +4803,13 @@ GET /sms/v2.3/appKeys/{appKey}/uids/{uid}
 |---|---|---|
 |appKey|	String|	고유의 앱키|
 |uid|	String|	UID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -4437,6 +4902,24 @@ Content-Type: application/json;charset=UTF-8
 * contacts가 주어지는 경우 tagIds는 필수 값이 아닙니다.
 * 본 상품의 경우, contactType은 반드시 "PHONE_NUMBER" 값으로 요청해야 합니다.
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "uids": [{
+            "uid": "USER ID",
+            "contacts": [{
+                    "contactType": "PHONE_NUMBER",
+                    "contact": "0100000000"
+                }
+            ]
+        }
+    ]
+}'
+```
+
 #### 응답
 
 ```json
@@ -4472,6 +4955,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	고유의 앱키|
 |uid|	String|	UID|
+
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
@@ -4520,6 +5010,16 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 | phoneNumber| String | - | 필수 | 휴대폰 번호 |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers" \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-raw '{
+    "phoneNumber": "0100000000"
+}'
+```
+
 
 #### 응답
 
@@ -4556,6 +5056,13 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 앱키|
 |uid | String | UID |
 |phoneNumber | String | 휴대폰 번호 |
+
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### 응답
 
