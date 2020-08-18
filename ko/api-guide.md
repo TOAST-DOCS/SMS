@@ -1219,7 +1219,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8'
-````
+```
 
 #### 응답
 
