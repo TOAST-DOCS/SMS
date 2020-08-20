@@ -90,7 +90,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "body": "본문",
     "sendNo": "15446859",
     "recipientList": [{
@@ -547,7 +547,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "title": "{제목}",
     "body": "{본문 내용}",
     "sendNo": "15446859",
@@ -1057,7 +1057,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "body": "인증 테스트",
     "sendNo": "15446859",
     "recipientList": [{
@@ -1434,7 +1434,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "body": "(광고) 테스트\n [무료 수신 거부]0808880327",
     "sendNo": "15446859",
     "recipientList": [{
@@ -1482,7 +1482,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
 -H 'Content-Type: application/json;charset=UTF-8'
---data-raw '{
+-d '{
     "title": "{제목}",
     "body": "(광고) 테스트\n [무료 수신 거부]0808880327",
     "sendNo": "15446859",
@@ -1644,7 +1644,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "body": "본문",
     "sendNo": "15446859",
     "templateParameter": {
@@ -1746,7 +1746,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "title": "제목",
     "body": "본문",
     "sendNo": "15446859",
@@ -2106,7 +2106,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "fileName": "attachement.jpg",
     "createUser": "API Guide",
     "fileBody": "1234567890"
@@ -2223,7 +2223,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "categoryParentId": 0,
     "categoryName": "API Guide",
     "categoryDesc": "API 가이드 테스트",
@@ -2466,7 +2466,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "categoryParentId": 788,
     "categoryName": "secondMMS",
     "categoryDesc": "second category MMS",
@@ -2582,7 +2582,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "categoryId": 199376,
     "templateId": "TemplateId",
     "templateName": "템플릿 발송 예시",
@@ -3150,7 +3150,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "unsubscribeNo": "0800000000",
     "recipientNoList": ["0100000000", "0100000001"]
 }'
@@ -3314,7 +3314,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reqeusts/sendNos' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "sendNos": ["1588"],
     "fileIds": [1],
     "comment": "테스트"
@@ -4014,7 +4014,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/cancel' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "reservationList": [{
             "requestId": "1",
             "recipientSeq": 1
@@ -4115,7 +4115,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "searchParameter": {
         "sendType": "0",
         "startRequestDate": "2020-02-01 00:00",
@@ -4314,7 +4314,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "sendType": "1",
     "startRequestDate": "2020-08-01T00:00:00",
     "endRequestDate": "2020-08-08T00:00:00"
@@ -4380,6 +4380,13 @@ Content-Type: application/json;charset=UTF-8
 |pageNum|	Integer|	- | 옵션 | 페이지 번호(기본값: 1)|
 |pageSize|	Integer|	1000 | 옵션 | 검색 수(기본값: 15)|
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### 응답
 
 ```json
@@ -4427,13 +4434,6 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createUser| String | 파일 생성 요청자 |
 |body.data[].createDate| String | 파일 생성 요청 일시 |
 |body.data[].updateDate| String | 파일 생성 완료, 실패 일시 |
-
-#### cURL
-```
-curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations' \
--H 'Content-Type: application/json;charset=UTF-8'
-```
 
 
 ### 발송 결과 파일 다운로드 요청
@@ -4570,7 +4570,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "tagName": "API-Guide"
 }'
 ```
@@ -4632,7 +4632,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "tagName": "API-Guide2"
 }'
 ```
@@ -4907,7 +4907,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/' \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "uids": [{
             "uid": "USER ID",
             "contacts": [{
@@ -5015,7 +5015,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers" \
 -H 'Content-Type: application/json;charset=UTF-8' \
---data-raw '{
+-d '{
     "phoneNumber": "0100000000"
 }'
 ```
