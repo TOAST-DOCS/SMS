@@ -86,6 +86,21 @@ Content-Type: application/json;charset=UTF-8
 |userId|	String|	100 | X | 送信セパレータex)admin,system |
 | statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "body": "Body",
+    "sendNo": "15446859",
+    "recipientList": [{
+            "internationalRecipientNo": "821000000000"
+        }
+    ]
+}'
+```
+
 #### レスポンス
 
 ```
@@ -187,10 +202,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-[curl]
-```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "{本文内容}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
-```
 
 #### 短文SMS送信例(国コードが含まれている受信番号)
 
@@ -243,11 +254,6 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 }
 ```
 
-[curl]
-```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms -d '{"body": "本文","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
-```
-
 ### 短文SMS送信リストの照会
 
 #### リクエスト
@@ -288,6 +294,13 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	オプション|	受信者グループキー|
 |pageNum|	Integer| - |	オプション|	ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 1000 |	オプション|	照会数(デフォルト値：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -389,6 +402,13 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	必須|	説明|
 |---|---|---|---|
 |mtPr|	Integer|	必須|	送信詳細ID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -522,6 +542,25 @@ Content-Type: application/json;charset=UTF-8
 |userId|	String| 100 |	X | 送信セパレータex)admin,system |
 | statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "title": "{title}}",
+    "body": "{body}",
+    "sendNo": "15446859",
+    "attachFileIdList": [0],
+    "recipientList": [{
+            "recipientNo": "01000000000",
+            "templateParameter": {}
+        }
+    ],
+    "userId": ""
+}'
+```
+
 #### レスポンス
 
 ```
@@ -624,11 +663,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-[curl]
-```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms -d '{"title": "{タイトル}","body": "{本文内容}","sendNo": "{発信番号}","recipientList": [{"recipientNo": "{受信番号}","templateParameter": { }}],"userId": ""}'
-```
-
 ### 長文MMSの送信(添付ファイル含む)
 
 #### 添付ファイルの送信例
@@ -729,6 +763,13 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	オプション|	受信者グループキー|
 |pageNum|	Integer| - |	オプション|	ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 1000 |	オプション|	照会数(デフォルト値：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -845,6 +886,13 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	必須|	説明|
 |---|---|---|---|
 |mtPr|	Integer|	必須|	送信詳細ID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -1003,6 +1051,23 @@ Content-Type: application/json;charset=UTF-8
 |userId|	String| 100 |	X | 送信セパレータex)admin,system |
 | statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "body": "Auth Test",
+    "sendNo": "15446859",
+    "recipientList": [{
+            "recipientNo": "01000000000",
+            "templateParameter": {}
+        }
+    ],
+    "userId": ""
+}'
+```
+
 #### レスポンス
 ```
 {
@@ -1103,11 +1168,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-[curl]
-```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/auth/sms -d '{"body": "{本文内容}","sendNo": "{発信番号}","recipientList":[{"recipientNo": "{受信番号}","templateParameter": { }}],"userId": ""}'
-```
-
 ### 認証用SMS送信リストの照会
 
 #### リクエスト
@@ -1148,6 +1208,13 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	オプション|	受信者グループキー|
 |pageNum|	Integer| - |	オプション|	ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 1000 |	オプション|	照会数(デフォルト値：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -1250,6 +1317,13 @@ Content-Type: application/json;charset=UTF-8
 |---|----|---|---|
 |mtPr|	Integer|	必須|	送信詳細ID|
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### レスポンス
 
 ```
@@ -1346,6 +1420,23 @@ Content-Type: application/json;charset=UTF-8
 [無料受信拒否]080XXXXXXX
 ```
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "body": "(광고) Test\n [무료 수신 거부]0808880327",
+    "sendNo": "15446859",
+    "recipientList": [{
+            "recipientNo": "01000000000",
+            "templateParameter": {}
+        }
+    ],
+    "userId": ""
+}'
+```
+
 
 ### 広告性MMS送信
 [URL]
@@ -1373,6 +1464,23 @@ Content-Type: application/json;charset=UTF-8
 [無料受信拒否]080XXXXXXX
 ```
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
+-H 'Content-Type: application/json;charset=UTF-8'
+-d '{
+    "title": "{Title}",
+    "body": "(광고) Test\n [무료 수신 거부]0808880327",
+    "sendNo": "15446859",
+    "recipientList": [{
+            "recipientNo": "01000000000",
+            "templateParameter": {}
+        }
+    ],
+    "userId": ""
+}'
+```
 
 
 ## 結果アップデート基準メッセージ照会
@@ -1405,6 +1513,13 @@ Content-Type: application/json;charset=UTF-8
 |messageType|	String|	オプション|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
 | pageNum | Integer | オプション | ページ番号(デフォルト値：1) |
 | pageSize | Integer | オプション |照会数(デフォルト値：15) |
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 ```
@@ -1512,6 +1627,25 @@ Content-Type: application/json;charset=UTF-8
 | autoSendYn | String | 1 | X | 自動送信(即時送信)するかどうか(デフォルト値：Y) |
 | statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/sms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "body": "Body",
+    "sendNo": "15446859",
+    "templateParameter": {
+        "key": "value"
+    },
+    "tagExpression": ["TsNuyRPF"],
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "N",
+    "statsId": "statsId"
+}'
+```
+
 #### レスポンス
 ```
 {
@@ -1594,6 +1728,25 @@ Content-Type: application/json;charset=UTF-8
 | autoSendYn | String | 1 | X | 自動送信(即時送信)するかどうか(基本Y) |
 | statsId | String | 10 | X | 統計ID(発信検索条件には含まれません) |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/mms' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "title": "Title",
+    "body": "Body",
+    "sendNo": "15446859",
+    "templateParameter": {
+        "key": "value"
+    },
+    "tagExpression": ["TsNuyRPF"],
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "Y"
+}'
+```
+
 #### レスポンス
 ```
 {
@@ -1649,6 +1802,13 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 | statusCode | String | 10 | X | 送信ステータスコード<br>WAIT："MAS00"<br>READY："MAS01"<br>SENDREADY："MAS09"<br>SENDWAIT："MAS10"<br>SENDING："MAS11"<br>COMPLETE："MAS19"<br>CANCEL："MAS91"<br>FAIL："MAS99" |
 | pageNum | optional, Integer | - | X | ページ番号 |
 | pageSize | optional, Integer | 1000 | X | 照会数 |
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${REQUEST_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 ```
@@ -1747,6 +1907,13 @@ Content-Type: application/json;charset=UTF-8
 | pageNum | Integer | - | X | ページ番号 |
 | pageSize | Integer | 1000 | X | 照会数 |
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### レスポンス
 ```
 {
@@ -1820,6 +1987,13 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 X
+```
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
 ```
 
 #### レスポンス
@@ -1918,6 +2092,18 @@ Content-Type: application/json;charset=UTF-8
 |fileName|	String|	45 | 必須|	ファイル名(拡張子はjpg、jpeg(小文字)のみ可能)|
 |fileBody|	Byte[]| 300KB |	必須| ファイルbyte[]をBase64でエンコードした値。<br/>* またはバイト配列値|
 |createUser|	String|	100 | 必須|	ファイルアップロードユーザー情報|
+
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "fileName": "attachement.jpg",
+    "createUser": "API Guide",
+    "fileBody": "1234567890"
+}'
+```
 
 #### レスポンス
 
@@ -2019,6 +2205,20 @@ Content-Type: application/json;charset=UTF-8
 | useYn |	String| 1 |	必須| 使用有無(Y/N)|
 | createUser |	String| 100 | オプション| 登録したユーザー|
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "categoryParentId": 0,
+    "categoryName": "API Guide",
+    "categoryDesc": "API Guide Test",
+    "useYn": "Y",
+    "createUser": "API Guide"
+}'
+```
+
 ##### 説明
 - categoryParentId値が空の場合、最上位カテゴリーのすぐ下に登録されます。
 
@@ -2083,6 +2283,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 |pageNum|	Integer| - |	オプション|	ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 1000 |	オプション|	照会数(デフォルト値：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -2153,6 +2360,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 |categoryId|	String|	カテゴリーID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -2237,6 +2451,19 @@ Content-Type: application/json;charset=UTF-8
 | useYn |	String| 1 |	必須| 使用有無(Y/N)|
 | updateUser |	String| 100 |	オプション| 修正したユーザー|
 
+#### cURL
+```
+curl -X PUT \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "categoryParentId": 788,
+    "categoryName": "secondMMS",
+    "categoryDesc": "second category MMS",
+    "useYn": "Y",
+    "createUser": "467d9790-ea74-11e5-9ad3-005056ac76e8"
+}'
+```
 
 #### レスポンス
 
@@ -2267,6 +2494,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 |categoryId|	String|	カテゴリーID|
+
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -2332,6 +2566,24 @@ Content-Type: application/json;charset=UTF-8
 | body | String | 4000 | 必須 | メッセージの内容 |
 | useYn |	String| 1 |	必須|	使用有無(Y/N)|
 | attachFileIdList | List<Integer> | - | X | 添付ファイルID(fileId) |
+
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "categoryId": 199376,
+    "templateId": "TemplateId",
+    "templateName": "Template Name",
+    "templateDesc": "Temaplte Description",
+    "sendNo": "01012341234",
+    "sendType": "1",
+    "title": "example",
+    "body": "Test\r\n##key1## Test\r\n##key2## Test",
+    "useYn": "Y"
+}'
+```
 
 
 #### レスポンス
@@ -2540,6 +2792,13 @@ Content-Type: application/json;charset=UTF-8
 |categoryId|	Integer|	オプション|	カテゴリーID|
 |useYn|	String|	オプション|	使用(Y/N)|
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### レスポンス
 
 ```
@@ -2646,6 +2905,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 |templateId|	String|	テンプレートID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -2781,6 +3047,12 @@ Content-Type: application/json;charset=UTF-8
 | useYn |	String| 1 |	必須|	使用有無(Y/N)|
 | attachFileIdList | List<Integer> | - | X | 添付ファイルID(fileId) |
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -2811,6 +3083,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 |templateId|	String|	テンプレートID|
+
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -2857,6 +3136,17 @@ Content-Type: application/json;charset=UTF-8
 |unsubscribeNo |    String | 25 | O | 080受信拒否番号|
 | recipientNoList | List<String> | 10 | O | 追加する受信拒否対象者番号 |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "unsubscribeNo": "0800000000",
+    "recipientNoList": ["0100000000", "0100000001"]
+}'
+```
+
 #### レスポンス
 
 ```
@@ -2895,6 +3185,13 @@ Content-Type: application/json;charset=UTF-8
 |endRequestDate|	String| - |	オプション |	受信拒否リクエストの終了値(yyyy-MM-dd HH:mm:ss)|
 |pageNum|	Integer| - |	オプション|	ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 1000 |	オプション|	照会数(デフォルト値：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 ```
@@ -2943,6 +3240,13 @@ Content-Type: application/json;charset=UTF-8
 |unsubscribeNo|	String| 20 |	必須 |	080受信拒否番号 |
 |updateUser|	String|	100 | 必須 |	受信拒否削除者|
 |recipientNo|	String|	20 | 必須 |	削除する受信拒否番号|
+
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${UNSUB_NO}"'&updateUser='"${UPDATE_USER}"'&recipientNoList='"${RECIPIENT_NO}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 ```
@@ -2997,6 +3301,18 @@ Content-Type: application/json;charset=UTF-8
 | fileIds[] |	List<Integer> | - | オプション | アップロードした書類のファイルID|
 | comment | String | 4000 | オプション | 発信番号承認者へのコメント |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reqeusts/sendNos' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "sendNos": ["1588"],
+    "fileIds": [1],
+    "comment": "Test"
+}'
+```
+
 #### レスポンス
 ```
 {
@@ -3030,6 +3346,13 @@ Content-Type : multipart/form-data;
 |---|---|---|
 | attachFile | MultiPartFile | MultiPartFileで受け取れないファイルデータ |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/requests/attachFiles/authDocuments' \
+-H 'Content-Type: multipart/form-data' \
+-F 'attachFile=@/home/doc.dpf'
+```
 
 #### レスポンス
 ```
@@ -3071,6 +3394,13 @@ Content-Type : multipart/form-data;
 |status|	String|	書類認証ステータス<br/>- SRS01	発信番号の登録リクエスト<br/>- SRS02	審査中<br/>- SRS03	登録完了<br/>- SRS04	登録不可<br/>- SRS05	携帯電話認証の待機<br/>- SRS06	携帯電話認証の失敗<br/>- SRS07	手動登録の完了|
 |pageNum|	Integer| ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 照会数(デフォルト値：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/requests/sendNos' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 ```
@@ -3147,6 +3477,14 @@ Content-Type : multipart/form-data;
 | blockYn | String | 遮断するかどうか |
 |pageNum|	Integer| ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 照会数(デフォルト値：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sendNos' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 
 #### レスポンス
 ```
@@ -3231,6 +3569,13 @@ Content-Type : multipart/form-data;
 | isAd | Boolean | - | オプション | 広告かどうか<br/>true/false |
 | templateIds | List<String> | - | オプション | テンプレートIDリスト |
 | requestIds | List<String> | 5 | オプション | リクエストIDリスト |
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${STATISTICS_TYPE}"'&from='"${FROM}"'&to='"${TO}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 ```
@@ -3449,6 +3794,13 @@ Content-Type: application/json;charset=UTF-8
 |pageNum|	Integer| - |	オプション|	ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 1000 |	オプション|	照会数(デフォルト値：15)|
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### レスポンス
 
 ```
@@ -3533,6 +3885,13 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	固有のアプリケーションキー|
 |requestId|	String|	リクエストID|
 |recipientSeq|	Integer|	受信者シーケンス|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -3642,6 +4001,21 @@ Content-Type: application/json;charset=UTF-8
 |reservationList[].recipientSeq| Integer| - | O | 受信者シーケンス|
 |updateUser| String| 100 | O | キャンセルリクエスト者|
 
+#### cURL
+```
+curl -X PUT \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/cancel' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "reservationList": [{
+            "requestId": "1",
+            "recipientSeq": 1
+        }
+    ],
+    "updateUser": "API Guide"
+}'
+```
+
 [Response body]
 ```
 {
@@ -3726,6 +4100,29 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.recipientGroupingKey | String | 100 | オプション | 受信者グループキー |
 | updateUser | String | 100 | 必須 | 予約キャンセルリクエスト者 |
 
+#### cURL
+```
+curl -X PUT \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "searchParameter": {
+        "sendType": "0",
+        "startRequestDate": "2020-02-01 00:00",
+        "endRequestDate": "2020-02-01 10:00",
+        "startCreateDate": "2020-02-01 00:00",
+        "endCreateDate": "2020-02-01 10:00",
+        "sendNo": "15880000",
+        "recipientNo": "0100000000",
+        "templateId": "TemplateId",
+        "requestId": "20200201010630ReZQ6KZzAH0",
+        "createUser": "CreateUser",
+        "senderGroupingKey": "SenderGroupingKey"
+    },
+    "updateUser": "API Guide"
+}'
+```
+
 #### レスポンス
 
 ```json
@@ -3781,6 +4178,13 @@ Content-Type: application/json;charset=UTF-8
 |reservationCancelId|	String| 25 |	オプション | 予約キャンセルID |
 |pageNum|	Integer| - |	オプション|	ページ番号(デフォルト値：1)|
 |pageSize|	Integer| 1000 |	オプション|	照会数(デフォルト値：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -3891,6 +4295,18 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	オプション|	受信者グループキー|
 |isIncludeTitleAndBody | Boolean | - | オプション | タイトル、本文を含めるかどうか |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/download-reservations' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "sendType": "1",
+    "startRequestDate": "2020-08-01T00:00:00",
+    "endRequestDate": "2020-08-08T00:00:00"
+}'
+```
+
 #### レスポンス
 
 ```
@@ -3949,6 +4365,13 @@ Content-Type: application/json;charset=UTF-8
 |downloadStatusCode|	String| 10 | オプション |	ダウンロードファイルのステータスコード|
 |pageNum|	Integer|	- | オプション | ページ番号(デフォルト値：1)|
 |pageSize|	Integer|	1000 | オプション | 照会数(デフォルト値：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -4049,6 +4472,13 @@ Content-Type: application/json;charset=UTF-8
 |pageNum|	Integer|	- | オプション | オプション | ページ番号(デフォルト値：1)|
 |pageSize|	Integer|	1000 | オプション | オプション | 照会数(デフォルト値：15)|
 
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
+
 #### レスポンス
 
 ```json
@@ -4114,6 +4544,16 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 | tagName | String | 30 | 必須 | タグ名 |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "tagName": "API-Guide"
+}'
+```
+
 #### レスポンス
 
 ```json
@@ -4166,6 +4606,16 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 | tagName | String | 30 | 必須 | タグ名 |
 
+#### cURL
+```
+curl -X PUT \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "tagName": "API-Guide2"
+}'
+```
+
 #### レスポンス
 
 ```json
@@ -4200,6 +4650,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 |tagId|	String|	タグID|
+
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -4248,6 +4705,13 @@ Content-Type: application/json;charset=UTF-8
 |offsetUid|	String|	- | オプション | offset UID|
 |offset | Integer | - | オプション | offset(Default : 0)|
 |limit | Integer | 1000 | オプション | 照会件数(Default：15)|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -4319,6 +4783,13 @@ GET /sms/v2.3/appKeys/{appKey}/uids/{uid}
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 |uid|	String|	UID|
+
+#### cURL
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -4411,6 +4882,24 @@ Content-Type: application/json;charset=UTF-8
 * contactsが与えられている場合、tagIdsは必須値ではない。
 * 本サービスの場合、contactTypeは必ず"PHONE_NUMBER"値でリクエストする必要がある。
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "uids": [{
+            "uid": "USER ID",
+            "contacts": [{
+                    "contactType": "PHONE_NUMBER",
+                    "contact": "0100000000"
+                }
+            ]
+        }
+    ]
+}'
+```
+
 #### レスポンス
 
 ```json
@@ -4446,6 +4935,13 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
 |uid|	String|	UID|
+
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
@@ -4494,6 +4990,16 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|---|
 | phoneNumber| String | - | 必須 | 携帯電話番号 |
 
+#### cURL
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers" \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d '{
+    "phoneNumber": "0100000000"
+}'
+```
+
 
 #### レスポンス
 
@@ -4530,6 +5036,13 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	固有のアプリケーションキー|
 |uid | String | UID |
 |phoneNumber | String | 携帯電話番号 |
+
+#### cURL
+```
+curl -X DELETE \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}" \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 #### レスポンス
 
