@@ -1,11 +1,11 @@
 ## Notification > SMS > Release Notes
 
-### 2020. 06. 23.
-### 기능 개선/변경
-* [Console] **080 수신 거부 설정** 탭의 과금 정보 변경
-    * **080 수신 거부 설정** 탭의 과금 정보가 잘못 표기된 문제를 수정하였습니다.
-* [Console] 예약 발송 목록 상세 화면에서 첨부 파일이 다운로드되지 않는 현상
-    * **SMS 요청별 조회** 탭에서 예약 발송 상세 보기 내의 첨부 파일을 클릭하면 404 오류가 발생하는 문제를 수정하였습니다.
+### June 23, 2020
+### Feature Updates
+* [Console] Changed charging information on the **Setting for Unsubscribe 080 Numbers** 
+    * Modified invalid charging information on the **Setting for Unsubscribe 080 Numbers** tab. 
+* [Console] Unable to download attached files from the detail page of scheduled delivery list 
+    * Fixed the 404 error occurred at the click of an attached file within View Details of Scheduled Delivery on the **Query SMS Request** tab. 
 
 ### April 28, 2020
 ### Feature Updates
