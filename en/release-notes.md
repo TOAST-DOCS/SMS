@@ -1,5 +1,12 @@
 ## Notification > SMS > Release Notes
 
+### June 23, 2020
+### Feature Updates
+* [Console] Changed charging information on the **Setting for Unsubscribe 080 Numbers** 
+    * Modified invalid charging information on the **Setting for Unsubscribe 080 Numbers** tab. 
+* [Console] Unable to download attached files from the detail page of scheduled delivery list 
+    * Fixed the 404 error occurred at the click of an attached file within View Details of Scheduled Delivery on the **Query SMS Request** tab. 
+
 ### April 28, 2020
 ### Feature Updates
 * [Console] Backup is available for delivery list data older than 180 days 
