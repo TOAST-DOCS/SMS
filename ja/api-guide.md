@@ -5062,3 +5062,4 @@ curl -X DELETE \
 |header.isSuccessful|	Boolean|	成否|
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
+
