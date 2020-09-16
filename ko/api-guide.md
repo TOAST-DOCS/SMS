@@ -5138,8 +5138,8 @@ curl -X POST \
 |값|	타입|	설명|
 |---|---|---|---|
 |hooks|	List\<Map\> | 웹훅 이벤트 발생 시 데이터|
-|- hookId|	String| 서비스에서 이벤트가 발생 시 생성되는 고유 아이디 |
-|- recipientNo|	String|	수신 거부를 요청한 수신자 번호 |
+|- hookId|	String| 서비스에서 이벤트 발생 시 생성되는 고유 아이디 |
+|- recipientNo|	String|	수신 거부된 휴대폰 번호 |
 |- unsubscribeNo|	String|	수신 거부 서비스에 등록된 080 번호 |
 |- enterpriseName|	String|	수신 거부 서비스에 등록된 업체명 |
 |- createdDateTime|	String| 수신 거부 요청 일시<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX|
