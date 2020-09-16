@@ -5101,7 +5101,7 @@ SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
 [Request body]
 
 |값|	타입|	설명|
-|---|---|---|---|
+|---|---|---|
 |hooksId|	String|	웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID|
 |webhookConfigId|	String|웹훅 설정 ID|
 |productName|	String|	웹훅 이벤트가 발생한 서비스명 |
@@ -5136,7 +5136,7 @@ curl -X POST \
 
 #### 광고 메일 수신 주소 등록
 |값|	타입|	설명|
-|---|---|---|---|
+|---|---|---|
 |hooks|	List\<Map\> | 웹훅 이벤트 발생 시 데이터|
 |- hookId|	String| 서비스에서 이벤트 발생 시 생성되는 고유 ID |
 |- recipientNo|	String|	수신 거부된 휴대폰 번호 |
