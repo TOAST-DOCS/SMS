@@ -5084,7 +5084,7 @@ curl -X DELETE \
 |header.resultMessage|	String|	실패 메시지|
 
 ## 웹훅
-Sms 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 URL로 POST 요청을 생성합니다.<br>
+SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 URL로 POST 요청을 생성합니다.<br>
 생성된 POST 요청에 대한 API 문서입니다.
 
 ### 웹훅 발송
@@ -5102,8 +5102,8 @@ Sms 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
 
 |값|	타입|	설명|
 |---|---|---|---|
-|hooksId|	String|	웹훅 설정에 정의된 URL로 POST 요청을 할때마다 고유하게 생성되는 아이디|
-|webhookConfigId|	String|웹훅 설정 아이디|
+|hooksId|	String|	웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID|
+|webhookConfigId|	String|웹훅 설정 ID|
 |productName|	String|	웹훅 이벤트가 발생한 서비스명 |
 |appKey|	String| 웹훅 이벤트가 발생한 서비스 앱키|
 |event|	String|	웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록|
@@ -5138,7 +5138,7 @@ curl -X POST \
 |값|	타입|	설명|
 |---|---|---|---|
 |hooks|	List\<Map\> | 웹훅 이벤트 발생 시 데이터|
-|- hookId|	String| 서비스에서 이벤트 발생 시 생성되는 고유 아이디 |
+|- hookId|	String| 서비스에서 이벤트 발생 시 생성되는 고유 ID |
 |- recipientNo|	String|	수신 거부된 휴대폰 번호 |
 |- unsubscribeNo|	String|	수신 거부 서비스에 등록된 080 번호 |
 |- enterpriseName|	String|	수신 거부 서비스에 등록된 업체명 |
