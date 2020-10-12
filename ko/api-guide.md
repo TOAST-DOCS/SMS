@@ -5089,11 +5089,13 @@ SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
 
 ### 웹훅 발송
 [URL]
+
 |Http method|	URI|
 |---|---|
 | POST | 웹훅 설정에 정의한 대상 URL |
 
 [Header]
+
 |값|	타입|	설명|
 |---|---|---|
 |X-Toast-Webhook-Signature|	String|	웹훅 설정 시 입력한 서명|

@@ -5069,11 +5069,13 @@ SMSサービス内で特定イベントが発生すると、Webフック設定�
 
 ### Webフック送信
 [URL]
+
 |Http method|	URI|
 |---|---|
 | POST | Webフック設定に定義した対象URL |
 
 [Header]
+
 |値|	タイプ|	説明|
 |---|---|---|
 |X-Toast-Webhook-Signature|	String|	Webフック設定時に入力した署名|
