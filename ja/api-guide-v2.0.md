@@ -436,6 +436,7 @@ Content-Type: application/json;charset=UTF-8
 ## 長文MMS
 
 ### 長文MMSの送信(添付ファイルなし)
+※ MMSは韓国外への送信はできません。
 
 #### リクエスト
 
@@ -1403,6 +1404,8 @@ Content-Type: application/json;charset=UTF-8
 
 
 ### 広告性MMS送信
+※ MMSは韓国外への送信はできません。
+
 [URL]
 
 ```
@@ -1512,6 +1515,7 @@ Content-Type: application/json;charset=UTF-8
 |-- requestId|	String|	リクエストID|
 
 ### タグLMS送信
+※ MMSは韓国外への送信はできません。
 
 #### リクエスト
 

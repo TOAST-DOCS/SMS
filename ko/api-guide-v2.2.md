@@ -463,7 +463,7 @@ Content-Type: application/json;charset=UTF-8
 ## 장문 MMS
 
 ### 장문 MMS 발송(첨부 파일 미포함)
-※ MMS는 해외발송이 불가능합니다.
+※ LMS/MMS는 해외 발송이 불가능합니다.
 
 #### 요청
 
@@ -1375,7 +1375,7 @@ Content-Type: application/json;charset=UTF-8
 
 
 ### 광고성 MMS 발송
-※ MMS는 해외발송이 불가능합니다.
+※ LMS/MMS는 해외 발송이 불가능합니다.
 
 #### 요청
 [URL]
@@ -1565,7 +1565,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestId|	String|	요청 ID|
 
 ### 태그 LMS 발송
-※ LMS는 해외발송이 불가능합니다.
+※ LMS/MMS는 해외 발송이 불가능합니다.
 
 #### 요청
 
