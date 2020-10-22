@@ -1,5 +1,12 @@
 ## Notification > SMS > Release Notes
 
+### July 28, 2020
+### Feature Updates 
+* [Console/API] Creating Email-type Template ID 
+    * Fixed failure in querying, modifying, or deleting, if a template ID is created in the email type.
+* [Console/API] Fixed infrequent errors in the length check for sending international text messages 
+    * Fixed infrequent errors of length check resulting in failed delivery of international text messages  
+
 ### June 23, 2020
 ### Feature Updates
 * [Console] Changed charging information on the **Setting for Unsubscribe 080 Numbers** 
