@@ -2329,6 +2329,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	必須|	説明|
 |---|---|---|---|
 |unsubscribeNo|	String|	必須 |	080受信拒否番号 |
+|recipientNo| String | オプション | 受信拒否番号 |
 |startRequestDate|	String|	オプション |	受信拒否リクエストの開始値(yyyy-MM-dd HH:mm:ss)|
 |endRequestDate|	String|	オプション |	受信拒否リクエストの終了値(yyyy-MM-dd HH:mm:ss)|
 |pageNum|	Integer|	オプション|	ページ番号(Default：1)|

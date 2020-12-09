@@ -2327,6 +2327,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	필수|	설명|
 |---|---|---|---|
 |unsubscribeNo|	String|	필수 |	080수신거부번호 |
+|recipientNo| String | 옵션 | 수신 거부 대상자 번호 |
 |startRequestDate|	String|	옵션 |	수신거부 요청 시작 값(yyyy-MM-dd HH:mm:ss)|
 |endRequestDate|	String|	옵션 |	수신거부 요청 종료 값(yyyy-MM-dd HH:mm:ss)|
 |pageNum|	Integer|	옵션|	페이지 번호(Default : 1)|

@@ -2327,6 +2327,7 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type | Required | Description |
 |---|---|---|---|
 |unsubscribeNo|	String|	Required |	080 numbers to reject receiving |
+|recipientNo| String | Optional | Contact number of unsubscribers |
 |startRequestDate|	String|	Optional | Start value of request for reject receiving (yyyy-MM-dd HH:mm:ss) |
 |endRequestDate| String |	Optional | End value of request for reject receiving (yyyy-MM-dd HH:mm:ss) |
 |pageNum|	Integer| Optional | Page number (Default: 1) |
