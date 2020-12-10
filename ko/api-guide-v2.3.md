@@ -1,11 +1,10 @@
 ## Notification > SMS > API v2.3 Guide
 
-## v2.4 API 소개
+## v2.3 API 소개
 
-### v2.3과 달라진 사항
-1. 각 메시지(단문, 장문, 인증) 발송목록 검색 및 발송 단일 검색 응답 필드가 추가되었습니다.
-    - 추가된 필드 : messageType, recipientSeq
-2. 발송 단일 검색 조건에 사용되는 [mtPr]이 [recipientSeq]로 변경되었습니다.
+### v2.2과 달라진 사항
+1. 인증용 SMS 발송 API에 대한 본문 유효성 검사가 추가되었습니다.
+   - 자세한 사항은 [[인증용 SMS 발송 API](./api-guide/#precautions-authword)] 참고하시기 바랍니다.
 
 ### [API 도메인]
 
@@ -19,11 +18,11 @@
 * 최대 지원 글자 수는 저장 기준이며 문자 잘림을 방지하기 위해서 표준 규격으로 작성해주세요.
 * 인코딩은 EUC-KR 기준으로 발송되며 지원하지 않는 이모티콘은 발송에 실패합니다.
 
-| 분류 | 최대 지원 | 표준 규격 |
+| 분류  | 최대 지원 | 표준 규격 |
 | --- | --- | --- |
-| SMS 본문 | 255자 | 90바이트(한글 45자, 영문 90자) |
-| MMS 제목 | 120자 | 40바이트(한글 20자, 영문 40자) |
-| MMS 본문 | 4,000자 | 2,000바이트(한글 1,000자, 영문 2,000자) |
+| SMS 본문 | 255자 | 90바이트(한글 45자, 영문 90자) |
+| MMS 제목 | 120자 | 40바이트(한글 20자, 영문 40자) |
+| MMS 본문 | 4,000자 | 2,000바이트(한글 1,000자, 영문 2,000자) |
 
 ## 단문 SMS
 
@@ -334,9 +333,8 @@ curl -X GET \
             "resultCodeName":"성공",
             "telecomCode":10001,
             "telecomCodeName":"SKT",
-            "recipientSeq":1,
+            "mtPr":"1",
             "sendType":"0",
-            "messageType":"SMS",
             "userId":"tester",
             "adYn":"N",
             "resultMessage": "",
@@ -373,9 +371,8 @@ curl -X GET \
 |body.data[].resultCodeName|	String|	수신 결과 코드명|
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
+|body.data[].mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
@@ -403,12 +400,12 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|recipientSeq|	Integer|	필수|	발송 상세 ID|
+|mtPr|	Integer|	필수|	발송 상세 ID|
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -440,9 +437,8 @@ curl -X GET \
          "resultCodeName":"성공",
          "telecomCode":10001,
          "telecomCodeName":"SKT",
-         "recipientSeq":1,
+         "mtPr":"1",
          "sendType":"0",
-         "messageType":"SMS",
          "userId":"tester",
          "adYn":"N",
          "resultMessage": "",
@@ -475,9 +471,8 @@ curl -X GET \
 |body.data.resultCodeName|	String|	수신 결과 코드명|
 |body.data.telecomCode|	Integer|	통신사 코드|
 |body.data.telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
+|body.data.mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data.messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
@@ -810,9 +805,8 @@ curl -X GET \
         "resultCodeName":"성공",
         "telecomCode":10001,
         "telecomCodeName":"SKT",
-        "recipientSeq":1,
+        "mtPr":"1",
         "sendType":"0",
-        "messageType":"LMS",
         "userId":"tester",
         "adYn":"N",
         "attachFileList": [{
@@ -857,9 +851,8 @@ curl -X GET \
 |body.data[].resultCodeName|	String|	수신 결과 코드명|
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
+|body.data[].mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
@@ -893,12 +886,12 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
-|recipientSeq|	Integer|	필수|	발송 상세 ID|
+|mtPr|	Integer|	필수|	발송 상세 ID|
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -931,9 +924,8 @@ curl -X GET \
       "resultCodeName":"성공",
       "telecomCode":10001,
       "telecomCodeName":"SKT",
-      "recipientSeq":1,
+      "mtPr":"1",
       "sendType":"0",
-      "messageType":"MMS",
       "userId":"tester",
       "adYn":"N",
       "attachFileList": [{
@@ -977,9 +969,8 @@ curl -X GET \
 |body.data[].resultCodeName|	String|	수신 결과 코드명|
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)|
+|body.data[].mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
@@ -997,7 +988,7 @@ curl -X GET \
 <span id="precautions-authword"></span>
 1. 인증용 SMS 발송 시 본문 내 포함되어야 할 인증 문구 안내
 
-| 구분 | 인증 문구 |
+| 구분  | 인증 문구 |
 | --- | --- | 
 | 인증용 SMS(긴급) | auth, password, verif, にんしょう, 認証, 비밀번호, 인증 |
 
@@ -1262,9 +1253,8 @@ curl -X GET \
             "resultCodeName":"성공",
             "telecomCode":10001,
             "telecomCodeName":"SKT",
-            "recipientSeq":1,
+            "mtPr":"1",
             "sendType":"0",
-            "messageType":"AUTH",
             "userId":"tester",
             "adYn":"N",
             "resultMessage": "",
@@ -1301,9 +1291,8 @@ curl -X GET \
 |body.data[].resultCodeName|	String|	수신 결과 코드명|
 |body.data[].telecomCode|	Integer|	통신사 코드|
 |body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
+|body.data[].mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
@@ -1331,12 +1320,12 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	필수|	설명|
 |---|----|---|---|
-|recipientSeq|	Integer|	필수|	발송 상세 ID|
+|mtPr|	Integer|	필수|	발송 상세 ID|
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -1368,9 +1357,8 @@ curl -X GET \
          "resultCodeName":"성공",
          "telecomCode":10001,
          "telecomCodeName":"SKT",
-         "recipientSeq":1,
+         "mtPr":"1",
          "sendType":"0",
-         "messageType":"AUTH",
          "userId":"tester",
          "adYn":"N",
          "resultMessage": "",
@@ -1403,9 +1391,8 @@ curl -X GET \
 |body.data.resultCodeName|	String|	수신 결과 코드명|
 |body.data.telecomCode|	Integer|	통신사 코드|
 |body.data.telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
+|body.data.mtPr|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data.messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
