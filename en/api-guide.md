@@ -1,10 +1,11 @@
 ## Notification > SMS > API v2.3 Guide
 
-## v2.3 API Overview  
+## v2.4 API Overview  
 
-### Changes from v 2.2
-1. Validity checks for the main text for Send Authentication SMS API has been added.
-- For more details, see [[Send Authentication SMS API](./api-guide/#precautions-authword)].
+### Changes from v 2.3
+1. 각 메시지(단문, 장문, 인증) 발송 목록 검색 및 발송 단일 검색 응답 필드가 추가되었습니다.
+    - 추가된 필드: messageType, recipientSeq
+2. 발송 단일 검색 조건에 사용되는 [mtPr]이 [recipientSeq]로 변경되었습니다.
 
 ### [API Domain]
 
@@ -20,9 +21,9 @@
 
 | Category | Maximum Support | Standard Specifications |
 | --- | --- | --- |
-| SMS Body | 255 characters | 90 bytes (45 characters for Korean, or 90 for English) |
-| MMS Title | 120 characters | 40 bytes (20 characters for Korean, or 40 for English) |
-| MMS Body | 4,000 characters | 2,000 bytes (1,000 characters for Korean, or 2,000 for English) |
+| SMS Body | 255 characters | 90 bytes (45 characters for Korean, or 90 for English) |
+| MMS Title | 120 characters | 40 bytes (20 characters for Korean, or 40 for English) |
+| MMS Body | 4,000 characters | 2,000 bytes (1,000 characters for Korean, or 2,000 for English) |
 
 ## Short SMS
 
@@ -333,8 +334,9 @@ curl -X GET \
             "resultCodeName":"successful",
             "telecomCode":10001,
             "telecomCodeName":"SKT",
-            "mtPr":"1",
+            "recipientSeq":1,
             "sendType":"0",
+            "messageType":"SMS",
             "userId":"tester",
             "adYn":"N",
             "resultMessage": "",
@@ -371,8 +373,9 @@ curl -X GET \
 |body.data[].resultCodeName|	String| Result code name of receiving |
 |body.data[].telecomCode|	Integer| Code of telecom provider |
 |body.data[].telecomCodeName|	String| Name of telecom provider |
-|body.data[].mtPr|	Integer| Detail delivery ID (required to query details) |
+|body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].senderGroupingKey|	String| Sender's group key |
@@ -400,12 +403,12 @@ Content-Type: application/json;charset=UTF-8
 
 |Value| Type | Required | Description |
 |---|---|---|---|
-|mtPr|	Integer| Required | Detail delivery ID |
+|recipientSeq|	Integer| Required | Detail delivery ID |
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -438,8 +441,9 @@ curl -X GET \
          "resultCodeName":"successful",
          "telecomCode":10001,
          "telecomCodeName":"SKT",
-         "mtPr":"1",
+         "recipientSeq":1,
          "sendType":"0",
+         "messageType":"SMS",
          "userId":"tester",
          "adYn":"N",
          "resultMessage": "",
@@ -472,8 +476,9 @@ curl -X GET \
 |body.data.resultCodeName|	String| Result code name of receiving |
 |body.data.telecomCode|	Integer| Telecom provider code |
 |body.data.telecomCodeName|	String| Telecom provider name |
-|body.data.mtPr|	Integer| Detail delivery ID (required to query details) |
+|body.data.recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data.userId|	String| Delivery request ID |
 |body.data.adYn|	String| Ad or not |
 |body.data.senderGroupingKey|	String| Sender's group key |
@@ -548,8 +553,8 @@ curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
-    "title": "{제목}",
-    "body": "{본문 내용}",
+    "title": "{title}",
+    "body": "{body}",
     "sendNo": "15446859",
     "attachFileIdList": [0],
     "recipientList": [{
@@ -802,8 +807,9 @@ curl -X GET \
         "resultCodeName":"successful",
         "telecomCode":10001,
         "telecomCodeName":"SKT",
-        "mtPr":"1",
+        "recipientSeq":1,
         "sendType":"0",
+        "messageType":"LMS",
         "userId":"tester",
         "adYn":"N",
         "attachFileList": [{
@@ -848,8 +854,9 @@ curl -X GET \
 |body.data[].resultCodeName|	String| Result code name of receiving |
 |body.data[].telecomCode|	Integer| Code of telecom provider |
 |body.data[].telecomCodeName|	String| Name of telecom provider |
-|body.data[].mtPr|	Integer| Detail delivery ID (required to query details) |
+|body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].attachFileList[].fileId|	Integer| File ID |
@@ -883,12 +890,12 @@ Content-Type: application/json;charset=UTF-8
 
 |Value| Type | Required | Description |
 |---|---|---|---|
-|mtPr|	Integer| Required | Detail delivery ID |
+|recipientSeq|	Integer| Required | Detail delivery ID |
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -921,8 +928,9 @@ curl -X GET \
       "resultCodeName":"successful",
       "telecomCode":10001,
       "telecomCodeName":"SKT",
-      "mtPr":"1",
+      "recipientSeq":1,
       "sendType":"0",
+      "messageType":"MMS",
       "userId":"tester",
       "adYn":"N",
       "attachFileList": [{
@@ -966,8 +974,9 @@ curl -X GET \
 |body.data[].resultCodeName|	String| Result code name of receiving |
 |body.data[].telecomCode|	Integer| Code of telecom provider |
 |body.data[].telecomCodeName|	String| Name of telecome provider |
-|body.data[].mtPr|	Integer| Detail delivery ID (required to query details) |
+|body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].attachFileList[].fileId|	Integer| File ID |
@@ -1246,8 +1255,9 @@ curl -X GET \
             "resultCodeName":"successful",
             "telecomCode":10001,
             "telecomCodeName":"SKT",
-            "mtPr":"1",
+            "recipientSeq":1,
             "sendType":"0",
+            "messageType":"AUTH",
             "userId":"tester",
             "adYn":"N",
             "resultMessage": "",
@@ -1284,8 +1294,9 @@ curl -X GET \
 |body.data[].resultCodeName|	String| Result code name of receiving |
 |body.data[].telecomCode|	Integer| Code of telecom provider |
 |body.data[].telecomCodeName|	String| Name of telecom provider |
-|body.data[].mtPr|	Integer| Detail delivery ID (required to query details) |
+|body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data[].userId|	String| Request ID for sending |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].senderGroupingKey|	String| Sender's group key |
@@ -1313,12 +1324,12 @@ Content-Type: application/json;charset=UTF-8
 
 |Value| Type | Required | Description |
 |---|----|---|---|
-|mtPr|	Integer| Required | Detail delivery ID |
+|recipientSeq|	Integer| Required | Detail delivery ID |
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -1350,8 +1361,9 @@ curl -X GET \
          "resultCodeName":"successful",
          "telecomCode":10001,
          "telecomCodeName":"SKT",
-         "mtPr":"1",
+         "recipientSeq":1,
          "sendType":"0",
+         "messageType":"AUTH",
          "userId":"tester",
          "adYn":"N",
          "resultMessage": "",
@@ -1384,8 +1396,9 @@ curl -X GET \
 |body.data.resultCodeName|	String| Result code name of receiving |
 |body.data.telecomCode|	Integer| Code of telecom provider |
 |body.data.telecomCodeName|	String| Name of telecom provider |
-|body.data.mtPr|	Integer| Detail delivery ID (required to query details) |
+|body.data.recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data.userId|	String| Request ID for sending |
 |body.data.adYn|	String| Ad or not |
 |body.data.senderGroupingKey|	String| Sender's group key |
