@@ -1,14 +1,35 @@
 ## Notification > SMS > Release Notes
 
-### 2020. 04. 28.
+### 2020. 12. 29.
 ### 기능 개선/변경
-* [Console] 180일 지난 발송 목록 데이터 백업 기능 추가
-    * 180일이 지난 발송 목록(일반/대량/태그)에 대해 고객 OBS 또는 AWS S3로 백업 파일을 생성해주는 기능이 추가되었습니다.
-    * 백업 설정은 **발송 설정** 탭에서 확인 가능합니다.
-* [Console] **대량/태그 발송 목록** 탭 실패 목록의 페이지 매김(pagination) 오류 수정
-    * **대량/태그 발송 목록** 탭에서 실패 목록을 조회할 때 페이지 매김(pagination)이 제대로 동작하지 않던 문제가 수정되었습니다.
-* [API] 통계 검색 API에 요청 ID 필터 조건 추가
-    * **통계 검색 - 이벤트 기반/요청 시간 기반** 에 requestId 목록 필터 조건이 추가되었습니다.
+* [API] 단문/장문/인증용 SMS 발송 목록 검색 및 발송 단일 검색의 응답 본문 일부 변경
+    * messageType/recipientSeq 필드가 추가됩니다.
+    * mtPr 필드가 삭제됩니다.
+    * 자세한 사항은 [[API 가이드](./api-guide/#sms_4)]를 참고하시기 바랍니다.
+
+### July 28, 2020
+### Feature Updates 
+* [Console/API] Creating Email-type Template ID 
+    * Fixed failure in querying, modifying, or deleting, if a template ID is created in the email type.
+* [Console/API] Fixed infrequent errors in the length check for sending international text messages 
+    * Fixed infrequent errors of length check resulting in failed delivery of international text messages  
+
+### June 23, 2020
+### Feature Updates
+* [Console] Changed charging information on the **Setting for Unsubscribe 080 Numbers** 
+    * Modified invalid charging information on the **Setting for Unsubscribe 080 Numbers** tab. 
+* [Console] Unable to download attached files from the detail page of scheduled delivery list 
+    * Fixed the 404 error occurred at the click of an attached file within View Details of Scheduled Delivery on the **Query SMS Request** tab. 
+
+### April 28, 2020
+### Feature Updates
+* [Console] Backup is available for delivery list data older than 180 days 
+    * Newly added a feature of creating backup files in OBS or AWS S3 for delivery data (general/mass/tag) that are older than 180 days.
+    * Backup setting is available on the **Delivery Setting** tab. 
+* [Console] Fixed error of pagination on the list of failed data from the **Mass/Tag Delivery List** tab.
+    * Fixed inoperability of pagination while listing failure from the **Mass/Tag Delivery List** tab. 
+* [API] Added Request ID as a filter condition for Search Statistics API 
+    * Added a filter condition of listing request IDs for **Search Statistics- Based on Event/Requet Time**.
     
 ### March 24, 2020
 ### Feature Updates

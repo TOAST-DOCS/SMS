@@ -3,8 +3,8 @@
 ## v2.4 API 소개
 
 ### v2.3과 달라진 사항
-1. 각 메시지(단문, 장문, 인증) 발송목록 검색 및 발송 단일 검색 응답 필드가 추가되었습니다.
-    - 추가된 필드 : messageType, recipientSeq
+1. 각 메시지(단문, 장문, 인증) 발송 목록 검색 및 발송 단일 검색 응답 필드가 추가되었습니다.
+    - 추가된 필드: messageType, recipientSeq
 2. 발송 단일 검색 조건에 사용되는 [mtPr]이 [recipientSeq]로 변경되었습니다.
 
 ### [API 도메인]
@@ -72,7 +72,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String | 50 |	X|	발송 템플릿 ID|
-|body|	String| 표준: 90바이트, 최대: 255자 (EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
+|body|	String| 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -375,7 +375,7 @@ curl -X GET \
 |body.data[].telecomCodeName|	String|	통신사명|
 |body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
+|body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
@@ -477,7 +477,7 @@ curl -X GET \
 |body.data.telecomCodeName|	String|	통신사명|
 |body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data.messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
+|body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
@@ -859,7 +859,7 @@ curl -X GET \
 |body.data[].telecomCodeName|	String|	통신사명|
 |body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
+|body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
@@ -979,7 +979,7 @@ curl -X GET \
 |body.data[].telecomCodeName|	String|	통신사명|
 |body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
+|body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].attachFileList[].fileId|	Integer|	파일 ID|
@@ -1047,7 +1047,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입| 최대 길이 |	필수|	설명|
 |---|---|---|---|---|
 |templateId|	String| 50 |	X|	발송 템플릿 ID|
-|body|	String| 표준: 90바이트, 최대: 255자 (EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용 [[주의사항](./api-guide/#precautions-authword)] |
+|body|	String| 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용 [[주의사항](./api-guide/#precautions-authword)] |
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 |senderGroupingKey| String| 100 | X | 발신자 그룹키 |
@@ -1303,7 +1303,7 @@ curl -X GET \
 |body.data[].telecomCodeName|	String|	통신사명|
 |body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
+|body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].senderGroupingKey|	String|	발신자 그룹키|
@@ -1405,7 +1405,7 @@ curl -X GET \
 |body.data.telecomCodeName|	String|	통신사명|
 |body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data.messageType|	String|	메시지 타입 (SMS/LMS/MMS/AUTH)|
+|body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
@@ -1536,7 +1536,7 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|
 |startUpdateDate|	String|	필수|	결과 업데이트 검색 시작 시간 <br/>yyyy-MM-dd HH:mm:ss|
 |endUpdateDate|	String|	필수|	결과 업데이트 검색 종료 시간 <br/>yyyy-MM-dd HH:mm:ss|
-|messageType|	String|	옵션|	메시지 타입 (SMS/LMS/MMS/AUTH)|
+|messageType|	String|	옵션|	메시지 타입(SMS/LMS/MMS/AUTH)|
 | pageNum | Integer | 옵션 | 페이지 번호(기본값:1) |
 | pageSize | Integer | 옵션 |검색 수(기본값:15) |
 
@@ -1641,7 +1641,7 @@ Content-Type: application/json;charset=UTF-8
 
 |값|	타입|	최대 길이 | 필수|	설명|
 |---|---|---|---|---|
-|body|	String| 표준: 90바이트, 최대: 255자 (EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
+|body|	String| 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
 | sendNo | String | 13 | O | 발신 번호 |
 | requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
 | templateId | String | 50 | X | 템플릿 ID |
@@ -1649,7 +1649,7 @@ Content-Type: application/json;charset=UTF-8
 | tagExpression | List<String> | - | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
 | userId | String | 100 | X | 요청한 유저 ID |
 | adYn | String | 1 | X | 광고 여부(기본값: N) |
-| autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부 (기본값: Y) |
+| autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부(기본값: Y) |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
 #### cURL
@@ -1751,7 +1751,7 @@ Content-Type: application/json;charset=UTF-8
 | attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
 | userId | String | 100 | X | 요청한 유저 ID |
 | adYn | String | 1 | X | 광고 여부(기본값: N) |
-| autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부 (기본 Y) |
+| autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부(기본 Y) |
 | statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
 
 #### cURL
@@ -2152,7 +2152,7 @@ curl -X POST \
 |header.resultMessage|	String|	실패 메시지|
 |body.data.fileId|	Integer|	파일 ID|
 |body.data.fileName|	String|	파일명|
-|body.data.filePath|	String|	첨부 파일 기본 경로 <br/> (https://domain/attachFile/filePath/fileName)|
+|body.data.filePath|	String|	첨부 파일 기본 경로 <br/>(https://domain/attachFile/filePath/fileName)|
 
 
 #### 첨부 파일 업로드 예제
@@ -4909,7 +4909,7 @@ Content-Type: application/json;charset=UTF-8
 | uid | String | - | 필수 | UID |
 | tagIds[] | String | - | 필수 | 태그 ID 목록 |
 | contacts[].contactType | String | - | 필수 | 연락처 타입(PHONE_NUMBER) |
-| contacts[].contact | String | - | 필수 | 연락처 (휴대폰 번호) |
+| contacts[].contact | String | - | 필수 | 연락처(휴대폰 번호) |
 
 [주의]
 * tagIds가 주어지는 경우 contacts는 필수 값이 아닙니다.

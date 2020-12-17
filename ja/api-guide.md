@@ -1,10 +1,11 @@
 ## Notification > SMS > API v2.3ガイド
 
-## v2.3 API紹介
+## v2.4 API紹介
 
-### v2.2からの変更事項
-1. 認証用SMS送信APIに対する本文の有効性チェックが追加されました。
-   - 詳細は[[認証用SMS送信API](./api-guide/#precautions-authword)]を参照してください。
+### v2.3からの変更事項
+1. 각 메시지(단문, 장문, 인증) 발송 목록 검색 및 발송 단일 검색 응답 필드가 추가되었습니다.
+    - 추가된 필드: messageType, recipientSeq
+2. 발송 단일 검색 조건에 사용되는 [mtPr]이 [recipientSeq]로 변경되었습니다.
 
 ### [APIドメイン]
 
@@ -334,8 +335,9 @@ curl -X GET \
             "resultCodeName":"成功",
             "telecomCode":10001,
             "telecomCodeName":"SKT",
-            "mtPr":"1",
+            "recipientSeq":1,
             "sendType":"0",
+            "messageType":"SMS",
             "userId":"tester",
             "adYn":"N",
             "resultMessage": "",
@@ -372,8 +374,9 @@ curl -X GET \
 |body.data[].resultCodeName|	String|	受信結果コード名|
 |body.data[].telecomCode|	Integer|	サービスプロバイダーコード|
 |body.data[].telecomCodeName|	String|	サービスプロバイダー名|
-|body.data[].mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|body.data[].recipientSeq|	Integer|	送信詳細ID(詳細照会時は必須)|
 |body.data[].sendType|	String|	送信タイプ(0：Sms、1：Mms、2：Auth)|
+|body.data[].messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	送信リクエストID|
 |body.data[].adYn|	String|	広告かどうか|
 |body.data[].senderGroupingKey|	String|	発信者グループキー|
@@ -401,12 +404,12 @@ Content-Type: application/json;charset=UTF-8
 
 |値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|mtPr|	Integer|	必須|	送信詳細ID|
+|recipientSeq|	Integer|	必須|	送信詳細ID|
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -438,7 +441,7 @@ curl -X GET \
          "resultCodeName":"成功",
          "telecomCode":10001,
          "telecomCodeName":"SKT",
-         "mtPr":"1",
+         "recipientSeq":1,
          "sendType":"0",
          "userId":"tester",
          "adYn":"N",
@@ -472,7 +475,7 @@ curl -X GET \
 |body.data.resultCodeName|	String|	受信結果コード名|
 |body.data.telecomCode|	Integer|	サービスプロバイダーコード|
 |body.data.telecomCodeName|	String|	サービスプロバイダー名|
-|body.data.mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|body.data.recipientSeq|	Integer|	送信詳細ID(詳細照会時は必須)|
 |body.data.sendType|	String|	送信タイプ(0：Sms、1：Mms、2：Auth)|
 |body.data.userId|	String|	送信リクエストID|
 |body.data.adYn|	String|	広告かどうか|
@@ -805,7 +808,7 @@ curl -X GET \
         "resultCodeName":"成功",
         "telecomCode":10001,
         "telecomCodeName":"SKT",
-        "mtPr":"1",
+        "recipientSeq":1,
         "sendType":"0",
         "userId":"tester",
         "adYn":"N",
@@ -851,8 +854,9 @@ curl -X GET \
 |body.data[].resultCodeName|	String|	受信結果コード名|
 |body.data[].telecomCode|	Integer|	サービスプロバイダーコード|
 |body.data[].telecomCodeName|	String|	サービスプロバイダー名|
-|body.data[].mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|body.data[].recipientSeq|	Integer|	送信詳細ID(詳細照会時は必須)|
 |body.data[].sendType|	String|	送信タイプ(0：Sms、1：Mms、2：Auth)|
+|body.data[].messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	送信リクエストID|
 |body.data[].adYn|	String|	広告かどうか|
 |body.data[].attachFileList[].fileId|	Integer|	ファイルID|
@@ -886,12 +890,12 @@ Content-Type: application/json;charset=UTF-8
 
 |値|	タイプ|	必須|	説明|
 |---|---|---|---|
-|mtPr|	Integer|	必須|	送信詳細ID|
+|recipientSeq|	Integer|	必須|	送信詳細ID|
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -924,7 +928,7 @@ curl -X GET \
       "resultCodeName":"成功",
       "telecomCode":10001,
       "telecomCodeName":"SKT",
-      "mtPr":"1",
+      "recipientSeq":1,
       "sendType":"0",
       "userId":"tester",
       "adYn":"N",
@@ -969,8 +973,9 @@ curl -X GET \
 |body.data[].resultCodeName|	String|	受信結果コード名|
 |body.data[].telecomCode|	Integer|	サービスプロバイダーコード|
 |body.data[].telecomCodeName|	String|	サービスプロバイダー名|
-|body.data[].mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|body.data[].recipientSeq|	Integer|	送信詳細ID(詳細照会時は必須)|
 |body.data[].sendType|	String|	送信タイプ(0：Sms、1：Mms、2：Auth)|
+|body.data[].messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	送信リクエストID|
 |body.data[].adYn|	String|	広告かどうか|
 |body.data[].attachFileList[].fileId|	Integer|	ファイルID|
@@ -1249,7 +1254,7 @@ curl -X GET \
             "resultCodeName":"成功",
             "telecomCode":10001,
             "telecomCodeName":"SKT",
-            "mtPr":"1",
+            "recipientSeq":1,
             "sendType":"0",
             "userId":"tester",
             "adYn":"N",
@@ -1287,8 +1292,9 @@ curl -X GET \
 |body.data[].resultCodeName|	String|	受信結果コード名|
 |body.data[].telecomCode|	Integer|	サービスプロバイダーコード|
 |body.data[].telecomCodeName|	String|	サービスプロバイダー名|
-|body.data[].mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|body.data[].recipientSeq|	Integer|	送信詳細ID(詳細照会時は必須)|
 |body.data[].sendType|	String|	送信タイプ(0：Sms、1：Mms、2：Auth)|
+|body.data[].messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	送信リクエストID|
 |body.data[].adYn|	String|	広告かどうか|
 |body.data[].senderGroupingKey|	String|	発信者グループキー|
@@ -1316,12 +1322,12 @@ Content-Type: application/json;charset=UTF-8
 
 |値|	タイプ|	必須|	説明|
 |---|----|---|---|
-|mtPr|	Integer|	必須|	送信詳細ID|
+|recipientSeq|	Integer|	必須|	送信詳細ID|
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?mtPr='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -1353,7 +1359,7 @@ curl -X GET \
          "resultCodeName":"成功",
          "telecomCode":10001,
          "telecomCodeName":"SKT",
-         "mtPr":"1",
+         "recipientSeq":1,
          "sendType":"0",
          "userId":"tester",
          "adYn":"N",
@@ -1387,7 +1393,7 @@ curl -X GET \
 |body.data.resultCodeName|	String|	受信結果コード名|
 |body.data.telecomCode|	Integer|	サービスプロバイダーコード|
 |body.data.telecomCodeName|	String|	サービスプロバイダー名|
-|body.data.mtPr|	Integer|	送信詳細ID(詳細照会時は必須)|
+|body.data.recipientSeq|	Integer|	送信詳細ID(詳細照会時は必須)|
 |body.data.sendType|	String|	送信タイプ(0：Sms、1：Mms、2：Auth)|
 |body.data.userId|	String|	送信リクエストID|
 |body.data.adYn|	String|	広告かどうか|
