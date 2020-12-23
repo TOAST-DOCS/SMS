@@ -1,4 +1,4 @@
-## Notification > SMS > API v2.3 Guide
+## Notification > SMS > API v2.4 Guide
 
 ## v2.4 API Overview  
 
@@ -34,7 +34,7 @@
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/sms
+POST  /sms/v2.4/appKeys/{appKey}/sender/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -89,7 +89,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "body": "Body",
@@ -147,7 +147,7 @@ curl -X POST \
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms|
 
 [Request body]
 ```
@@ -207,7 +207,7 @@ curl -X POST \
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms|
 
 
 [Request body]
@@ -261,7 +261,7 @@ curl -X POST \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/sms
+GET  /sms/v2.4/appKeys/{appKey}/sender/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -298,7 +298,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -388,7 +388,7 @@ curl -X GET \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/sms/{requestId}
+GET  /sms/v2.4/appKeys/{appKey}/sender/sms/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -408,7 +408,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -493,7 +493,7 @@ curl -X GET \
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/mms
+POST  /sms/v2.4/appKeys/{appKey}/sender/mms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -550,7 +550,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "title": "{title}",
@@ -612,7 +612,7 @@ curl -X POST \
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms|
 
 [Request body]
 ```
@@ -675,7 +675,7 @@ curl -X POST \
 
 | Http method | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms |
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms |
 
 [Request body]
 ```
@@ -733,7 +733,7 @@ curl -X POST \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/mms
+GET  /sms/v2.4/appKeys/{appKey}/sender/mms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -770,7 +770,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -875,7 +875,7 @@ curl -X GET \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/mms/{requestId}
+GET  /sms/v2.4/appKeys/{appKey}/sender/mms/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -895,7 +895,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -1006,7 +1006,7 @@ curl -X GET \
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/auth/sms
+POST  /sms/v2.4/appKeys/{appKey}/sender/auth/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1061,7 +1061,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/auth/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "body": "인증 테스트",
@@ -1120,7 +1120,7 @@ curl -X POST \
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/auth/sms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/auth/sms|
 
 [Request body]
 ```
@@ -1182,7 +1182,7 @@ curl -X POST \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/auth/sms
+GET  /sms/v2.4/appKeys/{appKey}/sender/auth/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1219,7 +1219,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -1309,7 +1309,7 @@ curl -X GET \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/sender/auth/sms/{requestId}
+GET  /sms/v2.4/appKeys/{appKey}/sender/auth/sms/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1329,7 +1329,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -1409,7 +1409,7 @@ curl -X GET \
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/ad-sms
+POST  /sms/v2.4/appKeys/{appKey}/sender/ad-sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1435,7 +1435,7 @@ Same as Send SMS in the above.
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "body": "(광고) Test\n [무료 수신 거부]0808880327",
@@ -1454,7 +1454,7 @@ curl -X POST \
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/sender/ad-mms
+POST  /sms/v2.4/appKeys/{appKey}/sender/ad-mms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1480,7 +1480,7 @@ Same as Send MMS in the above.
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
 -H 'Content-Type: application/json;charset=UTF-8'
 -d '{
     "title": "{제목}",
@@ -1507,7 +1507,7 @@ curl -X POST \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/message-results?startUpdateDate={startUpdateDate}&endUpdateDate={endUpdateDate}&messageType={messageType}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.4/appKeys/{appKey}/message-results?startUpdateDate={startUpdateDate}&endUpdateDate={endUpdateDate}&messageType={messageType}&pageNum={pageNum}&pageSize={pageSize}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1530,7 +1530,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -1594,7 +1594,7 @@ curl -X GET \
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/tag-sender/sms
+POST /sms/v2.4/appKeys/{appKey}/tag-sender/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1643,7 +1643,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/sms' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tag-sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "body": "본문",
@@ -1689,7 +1689,7 @@ curl -X POST \
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/tag-sender/mms
+POST  /sms/v2.4/appKeys/{appKey}/tag-sender/mms
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1744,7 +1744,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/mms' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tag-sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "title": "제목",
@@ -1791,7 +1791,7 @@ curl -X POST \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/tag-sender
+GET /sms/v2.4/appKeys/{appKey}/tag-sender
 ```
 
 [Path parameter]
@@ -1820,7 +1820,7 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${REQUEST_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -1895,7 +1895,7 @@ curl -X GET \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/tag-sender/{requestId}
+GET /sms/v2.4/appKeys/{appKey}/tag-sender/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1924,7 +1924,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -1983,7 +1983,7 @@ curl -X GET \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/tag-sender/{requestId}/{recipientSeq}
+GET /sms/v2.4/appKeys/{appKey}/tag-sender/{requestId}/{recipientSeq}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2004,7 +2004,7 @@ X
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -2077,7 +2077,7 @@ curl -X GET \
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/attachfile/binaryUpload
+POST  /sms/v2.4/appKeys/{appKey}/attachfile/binaryUpload
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2107,7 +2107,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "fileName": "attachement.jpg",
@@ -2148,7 +2148,7 @@ curl -X POST \
 
 | Http method | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/attachfile/binaryUpload |
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/attachfile/binaryUpload |
 
 [Request body]
 ```
@@ -2187,7 +2187,7 @@ curl -X POST \
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/categories
+POST  /sms/v2.4/appKeys/{appKey}/categories
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2223,7 +2223,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "categoryParentId": 0,
@@ -2279,7 +2279,7 @@ curl -X POST \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/categories
+GET  /sms/v2.4/appKeys/{appKey}/categories
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2299,7 +2299,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -2362,7 +2362,7 @@ curl -X GET \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/categories/{categoryId}
+GET  /sms/v2.4/appKeys/{appKey}/categories/{categoryId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2376,7 +2376,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -2435,7 +2435,7 @@ curl -X GET \
 [URL]
 
 ```
-PUT  /sms/v2.3/appKeys/{appKey}/categories/{categoryId}
+PUT  /sms/v2.4/appKeys/{appKey}/categories/{categoryId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2467,7 +2467,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X PUT \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "categoryParentId": 788,
@@ -2497,7 +2497,7 @@ curl -X PUT \
 [URL]
 
 ```
-DELETE  /sms/v2.3/appKeys/{appKey}/categories/{categoryId}
+DELETE  /sms/v2.4/appKeys/{appKey}/categories/{categoryId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2511,7 +2511,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X DELETE \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -2538,7 +2538,7 @@ curl -X DELETE \
 [URL]
 
 ```
-POST  /sms/v2.3/appKeys/{appKey}/templates
+POST  /sms/v2.4/appKeys/{appKey}/templates
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2584,7 +2584,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "categoryId": 199376,
@@ -2616,7 +2616,7 @@ curl -X POST \
 
 | Http method | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/templates |
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/templates |
 
 [Request body]
 ```
@@ -2664,8 +2664,8 @@ curl -X POST \
 
 |Http method| Type | URL|
 | - | - | - |
-| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms |
-| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms |
+| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms |
+| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms |
 
 For Request URL, choose a delivery type selected to register templates.  
 
@@ -2723,8 +2723,8 @@ For Request URL, choose a delivery type selected to register templates.
 
 |Http method| Type | URL|
 | - | - | - |
-| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms |
-| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms |
+| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms |
+| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms |
 
 For Request URL, choose a delivery type selected to register templates.
 
@@ -2788,7 +2788,7 @@ Such case is applicable when template needs to be modified after queried.
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/templates
+GET  /sms/v2.4/appKeys/{appKey}/templates
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2808,7 +2808,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -2908,7 +2908,7 @@ curl -X GET \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/templates/{templateId}
+GET  /sms/v2.4/appKeys/{appKey}/templates/{templateId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2922,7 +2922,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3022,7 +3022,7 @@ curl -X GET \
 [URL]
 
 ```
-PUT  /sms/v2.3/appKeys/{appKey}/templates/{templateId}
+PUT  /sms/v2.4/appKeys/{appKey}/templates/{templateId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3064,7 +3064,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3087,7 +3087,7 @@ curl -X GET \
 [URL]
 
 ```
-DELETE  /sms/v2.3/appKeys/{appKey}/templates/{templateId}
+DELETE  /sms/v2.4/appKeys/{appKey}/templates/{templateId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3101,7 +3101,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X DELETE \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3127,7 +3127,7 @@ curl -X DELETE \
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/blockservice/recipients
+POST /sms/v2.4/appKeys/{appKey}/blockservice/recipients
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3154,7 +3154,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "unsubscribeNo": "0800000000",
@@ -3181,7 +3181,7 @@ curl -X POST \
 [URL]
 
 ```
-GET  /sms/v2.3/appKeys/{appKey}/blockservice/recipients
+GET  /sms/v2.4/appKeys/{appKey}/blockservice/recipients
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3205,7 +3205,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3239,7 +3239,7 @@ curl -X GET \
 [URL]
 
 ```
-DELETE  /sms/v2.3/appKeys/{appKey}/blockservice/recipients/removes?unsubscribeNo={unsubscribeNo}&updateUser={updateUser}&recipientNoList={recipientNo},{recipientNo}
+DELETE  /sms/v2.4/appKeys/{appKey}/blockservice/recipients/removes?unsubscribeNo={unsubscribeNo}&updateUser={updateUser}&recipientNoList={recipientNo},{recipientNo}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3260,7 +3260,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X DELETE \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${UNSUB_NO}"'&updateUser='"${UPDATE_USER}"'&recipientNoList='"${RECIPIENT_NO}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${UNSUB_NO}"'&updateUser='"${UPDATE_USER}"'&recipientNoList='"${RECIPIENT_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3285,7 +3285,7 @@ curl -X DELETE \
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/requests/sendNos|
+POST /sms/v2.4/appKeys/{appKey}/requests/sendNos|
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3320,7 +3320,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reqeusts/sendNos' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/reqeusts/sendNos' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "sendNos": ["1588"],
@@ -3346,7 +3346,7 @@ curl -X POST \
 
 [URL]
 ```
-POST /sms/v2.3/appKeys/{appKey}/requests/attachFiles/authDocuments
+POST /sms/v2.4/appKeys/{appKey}/requests/attachFiles/authDocuments
 Content-Type : multipart/form-data;
 ```
 
@@ -3365,7 +3365,7 @@ Content-Type : multipart/form-data;
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/requests/attachFiles/authDocuments' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/requests/attachFiles/authDocuments' \
 -H 'Content-Type: multipart/form-data' \
 -F 'attachFile=@/home/doc.dpf'
 ```
@@ -3394,7 +3394,7 @@ curl -X POST \
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}/requests/sendNos?sendNo={sendNo}&status={status}&pageNum={pageNum}&pageSize={pageSize}|
+|GET|	/sms/v2.4/appKeys/{appKey}/requests/sendNos?sendNo={sendNo}&status={status}&pageNum={pageNum}&pageSize={pageSize}|
 
 [Path parameter]
 
@@ -3414,7 +3414,7 @@ curl -X POST \
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/requests/sendNos' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/requests/sendNos' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3476,7 +3476,7 @@ curl -X GET \
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}/sendNos?sendNo={sendNo}&useYn={useYn}&blockYn={blockYn}&pageNum={pageNum}&pageSize={pageSize}
+|GET|	/sms/v2.4/appKeys/{appKey}/sendNos?sendNo={sendNo}&useYn={useYn}&blockYn={blockYn}&pageNum={pageNum}&pageSize={pageSize}
 
 [Path parameter]
 
@@ -3497,7 +3497,7 @@ curl -X GET \
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sendNos' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sendNos' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3564,7 +3564,7 @@ curl -X GET \
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}/stats|
+|GET|	/sms/v2.4/appKeys/{appKey}/stats|
 
 [Path parameter]
 
@@ -3588,7 +3588,7 @@ curl -X GET \
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${STATISTICS_TYPE}"'&from='"${FROM}"'&to='"${TO}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${STATISTICS_TYPE}"'&from='"${FROM}"'&to='"${TO}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3643,7 +3643,7 @@ curl -X GET \
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey}/stats/legacy|
+|GET|	/sms/v2.4/appKeys/{appKey}/stats/legacy|
 
 [Path parameter]
 
@@ -3711,7 +3711,7 @@ curl -X GET \
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.3/appKeys/{appKey/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
+|GET|	/sms/v2.4/appKeys/{appKey/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
 
 [Path parameter]
 
@@ -3782,7 +3782,7 @@ curl -X GET \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/reservations
+GET /sms/v2.4/appKeys/{appKey}/reservations
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3812,7 +3812,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/reservations' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3889,7 +3889,7 @@ curl -X GET \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/reservations/{requestId}/{recipientSeq}
+GET /sms/v2.4/appKeys/{appKey}/reservations/{requestId}/{recipientSeq}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3904,7 +3904,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -3986,7 +3986,7 @@ curl -X GET \
 [URL]
 
 ```
-PUT /sms/v2.3/appKeys/{appKey}/reservations/cancel
+PUT /sms/v2.4/appKeys/{appKey}/reservations/cancel
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4019,7 +4019,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X PUT \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/cancel' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/reservations/cancel' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "reservationList": [{
@@ -4065,7 +4065,7 @@ curl -X PUT \
 [URL]
 
 ```
-PUT /sms/v2.3/appKeys/{appKey}/reservations/search-cancels
+PUT /sms/v2.4/appKeys/{appKey}/reservations/search-cancels
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4118,7 +4118,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X PUT \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "searchParameter": {
@@ -4174,7 +4174,7 @@ curl -X PUT \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/reservations/search-cancels?startRequestedDateTime={startRequestedDateTime}&endRequestedDateTime={endRequestedDateTime}&reservationCancelId={reservationCancelId}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.4/appKeys/{appKey}/reservations/search-cancels?startRequestedDateTime={startRequestedDateTime}&endRequestedDateTime={endRequestedDateTime}&reservationCancelId={reservationCancelId}&pageNum={pageNum}&pageSize={pageSize}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4197,7 +4197,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -4256,7 +4256,7 @@ curl -X GET \
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/sender/download-reservations
+POST /sms/v2.4/appKeys/{appKey}/sender/download-reservations
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4315,7 +4315,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/download-reservations' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "sendType": "1",
@@ -4364,7 +4364,7 @@ curl -X POST \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/download-reservations?downloadId={downloadId}&downloadStatusCode={downloadStatusCode}&pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.4/appKeys/{appKey}/download-reservations?downloadId={downloadId}&downloadStatusCode={downloadStatusCode}&pageNum={pageNum}&pageSize={pageSize}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4386,7 +4386,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -4446,7 +4446,7 @@ curl -X GET \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/download-reservations/{downloadId}/download
+GET /sms/v2.4/appKeys/{appKey}/download-reservations/{downloadId}/download
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4460,7 +4460,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations/'"${DOWNLOAD_RESERVATION_ID}"'/download' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/download-reservations/'"${DOWNLOAD_RESERVATION_ID}"'/download' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -4479,7 +4479,7 @@ file byte
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/tags?pageNum={pageNum}&pageSize={pageSize}
+GET /sms/v2.4/appKeys/{appKey}/tags?pageNum={pageNum}&pageSize={pageSize}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4499,7 +4499,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -4546,7 +4546,7 @@ curl -X GET \
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/tags
+POST /sms/v2.4/appKeys/{appKey}/tags
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4571,7 +4571,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "tagName": "API-Guide"
@@ -4607,7 +4607,7 @@ curl -X POST \
 [URL]
 
 ```
-PUT /sms/v2.3/appKeys/{appKey}/tags/{tagId}
+PUT /sms/v2.4/appKeys/{appKey}/tags/{tagId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4633,7 +4633,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X PUT \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "tagName": "API-Guide2"
@@ -4664,7 +4664,7 @@ curl -X PUT \
 [URL]
 
 ```
-DELETE /sms/v2.3/appKeys/{appKey}/tags/{tagId}
+DELETE /sms/v2.4/appKeys/{appKey}/tags/{tagId}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4678,7 +4678,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X DELETE \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -4711,7 +4711,7 @@ curl -X DELETE \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/uids?wheres={wheres}&offsetUid={offsetUid}&offset={offset}&limit={limit}
+GET /sms/v2.4/appKeys/{appKey}/uids?wheres={wheres}&offsetUid={offsetUid}&offset={offset}&limit={limit}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4733,7 +4733,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -4798,7 +4798,7 @@ curl -X GET \
 [URL]
 
 ```
-GET /sms/v2.3/appKeys/{appKey}/uids/{uid}
+GET /sms/v2.4/appKeys/{appKey}/uids/{uid}
 ```
 
 [Path parameter]
@@ -4811,7 +4811,7 @@ GET /sms/v2.3/appKeys/{appKey}/uids/{uid}
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -4866,7 +4866,7 @@ curl -X GET \
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/uids
+POST /sms/v2.4/appKeys/{appKey}/uids
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4909,7 +4909,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids/' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "uids": [{
@@ -4949,7 +4949,7 @@ curl -X POST \
 [URL]
 
 ```
-DELETE /sms/v2.3/appKeys/{appKey}/uids/{uid}
+DELETE /sms/v2.4/appKeys/{appKey}/uids/{uid}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4963,7 +4963,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X DELETE \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
@@ -4991,7 +4991,7 @@ curl -X DELETE \
 [URL]
 
 ```
-POST /sms/v2.3/appKeys/{appKey}/uids/{uid}/phone-numbers
+POST /sms/v2.4/appKeys/{appKey}/uids/{uid}/phone-numbers
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -5017,7 +5017,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
     "phoneNumber": "0100000000"
@@ -5048,7 +5048,7 @@ curl -X POST \
 [URL]
 
 ```
-DELETE /sms/v2.3/appKeys/{appKey}/uids/{uid}/phone-numbers/{phoneNumber}
+DELETE /sms/v2.4/appKeys/{appKey}/uids/{uid}/phone-numbers/{phoneNumber}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -5063,7 +5063,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X DELETE \
-'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}" \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
