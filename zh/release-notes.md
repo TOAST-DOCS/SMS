@@ -1,19 +1,23 @@
 ## Notification > SMS > Release Notes
 
-### 2021. 01. 26.
-### 기능 개선/변경
-* [Console/API] 프로젝트 간 080 수신 거부 공유 추가
-  * 하나의 080 번호로 여러 프로젝트에 공유할 수 있습니다.
-  * 공유는 080 번호를 신청한 프로젝트에서만 가능합니다.
-  * 업체명 수정, 업체 해지는 신청한 프로젝트에서만 가능합니다.
-  * 080 번호의 수신 거부 대상자는 공유됩니다.
+### January 26, 2021
 
-### 2020. 12. 29.
-### 기능 개선/변경
-* [API] 단문/장문/인증용 SMS 발송 목록 검색 및 발송 단일 검색의 응답 본문 일부 변경
-    * messageType/recipientSeq 필드가 추가됩니다.
-    * mtPr 필드가 삭제됩니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#sms_4)]를 참고하시기 바랍니다.
+### Feature Updates
+
+- [Console/API] Added a feature of sharing blocked 080 phone numbers across projects
+  - A single 080 phone number can be shared across multiple projects.
+  - Only the project that requested an 080 phone number can share phone numbers.
+  - Only the requested project can edit the business name and cancel the business.
+  - The blocked 080 phone numbers are shared.
+
+### December 29, 2020
+
+### Feature Updates
+
+- [API] Applied partial changes to response body of SMS sent list search and send single search for short text/long text/authentication
+  - Added the messageType/recipientSeq field.
+  - Deleted the mtPr field.
+  - For more information, see [[API Guide](./api-guide/#sms_4)].
 
 ### July 28, 2020
 ### Feature Updates 

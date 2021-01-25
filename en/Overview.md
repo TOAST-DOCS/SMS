@@ -78,7 +78,7 @@ You can text by selecting tags, instead of phone numbers, as recipient informati
     * Put statsId gained from the **Statistics Event Key Management** tab into message delivery parameter. 
     * After some time, check statistics data on the **Statistics** tab. 
 
-### 데이터 보관 기간
-* 데이터 보관 정책에 따라, 최근 180일의 발송 이력을 보관합니다.
-* 서비스에 이용된 첨부 파일은 7일간만 보관되며 그 이후에는 삭제되어 조회할 수 없습니다.
-* 다만, 템플릿에 등록된 첨부 파일 및 증빙 서류(통신 서비스 이용 증명원)는 서비스를 이용하는 동안 보관됩니다.
+### Data retention period
+- Retains the sending history for the last 180 days in accordance with the data retention policy.
+- The attachments used in services are retained for 7 days. After 7 days, they are deleted and cannot be retrieved.
+- However, the attachments and evidential documents (communications service certificate) registered to a template are retained as long as the service is provided.
