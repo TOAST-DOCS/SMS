@@ -339,14 +339,14 @@ Rejection targets, requested with request date and time as optional, can be quer
 
 ## Guide for Notice of Personal Information Assignor 
 
-When the Customer uses TOAST > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act. 
+When the Customer uses NHN Cloud > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act. 
 
-Accordingly, the Company may provide guidelines as below for the Customer, to abide by relevant regulations in the use of TOAST SMS Service and not to be adversely affected for not disclosing his assignment status:
+Accordingly, the Company may provide guidelines as below for the Customer, to abide by relevant regulations in the use of NHN Cloud SMS Service and not to be adversely affected for not disclosing his assignment status:
 
 (Example)
 
 [Notice of Personal Information Assignor] 
-To use TOAST SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
+To use NHN Cloud SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
 
 Assignor: NHN 
 Content of Business: Send SMS in lieu of customers
