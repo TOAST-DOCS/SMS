@@ -3658,7 +3658,7 @@ curl -X GET \
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
 | templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
 | requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
-| statsCriteria | List<String> | | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- EXTRA_1,EVENT: 메시지 타입, 이벤트<br/>- EXTRA_2,EVENT: 광고여부, 이벤트<br/>- EXTRA_3,EVENT: 발신 번호, 이벤트 |
+| statsCriteria | List<String> | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- EXTRA_1,EVENT: 메시지 타입, 이벤트<br/>- EXTRA_2,EVENT: 광고여부, 이벤트<br/>- EXTRA_3,EVENT: 발신 번호, 이벤트 |
 
 #### 응답
 ```
