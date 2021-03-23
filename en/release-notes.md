@@ -1,19 +1,19 @@
 ## Notification > SMS > Release Notes
 
 ### 2021. 03. 23.
-### 기능 개선/변경
-* [Console] 대량 SMS 발송 프로세스 개선
-    * 대량 SMS 발송 프로세스가 개선되었습니다.
-        * 수신자 파일 업로드 시 유효하지 않은 수신자가 포함된 경우 아래 두 목록 파일에 대한 다운로드를 제공합니다.
-            * 유효한 수신자 번호 목록 다운로드
-            * 유효하지 않은 수신자 번호 목록 다운로드
-        * 유효한 수신자에게만 SMS 발송을 원하는 경우 **유효한 수신자만 문자 발송** 버튼을 클릭하여 발송할 수 있습니다.
-* [Console] 통계 기능 개선
-    * 템플릿 아이디, 메시지 타입, 광고 여부, 발신 번호 중 하나의 기준으로 통계를 조회할 수 있도록 개선되었습니다.
-* [Console] 발신 번호 등록 요청 상세 보기 노출 에러 수정
-    * 발신 번호 등록 요청 상세 보기 팝업이 노출되지 않던 문제가 수정되었습니다.
-* [Console/API] 템플릿 아이디 허용 문자 제한
-    * 템플릿 아이디에 '/', '?', ':' 문자를 사용할 수 없도록 개선되었습니다.
+### Feature Updates
+* [Console] Improved the process of sending a large volume of SMS
+    * Improved the process of sending a large volume of SMS.
+        * The following two lists are available for download if invalid recipients are included in the uploaded recipient file.
+            * Download the list of valid recipient numbers
+            * Download the list of invalid recipient numbers
+        * If you want to send SMS to valid recipients only, you can do so by clicking the **Send Text Messages to Valid Recipients Only**  button.
+* [Console] Statistics feature improved
+    * Improved to enable viewing the stats by any one of the following: template ID, message type, presence of ad, and calling number.
+* [Console] Fixed the bug of not exposing the calling number registration request details
+    * Fixed the bug where the calling number registration request details popup would not be exposed properly.
+* [Console/API] Disallowed use of some special characters for template ID
+    * Improved to disallow the use of '/', '?', ':' for template ID.
 
 ### January 26, 2021
 
