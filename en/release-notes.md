@@ -1,6 +1,6 @@
 ## Notification > SMS > Release Notes
 
-### 2021. 03. 23.
+### March 23, 2021
 ### Feature Updates
 * [Console] Improved the process of sending a large volume of SMS
     * Improved the process of sending a large volume of SMS.
