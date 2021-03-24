@@ -1427,7 +1427,7 @@ curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v2.3/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -d '{
-    "body": "(광고) Test\n [무료 수신 거부]0808880327",
+    "body": "(広告) Test\n [無料受信拒否]0808880327",
     "sendNo": "15446859",
     "recipientList": [{
             "recipientNo": "01000000000",
@@ -1474,7 +1474,7 @@ curl -X POST \
 -H 'Content-Type: application/json;charset=UTF-8'
 -d '{
     "title": "{Title}",
-    "body": "(광고) Test\n [무료 수신 거부]0808880327",
+    "body": "(広告) Test\n [無料受信拒否]0808880327",
     "sendNo": "15446859",
     "recipientList": [{
             "recipientNo": "01000000000",
@@ -3574,6 +3574,7 @@ curl -X GET \
 | isAd | Boolean | - | オプション | 広告かどうか<br/>true/false |
 | templateIds | List<String> | - | オプション | テンプレートIDリスト |
 | requestIds | List<String> | 5 | オプション | リクエストIDリスト |
+| statsCriteria | List<String> | オプション | 統計基準<br/>- EVENT：イベント(基本値)<br/>- TEMPLATE_ID,EVENT：テンプレート、イベント<br/>- EXTRA_1,EVENT：メッセージタイプ、イベント<br/>- EXTRA_2,EVENT：広告かどうか、イベント<br/>- EXTRA_3,EVENT：発信番号、イベント |
 
 #### cURL
 ```
@@ -3597,10 +3598,10 @@ curl -X GET \
             "eventDateTime" : "",
             "events" :
             {
-              "requested" : 10,
-              "sent" : 10,
-              "sentFailed" : 0,
-              "received" : 0
+              "{statsCriteriaValue}.requested" : 10,
+              "{statsCriteriaValue}.sent" : 10,
+              "{statsCriteriaValue}.sentFailed" : 0,
+              "{statsCriteriaValue}.received" : 0
             }
           }
         ]
@@ -3614,10 +3615,11 @@ curl -X GET \
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
 |body.data.eventDateTime |	String|	表示名<br/>分別、時間別、曜日別、月別|
-|body.data.events[].requested |	Integer|	リクエスト数|
-|body.data.events[].sent |	Integer|	送信数|
-|body.data.events[].sentFailed |	Integer|	失敗数|
-|body.data.events[].received |	Integer|	成功数|
+|body.data.events[].{statsCriteriaValue} | List | statsCriteriaに該当する値<br/>メッセージタイプ/広告タイプ/発信番号値が来る場合がある<br/>statsCriteriaをEVENTにのみ設定した場合、{statsCriteriaValue}は省略される |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	リクエスト数|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	送信数|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	失敗数|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	成功数|
 
 ### 統計検索 - リクエスト時間ベース
 * 送信リクエスト時間を基準に収集された統計です。
@@ -3653,6 +3655,7 @@ curl -X GET \
 | isAd | Boolean | - | オプション | 広告かどうか<br/>true/false |
 | templateIds | List<String> | - | オプション | テンプレートIDリスト |
 | requestIds | List<String> | 5 | オプション | リクエストIDリスト |
+| statsCriteria | List<String> | オプション | 統計基準<br/>- EVENT：イベント(基本値)<br/>- TEMPLATE_ID,EVENT：テンプレート、イベント<br/>- EXTRA_1,EVENT：メッセージタイプ、イベント<br/>- EXTRA_2,EVENT：広告かどうか、イベント<br/>- EXTRA_3,EVENT：発信番号、イベント |
 
 #### レスポンス
 ```
@@ -3669,11 +3672,11 @@ curl -X GET \
             "eventDateTime" : "",
             "events" :
             {
-              "requested" : 10,
-              "sent" : 10,
-              "sentFailed" : 0,
-              "received" : 0,
-              "pending" : 0
+              "{statsCriteriaValue}.requested" : 10,
+              "{statsCriteriaValue}.sent" : 10,
+              "{statsCriteriaValue}.sentFailed" : 0,
+              "{statsCriteriaValue}.received" : 0,
+              "{statsCriteriaValue}.pending" : 0
             }
           }
         ]
@@ -3687,11 +3690,12 @@ curl -X GET \
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
 |body.data.eventDateTime |	String|	表示名<br/>分別、時間別、曜日別、月別|
-|body.data.events[].requested |	Integer|	リクエスト数|
-|body.data.events[].sent |	Integer|	送信数|
-|body.data.events[].sentFailed |	Integer|	失敗数|
-|body.data.events[].received |	Integer|	成功数|
-|body.data.events[].pending |	Integer|	送信中の数|
+|body.data.events[].{statsCriteriaValue} | List | statsCriteriaに該当する値<br/>メッセージタイプ/広告タイプ/発信番号値が来る場合がある<br/>statsCriteriaをEVENTにのみ設定した場合、{statsCriteriaValue}は省略される |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	リクエスト数|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	送信数|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	失敗数|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	成功数|
+|body.data.events[].{statsCriteriaValue}.pending |	Integer|	送信中の数|
 
 ### (旧)統合統計照会
 
