@@ -3571,7 +3571,8 @@ curl -X GET \
 | isAd | Boolean | - | Optional | Ad or Not <br/>true/false |
 | templateIds | List<String> | - | Optional | Template ID List |
 | requestIds | List<String> | 5 | Optional | Request ID List |
-
+| statsCriteria | List<String> | Option | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
+ 
 #### cURL
 ```
 curl -X GET \
@@ -3594,10 +3595,10 @@ curl -X GET \
             "eventDateTime" : "",
             "events" :
             {
-              "requested" : 10,
-              "sent" : 10,
-              "sentFailed" : 0,
-              "received" : 0
+              "{statsCriteriaValue}.requested" : 10,
+              "{statsCriteriaValue}.sent" : 10,
+              "{statsCriteriaValue}.sentFailed" : 0,
+              "{statsCriteriaValue}.received" : 0
             }
           }
         ]
@@ -3611,10 +3612,11 @@ curl -X GET \
 |header.resultCode|	Integer|	Failure code|
 |header.resultMessage|	String|	Failure message|
 |body.data.eventDateTime |	String|	Display name<br/> Minutely, Hourly, Daily, Monthly|
-|body.data.events[].requested |	Integer|	Request count|
-|body.data.events[].sent |	Integer|	Delivery count|
-|body.data.events[].sentFailed |	Integer|	Failure count|
-|body.data.events[].received |	Integer|	Success count|
+|body.data.events[].{statsCriteriaValue} | List | Value for statsCriteria<br/>This can be message type/ad type/calling number value<br/>If statsCriteria is set to EVENT only, {statsCriteriaValue} is omitted |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	Number of requests|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	Number of sent items|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	Number of failures|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	Number of successes|
 
 ### Statistics Search - Based on Request Time 
 * Statistics are collected based on delivery request time. 
@@ -3650,6 +3652,7 @@ curl -X GET \
 | isAd | Boolean | - | Optional | Ad or not <br/>true/false |
 | templateIds | List<String> | - | Optional | Template ID List |
 | requestIds | List<String> | 5 | Optional | Request ID List |
+| statsCriteria | List<String> | Option | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
 
 #### Response
 ```
@@ -3666,11 +3669,11 @@ curl -X GET \
             "eventDateTime" : "",
             "events" :
             {
-              "requested" : 10,
-              "sent" : 10,
-              "sentFailed" : 0,
-              "received" : 0,
-              "pending" : 0
+              "{statsCriteriaValue}.requested" : 10,
+              "{statsCriteriaValue}.sent" : 10,
+              "{statsCriteriaValue}.sentFailed" : 0,
+              "{statsCriteriaValue}.received" : 0,
+              "{statsCriteriaValue}.pending" : 0
             }
           }
         ]
@@ -3684,11 +3687,12 @@ curl -X GET \
 |header.resultCode|	Integer|	Failure code|
 |header.resultMessage|	String|	Failure message|
 |body.data.eventDateTime |	String|	Display name <br/>Minutely,Hourly, Daily, and Monthly|
-|body.data.events[].requested |	Integer|	Request count|
-|body.data.events[].sent |	Integer|	Delivery count|
-|body.data.events[].sentFailed |	Integer|	Failure count|
-|body.data.events[].received |	Integer|	Success count|
-|body.data.events[].pending |	Integer|	Under Delivery Count|
+|body.data.events[].{statsCriteriaValue} | List | Value for statsCriteria<br/>This can be message type/ad type/calling number value<br/>If statsCriteria is set to EVENT only, {statsCriteriaValue} is omitted |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	Number of requests|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	Number of sent items|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	Number of failures|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	Number of successes|
+|body.data.events[].{statsCriteriaValue}.pending |	Integer|	Number of pending items|
 
 ### (Old)Query Integrated Statistics 
 
