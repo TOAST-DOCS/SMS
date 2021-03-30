@@ -1,5 +1,20 @@
 ## Notification > SMS > Release Notes
 
+### March 23, 2021
+### Feature Updates
+* [Console] Improved the process of sending a large volume of SMS
+    * Improved the process of sending a large volume of SMS.
+        * The following two lists are available for download if invalid recipients are included in the uploaded recipient file.
+            * Download the list of valid recipient numbers
+            * Download the list of invalid recipient numbers
+        * If you want to send SMS to valid recipients only, you can do so by clicking the **Send Text Messages to Valid Recipients Only**  button.
+* [Console] Statistics feature improved
+    * Improved to enable viewing the stats by any one of the following: template ID, message type, presence of ad, and calling number.
+* [Console] Fixed the bug of not exposing the calling number registration request details
+    * Fixed the bug where the calling number registration request details popup would not be exposed properly.
+* [Console/API] Disallowed use of some special characters for template ID
+    * Improved to disallow the use of '/', '?', ':' for template ID.
+
 ### January 26, 2021
 
 ### Feature Updates
