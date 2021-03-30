@@ -3577,6 +3577,7 @@ curl -X GET \
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
 | templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
 | requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
+| statsCriteria | List<String> | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- EXTRA_1,EVENT: 메시지 타입, 이벤트<br/>- EXTRA_2,EVENT: 광고 여부, 이벤트<br/>- EXTRA_3,EVENT: 발신 번호, 이벤트 |
 
 #### cURL
 ```
@@ -3600,10 +3601,10 @@ curl -X GET \
             "eventDateTime" : "",
             "events" :
             {
-              "requested" : 10,
-              "sent" : 10,
-              "sentFailed" : 0,
-              "received" : 0
+              "{statsCriteriaValue}.requested" : 10,
+              "{statsCriteriaValue}.sent" : 10,
+              "{statsCriteriaValue}.sentFailed" : 0,
+              "{statsCriteriaValue}.received" : 0
             }
           }
         ]
@@ -3617,10 +3618,11 @@ curl -X GET \
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
-|body.data.events[].requested |	Integer|	요청 개수|
-|body.data.events[].sent |	Integer|	발송 개수|
-|body.data.events[].sentFailed |	Integer|	실패 개수|
-|body.data.events[].received |	Integer|	성공 개수|
+|body.data.events[].{statsCriteriaValue} | List | statsCriteria에 해당 하는 값<br/>메시지 타입/광고 유형/발신 번호 값이 올 수 있음<br/>statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	요청 개수|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	발송 개수|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	실패 개수|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	성공 개수|
 
 ### 통계 검색 - 요청 시간 기반
 * 발송 요청 시간 기준으로 수집된 통계입니다.
@@ -3656,6 +3658,7 @@ curl -X GET \
 | isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
 | templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
 | requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
+| statsCriteria | List<String> | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- EXTRA_1,EVENT: 메시지 타입, 이벤트<br/>- EXTRA_2,EVENT: 광고여부, 이벤트<br/>- EXTRA_3,EVENT: 발신 번호, 이벤트 |
 
 #### 응답
 ```
@@ -3672,11 +3675,11 @@ curl -X GET \
             "eventDateTime" : "",
             "events" :
             {
-              "requested" : 10,
-              "sent" : 10,
-              "sentFailed" : 0,
-              "received" : 0,
-              "pending" : 0
+              "{statsCriteriaValue}.requested" : 10,
+              "{statsCriteriaValue}.sent" : 10,
+              "{statsCriteriaValue}.sentFailed" : 0,
+              "{statsCriteriaValue}.received" : 0,
+              "{statsCriteriaValue}.pending" : 0
             }
           }
         ]
@@ -3690,11 +3693,12 @@ curl -X GET \
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
 |body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
-|body.data.events[].requested |	Integer|	요청 개수|
-|body.data.events[].sent |	Integer|	발송 개수|
-|body.data.events[].sentFailed |	Integer|	실패 개수|
-|body.data.events[].received |	Integer|	성공 개수|
-|body.data.events[].pending |	Integer|	발송 중 개수|
+|body.data.events[].{statsCriteriaValue} | List | statsCriteria에 해당 하는 값<br/>메시지 타입/광고 유형/발신 번호 값이 올 수 있음<br/>statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	요청 개수|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	발송 개수|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	실패 개수|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	성공 개수|
+|body.data.events[].{statsCriteriaValue}.pending |	Integer|	발송 중 개수|
 
 
 ### (구)통합 통계 검색
