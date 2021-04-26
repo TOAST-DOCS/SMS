@@ -1,5 +1,12 @@
 ## Notification > SMS > Release Notes
 
+### April 27, 2021
+### Feature Updates
+* [Console] Added the feature of moving a template between categories
+    * Updated to allow template transfer between categories.
+* [Console/API] Supports dispatch of MS949
+    * Updated system to allow dispatch in MS949 encoding for domestic sending.
+
 ### March 23, 2021
 ### Feature Updates
 * [Console] Improved the process of sending a large volume of SMS
