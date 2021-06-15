@@ -3,8 +3,7 @@
 <span id='fabrication-number'></span>
 ## 발신 번호 변작(변조) 금지
 + SMS 서비스를 이용할 때 반드시 본인(또는 자사) 소유의 발신번호를 등록한 후 사용해야 합니다.
-+ 타인(또는 타사) 발신번호를 사용하는 경우 <a href="https://www.msit.go.kr/web/msipContents/contentsView.do?cateId=mssw352&artId=1259891
-" target="_blank">(미래창조과학부고시 제2015-32호) 거짓으로 표시된 전화번호로 인한 이용자의 피해 예방 등에 관한 고시]</a> 및 <a href="https://www.toast.com/terms/terms-service
++ 타인(또는 타사) 발신번호를 사용하는 경우 <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">(미래창조과학부고시 제2015-32호) 거짓으로 표시된 전화번호로 인한 이용자의 피해 예방 등에 관한 고시]</a> 및 <a href="https://www.toast.com/terms/terms-service
 " target="_blank">[NHN Cloud 이용 약관]</a>에 따라 아래와 같이 조치할 수 있으니 주의하시기 바랍니다. 
 
 ```

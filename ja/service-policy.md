@@ -3,8 +3,7 @@
 <span id='fabrication-number'></span>
 ## 発信番号の改ざん禁止
 + SMSサービスを利用する時は、必ず本人(または自社)所有の発信番号を登録してから使用する必要があります。
-+ 他人(または他社)の発信番号を使用した場合は、<a href="https://www.msit.go.kr/web/msipContents/contentsView.do?cateId=mssw352&artId=1259891
-" target="_blank">(韓国未来創造科学部公示第2015-32号)虚偽表示された電話番号による利用者の被害予防などに関する公示]</a> および <a href="https://www.toast.com/terms/terms-service
++ 他人(または他社)の発信番号を使用した場合は、<a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">(韓国未来創造科学部公示第2015-32号)虚偽表示された電話番号による利用者の被害予防などに関する公示]</a> および <a href="https://www.toast.com/terms/terms-service
 " target="_blank">[NHN Cloud利用約款]</a>に従い、下記の措置をとることがありますのでご注意ください。 
 
 ```
