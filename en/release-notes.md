@@ -1,5 +1,13 @@
 ## Notification > SMS > Release Notes
 
+### 2021. 07. 27.
+### Feature Updates
+* [Console] Added update webhook as a result of sending
+  * User can receive webhook when updating the result on the request to send.
+      * User can receive webhook when succeeded or failed to send.
+* [Console/API] Enhanced duplicate check when registering calling number
+  * The number that has already been registered as well as the number requested for registration has been modified so that it cannot be duplicated.
+
 ### April 27, 2021
 ### Feature Updates
 * [Console] Added the feature of moving a template between categories
