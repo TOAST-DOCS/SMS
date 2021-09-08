@@ -1,5 +1,10 @@
 ## Notification > SMS > Release Notes
 
+### 2021. 09. 14.
+### 기능 개선/변경
+* [API] 대량 발송 조회 API 추가
+  * 대량 발송 요청 및 대량 발송 수신자를 조회하는 API가 추가되었습니다.
+
 ### 2021. 07. 27.
 ### Feature Updates
 * [Console] Added update webhook as a result of sending
