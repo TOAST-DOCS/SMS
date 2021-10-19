@@ -1,11 +1,16 @@
 ## Notification > SMS > Release Notes
 
-### 2021. 09. 14.
-### 기능 개선/변경
-* [API] 대량 발송 조회 API 추가
-  * 대량 발송 요청 및 대량 발송 수신자를 조회하는 API가 추가되었습니다.
+### October 26, 2021
+### Feature Updates
+* [Console/API] Strengthened template parameter validation
+    * Strengthened validation so that the request fails when an emoji is included in the template parameter.
 
-### 2021. 07. 27.
+### September 14, 2021
+### Feature Updates
+* [API] Added a mass delivery query API
+    * Added an API to query mass delivery requests and mass delivery recipients.
+
+### July 27, 2021
 ### Feature Updates
 * [Console] Added update webhook as a result of sending
   * User can receive webhook when updating the result on the request to send.
@@ -76,12 +81,12 @@
 * [Console] Fixed error of pagination on the list of failed data from the **Mass/Tag Delivery List** tab.
     * Fixed inoperability of pagination while listing failure from the **Mass/Tag Delivery List** tab. 
 * [API] Added Request ID as a filter condition for Search Statistics API 
-    * Added a filter condition of listing request IDs for **Search Statistics- Based on Event/Requet Time**.
+    * Added a filter condition of listing request IDs for **Search Statistics- Based on Event/Request Time**.
     
 ### March 24, 2020
 ### Feature Updates
 * [Console/API] Updated Statistics
-    * When **Statistis Event Key (statsId)** is included for a delivery, you can query by **Statistics Event Key** on the statistics page. 
+    * When **Statistics Event Key (statsId)** is included for a delivery, you can query by **Statistics Event Key** on the statistics page. 
     * The **Statistics** page of the past shall be replaced by **(Old) Statistics**. 
     * Added the **Statistics Event Key Management** and the **Statistics** page.   
 
@@ -555,7 +560,7 @@
 
 #### Bugs Fixed
 * [API] Fixed the bug in which userId is always responded with null, among responses for Query SMS Delivery API.
-    * Isuse: userId was responded always with null, among responses for Query SMS Delivery API.
+    * Issue: userId was responded always with null, among responses for Query SMS Delivery API.
     * Solution: userId is responded with normal data, among responses for Query SMS Delivery API.
 * [API] Fixed the bug in which sendType is responded with abnormal data, among responses for Query Single SMS Delivery for Authentication.
     * Issue: SMS type for sendType is 0, among responses for Query Single SMS Delivery for Authentication API.

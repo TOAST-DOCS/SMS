@@ -77,5 +77,5 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + Charges for Unsubscribe 080 Numbers are not based on the delivery time, but upon the public release of each number (monthly fixed charges).
 + It takes about 3 to 4 days to get a new number for unsubscription, so one-off or repetitive service cancellation or application is not recommended. 
 + Please note that a service opening cannot be cancelled while registration is reserved. 
-+ Once registered for unsubscription, 080 numbers cannot be used for any other projects.  
++ If you want to use the registered 080 call rejection number in other projects, you can use the **Share the blocked 080 phone numbers** feature.
 + 080 numbers that are cancelled from unsubscription or applied externally, delivery shall fail.  
