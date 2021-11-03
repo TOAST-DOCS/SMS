@@ -1,9 +1,5 @@
 ## Notification > SMS > Release Notes
 
-### October 26, 2021
-### Feature Updates
-* [Console/API] Strengthened template parameter validation
-    * Strengthened validation so that the request fails when an emoji is included in the template parameter.
 
 ### September 14, 2021
 ### Feature Updates
