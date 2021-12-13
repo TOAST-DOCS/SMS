@@ -78,4 +78,17 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + It takes about 3 to 4 days to get a new number for unsubscription, so one-off or repetitive service cancellation or application is not recommended. 
 + Please note that a service opening cannot be cancelled while registration is reserved. 
 + If you want to use the registered 080 call rejection number in other projects, you can use the **Share the blocked 080 phone numbers** feature.
-+ 080 numbers that are cancelled from unsubscription or applied externally, delivery shall fail.  
++ 080 numbers that are cancelled from unsubscription or applied externally, delivery shall fail.
+
+## Guide to Sending International SMS Messages
++ When sending international SMS messages, please check the following key points.
+### Country-specific Sender ID Policy
++ International SMS messages are sent according to country-specific sender ID policies and may be treated as spam if you do not follow the sender ID policies.
++ The sending number set by the customer is not guaranteed to be exposed on the receiving device. In most cases, the messages are sent after changing the sending number to a random number in order to send international SMS messages normally.
+### Message Sending Policies for Certain Countries
++ In countries with strict international SMS message policies such as China and Vietnam, messages can be sent normally only if the content of the sending message is a verification number (OTP).
+### Billing Policy
++ International SMS messages are charged based on successful data transmission from overseas carriers.
++ The device reception result means successful data transmission to overseas carriers and may differ from the result of arriving at the actual device. Even if real users are not receiving the message, they may be included in the billing target.
++ It may take some time to check the reason for 'Not received' through the overseas carriers, and it may be difficult to confirm the exact reason.
++ The transmission quality for each country is greatly affected by the network and infrastructure environment of the country, and the transmission quality may differ from the domestic environment.
