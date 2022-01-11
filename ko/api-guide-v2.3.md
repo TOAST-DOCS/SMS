@@ -1518,6 +1518,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	고유의 앱키|
 
 [Query parameter]
+* 검색 시작 시간과 검색 종료 시간의 범위는 하루로 제한됩니다.
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
