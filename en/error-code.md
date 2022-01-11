@@ -4,12 +4,13 @@
 | service | isSuccess | resultCode | resultMessage |
 | - | - | - | - |
 | Common | true | 0 | Successful |
+| Common | false | 4 | Parameter validation failed<br/>- The length of the body exceeds 4000 characters when sending a short message<br/>- The length of the title exceeds 120 characters when sending a long message or attachment<br/>- The searchType, from, or to fields are empty while retrieving statistics |
 | Common | false | -1000 | Invalid appkey |
 | Common | false | -1001 | Unavailable appkey |
 | Common | false | -1002 | Closed appkey |
 | Common | false | -1003 | Member not included in the project |
 | Common | false | -1004 | Not allowed IP |
-| Common | false | -9996 | Invalid contectType. Only application/JSON |
+| Common | false | -9996 | Invalid contentType. Only application/JSON |
 | Common | false | -9997 | Invalid JSON format |
 | Common | false | -9998 | Unavailable API |
 | Common | false | -9999 | System error (unexpected error) |
@@ -18,7 +19,7 @@
 | Send/Query | false | -2001 | Recipient is missing |
 | Send/Query | false | -2002 | Name of attached file is invalid |
 | Send/Query | false | -2003 | Extension of attached file is not jpg or jpeg |
-| Send/Query | false | -2004 | Attached file is not available |
+| Send/Query | false | -2004 | The attachment has expired or does not exist |
 | Send/Query | false | -2005 | Attached file is sized 300KB or more |
 | Send/Query | false | -2006 | Delivery type in template setting is not consistent with requested type |
 | Send/Query | false | -2008 | Request ID (requestId) is invalid |
@@ -34,6 +35,7 @@
 | Send/Query | false | -2021 | System error (failed in saving queue) |
 | Send/Query | false | -2022 | Request date and time is set earlier than the current time |
 | Send/Query | false | -2023 | Title or body includes characters that are not allowed (e.g. emojis) |
+| Send/Query | false | -2024 | International delivery is sent with LMS/MMS |
 | Send/Query | false | -4000 | Query range is more than a month |
 | Template | false | -2100 | Template ID is missing |
 | Template | false | -2101 | Already-registered Template ID |
@@ -60,6 +62,9 @@
 | Category | false | -2203 | Parent category does not exist  |
 | Category | false | -2204 | Use or not is invalid  |
 | Category | false | -2205 | Deleting the highest category  |
+| Request for Sender Number Registration | false | -2301 | Already registered sender number |
+| Request for Sender Number Registration | false | -2302 | The list parameter of the sender number requested for registration is empty  |
+| Request for Sender Number Registration | false | -2304 | Invalid registration parameter (attachment) |
 | Sender Number | false | -2312 | Sender number is missing or unregistered |
 | Sender Number | false | -2313 | Blocked sender number |
 | Sender Number | false | -2314 | Request parameter for sender number registration is invalid |
@@ -141,7 +146,7 @@ EMMA Version: EMMA V3.3.0 or higher
 	<tr>
 		<td rowspan=29>Telecom Provider</td>
 		<td>1000</td>
-		<td>Success</td>
+		<td>success</td>
 		<td>Successful</td>
 	</tr>
 	<tr>
@@ -324,27 +329,27 @@ EMMA Version: EMMA V3.3.0 or higher
 	</tr>
 	<tr>
 		<td>1010</td>
-		<td>No content available</td>
+		<td>No CONTENT available</td>
 	</tr>
 	<tr>
 		<td>1011</td>
-		<td> No callback available</td>
+		<td>No CALLBACK available</td>
 	</tr>
 	<tr>
 		<td>1012</td>
-		<td> No RECIPIENT_INFO available </td>
+		<td>No RECIPIENT_INFO available</td>
 	</tr>
 	<tr>
 		<td>1013</td>
-		<td> No subject available </td>
+		<td>No SUBJECT available</td>
 	</tr>
 	<tr>
 		<td>1014</td>
-		<td>No attached file key available </td>
+		<td>No attached file KEY available </td>
 	</tr>
 	<tr>
 		<td>1015</td>
-		<td>No attached file name available </td>
+		<td>No attached file NAME available </td>
 	</tr>
 	<tr>
 		<td>1016</td>

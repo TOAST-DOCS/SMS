@@ -1501,6 +1501,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Query parameter]
+* The range between search start time and search end time is limited to one day.
 
 |Value| Type | Required | Description |
 |---|---|---|---|
