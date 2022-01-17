@@ -10,7 +10,7 @@
 | 공통 | false | -1002 | 사용 종료된 앱키 |
 | 공통 | false | -1003 | 프로젝트에 포함되지 않는 멤버 |
 | 공통 | false | -1004 | 허용되지 않는 IP |
-| 공통 | false | -9996 | 유효하지 않는 contectType. Only application/JSON |
+| 공통 | false | -9996 | 유효하지 않는 contentType. Only application/JSON |
 | 공통 | false | -9997 | 유효하지 않는 JSON 형식 |
 | 공통 | false | -9998 | 존재하지 않는 API |
 | 공통 | false | -9999 | 시스템 오류(예기치 못한 오류) |
