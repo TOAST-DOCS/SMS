@@ -1518,6 +1518,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Query parameter]
+* The range between search start time and search end time is limited to one day.
 
 |Value| Type | Required | Description |
 |---|---|---|---|
@@ -4907,7 +4908,7 @@ Content-Type: application/json;charset=UTF-8
 | contacts[].contactType | String | - | Required | Contact type(PHONE_NUMBER) |
 | contacts[].contact | String | - | Required | Contact (phone number) |
 
-[주의]
+[Caution]
 * When tagIds is provided, contacts is not required.
 * When contacts is provided, tagIds is not required.
 * For this product, contactType must be requested in the "PHONE_NUMBER" value.

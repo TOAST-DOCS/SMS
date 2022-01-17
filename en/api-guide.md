@@ -4,9 +4,9 @@
 
 ### v2.4와 달라진 사항
 1. 시크릿 키가 도입되었습니다.
-  * v3.0 API 호출 시에는 헤더에 시크릿 키를 추가해야 성공하게 됩니다.
+	* v3.0 API 호출 시에는 헤더에 시크릿 키를 추가해야 성공하게 됩니다.  
 2. 대량 발송 요청을 조회할 수 있는 API 들이 추가되었습니다.
-  * 대량 발송 목록 검색 API, 대량 발송 수신자 목록 검색 API, 대량 발송 수신자 목록 상세 검색 API 추가되었습니다.
+	* 대량 발송 목록 검색 API, 대량 발송 수신자 목록 검색 API, 대량 발송 수신자 목록 상세 검색 API 추가되었습니다.
 
 ### [API 도메인]
 
@@ -1675,6 +1675,7 @@ Content-Type: application/json;charset=UTF-8
 |X-Secret-Key|	String|	고유의 시크릿 키|
 
 [Query parameter]
+* The range between search start time and search end time is limited to one day.
 
 |값|	타입|	필수|	설명|
 |---|---|---|---|
