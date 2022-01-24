@@ -1,5 +1,10 @@
 ## Notification > SMS > Release Notes
 
+### January 25, 2022
+### Feature Updates
+* [Console] Fixed a bug where, when a 4-byte emoji is included in the template parameter for mass delivery, it is left as in-progress status
+    * Modified so that, if the template parameter includes a 4-byte emoji, it is filtered as an invalid recipient.
+
 ### December 14, 2021
 ### Feature Updates
 * [Console] Changed format of template file (Excel, CSV) for mass delivery
