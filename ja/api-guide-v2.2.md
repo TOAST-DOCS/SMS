@@ -1422,6 +1422,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String|	固有のアプリケーションキー|
 
 [Query parameter]
+* 検索開始時間と検索終了時間の範囲は1日に制限されます。
 
 |値|	タイプ|	必須|	説明|
 |---|---|---|---|
@@ -2390,7 +2391,7 @@ Content-Type: application/json;charset=UTF-8
    "useYn" : "Y",
    "attachFileIdList" : [
      123123,
-     456456
+456456
    ]
 }
 ```
