@@ -3026,7 +3026,8 @@ Content-Type: application/json;charset=UTF-8
     "isSuccessful" :  Boolean,
     "resultCode" :  Integer,
     "resultMessage" :  String
-  }
+  },
+  "body" : null
 }
 ```
 

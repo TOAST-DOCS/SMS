@@ -2488,7 +2488,7 @@ Content-Type: application/json;charset=UTF-8
 [URL]
 
 ```
-POST /sms/v2.1/appKeys/{appKey}/reqeusts/sendNos|
+POST /sms/v2.1/appKeys/{appKey}/requests/sendNos|
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -2527,7 +2527,8 @@ Content-Type: application/json;charset=UTF-8
     "isSuccessful" :  Boolean,
     "resultCode" :  Integer,
     "resultMessage" :  String
-  }
+  },
+  "body" : null
 }
 ```
 

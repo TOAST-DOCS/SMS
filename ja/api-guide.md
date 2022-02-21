@@ -3986,7 +3986,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/rec
 [URL]
 
 ```
-POST /sms/v3.0/appKeys/{appKey}/reqeusts/sendNos|
+POST /sms/v3.0/appKeys/{appKey}/requests/sendNos|
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -4049,7 +4049,8 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reqeusts/sendNos
     "isSuccessful" :  Boolean,
     "resultCode" :  Integer,
     "resultMessage" :  String
-  }
+  },
+  "body" : null
 }
 ```
 

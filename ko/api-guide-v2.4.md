@@ -3293,7 +3293,7 @@ curl -X DELETE \
 [URL]
 
 ```
-POST /sms/v2.4/appKeys/{appKey}/reqeusts/sendNos|
+POST /sms/v2.4/appKeys/{appKey}/requests/sendNos|
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -3343,7 +3343,8 @@ curl -X POST \
     "isSuccessful" :  Boolean,
     "resultCode" :  Integer,
     "resultMessage" :  String
-  }
+  },
+  "body" : null
 }
 ```
 

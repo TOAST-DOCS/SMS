@@ -4032,7 +4032,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reqeusts/sendNos' \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/requests/sendNos' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
@@ -4049,7 +4049,8 @@ curl -X POST \
     "isSuccessful" :  Boolean,
     "resultCode" :  Integer,
     "resultMessage" :  String
-  }
+  },
+  "body" : null
 }
 ```
 
