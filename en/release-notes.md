@@ -1,23 +1,23 @@
 ## Notification > SMS > Release Notes
 
 ### January 25, 2022
-### Feature Updates
+#### Feature Updates
 * [Console] Fixed a bug where, when a 4-byte emoji is included in the template parameter for mass delivery, it is left as in-progress status
     * Modified so that, if the template parameter includes a 4-byte emoji, it is filtered as an invalid recipient.
 
 ### December 14, 2021
-### Feature Updates
+#### Feature Updates
 * [Console] Changed format of template file (Excel, CSV) for mass delivery
     * The num column has been removed from the template file for creating mass delivery recipient information.
         * Files created based on the existing template can also be used.
 
 ### September 14, 2021
-### Feature Updates
+#### Feature Updates
 * [API] Added a mass delivery query API
     * Added an API to query mass delivery requests and mass delivery recipients.
 
 ### July 27, 2021
-### Feature Updates
+#### Feature Updates
 * [Console] Added update webhook as a result of sending
     * Users can receive webhook when updating the result on the request to send.
         * Users can receive webhook when succeeded or failed to send.
@@ -25,14 +25,14 @@
     * The number that has already been registered as well as the number requested for registration has been modified so that it cannot be duplicated.
 
 ### April 27, 2021
-### Feature Updates
+#### Feature Updates
 * [Console] Added the feature of moving a template between categories
     * Updated to allow template transfer between categories.
 * [Console/API] Supports dispatch of MS949
     * Updated system to allow dispatch in MS949 encoding for domestic sending.
 
 ### March 23, 2021
-### Feature Updates
+#### Feature Updates
 * [Console] Improved the process of sending a large volume of SMS
     * Improved the process of sending a large volume of SMS.
         * The following two lists are available for download if invalid recipients are included in the uploaded recipient file.
@@ -48,7 +48,7 @@
 
 ### January 26, 2021
 
-### Feature Updates
+#### Feature Updates
 
 * [Console/API] Added a feature of sharing blocked 080 phone numbers across projects
     * A single 080 phone number can be shared across multiple projects.
@@ -58,7 +58,7 @@
 
 ### December 29, 2020
 
-### Feature Updates
+#### Feature Updates
 
 * [API] Applied partial changes to response body of SMS sent list search and send single search for short text/long text/authentication
     * Added the messageType/recipientSeq field.
@@ -66,21 +66,21 @@
     * For more information, see [[API Guide](./api-guide/#sms_4)].
 
 ### July 28, 2020
-### Feature Updates
+#### Feature Updates
 * [Console/API] Fixed an issue related to creating email-type template ID
     * Fixed an issue where querying, modifying, or deleting does not work if a template ID is created in the email type.
 * [Console/API] Fixed infrequent errors in the length check for sending international text messages
     * Fixed infrequent errors of length check resulting in failed delivery of international text messages
 
 ### June 23, 2020
-### Feature Updates
+#### Feature Updates
 * [Console] Changed charging information on the **Setting for Unsubscribe 080 Numbers**
     * Modified invalid charging information on the **Setting for Unsubscribe 080 Numbers** tab.
 * [Console] Unable to download attached files from the detail page of scheduled delivery list
     * Fixed the 404 error occurred at the click of an attached file within View Details of Scheduled Delivery on the **Query SMS Request** tab.
 
 ### April 28, 2020
-### Feature Updates
+#### Feature Updates
 * [Console] Backup is available for delivery list data older than 180 days
     * Newly added a feature of creating backup files in OBS or AWS S3 for delivery data (general/mass/tag) that are older than 180 days.
     * Backup setting is available on the **Delivery Setting** tab.
@@ -90,14 +90,14 @@
     * Added a filter condition of listing request IDs for **Search Statistics- Based on Event/Request Time**.
 
 ### March 24, 2020
-### Feature Updates
+#### Feature Updates
 * [Console/API] Updated Statistics
     * When **Statistics Event Key (statsId)** is included for a delivery, you can query by **Statistics Event Key** on the statistics page.
     * The **Statistics** page of the past shall be replaced by **(Old) Statistics**.
     * Added the **Statistics Event Key Management** and the **Statistics** page.
 
 ### February 25, 2020
-### Feature Updates
+#### Feature Updates
 * [ETC] Changed Charging Policy for Unsubscription
     * The hourly charging policy for unsubscription has been changed into monthly-based policy.
 * [API] Added API for Tag Management
@@ -116,7 +116,7 @@
     * Fixed failure in file creation when there is a lot of data to send
 
 ### January 21, 2020
-#### Feature Updates
+##### Feature Updates
 * [Console] Change of Scheduling for Mass/Tag Message Delivery
     * When mass or tag delivery time is scheduled, the **Check and Schedule Delivery** button is deleted, to show the **Schedule Delivery** button only.
 * [Console/API] To schedule delivery, tighter validity check is applied on past time.
@@ -124,7 +124,7 @@
 
 ### December 24, 2019
 
-#### Feature Updates
+##### Feature Updates
 * [Console] Updated Query Page for Unsuscribed Users
     * Added the filter-search feature for unsubscribed 080 numbers
 * [API] Added API for Registering Unsubscribed Users
@@ -132,7 +132,7 @@
 
 ### November 26, 2019
 
-#### Feature Updates
+##### Feature Updates
 * [Console] Added the Feature of Ad Delivery Restriction Time
     * Night-time ad delivery can be restricted.
 * [Console] Changed Mailing Period for Guide on Failed Mass/Tag Message Delivery
@@ -143,7 +143,7 @@
 
 ### October 29, 2019
 
-#### Feature Updates
+##### Feature Updates
 * [Console] Canceling scheduled delivery in batch
     * Delivery can be canceled only for the messages waiting to be scheduled
 * [Console] Warning message for remaining resources with SMS service disabled
@@ -160,7 +160,7 @@
 
 ### September 24, 2019
 
-#### Feature Updates
+##### Feature Updates
 * [Console] Updated Query Tab of Web Console
     * Combined the **List Delivery per Request** page and the **List Scheduled Delivery** page.
     * Messages are queried by date of registration.
@@ -175,7 +175,7 @@
 
 ### August 27, 2019
 
-#### Feature Updates
+##### Feature Updates
 * [Console] Allowed more length for a business name,  for the setting of Rejection of Receiving 080 Numbers
     * Updated to save up to 100 characters for a business name
 * [Console] Added a column on an excel sheet when downloading files on the list of each request
@@ -186,7 +186,7 @@
 
 ### July 23, 2019
 
-#### Feature Updates
+##### Feature Updates
 * [API] Category API Added
     * Provide APIs for Register/Query/Edit/Delete Category.
 * [API] Template API Added
@@ -202,7 +202,7 @@
 
 ### June 25, 2019
 
-#### Feature Updates
+##### Feature Updates
 * [Console] Added sender's group key and recipient's group key in the query of request by SMS
     * Sender's group key and recipient's group key have been added as part of query conditions for each SMS request.
 * [Console] Added check boxes to include or exclude title/body in scheduling a file downloading after query of delivery list
