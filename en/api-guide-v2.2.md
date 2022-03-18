@@ -5,7 +5,7 @@
 ### Changes from v 2.1
 1. Modified to raise request parameter for delivery via template to a higher on the priority.
    - e.g.) Modified, that data saved on a template cannot be used when request parameter includes title, body, sender number, or attached files, if delivery is requested via template
-2. Validity checks tightend for title/body in text delivery.
+2. Validation tightened for title/body in text delivery.
     * More restrictions in the length of title/body, like below. 
     * SMS (Body: up to 255 characters), LMS/MMS (title: up to 120, and body: up to 4000 characters)
 
@@ -1364,7 +1364,7 @@ Same as Send SMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 
@@ -1392,7 +1392,7 @@ Same as Send MMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 

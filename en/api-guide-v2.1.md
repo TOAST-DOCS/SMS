@@ -1446,7 +1446,7 @@ Same as Send SMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 
@@ -1474,7 +1474,7 @@ Same as Send MMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 
