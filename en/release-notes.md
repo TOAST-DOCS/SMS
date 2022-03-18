@@ -1,5 +1,14 @@
 ## Notification > SMS > Release Notes
 
+### March 29, 2022
+#### Feature Updates
+
+* [Console] Improved the feature to download general, mass, and tag sending results
+    * For Excel download, changed to create a .zip file for more than 1 million results.
+
+* [API] Fixed an error where -9999 was returned when an emoji was included in the template parameter when sending regular SMS/LMS/MMS
+    * Modified so that -2023 (Title or body includes characters that are not allowed (e.g. emojis)) is returned.
+
 ### January 25, 2022
 #### Feature Updates
 * [Console] Fixed a bug where, when a 4-byte emoji is included in the template parameter for mass delivery, it is left as in-progress status
