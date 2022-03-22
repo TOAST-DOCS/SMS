@@ -3,7 +3,7 @@
 ## v2.3 API Overview  
 
 ### Changes from v 2.2
-1. Validity checks for the main text for Send Authentication SMS API has been added.
+1. Validation for the main text for Send Authentication SMS API has been added.
 - For more details, see [[Send Authentication SMS API](./api-guide/#precautions-authword)].
 
 ### [API Domain]
@@ -1416,7 +1416,7 @@ Same as Send SMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 #### cURL
@@ -1461,7 +1461,7 @@ Same as Send MMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 #### cURL
