@@ -1,5 +1,14 @@
 ## Notification > SMS > Release Notes
 
+### March 29, 2022
+#### Feature Updates
+
+* [Console] Improved the feature to download general, mass, and tag sending results
+    * For Excel download, changed to create a .zip file for more than 1 million results.
+
+* [API] Fixed an error where -9999 was returned when an emoji was included in the template parameter when sending regular SMS/LMS/MMS
+    * Modified so that -2023 (Title or body includes characters that are not allowed (e.g. emojis)) is returned.
+
 ### January 25, 2022
 #### Feature Updates
 * [Console] Fixed a bug where, when a 4-byte emoji is included in the template parameter for mass delivery, it is left as in-progress status
@@ -65,6 +74,33 @@
     * Deleted the mtPr field.
     * For more information, see [[API Guide](./api-guide/#sms_4)].
 
+### October 27, 2020
+#### Features Updates
+* [Console/API] Changed body validation when sending advertisements
+    * Modified so that brackets can be omitted from the text **[Unsubscribe for free]** included in the body.
+
+
+### September 22, 2020
+#### Features Updates
+* [API] Fixed a bug of API to query result updates based on received time
+    * Fixed an issue where, when querying result updates based on the received time, the query failed if the base month of the sending date and the receiving date were different.
+* [Console] Changed the cancellation deadline for 080 opt-out
+    * Modified so that 080 opt-out cancellation is possible 24 hours after approval.
+* [Console] Added a 080 opt-out webhook feature
+    * Added a feature to receive a mobile phone number that has been opt out by 080 opt-out with a webhook.
+
+### August 25, 2020
+#### Features Updates
+* [Console] Enhanced validation of Excel for mass delivery
+    * If the recipient's number is not entered, validation will fail.
+* [Console] Fixed an issue where a file uploaded from the **Register Sender Number** tab could not be downloaded
+    * Fixed an issue where, after uploading a file with document authentication in the **Manage Sender Number > Register Sender Number** tab, the file could not be downloaded.
+ 
+* [Console/API] Enhanced validation of attachment image format
+    * When uploading attachments for MMS delivery, validation will fail if the image format is not .jpg.
+* [Console] Enhanced validation of backup settings
+    * If '/' is appended before or after the file save path in the backup setting of the **Delivery Setting** tab, the validation will fail.
+
 ### July 28, 2020
 #### Feature Updates
 * [Console/API] Fixed an issue related to creating email-type template ID
@@ -119,8 +155,8 @@
 ##### Feature Updates
 * [Console] Change of Scheduling for Mass/Tag Message Delivery
     * When mass or tag delivery time is scheduled, the **Check and Schedule Delivery** button is deleted, to show the **Schedule Delivery** button only.
-* [Console/API] To schedule delivery, tighter validity check is applied on past time.
-    * Updated to specify scheduling down to three hours only from current time.
+* [Console/API] For scheduled delivery, tighter validation is applied on past time.
+    * Modified to specify scheduling up to three hours before the current time.
 
 ### December 24, 2019
 
@@ -150,7 +186,7 @@
     * While the 080 number rejection service is enabled, it must be disabled first to disable the SMS service.
 * [Console/API] Sending ad messages only when the 080 number rejection service is enabled
     * Delivery is available only when the 080 number rejection service is 'Enabled'.
-* [API] Tighter validity checks for the delivery of certification messages
+* [API] Tighter validation for the delivery of certification messages
     * Message delivery is unavailable when authentication message is not included
     * For more details, see [[API User Guide](./api-guide/#precautions-authword)].
 
@@ -191,7 +227,7 @@
     * Provide APIs for Register/Query/Edit/Delete Category.
 * [API] Template API Added
     * Provide APIs for Register/Query/Edit/Delete Template.
-* [API] Validity Checks Tightened for Title/Body in Text Delivery
+* [API] Validation Tightened for Title/Body in Text Delivery
     * More restrictions in the length of title/body, from v2.2 API.
     * SMS (Body: Up to 255 characters), LMS/MMS (Title: Up to 120, Body: Up to 4000 characters)
 * [API] Template Delivery Higher on Priority of Request Parameter
@@ -199,6 +235,7 @@
 
 #### Bug Fixes
 * [API] Updated for the query of scheduled delivery details, to respond with defined codes when the query is attempted with invalid request ID.
+
 
 ### June 25, 2019
 
@@ -216,6 +253,7 @@
 * [Console/API] Fixed bugs in collecting statistics
     * It has been modified to collect duplicate delivery as failed delivery, not as ready for receiving
 
+
 ### May 28, 2019
 
 #### Updates
@@ -225,8 +263,32 @@
 * [API] Fixed to respond with defined codes for the query of template details, when it is tried with invalid template
 * [Console] Processing disallowed characters for template registration/modification
     * When a template is registered/modified, if disallowed characters (emojis) are tried, defined errors, not system errors, are sent as response.
-* [Console/API] Validity checks added for empty attached files when uploading attached files for sender number authentication
+* [Console/API] Added validation for empty attached files when uploading attached files for sender number authentication
     * If attached file is missing for upload, defined error is sent as response, instead of a system error.
+
+### April 23, 2019
+
+##### Feature Updates
+* [API] Increased LMS/MMS length limit
+    * Improved so that LMS/MMS titles can be saved up to 120 characters.
+    * Depending on the device/carrier, the length of the sent title may be differently.
+* [API] Improved to respond with an error when performing international delivery by LMS/MMS
+    * Improved to respond with -2024 error when performing international delivery by LMS/MMS
+    * LMS/MMS does not support international delivery.
+* [Console] Improved the length restriction issue of the template management screen
+    * Improved so that, when registering/modifying a template, the replacement element is not included in the length limit calculation.
+
+#### Bug Fixes
+* [Console] Fixed an issue where the query failed intermittently when querying an opt-out list
+    * Resolved the issue where the query failed intermittently when querying an opt-out list.
+* [Console] Fixed an error for registering template attachments
+    * Fixed an issue where, when registering a template with attachments, the attachments were not registered properly.
+* [API] Fixed an API response error
+    * Improved to respond with -9998 instead of server error (500) when calling an API that does not exist.
+* [Console] Fixed an error for querying a template that does not exist
+    * Fixed an issue where, when calling an unavailable template directly from the console, an unexpected error occurred.
+* [API] Fixed a but in scheduled delivery
+    * Improved an issue where, when the scheduled time is set to the current time and there are many recipients for a scheduled delivery, a duplicate delivery occurred intermittently.
 
 ### March 26, 2019
 
@@ -235,8 +297,8 @@
     * Delivery history can be queried down to 6 months before.
 * [Console] Query page improved for template list
     * The query page for template list has improved in speed.
-* [API] Validity check improved for the request of sender number registration
-    * Added validity check to send failure if request for sender number registration is made under invalid attached file ID
+* [API] Improved validation for the request of sender number registration
+    * Added validation to send failure if request for sender number registration is made under invalid attached file ID
 
 
 ### February 26, 2019
@@ -244,7 +306,7 @@
 #### Updates
 * [Console] Input windows improved for sender number on the page requesting for message delivery
     * Search is available on the input window for sender numbers
-* [Console/API] Validity checks improved for guidance message for rejection of receiving 080 numbers
+* [Console/API] Improved validation for guidance message for rejection of receiving 080 numbers
     * Improved to not check space for "(Ad) [Reject Receiving Charge-free] 080xxxxxxx", which is required in the body of ad messages
 * [API] Sender numbers added as part of query conditions requesting for history of sender number authentication
     * Added to query request history with sender numbers (sendNo).
@@ -321,7 +383,7 @@
 
 ### May 29, 2018
 #### Updated
-* [Console] Validity checks added for sender number registration via document authentication
+* [Console] Added validation for sender number registration via document authentication
     * Modified to check number validity after sender number is entered and before pop-up is exposed on document authentication.
 * [Console] File volume restricted for the upload of mass delivery (excel or csv)
     * The largest recipient uploading file for mass delivery is restricted to 5M.
@@ -354,8 +416,8 @@
 #### Bugs Fixed
 * [Console] Fixed error of uploading mass delivery files
     * Fixed the issue of failed operations of an attached file in the same name when it is re-uploaded after uploaded with invalid attached file
-* [Console] Added validity check for the input window of mobile phone numbers
-    * Same validity check is added to the input box for mobile phone numbers.
+* [Console] Added validation for the input window of mobile phone numbers
+    * Same validation is added to the input box for mobile phone numbers.
     * Characters are restricted between 8 and 15, allowing numbers or hyphen (-) only.
 * [API] Modified error in query history of sender number authentication
     * Fixed the issue of not returning normal data when status code was inserted as filter in the history of requesting sender number authentication.
@@ -494,9 +556,10 @@
 * [Console] Added the function by which query is available for failed delivery cases.
     * AS-IS: For failed SMS or MMS delivery, response is available but cannot be queried on console.
     * TO-BE: If SMS or MMS delivery fails, the request status can be changed to failure so as to allow query.
-* [API] Changed the logic to allow only normal cases from validity checks to be sent to a number of recipients.
+* [API] Changed the logic to allow only normal cases from validation to be sent to a number of recipients.
     * AS-IS: If request of sending for a number of recipients fails, message is not sent to other recipients after failed recipient.
-    * TO-BE: Message is sent to all recipients, and delivery result by recipient is provided at the response. Even with failed delivery, result of request becomes successful. <br/>See [[API Guide](./api-guide/)] for more details.
+    * TO-BE: Message is sent to all recipients, and delivery result by recipient is provided at the response. Even with failed delivery, result of request becomes successful. <br/>
+	See [[API Guide](./api-guide/)] for more details.
 * Method of calculating charges has changed.
     * AS-IS: Charged on the basis of request time of text delivery
     * TO-BE: Charged by the response time for delivery result
@@ -519,7 +582,7 @@
 * [Console] In the query of delivery, the window for selection of cause of result has been improved.
     * AS-IS: When all is selected for the cause of result, the selection window for the cause of result shows all.
     * TO-BE: When all is selected for the cause of result, the selection windows for the cause of result is not available.
-* [Console] For sender number registration, validity check has been enforced.
+* [Console] For sender number registration, validation has been enforced.
     * AS-IS: Check duplicate checks only
     * TO-BE: Duplicate checks + Check sender number registration format  &nbsp;&nbsp;[[Format of Sender Number Registration](./console-guide/#_16)]
 
@@ -533,7 +596,7 @@
 #### Updated
 * [Console] Features of mass delivery improved.
     * Replacement: Replacement delivery was available by selecting templates only, but now it is available by entering replacement key on the title or body without selecting a template. tT
-    * Uploading Template Files: In some editors, like excel, even when there is no available data for cell which has editing history, empty character string data are included in saving. Now, it has been changed that empty character strings which are not within the range of input are ignored from validity checks to upload template files.
+    * Uploading Template Files: In some editors, like excel, even when there is no available data for cell which has editing history, empty character string data are included in saving. Now, it has been changed that empty character strings which are not within the range of input are ignored from validation to upload template files.
     * Caution Messages Added: In some editors, like excel, CSV template files are created and uni codes are not saved, which results in broken characters. Cautions on such issue are to be provided for template downloads and schedule delivery.
 
 #### Bugs Fixed
