@@ -6149,7 +6149,7 @@ SMSサービス内で特定イベントが発生すると、Webフック設定�
             "hookId":"202007271010101010sadasdavas",
             "recipientNo":"01012341234",
             "unsubscribeNo":"08012341234",
-            "enterpriseName":"NHN",
+            "enterpriseName":"NHN Cloud",
             "createdDateTime":"2020-09-09T11:25:10.000+09:00"
         }
     ]
@@ -6188,7 +6188,7 @@ curl -X POST \
                 "hookId":"202007271010101010sadasdavas",
                 "recipientNo":"01012341234",
                 "unsubscribeNo":"08012341234",
-                "enterpriseName":"NHN",
+                "enterpriseName":"NHN Cloud",
                 "createdDateTime":"2020-09-09T11:25:10.000+09:00"
             }
         ]
