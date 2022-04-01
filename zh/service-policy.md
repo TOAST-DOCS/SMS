@@ -24,7 +24,7 @@ Accordingly, the Company may provide guidelines as below for the Customer, to ab
 [Notice of Personal Information Assignor] 
 To use NHN Cloud SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
 
-Assignor: NHN 
+Assignor: NHN Cloud
 Content of Business: Send SMS in lieu of customers
 
 <span id="fraud-number"></span>

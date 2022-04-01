@@ -6148,7 +6148,7 @@ SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
             "hookId":"202007271010101010sadasdavas",
             "recipientNo":"01012341234",
             "unsubscribeNo":"08012341234",
-            "enterpriseName":"NHN",
+            "enterpriseName":"NHN Cloud",
             "createdDateTime":"2020-09-09T11:25:10.000+09:00"
         }
     ]
@@ -6187,7 +6187,7 @@ curl -X POST \
                 "hookId":"202007271010101010sadasdavas",
                 "recipientNo":"01012341234",
                 "unsubscribeNo":"08012341234",
-                "enterpriseName":"NHN",
+                "enterpriseName":"NHN Cloud",
                 "createdDateTime":"2020-09-09T11:25:10.000+09:00"
             }
         ]

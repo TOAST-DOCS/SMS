@@ -69,12 +69,14 @@ You can text by selecting tags, instead of phone numbers, as recipient informati
 
 #### Extracting Statistics by Specific Unit for Message Delivery 
 1. Go to the **Statistics Event Key Management** tab and register statistics event key. To send via API, statistics ID (statsId) must be acquired from this page. 
-2. To send messages via console or API, statistics event key must be sent as well. 
-2-1. Sending from Console  
+2. To send messages via console or API, statistics event key must be sent as well.
+
+    2-1. Sending from Console  
     * To send text messages from the **SMS Delivery** tab, select statistics event key.  
     * Enter all message information and click **Send**.  
-    * After some time, check statistics data on the **Statistics** tab. 
-2-2. Sending via API
+    * After some time, check statistics data on the **Statistics** tab.
+
+    2-2. Sending via API
     * Put statsId gained from the **Statistics Event Key Management** tab into message delivery parameter. 
     * After some time, check statistics data on the **Statistics** tab. 
 
