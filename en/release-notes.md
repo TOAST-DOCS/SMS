@@ -1,5 +1,15 @@
 ## Notification > SMS > Release Notes
 
+### April 26, 2022
+#### Feature Updates
+
+* [Console] Improved the personal information masking logic used when downloading results of general, mass, or tag delivery
+    * Modified the logic so that it is the same as the masking logic used in the console.
+
+* [Console] Modified the validation logic for the extension of the uploaded document when registering a sender number with the document authentication method
+    * Modified the logic so that extension checking is not case-sensitive when validating the extension of the uploaded file.
+    * Made adjustments so that files with jpeg extension can be uploaded normally.
+
 ### March 29, 2022
 #### Feature Updates
 
