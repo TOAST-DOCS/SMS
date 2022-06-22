@@ -207,7 +207,7 @@ EMMA Version: EMMA V3.3.0 or higher
 	<tr>
 		<td>3003</td>
 		<td>Invalid</td>
-		<td>Error of recipient number type</td>
+		<td>Recipient number format error or missing number (unavailable number)</td>
 	</tr>
 	<tr>
 		<td>3004</td>
