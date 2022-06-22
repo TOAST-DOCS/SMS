@@ -93,69 +93,70 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 ### 전송 가능 국가
 | 국가명(한글) | 국가명(영문) | 국가 코드 |
 |---|---|---|
-| 아프가니스탄 | Afganistan | 93 |
+| 아프가니스탄 | Afghanistan | 93 |
 | 알바니아 | Albania | 355 |
-| 알제리아 | Algeria | 213 |
+| 알제리 | Algeria | 213 |
 | 안도라 | Andorra | 376 |
-| 앙골라 | ANGOLA | 244 |
+| 앙골라 | Angola | 244 |
 | 아르헨티나 | Argentina | 54 |
-| 아메니아 | Armenia | 374 |
+| 아르메니아 | Armenia | 374 |
 | 아루바 | Aruba | 297 |
 | 오스트레일리아 | Australia | 61 |
 | 오스트리아 | Austria | 43 |
 | 아제르바이잔 | Azerbaijan | 994 |
-| 바레인 | Bahrein | 973 |
+| 바레인 | Bahrain | 973 |
 | 방글라데시 | Bangladesh | 880 |
 | 벨라루스 | Belarus | 375 |
 | 벨기에 | Belgium | 32 |
 | 베닌 | Benin | 229 |
 | 볼리비아 | Bolivia | 591 |
-| 보츠와나 | Bostwana | 267 |
-| 보스니아 | Boznia Herzegovina | 387 |
+| 보츠와나 | Botswana | 267 |
+| 보스니아헤르체고비나 | Bosnia and Herzegovina | 387 |
 | 브라질 | Brazil | 55 |
-| 브루나이 | Brunei | 673 |
+| 브루나이 다루살람 | Brunei Darussalam | 673 |
 | 불가리아 | Bulgaria | 359 |
 | 부르키나파소 | Burkina Faso | 226 |
 | 부룬디 | Burundi | 257 |
 | 캄보디아 | Cambodia | 855 |
 | 카메룬 | Cameroon | 237 |
-| 케이프버드 | Cape Verde | 238 |
+| 카보베르데 | Cape Verde | 238 |
 | 중앙아프리카공화국 | Central African Republic | 236 |
+| 챠드 | Chad | 235 |
 | 칠레 | Chile | 56 |
-| 중국 | CHINA | 86 |
+| 중국 | China | 86 |
 | 콩고 | Congo | 242 |
-| 콩고민주공화국 | Congo(Dem Rep) | 243 |
+| 콩고민주공화국 | Democratic Republic of the Congo | 243 |
 | 크로아티아 | Croatia | 385 |
 | 쿠바 | Cuba | 53 |
-| 싸이프러스 | Cyprus | 357 |
-| 체코 | Czek Republic | 420 |
+| 키프로스 | Cyprus | 357 |
+| 체코 | Czechia | 420 |
 | 덴마크 | Denmark | 45 |
 | 이집트 | Egypt | 20 |
 | 엘살바도르 | El Salvador | 503 |
-| 에콰도르 | EQUADOR | 593 |
-| 에콰토리얼기니 | Equatorial Guinea | 240 |
+| 에콰도르 | Ecuador | 593 |
+| 적도기니 | Equatorial Guinea | 240 |
 | 에스토니아 | Estonia | 372 |
 | 에티오피아 | Ethiopia | 251 |
-| 파뢰제도 | Faroe Islands | 298 |
+| 페로 제도 | Faroe Islands | 298 |
 | 피지 | Fiji | 679 |
 | 핀란드 | Finland | 358 |
 | 프랑스 | France | 33 |
 | 가봉 | Gabon | 241 |
 | 감비아 | Gambia | 220 |
-| 그루지아 | Georgia | 995 |
+| 조지아 | Georgia | 995 |
 | 독일 | Germany | 49 |
-| 지브랄타 | Gibraltar | 350 |
+| 지브롤터 | Gibraltar | 350 |
 | 그리스 | Greece | 30 |
-| 그린랜드 | Greenland | 299 |
-| 과테말라 | GUATEMALA | 502 |
+| 그린란드 | Greenland | 299 |
+| 과테말라 | Guatemala | 502 |
 | 기니 | Guinea | 245 |
 | 홍콩 | Hong-Kong | 852 |
-| 헝가리 | Hungaria | 36 |
+| 헝가리 | Hungary | 36 |
 | 아이슬란드 | Iceland | 354 |
 | 인도 | India | 91 |
 | 인도네시아 | Indonesia | 62 |
 | 이란 | Iran | 98 |
-| 이라크 | IRAQ | 964 |
+| 이라크 | Iraq | 964 |
 | 아일랜드 | Ireland | 353 |
 | 이스라엘 | Israel | 972 |
 | 이탈리아 | Italy | 39 |
@@ -164,18 +165,18 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 | 요르단 | Jordan | 962 |
 | 케냐 | Kenya | 254 |
 | 쿠웨이트 | Kuwait | 965 |
-| 키르기즈스탄 | Kyrgyz Republic | 996 |
+| 키르기스스탄 | Kyrgyzstan | 996 |
 | 라오스 | Laos | 856 |
 | 라트비아 | Latvia | 371 |
 | 레바논 | Lebanon | 961 |
 | 레소토 | Lesotho | 266 |
 | 라이베리아 | Liberia | 231 |
-| 리비야 | LIBYA | 218 |
+| 리비야 | Libya | 218 |
 | 리히텐슈타인 | Liechtenstein | 423 |
 | 리투아니아 | Lithuania | 370 |
-| 룩셈부르크 | Luxemburg | 352 |
+| 룩셈부르크 | Luxembourg | 352 |
 | 마카오 | Macau | 853 |
-| 마케도니아 | Macedonia | 389 |
+| 북마케도니아 | North Macedonia | 389 |
 | 마다가스카르 | Madagascar | 261 |
 | 말라위 | Malawi | 265 |
 | 말레이시아 | Malaysia | 60 |
@@ -193,39 +194,39 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 | 모잠비크 | Mozambique | 258 |
 | 미얀마 | Myanmar | 95 |
 | 나미비아 | Namibia | 264 |
-| 나우루 | NAURU | 674 |
+| 나우루 | Nauru | 674 |
 | 네팔 | Nepal | 977 |
-| 네델란드안틸레스 | NETH_ANTILLES | 599 |
+| 네덜란드령 안틸레스 | Nederlandse Antillen | 599 |
 | 네덜란드 | Netherlands | 31 |
 | 뉴칼레도니아 | New Caledonia | 687 |
 | 뉴질랜드 | New Zealand | 64 |
 | 니제르 | Niger | 227 |
-| 나이제리아 | Nigeria | 234 |
+| 나이지리아 | Nigeria | 234 |
 | 노르웨이 | Norway | 47 |
 | 오만 | Oman | 968 |
 | 파키스탄 | Pakistan | 92 |
 | 팔라우 | Palau | 680 |
-| 팔레스타인 | Palestein | 970 |
+| 팔레스타인 | Palestine | 970 |
 | 파나마 | Panama | 507 |
-| 파푸아뉴기니 | papua | 675 |
+| 파푸아뉴기니 | Papua New Guinea | 675 |
 | 파라과이 | Paraguay | 595 |
 | 페루 | Peru | 51 |
 | 필리핀 | Philippines | 63 |
 | 폴란드 | Poland | 48 |
 | 포르투갈 | Portugal | 351 |
-| 콰타르 | Quatar | 974 |
+| 카타르 | Qatar | 974 |
 | 루마니아 | Romania | 40 |
-| 러시아 | Russia 외 | 7 |
+| 러시아 | Russia | 7 |
 | 르완다 | Rwanda | 250 |
 | 사우디아라비아 | Saudi Arabia | 966 |
 | 세네갈 | Senegal | 221 |
-| 시칠리 | Seychelles | 248 |
+| 세이셸 | Seychelles | 248 |
 | 시에라리온 | Sierra Leone | 232 |
-| 싱가폴 | Singapore | 65 |
+| 싱가포르 | Singapore | 65 |
 | 슬로바키아 | Slovakia | 421 |
 | 슬로베니아 | Slovenia | 386 |
 | 남아프리카공화국 | South Africa | 27 |
-| 남수단 | South sudan | 211 |
+| 남수단공화국 | South Sudan | 211 |
 | 스페인 | Spain | 34 |
 | 스리랑카 | Sri Lanka | 94 |
 | 수단 | Sudan | 249 |
@@ -236,25 +237,23 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 | 대만 | Taiwan | 886 |
 | 타지키스탄 | Tajikistan | 992 |
 | 탄자니아 | Tanzania | 255 |
-| 챠드 | Tchad | 235 |
-| 태국 | Thailand | 66 |
-| 티모르 | Timor | 670 |
+| 타이 | Thailand | 66 |
+| 동티모르 | Timor-Leste | 670 |
 | 토고 | Togo | 228 |
 | 튀니지 | Tunisia | 216 |
 | 터키 | Turkey | 90 |
 | 투르크메니스탄 | Turkmenistan | 993 |
-| 아랍에미리트연합 | U.A.E. | 971 |
+| 아랍에미리트연합 | United Arab Emirates | 971 |
 | 우간다 | Uganda | 256 |
-| 영국 | UK | 44 |
-| 우크라이나 | Ukrainia | 380 |
-| 우루과이 | URUGUAY | 598 |
-| 미국 | USA 외 | 1 |
+| 영국 | United Kingdom | 44 |
+| 우크라이나 | Ukraine | 380 |
+| 우루과이 | Uruguay | 598 |
+| 미국 | United States of America | 1 |
 | 우즈베키스탄 | Uzbekistan | 998 |
 | 바누아투 | Vanuatu | 678 |
 | 베네수엘라 | Venezuela | 58 |
-| 베트남 | vietnam | 84 |
+| 베트남 | Vietnam | 84 |
 | 예멘 | Yemen | 967 |
-| 유고슬라비아 | Yugoslavia | 381 |
 | 잠비아 | Zambia | 260 |
 | 짐바브웨 | Zimbabwe | 263 |
 
