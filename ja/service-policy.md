@@ -88,3 +88,170 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 + 端末受信結果は海外通信事業者へのデータ転送成功を意味し、実際の端末に到着する結果とは異なる場合があります。実際のユーザーが未受信であっても課金対象に含まれることがあります。
 + 海外通信事業者を通じて「未受信」理由などを確認するのに多少時間がかかることがあり、正確な理由を確認することが難しい場合があります。
 + 国別転送品質は、その国のネットワークおよびインフラ環境に大きく影響を受け、転送品質は国内環境と異なる場合があります。
+### 送信可能国
+| 国名(日本語) | 国名(英語) | 国コード |
+|---|---|---|
+| アフガニスタン | Afganistan | 93 |
+| アルバニア | Albania | 355 |
+| アルジェリア | Algeria | 213 |
+| アンドラ | Andorra | 376 |
+| アンゴラ | ANGOLA | 244 |
+| アルゼンチン | Argentina | 54 |
+| アルメニア | Armenia | 374 |
+| アルバ | Aruba | 297 |
+| オーストラリア | Australia | 61 |
+| オーストリア | Austria | 43 |
+| アゼルバイジャン | Azerbaijan | 994 |
+| バーレーン | Bahrein | 973 |
+| バングラデシュ | Bangladesh | 880 |
+| ベラルーシ | Belarus | 375 |
+| ベルギー | Belgium | 32 |
+| ベナン | Benin | 229 |
+| ボリビア | Bolivia | 591 |
+| ボツワナ | Bostwana | 267 |
+| ボスニアヘルツェゴビナ | Boznia Herzegovina | 387 |
+| ブラジル | Brazil | 55 |
+| ブルネイ | Brunei | 673 |
+| ブルガリア | Bulgaria | 359 |
+| ブルキナファソ | Burkina Faso | 226 |
+| ブルンジ | Burundi | 257 |
+| カンボジア | Cambodia | 855 |
+| カメルーン | Cameroon | 237 |
+| カーボベルデ | Cape Verde | 238 |
+| 中央アフリカ共和国 | Central African Republic | 236 |
+| チリ | Chile | 56 |
+| 中国 | CHINA | 86 |
+| コンゴ共和国 | Congo | 242 |
+| コンゴ民主共和国 | Congo(Dem Rep) | 243 |
+| クロアチア | Croatia | 385 |
+| キューバ | Cuba | 53 |
+| キプロス | Cyprus | 357 |
+| チェコ | Czek Republic | 420 |
+| デンマーク | Denmark | 45 |
+| エジプト | Egypt | 20 |
+| エルサルバドル | El Salvador | 503 |
+| エクアドル | EQUADOR | 593 |
+| 赤道ギニア | Equatorial Guinea | 240 |
+| エストニア | Estonia | 372 |
+| エチオピア | Ethiopia | 251 |
+| フェロー諸島 | Faroe Islands | 298 |
+| フィジー | Fiji | 679 |
+| フィンランド | Finland | 358 |
+| フランス | France | 33 |
+| ガボン | Gabon | 241 |
+| ガンビア | Gambia | 220 |
+| ジョージア | Georgia | 995 |
+| ドイツ | Germany | 49 |
+| ジブラルタル | Gibraltar | 350 |
+| ギリシャ | Greece | 30 |
+| グリーンランド | Greenland | 299 |
+| グアテマラ | GUATEMALA | 502 |
+| ギニア | Guinea | 245 |
+| 香港 | Hong-Kong | 852 |
+| ハンガリー | Hungaria | 36 |
+| アイスランド | Iceland | 354 |
+| インド | India | 91 |
+| インドネシア | Indonesia | 62 |
+| イラン | Iran | 98 |
+| イラク | IRAQ | 964 |
+| アイルランド | Ireland | 353 |
+| イスラエル | Israel | 972 |
+| イタリア | Italy | 39 |
+| コートジボワール | Ivory Coast | 225 |
+| 日本 | Japan | 81 |
+| ヨルダン | Jordan | 962 |
+| ケニア | Kenya | 254 |
+| クウェート | Kuwait | 965 |
+| キルギス | Kyrgyz Republic | 996 |
+| ラオス | Laos | 856 |
+| ラトビア | Latvia | 371 |
+| レバノン | Lebanon | 961 |
+| レソト | Lesotho | 266 |
+| リベリア | Liberia | 231 |
+| リビア | LIBYA | 218 |
+| リヒテンシュタイン | Liechtenstein | 423 |
+| リトアニア | Lithuania | 370 |
+| ルクセンブルク | Luxemburg | 352 |
+| マカオ | Macau | 853 |
+| マケドニア | Macedonia | 389 |
+| マダガスカル | Madagascar | 261 |
+| マラウイ | Malawi | 265 |
+| マレーシア | Malaysia | 60 |
+| モルディブ | Maldives | 960 |
+| マリ | Mali | 223 |
+| マルタ | Malta | 356 |
+| モーリタニア | Mauritania | 222 |
+| モーリシャス | Mauritius | 230 |
+| マヨット | Mayotte | 269 |
+| メキシコ | Mexico | 52 |
+| モルドバ | Moldova | 373 |
+| モナコ | Monaco | 377 |
+| モンゴル | Mongolia | 976 |
+| モロッコ | Morocco | 212 |
+| モザンビーク | Mozambique | 258 |
+| ミャンマー | Myanmar | 95 |
+| ナミビア | Namibia | 264 |
+| ナウル | NAURU | 674 |
+| ネパール | Nepal | 977 |
+| オランダ領アンティル | NETH_ANTILLES | 599 |
+| オランダ | Netherlands | 31 |
+| ニューカレドニア | New Caledonia | 687 |
+| ニュージーランド | New Zealand | 64 |
+| ニジェール | Niger | 227 |
+| ナイジェリア | Nigeria | 234 |
+| ノルウェー | Norway | 47 |
+| オマーン | Oman | 968 |
+| パキスタン | Pakistan | 92 |
+| パラオ | Palau | 680 |
+| パレスチナ | Palestein | 970 |
+| パナマ | Panama | 507 |
+| パプアニューギニア | papua | 675 |
+| パラグアイ | Paraguay | 595 |
+| ペルー | Peru | 51 |
+| フィリピン | Philippines | 63 |
+| ポーランド | Poland | 48 |
+| ポルトガル | Portugal | 351 |
+| カタール | Quatar | 974 |
+| ルーマニア | Romania | 40 |
+| ロシア | Russia | 7 |
+| ルワンダ | Rwanda | 250 |
+| サウジアラビア | Saudi Arabia | 966 |
+| セネガル | Senegal | 221 |
+| セーシェル | Seychelles | 248 |
+| シエラレオネ | Sierra Leone | 232 |
+| シンガポール | Singapore | 65 |
+| スロバキア | Slovakia | 421 |
+| スロベニア | Slovenia | 386 |
+| 南アフリカ | South Africa | 27 |
+| 南スーダン | South sudan | 211 |
+| スペイン | Spain | 34 |
+| スリランカ | Sri Lanka | 94 |
+| スーダン | Sudan | 249 |
+| エスワティニ | Swaziland | 268 |
+| スウェーデン | Sweden | 46 |
+| スイス | Switzerland | 41 |
+| シリア | Syria | 963 |
+| 台湾 | Taiwan | 886 |
+| タジキスタン | Tajikistan | 992 |
+| タンザニア | Tanzania | 255 |
+| チャド | Tchad | 235 |
+| タイ | Thailand | 66 |
+| 東ティモール | Timor | 670 |
+| トーゴ | Togo | 228 |
+| チュニジア | Tunisia | 216 |
+| トルコ | Turkey | 90 |
+| トルクメニスタン | Turkmenistan | 993 |
+| アラブ首長国連邦 | U.A.E. | 971 |
+| ウガンダ | Uganda | 256 |
+| イギリス | UK | 44 |
+| ウクライナ | Ukrainia | 380 |
+| ウルグアイ | URUGUAY | 598 |
+| 米国 | USA | 1 |
+| ウズベキスタン | Uzbekistan | 998 |
+| バヌアツ | Vanuatu | 678 |
+| ベネズエラ | Venezuela | 58 |
+| ベトナム | vietnam | 84 |
+| イエメン | Yemen | 967 |
+| ユーゴスラビア | Yugoslavia | 381 |
+| ザンビア | Zambia | 260 |
+| ジンバブエ | Zimbabwe | 263 |
