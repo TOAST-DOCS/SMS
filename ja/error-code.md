@@ -201,7 +201,7 @@ EMMA Version： EMMA V3.3.0以上
 	<tr>
 		<td>3003</td>
 		<td>Invalid</td>
-		<td>受信番号形式エラー</td>
+		<td>受信番号形式エラーまたは欠番(ない番号)</td>
 	</tr>
 	<tr>
 		<td>3004</td>
