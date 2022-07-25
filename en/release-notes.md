@@ -1,6 +1,6 @@
 ## Notification > SMS > Release Notes
 
-### July 26, 20
+### July 26, 2022
 #### Feature Updates
 
 * [API] Enhanced validation of recipient numbers.
