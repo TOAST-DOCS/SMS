@@ -1,5 +1,14 @@
 ## Notification > SMS > Release Notes
 
+### July 26, 2022
+#### Feature Updates
+
+* [API] Enhanced validation of recipient numbers
+    * Modified so that, if the length of the recipient number exceeds 15 characters, the number is determined as not conforming to international telecommunication standards (E.164 of ITU-T) and the request is processed as a failure.
+
+* [API] Added the validation logic for tags
+    * Modified so that, if a request is made to send a tag that does not exist, the request is processed as a failure.
+
 ### April 26, 2022
 #### Feature Updates
 
@@ -9,7 +18,6 @@
 * [Console] Modified the validation logic for the extension of the uploaded document when registering a sender number with the document authentication method
     * Modified the logic so that extension checking is not case-sensitive when validating the extension of the uploaded file.
     * Made adjustments so that files with jpeg extension can be uploaded normally.
-
 ### March 29, 2022
 #### Feature Updates
 
