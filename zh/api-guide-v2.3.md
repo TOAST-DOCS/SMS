@@ -3564,7 +3564,7 @@ curl -X GET \
 
 |Value|	Type|	Maximum Length | Required |Description|
 |---|---|---|---|---|
-| statisticsType | String | - | Required | Type of statistics<br/>NORMAL:Default, MINUTELY:By the minute, HOURLY: By the hour, DAILY: By the day, BY_DAY:By hour, DAY:By day |
+| statisticsType | String | - | Required | Type of statistics<br/>NORMAL:Default, MINUTELY:By the minute, HOURLY: By the hour, DAILY: By the day, BY_DAY:By day |
 | from | String | - | Required | Start Date of Statistics Search<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | Required | End Date of Statistics Search <br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | Optional | Statistics ID List |
@@ -3643,7 +3643,7 @@ curl -X GET \
 
 |Value|	Type|	Max Length | Required |Description|
 |---|---|---|---|---|
-| statisticsType | String | - | Required | Statistics Category <br/>NORMAL:Default, MINUTELY:By the minute, HOURLY:By the hour, DAILY: By the day, BY_DAY:By time, DAY:By day |
+| statisticsType | String | - | Required | Statistics Category <br/>NORMAL:Default, MINUTELY:By the minute, HOURLY:By the hour, DAILY: By the day, BY_DAY:By day |
 | from | String | - | Required | Start date of statistics search <br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | Required | End date of statistics search <br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | Optional | Statistics ID List |

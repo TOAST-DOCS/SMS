@@ -4340,7 +4340,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 
 |値|	タイプ|	最大長さ | 必須 |説明|
 |---|---|---|---|---|
-| statisticsType | String | - | 必須 | 統計区分<br/>NORMAL：基本、 MINUTELY：分別、HOURLY：時間別、DAILY：日別、BY_DAY：時間別、DAY：曜日別 |
+| statisticsType | String | - | 必須 | 統計区分<br/>NORMAL：基本、 MINUTELY：分別、HOURLY：時間別、DAILY：日別、BY_DAY：曜日別 |
 | from | String | - | 必須 | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | 必須 | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | オプション | 統計IDリスト |
@@ -4434,7 +4434,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 
 |値|	タイプ|	最大長さ | 必須 |説明|
 |---|---|---|---|---|
-| statisticsType | String | - | 必須 | 統計区分<br/>NORMAL：基本、 MINUTELY：分別、HOURLY：時間別、DAILY：日別、BY_DAY：時間別、DAY：曜日別 |
+| statisticsType | String | - | 必須 | 統計区分<br/>NORMAL：基本、 MINUTELY：分別、HOURLY：時間別、DAILY：日別、BY_DAY：曜日別 |
 | from | String | - | 必須 | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss | 
 | to | String | - | 必須 | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss |
 | statsIds | List<String> | - | オプション | 統計IDリスト |
