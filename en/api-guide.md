@@ -41,9 +41,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type | Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -53,16 +53,16 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
 ```
 {
    "templateId":"TemplateId",
-   "body":"본문",
+   "body":"Body",
    "sendNo":"15446859",
    "requestDate":"2018-08-10 10:00",
    "senderGroupingKey":"SenderGroupingKey",
@@ -217,7 +217,7 @@ curl -X POST \
 }
 ```
 
-#### 단문 SMS 발송 예제(국가 코드가 포함된 수신 번호)
+#### Example of Sending Short SMS (with country code included to recipient numbers)
 
 | Http metho | URL |
 | - | - |
@@ -227,7 +227,7 @@ curl -X POST \
 [Request body]
 ```
 {
-   "body":"본문",
+   "body":"Body",
    "sendNo":"15446859",
    "senderGroupingKey":"SenderGroupingKey",
    "recipientList":[
@@ -293,9 +293,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
@@ -434,9 +434,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -551,9 +551,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type |Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -807,9 +807,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
@@ -963,9 +963,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type |Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -1106,9 +1106,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key| String|	Original secret key|
 
 [Request body]
 
@@ -1298,9 +1298,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
@@ -1440,9 +1440,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -1555,9 +1555,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request Body]
 위에 SMS 발송과 동일.
@@ -1670,9 +1670,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key| String|	Original secret key|
 
 [Query parameter]
 * The range between search start time and search end time is limited to one day.
@@ -1743,10 +1743,10 @@ curl -X GET \
 |body.data.resultUpdateList[].senderGroupingKey | String | 발신자 그룹 키 |
 |body.data.resultUpdateList[].recipientGroupingKey | String | 수신자 그룹 키 |
 
-## 대량 발송
+## Mass Delivery
 
-### 대량 발송 목록 검색
-#### 요청
+### List Mass Delivery
+#### Request
 [URL]
 ```
 GET /sms/v3.0/appKeys/{appKey}/mass-sender/
@@ -1755,9 +1755,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -1767,9 +1767,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
@@ -1829,27 +1829,28 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].requestId | String | 요청 ID |
-|body.data[].requestDate | String | 요청 시간 |
-|body.data[].masterStatusCode | String | 대량 발송 상태 코드 |
-|body.data[].masterStatus | String | 대량 발송 상태 |
-|body.data[].templateId | String | 템플릿 ID |
-|body.data[].sendNo | String | 발신자 번호 |
-|body.data[].title | String | 제목 |
-|body.data[].body | String | 내용 |
-|body.data[].adYn | String | 광고 여부 |
-|body.data[].autoSendYn | String | 자동 발송 여부 |
-|body.data[].sendErrorCount | Integer | 에러 수신자 건수 |
-|body.data[].createUser | String | 생성자 |
-|body.data[].createDate | String | 생성 일시 |
+|header.isSuccessful|	Boolean| Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data[].requestId | String | Request ID |
+|body.data[].requestDate | String | Request time |
+|body.data[].masterStatusCode | String | Mass delivery status code |
+|body.data[].masterStatus | String | Mass delivery status|
+|body.data[].templateId | String | Template ID |
+|body.data[].sendNo | String | Sender number |
+|body.data[].title | String | Title |
+|body.data[].body | String | Body |
+|body.data[].adYn | String | Ad or Not |
+|body.data[].autoSendYn | String | Auto delivery or not |
+|body.data[].sendErrorCount | Integer | Error counts in recipients |
+|body.data[].createUser | String | Creator |
+|body.data[].createDate | String | Date and time of creation |
 
-### 대량 발송 수신자 목록 검색 
-#### 요청
+### List Recipients of Mass Delivery
+
+#### Request
 [URL]
 ```
 GET /sms/v3.0/appKeys/{appKey}/mass-sender/receive/{requestId}
@@ -1858,10 +1859,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-| requestId | String | 요청 ID |
+|appKey|	String|	Original appkey|
+| requestId | String | Request ID |
 
 [Header]
 
@@ -1871,24 +1872,24 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
-* requestId 또는 startRequestDate + endRequestDate는 필수입니다.
+* requestId or startRequestDate + endRequestDate is required.
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type| Max Length | Required|Description|
 |---|---|---|---|---|
-| recipientNo | String | 20 | X | 수신자 번호 |
-| startRequestDate | String | - | O | 발송 요청 시작 날짜 |
-| endRequestDate | String | - | O | 발송 요청 종료 날짜 |
-| startResultDate | String | - | X | 수신 시작 날짜 |
-| endResultDate | String | - | X | 수신 종료 날짜 |
-| msgStatusName | String | 10 |  X | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송요청 완료<br/> - FAILED : 발송 실패  |
-| resultCode | String | 10 | X | 수신 결과 코드 |
-| pageNum | Integer | - | X | 페이지 번호 |
-| pageSize | Integer | 1000 | X | 검색 수 |
+| recipientNo | String | 20 | X | Recipient number |
+| startRequestDate | String | - | O | Start date of delivery request |
+| endRequestDate | String | - | O | End date of delivery request |
+| startResultDate | String | - | X | Start date of receiving |
+| endResultDate | String | - | X | End date of receiving |
+| msgStatusName | String | 10 |  X | Message status code<br/> - READY:Ready<br/> - SENDING: Requesting for delivery<br/> - COMPLETED : Request for delivery completed<br/> - FAILED : Delivery failed  |
+| resultCode | String | 10 | X | Result code of receiving |
+| pageNum | Integer | - | X | Page number |
+| pageSize | Integer | 1000 | X | Number of queries |
 
 #### cURL
 ```
@@ -1898,7 +1899,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header": {
@@ -1927,25 +1928,25 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId | String | 요청 ID |
-|body.data.recipientSeq | Integer | 수신자 시퀀스 |
-|body.data.countryCode | String | 수신자 국가코드 |
-|body.data.recipientNo | String | 수신자 번호 |
-|body.data.requestDate | String | 요청 일시 |
-|body.data.msgStatus | String | 메시지 상태 코드 |
-|body.data.msgStatusName | String | 메시지 상태 코드명 |
-|body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | 수신 일시 |
-|body.data.createDate | String | 등록 일시 |
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.requestId | String | Request ID |
+|body.data.recipientSeq | Integer | Recipient sequence |
+|body.data.countryCode | String | Recipient's country code |
+|body.data.recipientNo | String | Recipient number |
+|body.data.requestDate | String | Date and time of request |
+|body.data.msgStatus | String | Message status code |
+|body.data.msgStatusName | String | Name of message status code |
+|body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+|body.data.receiveDate | String | Date and time of receiving |
+|body.data.createDate | String | Date and time of registration |
 
-### 대량 발송 수신자 목록 상세 검색 
+### List Recipient Details of Mass Delivery 
 
-#### 요청
+#### Request
 [URL]
 ```
 GET /sms/v3.0/appKeys/{appKey}/mass-sender/receive/{requestId}/{recipientSeq}
@@ -1954,11 +1955,11 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-| requestId | String | 요청 ID |
-| recipientSeq | String | 시퀀스 |
+|appKey|	String|	Original appkey|
+| requestId | String | Request ID |
+| recipientSeq | String | Sequence |
 
 [Header]
 
@@ -1968,9 +1969,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -1980,7 +1981,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header": {
@@ -2013,35 +2014,35 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header|	Object|	헤더 영역|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId | String | 요청 ID |
-|body.data.recipientSeq | Integer | 수신자 시퀀스 |
-|body.data.sendType | String | 발송 유형 |
-|body.data.messageType | String | 메시지 타입 |
-|body.data.templateId | String | 템플릿 ID |
-|body.data.templateName | String | 템플릿명 |
-|body.data.sendNo | String | 발신 번호 |
-|body.data.title | String | 제목 |
-|body.data.body | String | 내용 |
-|body.data.recipientNo | String | 수신자 번호 |
-|body.data.countryCode | String | 수신자 국가코드 |
-|body.data.requestDate | String | 요청 일시 |
-|body.data.msgStatus | String | 메시지 상태 |
-|body.data.msgStatusName | String | 메시지 상태 이름 |
-|body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | 수신 일시 |
-|body.data.createDate | String | 등록 일시 |
-|body.data.attachFileList[].filePath | String | 첨부 파일 - 경로 |
-|body.data.attachFileList[].fileName | String | 첨부 파일 - 파일명 |
-|body.data.attachFileList[].fileSize | Long | 첨부 파일 - 사이즈 |
-|body.data.attachFileList[].fileSequence | Integer | 첨부 파일 - 파일 번호 |
-|body.data.attachFileList[].createDate | String | 첨부 파일 - 생성 일시 |
-|body.data.attachFileList[].updateDate | String | 첨부 파일 - 수정 날짜 |
+|header|	Object|	Header area|
+|header.isSuccessful|	Boolean| Successful or not|
+|header.resultCode|	Integer| Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.requestId | String | Request ID |
+|body.data.recipientSeq | Integer | Recipient sequence |
+|body.data.sendType | String | Delivery type |
+|body.data.messageType | String | Message type |
+|body.data.templateId | String | Template ID |
+|body.data.templateName | String | Template name |
+|body.data.sendNo | String | Sender number |
+|body.data.title | String | Title |
+|body.data.body | String | Body |
+|body.data.recipientNo | String | Recipient number |
+|body.data.countryCode | String | Recipient's country code |
+|body.data.requestDate | String | Date and time of request |
+|body.data.msgStatus | String | Message status |
+|body.data.msgStatusName | String | Message status name|
+|body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+|body.data.receiveDate | String | Data and time of receiving |
+|body.data.createDate | String | Date and time of registration |
+|body.data.attachFileList[].filePath | String | Attached file - path |
+|body.data.attachFileList[].fileName | String | Attached file - file name |
+|body.data.attachFileList[].fileSize | Long | Attached file - size |
+|body.data.attachFileList[].fileSequence | Integer | Attached file - file sequence |
+|body.data.attachFileList[].createDate | String | Attached file - date and time of creation |
+|body.data.attachFileList[].updateDate | String | Attached file - date of modification |
 
 
 ## 태그 발송
@@ -2071,9 +2072,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -2180,9 +2181,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 ```
@@ -2294,9 +2295,9 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
@@ -2412,9 +2413,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 * requestId 또는 startRequestDate + endRequestDate는 필수입니다.
@@ -2514,9 +2515,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -2617,9 +2618,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -2740,9 +2741,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -2846,9 +2847,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -2943,9 +2944,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -3028,9 +3029,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -3104,9 +3105,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -3155,9 +3156,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -3417,9 +3418,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -3551,9 +3552,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -3676,9 +3677,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -3756,9 +3757,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -3807,9 +3808,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -3874,9 +3875,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -3945,9 +3946,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -4005,9 +4006,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request Body]
 ```
@@ -4078,9 +4079,9 @@ Content-Type : multipart/form-data;
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request Body]
 
@@ -4138,9 +4139,9 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -4231,9 +4232,9 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -4332,9 +4333,9 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -4426,9 +4427,9 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -4509,9 +4510,9 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -4594,9 +4595,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -4717,9 +4718,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -4824,9 +4825,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -4918,9 +4919,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -5041,9 +5042,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -5137,9 +5138,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
@@ -5258,9 +5259,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -5354,9 +5355,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -5399,9 +5400,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -5479,9 +5480,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -5554,9 +5555,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -5624,9 +5625,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -5682,9 +5683,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -5782,9 +5783,9 @@ GET /sms/v3.0/appKeys/{appKey}/uids/{uid}
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -5863,9 +5864,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -5960,9 +5961,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
@@ -6015,9 +6016,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 [Request body]
 
@@ -6087,9 +6088,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	고유의 시크릿 키|
+|X-Secret-Key|	String|	Original secret key|
 
 #### cURL
 ```
