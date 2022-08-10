@@ -8,29 +8,29 @@
 2. APIs that query mass delivery requests have been added.
 	* List Mass Delivery, List Recipients of Mass Delivery, and List Recipient Details of Mass Delivery APIs have been added.
 
-### [API 도메인]
+### [API Domain]
 
-|환경|	도메인|
+|Environment| Domain |
 |---|---|
 |Real|	https://api-sms.cloud.toast.com|
 
 <span id="precautions"></span>
-### [주의 사항]
-* 지원하는 문자 길이는 아래와 같습니다.
-* 최대 지원 글자 수는 저장 기준이며 문자 잘림을 방지하기 위해서 표준 규격으로 작성해주세요.
-* 인코딩은 EUC-KR 기준으로 발송되며 지원하지 않는 이모티콘은 발송에 실패합니다.
+### [Caution]
+* Character lengths are supported as follows.
+* The maximum supported character counts are based on those saved; please write in standard specifications to prevent any text cutoff.
+* Delivery is made upon EUC-KR encoding and it fails for unsupported emoticons.
 
-| 분류 | 최대 지원 | 표준 규격 |
+| Category | Maximum Support | Standard Specifications |
 | --- | --- | --- |
-| SMS 본문 | 255자 | 90바이트(한글 45자, 영문 90자) |
-| MMS 제목 | 120자 | 40바이트(한글 20자, 영문 40자) |
-| MMS 본문 | 4,000자 | 2,000바이트(한글 1,000자, 영문 2,000자) |
+| SMS Body | 255 characters | 90 bytes (45 characters for Korean, or 90 for English) |
+| MMS Title | 120 characters | 40 bytes (20 characters for Korean, or 40 for English) |
+| MMS Body | 4,000 characters | 2,000 bytes (1,000 characters for Korean, or 2,000 for English) |
 
-## 단문 SMS
+## Short SMS
 
-### 단문 SMS 발송
+### Send Short SMS
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -41,10 +41,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|Value|	Type | Description|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	Original appkey|
-
+|appKey|	String| Original appkey |
 [Header]
 
 ```
@@ -82,22 +81,22 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|templateId|	String | 50 |	X|	발송 템플릿 ID|
-|body|	String| 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
-|sendNo|	String| 13 |	O|	발신 번호|
-|requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
-|senderGroupingKey| String| 100 | X | 발신자 그룹키 |
-|recipientList[].recipientNo| String| 20 |	O|	수신 번호<br/>countryCode와 조합하여 사용 가능<br/>최대 1,000명|
-|recipientList[].countryCode|	String| 8 |	X|	국가 번호 [기본값: 82(한국)] |
-|recipientList[].internationalRecipientNo| String|  20 | X| 국가 번호가 포함된 수신 번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
-|recipientList[].templateParameter|	Object|  - |	X|	템플릿 파라미터(템플릿 ID 입력 시)|
-|recipientList[].templateParameter.{key}| String| - |	X|	치환 키(##key##)|
-|recipientList[].templateParameter.{value}|	Object| - |	X|	치환 키에 매핑되는 Value값|
-|recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
-|userId|	String|	100 | X | 발송 구분자 ex)admin,system |
-|statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+|templateId|	String | 50 |	X| Delivery template ID |
+|body|	String| Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] |	O|	Body |
+|sendNo|	String| 13 |	O| Sender number |
+|requestDate| String| - | X | Request date and time (yyyy-MM-dd HH:mm) |
+|senderGroupingKey| String| 100 | X | Sender's group key |
+|recipientList[].recipientNo| String| 20 |	O| Recipient number <br/>Available in combination with country code <br/>Up to 1,000 |
+|recipientList[].countryCode|	String| 8 |	X|	Country code [Default: 82 (Korea)] |
+|recipientList[].internationalRecipientNo| String|  20 | X| Recipient number including country code<br/>e.g.) 821012345678<br/>To be ignored if recipientNo is available.<br/> |
+|recipientList[].templateParameter|	Object|  - |	X| Template parameter (with the input of template ID) |
+|recipientList[].templateParameter.{key}| String| - |	X| Replacement key (##key##) |
+|recipientList[].templateParameter.{value}|	Object| - |	X| Value which is mapped for replacement key |
+|recipientList[].recipientGroupingKey| String| 100 | X | Recipient group key |
+|userId|	String|	100 | X | Delivery delimiter e.g) admin,system |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### cURL
 ```
@@ -106,7 +105,7 @@ curl -X POST \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
-    "body": "본문",
+    "body": "Body",
     "sendNo": "15446859",
     "recipientList": [{
             "internationalRecipientNo": "821000000000"
@@ -115,7 +114,7 @@ curl -X POST \
 }'
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -143,30 +142,30 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId|	String|	요청 ID|
-|body.data.statusCode|	String|	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패)|
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
-|body.data.sendResultList[].recipientNo| String | 수신 번호|
-|body.data.sendResultList[].resultCode| Integer | 결과 코드|
-|body.data.sendResultList[].resultMessage| String | 결과 메시지|
-|body.data.sendResultList[].recipientSeq| Integer | 수신자 시퀀스(mtPr)|
-|body.data.sendResultList[].recipientGroupingKey| String | 수신자 그룹키|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestId|	String| Request ID |
+|body.data.statusCode|	String| Request status code (1:Requesting, 2:Request completed, 3:Request failed) |
+|body.data.senderGroupingKey|	String| Sender group key |
+|body.data.sendResultList[].recipientNo| String | Recipient number |
+|body.data.sendResultList[].resultCode| Integer | Result code |
+|body.data.sendResultList[].resultMessage| String | Result message |
+|body.data.sendResultList[].recipientSeq| Integer | Recipient sequence (mtPr) |
+|body.data.sendResultList[].recipientGroupingKey| String | Recipient group key |
 
-#### 단문 SMS 발송 예제(일반 국내 수신 번호)
+#### Example of Sending Short SMS (general domestic recipient numbers)
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms|
 
 [Request body]
 ```
 {
-   "body":"본문",
+   "body":"Body",
    "sendNo":"15446859",
    "senderGroupingKey":"SenderGroupingKey",
    "recipientList":[
@@ -216,6 +215,7 @@ curl -X POST \
    }
 }
 ```
+
 
 #### Example of Sending Short SMS (with country code included to recipient numbers)
 
@@ -268,9 +268,9 @@ curl -X POST \
 }
 ```
 
-### 단문 SMS 발송목록 검색
+### List Delivery of Short SMS 
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -281,9 +281,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -295,31 +295,31 @@ Content-Type: application/json;charset=UTF-8
 
 |Value|	Type|	Description|
 |---|---|---|
-|X-Secret-Key|	String|	Original secret key|
+|appKey|	String| Original appkey |
 
 [Query parameter]
-* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* To query registered date and sent date at the same time, sent date shall be ignored. 
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|requestId|	String| 25 |	필수 |	요청 ID|
-|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	필수 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|startCreateDate|	String| - |	필수 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endCreateDate|	String| - |	필수 |	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String| - |	옵션|	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String| 13 |	옵션|	발신 번호|
-|recipientNo|	String| 20 |	옵션|	수신 번호|
-|templateId|	String| 50 |	옵션|	템플릿 번호|
-|msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
-|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
-|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
-|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+|requestId|	String| 25 |	Required | Request ID |
+|startRequestDate|	String| - |	Required | Start date of delivery (yyyy-MM-dd HH:mm:ss) |
+|endRequestDate|	String| - |	Required | End date of delivery (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Required | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Required | End date of registration (yyyy-MM-dd HH:mm:ss) |
+|startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
+|endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
+|sendNo|	String| 13 | Optional | Sender number |
+|recipientNo|	String| 20 | Optional | Recipient number |
+|templateId|	String| 50 | Optional | Template number |
+|msgStatus|	String| 1 | Optional | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+|resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
+|subResultCode|	String| 10 | Optional | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)] |
+|senderGroupingKey|	String| 100 | Optional | Sender's group key |
+|recipientGroupingKey|	String| 100 | Optional | Recipient's group key |
+|pageNum|	Integer| - | Optional | Page number (default : 1) |
+|pageSize|	Integer| 1000 | Optional | Number of queries (default: 15) |
 
 #### cURL
 ```
@@ -329,7 +329,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -348,17 +348,17 @@ curl -X GET \
             "requestDate":"2018-08-10 10:06:30.0",
             "resultDate":"2018-08-10 10:06:42.0",
             "templateId":"TemplateId",
-            "templateName":"템플릿명",
+            "templateName":"template name",
             "categoryId":0,
-            "categoryName":"카테고리명",
-            "body":"단문 테스트",
+            "categoryName":"category name",
+            "body":"single-text test",
             "sendNo":"15446859",
             "countryCode":"82",
             "recipientNo":"01000000000",
             "msgStatus":"3",
-            "msgStatusName":"성공",
+            "msgStatusName":"successful",
             "resultCode":"1000",
-            "resultCodeName":"성공",
+            "resultCodeName":"successful",
             "telecomCode":10001,
             "telecomCodeName":"SKT",
             "recipientSeq":1,
@@ -375,42 +375,42 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].requestId|	String|	요청 ID|
-|body.data[].requestDate|	String|	발신 일시|
-|body.data[].resultDate|	String|	수신 일시|
-|body.data[].templateId|	String|	템플릿 ID|
-|body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].body|	String|	본문 내용|
-|body.data[].sendNo|	String|	발신 번호|
-|body.data[].countryCode|	String|	국가 번호|
-|body.data[].recipientNo|	String|	수신 번호|
-|body.data[].msgStatus|	String|	메시지 상태 코드|
-|body.data[].msgStatusName|	String|	메시지 상태 코드명|
-|body.data[].resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|body.data[].resultCodeName|	String|	수신 결과 코드명|
-|body.data[].telecomCode|	Integer|	통신사 코드|
-|body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data[].userId|	String|	발송 요청 ID|
-|body.data[].adYn|	String|	광고 여부|
-|body.data[].senderGroupingKey|	String|	발신자 그룹키|
-|body.data[].recipientGroupingKey|	String|	수신자 그룹키|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Number of queried data |
+|body.totalCount|	Integer| Number of total data |
+|body.data[].requestId|	String| Request ID |
+|body.data[].requestDate|	String| Date and time of sending |
+|body.data[].resultDate|	String| Date and time of receiving |
+|body.data[].templateId|	String| Template ID |
+|body.data[].templateName|	String| Template name |
+|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryName|	String| Category name |
+|body.data[].body|	String| Body |
+|body.data[].sendNo|	String| Sender number |
+|body.data[].countryCode|	String| Country code |
+|body.data[].recipientNo|	String| Recipient number |
+|body.data[].msgStatus|	String| Message status code |
+|body.data[].msgStatusName|	String| Name of message status code |
+|body.data[].resultCode|	String| Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
+|body.data[].resultCodeName|	String| Result code name of receiving |
+|body.data[].telecomCode|	Integer| Code of telecom provider |
+|body.data[].telecomCodeName|	String| Name of telecom provider |
+|body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data[].userId|	String| Delivery request ID |
+|body.data[].adYn|	String| Ad or not |
+|body.data[].senderGroupingKey|	String| Sender's group key |
+|body.data[].recipientGroupingKey|	String| Recipient's group key |
 
-### 단문 SMS 발송 단일 검색
+### Query Delivery of Short SMS 
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -421,10 +421,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|requestId|	String|	요청 ID|
+|appKey|	String|	Original appkey|
+|requestId|	String|	Request ID|
 
 [Header]
 
@@ -440,9 +440,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|Value| Type | Required | Description |
 |---|---|---|---|
-|recipientSeq|	Integer|	필수|	발송 상세 ID|
+|recipientSeq|	Integer| Required | Detail delivery ID |
 
 #### cURL
 ```
@@ -452,7 +452,8 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+
+#### Response
 
 ```
 {
@@ -467,17 +468,17 @@ curl -X GET \
          "requestDate":"2018-08-10 10:06:30.0",
          "resultDate":"2018-08-10 10:06:42.0",
          "templateId":"TemplateId",
-         "templateName":"템플릿명",
+         "templateName":"template name",
          "categoryId":0,
-         "categoryName":"카테고리명",
-         "body":"본문",
+         "categoryName":"Category name",
+         "body":"body",
          "sendNo":"15446859",
          "countryCode":"82",
          "recipientNo":"01000000000",
          "msgStatus":"3",
-         "msgStatusName":"성공",
+         "msgStatusName":"successful",
          "resultCode":"1000",
-         "resultCodeName":"성공",
+         "resultCodeName":"successful",
          "telecomCode":10001,
          "telecomCodeName":"SKT",
          "recipientSeq":1,
@@ -493,42 +494,42 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId|	String|	요청 ID|
-|body.data.requestDate|	String|	발신 일시|
-|body.data.resultDate|	String|	수신 일시|
-|body.data.templateId|	String|	템플릿 ID|
-|body.data.templateName|	String|	템플릿명|
-|body.data.categoryId|	String|	카테고리 ID|
-|body.data.categoryName|	String|	카테고리명|
-|body.data.body|	String|	본문 내용|
-|body.data.sendNo|	String|	발신 번호|
-|body.data.countryCode|	String|	국가 번호|
-|body.data.recipientNo|	String|	수신 번호|
-|body.data.msgStatus|	String|	메시지 상태 코드|
-|body.data.msgStatusName|	String|	메시지 상태 코드명|
-|body.data.resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|body.data.resultCodeName|	String|	수신 결과 코드명|
-|body.data.telecomCode|	Integer|	통신사 코드|
-|body.data.telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
-|body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data.userId|	String|	발송 요청 ID|
-|body.data.adYn|	String|	광고 여부|
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
-|body.data.recipientGroupingKey|	String|	수신자 그룹키|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestId|	String| Request ID |
+|body.data.requestDate|	String| Date and time of sending |
+|body.data.resultDate|	String| Date and time of receiving |
+|body.data.templateId|	String| Template ID |
+|body.data.templateName|	String| Template name |
+|body.data.categoryId|	String| Category ID |
+|body.data.categoryName|	String| Category name |
+|body.data.body|	String| Body |
+|body.data.sendNo|	String| Sender name |
+|body.data.countryCode|	String| Country code |
+|body.data.recipientNo|	String| Recipient number |
+|body.data.msgStatus|	String| Message status code |
+|body.data.msgStatusName|	String| Name of message status code |
+|body.data.resultCode|	String| Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
+|body.data.resultCodeName|	String| Result code name of receiving |
+|body.data.telecomCode|	Integer| Telecom provider code |
+|body.data.telecomCodeName|	String| Telecom provider name |
+|body.data.recipientSeq|	Integer| Detail delivery ID (required to query details) |
+|body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data.userId|	String| Delivery request ID |
+|body.data.adYn|	String| Ad or not |
+|body.data.senderGroupingKey|	String| Sender's group key |
+|body.data.recipientGroupingKey|	String| Recipient's group key |
 
-## 장문 MMS
+## Long MMS
 
-### 장문 MMS 발송(첨부 파일 미포함)
-※ LMS/MMS는 해외 발송이 불가능합니다.
+### Send Long MMS (attached file excluded)
+※ LMS/MMS are not available for overseas delivery.
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -539,9 +540,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -581,23 +582,23 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Maximum Length | Required | Description |
 |---|---|---|---|---|
-|templateId|	String| 50 |	X|	발송 템플릿 ID|
-|title|	String| 120 |	O|	제목|
-|body|	String| 4000|	O|	본문 |
-|sendNo|	String| 13 |	O|	발신 번호|
-|requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
-|senderGroupingKey| String| 100 | X | 발신자 그룹키 |
-|recipientList[].recipientNo| String| 20 |	O|	수신 번호<br/>countryCode와 조합하여 사용 가능|
-|recipientList[].countryCode| String| 8 |	X|	국가 번호 [기본값: 82(한국)]<br/>MMS는 해외 발송 불가 |
-|recipientList[].internationalRecipientNo| String| 20 | X| 국가 번호가 포함된 수신 번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
-|recipientList[].templateParameter|	Object| - |	X|	템플릿 파라미터(템플릿 ID 입력 시)|
-|recipientList[].templateParameter.{key}|	String| - |	X|	치환 키(##key##)|
-|recipientList[].templateParameter.{value}|	Object| - |	X|	치환 키에 매핑되는 Value값|
-|recipientList[].recipientGroupingKey| String| 1000 | X | 수신자 그룹키 |
-|userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
-|statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+|templateId|	String| 50 |	X| Delivery template ID |
+|title|	String| 40 bytes (in EUC-KR) |	O| Title |
+|body|	String| 2000 bytes (in EUC-KR) |	O|	Body |
+|sendNo|	String| 13 |	O| Sender number |
+|requestDate| String| - | X | Request date and time(yyyy-MM-dd HH:mm) |
+|senderGroupingKey| String| 100 | X | Sender's group key |
+|recipientList[].recipientNo| String| 20 |	O| Recipient number<br/>Available in combination of countryCode |
+|recipientList[].countryCode| String| 8 |	X|	Country code [Default: 82 (Korea)] |
+|recipientList[].internationalRecipientNo| String| 20 | X| Recipient number including country code<br/>e.g.) 821012345678<br/>To be ignored if recipientNo is available.<br/> |
+|recipientList[].templateParameter|	Object| - |	X| Template parameter (with the input of template ID) |
+|recipientList[].templateParameter.{key}|	String| - |	X| Replacement key (##key##) |
+|recipientList[].templateParameter.{value}|	Object| - |	X| Value which is mapped for replacement key |
+|recipientList[].recipientGroupingKey| String| 1000 | X | Recipient group key |
+|userId|	String| 100 |	X | Delivery delimiter  e.g.) admin,system |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### cURL
 ```
@@ -606,8 +607,8 @@ curl -X POST \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
-    "title": "{제목}",
-    "body": "{본문 내용}",
+    "title": "{title}",
+    "body": "{body}",
     "sendNo": "15446859",
     "attachFileIdList": [0],
     "recipientList": [{
@@ -619,7 +620,7 @@ curl -X POST \
 }'
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -647,31 +648,31 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId|	String|	요청 ID|
-|body.data.statusCode|	String|	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패)|
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
-|body.data.sendResultList[].recipientNo| String | 수신 번호|
-|body.data.sendResultList[].resultCode| Integer | 결과 코드|
-|body.data.sendResultList[].resultMessage| String | 결과 메시지|
-|body.data.sendResultList[].recipientSeq| Integer | 수신자 시퀀스(mtPr)|
-|body.data.sendResultList[].recipientGroupingKey| String | 수신자 그룹키|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestId|	String| Request ID |
+|body.data.statusCode|	String| Request status code (1: requesting, 2:request completed, 3: request failed) |
+|body.data.senderGroupingKey|	String| Sender's group key |
+|body.data.sendResultList[].recipientNo| String | Recipient number |
+|body.data.sendResultList[].resultCode| Integer | Result code |
+|body.data.sendResultList[].resultMessage| String | Result message |
+|body.data.sendResultList[].recipientSeq| Integer | Recipient sequence (mtPr) |
+|body.data.sendResultList[].recipientGroupingKey| String | Recipient's group key |
 
-#### 장문 MMS 발송 예제
+#### Example of Sending Long MMS 
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms|
 
 [Request body]
 ```
 {
-   "title": "제목",
-   "body":"본문",
+   "title": "Title",
+   "body":"Body",
    "sendNo":"15446859",
    "senderGroupingKey":"SenderGroupingKey",
    "recipientList":[
@@ -722,19 +723,20 @@ curl -X POST \
 }
 ```
 
-### 장문 MMS 발송(첨부 파일 포함)
+### Send MMS (attached file included)
 
-#### 첨부 파일 발송 예제
+
+#### Example of Sending Attached Files
 
 | Http method | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms |
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms |
 
 [Request body]
 ```
 {
-    "title": "제목",
-    "body": "본문",
+    "title": "Title",
+    "body": "Body",
     "sendNo": "15446859",
     "senderGroupingKey": "SenderGrouping",
     "attachFileIdList": [0],
@@ -761,7 +763,7 @@ curl -X POST \
       "senderGroupingKey": "SenderGrouping",
       "sendResultList" : [
           {
-              "recipientNo" : {수신 번호},
+              "recipientNo" : {recipient number},
               "resultCode" :  0,
               "resultMessage" : "SUCCESS"
               "recipientSeq": 1,
@@ -774,17 +776,17 @@ curl -X POST \
 ```
 
 ##### Description
-- 첨부 파일(필드명: attachFileIdList)을 포함한 장문 MMS 발송을 위해서는 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
-- 첨부 이미지 제한 사항
-    - 지원 코덱 : jpg
-    - 첨부 이미지 개수 : 2개 이하
-    - 첨부 이미지 사이즈 : 300K 이하
-    - 첨부 이미지 해상도 : 1000 x 1000 이하
+- To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
+- See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
+- Restrictions for Attached Images 
+    * Supported Codec: .jpg 
+    * Number of Attached Images: Less than 2 
+    * Size of Attached Image: Less than 300KB 
+    * Resolution of Image: Less than 1000 x 1000  
 
-### 장문 MMS 발송목록 검색
+### List Delivery of Long MMS Request
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -795,9 +797,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -807,33 +809,33 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|Value| Type|	Description|
+|Value| Type | Description |
 |---|---|---|
 |X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
-* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|requestId|	String| 25 |	필수 |	요청 ID|
-|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	필수 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|startCreateDate|	String| - |	필수 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endCreateDate|	String| - |	필수 |	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String| - |	옵션|	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String| 13 |	옵션|	발신 번호|
-|recipientNo|	String| 20 |	옵션|	수신 번호|
-|templateId|	String| 50 |	옵션|	템플릿 번호|
-|msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
-|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
-|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
-|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+|requestId|	String| 25 |	Required | Request ID |
+|startRequestDate|	String| - |	Required | Start date of sending (yyyy-MM-dd HH:mm:ss) |
+|endRequestDate|	String| - |	Required | End date of sending (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Required | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Required | End date of registration (yyyy-MM-dd HH:mm:ss) |
+|startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
+|endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
+|sendNo|	String| 13 | Optional | Sender number |
+|recipientNo|	String| 20 | Optional | Recipient numbe |
+|templateId|	String| 50 | Optional | Template number |
+|msgStatus|	String| 1 | Optional | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+|resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
+|subResultCode|	String| 10 | Optional | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)] |
+|senderGroupingKey|	String| 100 | Optional | Sender's group key |
+|recipientGroupingKey|	String| 100 | Optional | Recipient's group key |
+|pageNum|	Integer| - | Optional | Page number (default : 1) |
+|pageSize|	Integer| 1000 | Optional | Number of queries (default: 15) |
 
 #### cURL
 ```
@@ -843,7 +845,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -862,18 +864,18 @@ curl -X GET \
         "requestDate":"2018-08-10 10:06:30.0",
         "resultDate":"2018-08-10 10:06:42.0",
         "templateId":"TemplateId",
-        "templateName":"템플릿명",
+        "templateName":"template name",
         "categoryId":0,
-        "categoryName":"카테고리명",
-        "title":"제목",
-        "body":"본문",
+        "categoryName":"category name",
+        "title":"title",
+        "body":"body",
         "sendNo":"15446859",
         "countryCode":"82",
         "recipientNo":"01000000000",
         "msgStatus":"3",
-        "msgStatusName":"성공",
+        "msgStatusName":"successful",
         "resultCode":"1000",
-        "resultCodeName":"성공",
+        "resultCodeName":"successful",
         "telecomCode":10001,
         "telecomCodeName":"SKT",
         "recipientSeq":1,
@@ -897,49 +899,49 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].requestId|	String|	요청 ID|
-|body.data[].requestDate|	String|	발신 일시|
-|body.data[].resultDate|	String|	수신 일시|
-|body.data[].templateId|	String|	템플릿 ID|
-|body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].body|	String|	본문 내용|
-|body.data[].sendNo|	String|	발신 번호|
-|body.data[].countryCode|	String|	국가 번호|
-|body.data[].recipientNo|	String|	수신 번호|
-|body.data[].msgStatus|	String|	메시지 상태 코드|
-|body.data[].msgStatusName|	String|	메시지 상태 코드명|
-|body.data[].resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|body.data[].resultCodeName|	String|	수신 결과 코드명|
-|body.data[].telecomCode|	Integer|	통신사 코드|
-|body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data[].userId|	String|	발송 요청 ID|
-|body.data[].adYn|	String|	광고 여부|
-|body.data[].attachFileList[].fileId|	Integer|	파일 ID|
-|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용) |
-|body.data[].attachFileList[].filename|	String|	파일명|
-|body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
-|body.data[].attachFileList[].uploadType|	String|	업로드 타입|
-|body.data[].senderGroupingKey|	String|	발신자 그룹키|
-|body.data[].recipientGroupingKey|	String|	수신자 그룹키|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body|	Object| Body area |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data[].requestId|	String| Request ID |
+|body.data[].requestDate|	String| Date and time of request |
+|body.data[].resultDate|	String| Date and time of receiving |
+|body.data[].templateId|	String| Template ID |
+|body.data[].templateName|	String| Template name |
+|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryName|	String| Category name |
+|body.data[].body|	String| Body message |
+|body.data[].sendNo|	String| Sender number |
+|body.data[].countryCode|	String| Country code |
+|body.data[].recipientNo|	String| Recipient number |
+|body.data[].msgStatus|	String| Message status code |
+|body.data[].msgStatusName|	String| Name of message status code |
+|body.data[].resultCode|	String| Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
+|body.data[].resultCodeName|	String| Result code name of receiving |
+|body.data[].telecomCode|	Integer| Code of telecom provider |
+|body.data[].telecomCodeName|	String| Name of telecom provider |
+|body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data[].userId|	String| Delivery request ID |
+|body.data[].adYn|	String| Ad or not |
+|body.data[].attachFileList[].fileId|	Integer| File ID |
+|body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
+|body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
+|body.data[].senderGroupingKey|	String| Sender's group key |
+|body.data[].recipientGroupingKey|	String| Recipient's group key |
 
 
-### 장문 MMS 발송 단일 검색
+### Query Single Delivery of Long MMS 
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -950,10 +952,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|requestId|	String|	요청 ID|
+|appKey|	String|	Original appkey|
+|requestId|	String|	Request ID|
 
 [Header]
 
@@ -963,15 +965,16 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|Value| Type |Description|
+|Value| Type | Description |
 |---|---|---|
-|X-Secret-Key|	String|	Original secret key|
+|appKey|	String| Origional appkey |
+|requestId|	String| Request ID |
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|Value| Type | Required | Description |
 |---|---|---|---|
-|recipientSeq|	Integer|	필수|	발송 상세 ID|
+|recipientSeq|	Integer| Required | Detail delivery ID |
 
 #### cURL
 ```
@@ -981,7 +984,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -996,18 +999,18 @@ curl -X GET \
       "requestDate":"2018-08-10 10:06:30.0",
       "resultDate":"2018-08-10 10:06:42.0",
       "templateId":"TemplateId",
-      "templateName":"템플릿명",
+      "templateName":"template name",
       "categoryId":0,
-      "categoryName":"카테고리명",
-      "title":"제목",
-      "body":"본문",
+      "categoryName":"category name",
+      "title":"title",
+      "body":"body",
       "sendNo":"15446859",
       "countryCode":"82",
       "recipientNo":"01000000000",
       "msgStatus":"3",
-      "msgStatusName":"성공",
+      "msgStatusName":"succssful",
       "resultCode":"1000",
-      "resultCodeName":"성공",
+      "resultCodeName":"successful",
       "telecomCode":10001,
       "telecomCodeName":"SKT",
       "recipientSeq":1,
@@ -1016,11 +1019,11 @@ curl -X GET \
       "userId":"tester",
       "adYn":"N",
       "attachFileList": [{
-            fileId: Integer,
-            filePath: String,
-            fileName: String,
-            saveFileName: String,
-            uploadType: String
+               fileId: Integer,
+               filePath: String,
+               fileName: String,
+               saveFileName: String,
+               uploadType: String
       }],
       "resultMessage":"",
       "senderGroupingKey":"SenderGroupingKey",
@@ -1030,73 +1033,73 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body|	Object|	본문 영역|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].requestId|	String|	요청 ID|
-|body.data[].requestDate|	String|	발신 일시|
-|body.data[].resultDate|	String|	수신 일시|
-|body.data[].templateId|	String|	템플릿 ID|
-|body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].body|	String|	본문 내용|
-|body.data[].sendNo|	String|	발신 번호|
-|body.data[].countryCode|	String|	국가 번호|
-|body.data[].recipientNo|	String|	수신 번호|
-|body.data[].msgStatus|	String|	메시지 상태 코드|
-|body.data[].msgStatusName|	String|	메시지 상태 코드명|
-|body.data[].resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|body.data[].resultCodeName|	String|	수신 결과 코드명|
-|body.data[].telecomCode|	Integer|	통신사 코드|
-|body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data[].userId|	String|	발송 요청 ID|
-|body.data[].adYn|	String|	광고 여부|
-|body.data[].attachFileList[].fileId|	Integer|	파일 ID|
-|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용) |
-|body.data[].attachFileList[].filename|	String|	파일명|
-|body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
-|body.data[].attachFileList[].uploadType|	String|	업로드 타입|
-|body.data[].senderGroupingKey|	String|	발신자 그룹키|
-|body.data[].recipientGroupingKey|	String|	수신자 그룹키|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body|	Object| Body area |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data[].requestId|	String| Request ID |
+|body.data[].requestDate|	String| Date and time of sending |
+|body.data[].resultDate|	String| Date and time of receiving |
+|body.data[].templateId|	String| Template ID |
+|body.data[].templateName|	String| Template name |
+|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryName|	String| Category name |
+|body.data[].body|	String| Body message |
+|body.data[].sendNo|	String| Sender number |
+|body.data[].countryCode|	String| Country code |
+|body.data[].recipientNo|	String| Recipient number |
+|body.data[].msgStatus|	String| Message status code |
+|body.data[].msgStatusName|	String| Name of message status code |
+|body.data[].resultCode|	String| Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
+|body.data[].resultCodeName|	String| Result code name of receiving |
+|body.data[].telecomCode|	Integer| Code of telecom provider |
+|body.data[].telecomCodeName|	String| Name of telecome provider |
+|body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data[].userId|	String| Delivery request ID |
+|body.data[].adYn|	String| Ad or not |
+|body.data[].attachFileList[].fileId|	Integer| File ID |
+|body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
+|body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
+|body.data[].senderGroupingKey|	String| Sender's group key |
+|body.data[].recipientGroupingKey|	String| Recipient's group key |
 
-## 인증용 SMS(긴급)
+## SMS for Authentication (emergency)
 
-### 인증용 SMS 발송
+### Send SMS for Authentication
 
 <span id="precautions-authword"></span>
-1. 인증용 SMS 발송 시 본문 내 포함되어야 할 인증 문구 안내
+1. Guide for authentication words required to be included for sending authentication SMS 
 
-| 구분 | 인증 문구 |
-| --- | --- | 
-| 인증용 SMS(긴급) | auth, password, verif, にんしょう, 認証, 비밀번호, 인증 |
+| Category | Authentication Words |
+| --- | --- |
+| Authentication SMS (for emergency) | auth, password, verif, にんしょう, 認証, password, authentication |
 
-- 예시 1-1) 인증용 SMS(긴급) API 발송 요청 시 전문(템플릿 치환자 포함)에 인증 문구가 포함되어 있지 않은 경우 발송에 실패합니다.
-- 예시 1-2) 인증 문구가 영문인 경우 대소문자 구분 없이 유효성 검사가 진행됩니다.
+- Example 1) Delivery shall fail if the full text (including template replacement) does not include authentication words, in the request of Send Authentication SMS API (for emergency) 
+- Example 2) Validity for English words shall be checked regardless of small or capital letters 
 
-#### 요청
+#### Request
 
 [URL]
 
 ```
-POST  /sms/v3.0/appKeys/{appKey}/sender/auth/sms
+POST  /sms/v2.4/appKeys/{appKey}/sender/auth/sms
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -1105,8 +1108,7 @@ Content-Type: application/json;charset=UTF-8
   "X-Secret-Key": String
 }
 ```
-
-|Value|	Type|	Description|
+|Value| Type | Description |
 |---|---|---|
 |X-Secret-Key| String|	Original secret key|
 
@@ -1115,7 +1117,7 @@ Content-Type: application/json;charset=UTF-8
 ```
 {
    "templateId":"TemplateId",
-   "body":"본문",
+   "body":"body",
    "sendNo":"15446859",
    "requestDate":"2018-08-10 10:00",
    "senderGroupingKey":"SenderGroupingKey",
@@ -1135,22 +1137,22 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|templateId|	String| 50 |	X|	발송 템플릿 ID|
-|body|	String| 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용 [[주의사항](./api-guide/#precautions-authword)] |
-|sendNo|	String| 13 |	O|	발신 번호|
-|requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
-|senderGroupingKey| String| 100 | X | 발신자 그룹키 |
-|recipientList[].recipientNo|	String| 20 |	O|	수신 번호<br/>countryCode와 조합하여 사용 가능|
-|recipientList[].countryCode|	String| 8 |	X|	국가 번호 [기본값: 82(한국)] |
-|recipientList[].internationalRecipientNo| String| 20 | X| 국가 번호가 포함된 수신 번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시<br/>|
-|recipientList[].templateParameter|	Object| - |	X|	템플릿 파라미터(템플릿 ID 입력 시)|
-|recipientList[].templateParameter.{key}| String| - |	X|	치환 키(##key##)|
-|recipientList[].templateParameter.{value}| Object| - |	X|	치환 키에 매핑되는 Value값|
-|recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
-|userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
-|statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+|templateId|	String| 50 |	X| Delivery template ID |
+|body|	String| Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] |	O|	Body [[Precautions](./api-guide/#precautions-authword)] |
+|sendNo|	String| 13 |	O| Sender number |
+|requestDate| String| - | X | Date and time of schedule (yyyy-MM-dd HH:mm) |
+|senderGroupingKey| String| 100 | X | Sender's group key |
+|recipientList[].recipientNo|	String| 20 |	O| Recipient number<br/>Available in combination of the country code |
+|recipientList[].countryCode|	String| 8 |	X|	Country code [default: 82 (Korea)] |
+|recipientList[].internationalRecipientNo| String| 20 | X| Recipient number including country code<br/>e.g.) 821012345678<br/>To be ignored if recipientNo is available<br/> |
+|recipientList[].templateParameter|	Object| - |	X| Template parameter (with the input of template ID) |
+|recipientList[].templateParameter.{key}| String| - |	X| Replacement key (##key##) |
+|recipientList[].templateParameter.{value}| Object| - |	X| Value which is mapped for replacement key |
+|recipientList[].recipientGroupingKey| String| 100 | X | Recipient's group key |
+|userId|	String| 100 |	X | Delivery delimiter e.g.) admin,system |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### cURL
 ```
@@ -1159,7 +1161,7 @@ curl -X POST \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
-    "body": "인증 테스트",
+    "body": "Authentication Test",
     "sendNo": "15446859",
     "recipientList": [{
             "recipientNo": "01000000000",
@@ -1170,8 +1172,7 @@ curl -X POST \
 }'
 ```
 
-
-#### 응답
+#### Response
 ```
 {
    "header":{
@@ -1198,30 +1199,30 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId|	String|	요청 ID|
-|body.data.statusCode|	String|	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패)|
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
-|body.data.sendResultList[].recipientNo| String | 수신 번호|
-|body.data.sendResultList[].resultCode| Integer | 결과 코드|
-|body.data.sendResultList[].resultMessage| String | 결과 메시지|
-|body.data.sendResultList[].recipientSeq| Integer | 수신자 시퀀스(mtPr)|
-|body.data.sendResultList[].recipientGroupingKey| String | 수신자 그룹키|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestId|	String| Request ID |
+|body.data.statusCode|	String| Request status code (1: Requesting, 2: Request completed, 3: Request failed) |
+|body.data.senderGroupingKey|	String| Sender's group key |
+|body.data.sendResultList[].recipientNo| String | Recipient number |
+|body.data.sendResultList[].resultCode| Integer | Result code |
+|body.data.sendResultList[].resultMessage| String | Result message |
+|body.data.sendResultList[].recipientSeq| Integer | Recipient sequence (mtPr) |
+|body.data.sendResultList[].recipientGroupingKey| String | Recipient's group key |
 
-#### 예제
+#### Example
 
 | Http metho | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/auth/sms|
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/auth/sms|
 
 [Request body]
 ```
 {
-   "body":"본문",
+   "body":"body",
    "sendNo":"15446859",
    "senderGroupingKey":"SenderGroupingKey",
    "recipientList":[
@@ -1272,10 +1273,9 @@ curl -X POST \
 }
 ```
 
+### List SMS Delivery for Authentication
 
-### 인증용 SMS 발송목록 검색
-
-#### 요청
+#### Request
 
 [URL]
 
@@ -1286,9 +1286,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|----|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -1303,29 +1303,28 @@ Content-Type: application/json;charset=UTF-8
 |X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
-* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|requestId|	String| 25 |	필수 |	요청 ID|
-|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	필수 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|startCreateDate|	String| - |	필수 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endCreateDate|	String| - |	필수 |	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String| - |	옵션|	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String| 13 |	옵션|	발신 번호|
-|recipientNo|	String| 20 |	옵션|	수신 번호|
-|templateId|	String| 50 |	옵션|	템플릿 번호|
-|msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
-|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
-|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
-|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
-
+|requestId|	String| 25 |	Required | Request ID |
+|startRequestDate|	String| - |	Required | Start date of sending (yyyy-MM-dd HH:mm:ss) |
+|endRequestDate|	String| - |	Required | End date of sending (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Required | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Required | End date of registration (yyyy-MM-dd HH:mm:ss) |
+|startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
+|endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
+|sendNo|	String| 13 | Optional | Sender number |
+|recipientNo|	String| 20 | Optional | Recipient number |
+|templateId|	String| 50 | Optional | Template number |
+|msgStatus|	String| 1 | Optional | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+|resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
+|subResultCode|	String| 10 | Optional | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)] |
+|senderGroupingKey|	String| 100 | Optional | Sender's group key |
+|recipientGroupingKey|	String| 100 | Optional | Recipient's group key |
+|pageNum|	Integer| - | Optional | Page number (Default : 1) |
+|pageSize|	Integer| 1000 | Optional | Number of queries (Default: 15) |
 
 #### cURL
 ```
@@ -1335,7 +1334,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -1354,17 +1353,17 @@ curl -X GET \
             "requestDate":"2018-08-10 10:06:30.0",
             "resultDate":"2018-08-10 10:06:42.0",
             "templateId":"TemplateId",
-            "templateName":"템플릿명",
+            "templateName":"template name",
             "categoryId":0,
-            "categoryName":"카테고리명",
-            "body":"단문 테스트",
+            "categoryName":"category name",
+            "body":"single text test",
             "sendNo":"15446859",
             "countryCode":"82",
             "recipientNo":"01000000000",
             "msgStatus":"3",
-            "msgStatusName":"성공",
+            "msgStatusName":"successful",
             "resultCode":"1000",
-            "resultCodeName":"성공",
+            "resultCodeName":"successful",
             "telecomCode":10001,
             "telecomCodeName":"SKT",
             "recipientSeq":1,
@@ -1381,56 +1380,56 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].requestId|	String|	요청 ID|
-|body.data[].requestDate|	String|	발신 일시|
-|body.data[].resultDate|	String|	수신 일시|
-|body.data[].templateId|	String|	템플릿 ID|
-|body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].body|	String|	본문 내용|
-|body.data[].sendNo|	String|	발신 번호|
-|body.data[].countryCode|	String|	국가 번호|
-|body.data[].recipientNo|	String|	수신 번호|
-|body.data[].msgStatus|	String|	메시지 상태 코드|
-|body.data[].msgStatusName|	String|	메시지 상태 코드명|
-|body.data[].resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|body.data[].resultCodeName|	String|	수신 결과 코드명|
-|body.data[].telecomCode|	Integer|	통신사 코드|
-|body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data[].userId|	String|	발송 요청 ID|
-|body.data[].adYn|	String|	광고 여부|
-|body.data[].senderGroupingKey|	String|	발신자 그룹키|
-|body.data[].recipientGroupingKey|	String|	수신자 그룹키|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data[].requestId|	String| Request ID |
+|body.data[].requestDate|	String| Date and time of sending |
+|body.data[].resultDate|	String| Date and time of receiving |
+|body.data[].templateId|	String| Template ID |
+|body.data[].templateName|	String| Template name |
+|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryName|	String| Category name |
+|body.data[].body|	String| Body message |
+|body.data[].sendNo|	String| Sender number |
+|body.data[].countryCode|	String| Country code |
+|body.data[].recipientNo|	String| Recipient number |
+|body.data[].msgStatus|	String| Message status code |
+|body.data[].msgStatusName|	String| Name of message status code |
+|body.data[].resultCode|	String| Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
+|body.data[].resultCodeName|	String| Result code name of receiving |
+|body.data[].telecomCode|	Integer| Code of telecom provider |
+|body.data[].telecomCodeName|	String| Name of telecom provider |
+|body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data[].userId|	String| Request ID for sending |
+|body.data[].adYn|	String| Ad or not |
+|body.data[].senderGroupingKey|	String| Sender's group key |
+|body.data[].recipientGroupingKey|	String| Recipient's group key |
 
-### 인증용 SMS 발송 단일 검색
+### Query Single SMS Delivery for Authentication
 
-#### 요청
+#### Request	
 
 [URL]
 
 ```
-GET  /sms/v3.0/appKeys/{appKey}/sender/auth/sms/{requestId}
+GET  /sms/v2.4/appKeys/{appKey}/sender/auth/sms/{requestId}
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|requestId|	String|	요청 ID|
+|appKey|	String|	Original appkey|
+|requestId|	String|	Request ID|
 
 [Header]
 
@@ -1446,9 +1445,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|Value| Type | Required | Description |
 |---|----|---|---|
-|recipientSeq|	Integer|	필수|	발송 상세 ID|
+|recipientSeq|	Integer| Required | Detail delivery ID |
 
 #### cURL
 ```
@@ -1458,7 +1457,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -1473,17 +1472,17 @@ curl -X GET \
          "requestDate":"2018-08-10 10:06:30.0",
          "resultDate":"2018-08-10 10:06:42.0",
          "templateId":"TemplateId",
-         "templateName":"템플릿명",
+         "templateName":"template name",
          "categoryId":0,
-         "categoryName":"카테고리명",
-         "body":"본문",
+         "categoryName":"category name",
+         "body":"body",
          "sendNo":"15446859",
          "countryCode":"82",
          "recipientNo":"01000000000",
          "msgStatus":"3",
-         "msgStatusName":"성공",
+         "msgStatusName":"successful",
          "resultCode":"1000",
-         "resultCodeName":"성공",
+         "resultCodeName":"successful",
          "telecomCode":10001,
          "telecomCodeName":"SKT",
          "recipientSeq":1,
@@ -1499,40 +1498,39 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId|	String|	요청 ID|
-|body.data.requestDate|	String|	발신 일시|
-|body.data.resultDate|	String|	수신 일시|
-|body.data.templateId|	String|	템플릿 ID|
-|body.data.templateName|	String|	템플릿명|
-|body.data.categoryId|	String|	카테고리 ID|
-|body.data.categoryName|	String|	카테고리명|
-|body.data.body|	String|	본문 내용|
-|body.data.sendNo|	String|	발신 번호|
-|body.data.countryCode|	String|	국가 번호|
-|body.data.recipientNo|	String|	수신 번호|
-|body.data.msgStatus|	String|	메시지 상태 코드|
-|body.data.msgStatusName|	String|	메시지 상태 코드명|
-|body.data.resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|body.data.resultCodeName|	String|	수신 결과 코드명|
-|body.data.telecomCode|	Integer|	통신사 코드|
-|body.data.telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
-|body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data.userId|	String|	발송 요청 ID|
-|body.data.adYn|	String|	광고 여부|
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
-|body.data.recipientGroupingKey|	String|	수신자 그룹키|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestId|	String| Requst ID |
+|body.data.requestDate|	String| Date and time of sending |
+|body.data.resultDate|	String| Date and time of receiving |
+|body.data.templateId|	String| Template ID |
+|body.data.templateName|	String| Template name |
+|body.data.categoryId|	String| Category ID |
+|body.data.categoryName|	String| Category name |
+|body.data.body|	String| Body message |
+|body.data.sendNo|	String| Sender number |
+|body.data.countryCode|	String| Country code |
+|body.data.recipientNo|	String| Recipient number |
+|body.data.msgStatus|	String| Message status code |
+|body.data.msgStatusName|	String| Name of message status code |
+|body.data.resultCode|	String| Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+|body.data.resultCodeName|	String| Result code name of receiving |
+|body.data.telecomCode|	Integer| Code of telecom provider |
+|body.data.telecomCodeName|	String| Name of telecom provider |
+|body.data.recipientSeq|	Integer| Detail delivery ID (required to query details) |
+|body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data.userId|	String| Request ID for sending |
+|body.data.adYn|	String| Ad or not |
+|body.data.senderGroupingKey|	String| Sender's group key |
+|body.data.recipientGroupingKey|	String| Recipient's group key |
 
-## 광고 문자
-### 광고성 SMS 발송
-
-#### 요청
+## Ad Messages
+### Send SMS for Advertisement
+#### Request
 
 [URL]
 
@@ -1543,9 +1541,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -1560,16 +1558,16 @@ Content-Type: application/json;charset=UTF-8
 |X-Secret-Key|	String|	Original secret key|
 
 [Request Body]
-위에 SMS 발송과 동일.
-[[Request Body 참고](./api-guide/#sms_2)]
+Same as Send SMS in the above. 
+[[See Request Body](./api-guide/#sms_2)]
 
-<span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+<span style="color:red"> However, following messages must be included in the body. </span>
+080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console. 
 
-080 번호는 콘솔의 **080 수신 거부 설정** 탭에서 확인할 수 있습니다.
 ```
-(광고)
+(Ad)
 
-[무료 수신 거부]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 #### cURL
@@ -1579,7 +1577,7 @@ curl -X POST \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
-    "body": "(광고) 테스트\n [무료 수신 거부]0808880327",
+    "body": "(Ad) Test\n [Unsubscribe for free]0808880327",
     "sendNo": "15446859",
     "recipientList": [{
             "recipientNo": "01000000000",
@@ -1591,10 +1589,10 @@ curl -X POST \
 ```
 
 
-### 광고성 MMS 발송
-※ LMS/MMS는 해외 발송이 불가능합니다.
+### Send MMS for Advertisement 
+※ LMS/MMS are not available for oversead delivery.
 
-#### 요청
+#### Request
 [URL]
 
 ```
@@ -1604,21 +1602,21 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String| Original appkey |
 
 [Request Body]
-위에 MMS 발송과 동일.
-[[Request Body 참고](./api-guide/#mms_1)]
+Same as Send MMS in the above. 
+[[See Request Body](./api-guide/#mms_1)]
 
-<span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+<span style="color:red"> However, following messages must be included in the body. </span>
+080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console. 
 
-080 번호는 콘솔의 **080 수신 거부 설정** 탭에서 확인할 수 있습니다.
 ```
-(광고)
+(Ad)
 
-[무료 수신 거부]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 #### cURL
@@ -1628,8 +1626,8 @@ curl -X POST \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' 
 -d '{
-    "title": "{제목}",
-    "body": "(광고) 테스트\n [무료 수신 거부]0808880327",
+    "title": "{Title}",
+    "body": "(Ad) Test\n [Unsubscribe for free]0808880327",
     "sendNo": "15446859",
     "recipientList": [{
             "recipientNo": "01000000000",
@@ -1640,13 +1638,14 @@ curl -X POST \
 }'
 ```
 
-## 결과 업데이트 기준 메시지 검색
-* 해당 API는 메시지 발송 결과 업데이트 시간 기준으로 검색됩니다.
-* 단말기 발송 결과를 서비스에서 가져가 사용하시는 경우 이 API를 사용해주세요.
 
-### 메시지 검색
+## Query Messages by Result Updates
+* The API is queried as of the update time of message delivery result. 
+* Please apply this API to import delivery results on device from service. 
 
-#### 요청
+### Query Messages 
+
+#### Request
 
 [URL]
 
@@ -1658,9 +1657,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -1677,13 +1676,13 @@ Content-Type: application/json;charset=UTF-8
 [Query parameter]
 * The range between search start time and search end time is limited to one day.
 
-|값|	타입|	필수|	설명|
+|Value| Type | Required | Description |
 |---|---|---|---|
-|startUpdateDate|	String|	필수|	결과 업데이트 검색 시작 시간 <br/>yyyy-MM-dd HH:mm:ss|
-|endUpdateDate|	String|	필수|	결과 업데이트 검색 종료 시간 <br/>yyyy-MM-dd HH:mm:ss|
-|messageType|	String|	옵션|	메시지 타입(SMS/LMS/MMS/AUTH)|
-| pageNum | Integer | 옵션 | 페이지 번호(기본값:1) |
-| pageSize | Integer | 옵션 |검색 수(기본값:15) |
+|startUpdateDate|	String| Required | Start time of query result updates <br/>yyyy-MM-dd HH:mm:ss |
+|endUpdateDate|	String| Required | End time of query result updates <br/>yyyy-MM-dd HH:mm:ss |
+|messageType|	String| Optional | Message type (SMS/LMS/MMS/AUTH) |
+| pageNum | Integer | Optional | Page number (default:1) |
+| pageSize | Integer | Optional |Number of queries (default:15) |
 
 #### cURL
 ```
@@ -1693,7 +1692,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
   "header":{
@@ -1711,7 +1710,7 @@ curl -X GET \
           "requestId":"",
           "recipientSeq":0,
           "resultCode":"1000",
-          "resultCodeName":"성공",
+          "resultCodeName":"successful",
           "requestDate":"2018-10-04 16:16:00.0",
           "resultDate":"2018-10-04 16:17:10.0",
           "updateDate":"2018-10-04 16:17:15.0",
@@ -1725,23 +1724,23 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.resultUpdateList[].messageType|String| 메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data.resultUpdateList[].requestId | String | 요청 ID |
-|body.data.resultUpdateList[].recipientSeq | Integer | 수신자 시퀀스 |
-|body.data.resultUpdateList[].resultCode | String | 결과 코드 |
-|body.data.resultUpdateList[].resultCodeName | String | 결과 코드명 |
-|body.data.resultUpdateList[].requestDate | String | 요청 일시(yyyy-MM-dd HH:mm:ss.S) |
-|body.data.resultUpdateList[].resultDate | String | 수신 일시(yyyy-MM-dd HH:mm:ss.S) |
-|body.data.resultUpdateList[].updateDate | String | 결과 업데이트 일시(yyyy-MM-dd HH:mm:ss.S) |
-|body.data.resultUpdateList[].telecomCode | String | 통신사 코드 |
-|body.data.resultUpdateList[].telecomCodeName | String | 통신사 코드명 |
-|body.data.resultUpdateList[].senderGroupingKey | String | 발신자 그룹 키 |
-|body.data.resultUpdateList[].recipientGroupingKey | String | 수신자 그룹 키 |
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.resultUpdateList[].messageType|String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data.resultUpdateList[].requestId | String | Request ID |
+|body.data.resultUpdateList[].recipientSeq | Integer | Recipient sequence |
+|body.data.resultUpdateList[].resultCode | String | Result code |
+|body.data.resultUpdateList[].resultCodeName | String | Name of result code |
+|body.data.resultUpdateList[].requestDate | String | Date and time of request (yyyy-MM-dd HH:mm:ss.S) |
+|body.data.resultUpdateList[].resultDate | String | Date and time of receiving (yyyy-MM-dd HH:mm:ss.S) |
+|body.data.resultUpdateList[].updateDate | String | Date and time of result updates (yyyy-MM-dd HH:mm:ss.S) |
+|body.data.resultUpdateList[].telecomCode | String | Code of telecom provider |
+|body.data.resultUpdateList[].telecomCodeName | String | Name of telecom provider |
+|body.data.resultUpdateList[].senderGroupingKey | String | Sender's group key |
+|body.data.resultUpdateList[].recipientGroupingKey | String | Recipient's group key |
 
 ## Mass Delivery
 
@@ -1772,19 +1771,19 @@ Content-Type: application/json;charset=UTF-8
 |X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
-* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate are required.
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value|	Type| Max Length |Required|	Description|
 |---|---|---|---|---|
-| sendType | required, String | 1 | O | 발송 유형<br>SMS : "0",<br>MMS : "1" |
-| requestId | String | - | O | 요청 ID |
-| startRequestDate | String | - | O | 발송 날짜 시작 |
-| endRequestDate | String | - | O | 발송 날짜 종료 |
-| startCreateDate |	String| - |	O |	등록 날짜 시작 |
-| endCreateDate |	String| - |	O |	등록 날짜 종료 |
-| statusCode | String | 10 | X | 발송 상태 코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
-| pageNum | optional, Integer | - | X | 페이지 번호 |
-| pageSize | optional, Integer | 1000 | X | 검색 수 |
+| sendType | required, String | 1 | O | Delivery type<br>SMS : "0",<br>MMS : "1" |
+| requestId | String | - | O | Request ID |
+| startRequestDate | String | - | O | Start date of delivery |
+| endRequestDate | String | - | O | End date of delivery |
+| startCreateDate |	String| - |	O |	Start date of registration |
+| endCreateDate |	String| - |	O |	End date of registration |
+| statusCode | String | 10 | X | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
+| pageNum | optional, Integer | - | X | Page number |
+| pageSize | optional, Integer | 1000 | X | Number of queries |
 
 #### cURL
 ```
@@ -1794,7 +1793,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header": {
@@ -2045,11 +2044,11 @@ curl -X GET \
 |body.data.attachFileList[].updateDate | String | Attached file - date of modification |
 
 
-## 태그 발송
+## Tag Delivery
 
-### 태그 SMS 발송
+### Send Tagged SMS 
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -2060,9 +2059,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -2080,7 +2079,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-    "body":"본문",
+    "body":"body",
     "sendNo":"15446859",
     "requestDate":"2018-03-22 10:00",
     "templateId":"TemplateId",
@@ -2099,18 +2098,18 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|body|	String| 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
-| sendNo | String | 13 | O | 발신 번호 |
-| requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
-| templateId | String | 50 | X | 템플릿 ID |
-| templateParameter | Map<String, String> | - | X | 템플릿 파라미터 |
-| tagExpression | List<String> | - | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
-| userId | String | 100 | X | 요청한 유저 ID |
-| adYn | String | 1 | X | 광고 여부(기본값: N) |
-| autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부(기본값: Y) |
-|statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+|body|	String| Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] |	O|	Body |
+| sendNo | String | 13 | O | Sender number |
+| requestDate| String| - | X | Date and time of schedule (yyyy-MM-dd HH:mm) |
+| templateId | String | 50 | X | Template ID |
+| templateParameter | Map<String, String> | - | X | Template parameter |
+| tagExpression | List<String> | - | O | Tag expression <br/>ex) ["tagA","AND","tabB"] |
+| userId | String | 100 | X | Requester ID |
+| adYn | String | 1 | X | Ad or not (default: N) |
+| autoSendYn | String | 1 | X | Auto delivery or not (immediate delivery) (default: Y) |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### cURL
 ```
@@ -2119,7 +2118,7 @@ curl -X POST \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
-    "body": "본문",
+    "body": "body",
     "sendNo": "15446859",
     "templateParameter": {
         "key": "value"
@@ -2132,7 +2131,7 @@ curl -X POST \
 }'
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header": {
@@ -2148,17 +2147,17 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId|	String|	요청 ID|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestId|	String| Request ID |
 
-### 태그 LMS 발송
-※ LMS/MMS는 해외 발송이 불가능합니다.
+### Send Tagged LMS
+※ LMS/MMS are not avilable for overseas delivery.
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -2169,9 +2168,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -2188,7 +2187,7 @@ Content-Type: application/json;charset=UTF-8
 [Request body]
 ```
 {
-    "body":"본문",
+    "body":"body",
     "sendNo":"15446859",
     "requestDate":"2018-03-22 10:00",
     "templateId":"TemplateId",
@@ -2212,20 +2211,20 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| title | String | 120 | O | 문자 제목 |
-| body | String | 4000 | O | 문자 내용 |
-| sendNo | String | 13 | O | 발신 번호 |
-| requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
-| templateId | String | 50 | X | 템플릿 ID |
-| templateParameter | Map<String, String> | - | X | 템플릿 파라미터 |
-| tagExpression | List<String> | - | O | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
-| attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
-| userId | String | 100 | X | 요청한 유저 ID |
-| adYn | String | 1 | X | 광고 여부(기본값: N) |
-| autoSendYn | String | 1 | X | 자동 발송(즉시 발송) 여부(기본 Y) |
-| statsId | String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+| title | String | 40 bytes (in EUC-KR) | O | Title of text |
+| body | String | 2000 bytes (in EUC-KR) | O | Body message |
+| sendNo | String | 13 | O | Sender number |
+| requestDate| String| - | X | Date and time of schedule (yyyy-MM-dd HH:mm) |
+| templateId | String | 50 | X | Template ID |
+| templateParameter | Map<String, String> | - | X | Template parameter |
+| tagExpression | List<String> | - | O | Tax expression<br/>ex) ["tagA","AND","tabB"] |
+| attachFileIdList | List<Integer> | - | X | Attached file ID (fileId) |
+| userId | String | 100 | X | Requester ID |
+| adYn | String | 1 | X | Ad or not (default: N) |
+| autoSendYn | String | 1 | X | Auto delivery or not (immediate delivery) (default: Y) |
+| statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
 
 #### cURL
 ```
@@ -2234,8 +2233,8 @@ curl -X POST \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
-    "title": "제목",
-    "body": "본문",
+    "title": "Title",
+    "body": "Body",
     "sendNo": "15446859",
     "templateParameter": {
         "key": "value"
@@ -2247,8 +2246,7 @@ curl -X POST \
 }'
 ```
 
-
-#### 응답
+#### Response
 ```
 {
     "header": {
@@ -2264,16 +2262,17 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId|	String|	요청 ID|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestId|	String| Request ID |
 
-### 태그 발송 목록 검색
 
-#### 요청
+### List Tag Delivery  
+
+#### Request 
 
 [URL]
 
@@ -2283,9 +2282,9 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -2300,20 +2299,20 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 |X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
-* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value|	Type| Max Length | Required|	Description|
 |---|---|---|---|---|
-| appKey | String| - | O | 앱키 |
-| sendType | required, String | 1 | O | 발송 유형<br>SMS : "0",<br>MMS : "1" |
-| requestId | String | - | O | 요청 ID |
-| startRequestDate | String | - | O | 발송 날짜 시작 |
-| endRequestDate | String | - | O | 발송 날짜 종료 |
-| startCreateDate |	String| - |	O |	등록 날짜 시작 |
-| endCreateDate |	String| - |	O |	등록 날짜 종료 |
-| statusCode | String | 10 | X | 발송 상태 코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
-| pageNum | optional, Integer | - | X | 페이지 번호 |
-| pageSize | optional, Integer | 1000 | X | 검색 수 |
+| appKey | String| - | O | appkey |
+| sendType | required, String | 1 | O | Delivery Type<br>SMS : "0",<br>MMS : "1" |
+| requestId | String | - | O | Request ID |
+| startRequestDate | String | - | O | Start date of delivery |
+| endRequestDate | String | - | O | End date of delivery |
+| startCreateDate|	String| - |	O | Start date of registration |
+| endCreateDate|	String| - |	O | End date of registration |
+| statusCode | String | 10 | X | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
+| pageNum | optional, Integer | - | X | Page number |
+| pageSize | optional, Integer | 1000 | X | Number of queries |
 
 #### cURL
 ```
@@ -2323,7 +2322,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header" : {
@@ -2340,15 +2339,15 @@ curl -X GET \
                 "requestIp": "127.0.0.1",
                 "sendType": "0",
                 "templateId": "TemplateId",
-                "templateName": "템플릿명",
+                "templateName": "template name",
                 "masterStatusCode": "READY",
                 "sendNo": "15446859",
                 "requestDate": "2017-12-20 14:15:58",
                 "tagExpression": [
                     "Kb6BjCY1"
                 ],
-                "title": "제목",
-                "body": "본문",
+                "title": "title",
+                "body": "body",
                 "adYn": "N",
                 "autoSendYn": "Y",
                 "sendErrorCount": 0,
@@ -2362,34 +2361,34 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].requestId | String | 요청 ID |
-|body.data[].requestIp | String | 요청 IP |
-|body.data[].requestDate | String | 요청 시간 |
-|body.data[].tagSendStatus | String | 태그 발송 상태 |
-|body.data[].tagExpression[] | List<String> | 태그 표현식 |
-|body.data[].templateId | String | 템플릿 ID |
-|body.data[].templateName | String | 템플릿명 |
-|body.data[].senderName | String | 발신자명 |
-|body.data[].senderMail | String | 발신자 주소 |
-|body.data[].title | String | 제목 |
-|body.data[].body | String | 내용 |
-|body.data[].adYn | String | 광고 여부 |
-|body.data[].autoSendYn | String | 자동 발송 여부 |
-|body.data[].sendErrorCount | Integer | 에러 수신자 건수 |
-|body.data[].createUser | String | 생성자 |
-|body.data[].createDate | String | 생성 일시 |
-|body.data[].updateUser | String | 수정한 사용자 |
-|body.data[].updateDate | String | 수정 날짜 |
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data[].requestId | String | Request ID |
+|body.data[].requestIp | String | Request IP |
+|body.data[].requestDate | String | Request time |
+|body.data[].tagSendStatus | String | Tag delivery status |
+|body.data[].tagExpression[] | List<String> | Tag expression |
+|body.data[].templateId | String | Template ID |
+|body.data[].templateName | String | Template name |
+|body.data[].senderName | String | Sender's name |
+|body.data[].senderMail | String | Sender's address |
+|body.data[].title | String | Title |
+|body.data[].body | String | Body |
+|body.data[].adYn | String | Ad or not |
+|body.data[].autoSendYn | String | Auto delivery or not |
+|body.data[].sendErrorCount | Integer | Error counts in recipients |
+|body.data[].createUser | String | Creator |
+|body.data[].createDate | String | Date and time of creation |
+|body.data[].updateUser | String | Modifier |
+|body.data[].updateDate | String | Date and time of modification |
 
 
-### 태그 발송 수신자 목록 검색
+### List Recipients of Tag Delivery 
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -2400,10 +2399,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-| requestId | String | 요청 ID |
+|appKey|	String|	Original appkey|
+| requestId | String | Request ID |
 
 [Header]
 
@@ -2418,19 +2417,19 @@ Content-Type: application/json;charset=UTF-8
 |X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
-* requestId 또는 startRequestDate + endRequestDate는 필수입니다.
+* requestId or startRequestDate + endRequestDate is required.
 
-|값|	타입| 최대 길이 |	필수|	설명|
+| Value| Type| Max Length |Required|Description|
 |---|---|---|---|---|
-| recipientNum | String | 20 | X | 수신자 번호 |
-| startRequestDate | String | - | O | 발송 요청 시작 날짜 |
-| endRequestDate | String | - | O | 발송 요청 종료 날짜 |
-| startResultDate | String | - | X | 수신 시작 날짜 |
-| endResultDate | String | - | X | 수신 종료 날짜 |
-| msgStatusName | String | 10 |  X | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송요청 완료<br/> - FAILED : 발송 실패  |
-| resultCode | String | 10 | X | 수신 결과 코드 |
-| pageNum | Integer | - | X | 페이지 번호 |
-| pageSize | Integer | 1000 | X | 검색 수 |
+| recipientNum | String | 20 | X | Recipient number |
+| startRequestDate | String | - | O | Start date of delivery request |
+| endRequestDate | String | - | O | End date of delivery request |
+| startResultDate | String | - | X | Start date of receiving |
+| endResultDate | String | - | X | End date of receiving |
+| msgStatusName | String | 10 |  X | Message status code<br/> - READY: Ready<br/> - SENDING: Requesting for delivery <br/> - COMPLETED : Request for delivery completed<br/> - FAILED : Delivery failed |
+| resultCode | String | 10 | X | Result code of receiving |
+| pageNum | Integer | - | X | Page number |
+| pageSize | Integer | 1000 | X | Number of queries |
 
 #### cURL
 ```
@@ -2440,7 +2439,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header" : {
@@ -2471,26 +2470,26 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId | String | 요청 ID |
-|body.data.recipientSeq | Integer | 수신자 시퀀스 |
-|body.data.countryCode | String | 수신자 국가코드 |
-|body.data.recipientNo | String | 수신자 번호 |
-|body.data.requestDate | String | 요청 일시 |
-|body.data.msgStatus | String | 메시지 상태 코드 |
-|body.data.msgStatusName | String | 메시지 상태 코드명 |
-|body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | 수신 일시 |
-|body.data.createDate | String | 등록 일시 |
-|body.data.updateDate | String | 수정 날짜 |
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestId | String | Request ID |
+|body.data.recipientSeq | Integer | Recipient sequence |
+|body.data.countryCode | String | Recipient's country code |
+|body.data.recipientNo | String | Recipient number |
+|body.data.requestDate | String | Date and time of request |
+|body.data.msgStatus | String | Message status code |
+|body.data.msgStatusName | String | Name of message status code |
+|body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+|body.data.receiveDate | String | Date and time of receiving |
+|body.data.createDate | String | Date and time of registration |
+|body.data.updateDate | String | Date of modification |
 
-### 태그 발송 수신자 목록 상세 검색
+### List Recipient Details of Tagged Delivery  
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -2501,11 +2500,11 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-| requestId | String | 요청 ID |
-| recipientSeq | String | 시퀀스 |
+|appKey|	String|	Original appkey|
+| requestId | String | Request ID |
+| recipientSeq | String | Sequence |
 
 [Header]
 
@@ -2533,7 +2532,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response 
 ```
 {
     "header": {
@@ -2548,12 +2547,12 @@ curl -X GET \
             "sendType": "0",
             "messageType": "SMS",
             "templateId": "TemplateId",
-            "templateName": "템플릿명",
+            "templateName": "template name",
             "sendNo": "15446859",
             "recipientNum": "01000000000",
             "countryCode": "82",
-            "title": "제목",
-            "body": "본문",
+            "title": "title",
+            "body": "body",
             "requestDate": "2018-08-13 02:20:44.0",
             "msgStatusName": "COMPLETED",
             "msgStatus": "3",
@@ -2565,37 +2564,39 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header|	Object|	헤더 영역|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestId | String | 요청 ID |
-|body.data.recipientSeq | Integer | 수신자 시퀀스 |
-|body.data.sendType | String | 발송 유형 |
-|body.data.messageType | String | 메시지 타입 |
-|body.data.templateId | String | 템플릿 ID |
-|body.data.templateName | String | 템플릿명 |
-|body.data.sendNo | String | 발신 번호 |
-|body.data.title | String | 제목 |
-|body.data.body | String | 내용 |
-|body.data.recipientNum | String | 수신자 번호 |
-|body.data.requestDate | String | 요청 일시 |
-|body.data.msgStatusName | String | 메시지 상태 이름 |
-|body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | 수신 일시 |
-|body.data.attachFileList[].filePath | String | 첨부 파일 - 경로 |
-|body.data.attachFileList[].fileName | String | 첨부 파일 - 파일명 |
-|body.data.attachFileList[].fileSize | Long | 첨부 파일 - 사이즈 |
-|body.data.attachFileList[].fileSequence | Integer | 첨부 파일 - 파일 번호 |
-|body.data.attachFileList[].createDate | String | 첨부 파일 - 생성 일시 |
-|body.data.attachFileList[].updateDate | String | 첨부 파일 - 수정 날짜 |
+|header|	Object| Header area |
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestId | String | Request ID |
+|body.data.recipientSeq | Integer | Recipient sequence |
+|body.data.sendType | String | Delivery type |
+|body.data.messageType | String | Message type |
+|body.data.templateId | String | Template ID |
+|body.data.templateName | String | Template name |
+|body.data.sendNo | String | Sender number |
+|body.data.title | String | Title |
+|body.data.body | String | Body |
+|body.data.recipientNum | String | Recipient number |
+|body.data.requestDate | String | Date and time of request |
+|body.data.msgStatusName | String | Message status name |
+|body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+|body.data.receiveDate | String | Date and time of receiving |
+|body.data.attachFileList[].filePath | String | Attached file- path |
+|body.data.attachFileList[].fileName | String | Attached file - file name |
+|body.data.attachFileList[].fileSize | Long | Attached file - size |
+|body.data.attachFileList[].fileSequence | Integer | Attached file - file sequence |
+|body.data.attachFileList[].createDate | String | Attached file - date of creation |
+|body.data.attachFileList[].updateDate | String | Attached file - date of modification |
 
 <span id="binaryUpload"></span>
-## 첨부 파일
+## Attached Files
 
-### 첨부 파일 업로드
+### Upload Attached Files
+
+#### Request
 
 [URL]
 
@@ -2606,9 +2607,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -2629,15 +2630,15 @@ Content-Type: application/json;charset=UTF-8
     "fileName": "attachment.jpg",
     "createUser": "CreateUser",
     // "fileBody": [0,10,16]
-    "fileBody": "{byte[] -> Base64 인코딩한 값}"
+    "fileBody": "{byte[] -> encoded value in Base64}"
 }
 ```
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|----|---|----|---|
-|fileName|	String|	45 | 필수|	파일 이름(확장자는 jpg, jpeg(소문자)만 가능)|
-|fileBody|	Byte[]| 300K |	필수| 파일 byte[]를 Base64로 인코딩한 값.<br/>* 또는 바이트 배열 값|
-|createUser|	String|	100 | 필수|	파일 업로드 사용자 정보|
+|fileName|	String|	45 | Required | File name (extensions available only in jpg or jpeg (small-case letters)) |
+|fileBody|	Byte[]| 300K | Required | File byte[] value encoded in Base64.<br/>* or byte arrangement value |
+|createUser|	String|	100 | Required | File uploading user information |
 
 #### cURL
 ```
@@ -2652,7 +2653,7 @@ curl -X POST \
 }'
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -2671,17 +2672,16 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.fileId|	Integer|	파일 ID|
-|body.data.fileName|	String|	파일명|
-|body.data.filePath|	String|	첨부 파일 기본 경로 <br/>(https://domain/attachFile/filePath/fileName)|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.fileId|	Integer| File ID |
+|body.data.fileName|	String| File name |
+|body.data.filePath|	String| Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
 
-
-#### 첨부 파일 업로드 예제
+#### Example of Uploading Attached Files
 
 | Http method | URL |
 | - | - |
@@ -2714,11 +2714,12 @@ curl -X POST \
 }
 ```
 
-## 카테고리
 
-### 카테고리 등록
+## Category
 
-#### 요청
+### Register
+
+####  Request 
 
 [URL]
 
@@ -2729,9 +2730,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -2757,17 +2758,16 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| categoryParentId |	Integer|	- | 옵션 | 부모 카테고리 ID [기본값: 최상위 카테고리]  |
-| categoryName | String | 50 | 필수 | 카테고리 ID |
-| categoryDesc |	String| 100 |	옵션 |	카테고리명|
-| useYn |	String| 1 |	필수| 사용 여부(Y/N)|
-| createUser |	String| 100 | 옵션| 등록한 사용자|
-
+| categoryParentId |	Integer|	- | Optional | Parent category ID [Default: Highest category] |
+| categoryName | String | 50 | Required | Category ID |
+| categoryDesc |	String| 100 |	Optional | Category name |
+| useYn |	String| 1 | Required | Use or Not (Y/N) |
+| createUser |	String| 100 | Optional | Registered user |
 
 ##### Description
-- categoryParentId 값이 비어있는 경우, 최상위 카테고리 바로 아래에 등록됩니다.
+- categoryParentId, if empty, is registered right below the highest category. 
 
 #### cURL
 ```
@@ -2778,13 +2778,13 @@ curl -X POST \
 -d '{
     "categoryParentId": 0,
     "categoryName": "API Guide",
-    "categoryDesc": "API 가이드 테스트",
+    "categoryDesc": "API Guide Test",
     "useYn": "Y",
     "createUser": "API Guide"
 }'
 ```
 
-#### 응답
+#### Response
 
 ```
 {  
@@ -2798,7 +2798,7 @@ curl -X POST \
          "categoryId":0,
          "categoryParentId":0,
          "depth":0,
-         "sort" :0,
+         "sort":0,
          "categoryName":"",
          "categoryDesc":"",
          "useYn":"",
@@ -2808,23 +2808,23 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].categoryId|	Integer|	카테고리 ID|
-|body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
-|body.data[].depth|	Integer|	카테고리 깊이|
-|body.data[].sort|	Integer|	카테고리 정렬 순서|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].categorycategoryDescame|	String|	카테고리 설명|
-|body.data[].useYn|	String|	사용 여부|
-|body.data[].createUser|	String|	등록한 사용자|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data[].categoryId|	Integer| Category ID |
+|body.data[].categoryParentId|	Integer| Parent category ID |
+|body.data[].depth|	Integer| Depth of category |
+|body.data[].sort|	Integer| Sorting order of category |
+|body.data[].categoryName|	String| Category name |
+|body.data[].categorycategoryDescame|	String| Category description |
+|body.data[].useYn|	String| Use or not |
+|body.data[].createUser|	String| Registered user |
 
-### 카테고리 목록 검색
+### List Category  
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -2835,9 +2835,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -2853,10 +2853,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+|pageNum|	Integer| - | Optional | Page number (default : 1) |
+|pageSize|	Integer| 1000 | Optional | Query count (default: 15) |
 
 #### cURL
 ```
@@ -2866,7 +2866,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {  
@@ -2885,8 +2885,8 @@ curl -X GET \
             "categoryParentId":0,
             "depth":0,
             "sort" :0,
-            "categoryName":"카테고리",
-            "categoryDesc":"최상위 카테고리",
+            "categoryName":"Category",
+            "categoryDesc":"Highest category",
             "useYn":"Y",
             "createDate":"2018-04-17 15:39:56.0",
             "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
@@ -2898,29 +2898,29 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].categoryId|	Integer|	카테고리 ID|
-|body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
-|body.data[].depth|	Integer|	카테고리 깊이|
-|body.data[].sort|	Integer|	카테고리 정렬 순서|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].categorycategoryDescame|	String|	카테고리 설명|
-|body.data[].useYn|	String|	사용 여부|
-|body.data[].createDate|	String|	등록 날짜|
-|body.data[].createUser|	String|	등록한 사용자|
-|body.data[].updateDate|	String|	수정 날짜|
-|body.data[].updateUser|	String|	수정한 사용자|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure messagae |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data[].categoryId|	Integer| Category ID |
+|body.data[].categoryParentId|	Integer| Parent category ID |
+|body.data[].depth|	Integer| Depth of category |
+|body.data[].sort|	Integer| Sorting order of category |
+|body.data[].categoryName|	String| Category name |
+|body.data[].categorycategoryDescame|	String| Category description |
+|body.data[].useYn|	String| Use or not |
+|body.data[].createDate|	String| Date of registration |
+|body.data[].createUser|	String| Registered user |
+|body.data[].updateDate|	String| Date of modification |
+|body.data[].updateUser|	String| Modified user |
 
-### 카테고리 단건 검색
+### Get Category 
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -2931,10 +2931,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|appKey|	String|	Original appkey|
+|categoryId|	String|	Category ID|
 
 [Header]
 
@@ -2956,7 +2956,8 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+
+#### Response
 
 ```
 {  
@@ -2972,8 +2973,8 @@ curl -X GET \
             "categoryParentId":0,
             "depth":0,
             "sort":0,
-            "categoryName":"카테고리",
-            "categoryDesc":"최상위 카테고리",
+            "categoryName":"Category",
+            "categoryDesc":"Highest category",
             "useYn":"Y",
             "createDate":"2018-04-17 15:39:56.0",
             "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
@@ -2985,27 +2986,27 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].categoryId|	Integer|	카테고리 ID|
-|body.data[].categoryParentId|	Integer|	부모 카테고리 ID|
-|body.data[].depth|	Integer|	카테고리 깊이|
-|body.data[].sort|	Integer|	카테고리 정렬 순서|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].categorycategoryDescame|	String|	카테고리 설명|
-|body.data[].useYn|	String|	사용 여부|
-|body.data[].createDate|	String|	등록 날짜|
-|body.data[].createUser|	String|	등록한 사용자|
-|body.data[].updateDate|	String|	수정 날짜|
-|body.data[].updateUser|	String|	수정한 사용자|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data[].categoryId|	Integer| Category ID |
+|body.data[].categoryParentId|	Integer| Parent category ID |
+|body.data[].depth|	Integer| Depth of category |
+|body.data[].sort|	Integer| Sorting order of category |
+|body.data[].categoryName|	String| Category name |
+|body.data[].categorycategoryDescame|	String| Category description |
+|body.data[].useYn|	String| Use or not |
+|body.data[].createDate|	String| Date of registration |
+|body.data[].createUser|	String| Registered user |
+|body.data[].updateDate|	String| Date of modification |
+|body.data[].updateUser|	String| Modified user |
 
 
-### 카테고리 수정
+### Modify Category
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -3016,10 +3017,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|appKey|	String|	Original appkey|
+|categoryId|	String|	Category ID|
 
 [Header]
 
@@ -3044,12 +3045,12 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| categoryName | String | 50 | 필수 | 카테고리 ID |
-| categoryDesc |	String| 100 |	옵션 |	카테고리명|
-| useYn |	String| 1 |	필수| 사용 여부(Y/N)|
-| updateUser |	String| 100 |	옵션| 수정한 사용자|
+| categoryName | String | 50 | Required | Category ID |
+| categoryDesc |	String| 100 |	Optional | Category name |
+| useYn |	String| 1 | Required | Use or not|
+| updateUser |	String| 100 | Optional | Modified user |
 
 #### cURL
 ```
@@ -3066,8 +3067,7 @@ curl -X PUT \
 }'
 ```
 
-
-#### 응답
+#### Response
 
 ```
 {
@@ -3079,9 +3079,9 @@ curl -X PUT \
 }
 ```
 
-### 카테고리 삭제
+### Delete Category
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -3092,10 +3092,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|appKey|	String|	Original appkey|
+|categoryId|	String|	Category ID|
 
 [Header]
 
@@ -3117,7 +3117,7 @@ curl -X DELETE \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -3129,11 +3129,13 @@ curl -X DELETE \
 }
 ```
 
-## 템플릿
 
-### 템플릿 등록
+## Templates
 
-#### 요청
+
+### Register
+
+#### Request
 
 [URL]
 
@@ -3144,9 +3146,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -3180,18 +3182,18 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| categoryId |	Integer|	- | 필수 |	카테고리 ID |
-| templateId | String | 50 | 필수 | 템플릿 ID |
-| templateName |	String| 50 |	필수 |	템플릿명|
-| templateDesc |	String| 100 |	옵션 |	템플릿 설명|
-| sendNo | String | 13 | 필수 | 발신 번호 |
-| sendType | String| 1| 필수| 발송 유형(0:Sms, 1:Lms/Mms) |
-| title | String | 120 | 옵션 | 문자 제목(발송 유형이 Lms/MmS인 경우 필수) |
-| body | String | 4000 | 필수 | 문자 내용 |
-| useYn |	String| 1 |	필수|	사용 여부(Y/N)|
-| attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
+| categoryId |	Integer|	- | Required |	Category ID |
+| templateId | String | 50 | Required | Template ID |
+| templateName |	String| 50 |	Required | Template name |
+| templateDesc |	String| 100 |	Optional | Template description |
+| sendNo | String | 13 | Required | Sender number |
+| sendType | String| 1| Required | Delivery type (0:Sms, 1:Lms/Mms) |
+| title | String | 120 | Optional | Text title (required, if delivery type is LMS/MMS) |
+| body | String | 4000 | Required | Text body |
+| useYn |	String| 1 | Required |	Use or not|
+| attachFileIdList | List<Integer> | - | X | Attached file ID(fileId) |
 
 #### cURL
 ```
@@ -3202,17 +3204,18 @@ curl -X POST \
 -d '{
     "categoryId": 199376,
     "templateId": "TemplateId",
-    "templateName": "템플릿 발송 예시",
-    "templateDesc": "템플릿 발송 예시",
+    "templateName": "Template delivery example",
+    "templateDesc": "Template delivery example",
     "sendNo": "01012341234",
     "sendType": "1",
     "title": "example",
-    "body": "일반 발송 테스트용 입니다.\r\n##key1## 님 안녕하세요.\r\n##key2## 입니다.",
+    "body": "Test for general delivery. Dear\r\n##key1##. This is \r\n##key2##.",
     "useYn": "Y"
 }'
 ```
 
-#### 응답
+
+#### Response
 
 ```
 {
@@ -3224,24 +3227,23 @@ curl -X POST \
 }
 ```
 
-
-#### 템플릿 등록 예시
+#### Example of Registration 
 
 | Http method | URL |
 | - | - |
-| POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/templates |
+| POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/templates |
 
 [Request body]
 ```
 {
    "categoryId" : 199376 ,
    "templateId" : "TemplateId",
-   "templateName" : "템플릿 발송 예시",
-   "templateDesc" : "템플릿 발송 예시",
+   "templateName" : "Example of template delivery",
+   "templateDesc" : "Example of template delivery",
    "sendNo" : "01012341234",
    "sendType" : "1",
    "title" : "example",
-   "body" : "일반 발송 테스트용 입니다.\r\n##key1## 님 안녕하세요.\r\n##key2## 입니다.",
+   "body" : "Test for general delivery.Dear \r\n##key1##. This is \r\n##key2##.",
    "useYn" : "Y",
    "attachFileIdList" : [
      123123,
@@ -3262,27 +3264,29 @@ curl -X POST \
 ```
 
 ##### Description
-- 첨부 파일(필드명: attachFileIdList)을 포함한 템플릿 등록은 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
-- 첨부 이미지 제한 사항
-    - 지원 코덱 : jpg
-    - 첨부 이미지 개수 : 3개 이하
-    - 첨부 이미지 사이즈 : 300K 이하
-    - 첨부 이미지 해상도 : 1000 x 1000 이하
+- To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
+- See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
+- Restrictions for Attached Images 
+    * Supported Codec: .jpg 
+    * Number of Attached Images: Less than 2 
+    * Size of Attached Image: Less than 300KB 
+    * Resolution of Image: Less than 1000 x 1000  
 
 
-### 템플릿 발송(본문 수정이 필요 없는 경우)
+### Send Templates (requiring no body updates)
 
-|Http method| 종류 | URL|
+#### Example 
+
+|Http method| Type | URL|
 | - | - | - |
-| POST | SMS | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms |
-| POST | MMS | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms |
+| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms |
+| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms |
 
-Request URL은 템플릿 등록시 선택한 발송 유형으로 선택하여 발송합니다.
+For Request URL, choose a delivery type selected to register templates.  
 
-**Request parameter body 안의 값이 공란이면 해당 templateId의 body 내용으로 치환합니다.**
+**If request parameter body is empty, replace it with the body of the corresponding templateId.**
 
-[Request body] 치환하고자 하는 키와 값을 key,value로 대입.
+[Request body] Replace with key and value for those for replacement. 
 
 ```
 {
@@ -3326,32 +3330,31 @@ Request URL은 템플릿 등록시 선택한 발송 유형으로 선택하여 �
 }
 ```
 
-![[그림 1] 템플릿 발송 성공](http://static.toastoven.net/prod_sms/img_27.png)
+![[Figure 1] Template](http://static.toastoven.net/prod_sms/img_27.png)
 
-### 템플릿 발송(본문 수정이 필요한 경우)
+### Send Templates (requiring body updates)
 
-#### 템플릿 발송 예제
+#### Example of Sending Tempaltes
 
-|Http method| 종류 | URL|
+|Http method| Type | URL|
 | - | - | - |
-| POST | SMS | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms |
-| POST | MMS | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms |
+| POST | SMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms |
+| POST | MMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms |
 
+For Request URL, choose a delivery type selected to register templates.
 
-Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 발송합니다.
+**If template ID and request parameter body include values, sender number and body message are not replaced with template. **
 
-**템플릿 ID와 Request parameter body 안의 값이 있을 경우, 발신 번호와 발신 내용이 템플릿 내용으로 치환되지 않습니다.**
+Nevertheless, with the input of template ID, it is available to query with the template. 
 
-단, 템플릿 ID를 입력했을 경우, 해당 템플릿으로 검색할 수 있습니다.
-
-위와 같은 경우는 템플릿을 검색한 뒤, 템플릿의 내용을 수정하고 싶을 때 사용할 수 있습니다.
+Such case is applicable when template needs to be modified after queried. 
 
 [Request body]
 
 ```
 {
     "templateId": "TemplateId",
-    "body":"본문",
+    "body":"body",
     "sendNo":"15446859",
     "senderGroupingKey": "SenderGroupingKey",
     "recipientList": [{
@@ -3393,9 +3396,9 @@ Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 �
 ```
 
 
-### 템플릿 목록 검색
+### List Templates 
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -3406,9 +3409,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -3424,10 +3427,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	필수|	설명|
+|Value| Type | Required | Description |
 |---|---|---|---|
-|categoryId|	Integer|	옵션|	카테고리 ID|
-|useYn|	String|	옵션|	사용 여부(Y/N)|
+|categoryId|	Integer| Optional | Category ID |
+|useYn|	String| Optional | Use or Not (Y/N) |
 
 #### cURL
 ```
@@ -3437,7 +3440,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -3454,17 +3457,17 @@ curl -X GET \
             "templateId": "TemplateId",
             "serviceId": 0,
             "categoryId": 0,
-            "categoryName": "카테고리명",
+            "categoryName": "category name",
             "sort": 0,
-            "templateName": "템플릿명",
-            "templateDesc": "템플릿 설명",
+            "templateName": "template name",
+            "templateDesc": "template description",
             "useYn": "Y",
             "priority": "S",
             "sendNo": ""15446859String"",
             "sendType": "0",
-            "sendTypeName": "SMS 발송",
-            "title": "제목",
-            "body": "본문",
+            "sendTypeName": "send SMS",
+            "title": "title",
+            "body": "body",
             "attachFileYn": "N",
             "delYn": "N",
             "createDate": "2018-01-28 17:50:55.0,
@@ -3487,62 +3490,62 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].templateId|	String|	템플릿 ID|
-|body.data[].serviceId|	Integer|	서비스 ID(내부용, 미사용값)|
-|body.data[].categoryId|	Integer|	카테고리 ID|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].sort|	Integer|	정렬값|
-|body.data[].templateName|	String|	템플릿명|
-|body.data[].templateDesc|	String|	템플릿 설명|
-|body.data[].useYn|	String|	사용 여부|
-|body.data[].priority|	String|	우선순위값(미사용값)|
-|body.data[].sendNo|	String|	발신 번호|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].sendTypeName|	String|	발송 유형명|
-|body.data[].title|	String|	제목|
-|body.data[].body|	String|	본문 내용|
-|body.data[].attachFileYn|	String|	첨부 파일 여부(Y/N)|
-|body.data[].delYn |	String|	삭제여부(Y/N), 현재 상태 표기용으로만 사용|
-|body.data[].createDate|	String|	등록 날짜|
-|body.data[].createUser|	String|	등록한 사용자|
-|body.data[].updateDate|	String|	수정 날짜|
-|body.data[].updateUser|	String|	수정한 사용자|
-|body.data[].attachFileList[].fileId|	Integer|	첨부 파일 ID|
-|body.data[].attachFileList[].serviceId|	Integer|	서비스 ID(내부용, 미사용값)|
-|body.data[].attachFileList[].attachType|	Integer|	첨부 파일 업로드 타입(0:임시,1:업로드,2:템플릿)|
-|body.data[].attachFileList[].templateId|	String|	템플릿 ID|
-|body.data[].attachFileList[].filePath|	String|	첨부 파일 경로|
-|body.data[].attachFileList[].fileName|	String|	첨부 파일명|
-|body.data[].attachFileList[].fileSize|  Integer| 파일 사이즈|
-|body.data[].attachFileList[].createDate|	String|	첨부 파일 등록 날짜|
-|body.data[].attachFileList[].createUser|	String|	첨부 파일 등록 사용자|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Faliure message |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data[].templateId|	String| Template ID |
+|body.data[].serviceId|	Integer| Service ID (unused, for internal purpose) |
+|body.data[].categoryId|	Integer| Category ID |
+|body.data[].categoryName|	String| Category name |
+|body.data[].sort|	Integer| Sorted value |
+|body.data[].templateName|	String| Template name |
+|body.data[].templateDesc|	String| Template description |
+|body.data[].useYn|	String| Use or not |
+|body.data[].priority|	String| Priority value (unused) |
+|body.data[].sendNo|	String| Sender number |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].sendTypeName|	String| Name of delivery type |
+|body.data[].title|	String| Title |
+|body.data[].body|	String| Body message |
+|body.data[].attachFileYn|	String| Attached or not (Y/N) |
+|body.data[].delYn |	String| Deleted or not (Y/N): only to show current status |
+|body.data[].createDate|	String| Date of registration |
+|body.data[].createUser|	String| Registered user |
+|body.data[].updateDate|	String| Date of modification |
+|body.data[].updateUser|	String| Modifier |
+|body.data[].attachFileList[].fileId|	Integer| Attached file ID |
+|body.data[].attachFileList[].serviceId|	Integer| Service ID (unused, for internal purpose) |
+|body.data[].attachFileList[].attachType|	Integer| Upload type of attachment (0:Temporary,1:Upload,2:Template) |
+|body.data[].attachFileList[].templateId|	String| Template ID |
+|body.data[].attachFileList[].filePath|	String| Path of attached file |
+|body.data[].attachFileList[].fileName|	String| Name of attached file |
+|body.data[].attachFileList[].fileSize|  Integer| File size |
+|body.data[].attachFileList[].createDate|	String| Date of registration for attachment |
+|body.data[].attachFileList[].createUser|	String| Registered user of attachment |
 
 
-### 템플릿 단일 검색
+### Query Single Template
 
-#### 요청
+#### Request
 
 [URL]
 
 ```
-GET  /sms/v3.0/appKeys/{appKey}/templates/{templateId}
+GET  /sms/v2.4/appKeys/{appKey}/templates/{templateId}
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|templateId|	String|	템플릿 ID|
+|appKey|	String|	Original appkey|
+|templateId|	String|	Template ID|
 
 [Header]
 
@@ -3564,7 +3567,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -3581,17 +3584,17 @@ curl -X GET \
             "templateId": "TemplateId",
             "serviceId": 0,
             "categoryId": 0,
-            "categoryName": "카테고리명",
+            "categoryName": "category name",
             "sort": 0,
-            "templateName": "템플릿명",
-            "templateDesc": "템플릿 설명",
+            "templateName": "template name",
+            "templateDesc": "template description",
             "useYn": "Y",
             "priority": "S",
             "sendNo": ""15446859String"",
             "sendType": "0",
-            "sendTypeName": "SMS 발송",
-            "title": "제목",
-            "body": "본문",
+            "sendTypeName": "send SMS",
+            "title": "title",
+            "body": "body",
             "attachFileYn": "N",
             "delYn": "N",
             "createDate": "2018-01-28 17:50:55.0,
@@ -3614,47 +3617,47 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data.templateId|	String|	템플릿 ID|
-|body.data.serviceId|	Integer|	서비스 ID(내부용, 미사용값)|
-|body.data.categoryId|	Integer|	카테고리 ID|
-|body.data.categoryName|	String|	카테고리명|
-|body.data.sort|	Integer|	정렬값|
-|body.data.templateName|	String|	템플릿명|
-|body.data.templateDesc|	String|	템플릿 설명|
-|body.data.useYn|	String|	사용 여부|
-|body.data.priority|	String|	우선순위값(미사용값)|
-|body.data.sendNo|	String|	발신 번호|
-|body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data.sendTypeName|	String|	발송 유형명|
-|body.data.title|	String|	제목|
-|body.data.body|	String|	본문 내용|
-|body.data.attachFileYn|	String|	첨부 파일 여부(Y/N)|
-|body.data.delYn |	String|	삭제여부(Y/N), 현재 상태 표기용으로만 사용|
-|body.data.createDate|	String|	등록 날짜|
-|body.data.createUser|	String|	등록한 사용자|
-|body.data.updateDate|	String|	수정 날짜|
-|body.data.updateUser|	String|	수정한 사용자|
-|body.data.attachFileList[].fileId|	Integer|	첨부 파일 ID|
-|body.data.attachFileList[].serviceId|	Integer|	서비스 ID(내부용, 미사용값)|
-|body.data.attachFileList[].attachType|	Integer|	첨부 파일 업로드 타입(0:임시,1:업로드,2:템플릿)|
-|body.data.attachFileList[].templateId|	String|	템플릿 ID|
-|body.data.attachFileList[].filePath|	String|	첨부 파일 경로|
-|body.data.attachFileList[].fileName|	String|	첨부 파일명|
-|body.data.attachFileList[].fileSize|  Integer| 파일 사이즈|
-|body.data.attachFileList[].createDate|	String|	첨부 파일 등록 날짜|
-|body.data.attachFileList[].createUser|	String|	첨부 파일 등록 사용자|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data.templateId|	String| Template ID |
+|body.data.serviceId|	Integer| Service ID (unused, for internal purpose) |
+|body.data.categoryId|	Integer| Category ID |
+|body.data.categoryName|	String| Category name |
+|body.data.sort|	Integer| Sorted value |
+|body.data.templateName|	String| Template name |
+|body.data.templateDesc|	String| Template description |
+|body.data.useYn|	String| Use or not |
+|body.data.priority|	String| Priority value (unused) |
+|body.data.sendNo|	String| Sender number |
+|body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data.sendTypeName|	String| Name of delivery type |
+|body.data.title|	String| Title |
+|body.data.body|	String| Body message |
+|body.data.attachFileYn|	String| Attached or not (Y/N) |
+|body.data.delYn |	String| Deleted or not (Y/N): only to show current status |
+|body.data.createDate|	String| Date of registration |
+|body.data.createUser|	String| Registered user |
+|body.data.updateDate|	String| Date of modification |
+|body.data.updateUser|	String| Modifier |
+|body.data.attachFileList[].fileId|	Integer| Attached file ID |
+|body.data.attachFileList[].serviceId|	Integer| Service ID (unused, for internal purpose) |
+|body.data.attachFileList[].attachType|	Integer| Upload type of attachment (0:Temporary,1:Upload,2:Template) |
+|body.data.attachFileList[].templateId|	String| Template ID |
+|body.data.attachFileList[].filePath|	String| Path of attachment |
+|body.data.attachFileList[].fileName|	String| Name of attachment |
+|body.data.attachFileList[].fileSize|  Integer| File size |
+|body.data.attachFileList[].createDate|	String| Date of registration of attachment |
+|body.data.attachFileList[].createUser|	String| Registered user of attachment |
 
-### 템플릿 수정
+### Modify Template
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -3665,9 +3668,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -3699,27 +3702,25 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| templateName |	String| 50 |	필수 |	템플릿명|
-| templateDesc |	String| 100 |	옵션 |	템플릿 설명|
-| sendNo | String | 13 | 필수 | 발신 번호 |
-| sendType | String| 1| 필수| 발송 유형(0:Sms, 1:Lms/Mms) |
-| title | String | 120 | 옵션 | 문자 제목(발송 유형이 Lms/MmS인 경우 필수) |
-| body | String | 4000 | 필수 | 문자 내용 |
-| useYn |	String| 1 |	필수|	사용 여부(Y/N)|
-| attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
-
+| templateName |	String| 50 |	Required | Template name |
+| templateDesc |	String| 100 |	Optional | Template description |
+| sendNo | String | 13 | Required | Sender number |
+| sendType | String| 1| Required | Delivery type (0:Sms, 1:Lms/Mms) |
+| title | String | 120 | Optional | Text title (required, if delivery type is Lms/MmS) |
+| body | String | 4000 | Required | Text body |
+| useYn |	String| 1 | Required |	Use or not|
+| attachFileIdList | List<Integer> | - | X | Attached file ID(fileId) |
 
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
--H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+-H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -3731,9 +3732,9 @@ curl -X GET \
 }
 ```
 
-### 템플릿 삭제
+### Delete Template
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -3744,10 +3745,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|templateId|	String|	템플릿 ID|
+|appKey|	String|	Original appkey|
+|templateId|	String|	Template ID|
 
 [Header]
 
@@ -3769,7 +3770,7 @@ curl -X DELETE \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -3781,11 +3782,12 @@ curl -X DELETE \
 }
 ```
 
-## 080 수신 거부 서비스
 
-### 수신 거부 대상자 등록
+## Rejection of Receiving 080 Numbers
 
-#### 요청
+### Register Unsubsribers
+
+#### Request
 
 [URL]
 
@@ -3796,9 +3798,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -3821,10 +3823,10 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|unsubscribeNo |    String | 25 | O | 080 수신거부번호|
-| recipientNoList | List<String> | 10 | O | 수신 거부 대상자 번호 |
+|unsubscribeNo |    String | 25 | O | 080 numbers to reject receiving|
+| recipientNoList | List<String> | 10 | O | Contact number of unsubscribers to be added |
 
 #### cURL
 ```
@@ -3838,7 +3840,7 @@ curl -X POST \
 }'
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -3850,9 +3852,9 @@ curl -X POST \
 }
 ```
 
-### 수신 거부 대상자 검색
+### Query Target of Rejection 
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -3863,9 +3865,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -3881,14 +3883,14 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|unsubscribeNo|	String| 25 |	필수 |	080 수신 거부 번호 |
-|recipientNo| String | 25 | 옵션 | 수신 거부 대상자 번호 |
-|startRequestDate|	String| - |	옵션 |	수신 거부 요청 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	옵션 |	수신 거부 요청 종료값(yyyy-MM-dd HH:mm:ss)|
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+|unsubscribeNo|	String| 25 |	Required |	080 numbers to reject receiving |
+|recipientNo| String | 25 | Optional | Contact number of unsubscribers |
+|startRequestDate|	String| - |	Optional | Start value of request for reject receiving (yyyy-MM-dd HH:mm:ss) |
+|endRequestDate|	String| - |	Optional | End value of request for reject receiving (yyyy-MM-dd HH:mm:ss) |
+|pageNum|	Integer| - | Optional | Page number (default: 1) |
+|pageSize|	Integer| 1000 | Optional | Number of queries (default: 15) |
 
 #### cURL
 ```
@@ -3898,7 +3900,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header": {
@@ -3921,9 +3923,9 @@ curl -X GET \
 }
 ```
 
-### 수신 거부 대상자 삭제
+### Delete Target of Rejection
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -3934,9 +3936,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -3952,11 +3954,11 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|unsubscribeNo|	String| 20 |	필수 |	080 수신 거부 번호 |
-|updateUser|	String|	100 | 필수 |	수신 거부 삭제자|
-|recipientNo|	String|	20 | 필수 |	삭제할 수신 거부 번호|
+|unsubscribeNo|	String| 20 |	Required |	080 numbers to reject receiving |
+|updateUser|	String|	100 | Required | User who delete rejection of receiving |
+|recipientNo|	String|	20 | Required | Rejected numbers to be deleted |
 
 #### cURL
 ```
@@ -3966,7 +3968,7 @@ curl -X DELETE \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header": {
@@ -3978,11 +3980,11 @@ curl -X DELETE \
 }
 ```
 
-## 발신 번호
+## Sender Numbers
 
-### 발신 번호 등록 요청
+### Request for Sender Number Registration 
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -3994,9 +3996,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4024,11 +4026,12 @@ Content-Type: application/json;charset=UTF-8
 }
 
 ```
-|값|	타입|	최대 길이 | 필수|	설명|
+
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-| sendNos[] |	List<String> | - | 필수 |	발신 번호|
-| fileIds[] |	List<Integer> | - | 옵션 | 업로드한 서류의 파일 아이디|
-| comment | String | 4000 | 옵션 | 발신번호 승인자에게 남길 말  |
+| sendNos[] |	List<String> | - | Required |	Sender Numbers|
+| fileIds[] |	List<Integer> | - | Optional | File ID for updated document|
+| comment | String | 4000 | Optional | Messages for the administrator who approved sender number |
 
 #### cURL
 ```
@@ -4039,11 +4042,11 @@ curl -X POST \
 -d '{
     "sendNos": ["1588"],
     "fileIds": [1],
-    "comment": "테스트"
+    "comment": "Test"
 }'
 ```
 
-#### 응답
+#### Response
 ```
 {
   "header" : {
@@ -4055,9 +4058,9 @@ curl -X POST \
 }
 ```
 
-### 발신 번호 서류 업로드
+### Upload Sender Number Documents 
 
-#### 요청
+#### Request
 
 [URL]
 ```
@@ -4067,9 +4070,9 @@ Content-Type : multipart/form-data;
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4085,21 +4088,19 @@ Content-Type : multipart/form-data;
 
 [Request Body]
 
-|값|타입|설명|
+|Value|Type|Description|
 |---|---|---|
-| attachFile | MultiPartFile | MultiPartFile로 받을 수 있는 파일 데이터 |
-
+| attachFile | MultiPartFile | File data receivable as MultiPartFile |
 
 #### cURL
 ```
 curl -X POST \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/requests/attachFiles/authDocuments' \
+'https://api-sms.cloud.toast.com/sms/v2.4/appKeys/'"${APP_KEY}"'/requests/attachFiles/authDocuments' \
 -H 'Content-Type: multipart/form-data' \
 -F 'attachFile=@/home/doc.dpf'
 ```
 
-
-#### 응답
+#### Response
 ```
 {
   "header" : {
@@ -4115,9 +4116,9 @@ curl -X POST \
   }
 ```
 
-### 발신 번호 인증 요청 내역 검색 API
+### Query History of Request for Sender Number Authentication API
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -4127,9 +4128,9 @@ curl -X POST \
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4145,12 +4146,12 @@ curl -X POST \
 
 [Query parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-| sendNo|String | 등록 요청한 발신 번호 |
-|status|	String|	서류 인증 상태<br/>- SRS01	발신 번호 등록 요청<br/>- SRS02	심사중<br/>- SRS03	등록 완료<br/>- SRS04	등록 불가<br/>- SRS05	휴대폰 인증 대기<br/>- SRS06	휴대폰 인증 실패<br/>- SRS07	수동 등록 완료|
-|pageNum|	Integer| 페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 검색 수(기본값 : 15)|
+| sendNo|String | Sender numbers requested for registration |
+|status|	String| Document authentication status<br/>- SRS01	Requested for sender number registration <br/>- SRS02	Evaluating<br/>- SRS03	Registration completed<br/>- SRS04	Registration unavailable<br/>- SRS05	Ready for mobile phone authentication <br/>- SRS06	Mobile phone authentication failed<br/>- SRS07	Manual registration completed |
+|pageNum|	Integer| Page number (default: 1) |
+|pageSize|	Integer| Number of queries (default: 15) |
 
 #### cURL
 ```
@@ -4160,7 +4161,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
   "header":{
@@ -4191,26 +4192,28 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].authType|	String|	요청 인증 타입<br/>- SMS_AUTH:SMS인증<br/>- DOCUMENT_AUTH:서류인증<br/>- REGIST_AUTH:수동인증|
-|body.data[].sendNos[]|	List<String>|	등록요청 발신 번호 목록|
-|body.data[].comment|	String|	커멘트 항목|
-|body.data[].fileIds[]|	List<Integer>|	서류 인증 시 업로드한 파일 ID(내부용)|
-|body.data[].status|	String|	요청상태<br/>- REGIST_REQUEST(SRS01)<br/>- EXAMINE(SRS02)<br/>- COMPLETE(SRS03)<br/>- REJECT(SRS04)<br/>- CERTIFYING(SRS05)<br/>- CERTIFY_FAILED(SRS06)<br/>- MANUAL_REGIST(SRS07)|
-|body.data[].createDate|	String| 등록 일시	|
-|body.data[].updateDate|	String| 수정 날짜	|
-|body.data[].confirmDate|	String| 승인/거절 일시	|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data[].authType|	String| Requested authentication type<br/>- SMS_AUTH: SMS authentication<br/>- DOCUMENT_AUTH: Document authentication<br/>- REGIST_AUTH: Manual authentication |
+|body.data[].sendNos[]|	List<String>| Sender number list requested for registration |
+|body.data[].comment|	String| Comment items |
+|body.data[].fileIds[]|	List<Integer>| Uploaded filed ID for document authentication (for internal purpose) |
+|body.data[].status|	String| Request Status<br/>- REGIST_REQUEST(SRS01)<br/>- EXAMINE(SRS02)<br/>- COMPLETE(SRS03)<br/>- REJECT(SRS04)<br/>- CERTIFYING(SRS05)<br/>- CERTIFY_FAILED(SRS06)<br/>- MANUAL_REGIST(SRS07) |
+|body.data[].createDate|	String| Date and time of registration	|
+|body.data[].updateDate|	String| Date of modification	|
+|body.data[].confirmDate|	String| Date and time of approval/refusal	|
 
-### 등록된 발신 번호 목록 검색 API
 
-#### 요청
+
+### List Registered Sender Numbers API
+
+#### Request
 
 [URL]
 
@@ -4220,9 +4223,9 @@ curl -X GET \
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4238,13 +4241,13 @@ curl -X GET \
 
 [Query parameter]
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-| sendNo | String | 발신 번호 |
-| useYn | String | 사용 여부 |
-| blockYn | String | 차단 여부 |
-|pageNum|	Integer| 페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 검색 수(기본값 : 15)|
+| sendNo | String | Sender number |
+| useYn | String | Use or not |
+| blockYn | String | Block or not |
+|pageNum|	Integer| Page number (default: 1) |
+|pageSize|	Integer| Number of queries (default: 15) |
 
 #### cURL
 ```
@@ -4254,7 +4257,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header" : {
@@ -4283,47 +4286,47 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].serviceId | Integer | 서비스 ID |
-|body.data[].sendNo | String | 발신 번호 |
-|body.data[].useYn | String | 사용 여부 |
-|body.data[].blockYn | String | 차단여부 |
-|body.data[].blockReason | String | 차단 사유 |
-|body.data[].createDate | String | 생성 일시 |
-|body.data[].createUser | String | 생성자 |
-|body.data[].updateDate | String | 수정 날짜 |
-|body.data[].updateUser | String | 수정한 사용자 |
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.pageNum|	Integer| Page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data[].serviceId | Integer | Service ID |
+|body.data[].sendNo | String | Sender number |
+|body.data[].useYn | String | Use or not |
+|body.data[].blockYn | String | Block or not |
+|body.data[].blockReason | String | Cause of blockage |
+|body.data[].createDate | String | Date and time of creation |
+|body.data[].createUser | String | Creator |
+|body.data[].updateDate | String | Date of modification |
+|body.data[].updateUser | String | Modified user |
 
-## 통계
+## Query Statistics
 
-### 통계 검색 - 이벤트 기반
-* 이벤트 발생 시간 기준으로 수집된 통계입니다.
-* 다음 시간 기준으로 통계가 수집됩니다.
-    * 요청 개수(requested): 발송 요청 시간
-    * 발송 개수(sent): 통신 사업자(벤더)로 발송 요청한 시간
-    * 성공 개수(received): 실제 단말기 수신 시간
-    * 실패 개수(sentFailed): 실패 응답이 발생한 시간  
+### Search Statistics - Based on Events 
+* Statistics are collected based on time of event occurrence. 
+* Statistics are collected based on the following time criteria: 
+    * Request Count (requested): Delivery request time 
+    * Delivery Count (sent): Delivery request time to telco provider (vendor) 
+    * Success Count(received): Actual received time on device  
+    * Failure Count (sentFailed): Response time of failure      
 
-#### 요청
+#### Request
 
 [URL]
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v3.0/appKeys/{appKey}/stats|
+|GET|	/sms/v2.4/appKeys/{appKey}/stats|
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4339,17 +4342,17 @@ curl -X GET \
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수 |설명|
+|Value|	Type|	Maximum Length | Required |Description|
 |---|---|---|---|---|
-| statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:요일별 |
-| from | String | - | 필수 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | 필수 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
-| statsIds | List<String> | - | 옵션 | 통계 ID 목록 |
-| messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
-| isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
-| templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
-| requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
-| statsCriteria | List<String> | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- EXTRA_1,EVENT: 메시지 타입, 이벤트<br/>- EXTRA_2,EVENT: 광고여부, 이벤트<br/>- EXTRA_3,EVENT: 발신 번호, 이벤트 |
+| statisticsType | String | - | Required | Type of statistics<br/>NORMAL:Default, MINUTELY:By the minute, HOURLY: By the hour, DAILY: By the day, BY_DAY:By day |
+| from | String | - | Required | Start Date of Statistics Search<br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | Required | End Date of Statistics Search <br/>yyyy-MM-dd HH:mm:ss |
+| statsIds | List<String> | - | Optional | Statistics ID List |
+| messageType | String | - | Optional | Message Type <br/>SMS, LMS, MMS, AUTH |
+| isAd | Boolean | - | Optional | Ad or Not <br/>true/false |
+| templateIds | List<String> | - | Optional | Template ID List |
+| requestIds | List<String> | 5 | Optional | Request ID List |
+| statsCriteria | List<String> | Option | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
 
 #### cURL
 ```
@@ -4359,7 +4362,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 ```
 {
     "header" : {
@@ -4385,27 +4388,27 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
-|body.data.events[].{statsCriteriaValue} | List | statsCriteria에 해당 하는 값<br/>메시지 타입/광고 유형/발신 번호 값이 올 수 있음<br/>statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
-|body.data.events[].{statsCriteriaValue}.requested |	Integer|	요청 개수|
-|body.data.events[].{statsCriteriaValue}.sent |	Integer|	발송 개수|
-|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	실패 개수|
-|body.data.events[].{statsCriteriaValue}.received |	Integer|	성공 개수|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.eventDateTime |	String|	Display name<br/> Minutely, Hourly, Daily, Monthly|
+|body.data.events[].{statsCriteriaValue} | List | Value for statsCriteria<br/>This can be message type/ad type/calling number value<br/>If statsCriteria is set to EVENT only, {statsCriteriaValue} is omitted |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	Number of requests|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	Number of sent items|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	Number of failures|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	Number of successes|
 
-### 통계 검색 - 요청 시간 기반
-* 발송 요청 시간 기준으로 수집된 통계입니다.
-* 다음 시간 기준으로 통계가 수집됩니다.
-    * 요청 개수(requested): 발송 요청 시간
-    * 발송 개수(sent): 발송 요청 시간으로, 개수가 증가하는 시점은 통신 사업자(밴더)로 발송 요청한 시간
-    * 성공 개수(received): 발송 요청 시간으로, 개수가 증가하는 시점은 실제 단말기 수신 시간
-    * 실패 개수(sentFailed): 발송 요청 시간으로, 개수가 증가하는 시점은 실패 응답이 발생한 시간 
-
-#### 요청
+### Statistics Search - Based on Request Time 
+* Statistics are collected based on delivery request time. 
+* Statistics are collected based on the following criteria: 
+    * Request Count (requested): Delivery request time 
+    * Delivery Count (sent): Delivery request time, with the increase incurred when delivery is requested to telecom provider (vendor)
+    * Success count (received): Delivery request time, with the increase incurred on the actual received time on device
+    * Failure Count (sentFailed): Delivery request time, with the increase incurred on the response time of failure
+    
+#### Request
 
 [URL]
 
@@ -4415,9 +4418,9 @@ curl -X GET \
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4433,19 +4436,19 @@ curl -X GET \
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수 |설명|
+|Value|	Type|	Max Length | Required |Description|
 |---|---|---|---|---|
-| statisticsType | String | - | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:요일별 |
-| from | String | - | 필수 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss | 
-| to | String | - | 필수 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss |
-| statsIds | List<String> | - | 옵션 | 통계 ID 목록 |
-| messageType | String | - | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH |
-| isAd | Boolean | - | 옵션 | 광고 여부<br/>true/false |
-| templateIds | List<String> | - | 옵션 | 템플릿 ID 목록 |
-| requestIds | List<String> | 5 | 옵션 | 요청 ID 목록 |
-| statsCriteria | List<String> | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- EXTRA_1,EVENT: 메시지 타입, 이벤트<br/>- EXTRA_2,EVENT: 광고여부, 이벤트<br/>- EXTRA_3,EVENT: 발신 번호, 이벤트 |
+| statisticsType | String | - | Required | Statistics Category <br/>NORMAL:Default, MINUTELY:By the minute, HOURLY:By the hour, DAILY: By the day, BY_DAY:By day |
+| from | String | - | Required | Start date of statistics search <br/>yyyy-MM-dd HH:mm:ss | 
+| to | String | - | Required | End date of statistics search <br/>yyyy-MM-dd HH:mm:ss |
+| statsIds | List<String> | - | Optional | Statistics ID List |
+| messageType | String | - | Optional | Message Type <br/>SMS, LMS, MMS, AUTH |
+| isAd | Boolean | - | Optional | Ad or not <br/>true/false |
+| templateIds | List<String> | - | Optional | Template ID List |
+| requestIds | List<String> | 5 | Optional | Request ID List |
+| statsCriteria | List<String> | Option | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
 
-#### 응답
+#### Response
 ```
 {
     "header" : {
@@ -4472,23 +4475,24 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.eventDateTime |	String|	표시 이름<br/>분별, 시간별, 요일별, 월별|
-|body.data.events[].{statsCriteriaValue} | List | statsCriteria에 해당 하는 값<br/>메시지 타입/광고 유형/발신 번호 값이 올 수 있음<br/>statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
-|body.data.events[].{statsCriteriaValue}.requested |	Integer|	요청 개수|
-|body.data.events[].{statsCriteriaValue}.sent |	Integer|	발송 개수|
-|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	실패 개수|
-|body.data.events[].{statsCriteriaValue}.received |	Integer|	성공 개수|
-|body.data.events[].{statsCriteriaValue}.pending |	Integer|	발송 중 개수|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.eventDateTime |	String|	Display name <br/>Minutely,Hourly, Daily, and Monthly|
+|body.data.events[].{statsCriteriaValue} | List | Value for statsCriteria<br/>This can be message type/ad type/calling number value<br/>If statsCriteria is set to EVENT only, {statsCriteriaValue} is omitted |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	Number of requests|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	Number of sent items|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	Number of failures|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	Number of successes|
 
 
-### (구)통합 통계 검색
+|body.data.events[].{statsCriteriaValue}.pending |	Integer|	Number of pending items|
 
-#### 요청
+### (Old)Query Integrated Statistics 
+
+#### Request
 
 [URL]
 
@@ -4498,9 +4502,9 @@ curl -X GET \
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4516,16 +4520,16 @@ curl -X GET \
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수 |설명|
+|Value| Type |	Max Length | Required |Description|
 |---|---|---|---|---|
-| searchType | String | 10 | O | 통계 구분<br/>DATE:날짜별, TIME:시간별, DAY:요일별 |
-| from | String |  - |O | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm |
-| to | String | - | O | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm |
-| messageType | String | 10 |  X |  메시지 타입<br/>SMS:단문, LMS:장문, MMS:첨부 파일, AUTH:인증용 |
-| contentType | String | 10 |  X |  콘텐츠 타입<br/>NORMAL: 일반, AD: 광고 |
-| templateId | String | 50 |  X |  템플릿 ID |
+| searchType | String | 10 | O | Type of statistics <br/>DATE:By date, TIME:By time, DAY:By day |
+| from | String |  - |O | Start date of query statistics<br/>yyyy-MM-dd HH:mm |
+| to | String | - | O | End date of query statistics<br/>yyyy-MM-dd HH:mm |
+| messageType | String | 10 |  X | Message type<br/>SMS: Short messages, LMS: Long messages, MMS: Attachment, AUTH: Authentication |
+| contentType | String | 10 |  X | Content type <br/>NORMAL: General, AD: Advertisement |
+| templateId | String | 50 |  X | Template ID |
 
-#### 응답
+#### Response
 ```
 {
     "header" : {
@@ -4553,26 +4557,26 @@ curl -X GET \
     }
 }
 ```
-|값| 타입|설명|
+|Value| Type |Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].divisionName | String | 표시이름<br/>날짜, 시간, 요일 |
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data[].divisionName | String | Display name<br/>Date, time, Day |
 |body.data[].statisticsView | Object | |
-|body.data[].requestedCount | Integer | 요청 개수 |
-|body.data[].succeedCount | Integer | 성공 개수 |
-|body.data[].failedCount | Integer | 실패 개수 |
-|body.data[].pendingCount | Integer | 발송 중 개수 |
-|body.data[].succeedRate | String | 성공 비율 |
-|body.data[].failedRate | String | 실패 비율 |
-|body.data[].pendingRate | String | 발송 중 비율 |
+|body.data[].requestedCount | Integer | Number of requests |
+|body.data[].succeedCount | Integer | Success count |
+|body.data[].failedCount | Integer | Failure count |
+|body.data[].pendingCount | Integer | Delivery count |
+|body.data[].succeedRate | String | Success rate |
+|body.data[].failedRate | String | Failure rate |
+|body.data[].pendingRate | String | Delivery rate |
 
-## 예약 발송
+## Scheduled Delivery
 
-### 예약 발송 목록 검색
+### List Scheduled Delivery 
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -4583,9 +4587,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4601,20 +4605,20 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|sendType| String| 1 |  옵션 | 발송 유형<br/>(0:SMS, 1:LMS/MMS, 2:AUTH) |
-|requestId|	String| 25 |	옵션 |	요청 ID|
-|startRequestDate|	String| - |	옵션 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	옵션 |	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|startCreateDate|	String| - |	옵션 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endCreateDate|	String| - |	옵션 |	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String| 13 | 옵션|	발신 번호|
-|recipientNo|	String| 20 |	옵션|	수신 번호|
-|templateId|	String| 50 |	옵션|	템플릿 번호|
-|messageStatus|	String| 10 |	옵션|	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패,CANCEL:예약 취소,DUPLICATED:중복 발송)|
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+|sendType| String| 1 | Optional | Delivery type<br/>(0:SMS, 1:LMS/MMS, 2:AUTH) |
+|requestId|	String| 25 |	Optional | Request ID |
+|startRequestDate|	String| - |	Optional | Start date of sending (yyyy-MM-dd HH:mm:ss) |
+|endRequestDate|	String| - |	Optional | End date of sending (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Optional | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Optional | End date of registration (yyyy-MM-dd HH:mm:ss) |
+|sendNo|	String| 13 | Optional | Sender number |
+|recipientNo|	String| 20 | Optional | Recipient number |
+|templateId|	String| 50 | Optional | Template number |
+|messageStatus|	String| 10 | Optional | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED: Sending completed, FAILED: Sending failed, CANCEL: Schedule canceled, and DUPLICATED: Duplicate delivery) |
+|pageNum|	Integer| - | Optional | Page number (default: 1) |
+|pageSize|	Integer| 1000 | Optional | Number of queries (default: 15) |
 
 #### cURL
 ```
@@ -4624,7 +4628,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -4639,76 +4643,75 @@ curl -X GET \
     "totalCount":15,
     "data":[
       {
-        "requestId":"{요청 ID}",
+        "requestId":"{request ID}",
         "recipientSeq":1,
-        "requestDate":"{예약 날짜}",
-        "sendNo":"{발신 번호}",
-        "recipientNo":"{수신 번호}",
-        "countryCode":"{국가코드}",
-        "sendType":"{발송 유형}",
-        "messageType":"{메시지타입}",
-        "adYn":"{광고 여부}",
-        "templateId":"{템플릿 ID}",
-        "templateParameter":"{템플릿 파라미터}",
-        "templateName":"{템플릿 명}",
-        "title":"{제목}",
-        "body":"{내용}",
-        "messageStatus":"{메시지 상태}",
-        "createUser":"{등록한 사용자}",
-        "createDate":"{등록 일시}",
-        "updateDate":"{수정 날짜}"
+        "requestDate":"{scheduled date}",
+        "sendNo":"{sender number}",
+        "recipientNo":"{recipient number}",
+        "countryCode":"{country code}",
+        "sendType":"{delivery type}",
+        "messageType":"{message type}",
+        "adYn":"{Ad or not}",
+        "templateId":"{template ID}",
+        "templateParameter":"{template parameter}",
+        "templateName":"{template name}",
+        "title":"{title}",
+        "body":"{body}",
+        "messageStatus":"{message status}",
+        "createUser":"{registered user}",
+        "createDate":"{date and time of registration}",
+        "updateDate":"{modified date}"
       }
     ]
   }
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].requestId|	String|	요청 ID|
-|body.data[].recipientSeq|	Integer|	수신자 시퀀스|
-|body.data[].requestDate|	String|	발신 일시|
-|body.data[].sendNo|	String|	발신 번호|
-|body.data[].recipientNo|	String|	수신 번호|
-|body.data[].countryCode|	String|	국가 번호|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지타입<br/>(SMS,LMS,MMS,AUTH)|
-|body.data[].adYn|	String|	광고 여부|
-|body.data[].templateId|	String|	템플릿 ID|
-|body.data[].templateParameter|	String(json)|	템플릿 파라미터|
-|body.data[].templateName|	String|	템플릿명|
-|body.data[].title|	String|	제목|
-|body.data[].body|	String|	본문 내용|
-|body.data[].messageStatus|	String|	메시지 상태<br/>(RESERVED:예약 대기,SENDING:발송 중,COMPLETED:발송 완료,FAILED:발송 실패,CANCEL:예약 취소,DUPLICATED:중복 발송)|
-|body.data[].createUser|	String|	등록한 사용자|
-|body.data[].createDate|	String|	등록 날짜|
-|body.data[].updateDate|	String|	수정 날짜|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data[].requestId|	String| Request ID |
+|body.data[].recipientSeq|	Integer| Recipient sequence |
+|body.data[].requestDate|	String| Date and time of sending |
+|body.data[].sendNo|	String| Sender number |
+|body.data[].recipientNo|	String| Recipient number |
+|body.data[].countryCode|	String| Country code |
+|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data[].messageType|	String| Message type<br/>(SMS,LMS,MMS,AUTH) |
+|body.data[].adYn|	String| Ad or not |
+|body.data[].templateId|	String| Template ID |
+|body.data[].templateParameter|	String(json)| Template parameter |
+|body.data[].templateName|	String| Template name |
+|body.data[].title|	String| Title |
+|body.data[].body|	String| Body message |
+|body.data[].messageStatus|	String| Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Schedule canceled, DUPLICATED: Duplicate delivery) |
+|body.data[].createUser|	String| Registered user |
+|body.data[].createDate|	String| Date of registration |
+|body.data[].updateDate|	String| Date of modification |
 
+### Query Detail Scheduled Delivery 
 
-### 예약 발송 상세 검색
-
-#### 요청
+#### Request
 
 [URL]
 
 ```
-GET /sms/v3.0/appKeys/{appKey}/reservations/{requestId}/{recipientSeq}
+GET /sms/v2.4/appKeys/{appKey}/reservations/{requestId}/{recipientSeq}
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|requestId|	String|	요청 ID|
-|recipientSeq|	Integer|	수신자 시퀀스|
+|appKey|	String|	Original appkey|
+|requestId|	String|	Request ID|
+|recipientSeq|	Integer|	Recipient sequence|
 
 [Header]
 
@@ -4730,7 +4733,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -4741,24 +4744,24 @@ curl -X GET \
   },
   "body":{
     "data":{
-      "requestId":"{요청 ID}",
+      "requestId":"{request ID}",
       "recipientSeq":1,
-      "requestDate":"{예약 날짜}",
-      "sendNo":"{발신 번호}",
-      "recipientNo":"{수신 번호}",
-      "countryCode":"{국가코드}",
-      "sendType":"{발송 유형}",
-      "messageType":"{메시지타입}",
-      "adYn":"{광고 여부}",
-      "templateId":"{템플릿 ID}",
-      "templateParameter":"{템플릿 파라미터}",
-      "templateName":"{템플릿 명}",
-      "title":"{제목}",
-      "body":"{내용}",
-      "messageStatus":"{메시지 상태}",
-      "createUser":"{등록한 사용자}",
-      "createDate":"{등록 일시}",
-      "updateDate":"{수정 날짜}",
+      "requestDate":"{scheduled date}",
+      "sendNo":"{sender number}",
+      "recipientNo":"{recipient number}",
+      "countryCode":"{country code}",
+      "sendType":"{delivery type}",
+      "messageType":"{message type}",
+      "adYn":"{ad or not}",
+      "templateId":"{template ID}",
+      "templateParameter":"{template parameter}",
+      "templateName":"{template name}",
+      "title":"{title}",
+      "body":"{body}",
+      "messageStatus":"{message status}",
+      "createUser":"{registered user}",
+      "createDate":"{date and time of registration}",
+      "updateDate":"{modified date}",
       "attachFileList":[
         {
           "fileId":0,
@@ -4771,51 +4774,52 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data.requestId|	String|	요청 ID|
-|body.data.recipientSeq|	Integer|	수신자 시퀀스|
-|body.data.requestDate|	String|	발신 일시|
-|body.data.sendNo|	String|	발신 번호|
-|body.data.recipientNo|	String|	수신 번호|
-|body.data.countryCode|	String|	국가 번호|
-|body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data.messageType|	String|	메시지타입<br/>(SMS,LMS,MMS,AUTH)|
-|body.data.adYn|	String|	광고 여부|
-|body.data.templateId|	String|	템플릿 ID|
-|body.data.templateParameter|	String(json)|	템플릿 파라미터|
-|body.data.templateName|	String|	템플릿명|
-|body.data.title|	String|	제목|
-|body.data.body|	String|	본문 내용|
-|body.data.messageStatus|	String|	메시지 상태<br/>(RESERVED:예약 대기,SENDING:발송 중,COMPLETED:발송 완료,FAILED:발송 실패,CANCEL:예약 취소,DUPLICATED:중복 발송)|
-|body.data.createUser|	String|	등록한 사용자|
-|body.data.createDate|	String|	등록 날짜|
-|body.data.attachFileList[].fileId|	Integer|	파일 ID|
-|body.data.attachFileList[].filePath|	String|	파일경로(내부용)|
-|body.data.attachFileList[].fileName|	String|	파일명|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.pageNum|	Integer| Current page number |
+|body.pageSize|	Integer| Queried data count |
+|body.totalCount|	Integer| Total data count |
+|body.data.requestId|	String| Request ID |
+|body.data.recipientSeq|	Integer| Recipient sequence |
+|body.data.requestDate|	String| Date and time of sending |
+|body.data.sendNo|	String| Sender number |
+|body.data.recipientNo|	String| Recipient number |
+|body.data.countryCode|	String| Country code |
+|body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data.messageType|	String| Message type <br/>(SMS,LMS,MMS,AUTH) |
+|body.data.adYn|	String| Ad or not |
+|body.data.templateId|	String| Template ID |
+|body.data.templateParameter|	String(json)| Template parameter |
+|body.data.templateName|	String| Template name |
+|body.data.title|	String| Title |
+|body.data.body|	String| Body message |
+|body.data.messageStatus|	String| Message status <br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Sending completed, FAILED:Sending failed, CANCEL:Schedule canceled, and DUPLICATED: Duplicate delivery) |
+|body.data.createUser|	String| Registered user |
+|body.data.createDate|	String| Date of registration |
+|body.data.attachFileList[].fileId|	Integer| File ID |
+|body.data.attachFileList[].filePath|	String| File path (for internal purpose) |
+|body.data.attachFileList[].fileName|	String| File name |
 
-### 예약 발송 취소
 
-#### 요청
+### Cancel Scheduled Delivery 
+
+#### Request
 
 [URL]
 
 ```
-PUT /sms/v3.0/appKeys/{appKey}/reservations/cancel
+PUT /sms/v2.4/appKeys/{appKey}/reservations/cancel
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4843,11 +4847,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|reservationList[].requestId| String| 25 | O | 요청 ID|
-|reservationList[].recipientSeq| Integer| - | O | 수신자 시퀀스|
-|updateUser| String| 100 | O | 취소 요청자|
+|reservationList[].requestId| String| 25 | O | Request ID |
+|reservationList[].recipientSeq| Integer| - | O | Recipient sequence |
+|updateUser| String| 100 | O | Requesting user for cancellation |
 
 #### cURL
 ```
@@ -4865,8 +4869,7 @@ curl -X PUT \
 }'
 ```
 
-#### 응답
-
+[Response body]
 ```
 {
   "header":{
@@ -4883,33 +4886,32 @@ curl -X PUT \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.requestedCount|	Integer|	취소 요청 건수|
-|body.data.canceledCount|	Integer|	취소 성공 건수|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.requestedCount|	Integer| Number of failed requests |
+|body.data.canceledCount|	Integer| Number of successful cancellation |
 
+### Cancel Scheduled Delivery - Multiple Filter
 
-### 예약 발송 취소 - 다중 필터  
-
-#### 요청
-* 예약 취소 요청은 상태가 '예약 중(RESERVED)'인 경우에만 가능합니다.
-* 이미 발송된 메시지는 취소할 수 없습니다.
+#### Request
+* Request for schedule cancellation is available only when the statu is 'Scheduled'. 
+* Cannot cancel already delivered messages. 
 
 [URL]
 
 ```
-PUT /sms/v3.0/appKeys/{appKey}/reservations/search-cancels
+PUT /sms/v2.4/appKeys/{appKey}/reservations/search-cancels
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -4944,24 +4946,24 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-* startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜 / 예약 날짜를 동시에 검색하는 경우, 예약 날짜는 무시됩니다.
+* startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* To query registered date and reserved date at the same time, reserved date shall be ignored.
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-| searchParameter.sendType | String | 1 | 필수 | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
-| searchParameter.startRequestDate | String | - | 필수 | 예약 날짜 시작 |
-| searchParameter.endRequestDate | String | - | 필수 | 예약 날짜 종료 |
-| searchParameter.startCreateDate | String | - | 필수 | 등록 날짜 시작 |
-| searchParameter.endCreateDate | String | - | 필수 | 등록 날짜 종료  |
-| searchParameter.sendNo | String | 20 | 옵션 | 발신 번호 |
-| searchParameter.recipientNo | String | 20 | 옵션 | 수신 번호 |
-| searchParameter.templateId | String | 50 | 옵션 | 템플릿 ID |
-| searchParameter.requestId | String | 25 | 옵션 | 요청 아이디 |
-| searchParameter.createUser | String | 100 | 옵션 | 예약 발송 생성자  |
-| searchParameter.senderGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
-| searchParameter.recipientGroupingKey | String | 100 | 옵션 | 수신자 그룹키 |
-| updateUser | String | 100 | 필수 | 예약 취소 요청자 |
+| searchParameter.sendType | String | 1 | Required | Delivery type(0:Sms, 1:Lms/Mms, 2:Auth) |
+| searchParameter.startRequestDate | String | - | Required | Start date of delivery |
+| searchParameter.endRequestDate | String | - | Required | End date of delivery |
+| searchParameter.startCreateDate | String | - | Required |  Start date of registration |
+| searchParameter.endCreateDate | String | - | Required | End date of registration  |
+| searchParameter.sendNo | String | 20 | Optional | Sender number |
+| searchParameter.recipientNo | String | 20 | Optional | Recipient number |
+| searchParameter.templateId | String | 50 | Optional | Delivery template ID |
+| searchParameter.requestId | String | 25 | Optional | Request ID |
+| searchParameter.createUser | String | 100 | Optional | Request Creator of Scheduled Delivery   |
+| searchParameter.senderGroupingKey | String | 100 | Optional | Sender group key |
+| searchParameter.recipientGroupingKey | String | 100 | Optional | Recipient group key |
+| updateUser | String | 100 | Required | Requester of Scheduled Cancellation |
 
 #### cURL
 ```
@@ -4987,7 +4989,7 @@ curl -X PUT \
 }'
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5006,20 +5008,19 @@ curl -X PUT \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.reservationCancelId|	Integer|	예약 취소 ID|
-|body.data.requestedDateTime|	String|	예약 취소 시간(yyyy-MM-dd HH:mm:ss)|
-|body.data.reservationCancelStatus|	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.reservationCancelId|	Integer|	Schedule Cancellation ID|
+|body.data.requestedDateTime|	String|	Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss)|
+|body.data.reservationCancelStatus|	String|	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
 
 
+### List Request of Scheduled Delivery Cancellation - Multiple Filter
 
-### 예약 발송 취소 요청 목록 검색 - 다중 필터
-
-#### 요청
+#### Request
 
 [URL]
 
@@ -5030,9 +5031,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -5048,13 +5049,13 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|startRequestedDateTime| String| - |  옵션 | 예약 취소 요청 시작 시간(yyyy-MM-dd HH:mm:ss) |
-|endRequestedDateTime|	String| - |	옵션 |	예약 취소 요청 종료 시간(yyyy-MM-dd HH:mm:ss) |
-|reservationCancelId|	String| 25 |	옵션 | 예약 취소 ID |
-|pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
-|pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
+|startRequestedDateTime| String| - |  Optional | Request Start Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss) |
+|endRequestedDateTime|	String| - |	Optional |	Request End Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss) |
+|reservationCancelId|	String| 25 |	Optional | Schedule Cancellation ID |
+|pageNum|	Integer| - |	Optional|	Page number (default: 1)|
+|pageSize|	Integer| 1000 |	Optional|	Number of queries (default: 15)|
 
 #### cURL
 ```
@@ -5064,7 +5065,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -5094,28 +5095,27 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data[].reservationCancelId |	String|	 예약 취소 ID |
-|body.data[].searchParameter |	Map<String, Object> | 예약 취소 요청 파라미터 |
-|body.data[].requestedDateTime |	String|	예약 취소 요청 시간 |
-|body.data[].completedDateTime |	String|	예약 취소 완료 시간 |
-|body.data[].reservationCancelStatus |	String|	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
-|body.data[].totalCount |	Integer| 예약 취소 대상 건수 |
-|body.data[].successCount |	Integer| 예약 취소 성공 건수 |
-|body.data[].createUser |	String| 예약 취소 요청자	|
-|body.data[].createdDateTime |	String|	예약 취소 요청 생성 시간 |
-|body.data[].updatedDateTime |	String|	예약 취소 수정 시간 |
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data[].reservationCancelId |	String|	 Schedule Cancellation ID |
+|body.data[].searchParameter |	Map<String, Object> | Request Parameter for Schedule Cancellation |
+|body.data[].requestedDateTime |	String|	Request Time for Schedule Cancellation  |
+|body.data[].completedDateTime |	String|	Request End Time for Schedule Cancellation |
+|body.data[].reservationCancelStatus |	String|	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
+|body.data[].totalCount |	Integer| Number of Scheduled Cancellation Targets |
+|body.data[].successCount |	Integer| Number of Successful Schedule Cancellation |
+|body.data[].createUser |	String| Requester of Scheduled Cancellation	|
+|body.data[].createdDateTime |	String|	Request Creation Time for Schedule Cancellation |
+|body.data[].updatedDateTime |	String|	Modified Time for Scheduled Cancellation |
 
+## Download Delivery Result Files 
 
-## 발송 결과 파일 다운로드
+### Request for Creating Query Files 
 
-### 검색 파일 생성 요청
-
-#### 요청
+#### Request 
 
 [URL]
 
@@ -5126,9 +5126,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -5143,8 +5143,8 @@ Content-Type: application/json;charset=UTF-8
 |X-Secret-Key|	String|	Original secret key|
 
 [Request body]
-* requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
-* 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
+* requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
 ```
 {
@@ -5162,31 +5162,31 @@ Content-Type: application/json;charset=UTF-8
   "msgStatus":"3",
   "resultCode":"MTR2",
   "subResultCode":"MTR2_3",
-  "senderGroupingKey":"{발송자 그룹 키}",
-  "recipientGroupingKey":"{수신자 그룹 키}",
+  "senderGroupingKey":"{sender's group key}",
+  "recipientGroupingKey":"{recipient's group key}",
   "isIncludeTitleAndBody":true
 }
 ```
 
-|값|	타입|	최대 길이 | 필수|	설명|
+|Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
-|sendType| String| 1| 필수| 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
-|requestId|	String| 25 |	필수 |	요청 ID|
-|startRequestDate|	String| - |	필수 |	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endRequestDate|	String| - |	필수 |	발송 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
-|startCreateDate|	String| - |	필수 |	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endCreateDate|	String| - |	필수 |	등록 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
-|startResultDate|	String| - |	옵션|	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)|
-|endResultDate|	String| - |	옵션|	수신 날짜 종룟값(yyyy-MM-dd HH:mm:ss)|
-|sendNo|	String| 13 |	옵션|	발신 번호|
-|recipientNo|	String| 20 |	옵션|	수신 번호|
-|templateId|	String| 50 |	옵션|	템플릿 번호|
-|msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
-|resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
-|subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹 키|
-|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹 키|
-|isIncludeTitleAndBody | Boolean | - | 옵션 | 제목, 본문 포함 여부 |
+|sendType| String| 1| O| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|requestId|	String| 25 |	Conditionally required (no.1) | Request ID |
+|startRequestDate|	String| - |	Conditionally required (no.2) | Start date of delivery (yyyy-MM-dd HH:mm:ss) |
+|endRequestDate|	String| - |	Conditionally required (no.2) | End date of delivery (yyyy-MM-dd HH:mm:ss) |
+|startCreateDate|	String| - |	Required | Start date of registration (yyyy-MM-dd HH:mm:ss) |
+|endCreateDate|	String| - |	Required | End date of registration (yyyy-MM-dd HH:mm:ss) |
+|startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
+|endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
+|sendNo|	String| 13 | Optional | Sender number |
+|recipientNo|	String| 20 | Optional | Receiving number |
+|templateId|	String| 50 | Optional | Template number |
+|msgStatus|	String| 1 | Optional | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+|resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
+|subResultCode|	String| 10 | Optional | Detail code of receiving [[Table on Query Codes](./error-code/#_3)] |
+|senderGroupingKey|	String| 100 | Optional | Sender's group key |
+|recipientGroupingKey|	String| 100 | Optional | Recipient's group key |
+|isIncludeTitleAndBody | Boolean | - | Optional | Title and body included or not |
 
 #### cURL
 ```
@@ -5201,7 +5201,7 @@ curl -X POST \
 }'
 ```
 
-#### 응답
+#### Response
 
 ```
 {
@@ -5222,34 +5222,34 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.donwloadId|	String|	다운로드 ID|
-|body.data.downloadType|	String|	다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송|
-|body.data.fileType|	String|	파일 타입(현재 csv만 지원)|
-|body.data.downloadStatusCode|	String|	파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료|
-|body.data.expiredDate|	String|	다운로드 기간 만료 일시|
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.data.donwloadId|	String| Download ID |
+|body.data.downloadType|	String| Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery |
+|body.data.fileType|	String| File type (currently supports csv only) |
+|body.data.downloadStatusCode|	String| Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
+|body.data.expiredDate|	String|	Date and time of expiration for download period|
 
 
-### 발송 결과 파일 생성 요청 내역 검색
+### Query Request History for Delivery Result of File Creation
 
-#### 요청
+#### Request
 
 [URL]
 
 ```
-GET /sms/v3.0/appKeys/{appKey}/download-reservations
+GET /sms/v2.4/appKeys/{appKey}/download-reservations?downloadId={downloadId}&downloadStatusCode={downloadStatusCode}&pageNum={pageNum}&pageSize={pageSize}
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -5265,12 +5265,12 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|downloadId|	String|	25 | 옵션 | 다운로드 아이디|
-|downloadStatusCode|	String| 10 | 옵션 |	다운로드 파일 상태 코드|
-|pageNum|	Integer|	- | 옵션 | 페이지 번호(기본값: 1)|
-|pageSize|	Integer|	1000 | 옵션 | 검색 수(기본값: 15)|
+|downloadId|	String|	25 | Optional | Download ID |
+|downloadStatusCode|	String| 10 | Optional | Status code of download file |
+|pageNum|	Integer|	- | Optional | Page number (default: 1) |
+|pageSize|	Integer|	1000 | Optional | Number of queries (default: 15) |
 
 #### cURL
 ```
@@ -5280,7 +5280,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5310,28 +5310,28 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value| Type | Description |
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.totalCount| Integer | 전체 건수|
-|body.data[].downloadId| String | 다운로드 ID |
-|body.data[].downloadType| String | 다운로드 유형<br/>- BLOCK: 수신 거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송 |
-|body.data[].fileType| String | 파일 타입 |
-|body.data[].parameter| String | 요청 파라미터 |
-|body.data[].size| Integer | 검색 데이터 크기 |
-|body.data[].downloadStatusCode| String | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
-|body.data[].resultMessage| String | 결과 메시지(실패 시 응답) |
-|body.data[].expiredDate| String | 파일 만료 일시 |
-|body.data[].createUser| String | 파일 생성 요청자 |
-|body.data[].createDate| String | 파일 생성 요청 일시 |
-|body.data[].updateDate| String | 파일 생성 완료, 실패 일시 |
+|header.isSuccessful|	Boolean| Successful or not |
+|header.resultCode|	Integer| Failure code |
+|header.resultMessage|	String| Failure message |
+|body.totalCount| Integer | Total count |
+|body.data[].downloadId| String | Download ID |
+|body.data[].downloadType| String | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery |
+|body.data[].fileType| String | File type |
+|body.data[].parameter| String | Request parameter |
+|body.data[].size| Integer | Size of query data |
+|body.data[].downloadStatusCode| String | Status of file creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
+|body.data[].resultMessage| String | Result message (respond when it fails) |
+|body.data[].expiredDate| String | Date and time of file expiration |
+|body.data[].createUser| String | Requester for file creation |
+|body.data[].createDate| String | Date and time of request for file creation |
+|body.data[].updateDate| String | Date and time of completion or failure of file creation |
 
 
-### 발송 결과 파일 다운로드 요청
+### Request for Downloading Delivery Result Files 
 
-#### 요청
+#### Request 
 
 [URL]
 
@@ -5342,10 +5342,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|downloadId| String | 다운로드 ID|
+|appKey|	String|	Original appkey|
+|downloadId| String | Download ID|
 
 [Header]
 
@@ -5367,17 +5367,17 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```
 file byte
 ```
 
-## 태그 관리
+## Tag Management
 
-### 태그 검색
+### Query Tags
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -5388,9 +5388,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -5406,10 +5406,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|pageNum|	Integer|	- | 옵션 | 페이지 번호(기본값: 1)|
-|pageSize|	Integer|	1000 | 옵션 | 검색 수(기본값: 15)|
+|pageNum|	Integer|	- | Optional | Page number (Default : 1)|
+|pageSize|	Integer|	1000 | Optional | Number of queries (Default : 15)|
 
 #### cURL
 ```
@@ -5419,7 +5419,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5444,20 +5444,20 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.pageNum|	Integer|	현재 페이지 번호|
-|body.pageSize|	Integer|	검색된 데이터 수|
-|body.totalCount|	Integer|	총 데이터 수|
-|body.data[].tagId| String | 태그 ID |
-|body.data[].tagName| String | 태그 이름 |
-|body.data[].createdDate| String | 생성 일시 |
-|body.data[].tagId| String | 수정 일시 |
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.pageNum|	Integer|	Page number|
+|body.pageSize|	Integer|	Number of queries|
+|body.totalCount|	Integer|	Total data count|
+|body.data[].tagId| String | Tag ID |
+|body.data[].tagName| String | Tag name |
+|body.data[].createdDate| String | Date and time of creation |
+|body.data[].tagId| String | Date and time of modification |
 
-### 태그 등록
+### Register Tags
 
 [URL]
 
@@ -5468,9 +5468,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -5492,9 +5492,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-| tagName | String | 30 | 필수 | 태그 이름 |
+| tagName | String | 30 | Required | Tag name |
 
 #### cURL
 ```
@@ -5507,7 +5507,7 @@ curl -X POST \
 }'
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5524,28 +5524,28 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
-|body.data.tagId| String | 태그 ID |
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
+|body.data.tagId| String | Tag ID |
 
-### 태그 수정
+### Modify Tags
 
 [URL]
 
 ```
-PUT /sms/v3.0/appKeys/{appKey}/tags/{tagId}
+PUT /sms/v2.4/appKeys/{appKey}/tags/{tagId}
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|tagId|	String|	태그 ID|
+|appKey|	String|	Original appkey|
+|tagId|	String|	Tag ID|
 
 [Header]
 
@@ -5567,9 +5567,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-| tagName | String | 30 | 필수 | 태그 이름 |
+| tagName | String | 30 | Required | Tag name |
 
 #### cURL
 ```
@@ -5582,7 +5582,7 @@ curl -X PUT \
 }'
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5595,13 +5595,13 @@ curl -X PUT \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
 
-### 태그 삭제
+### Delete Tags
 
 [URL]
 
@@ -5612,10 +5612,10 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
-|tagId|	String|	태그 ID|
+|appKey|	String|	Original appkey|
+|tagId|	String|	Tag ID|
 
 [Header]
 
@@ -5637,7 +5637,7 @@ curl -X DELETE \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5650,30 +5650,31 @@ curl -X DELETE \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
 
-## UID 관리
 
-### UID 검색
+## UID Management
 
-#### 요청
+### Query UIDs
+
+#### Request
 
 [URL]
 
 ```
-GET /sms/v3.0/appKeys/{appKey}/uids?wheres={wheres}&offsetUid={offsetUid}&offset={offset}&limit={limit}
+GET /sms/v2.4/appKeys/{appKey}/uids?wheres={wheres}&offsetUid={offsetUid}&offset={offset}&limit={limit}
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -5689,12 +5690,12 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-|wheres|	List<String>|	- | 옵션 | 검색 조건.<br/>알파뱃, 숫자, 괄호로 이루어진 문자열 배열.<br/>괄호는 1개, AND/OR은 3개까지 사용 가능<br/>(예시) tagId1,AND,tagId2|
-|offsetUid|	String|	- | 옵션 | 검색을 시작할 uid|
-|offset | Integer | - | 옵션 | offset 0(기본값)|
-|limit | Integer | 1000 | 옵션 | 검색 건수 15(기본값)|
+|wheres|	List<String>|	- | Optional | Query conditions.<br/>Character strings comprised of alphabets, numbers, and parentheses.<br/>Allows one parenthesis, and up to three AND or ORs.<br/>e.g.) tagId1,AND,tagId2|
+|offsetUid|	String|	- | Optional | offset UID|
+|offset | Integer | - | Optional | offset (default: 0)|
+|limit | Integer | 1000 | Optional | Number of queries (default: 15)|
 
 #### cURL
 ```
@@ -5704,7 +5705,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5742,25 +5743,25 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
 |body.data.uids[].uid| String | UID |
-|body.data.uids[].tags[].tagId| String | 태그 ID |
-|body.data.uids[].tags[].tagName| String | 태그 이름 |
-|body.data.uids[].tags[].createdDate| String | 태그 생성 일시 |
-|body.data.uids[].tags[].updatedDate| String | 태그 수정 일시 |
-|body.data.uids[].contacts[].contactType| String | 연락처 타입 |
-|body.data.uids[].contacts[].contact| String | 연락처(휴대폰 번호) |
-|body.data.uids[].contacts[].createdDate| String | 연락처 생성 일시 |
-|body.data.uids[].isLast| Boolean| 마지막 목록 여부 |
-|body.data.uids[].totalCount| Integer| 총 데이터 건수 |
+|body.data.uids[].tags[].tagId| String | Tag ID |
+|body.data.uids[].tags[].tagName| String | Tag name |
+|body.data.uids[].tags[].createdDate| String | Date and time of tag creation |
+|body.data.uids[].tags[].updatedDate| String | Date and time of tag modification |
+|body.data.uids[].contacts[].contactType| String | Contact type(PHONE_NUMBER) |
+|body.data.uids[].contacts[].contact| String | Contact (phone number) |
+|body.data.uids[].contacts[].createdDate| String | Date and time of contact creation |
+|body.data.uids[].isLast| Boolean| Last on list or not |
+|body.data.uids[].totalCount| Integer| Total number of data |
 
-### UID 단건 검색
+### Get UIDs
 
-#### 요청
+#### Request
 
 [URL]
 
@@ -5770,9 +5771,9 @@ GET /sms/v3.0/appKeys/{appKey}/uids/{uid}
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 |uid|	String|	UID|
 
 [Header]
@@ -5795,7 +5796,7 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5827,34 +5828,34 @@ curl -X GET \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
 |body.data.uid| String | UID |
-|body.data.tags[].tagId| String | 태그 ID |
-|body.data.tags[].tagName| String | 태그 이름 |
-|body.data.tags[].createdDate| String | 태그 생성 일시 |
-|body.data.tags[].updatedDate| String | 태그 수정 일시 |
-|body.data.contacts[].contactType| String | 연락처 타입 |
-|body.data.contacts[].contact| String | 연락처(휴대폰 번호) |
-|body.data.contacts[].createdDate| String | 연락처 생성 일시 |
+|body.data.tags[].tagId| String | Tag ID |
+|body.data.tags[].tagName| String | Tag name |
+|body.data.tags[].createdDate| String | Date and time of tag creation |
+|body.data.tags[].updatedDate| String | Date and time of tag modification |
+|body.data.contacts[].contactType| String | Contact type |
+|body.data.contacts[].contact| String | Contact(phone number) |
+|body.data.contacts[].createdDate| String | Date and time of contact creation |
 
-### UID 등록
+### Register UIDs
 
 [URL]
 
 ```
-POST /sms/v3.0/appKeys/{appKey}/uids
+POST /sms/v2.4/appKeys/{appKey}/uids
 Content-Type: application/json;charset=UTF-8
 ```
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 
 [Header]
 
@@ -5886,17 +5887,17 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-| uid | String | - | 필수 | UID |
-| tagIds[] | String | - | 필수 | 태그 ID 목록 |
-| contacts[].contactType | String | - | 필수 | 연락처 타입(PHONE_NUMBER) |
-| contacts[].contact | String | - | 필수 | 연락처(휴대폰 번호) |
+| uid | String | - | Required | UID |
+| tagIds[] | String | - | Required | List of tag IDs |
+| contacts[].contactType | String | - | Required | Contact type(PHONE_NUMBER) |
+| contacts[].contact | String | - | Required | Contact (phone number) |
 
-[주의]
-* tagIds가 주어지는 경우 contacts는 필수 값이 아닙니다.
-* contacts가 주어지는 경우 tagIds는 필수 값이 아닙니다.
-* 본 상품의 경우, contactType은 반드시 "PHONE_NUMBER" 값으로 요청해야 합니다.
+[Caution]
+* When tagIds is provided, contacts is not required.
+* When contacts is provided, tagIds is not required.
+* For this product, contactType must be requested in the "PHONE_NUMBER" value.
 
 #### cURL
 ```
@@ -5917,7 +5918,7 @@ curl -X POST \
 }'
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5930,14 +5931,14 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
 
 
-### UID 삭제
+### Delete UIDs
 
 [URL]
 
@@ -5948,9 +5949,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 |uid|	String|	UID|
 
 [Header]
@@ -5973,7 +5974,7 @@ curl -X DELETE \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -5986,13 +5987,13 @@ curl -X DELETE \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
 
-### 휴대폰 번호 등록
+### Register Phone Number
 
 [URL]
 
@@ -6003,9 +6004,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 |uid | String | UID |
 
 [Header]
@@ -6028,9 +6029,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-|값|	타입| 최대 길이 |	필수|	설명|
+|Value| Type | Max Length | Required | Description |
 |---|---|---|---|---|
-| phoneNumber| String | - | 필수 | 휴대폰 번호 |
+| phoneNumber| String | - | Required | Phone number |
 
 #### cURL
 ```
@@ -6043,8 +6044,7 @@ curl -X POST \
 }'
 ```
 
-
-#### 응답
+#### Response
 
 ```json
 {
@@ -6057,13 +6057,13 @@ curl -X POST \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
 
-### 휴대폰 번호 삭제
+### Delete phone number
 
 [URL]
 
@@ -6074,11 +6074,11 @@ Content-Type: application/json;charset=UTF-8
 
 [Path parameter]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|appKey|	String|	고유의 앱키|
+|appKey|	String|	Original appkey|
 |uid | String | UID |
-|phoneNumber | String | 휴대폰 번호 |
+|phoneNumber | String | Mobile phone number|
 
 [Header]
 
@@ -6100,7 +6100,7 @@ curl -X DELETE \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-#### 응답
+#### Response
 
 ```json
 {
@@ -6113,28 +6113,27 @@ curl -X DELETE \
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|header.isSuccessful|	Boolean|	성공 여부|
-|header.resultCode|	Integer|	실패 코드|
-|header.resultMessage|	String|	실패 메시지|
+|header.isSuccessful|	Boolean|	Successful or not|
+|header.resultCode|	Integer|	Failure code|
+|header.resultMessage|	String|	Failure message|
 
-## 웹훅
-SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 URL로 POST 요청을 생성합니다.<br>
-생성된 POST 요청에 대한 API 문서입니다.
+## Webhook
+When a specific event occurs in the SMS service, a Post request is created to the URL defined in the webhook settings.<br>This is a document for the API for the created POST request.
 
-### 웹훅 발송
+### Webhook Delivery
 [URL]
 
 |Http method|	URI|
 |---|---|
-| POST | 웹훅 설정에 정의한 대상 URL |
+| POST | Target URL defined in the webhook settings |
 
 [Header]
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|X-Toast-Webhook-Signature|	String|	웹훅 설정 시 입력한 서명|
+|X-Toast-Webhook-Signature|	String|	Signature entered when setting webhook|
 
 [Request body]
 
@@ -6157,18 +6156,18 @@ SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
 }
 ```
 
-|값|	타입|	설명|
+|Value|	Type|	Description|
 |---|---|---|
-|hooksId|	String|	웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID|
-|webhookConfigId|	String|웹훅 설정 ID|
-|productName|	String|	웹훅 이벤트가 발생한 서비스명 |
-|appKey|	String| 웹훅 이벤트가 발생한 서비스 앱키|
-|event|	String|	웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록|
-|hooks[].hookId|	String| 서비스에서 이벤트 발생 시 생성되는 고유 ID |
-|hooks[].recipientNo|	String|	수신 거부된 휴대폰 번호 |
-|hooks[].unsubscribeNo|	String|	수신 거부 서비스에 등록된 080 번호 |
-|hooks[].enterpriseName|	String|	수신 거부 서비스에 등록된 업체명 |
-|hooks[].createdDateTime|	String| 수신 거부 요청 일시<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX|
+|hooksId|	String|	Unique ID created whenever a POST request is made to the URL defined in the webhook settings|
+|webhookConfigId|	String|Webhook configuration ID|
+|productName|	String|	Service name to which webhook events occur|
+|appKey|	String| Service appkey to which webhook events occur|
+|event|	String|	Webhook event name<br>* UNSUBSCRIBE: Registration of recipient number for ad messages|
+|hooks[].hookId|	String| Unique ID created when an event occurs in the service |
+|hooks[].recipientNo|	String|	Unsubscribed mobile phone number |
+|hooks[].unsubscribeNo|	String|	080 numbers registered in unsubscription service |
+|hooks[].enterpriseName|	String|	Enterprise names registered in unsubscription service |
+|hooks[].createdDateTime|	String| Date and time of unsubscription request<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX|
 
 
 
