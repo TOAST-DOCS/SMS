@@ -6,7 +6,7 @@
 1. Secret key has been added.
 	* Secret key must be added to the header to call v3.0 API successfully.  
 2. APIs that query mass delivery requests have been added.
-	* List Mass Delivery, List Recipients of Mass Delivery, List Recipient Details of Mass Delivery APIs have been added.
+	* List Mass Delivery, List Recipients of Mass Delivery, and List Recipient Details of Mass Delivery APIs have been added.
 
 ### [API 도메인]
 
