@@ -1,12 +1,12 @@
 ## Notification > SMS > API v3.0 Guide
 
-## v3.0 API 소개
+## v3.0 API Overview
 
-### v2.4와 달라진 사항
-1. 시크릿 키가 도입되었습니다.
-	* v3.0 API 호출 시에는 헤더에 시크릿 키를 추가해야 성공하게 됩니다.  
-2. 대량 발송 요청을 조회할 수 있는 API 들이 추가되었습니다.
-	* 대량 발송 목록 검색 API, 대량 발송 수신자 목록 검색 API, 대량 발송 수신자 목록 상세 검색 API 추가되었습니다.
+### Changes from v2.4
+1. Secret key has been added.
+	* Secret key must be added to the header to call v3.0 API successfully.  
+2. APIs that query mass delivery requests have been added.
+	* List Mass Delivery, List Recipients of Mass Delivery, List Recipient Details of Mass Delivery APIs have been added.
 
 ### [API 도메인]
 
