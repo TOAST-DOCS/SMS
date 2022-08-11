@@ -71,6 +71,7 @@
 | Statistics | false | -2700 | Invalid range of statistics |
 | Statistics | false | -2701 | Invalid statistics search parameter |
 | Statistics | false | -2703 | Invalid detail range of statistics |
+| Statistics | false | -2704 | Invalid statistics parameter |
 | 080 Call Rejection | false | -6000 | Call rejection is not in service |
 | 080 Call Rejection | false | -6001 | Call-reject numbers |
 | 080 Call Rejection | false | -6003 | Body does not include guide message on call rejection |
