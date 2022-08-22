@@ -1,227 +1,342 @@
 ## Notification > SMS > Release Notes
 
-### 2021. 09. 14.
-#### 기능 개선/변경
-* [API] 대량 발송 조회 API 추가
-    * 대량 발송 요청 및 대량 발송 수신자를 조회하는 API가 추가되었습니다.
+### August 23, 2022
+#### Feature Updates
 
-### 2021. 03. 23.
-#### 기능 개선/변경
-* [Console] 대량 SMS 발송 프로세스 개선
-    * 대량 SMS 발송 프로세스가 개선되었습니다.
-        * 수신자 파일 업로드 시 유효하지 않은 수신자가 포함된 경우 아래 두 목록 파일에 대한 다운로드를 제공합니다.
-            * 유효한 수신자 번호 목록 다운로드
-            * 유효하지 않은 수신자 번호 목록 다운로드
-        * 유효한 수신자에게만 SMS 발송을 원하는 경우 **유효한 수신자만 문자 발송** 버튼을 클릭하여 발송할 수 있습니다.
-* [Console] 통계 기능 개선
-    * 템플릿 아이디, 메시지 타입, 광고 여부, 발신 번호 중 하나의 기준으로 통계를 조회할 수 있도록 개선되었습니다.
-* [Console] 발신 번호 등록 요청 상세 보기 노출 에러 수정
-    * 발신 번호 등록 요청 상세 보기 팝업이 노출되지 않던 문제가 수정되었습니다.
-* [Console/API] 템플릿 아이디 허용 문자 제한
-    * 템플릿 아이디에 '/', '?', ':' 문자를 사용할 수 없도록 개선되었습니다.
+* [Console] Changed the button name and message for mass and tag delivery
+    * Changed the button name of Schedule Delivery to reduce confusion because pressing the mass delivery or tag delivery button immediately executes delivery.
+* [API] Added a field that was omitted for webhook delivery
+    * Added the recipientNo field that was omitted for webhook delivery.
+* [API] Fixed a bug that occurred to the statisticsType field in Statistics API
+    * Modified so that the statisticsType field works normally when calling Statistics API.
 
+### July 26, 2022
+#### Feature Updates
+
+* [API] Enhanced validation of recipient numbers
+    * Modified so that, if the length of the recipient number exceeds 15 characters, the number is determined as not conforming to international telecommunication standards (E.164 of ITU-T) and the request is processed as a failure.
+
+* [API] Added the validation logic for tags
+    * Modified so that, if a request is made to send a tag that does not exist, the request is processed as a failure.
+
+### April 26, 2022
+#### Feature Updates
+
+* [Console] Improved the personal information masking logic used when downloading results of general, mass, or tag delivery
+    * Modified the logic so that it is the same as the masking logic used in the console.
+
+* [Console] Modified the validation logic for the extension of the uploaded document when registering a sender number with the document authentication method
+    * Modified the logic so that extension checking is not case-sensitive when validating the extension of the uploaded file.
+    * Made adjustments so that files with jpeg extension can be uploaded normally.
+### March 29, 2022
+#### Feature Updates
+
+* [Console] Improved the feature to download general, mass, and tag sending results
+    * For Excel download, changed to create a .zip file for more than 1 million results.
+
+* [API] Fixed an error where -9999 was returned when an emoji was included in the template parameter when sending regular SMS/LMS/MMS
+    * Modified so that -2023 (Title or body includes characters that are not allowed (e.g. emojis)) is returned.
+
+### January 25, 2022
+#### Feature Updates
+* [Console] Fixed a bug where, when a 4-byte emoji is included in the template parameter for mass delivery, it is left as in-progress status
+    * Modified so that, if the template parameter includes a 4-byte emoji, it is filtered as an invalid recipient.
+
+### December 14, 2021
+#### Feature Updates
+* [Console] Changed format of template file (Excel, CSV) for mass delivery
+    * The num column has been removed from the template file for creating mass delivery recipient information.
+        * Files created based on the existing template can also be used.
+
+### September 14, 2021
+#### Feature Updates
+* [API] Added a mass delivery query API
+    * Added an API to query mass delivery requests and mass delivery recipients.
+
+### July 27, 2021
+#### Feature Updates
+* [Console] Added update webhook as a result of sending
+    * Users can receive webhook when updating the result on the request to send.
+        * Users can receive webhook when succeeded or failed to send.
+* [Console/API] Enhanced duplicate check when registering calling number
+    * The number that has already been registered as well as the number requested for registration has been modified so that it cannot be duplicated.
+
+### April 27, 2021
+#### Feature Updates
+* [Console] Added the feature of moving a template between categories
+    * Updated to allow template transfer between categories.
+* [Console/API] Supports dispatch of MS949
+    * Updated system to allow dispatch in MS949 encoding for domestic sending.
+
+### March 23, 2021
+#### Feature Updates
+* [Console] Improved the process of sending a large volume of SMS
+    * Improved the process of sending a large volume of SMS.
+        * The following two lists are available for download if invalid recipients are included in the uploaded recipient file.
+            * Download the list of valid recipient numbers
+            * Download the list of invalid recipient numbers
+        * If you want to send SMS to valid recipients only, you can do so by clicking the **Send Text Messages to Valid Recipients Only**  button.
+* [Console] Statistics feature improved
+    * Improved to enable viewing the stats by any one of the following: template ID, message type, presence of ad, and calling number.
+* [Console] Fixed the bug of not exposing the calling number registration request details
+    * Fixed the bug where the calling number registration request details popup would not be exposed properly.
+* [Console/API] Disallowed use of some special characters for template ID
+    * Improved to disallow the use of '/', '?', ':' for template ID.
 
 ### January 26, 2021
 
 #### Feature Updates
 
-- [Console/API] Added a feature of sharing blocked 080 phone numbers across projects
-  - A single 080 phone number can be shared across multiple projects.
-  - Only the project that requested an 080 phone number can share phone numbers.
-  - Only the requested project can edit the business name and cancel the business.
-  - The blocked 080 phone numbers are shared.
+* [Console/API] Added a feature of sharing blocked 080 phone numbers across projects
+    * A single 080 phone number can be shared across multiple projects.
+    * Only the project that requested an 080 phone number can share phone numbers.
+    * Only the requested project can edit the business name and cancel the business.
+    * The blocked 080 phone numbers are shared.
 
 ### December 29, 2020
 
 #### Feature Updates
 
-- [API] Applied partial changes to response body of SMS sent list search and send single search for short text/long text/authentication
-  - Added the messageType/recipientSeq field.
-  - Deleted the mtPr field.
-  - For more information, see [[API Guide](./api-guide/#sms_4)].
+* [API] Applied partial changes to response body of SMS sent list search and send single search for short text/long text/authentication
+    * Added the messageType/recipientSeq field.
+    * Deleted the mtPr field.
+    * For more information, see [[API Guide](./api-guide/#sms_4)].
+
+### October 27, 2020
+#### Features Updates
+* [Console/API] Changed body validation when sending advertisements
+    * Modified so that brackets can be omitted from the text **[Unsubscribe for free]** included in the body.
+
+
+### September 22, 2020
+#### Features Updates
+* [API] Fixed a bug of API to query result updates based on received time
+    * Fixed an issue where, when querying result updates based on the received time, the query failed if the base month of the sending date and the receiving date were different.
+* [Console] Changed the cancellation deadline for 080 opt-out
+    * Modified so that 080 opt-out cancellation is possible 24 hours after approval.
+* [Console] Added a 080 opt-out webhook feature
+    * Added a feature to receive a mobile phone number that has been opt out by 080 opt-out with a webhook.
+
+### August 25, 2020
+#### Features Updates
+* [Console] Enhanced validation of Excel for mass delivery
+    * If the recipient's number is not entered, validation will fail.
+* [Console] Fixed an issue where a file uploaded from the **Register Sender Number** tab could not be downloaded
+    * Fixed an issue where, after uploading a file with document authentication in the **Manage Sender Number > Register Sender Number** tab, the file could not be downloaded.
+ 
+* [Console/API] Enhanced validation of attachment image format
+    * When uploading attachments for MMS delivery, validation will fail if the image format is not .jpg.
+* [Console] Enhanced validation of backup settings
+    * If '/' is appended before or after the file save path in the backup setting of the **Delivery Setting** tab, the validation will fail.
 
 ### July 28, 2020
-#### Feature Updates 
-* [Console/API] Creating Email-type Template ID 
-    * Fixed failure in querying, modifying, or deleting, if a template ID is created in the email type.
-* [Console/API] Fixed infrequent errors in the length check for sending international text messages 
-    * Fixed infrequent errors of length check resulting in failed delivery of international text messages  
+#### Feature Updates
+* [Console/API] Fixed an issue related to creating email-type template ID
+    * Fixed an issue where querying, modifying, or deleting does not work if a template ID is created in the email type.
+* [Console/API] Fixed infrequent errors in the length check for sending international text messages
+    * Fixed infrequent errors of length check resulting in failed delivery of international text messages
 
 ### June 23, 2020
 #### Feature Updates
-* [Console] Changed charging information on the **Setting for Unsubscribe 080 Numbers** 
-    * Modified invalid charging information on the **Setting for Unsubscribe 080 Numbers** tab. 
-* [Console] Unable to download attached files from the detail page of scheduled delivery list 
-    * Fixed the 404 error occurred at the click of an attached file within View Details of Scheduled Delivery on the **Query SMS Request** tab. 
+* [Console] Changed charging information on the **Setting for Unsubscribe 080 Numbers**
+    * Modified invalid charging information on the **Setting for Unsubscribe 080 Numbers** tab.
+* [Console] Unable to download attached files from the detail page of scheduled delivery list
+    * Fixed the 404 error occurred at the click of an attached file within View Details of Scheduled Delivery on the **Query SMS Request** tab.
 
 ### April 28, 2020
 #### Feature Updates
-* [Console] Backup is available for delivery list data older than 180 days 
+* [Console] Backup is available for delivery list data older than 180 days
     * Newly added a feature of creating backup files in OBS or AWS S3 for delivery data (general/mass/tag) that are older than 180 days.
-    * Backup setting is available on the **Delivery Setting** tab. 
+    * Backup setting is available on the **Delivery Setting** tab.
 * [Console] Fixed error of pagination on the list of failed data from the **Mass/Tag Delivery List** tab.
-    * Fixed inoperability of pagination while listing failure from the **Mass/Tag Delivery List** tab. 
-* [API] Added Request ID as a filter condition for Search Statistics API 
-    * Added a filter condition of listing request IDs for **Search Statistics- Based on Event/Requet Time**.
-    
+    * Fixed inoperability of pagination while listing failure from the **Mass/Tag Delivery List** tab.
+* [API] Added Request ID as a filter condition for Search Statistics API
+    * Added a filter condition of listing request IDs for **Search Statistics- Based on Event/Request Time**.
+
 ### March 24, 2020
 #### Feature Updates
 * [Console/API] Updated Statistics
-    * When **Statistis Event Key (statsId)** is included for a delivery, you can query by **Statistics Event Key** on the statistics page. 
-    * The **Statistics** page of the past shall be replaced by **(Old) Statistics**. 
-    * Added the **Statistics Event Key Management** and the **Statistics** page.   
+    * When **Statistics Event Key (statsId)** is included for a delivery, you can query by **Statistics Event Key** on the statistics page.
+    * The **Statistics** page of the past shall be replaced by **(Old) Statistics**.
+    * Added the **Statistics Event Key Management** and the **Statistics** page.
 
 ### February 25, 2020
 #### Feature Updates
 * [ETC] Changed Charging Policy for Unsubscription
-    * The hourly charging policy for unsubscription has been changed into monthly-based policy. 
+    * The hourly charging policy for unsubscription has been changed into monthly-based policy.
 * [API] Added API for Tag Management
-    * Following APIs have been added: 
+    * Following APIs have been added:
         * Query/Register/Modify/Delete Tags
         * List/Get/Register/Delete UIDs
         * Register/Delete Contact
-* [Console/API] Increased Size of Document Upload Files along with Sender Number Registration 
+* [Console/API] Increased Size of Document Upload Files along with Sender Number Registration
     * Document upload file volume has been increased to 10MB.
-* [Console] Fixed Unavailability of Same Document Uploads for Sender Number Registration 
-    * Failure in uploading documents in same file names has been fixed. 
-* [API] Added Filters for List Scheduled and API for Cancel Search Result of List Scheduled 
-    * Added senderGroupingKey, recipientGroupingKey conditions to List Scheduled 
+* [Console] Fixed Unavailability of Same Document Uploads for Sender Number Registration
+    * Failure in uploading documents in same file names has been fixed.
+* [API] Added Filters for List Scheduled and API for Cancel Search Result of List Scheduled
+    * Added senderGroupingKey, recipientGroupingKey conditions to List Scheduled
     * Added API to cancel in many conditions, other than Cancel Single Schedule API
-* [Console] Fixed Error in Downloading Search Result from List of Sent Messages 
-    * Fixed failure in file creation when there is a lot of data to send 
+* [Console] Fixed Error in Downloading Search Result from List of Sent Messages
+    * Fixed failure in file creation when there is a lot of data to send
 
 ### January 21, 2020
 ##### Feature Updates
 * [Console] Change of Scheduling for Mass/Tag Message Delivery
-    * When mass or tag delivery time is scheduled, the **Check and Schedule Delivery** button is deleted, to show the **Schedule Delivery** button only.  
-* [Console/API] To schedule delivery, tighter validity check is applied on past time.  
-    * Updated to specify scheduling down to three hours only from current time.
+    * When mass or tag delivery time is scheduled, the **Check and Schedule Delivery** button is deleted, to show the **Schedule Delivery** button only.
+* [Console/API] For scheduled delivery, tighter validation is applied on past time.
+    * Modified to specify scheduling up to three hours before the current time.
 
 ### December 24, 2019
 
 ##### Feature Updates
 * [Console] Updated Query Page for Unsuscribed Users
-    * Added the filter-search feature for unsusbribed 080 numbers 
+    * Added the filter-search feature for unsubscribed 080 numbers
 * [API] Added API for Registering Unsubscribed Users
-    * Added API to register users who unsubscribe 080 numbers 
+    * Added API to register users who unsubscribe 080 numbers
 
 ### November 26, 2019
 
-##### Feature Updates 
+##### Feature Updates
 * [Console] Added the Feature of Ad Delivery Restriction Time
-    * Night-time ad delivery can be restricted. 
-* [Console] Changed Mailing Period for Guide on Failed Mass/Tag Message Delivery 
-    * In case mass/tag messages are not actually delivered even after [Confirm and Send] is selected without time scheduled, they are 'Processed as Failure' one day after registered, and guiding mail is sent to users. 
-    * If  a message is not actually delivered after [Confirm and Send] is selected with time scheduled, it is 'Processed as Failure' one day after scheduled time and guiding mail is sent to user. 
-* [Console] Updated to show byte counts for title or body on the deliver page 
-* [Console] Updated to query by the 'Sender Registrant' on the General/Mass/Tag delivery page 
+    * Night-time ad delivery can be restricted.
+* [Console] Changed Mailing Period for Guide on Failed Mass/Tag Message Delivery
+    * In case mass/tag messages are not actually delivered even after [Confirm and Send] is selected without time scheduled, they are 'Processed as Failure' one day after registered, and guiding mail is sent to users.
+    * If  a message is not actually delivered after [Confirm and Send] is selected with time scheduled, it is 'Processed as Failure' one day after scheduled time and guiding mail is sent to user.
+* [Console] Updated to show byte counts for title or body on the deliver page
+* [Console] Updated to query by the 'Sender Registrant' on the General/Mass/Tag delivery page
 
 ### October 29, 2019
 
-##### Feature Updates 
-* [Console] Canceling scheduled delivery in batch   
-    * Delivery can be canceled only for the messages waiting to be scheduled 
-* [Console] Warning message for remaining resources with SMS service disabled 
+##### Feature Updates
+* [Console] Canceling scheduled delivery in batch
+    * Delivery can be canceled only for the messages waiting to be scheduled
+* [Console] Warning message for remaining resources with SMS service disabled
     * While the 080 number rejection service is enabled, it must be disabled first to disable the SMS service.
-* [Console/API] Sending ad messages only when the 080 number rejection service is enabled  
-    * Delivery is available only when the 080 number rejection service is 'Enabled'. 
-* [API] Tighter validity checks for the delivery of certification messages 
-    * Message delivery is unavailable when authentication message is not included 
-    * For more details, see [[API User Guide](./api-guide/#precautions-authword)]. 
+* [Console/API] Sending ad messages only when the 080 number rejection service is enabled
+    * Delivery is available only when the 080 number rejection service is 'Enabled'.
+* [API] Tighter validation for the delivery of certification messages
+    * Message delivery is unavailable when authentication message is not included
+    * For more details, see [[API User Guide](./api-guide/#precautions-authword)].
 
-#### Bug Fixes 
-* [API] Fixed the issue in which the comment field is not properly shown when querying history of sender number authentication requests 
+#### Bug Fixes
+* [API] Fixed the issue in which the comment field is not properly shown when querying history of sender number authentication requests
 
 
-### Septempber 24, 2019 
+### September 24, 2019
 
-##### Feature Updates 
-* [Console] Updated Query Tab of Web Console 
-    * Combined the **List Delivery per Request** page and the **List Scheduled Delivery** page.  
-    * Messages are queried by date of registration.  
-* [Console] Added **Register Sender Number** within **Template Management** 
-    * Added the **Register Sender Number** button for delivery page, also onto the **Template Management** tab. 
-* [Console] Deleted the **Cancel All Schedules** button from the **Query Scheduled SMS Delivery** tab. 
+##### Feature Updates
+* [Console] Updated Query Tab of Web Console
+    * Combined the **List Delivery per Request** page and the **List Scheduled Delivery** page.
+    * Messages are queried by date of registration.
+* [Console] Added **Register Sender Number** within **Template Management**
+    * Added the **Register Sender Number** button for delivery page, also onto the **Template Management** tab.
+* [Console] Deleted the **Cancel All Schedules** button from the **Query Scheduled SMS Delivery** tab.
 
-#### Bug Fixes 
+#### Bug Fixes
 * [Console/API] Fixed Partial Failure in Scheduled Delivery
-    * Infrequently, messages scheduled as of current time were partially not delivered. 
-    * Fixed the issue so as messages, which are scheduled even as of current time, can all be delivered. 
+    * Infrequently, messages scheduled as of current time were partially not delivered.
+    * Fixed the issue so as messages, which are scheduled even as of current time, can all be delivered.
 
 ### August 27, 2019
 
 ##### Feature Updates
 * [Console] Allowed more length for a business name,  for the setting of Rejection of Receiving 080 Numbers
-    * Updated to save up to 100 characters for a business name 
-* [Console] Added a column on an excel sheet when downloading files on the list of each request 
+    * Updated to save up to 100 characters for a business name
+* [Console] Added a column on an excel sheet when downloading files on the list of each request
 
 #### Bug Fixes
-* [Console] Fixed an issue in which delivery result is not available due to 'telecom provider's issue', when recipient's number has been managed by the prevention service of sender number falsification  
+* [Console] Fixed an issue in which delivery result is not available due to 'telecom provider's issue', when recipient's number has been managed by the prevention service of sender number falsification
 * [Console] Fixed an issue in which the warning window does not show, if query of each SMS request exceeds the maximum period (30 days)
 
 ### July 23, 2019
 
-##### Feature Updates 
+##### Feature Updates
 * [API] Category API Added
     * Provide APIs for Register/Query/Edit/Delete Category.
 * [API] Template API Added
     * Provide APIs for Register/Query/Edit/Delete Template.
-* [API] Validity Checks Tightened for Title/Body in Text Delivery
+* [API] Validation Tightened for Title/Body in Text Delivery
     * More restrictions in the length of title/body, from v2.2 API.
     * SMS (Body: Up to 255 characters), LMS/MMS (Title: Up to 120, Body: Up to 4000 characters)
 * [API] Template Delivery Higher on Priority of Request Parameter
     * Modified, as of v2.2 API, that data saved on a template cannot be used when request parameter includes title, body, sender number, or attached files, if delivery is requested via template.
 
-#### Bug Fixes 
+#### Bug Fixes
 * [API] Updated for the query of scheduled delivery details, to respond with defined codes when the query is attempted with invalid request ID.
+
 
 ### June 25, 2019
 
-##### Feature Updates 
-* [Console] Added sender's group key and recipient's group key in the query of request by SMS 
+##### Feature Updates
+* [Console] Added sender's group key and recipient's group key in the query of request by SMS
     * Sender's group key and recipient's group key have been added as part of query conditions for each SMS request.
-* [Console] Added check boxes to include or exclude title/body in scheduling a file downloading after query of delivery list  
+* [Console] Added check boxes to include or exclude title/body in scheduling a file downloading after query of delivery list
     * Check boxes have been added to include title/body or not, in the request of downloading after query of general/mass/tag delivery list.
-* [API] Added Create/Query/Download delivery list in files for General messages   
+* [API] Added Create/Query/Download delivery list in files for General messages
     * APIs have been added to download general delivery list in files.
 
-#### Bug Fixes 
-* [Console] Fixed template parameter which is not replaced and therefore not visible, in the query of scheduled delivery list and details 
-    * The issue of template parameter which was not properly replaced in the query of scheduled delivery list and details has been fixed. 
-* [Console/API] Fixed bugs in collecting statistics 
-    * It has been modified to collect duplicate delivery as failed delivery, not as ready for receiving 
+#### Bug Fixes
+* [Console] Fixed template parameter which is not replaced and therefore not visible, in the query of scheduled delivery list and details
+    * The issue of template parameter which was not properly replaced in the query of scheduled delivery list and details has been fixed.
+* [Console/API] Fixed bugs in collecting statistics
+    * It has been modified to collect duplicate delivery as failed delivery, not as ready for receiving
+
 
 ### May 28, 2019
 
 #### Updates
-* [Console/API] Performance improved for scheduled delivery 
+* [Console/API] Improved performance of scheduled delivery
 
 #### Bug Fixes
-* [API] Fixed to respond with defined codes for the query of template details, when it is tried with invalid template 
+* [API] Fixed to respond with defined codes for the query of template details, when it is tried with invalid template
 * [Console] Processing disallowed characters for template registration/modification
     * When a template is registered/modified, if disallowed characters (emojis) are tried, defined errors, not system errors, are sent as response.
-* [Console/API] Validity checks added for empty attached files when uploading attached files for sender number authentication  
-    * If attached file is missing for upload, defined error is sent as response, instead of a system error. 
+* [Console/API] Added validation for empty attached files when uploading attached files for sender number authentication
+    * If attached file is missing for upload, defined error is sent as response, instead of a system error.
+
+### April 23, 2019
+
+##### Feature Updates
+* [API] Increased LMS/MMS length limit
+    * Improved so that LMS/MMS titles can be saved up to 120 characters.
+    * Depending on the device/carrier, the length of the sent title may be differently.
+* [API] Improved to respond with an error when performing international delivery by LMS/MMS
+    * Improved to respond with -2024 error when performing international delivery by LMS/MMS
+    * LMS/MMS does not support international delivery.
+* [Console] Improved the length restriction issue of the template management screen
+    * Improved so that, when registering/modifying a template, the replacement element is not included in the length limit calculation.
+
+#### Bug Fixes
+* [Console] Fixed an issue where the query failed intermittently when querying an opt-out list
+    * Resolved the issue where the query failed intermittently when querying an opt-out list.
+* [Console] Fixed an error for registering template attachments
+    * Fixed an issue where, when registering a template with attachments, the attachments were not registered properly.
+* [API] Fixed an API response error
+    * Improved to respond with -9998 instead of server error (500) when calling an API that does not exist.
+* [Console] Fixed an error for querying a template that does not exist
+    * Fixed an issue where, when calling an unavailable template directly from the console, an unexpected error occurred.
+* [API] Fixed a but in scheduled delivery
+    * Improved an issue where, when the scheduled time is set to the current time and there are many recipients for a scheduled delivery, a duplicate delivery occurred intermittently.
 
 ### March 26, 2019
 
 #### Updates
-* [Console/API] Retention period changed for delivery history 
-    * Delivery history can be queried down to 6 months before.  
-* [Console] Query page improved for template list 
-    * The query page for template list has improved in speed. 
-* [API] Validity check improved for the request of sender number registration 
-    * Added validity check to send failure if request for sender number registration is made under invalid attached file ID 
+* [Console/API] Retention period changed for delivery history
+    * Delivery history can be queried down to 6 months before.
+* [Console] Query page improved for template list
+    * The query page for template list has improved in speed.
+* [API] Improved validation for the request of sender number registration
+    * Added validation to send failure if request for sender number registration is made under invalid attached file ID
 
 
 ### February 26, 2019
 
 #### Updates
-* [Console] Input windows improved for sender number on the page requesting for message delivery   
-    * Search is available on the input window for sender numbers 
-* [Console/API] Validity checks improved for guidance message for rejection of receiving 080 numbes  
-    * Improved to not check space for "(Ad) [Reject Receiving Charge-free] 080xxxxxxx", which is required in the body of ad messages 
-* [API] Sender numbers added as part of query conditions requesting for history of sender number authentication 
+* [Console] Input windows improved for sender number on the page requesting for message delivery
+    * Search is available on the input window for sender numbers
+* [Console/API] Improved validation for guidance message for rejection of receiving 080 numbers
+    * Improved to not check space for "(Ad) [Reject Receiving Charge-free] 080xxxxxxx", which is required in the body of ad messages
+* [API] Sender numbers added as part of query conditions requesting for history of sender number authentication
     * Added to query request history with sender numbers (sendNo).
     * See [[API Guide](./api-guide/#api_1)] for more details.
 
@@ -230,222 +345,222 @@
 
 #### Added
 * [Console/API] Longer template ID
-    * Allowed length of template ID has changed to 50 characters, from 10 
+    * Allowed length of template ID has changed to 50 characters, from 10
 
 ### December 27, 2018
 
 #### Added
-* [Console/API] Restriction of Duplicate Delivery 
-    * You may set whether to enable duplicate delivery, as well as block time 
-    * The service is disabled by default, and if it is enabled, a same message is not re-sent during configured time period. 
-    * See [[Console Guide](./console-guide/#_28)] for more details.  
+* [Console/API] Restriction of Duplicate Delivery
+    * You may set whether to enable duplicate delivery, as well as block time
+    * The service is disabled by default, and if it is enabled, a same message is not re-sent during configured time period.
+    * See [[Console Guide](./console-guide/#_28)] for more details.
 
-#### Updated 
-* [Console] Korean goes unbroken if downloaded CSV file opens up with excel 
-    * Added BOM type, so as Korean opens unbroken even on CSV file from excel  
-* [API] Query Message API field added, as of result updates 
-    * Telecom providers' codes are added to Query Message API field as of result updates.   
-    * See [[API Guide](./api-guide/#_28)] for more details.  
+#### Updated
+* [Console] Korean goes unbroken if downloaded CSV file opens up with excel
+    * Added BOM type, so as Korean opens unbroken even on CSV file from excel
+* [API] Query Message API field added, as of result updates
+    * Telecom providers' codes are added to Query Message API field as of result updates.
+    * See [[API Guide](./api-guide/#_28)] for more details.
 
 ### November 27, 2018
 
 #### Added
 * [API] Query Delivery Result Updates API Added
-    * Added API to query delivery results as of updated time 
-* [Console/API] Update cycle changed for delivery results 
-    * Cycle of updates of receiving result on device changes from 1 minute to 5 seconds. 
+    * Added API to query delivery results as of updated time
+* [Console/API] Update cycle changed for delivery results
+    * Cycle of updates of receiving result on device changes from 1 minute to 5 seconds.
 
 #### Updated
-* [API] Change of Sender Number Checks 
-    * If sender number is registered with "-" (hyphen), delivery request is available even without hyphen. 
-* [API] Parameters that are requested with templates are elevated to higher on the priority list 
-    * In case a parameter, requested with templates, includes title, body, sender number, and attached file, data saved in the templates shall not be applied. 
+* [API] Change of Sender Number Checks
+    * If sender number is registered with "-" (hyphen), delivery request is available even without hyphen.
+* [API] Parameters that are requested with templates are elevated to higher on the priority list
+    * In case a parameter, requested with templates, includes title, body, sender number, and attached file, data saved in the templates shall not be applied.
 * [Console/API] Query of delivery list by the minute is available up to the next 59 seconds.
-    * If period is specified in the query of delivery list, such as :"year/month/day hour:minute", you can query up to the next 59 seconds. 
-    * e.g.) To query 2018-11-20 00:00 ~ 2018-11-20 01:00, query data between 2018-11-20 00:00:00 ~ 2018-11-20 01:00:59 
+    * If period is specified in the query of delivery list, such as :"year/month/day hour:minute", you can query up to the next 59 seconds.
+    * e.g.) To query 2018-11-20 00:00 ~ 2018-11-20 01:00, query data between 2018-11-20 00:00:00 ~ 2018-11-20 01:00:59
 * [Console/API] If title/body includes unavailable characters (emojis) to send, respond with defined errors.
-    * If request includes unavailable characters (emojis) to send text messages, 2023 Response Code is sent as response.  
-* [API] Template parameters are available for tag delivery.  
-    * You can send with template parameters to send request by tags. 
-    * See [[API Guide](./api-guide/#sms_11)] for more details. 
+    * If request includes unavailable characters (emojis) to send text messages, 2023 Response Code is sent as response.
+* [API] Template parameters are available for tag delivery.
+    * You can send with template parameters to send request by tags.
+    * See [[API Guide](./api-guide/#sms_11)] for more details.
 
 #### Bugs Fixes
-* [API] Fixed invalid error code response 
-    * For text delivery request, if a request field includes past time, it is responded with -2022 error, not -2021. 
-    * Error code -2021 occurs in a system when it fails to save in a message queue. 
+* [API] Fixed invalid error code response
+    * For text delivery request, if a request field includes past time, it is responded with -2022 error, not -2021.
+    * Error code -2021 occurs in a system when it fails to save in a message queue.
 
 ### August 28, 2018
-#### Updated 
-* [Console/API] Length restriction in file name of attachment when uploaded 
-    * Server error occurred when the length of an attached file name exceeded 45 characters. 
-    * Allows up to 45 characters only, including extension, and after 45, it shall be responded with failure code.  
-* [API] Parameters to group by sender/recipient  
-    * As of v2.1 API, if parameters include senderGroupingKey or recipientGroupingKey for message delivery, query is available after filtering in Query API. 
-    * See [[API Guide](./api-guide/#sms_1)] for more details.  
-    * Changes on the console page will be applied during next maintenance. 
-* [API] Paging parameter applied for the Query Request for Sender Number Authentication API 
-    * The number of exposed items can be controlled by paging parameter in the Query Request for Sender Number Authentication API. 
+#### Updated
+* [Console/API] Length restriction in file name of attachment when uploaded
+    * Server error occurred when the length of an attached file name exceeded 45 characters.
+    * Allows up to 45 characters only, including extension, and after 45, it shall be responded with failure code.
+* [API] Parameters to group by sender/recipient
+    * As of v2.1 API, if parameters include senderGroupingKey or recipientGroupingKey for message delivery, query is available after filtering in Query API.
+    * See [[API Guide](./api-guide/#sms_1)] for more details.
+    * Changes on the console page will be applied during next maintenance.
+* [API] Paging parameter applied for the Query Request for Sender Number Authentication API
+    * The number of exposed items can be controlled by paging parameter in the Query Request for Sender Number Authentication API.
 * [API] Query/Cancel Scheduled Delivery API Added
     * Added API to list and cancel scheduled delivery.
     * See [[API Guide](./api-guide/#_73)] for more details.
 
 ### June 26, 2018
 #### Updated
-* [Console] Change guiding email text regarding ready for mass/tag delivery  
-    * Changed email text, sent when message is not actually sent after 'Scheduled Delivery after Check' is clicked.   
+* [Console] Change guiding email text regarding ready for mass/tag delivery
+    * Changed email text, sent when message is not actually sent after 'Scheduled Delivery after Check' is clicked.
 
 ### May 29, 2018
 #### Updated
-* [Console] Validity checks added for sender number registration via document authentication 
+* [Console] Added validation for sender number registration via document authentication
     * Modified to check number validity after sender number is entered and before pop-up is exposed on document authentication.
 * [Console] File volume restricted for the upload of mass delivery (excel or csv)
-    * The largest recipient uploading file for mass delivery is restricted to 5M. 
-* [Console] Restriction of the number of template creation  
-    * The largest available number of template creation is restricted to 100. 
-* [Console] Change in alert message exposed when same ID of deleted template is created 
-    * Improved the alert message on errors exposed when same ID of a deleted template is recreated.   
+    * The largest recipient uploading file for mass delivery is restricted to 5M.
+* [Console] Restriction of the number of template creation
+    * The largest available number of template creation is restricted to 100.
+* [Console] Change in alert message exposed when same ID of deleted template is created
+    * Improved the alert message on errors exposed when same ID of a deleted template is recreated.
 * [Console] Allowed to cancel mass delivery when it is "ready"
-    * It is possible to cancel mass delivery even when it is "ready". 
+    * It is possible to cancel mass delivery even when it is "ready".
 
 ### April 24, 2018
 #### Added
-* [Console] Added exporting files (csv) for the history of mass/tag delivery 
-    * Mass/tag delivery history can be downloaded in csv files. 
+* [Console] Added exporting files (csv) for the history of mass/tag delivery
+    * Mass/tag delivery history can be downloaded in csv files.
 
 #### Updated
-* [Console] Available to use many 080 numbers  
-    * Many 080 numbers are available in a single project. 
-* [Console] Name change of business rejected for receiving 080 numbers  
-    * Name change of business is available on the page of rejection of receiving 080 numbers. 
-* [Console] Tab menu on service page moved to console 
-    * Tab menu can be located on console, to move to pages, from the menu on the left or on the top right.  
+* [Console] Available to use many 080 numbers
+    * Many 080 numbers are available in a single project.
+* [Console] Name change of business rejected for receiving 080 numbers
+    * Name change of business is available on the page of rejection of receiving 080 numbers.
+* [Console] Tab menu on service page moved to console
+    * Tab menu can be located on console, to move to pages, from the menu on the left or on the top right.
 * [Console] "Processing" status deleted from query by recipient on the query of mass delivery request
-    * The "Processing" status which is not used, has been deleted. 
-* [Console] Characters restricted in category/template name and description 
-    * Category/template name can have no more than 50 characters, or 100 for description. 
-* [Console] Download CSV Files added on the UID & Contact registration page 
-    * CSV files, including sample data, can be downloaded on the UID & Contact Registration page. 
+    * The "Processing" status which is not used, has been deleted.
+* [Console] Characters restricted in category/template name and description
+    * Category/template name can have no more than 50 characters, or 100 for description.
+* [Console] Download CSV Files added on the UID & Contact registration page
+    * CSV files, including sample data, can be downloaded on the UID & Contact Registration page.
 
-#### Bugs Fixed 
-* [Console] Fixed error of uploading mass delivery files  
-    * Fixed the issue of failed operations of an attached file in the same name when it is re-uploaded after uploaded with invalid attached file 
-* [Console] Added validity check for the input window of mobile phone numbers 
-    * Same validity check is added to the input box for mobile phone numbers.
-    * Characters are restricted between 8 and 15, allowing numbers or hyphen (-) only. 
-* [API] Modified error in query history of sender number authentication 
+#### Bugs Fixed
+* [Console] Fixed error of uploading mass delivery files
+    * Fixed the issue of failed operations of an attached file in the same name when it is re-uploaded after uploaded with invalid attached file
+* [Console] Added validation for the input window of mobile phone numbers
+    * Same validation is added to the input box for mobile phone numbers.
+    * Characters are restricted between 8 and 15, allowing numbers or hyphen (-) only.
+* [API] Modified error in query history of sender number authentication
     * Fixed the issue of not returning normal data when status code was inserted as filter in the history of requesting sender number authentication.
 
 
 ### March 22, 2018
-#### Added 
-* [Console] Downloading CSV added 
+#### Added
+* [Console] Downloading CSV added
     * Added the feature of downloading CSV on the page of query by SMS request, and of setting for rejection of receiving 080 numbers.
         * CSV files can be downloaded by search conditions, for the query by SMS request.
-        * On the page of rejection of receiving 080 numbers, the list of rejection targets can be downloaded in csv files. 
-* [Console/API] Deletion of rejection target of receiving 080 numbers 
+        * On the page of rejection of receiving 080 numbers, the list of rejection targets can be downloaded in csv files.
+* [Console/API] Deletion of rejection target of receiving 080 numbers
     * Target of rejection can be deleted on console or API.
-    * See [[API Guide](./api-guide/#_55)] for more details. 
+    * See [[API Guide](./api-guide/#_55)] for more details.
 * [API] Scheduled delivery added
-    * Scheduled delivery is available for SMS/MMS/AUTH. 
-    * See [[API Guide](./api-guide/#sms_2)] for more details. 
+    * Scheduled delivery is available for SMS/MMS/AUTH.
+    * See [[API Guide](./api-guide/#sms_2)] for more details.
 
-#### Bugs Fixed 
-* [Console] Fixed the bug in which query was unavailable after request status was selected as "failure" on the query page by SMS request 
-    * Fixed the issue of unavailability of data query when the request status was selected as "failure". 
-* [Console] Fixed the error of Guide ment, which was automatically entered with the selection of ad delivery
+#### Bugs Fixed
+* [Console] Fixed the bug in which query was unavailable after request status was selected as "failure" on the query page by SMS request
+    * Fixed the issue of unavailability of data query when the request status was selected as "failure".
+* [Console] Fixed the error of Guide content, which was automatically entered with the selection of ad delivery
     * Modified as the automatically entered body message includes error
-        * "[Reject Receiving Charge-free]" -> "[RejectReceiving Charge-free]" 
+        * "[Reject Receiving Charge-free]" -> "[RejectReceiving Charge-free]"
 
 ### February 22, 2018
 #### Added
 * [Console/API] Tag delivery added
-    * The function of tag delivery has been added. 
-    * Managing tags, UIDs, and recipient numbers are available now. 
+    * The function of tag delivery has been added.
+    * Managing tags, UIDs, and recipient numbers are available now.
 
-#### Updated 
-* [Console] User message improvement 
-    * Messages on pages and pop-ups have been partially improved. 
-* [Console] Cancellation of general/mass delivery schedules  
-    * Schedule can be canceled on the page of query scheduled delivery of SMS. 
+#### Updated
+* [Console] User message improvement
+    * Messages on pages and pop-ups have been partially improved.
+* [Console] Cancellation of general/mass delivery schedules
+    * Schedule can be canceled on the page of query scheduled delivery of SMS.
     * Cancellation is available by the request on the page of query mass SMS delivery
 * [API] List Sender Number API added
-    * Added Query Sender Number API. 
+    * Added Query Sender Number API.
     * See [[API Guide](./api-guide/#api_2)] for more details.
 
-#### Bugs Fixed 
-* [Console] Incorrect exposure of tabs on the sender number management page 
-    * Fixed the error by which wrong tabs show on top, when the sender number management tab is displayed on the "sender number registration" or "sender number query" page. 
-* [Console] Fixed the error in the click of Show Details on the mass delivery page 
+#### Bugs Fixed
+* [Console] Incorrect exposure of tabs on the sender number management page
+    * Fixed the error by which wrong tabs show on top, when the sender number management tab is displayed on the "sender number registration" or "sender number query" page.
+* [Console] Fixed the error in the click of Show Details on the mass delivery page
     * Fixed the issue by which Show Details are clicked to result in script error and not properly exposed.
 * [API] Fixed the bug of attached files
-    * Fixed the issue by which delivery was normally processed even with invalid attached file ID. 
+    * Fixed the issue by which delivery was normally processed even with invalid attached file ID.
 
 
 ### December 21, 2017
 #### Bugs Fixed
 * [Console] Fixed delivery bugs on console.
-    * Fixed the bug by which 90-byte messages are partially sent, with each space is deemed as 2 bytes.   
-    * Fixed the bug by which "< character strings in the body message are replaced by &It ;. 
+    * Fixed the bug by which 90-byte messages are partially sent, with each space is deemed as 2 bytes.
+    * Fixed the bug by which "< character strings in the body message are replaced by &It ;.
 
 ### November 23, 2017
 #### Added
-* [API] Request/Query Sender Number Registration API added 
+* [API] Request/Query Sender Number Registration API added
     * Request/Query Sender Number Registration which was available only on console is now provided in APIs.
-    * See [[API Guide](./api-guide/#_56)] for more details. 
+    * See [[API Guide](./api-guide/#_56)] for more details.
 
-#### Deleted 
+#### Deleted
 * [API] v1.0 API deprecated
 
-#### Updated 
-* [Console] Added Schedule Delivery page 
-    * Check scheduled delivery list on the page. 
-    * If delivery is made after scheduled time, query on the page of delivery list. 
-* [Console] Added item for statistics 
-    * Cases waiting for result after completely delivered were collected as failure. 
-    * Waiting Item has been added to be separately managed from failed cases. 
-* [API] Added valid error message with no input of recipient number  
-    * When recipient number is missing, it is not returned as system error but responded as invalid recipient number.  
-* [API] Added error message for invalid recipient numbers 
-    * When the country code is null with the input of invalid number, it is not returned as system error but as invalid recipient number.  
+#### Updated
+* [Console] Added Schedule Delivery page
+    * Check scheduled delivery list on the page.
+    * If delivery is made after scheduled time, query on the page of delivery list.
+* [Console] Added item for statistics
+    * Cases waiting for result after completely delivered were collected as failure.
+    * Waiting Item has been added to be separately managed from failed cases.
+* [API] Added valid error message with no input of recipient number
+    * When recipient number is missing, it is not returned as system error but responded as invalid recipient number.
+* [API] Added error message for invalid recipient numbers
+    * When the country code is null with the input of invalid number, it is not returned as system error but as invalid recipient number.
 
 #### Bugs Fixed
-* [Console] Query unavailable with requestId for scheduled delivery 
-    * Modified the issue in which query was unavailable with requestId, after scheduled delivery, on the page of query delivery. 
+* [Console] Query unavailable with requestId for scheduled delivery
+    * Modified the issue in which query was unavailable with requestId, after scheduled delivery, on the page of query delivery.
 
 ### October 19, 2017
-#### Bugs Fixed 
+#### Bugs Fixed
 * [Console] Fixed the bug in which delivery result of SMS for authentication is not updated
 
 ### September 21, 2017
 #### Added
 * [Console, API] Query target of rejection receiving 080 numbers
-    * Added querying recipients rejecting 080 numbers and API 
-    * See [[API Guide](./api-guide/#_52)] for more details.  
+    * Added querying recipients rejecting 080 numbers and API
+    * See [[API Guide](./api-guide/#_52)] for more details.
 
 ### August 24, 2017
-#### Added 
+#### Added
 * [Console] Send email guidance on approval/denial of sender numbers
-    * Guidance is sent to users by email regarding sender number approval or denial. 
-* [Console] Send emails on approval/denial of rejection of receiving 080 numbers 
-    * Guidance is sent to users by email regarding approval/denial of rejection receiving 080 numbers. 
+    * Guidance is sent to users by email regarding sender number approval or denial.
+* [Console] Send emails on approval/denial of rejection of receiving 080 numbers
+    * Guidance is sent to users by email regarding approval/denial of rejection receiving 080 numbers.
 * [API] Error response added to unsupported ContentType
-    * Modified to return as clear error, not a system error, if API requesting header is set with unsupported ContentType. 
+    * Modified to return as clear error, not a system error, if API requesting header is set with unsupported ContentType.
 
 #### Bugs Fixed
-* [Console] Fixed the bug by which category/template registration is saved only as "enabled" 
-    * The bug by which category/template registration is saved only as "Enabled" even though the status was actually checked as "Disabled". 
+* [Console] Fixed the bug by which category/template registration is saved only as "enabled"
+    * The bug by which category/template registration is saved only as "Enabled" even though the status was actually checked as "Disabled".
 
 ### April 20, 2017
-#### Added 
-* [API]  Rejection of Receiving 080 Numbers added 
+#### Added
+* [API]  Rejection of Receiving 080 Numbers added
     * You may join the rejection service of receiving 080 numbers to send ad messages. [[API Guide](./api-guide/#sms_11)]
     * See [[Rejection of Receiving 080 Numbers](./console-guide/#080)] for more details on subscription.
 
 ### March 23, 2017
-#### Updated 
-* [Console] In the query of mass delivery, select window for cause of result has been grouped. 
+#### Updated
+* [Console] In the query of mass delivery, select window for cause of result has been grouped.
 
-#### Bugs Fixed 
+#### Bugs Fixed
 * [Console] Fixed the bug by which show details of scheduled delivery are returned as empty.
 
 
@@ -454,94 +569,95 @@
 * [Console] Fixed the bug of abnormal operations of pagination due to error of delivery count in the query of mass MMS delivery.
 
 ### January 19, 2017
-#### Updated 
+#### Updated
 * [API] Restriction of individuals added to send to a number of recipients.
     * AS-IS: No restriction was available for a number of recipients.
     * TO-BE: Each request can have no more than 1000 recipients.
 
 #### Bugs Fixed
 * [Console] Fixed the bug, in query delivery, by which field is clicked to show ellipsis on the right of the field.
-    * AS-IS: Long title and body results in ellipsis created on the right of the field.  
-    * TO-BE: Regardless of the length, ellipsis is normally created in the above of each field. 
+    * AS-IS: Long title and body results in ellipsis created on the right of the field.
+    * TO-BE: Regardless of the length, ellipsis is normally created in the above of each field.
 
 ### December 22, 2016
 #### Updated
-* [Console] Added the function by which query is available for failed delivery cases. 
-    * AS-IS: For failed SMS or MMS delivery, response is available but cannot be queried on console. 
-    * TO-BE: If SMS or MMS delivery fails, the request status can be changed to failure so as to allow query. 
-* [API] Changed the logic to allow only normal cases from validity checks to be sent to a number of recipients.
-    * AS-IS: If request of sending for a number of recipients fails, message is not sent to other recipients after failed recipient.  
-    * TO-BE: Message is sent to all recipients, and delivery result by recipient is provided at the response. Even with failed delivery, result of request becomes successful. <br/>See [[API Guide](./api-guide/)] for more details. 
-* Method of calculating charges has changed. 
-    * AS-IS: Charged on the basis of request time of text delivery 
+* [Console] Added the function by which query is available for failed delivery cases.
+    * AS-IS: For failed SMS or MMS delivery, response is available but cannot be queried on console.
+    * TO-BE: If SMS or MMS delivery fails, the request status can be changed to failure so as to allow query.
+* [API] Changed the logic to allow only normal cases from validation to be sent to a number of recipients.
+    * AS-IS: If request of sending for a number of recipients fails, message is not sent to other recipients after failed recipient.
+    * TO-BE: Message is sent to all recipients, and delivery result by recipient is provided at the response. Even with failed delivery, result of request becomes successful. <br/>
+	See [[API Guide](./api-guide/)] for more details.
+* Method of calculating charges has changed.
+    * AS-IS: Charged on the basis of request time of text delivery
     * TO-BE: Charged by the response time for delivery result
 
 
 
-#### Bugs Fixed 
-* [API] Fixed the bug in which server error occurred for the sending of MMS attachment when the file was unavailable attached file 
-    * AS-IS: Responded with server error when sent by unavailable attached file ID   
+#### Bugs Fixed
+* [API] Fixed the bug in which server error occurred for the sending of MMS attachment when the file was unavailable attached file
+    * AS-IS: Responded with server error when sent by unavailable attached file ID
     * TO-BE: Provide error messages for causes of failure, when there is unavailable attached file for MMS attachment delivery   M
 * [Console] Fixed the bug of space in CSV template files for mass delivery.
-    * AS-IS: Error in parsing when there is space between fields in CSV template files 
-    * TO-BE: Normal operations for spaces by , between fields in CSV template files 
+    * AS-IS: Error in parsing when there is space between fields in CSV template files
+    * TO-BE: Normal operations for spaces by , between fields in CSV template files
 
 ### December 8, 2016
 #### Updated
-* [Console] Improved template features. 
-    * AS-IS: When a template was deleted, information was not shown on the delivery history of the template 
+* [Console] Improved template features.
+    * AS-IS: When a template was deleted, information was not shown on the delivery history of the template
     * TO-BE: Even when a template is deleted, template information is available on the delivery history of such template. Nevertheless, template, once deleted, cannot be used again, and queried template on the deliver history is to be replaced by recently-modified template.
-* [Console] In the query of delivery, the window for selection of cause of result has been improved. 
-    * AS-IS: When all is selected for the cause of result, the selection window for the cause of result shows all. 
-    * TO-BE: When all is selected for the cause of result, the selection windows for the cause of result is not available. 
-* [Console] For sender number registration, validity check has been enforced. 
+* [Console] In the query of delivery, the window for selection of cause of result has been improved.
+    * AS-IS: When all is selected for the cause of result, the selection window for the cause of result shows all.
+    * TO-BE: When all is selected for the cause of result, the selection windows for the cause of result is not available.
+* [Console] For sender number registration, validation has been enforced.
     * AS-IS: Check duplicate checks only
     * TO-BE: Duplicate checks + Check sender number registration format  &nbsp;&nbsp;[[Format of Sender Number Registration](./console-guide/#_16)]
 
 
 #### Bugs Fixed
-* [Console] Fixed the bug by which MMS template was registered even without title. 
-    * Issue: Regarding MMS template registration, template can be registered without a title. 
-    * Solution: To register MMS templates, a check is added to enter title. 
+* [Console] Fixed the bug by which MMS template was registered even without title.
+    * Issue: Regarding MMS template registration, template can be registered without a title.
+    * Solution: To register MMS templates, a check is added to enter title.
 
 ### November 24, 2016
 #### Updated
-* [Console] Features of mass delivery improved.  
+* [Console] Features of mass delivery improved.
     * Replacement: Replacement delivery was available by selecting templates only, but now it is available by entering replacement key on the title or body without selecting a template. tT
-    * Uploading Template Files: In some editors, like excel, even when there is no available data for cell which has editing history, empty character string data are included in saving. Now, it has been changed that empty character strings which are not within the range of input are ignored from validity checks to upload template files. 
-    * Caution Messages Added: In some editors, like excel, CSV template files are created and uni codes are not saved, which results in broken characters. Cautions on such issue are to be provided for template downloads and schedule delivery.  
+    * Uploading Template Files: In some editors, like excel, even when there is no available data for cell which has editing history, empty character string data are included in saving. Now, it has been changed that empty character strings which are not within the range of input are ignored from validation to upload template files.
+    * Caution Messages Added: In some editors, like excel, CSV template files are created and uni codes are not saved, which results in broken characters. Cautions on such issue are to be provided for template downloads and schedule delivery.
 
 #### Bugs Fixed
-* [Console] Modified error on the mass delivery page. 
-    * Modified event errors: Modified the error in which an alert shows like 'Select a delivery request to query', at the click of the header of the request list. 
+* [Console] Modified error on the mass delivery page.
+    * Modified event errors: Modified the error in which an alert shows like 'Select a delivery request to query', at the click of the header of the request list.
 
 ### October 20, 2016
 #### Updated
-* [Console] Mass upload delivery has improved. 
-    * CSV Format Supported for Mass Upload Delivery: Mass upload delivery becomes available not only on excel but CSV file (with CSV template provided) 
+* [Console] Mass upload delivery has improved.
+    * CSV Format Supported for Mass Upload Delivery: Mass upload delivery becomes available not only on excel but CSV file (with CSV template provided)
     * Check Process of Selective Targets: Allows to selectively check target of delivery of mass upload
-    * Enforced File Validation for Mass Upload Delivery: Check if there is any invalid format of recipient number or missing data in the file  
-    * Tab Added for Mass SMS Delivery: Mass SMS Delivery tab has been added to check target and progress status of mass upload delivery 
-    * For reference: Notification > SMS > Getting Started > Mass Upload Delivery 
-* [Console] The Query by SMS Request tab has changed to Group Window Selecting for Reasons. 
+    * Enforced File Validation for Mass Upload Delivery: Check if there is any invalid format of recipient number or missing data in the file
+    * Tab Added for Mass SMS Delivery: Mass SMS Delivery tab has been added to check target and progress status of mass upload delivery
+    * For reference: Notification > SMS > Getting Started > Mass Upload Delivery
+* [Console] The Query by SMS Request tab has changed to Group Window Selecting for Reasons.
     * For reference: Notification > SMS > Getting Started > Query by SMS Request
-* [API] If the request body of Send SMS API is empty, delivery is deemed as failure. 
-    * AS-IS: If the body is empty, response may be successful but since content is missing, it is deemed as undelivered. When queried, it shows error in message type. 
-    * TO-BE: If the body is empty, response fails along with the message that body message is empty. 
+* [API] If the request body of Send SMS API is empty, delivery is deemed as failure.
+    * AS-IS: If the body is empty, response may be successful but since content is missing, it is deemed as undelivered. When queried, it shows error in message type.
+    * TO-BE: If the body is empty, response fails along with the message that body message is empty.
 
 #### Bugs Fixed
 * [Console] Modified abnormal operations after SMS delivery, on Firefox .
-    * Issue: After delivery, sender numbers could not be selected or field was not returned to default.  
-    * Solution: Modified to return field to default or normally operate 
+    * Issue: After delivery, sender numbers could not be selected or field was not returned to default.
+    * Solution: Modified to return field to default or normally operate
 
 ### September 29, 2016
-#### Updated 
-* [Console] Modified to allow sending SMS from the web page, to recipient numbers which include country code. 
+#### Updated
+* [Console] Modified to allow sending SMS from the web page, to recipient numbers which include country code.
     * Reference: Notification > SMS > Getting Started > Send General SMS, General LMS, and MMS
 
 #### Bugs Fixed
 * [API] Fixed the bug in which userId is always responded with null, among responses for Query SMS Delivery API.
-    * Isuse: userId was responded always with null, among responses for Query SMS Delivery API.
+    * Issue: userId was responded always with null, among responses for Query SMS Delivery API.
     * Solution: userId is responded with normal data, among responses for Query SMS Delivery API.
 * [API] Fixed the bug in which sendType is responded with abnormal data, among responses for Query Single SMS Delivery for Authentication.
     * Issue: SMS type for sendType is 0, among responses for Query Single SMS Delivery for Authentication API.
@@ -555,14 +671,13 @@
 #### Bugs Fixed
 * [Console] Allowed to normally change to enable or disable SMS template.
     * Issue: Even after service is changed to Enable/Disable, it was not normally applied when template was called.
-    * Solution: Modified to normally save and expose the enable/disable field 
+    * Solution: Modified to normally save and expose the enable/disable field
 
 ### August 4, 2016
 #### Bugs Fixed
 * [API] Modified to allow MMS sending if SMS sender number is registered by mobile phone authentication.
-    * Issue: Send numbers saved by mobile phone authentication were saved in the format of international numbers, which prohibited MMS delivery.  
+    * Issue: Send numbers saved by mobile phone authentication were saved in the format of international numbers, which prohibited MMS delivery.
     * Solution: Modified to change the saving format to the Korean mobile phone numbers (01x-xxxx-xxxx).
 * [API] Modified to allow sending messages even if the countryCode is missing.
-    * Issue: When the countryCode is sent as empty value (null, ""), response is successfully exposed but not normally sent 
+    * Issue: When the countryCode is sent as empty value (null, ""), response is successfully exposed but not normally sent
     * Solution: Modified to set 82 as the default country code, if it comes with empty value
-
