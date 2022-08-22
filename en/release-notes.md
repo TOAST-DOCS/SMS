@@ -5,6 +5,10 @@
 
 * [Console] Changed the button name and message for mass and tag delivery
     * Changed the button name of Schedule Delivery to reduce confusion because pressing the mass delivery or tag delivery button immediately executes delivery.
+* [API] Added a field that was omitted for webhook delivery
+    * Added the recipientNo field that was omitted for webhook delivery.
+* [API] Fixed a bug that occurred to the statisticsType field in Statistics API
+    * Modified so that the statisticsType field works normally when calling Statistics API.
 
 ### July 26, 2022
 #### Feature Updates
