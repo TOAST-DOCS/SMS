@@ -1,5 +1,11 @@
 ## Notification > SMS > Release Notes
 
+### August 23, 2022
+#### Feature Updates
+
+* [Console] Changed the button name and message for mass and tag delivery
+    * Changed the button name of Schedule Delivery to reduce confusion because pressing the mass delivery or tag delivery button immediately executes delivery.
+
 ### July 26, 2022
 #### Feature Updates
 
