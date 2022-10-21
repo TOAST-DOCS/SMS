@@ -1,5 +1,11 @@
 ## Notification > SMS > Release Notes
 
+### October 25, 2022
+#### Feature Updates
+
+* [API] Fixed a bug that occurred to a single search of messages
+    * Fixed the bug where search results are exposed without type classification in a single search of messages.
+     
 ### August 23, 2022
 #### Feature Updates
 
