@@ -2800,6 +2800,8 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|
 |categoryId|	Integer|	옵션|	카테고리 ID|
 |useYn|	String|	옵션|	사용 여부(Y/N)|
+|pageNum|	Integer| 옵션|	페이지 번호(기본값 : 1)|
+|pageSize|	Integer| 옵션|	검색 수(기본값 : 15)|
 
 #### cURL
 ```

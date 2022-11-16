@@ -3427,6 +3427,8 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|
 |categoryId|	Integer|	オプション|	カテゴリーID|
 |useYn|	String|	オプション|	使用するかどうか(Y/N)|
+|pageNum|	Integer| オプション|	ページ番号(デフォルト値：1)|
+|pageSize|	Integer| オプション|	検索数(デフォルト値：15)|
 
 #### cURL
 ```

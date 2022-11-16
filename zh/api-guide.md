@@ -3426,6 +3426,8 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|
 |categoryId|	Integer|	옵션|	카테고리 ID|
 |useYn|	String|	옵션|	사용 여부(Y/N)|
+|pageNum|	Integer | Optional | Page number (default : 1) |
+|pageSize|	Integer | Optional | Query count (default: 15) |
 
 #### cURL
 ```

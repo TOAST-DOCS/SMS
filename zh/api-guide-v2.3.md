@@ -2791,6 +2791,8 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|---|
 |categoryId|	Integer| Optional | Category ID |
 |useYn|	String| Optional | Use or Not (Y/N) |
+|pageNum|	Integer | Optional | Page number (default : 1) |
+|pageSize|	Integer | Optional | Query count (default: 15) |
 
 #### cURL
 ```
