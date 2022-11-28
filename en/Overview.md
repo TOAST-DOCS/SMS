@@ -81,6 +81,7 @@ You can text by selecting tags, instead of phone numbers, as recipient informati
     * After some time, check statistics data on the **Statistics** tab. 
 
 ### Data retention period
-- Retains the sending history for the last 180 days in accordance with the data retention policy.
-- The attachments used in services are retained for 7 days. After 7 days, they are deleted and cannot be retrieved.
-- However, the attachments and evidential documents (communications service certificate) registered to a template are retained as long as the service is provided.
+* Retains the sending history for the last 180 days in accordance with the data retention policy.
+* The attachments used in services are retained for 7 days. After 7 days, they are deleted and cannot be retrieved.
+* However, the attachments and evidential documents (communications service certificate) registered to a template are retained as long as the service is provided.
+* Statistics data retains information from the last 90 days.
