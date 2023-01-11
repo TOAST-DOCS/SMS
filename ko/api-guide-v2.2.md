@@ -683,9 +683,9 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 - 첨부 파일(필드명: attachFileIdList)을 포함한 장문 MMS 발송을 위해서는 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
 - [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
 - 첨부 이미지 제한 사항
-    - 지원 코덱 : jpg
-    - 첨부 이미지 개수 : 2개 이하
-    - 첨부 이미지 사이즈 : 300K 이하
+    - 지원 코덱 : jpg, jpeg
+    - 첨부 이미지 개수 : 3개 이하
+    - 첨부 이미지 사이즈 : 1개당 300K 이하. 단, 첨부 이미지 개수가 3개일 경우 합산 800K 이하.
     - 첨부 이미지 해상도 : 1000 x 1000 이하
 
 ### 장문 MMS 발송리스트 조회
