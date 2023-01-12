@@ -688,7 +688,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
     - 첨부 이미지 사이즈: 1개당 300KB 이하. 단, 첨부한 이미지의 개수가 3개일 경우 합산 800KB 이하.
     - 첨부 이미지 해상도: 1000*1000 이하
 
-### 장문 MMS 발송리스트 조회
+### 장문 MMS 발송 리스트 조회
 
 #### 요청
 
