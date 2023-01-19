@@ -681,10 +681,10 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
 - Restrictions for Attached Images 
-    * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 2 
-    * Size of Attached Image: Less than 300KB 
-    * Resolution of Image: Less than 1000 x 1000  
+    - Supported Codec: .jpg, .jpeg
+    - Number of Attached Images: 3 or less
+    - Size of Attached Image: Less than 300KB per image. But, less than 8000KB in total if the number of attached images is 3
+    - Resolution of Image: Less than 1000*1000  
 
 ### List Delivery of Long MMS Request
 

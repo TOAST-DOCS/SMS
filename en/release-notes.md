@@ -1,5 +1,11 @@
 ## Notification > SMS > Release Notes
 
+### January 31, 2023
+#### Feature Updates
+
+* [Console] Increased the recipient file size limit to upload for mass delivery
+    * Changed the limit from 10MB to 30MB.
+
 ### October 25, 2022
 #### Feature Updates
 
