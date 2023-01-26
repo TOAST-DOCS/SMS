@@ -682,10 +682,10 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 - 添付ファイル(フィールド名：attachFileIdList)を含む長文MMSを送信するためには、事前に添付ファイルのアップロードを行う必要があります。<br>
 - [[添付ファイルアップロード](./api-guide/#binaryUpload)]</a> ガイドを参照してください。
 - 付イメージ制限事項
-    - サポートコーデック：.jpg
-    - 添付イメージ数：2個以下
-    - 添付イメージサイズ：300KB以下
-    - 添付イメージ解像度：1000 x 1000以下
+    - サポートコーデック：.jpg、.jpeg
+    - 添付イメージ数：3個以下
+    - 添付イメージサイズ： 1個当り300KB以下。ただし、添付したイメージの数が3個の場合は合計800KB以下。
+    - 添付イメージの解像度： 1000 x 1000以下
 
 ### 長文MMS送信リストの照会
 
@@ -3022,8 +3022,8 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	最大 | 必須|	説明|
 |---|---|---|---|---|
 | sendNos[] |	List<String> | - | 必須 |	発信番号|
-| fileIds[] |	List<integer> | - | オプション | 업로드한 서류의 파일 아이디|
-| comment | String | 4000 | オプション | 발신번호 승인자에게 남길 말  |
+| fileIds[] |	List<integer> | - | オプション | アップロードした書類のファイルID|
+| comment | String | 4000 | オプション | 発信番号承認者に残す言葉  |
 
 #### レスポンス
 ```
@@ -3860,7 +3860,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultMessage|	String|	失敗メッセージ|
 |body.data.tagId| String | タグID |
 
-### タグ 수정
+### タグ修正
 
 [URL]
 
@@ -3907,7 +3907,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
 
-### タグ 삭제
+### タグ削除
 
 [URL]
 
@@ -4188,7 +4188,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
 
-### 携帯電話番号 등록
+### 携帯電話番号の登録
 
 [URL]
 
@@ -4236,7 +4236,7 @@ Content-Type: application/json;charset=UTF-8
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
 
-### 携帯電話番号 삭제
+### 携帯電話番号の削除
 
 [URL]
 
