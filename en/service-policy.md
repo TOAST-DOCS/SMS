@@ -216,7 +216,6 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Portugal                         | 351       |
 | Qatar                            | 974       |
 | Romania                          | 40        |
-| Russia                           | 7         |
 | Rwanda                           | 250       |
 | Saudi Arabia                     | 966       |
 | Senegal                          | 221       |
@@ -235,7 +234,6 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Switzerland                      | 41        |
 | Syria                            | 963       |
 | Taiwan                           | 886       |
-| Tajikistan                       | 992       |
 | Tanzania                         | 255       |
 | Thailand                         | 66        |
 | Timor-Leste                      | 670       |
@@ -253,7 +251,6 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Vanuatu                          | 678       |
 | Venezuela                        | 58        |
 | Vietnam                          | 84        |
-| Yemen                            | 967       |
 | Zambia                           | 260       |
 | Zimbabwe                         | 263       |
 

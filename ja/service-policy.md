@@ -213,7 +213,6 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 | ポルトガル | Portugal | 351 |
 | カタール | Quatar | 974 |
 | ルーマニア | Romania | 40 |
-| ロシア | Russia | 7 |
 | ルワンダ | Rwanda | 250 |
 | サウジアラビア | Saudi Arabia | 966 |
 | セネガル | Senegal | 221 |
@@ -232,7 +231,6 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 | スイス | Switzerland | 41 |
 | シリア | Syria | 963 |
 | 台湾 | Taiwan | 886 |
-| タジキスタン | Tajikistan | 992 |
 | タンザニア | Tanzania | 255 |
 | チャド | Tchad | 235 |
 | タイ | Thailand | 66 |
@@ -251,7 +249,6 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 | バヌアツ | Vanuatu | 678 |
 | ベネズエラ | Venezuela | 58 |
 | ベトナム | vietnam | 84 |
-| イエメン | Yemen | 967 |
 | ユーゴスラビア | Yugoslavia | 381 |
 | ザンビア | Zambia | 260 |
 | ジンバブエ | Zimbabwe | 263 |
