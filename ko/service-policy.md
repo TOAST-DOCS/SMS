@@ -101,7 +101,7 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 | 아르헨티나 | Argentina | 54 |
 | 아르메니아 | Armenia | 374 |
 | 아루바 | Aruba | 297 |
-| 오스트레일리아 | Australia | 61 |
+| 호주 | Australia | 61 |
 | 오스트리아 | Austria | 43 |
 | 아제르바이잔 | Azerbaijan | 994 |
 | 바레인 | Bahrain | 973 |
@@ -216,7 +216,6 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 | 포르투갈 | Portugal | 351 |
 | 카타르 | Qatar | 974 |
 | 루마니아 | Romania | 40 |
-| 러시아 | Russia | 7 |
 | 르완다 | Rwanda | 250 |
 | 사우디아라비아 | Saudi Arabia | 966 |
 | 세네갈 | Senegal | 221 |
@@ -235,9 +234,8 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 | 스위스 | Switzerland | 41 |
 | 시리아 | Syria | 963 |
 | 대만 | Taiwan | 886 |
-| 타지키스탄 | Tajikistan | 992 |
 | 탄자니아 | Tanzania | 255 |
-| 타이 | Thailand | 66 |
+| 태국 | Thailand | 66 |
 | 동티모르 | Timor-Leste | 670 |
 | 토고 | Togo | 228 |
 | 튀니지 | Tunisia | 216 |
@@ -253,7 +251,6 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 | 바누아투 | Vanuatu | 678 |
 | 베네수엘라 | Venezuela | 58 |
 | 베트남 | Vietnam | 84 |
-| 예멘 | Yemen | 967 |
 | 잠비아 | Zambia | 260 |
 | 짐바브웨 | Zimbabwe | 263 |
 
