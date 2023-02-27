@@ -1,5 +1,16 @@
 ## Notification > SMS > Release Notes
 
+### February 28, 2023
+#### Feature Updates
+* [Console/API] Added the validation logic for avaliable countries stated in the guide
+    * Modified to fail for countries other than those specified in the guide.
+
+### February 17, 2023
+#### Feature Updates
+* [Console] Enhanced pre-registration of calling numbers
+    * Added verification processes when using the SMS console and registering calling numbers.
+    * Modified the console so that members who signed up after March 2, 2022 must verify their identity before using the console.
+
 ### January 31, 2023
 #### Feature Updates
 
