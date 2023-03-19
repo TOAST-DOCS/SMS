@@ -1,5 +1,10 @@
 ## Notification > SMS > Release Notes
 
+### 2023. 03. 28.
+#### 기능 개선/변경
+* [Console] 국제 SMS 사용 여부 설정 추가
+  * 국제 SMS 발송 기능을 사용하지 않을 경우 '미사용'으로 적용하여 어뷰징 등의 문제를 방지할 수 있도록 설정을 추가하였습니다.
+
 ### February 28, 2023
 #### Feature Updates
 * [Console/API] Added the validation logic for avaliable countries stated in the guide
