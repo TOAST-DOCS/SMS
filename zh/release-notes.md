@@ -1,5 +1,19 @@
 ## Notification > SMS > Release Notes
 
+### March 28, 2023
+#### Feature Updates
+* [Console] Added a setting to use international SMS
+  * Added a setting that allows you to set the international SMS delivery feature to **Not Used** when not in use to prevent issues such as abusing.
+* [Console] Aplied CloudTrail
+  * Applied CloudTrail to allow you to check usage history.
+* [API] Faded out APIs related to sender numbers
+  * Faded out some APIs related to sender numbers due to enhanced sender number pre-registration system.
+  * Faded-out APIs
+    * API to request sender number registration
+    * API to upload sender number document
+    * API to retrieve sender number authentication history
+  * After the enhancement of the sender number pre-registration system, all requests for approval of sender numbers registered through APIs will be rejected.
+
 ### August 23, 2022
 #### Feature Updates
 
