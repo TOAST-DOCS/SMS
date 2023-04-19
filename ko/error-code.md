@@ -3,7 +3,7 @@
 ### API 결과 코드
 
 | 서비스 | 성공 여부 | 결과 코드 | 결과 코드 메시지 | API 응답 메시지 | 
-| - | - | - | - |
+| - | - | - | - | - |
 | 공통 | true | 0 | 성공 | SUCCESS |
 | 공통 | false | -1000 | 유효하지 않은 앱키 | Invalid appKey. |
 | 공통 | false | -1001 | 존재하지 않는 앱키 | Service is not exist. |
