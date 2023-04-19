@@ -78,7 +78,8 @@ Content-Type: application/json;charset=UTF-8
       }
    ],
    "userId":"UserId",
-   "statsId":"statsId"
+   "statsId":"statsId",
+   "originCode":"123456789"
 }
 ```
 
@@ -98,6 +99,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
 |userId|	String|	100 | X | 발송 구분자 ex)admin,system |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+|originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
 
 #### cURL
 ```
@@ -485,6 +487,7 @@ curl -X GET \
          "messageType":"SMS",
          "userId":"tester",
          "adYn":"N",
+         "originCode":"123456789"
          "resultMessage": "",
          "senderGroupingKey":"SenderGroupingKey",
          "recipientGroupingKey":"RecipientGroupingKey"
@@ -515,11 +518,12 @@ curl -X GET \
 |body.data.resultCodeName|	String|	수신 결과 코드명|
 |body.data.telecomCode|	Integer|	통신사 코드|
 |body.data.telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
+|body.data.recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
+|body.data.originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
 |body.data.recipientGroupingKey|	String|	수신자 그룹키|
 
@@ -577,7 +581,8 @@ Content-Type: application/json;charset=UTF-8
       }
    ],
    "userId":"UserId",
-   "statsId":"statsId"
+   "statsId":"statsId",
+   "originCode":"123456789"
 }
 ```
 
@@ -598,6 +603,8 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 1000 | X | 수신자 그룹키 |
 |userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+|originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+
 
 #### cURL
 ```
@@ -1015,6 +1022,7 @@ curl -X GET \
       "messageType":"MMS",
       "userId":"tester",
       "adYn":"N",
+      "originCode":"123456789",
       "attachFileList": [{
             fileId: Integer,
             filePath: String,
@@ -1039,35 +1047,36 @@ curl -X GET \
 |body.pageNum|	Integer|	현재 페이지 번호|
 |body.pageSize|	Integer|	검색된 데이터 수|
 |body.totalCount|	Integer|	총 데이터 수|
-|body.data[].requestId|	String|	요청 ID|
-|body.data[].requestDate|	String|	발신 일시|
-|body.data[].resultDate|	String|	수신 일시|
-|body.data[].templateId|	String|	템플릿 ID|
-|body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
-|body.data[].categoryName|	String|	카테고리명|
-|body.data[].body|	String|	본문 내용|
-|body.data[].sendNo|	String|	발신 번호|
-|body.data[].countryCode|	String|	국가 번호|
-|body.data[].recipientNo|	String|	수신 번호|
-|body.data[].msgStatus|	String|	메시지 상태 코드|
-|body.data[].msgStatusName|	String|	메시지 상태 코드명|
-|body.data[].resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
-|body.data[].resultCodeName|	String|	수신 결과 코드명|
-|body.data[].telecomCode|	Integer|	통신사 코드|
-|body.data[].telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)|
-|body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data[].userId|	String|	발송 요청 ID|
-|body.data[].adYn|	String|	광고 여부|
-|body.data[].attachFileList[].fileId|	Integer|	파일 ID|
-|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용) |
-|body.data[].attachFileList[].filename|	String|	파일명|
-|body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
-|body.data[].attachFileList[].uploadType|	String|	업로드 타입|
-|body.data[].senderGroupingKey|	String|	발신자 그룹키|
-|body.data[].recipientGroupingKey|	String|	수신자 그룹키|
+|body.data.requestId|	String|	요청 ID|
+|body.data.requestDate|	String|	발신 일시|
+|body.data.resultDate|	String|	수신 일시|
+|body.data.templateId|	String|	템플릿 ID|
+|body.data.templateName|	String|	템플릿명|
+|body.data.categoryId|	String|	카테고리 ID|
+|body.data.categoryName|	String|	카테고리명|
+|body.data.body|	String|	본문 내용|
+|body.data.sendNo|	String|	발신 번호|
+|body.data.countryCode|	String|	국가 번호|
+|body.data.recipientNo|	String|	수신 번호|
+|body.data.msgStatus|	String|	메시지 상태 코드|
+|body.data.msgStatusName|	String|	메시지 상태 코드명|
+|body.data.resultCode|	String|	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]|
+|body.data.resultCodeName|	String|	수신 결과 코드명|
+|body.data.telecomCode|	Integer|	통신사 코드|
+|body.data.telecomCodeName|	String|	통신사명|
+|body.data.recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)|
+|body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
+|body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
+|body.data.userId|	String|	발송 요청 ID|
+|body.data.adYn|	String|	광고 여부|
+|body.data.originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+|body.data.attachFileList[].fileId|	Integer|	파일 ID|
+|body.data.attachFileList[].filePath|	String|	파일 저장경로(내부용) |
+|body.data.attachFileList[].filename|	String|	파일명|
+|body.data.attachFileList[].saveFileName|	String|	저장된 첨부파일명|
+|body.data.attachFileList[].uploadType|	String|	업로드 타입|
+|body.data.senderGroupingKey|	String|	발신자 그룹키|
+|body.data..recipientGroupingKey|	String|	수신자 그룹키|
 
 ## 인증용 SMS(긴급)
 
@@ -1131,7 +1140,8 @@ Content-Type: application/json;charset=UTF-8
       }
    ],
    "userId":"UserId",
-   "statsId":"statsId"
+   "statsId":"statsId",
+   "originCode":"123456789"
 }
 ```
 
@@ -1151,6 +1161,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
 |userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
+|originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
 
 #### cURL
 ```
@@ -1491,6 +1502,7 @@ curl -X GET \
          "messageType":"AUTH",
          "userId":"tester",
          "adYn":"N",
+         "originCode":"123456789",
          "resultMessage": "",
          "senderGroupingKey":"SenderGroupingKey",
          "recipientGroupingKey":"RecipientGroupingKey"
@@ -1521,11 +1533,12 @@ curl -X GET \
 |body.data.resultCodeName|	String|	수신 결과 코드명|
 |body.data.telecomCode|	Integer|	통신사 코드|
 |body.data.telecomCodeName|	String|	통신사명|
-|body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
+|body.data.recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
+|body.data.originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
 |body.data.senderGroupingKey|	String|	발신자 그룹키|
 |body.data.recipientGroupingKey|	String|	수신자 그룹키|
 
