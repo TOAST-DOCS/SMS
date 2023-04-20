@@ -24,10 +24,10 @@
 | 발송/조회 | false | -2002 | 첨부 파일 이름이 잘못된 경우 | Invalid attach file name. |
 | 발송/조회 | false | -2003 | 첨부 파일 확장자가 jpg, jpeg가 아닌 경우 | Attach file required jpg or jpeg. |
 | 발송/조회 | false | -2004 | 첨부 파일이 만료되거나 존재하지 않는 경우 | File is expired or does not exist. | 
-| 발송/조회 | false | -2005 | 첨부 파일 사이즈가 300KB이 넘는 경우 | The file size must be greater than 0 and less than 300KB. |
+| 발송/조회 | false | -2005 | 첨부 파일 사이즈가 300KB가 넘는 경우 | The file size must be greater than 0 and less than 300KB. |
 | 발송/조회 | false | -2006 | 템플릿에 설정된 발송 유형과 요청온 발송 유형이 맞지 않는 경우 | Invalid template type. |
 | 발송/조회 | false | -2008 | 요청 ID(requestId)가 잘못된 경우 | Invalid requestId. |
-| 발송/조회 | false | -2009 | 첨부 파일 업로드 도중 서버오류로 인해 정상적으로 업로드되지 않은 경우 | Upload attach file error. | 
+| 발송/조회 | false | -2009 | 첨부 파일 업로드 도중 서버 오류로 인해 정상적으로 업로드되지 않은 경우 | Upload attach file error. | 
 | 발송/조회 | false | -2010 | 첨부 파일 업로드 유형이 잘못된 경우(서버 오류) | Upload attach file type can not be empty. |
 | 발송/조회 | false | -2011 | 필수 조회 파라미터가 비어 있는 경우(requestId 또는 startRequestDate, endRequestdate) | RequestId or start/endRequestDate or start/endCreateDate is required. | 
 | 발송/조회 | false | -2012 | 상세 조회 파라미터가 잘못된 경우(requestId 또는 mtPr) | Search parameter is invalid.(requestId and mtPr). |
@@ -52,15 +52,15 @@
 | 템플릿 | false | -2106 | 사용 여부가 잘못된 경우 | UseYn is invalid. |
 | 템플릿 | false | -2107 | 유효하지 않는 템플릿 ID(수정/삭제 시) | Invalid template. |
 | 템플릿 | false | -2108 | 카테고리 ID가 비어 있는 경우 | The categoryId can not be empty. |
-| 템플릿 | false | -2109 | 템플릿 ID가 50글자를 초과하는 경우 | templateId length must be under 50. |
+| 템플릿 | false | -2109 | 템플릿 ID가 50 글자를 초과하는 경우 | templateId length must be under 50. |
 | 템플릿 | false | -2110 | 템플릿이 존재하지 않는 경우 | template is not exist. |
 | 템플릿 | false | -2111 | 유효하지 않는 템플릿 파라미터인 경우 | template add parameter is invalid. |
-| 템플릿 | false | -2112 | 최대 등록 가능한 템플릿 갯수를 초과한 경우(최대: 1000)  | The maximum number of registered templates. |
-| 템플릿 | false | -2114 | 제목이 비어있는 경우  | The title can not be empty. |
-| 템플릿 | false | -2115 | 제목이 120글자를 초과하는 경우  | Title length must be under 120. |
-| 템플릿 | false | -2116 | 발송 유형이 SMS일때, 본문 길이가 255글자를 초과하는 경우  | SMS Body length must be under 255. |
-| 템플릿 | false | -2117 | 발송 유형이 LMS/MMS일때, 본문 길이가 4000글자를 초과하는 경우  | LMS/MMS Body length must be under 4000. |
-| 템플릿 | false | -2043 | 템플릿에 등록할 첨부파일이 이미 다른 템플릿에 등록되어 있는 경우 | Already used attachFileId |
+| 템플릿 | false | -2112 | 최대 등록 가능한 템플릿 개수를 초과한 경우(최대: 1000)  | The maximum number of registered templates. |
+| 템플릿 | false | -2114 | 제목이 비어 있는 경우  | The title can not be empty. |
+| 템플릿 | false | -2115 | 제목이 120 글자를 초과하는 경우  | Title length must be under 120. |
+| 템플릿 | false | -2116 | 발송 유형이 SMS일 때 본문 길이가 255 글자를 초과하는 경우  | SMS Body length must be under 255. |
+| 템플릿 | false | -2117 | 발송 유형이 LMS/MMS일 때 본문 길이가 4000 글자를 초과하는 경우  | LMS/MMS Body length must be under 4000. |
+| 템플릿 | false | -2043 | 템플릿에 등록할 첨부 파일이 이미 다른 템플릿에 등록되어 있는 경우 | Already used attachFileId |
 | 카테고리 | false | -2200 | 유효하지 않는 카테고리 파라미터(등록 시) | Invalid add category parameter.(categoryName, useYn) |
 | 카테고리 | false | -2201 | 유효하지 않는 카테고리 파라미터(수정 시) | Invalid modify category parameter.(categoryId, categoryName, useYn) |
 | 카테고리 | false | -2202 | 유효하지 않는 카테고리(카테고리 조회 실패) | Invalid category. |
@@ -68,7 +68,7 @@
 | 카테고리 | false | -2204 | 사용 여부가 잘못된 경우 | UseYn is invalid. |
 | 카테고리 | false | -2205 | 최상위 카테고리를 삭제하려는 경우 | Cannot delete the highest category. |
 | 카테고리 | false | -2206 | 존재하지 않은 카테고리인 경우 | category is not exist. |
-| 발신 번호 | false | -2312 | 발신 번호가 비어있거나 미등록 상태 | Not regist sendno. |
+| 발신 번호 | false | -2312 | 발신 번호가 비어 있거나 미등록 상태 | Not regist sendno. |
 | 발신 번호 | false | -2313 | 차단된 발신 번호 | This sendno is blocked. |
 | 통계 | false | -2700 | 유효하지 않는 통계 범위 | Invalid search period. |
 | 통계 | false | -2701 | 유효하지 않는 통계 검색 파라미터 | Invalid statistics search parameter. | 
@@ -92,10 +92,10 @@
 | 이통사 | 1003 | 실패 | 회신 번호 형식 오류 |
 | 이통사 | 1019 | 실패 | TTL 초과 |
 | 이통사 | 2000 | 실패 | 전송 시간 초과 |
-| 이통사 | 2001 | 실패 | 전송 실패 (무선망단) |
-| 이통사 | 2002 | 실패 | 전송 실패 (무선망 -> 단말기단) |
+| 이통사 | 2001 | 실패 | 전송 실패(무선망단) |
+| 이통사 | 2002 | 실패 | 전송 실패(무선망 > 단말기단) |
 | 이통사 | 2003 | 실패 | 단말기 전원 꺼짐 |
-| 이통사 | 2004 | 실패 | 통신사와 단말 사이에 메시지 버퍼가 가득 차서, 전달 불가 상태 |
+| 이통사 | 2004 | 실패 | 통신사와 단말 사이에 메시지 버퍼가 가득 차 전달 불가 상태 |
 | 이통사 | 2005 | 실패 | 음영 지역 |
 | 이통사 | 2006 | 실패 | 메시지 삭제됨 |
 | 이통사 | 2007 | 실패 | 일시적인 단말 문제 |
@@ -104,9 +104,9 @@
 | 이통사 | 3002 | 실패 | 성인 인증 실패 |
 | 이통사 | 3003 | 실패 | 수신 번호 형식 오류 또는 결번(없는 번호) |
 | 이통사 | 3004 | 실패 | 단말기 서비스 일시 정지 |
-| 이통사 | 3005 | 실패 | 단말기 호 처리 (Call processing) 상태, 단말에 도달하지 못함  |
+| 이통사 | 3005 | 실패 | 단말기 호 처리(Call processing) 상태, 단말에 도달하지 못함  |
 | 이통사 | 3006 | 실패 | 착신 거절 |
-| 이통사 | 3007 | 실패 | 콜백 URL을 받을 수 없는 폰 |
+| 이통사 | 3007 | 실패 | 콜백 URL을 받을 수 없는 단말기 |
 | 이통사 | 3008 | 실패 | 기타 단말기 문제 |
 | 이통사 | 3009 | 실패 | 메시지 형식 오류 |
 | 이통사 | 3010 | 실패 | MMS 미지원 단말 |
@@ -121,6 +121,6 @@
 | 이통사 | 3019 | 실패 | 발신 번호(=회신 번호) 인포뱅크에 번호 사전 등록제를 통해 등록되지 않은 번호 |
 | ETC | E911 | 실패 | 첨부파일 확장자가 없는 경우 |
 | ETC | E913 | 실패 | 첨부파일 크기가 0인 경우 |
-| ETC | E915 | 실패 | 중복메시지 |
+| ETC | E915 | 실패 | 중복 메시지 |
 | ETC | E919 | 실패 | 발송 제한 시간인 경우, 메시지 재발송 처리가 금지된 경우 |
 | ETC | E999 | 실패 | 기타 오류 |

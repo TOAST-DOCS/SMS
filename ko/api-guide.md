@@ -89,17 +89,17 @@ Content-Type: application/json;charset=UTF-8
 |body|	String| 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용|
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
-|senderGroupingKey| String| 100 | X | 발신자 그룹키 |
+|senderGroupingKey| String| 100 | X | 발신자 그룹 키 |
 |recipientList[].recipientNo| String| 20 |	O|	수신 번호<br/>countryCode와 조합하여 사용 가능<br/>최대 1,000명|
 |recipientList[].countryCode|	String| 8 |	X|	국가 번호 [기본값: 82(한국)] |
 |recipientList[].internationalRecipientNo| String|  20 | X| 국가 번호가 포함된 수신 번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
 |recipientList[].templateParameter|	Object|  - |	X|	템플릿 파라미터(템플릿 ID 입력 시)|
 |recipientList[].templateParameter.{key}| String| - |	X|	치환 키(##key##)|
 |recipientList[].templateParameter.{value}|	Object| - |	X|	치환 키에 매핑되는 Value값|
-|recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
+|recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹 키 |
 |userId|	String|	100 | X | 발송 구분자 ex)admin,system |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
-|originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+|originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록 번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
 
 #### cURL
 ```
@@ -152,12 +152,12 @@ curl -X POST \
 |header.resultMessage|	String|	실패 메시지|
 |body.data.requestId|	String|	요청 ID|
 |body.data.statusCode|	String|	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패)|
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
+|body.data.senderGroupingKey|	String|	발신자 그룹 키|
 |body.data.sendResultList[].recipientNo| String | 수신 번호|
 |body.data.sendResultList[].resultCode| Integer | 결과 코드|
 |body.data.sendResultList[].resultMessage| String | 결과 메시지|
 |body.data.sendResultList[].recipientSeq| Integer | 수신자 시퀀스(mtPr)|
-|body.data.sendResultList[].recipientGroupingKey| String | 수신자 그룹키|
+|body.data.sendResultList[].recipientGroupingKey| String | 수신자 그룹 키|
 
 #### 단문 SMS 발송 예제(일반 국내 수신 번호)
 
@@ -318,8 +318,8 @@ Content-Type: application/json;charset=UTF-8
 |msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
 |resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
 |subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
-|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
+|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹 키|
+|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹 키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
@@ -407,8 +407,8 @@ curl -X GET \
 |body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
-|body.data[].senderGroupingKey|	String|	발신자 그룹키|
-|body.data[].recipientGroupingKey|	String|	수신자 그룹키|
+|body.data[].senderGroupingKey|	String|	발신자 그룹 키|
+|body.data[].recipientGroupingKey|	String|	수신자 그룹 키|
 
 ### 단문 SMS 발송 단일 검색
 
@@ -523,9 +523,9 @@ curl -X GET \
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
-|body.data.originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
-|body.data.recipientGroupingKey|	String|	수신자 그룹키|
+|body.data.originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+|body.data.senderGroupingKey|	String|	발신자 그룹 키|
+|body.data.recipientGroupingKey|	String|	수신자 그룹 키|
 
 ## 장문 MMS
 
@@ -593,17 +593,17 @@ Content-Type: application/json;charset=UTF-8
 |body|	String| 4000|	O|	본문 |
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
-|senderGroupingKey| String| 100 | X | 발신자 그룹키 |
+|senderGroupingKey| String| 100 | X | 발신자 그룹 키 |
 |recipientList[].recipientNo| String| 20 |	O|	수신 번호<br/>countryCode와 조합하여 사용 가능|
 |recipientList[].countryCode| String| 8 |	X|	국가 번호 [기본값: 82(한국)]<br/>MMS는 해외 발송 불가 |
 |recipientList[].internationalRecipientNo| String| 20 | X| 국가 번호가 포함된 수신 번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시된다.<br/>|
 |recipientList[].templateParameter|	Object| - |	X|	템플릿 파라미터(템플릿 ID 입력 시)|
 |recipientList[].templateParameter.{key}|	String| - |	X|	치환 키(##key##)|
 |recipientList[].templateParameter.{value}|	Object| - |	X|	치환 키에 매핑되는 Value값|
-|recipientList[].recipientGroupingKey| String| 1000 | X | 수신자 그룹키 |
+|recipientList[].recipientGroupingKey| String| 1000 | X | 수신자 그룹 키 |
 |userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
-|originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+|originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
 
 
 #### cURL
@@ -661,12 +661,12 @@ curl -X POST \
 |header.resultMessage|	String|	실패 메시지|
 |body.data.requestId|	String|	요청 ID|
 |body.data.statusCode|	String|	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패)|
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
+|body.data.senderGroupingKey|	String|	발신자 그룹 키|
 |body.data.sendResultList[].recipientNo| String | 수신 번호|
 |body.data.sendResultList[].resultCode| Integer | 결과 코드|
 |body.data.sendResultList[].resultMessage| String | 결과 메시지|
 |body.data.sendResultList[].recipientSeq| Integer | 수신자 시퀀스(mtPr)|
-|body.data.sendResultList[].recipientGroupingKey| String | 수신자 그룹키|
+|body.data.sendResultList[].recipientGroupingKey| String | 수신자 그룹 키|
 
 #### 장문 MMS 발송 예제
 
@@ -837,8 +837,8 @@ Content-Type: application/json;charset=UTF-8
 |msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
 |resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
 |subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
-|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
+|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹 키|
+|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹 키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
@@ -940,8 +940,8 @@ curl -X GET \
 |body.data[].attachFileList[].filename|	String|	파일명|
 |body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
 |body.data[].attachFileList[].uploadType|	String|	업로드 타입|
-|body.data[].senderGroupingKey|	String|	발신자 그룹키|
-|body.data[].recipientGroupingKey|	String|	수신자 그룹키|
+|body.data[].senderGroupingKey|	String|	발신자 그룹 키|
+|body.data[].recipientGroupingKey|	String|	수신자 그룹 키|
 
 
 ### 장문 MMS 발송 단일 검색
@@ -1069,14 +1069,14 @@ curl -X GET \
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
-|body.data.originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+|body.data.originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
 |body.data.attachFileList[].fileId|	Integer|	파일 ID|
 |body.data.attachFileList[].filePath|	String|	파일 저장경로(내부용) |
 |body.data.attachFileList[].filename|	String|	파일명|
 |body.data.attachFileList[].saveFileName|	String|	저장된 첨부파일명|
 |body.data.attachFileList[].uploadType|	String|	업로드 타입|
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
-|body.data..recipientGroupingKey|	String|	수신자 그룹키|
+|body.data.senderGroupingKey|	String|	발신자 그룹 키|
+|body.data..recipientGroupingKey|	String|	수신자 그룹 키|
 
 ## 인증용 SMS(긴급)
 
@@ -1151,17 +1151,17 @@ Content-Type: application/json;charset=UTF-8
 |body|	String| 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] |	O|	본문 내용 [[주의사항](./api-guide/#precautions-authword)] |
 |sendNo|	String| 13 |	O|	발신 번호|
 |requestDate| String| - | X | 예약 일시(yyyy-MM-dd HH:mm)|
-|senderGroupingKey| String| 100 | X | 발신자 그룹키 |
+|senderGroupingKey| String| 100 | X | 발신자 그룹 키 |
 |recipientList[].recipientNo|	String| 20 |	O|	수신 번호<br/>countryCode와 조합하여 사용 가능|
 |recipientList[].countryCode|	String| 8 |	X|	국가 번호 [기본값: 82(한국)] |
 |recipientList[].internationalRecipientNo| String| 20 | X| 국가 번호가 포함된 수신 번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시<br/>|
 |recipientList[].templateParameter|	Object| - |	X|	템플릿 파라미터(템플릿 ID 입력 시)|
 |recipientList[].templateParameter.{key}| String| - |	X|	치환 키(##key##)|
 |recipientList[].templateParameter.{value}| Object| - |	X|	치환 키에 매핑되는 Value값|
-|recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹키 |
+|recipientList[].recipientGroupingKey| String| 100 | X | 수신자 그룹 키 |
 |userId|	String| 100 |	X | 발송 구분자 ex)admin,system |
 |statsId| String | 10 | X | 통계 ID(발신 검색 조건에는 포함되지 않습니다) |
-|originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+|originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
 
 #### cURL
 ```
@@ -1216,12 +1216,12 @@ curl -X POST \
 |header.resultMessage|	String|	실패 메시지|
 |body.data.requestId|	String|	요청 ID|
 |body.data.statusCode|	String|	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패)|
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
+|body.data.senderGroupingKey|	String|	발신자 그룹 키|
 |body.data.sendResultList[].recipientNo| String | 수신 번호|
 |body.data.sendResultList[].resultCode| Integer | 결과 코드|
 |body.data.sendResultList[].resultMessage| String | 결과 메시지|
 |body.data.sendResultList[].recipientSeq| Integer | 수신자 시퀀스(mtPr)|
-|body.data.sendResultList[].recipientGroupingKey| String | 수신자 그룹키|
+|body.data.sendResultList[].recipientGroupingKey| String | 수신자 그룹 키|
 
 #### 예제
 
@@ -1332,8 +1332,8 @@ Content-Type: application/json;charset=UTF-8
 |msgStatus|	String| 1 |	옵션| 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
 |resultCode|	String| 10 |	옵션|	수신 결과 코드 [[검색 코드표](./error-code/#_2)]|
 |subResultCode|	String| 10 |	옵션|	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]|
-|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹키|
-|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹키|
+|senderGroupingKey|	String| 100 |	옵션|	발송자 그룹 키|
+|recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹 키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
 
@@ -1422,8 +1422,8 @@ curl -X GET \
 |body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
-|body.data[].senderGroupingKey|	String|	발신자 그룹키|
-|body.data[].recipientGroupingKey|	String|	수신자 그룹키|
+|body.data[].senderGroupingKey|	String|	발신자 그룹 키|
+|body.data[].recipientGroupingKey|	String|	수신자 그룹 키|
 
 ### 인증용 SMS 발송 단일 검색
 
@@ -1538,9 +1538,9 @@ curl -X GET \
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
-|body.data.originCode| String | 10 | X | 식별코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
-|body.data.senderGroupingKey|	String|	발신자 그룹키|
-|body.data.recipientGroupingKey|	String|	수신자 그룹키|
+|body.data.originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+|body.data.senderGroupingKey|	String|	발신자 그룹 키|
+|body.data.recipientGroupingKey|	String|	수신자 그룹 키|
 
 ## 광고 문자
 ### 광고성 SMS 발송
@@ -4745,8 +4745,8 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.templateId | String | 50 | 옵션 | 템플릿 ID |
 | searchParameter.requestId | String | 25 | 옵션 | 요청 아이디 |
 | searchParameter.createUser | String | 100 | 옵션 | 예약 발송 생성자  |
-| searchParameter.senderGroupingKey | String | 100 | 옵션 | 발신자 그룹키 |
-| searchParameter.recipientGroupingKey | String | 100 | 옵션 | 수신자 그룹키 |
+| searchParameter.senderGroupingKey | String | 100 | 옵션 | 발신자 그룹 키 |
+| searchParameter.recipientGroupingKey | String | 100 | 옵션 | 수신자 그룹 키 |
 | updateUser | String | 100 | 필수 | 예약 취소 요청자 |
 
 #### cURL
