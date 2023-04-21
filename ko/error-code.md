@@ -61,6 +61,10 @@
 | 템플릿 | false | -2116 | 발송 유형이 SMS일 때 본문 길이가 255 글자를 초과하는 경우  | SMS Body length must be under 255. |
 | 템플릿 | false | -2117 | 발송 유형이 LMS/MMS일 때 본문 길이가 4000 글자를 초과하는 경우  | LMS/MMS Body length must be under 4000. |
 | 템플릿 | false | -2043 | 템플릿에 등록할 첨부 파일이 이미 다른 템플릿에 등록되어 있는 경우 | Already used attachFileId |
+| 템플릿 | false | -2044 | 발송 불가능한 국가로 요청을 보낸 경우 | Invalid countryCode for sending. |
+| 템플릿 | false | -2045 | 국제 발송을 차단한 경우 | International sending blocked by service. |
+| 템플릿 | false | -2046 | 차단한 국가에 발송한 경우  | Blocked country by service. |
+| 템플릿 | false | -2047 | 차단 제한 건 수가 넘은 경ㅜ | Blocked by total indicator. |
 | 카테고리 | false | -2200 | 유효하지 않는 카테고리 파라미터(등록 시) | Invalid add category parameter.(categoryName, useYn) |
 | 카테고리 | false | -2201 | 유효하지 않는 카테고리 파라미터(수정 시) | Invalid modify category parameter.(categoryId, categoryName, useYn) |
 | 카테고리 | false | -2202 | 유효하지 않는 카테고리(카테고리 조회 실패) | Invalid category. |
