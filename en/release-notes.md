@@ -1,5 +1,21 @@
 ## Notification > SMS > Release Notes
 
+### April 25, 2023
+#### Feature Updates
+* [API] Added code update webhook field as a result of sending message
+    * Added the recipientGroupingKey, senderGroupingKey fields to code update webhook as a result of sending message.
+* [API] Added the identification code field to the v3.0 delivery API and detailed query API
+    * Added the identification code field (originCode) to the v3.0 delivery API and detailed query API.
+    * Add the identification code of the mobile carrier that first sent message to quickly identify illegal text message senders, such as misrepresenting the sender number, illegal spam, etc. for shutdown action.
+        * For special value-added telecommunication business operators, must use the 9 digit registration number listed on certificates.
+        * If null in the field, NHN Cloud’s identification code is added.
+* [Console] Added a result code value to the detailed query delivery page
+    * Added result code values to the detailed query delivery page.
+* Added a feature to set the monthly delivery limit on international SMS
+    * If you enable international SMS delivery, you can set the monthly limit.
+* [Console] Improved attachment upload when sending MMS
+    * Improved to upload up to three attachments when sending an MMS.
+    
 ### March 28, 2023
 #### Feature Updates
 * [Console] Added a setting to use international SMS
