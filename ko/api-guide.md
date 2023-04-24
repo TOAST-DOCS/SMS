@@ -1076,7 +1076,7 @@ curl -X GET \
 |body.data.attachFileList[].saveFileName|	String|	저장된 첨부파일명|
 |body.data.attachFileList[].uploadType|	String|	업로드 타입|
 |body.data.senderGroupingKey|	String|	발신자 그룹 키|
-|body.data..recipientGroupingKey|	String|	수신자 그룹 키|
+|body.data.recipientGroupingKey|	String|	수신자 그룹 키|
 
 ## 인증용 SMS(긴급)
 
@@ -1336,7 +1336,6 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 |	옵션|	수신자 그룹 키|
 |pageNum|	Integer| - |	옵션|	페이지 번호(기본값 : 1)|
 |pageSize|	Integer| 1000 |	옵션|	검색 수(기본값 : 15)|
-
 
 #### cURL
 ```

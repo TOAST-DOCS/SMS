@@ -44,6 +44,7 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type | Description |
 |---|---|---|
 |appKey|	String| Original appkey |
+
 [Header]
 
 ```
@@ -77,7 +78,8 @@ Content-Type: application/json;charset=UTF-8
       }
    ],
    "userId":"UserId",
-   "statsId":"statsId"
+   "statsId":"statsId",
+   "originCode":"123456789"
 }
 ```
 
@@ -97,6 +99,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 100 | X | Recipient group key |
 |userId|	String|	100 | X | Delivery delimiter e.g) admin,system |
 | statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
+|originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators)<br/>Do not use unless you are special value-added telecommunications business operator. NHN Cloud's identification code is added by default.<br/> |
 
 #### cURL
 ```
@@ -215,7 +218,6 @@ curl -X POST \
    }
 }
 ```
-
 
 #### Example of Sending Short SMS (with country code included to recipient numbers)
 
@@ -452,7 +454,6 @@ curl -X GET \
 -H 'X-Secret-Key:{secretkey}' 
 ```
 
-
 #### Response
 
 ```
@@ -486,6 +487,7 @@ curl -X GET \
          "messageType":"SMS",
          "userId":"tester",
          "adYn":"N",
+         "originCode":"123456789"
          "resultMessage": "",
          "senderGroupingKey":"SenderGroupingKey",
          "recipientGroupingKey":"RecipientGroupingKey"
@@ -521,6 +523,7 @@ curl -X GET \
 |body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data.userId|	String| Delivery request ID |
 |body.data.adYn|	String| Ad or not |
+|body.data.originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
 |body.data.senderGroupingKey|	String| Sender's group key |
 |body.data.recipientGroupingKey|	String| Recipient's group key |
 
@@ -578,7 +581,8 @@ Content-Type: application/json;charset=UTF-8
       }
    ],
    "userId":"UserId",
-   "statsId":"statsId"
+   "statsId":"statsId",
+   "originCode":"123456789"
 }
 ```
 
@@ -599,6 +603,8 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 1000 | X | Recipient group key |
 |userId|	String| 100 |	X | Delivery delimiter  e.g.) admin,system |
 | statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
+|originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators)<br/>Do not use unless you are special value-added telecommunications business operator. NHN Cloud's identification code is added by default.<br/> |
+
 
 #### cURL
 ```
@@ -724,7 +730,6 @@ curl -X POST \
 ```
 
 ### Send MMS (attached file included)
-
 
 #### Example of Sending Attached Files
 
@@ -967,8 +972,7 @@ Content-Type: application/json;charset=UTF-8
 
 |Value| Type | Description |
 |---|---|---|
-|appKey|	String| Origional appkey |
-|requestId|	String| Request ID |
+|X-Secret-Key|	String|	Original secret key|
 
 [Query parameter]
 
@@ -1018,6 +1022,7 @@ curl -X GET \
       "messageType":"MMS",
       "userId":"tester",
       "adYn":"N",
+      "originCode":"123456789",
       "attachFileList": [{
                fileId: Integer,
                filePath: String,
@@ -1042,35 +1047,36 @@ curl -X GET \
 |body.pageNum|	Integer| Current page number |
 |body.pageSize|	Integer| Queried data count |
 |body.totalCount|	Integer| Total data count |
-|body.data[].requestId|	String| Request ID |
-|body.data[].requestDate|	String| Date and time of sending |
-|body.data[].resultDate|	String| Date and time of receiving |
-|body.data[].templateId|	String| Template ID |
-|body.data[].templateName|	String| Template name |
-|body.data[].categoryId|	String| Category ID |
-|body.data[].categoryName|	String| Category name |
-|body.data[].body|	String| Body message |
-|body.data[].sendNo|	String| Sender number |
-|body.data[].countryCode|	String| Country code |
-|body.data[].recipientNo|	String| Recipient number |
-|body.data[].msgStatus|	String| Message status code |
-|body.data[].msgStatusName|	String| Name of message status code |
-|body.data[].resultCode|	String| Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
-|body.data[].resultCodeName|	String| Result code name of receiving |
-|body.data[].telecomCode|	Integer| Code of telecom provider |
-|body.data[].telecomCodeName|	String| Name of telecome provider |
-|body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
-|body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
-|body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
-|body.data[].userId|	String| Delivery request ID |
-|body.data[].adYn|	String| Ad or not |
-|body.data[].attachFileList[].fileId|	Integer| File ID |
-|body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
-|body.data[].attachFileList[].fileName|	String| File name |
-|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
-|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
-|body.data[].senderGroupingKey|	String| Sender's group key |
-|body.data[].recipientGroupingKey|	String| Recipient's group key |
+|body.data.requestId|	String| Request ID |
+|body.data.requestDate|	String| Date and time of sending |
+|body.data.resultDate|	String| Date and time of receiving |
+|body.data.templateId|	String| Template ID |
+|body.data.templateName|	String| Template name |
+|body.data.categoryId|	String| Category ID |
+|body.data.categoryName|	String| Category name |
+|body.data.body|	String| Body message |
+|body.data.sendNo|	String| Sender number |
+|body.data.countryCode|	String| Country code |
+|body.data.recipientNo|	String| Recipient number |
+|body.data.msgStatus|	String| Message status code |
+|body.data.msgStatusName|	String| Name of message status code |
+|body.data.resultCode|	String| Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
+|body.data.resultCodeName|	String| Result code name of receiving |
+|body.data.telecomCode|	Integer| Code of telecom provider |
+|body.data.telecomCodeName|	String| Name of telecome provider |
+|body.data.recipientSeq|	Integer| Detail delivery ID (required to query details) |
+|body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
+|body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data.userId|	String| Delivery request ID |
+|body.data.adYn|	String| Ad or not |
+|body.data.originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+|body.data.attachFileList[].fileId|	Integer| File ID |
+|body.data.attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
+|body.data.attachFileList[].fileName|	String| File name |
+|body.data.attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data.attachFileList[].uploadType|	String|	Type of uploaded|
+|body.data.senderGroupingKey|	String| Sender's group key |
+|body.data.recipientGroupingKey|	String| Recipient's group key |
 
 ## SMS for Authentication (emergency)
 
@@ -1108,6 +1114,7 @@ Content-Type: application/json;charset=UTF-8
   "X-Secret-Key": String
 }
 ```
+
 |Value| Type | Description |
 |---|---|---|
 |X-Secret-Key| String|	Original secret key|
@@ -1133,7 +1140,8 @@ Content-Type: application/json;charset=UTF-8
       }
    ],
    "userId":"UserId",
-   "statsId":"statsId"
+   "statsId":"statsId",
+   "originCode":"123456789"
 }
 ```
 
@@ -1153,6 +1161,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 100 | X | Recipient's group key |
 |userId|	String| 100 |	X | Delivery delimiter e.g.) admin,system |
 | statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
+|originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
 
 #### cURL
 ```
@@ -1171,6 +1180,7 @@ curl -X POST \
     "userId": ""
 }'
 ```
+
 
 #### Response
 ```
@@ -1273,6 +1283,7 @@ curl -X POST \
 }
 ```
 
+
 ### List SMS Delivery for Authentication
 
 #### Request
@@ -1325,6 +1336,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientGroupingKey|	String| 100 | Optional | Recipient's group key |
 |pageNum|	Integer| - | Optional | Page number (Default : 1) |
 |pageSize|	Integer| 1000 | Optional | Number of queries (Default: 15) |
+
 
 #### cURL
 ```
@@ -1490,6 +1502,7 @@ curl -X GET \
          "messageType":"AUTH",
          "userId":"tester",
          "adYn":"N",
+         "originCode":"123456789",
          "resultMessage": "",
          "senderGroupingKey":"SenderGroupingKey",
          "recipientGroupingKey":"RecipientGroupingKey"
@@ -1525,11 +1538,13 @@ curl -X GET \
 |body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data.userId|	String| Request ID for sending |
 |body.data.adYn|	String| Ad or not |
+|body.data.originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
 |body.data.senderGroupingKey|	String| Sender's group key |
 |body.data.recipientGroupingKey|	String| Recipient's group key |
 
 ## Ad Messages
 ### Send SMS for Advertisement
+
 #### Request
 
 [URL]
