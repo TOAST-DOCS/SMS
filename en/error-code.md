@@ -1,474 +1,130 @@
-## Notification > SMS > Error Codes
+## Notification > SMS > Result Code
 
-## API Response Codes
-| service | isSuccess | resultCode | resultMessage |
+### API Result Code
+
+| Service | Successful or not | Result code | Result code message | API response message |
+| - | - | - | - | - |
+| Common | true | 0 | Successful | SUCCESS |
+| Common | false | -1000 | Invalid appkey | Invalid appKey. |
+| Common | false | -1001 | Not exist appkey | Service does not exist. |
+| Common | false | -1002 | Terminated appkey | Service is disabled. |
+| Common | false | -1003 | Member not inlcuded in the project | Not project memeber id. |
+| Common | false | -1004 | Not allowed IP | Not allow ip. |
+| Common | false | -1007 | Invalid member | MemberType is invalid. |
+| Common | false | -1008 | Blocked project | Service is blocked. |
+| Common | false | -9995 | Invalid API version | Invalid api version. |
+| Common | false | -9996 | Invalid content type. Only application/JSON | Only application/json Content-type is supported. |
+| Common | false | -9997 | Invalid JSON type | Invalid API parameters. |
+| Common | false | -9998 | Not exist API | Not exist API. |
+| Common | false | -9999 | System error (unexpected error) | System error. Please inquire at support@toast.com. |
+| Send/Query | false | -1005 | Invalid search condition | Service parameter is invalid. |
+| Send/Query | false | -1006 | Invalid delivery message format (messageType) | MessageType is invalid. |
+| Send/Query | false | -2000 | Invalid date format | Date format error. |
+| Send/Query | false | -2001 | Recipient is missing | RecipientList can not be null. |
+| Send/Query | false | -2002 |Name of attached file is invalid | Invalid attach file name. |
+| Send/Query | false | -2003 | Extension of attached file is not jpg or jpeg | Attach file required jpg or jpeg. |
+| Send/Query | false | -2004 | The attachment has expired or does not exist | File is expired or does not exist. |
+| Send/Query | false | -2005 | Attached file is sized 300KB or more  | The file size must be greater than 0 and less than 300KB. |
+| Send/Query | false | -2006 | Delivery type in template setting is not consistent with requested type | Invalid template type. |
+| Send/Query | false | -2008 |  Request ID (requestId) is invalid | Invalid requestId. |
+| Send/Query | false | -2009 | Attached file is not properly uploaded due to server error | Upload attach file error. |
+| Send/Query | false | -2010 | Upload type of attachment is invalid (server error) | Upload attach file type can not be empty. |
+| Send/Query | false | -2011 | Required query parameters are missing (requestId or startRequestDate, endRequestdate) | RequestId or start/endRequestDate or start/endCreateDate is required. |
+| Send/Query | false | -2012 | When detailed query parameter is invalid (requestId or mtPr) | Search parameter is invalid.(requestId and mtPr). |
+| Send/Query | false | -2014 |Title or body is missing | The recipient can not be empty. |
+| Send/Query | false | -2015 | Title or body exceed maximum byte | Title or Body exceed maximum byte. |
+| Send/Query | false | -2016 | The number of recipients is over 1,000 | The max recipient size is 1000. |
+| Send/Query | false | -2017 | Failed to create excel | Making Excel file is failed. |
+| Send/Query | false | -2018 | Recipient number is missing | RecipientNo can not be empty. |
+| Send/Query | false | -2019 | Recipient number is invalid | RecipientNo is invalid. |
+| Send/Query | false | -2021 | System error (failed in saving queue) | System error. Failed insert queue. |
+| Send/Query | false | -2022 | Request date and time is set earlier than the current time | requestDate is not before currentDate |
+| Send/Query | false | -2023 | Title or body includes characters that are not allowed (e.g. emojis) | Unacceptable characters in title and body|
+| Send/Query | false | -2024 |  International delivery is sent with LMS/MMS | LMS/MMS Type is not sent to outside of Korea. |
+| Send/Query | false | -4000 | Query range is more than a month | Search is possible within one month. |
+| Send/Query | false | -8000 | If authenticaiton doesn't include a authentication statement | The body must contain auth guide ment. |
+| Template | false | -2100 | Template ID is missing | The templateId can not be empty. |
+| Template | false | -2101 | Already registered Template ID | Already used templateId. |
+| Template | false | -2102 | Template name is missing | The template name can not be empty. |
+| Template | false | -2103 | Sender number is missing | The sendNo can not be empty. |
+| Template | false | -2104 | Delivery type is missing (0: sms, 1: mms) | The sendType can not be empty.(0-sms, 1-mms) |
+| Template | false | -2105 | Body is missing | The body can not be empty. |
+| Template | false | -2106 | Use or not is invalid | UseYn is invalid. |
+| Template | false | -2107 | Invalid Template ID(When modifing/deleting) | Invalid template. |
+| Template | false | -2108 | Category ID is missing | The categoryId can not be empty. |
+| Template | false | -2109 | Template ID exceeds 50 characters | templateId length must be under 50. |
+| Template | false | -2110 | Not exist Template | template is not exist. |
+| Template | false | -2111 | Invalid Template parameter | template add parameter is invalid. |
+| Template | false | -2112 | Exceeded the maximum available number of templates for registration (Max: 1000)  | The maximum number of registered templates. |
+| Template | false | -2114 | Title is empty  | The title can not be empty. |
+| Template | false | -2115 | Title exceeds 120 characters  | Title length must be under 120. |
+| Template | false | -2116 | Body length exceeds 255 characters, for SMS delivery   | SMS Body length must be under 255. |
+| Template | false | -2117 | Body length exceeds 4000 characters, for LMS/MMS delivery  | LMS/MMS Body length must be under 4000. |
+| Template | false | -2043 | Attached file for template registration is already registered at another template | Already used attachFileId |
+| Template | false | -2044 | Request is sent to unavailable country | Invalid countryCode for sending. |
+| Template | false | -2045 | International sending is blocked | International sending blocked by service. |
+| Template | false | -2046 | Sent to blocked country  | Blocked country by service. |
+| Template | false | -2047 | Exceeded the block limit | Blocked by total indicator. |
+| Category | false | -2200 | Invalid category parameter (to register) | Invalid add category parameter.(categoryName, useYn) |
+| Category | false | -2201 | Invalid category parameter (to modify) | Invalid modify category parameter.(categoryId, categoryName, useYn) |
+| Category | false | -2202 | Invalid category (failed to query category) | Invalid category. |
+| Category | false | -2203 | Parent category does not exist | categoryParentId is invalid. |
+| Category | false | -2204 | Use or not is invalid | UseYn is invalid. |
+| Category | false | -2205 | Deleting the highest category | Cannot delete the highest category. |
+| Category | false | -2206 | Category does not exist | category is not exist. |
+| Sender number | false | -2312 | Sender number is missing or unregistered | Not regist sendno. |
+| Sender number | false | -2313 | Blocked Sender number | This sendno is blocked. |
+| Statistics | false | -2700 | Invalid statistics range | Invalid search period. |
+| Statistics | false | -2701 | Invalid statistics search parameter | Invalid statistics search parameter. |
+| Statistics | false | -2703 | Invalid detail range of statistics | Invalid duration time. |
+| Statistics | false | -2704 | Invalid statistics parameter | Invalid stats parameter. |
+| 080 Call Regection | false | -6000 | Call rejection is not used | Block service is not joined. |
+| 080 Call Regection | false | -6001 | Refused recipient number | Recipient Number is refused. |
+| 080 Call Regection | false | -6003 | Body does not include guide message on call rejection | The body must contain block guide ment. |
+| 080 Call Regection | false | -6004 | Call rejection numbers are not in service | This is not a joined unsubscribeNo. |
+| Tag | false | -7000 | Internal tag error (failed to call API) | Fail to call Tag API. |
+| Tag | false | -7001 | Invalid paramter | Invalid parameter. |
+| Tag | false | -7002 | Failed to read .csv file | Invalid csv read. |
+
+### Result Code of Receiving
+
+| Category | Result code | Classification | Description |
 | - | - | - | - |
-| Common | true | 0 | Successful |
-| Common | false | 4 | Parameter validation failed<br/>- The length of the body exceeds 4000 characters when sending a short message<br/>- The length of the title exceeds 120 characters when sending a long message or attachment<br/>- The searchType, from, or to fields are empty while retrieving statistics |
-| Common | false | -1000 | Invalid appkey |
-| Common | false | -1001 | Unavailable appkey |
-| Common | false | -1002 | Closed appkey |
-| Common | false | -1003 | Member not included in the project |
-| Common | false | -1004 | Not allowed IP |
-| Common | false | -9996 | Invalid contentType. Only application/JSON |
-| Common | false | -9997 | Invalid JSON format |
-| Common | false | -9998 | Unavailable API |
-| Common | false | -9999 | System error (unexpected error) |
-| Send/Query | false | -1006 | Invalid delivery message format (messageType) |
-| Send/Query | false | -2000 | Invalid date format |
-| Send/Query | false | -2001 | Recipient is missing |
-| Send/Query | false | -2002 | Name of attached file is invalid |
-| Send/Query | false | -2003 | Extension of attached file is not jpg or jpeg |
-| Send/Query | false | -2004 | The attachment has expired or does not exist |
-| Send/Query | false | -2005 | Attached file is sized 300KB or more |
-| Send/Query | false | -2006 | Delivery type in template setting is not consistent with requested type |
-| Send/Query | false | -2008 | Request ID (requestId) is invalid |
-| Send/Query | false | -2009 | Attached file is not properly uploaded due to server error |
-| Send/Query | false | -2010 | Upload type of attachment is invalid (server error) |
-|Send/Query | false | -2011 | Required query parameters are missing (requestId or startRequestDate, endRequestdate)
-| Send/Query | false | -2012 | When detailed query parameter is invalid (requestId or mtPr) |
-| Send/Query | false | -2014 | Title or body is missing  |
-| Send/Query | false | -2016 | The number of recipients is over 1,000 |
-| Send/Query | false | -2017 | Failed to create excel |
-| Send/Query | false | -2018 | Recipient number is missing |
-| Send/Query | false | -2019 | Recipient number is invalid  |
-| Send/Query | false | -2021 | System error (failed in saving queue) |
-| Send/Query | false | -2022 | Request date and time is set earlier than the current time |
-| Send/Query | false | -2023 | Title or body includes characters that are not allowed (e.g. emojis) |
-| Send/Query | false | -2024 | International delivery is sent with LMS/MMS |
-| Send/Query | false | -4000 | Query range is more than a month |
-| Template | false | -2100 | Template ID is missing |
-| Template | false | -2101 | Already-registered Template ID |
-| Template | false | -2102 | Template name is missing |
-| Template | false | -2103 | Sender number is missing |
-| Template | false | -2104 | Delivery type is missing (0: sms, 1: mms) |
-| Template | false | -2105 | Body is missing |
-| Template | false | -2106 | Incorrect if service is enabled |
-| Template | false | -2107 | Invalid template ID (to modify/delete) |
-| Template | false | -2108 | Category ID is missing|
-| Template | false | -2109 | Template ID exceeds 50 characters |
-| Template | false | -2110 | Template is unavailable |
-| Template | false | -2111 | Invalid template parameter |
-| Template | false | -2112 | Exceeded the maximum available number of templates for registration (Max: 1000)  |
-| Template | false | -2113 | Template ID already deleted  |
-| Template | false | -2114 | Title is empty |
-| Template | false | -2115 | Title exceeds 120 characters  |
-| Template | false | -2116 | Body length exceeds 255 characters, for SMS delivery |
-| Template | false | -2117 | Body length exceeds 4000 characters, for LMS/MMS delivery |
-| Template | false | -2043 | Attached file for template registration is already registered at another template|
-| Category | false | -2200 | Invalid category parameter (to register) |
-| Category | false | -2201 | Invalid category parameter (to modify) |
-| Category | false | -2202 | Invalid category (failed to query category |
-| Category | false | -2203 | Parent category does not exist  |
-| Category | false | -2204 | Use or not is invalid  |
-| Category | false | -2205 | Deleting the highest category  |
-| Request for Sender Number Registration | false | -2301 | Already registered sender number |
-| Request for Sender Number Registration | false | -2302 | The list parameter of the sender number requested for registration is empty  |
-| Request for Sender Number Registration | false | -2304 | Invalid registration parameter (attachment) |
-| Sender Number | false | -2312 | Sender number is missing or unregistered |
-| Sender Number | false | -2313 | Blocked sender number |
-| Sender Number | false | -2314 | Request parameter for sender number registration is invalid |
-| Statistics | false | -2700 | Invalid range of statistics |
-| Statistics | false | -2701 | Invalid statistics search parameter |
-| Statistics | false | -2703 | Invalid detail range of statistics |
-| Statistics | false | -2704 | Invalid statistics parameter |
-| 080 Call Rejection | false | -6000 | Call rejection is not in service |
-| 080 Call Rejection | false | -6001 | Call-reject numbers |
-| 080 Call Rejection | false | -6003 | Body does not include guide message on call rejection |
-| 080 Call Rejection | false | -6004 | Call rejection numbers are not in service |
-| Tag | false | -7000 | Internal tag error (failed to call API) |
-| Tag | false | -7001 | Invalid parameter |
-| Tag | false | -7002 | Failed to read .csv file  |
-
-## Query Delivery Codes 
-### Result Code of Receiving 
-<table class="table table-striped table-hover">
-<thead>
-	<tr>
-    <th>Code Value</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>MTR1</td>
-    <td>Successful</td>
-  </tr>
-  <tr>
-    <td>MTR2</td>
-    <td>Failed</td>
-  </tr>
-</tbody>
-</table>
-
-### Detail Result Code of Receiving 
-<table class="table table-striped table-hover">
-<thead>
-	<tr>
-    <th>Code Value</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>MTR2_1</td>
-    <td>Validity Check Failed</td>
-  </tr>
-  <tr>
-    <td>MTR2_2</td>
-    <td>Issue of Telecom Provider</td>
-  </tr>
-  <tr>
-    <td>MTR2_3</td>
-    <td>Issue of Device</td>
-  </tr>
-</tbody>
-</table>
-
-## EMMA v.3 Result Code of Receiving 
-EMMA Version: EMMA V3.3.0 or higher
-
-1) Telecom Provider: Result codes received after transferred to telecom provider.
-
-2) IB G/W: Result codes delivered after Infobank G/W receives messages.
-
-3) IB EMMA: Error codes processed by EMMA regarding message delivery requests. 
-
-<table class="table table-striped table-hover">
-<thead>
-	<tr>
-		<th>Category</th>
-		<th>Code Value</th>
-		<th>Classification</th>
-		<th>Description</th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td rowspan=29>Telecom Provider</td>
-		<td>1000</td>
-		<td>success</td>
-		<td>Successful</td>
-	</tr>
-	<tr>
-		<td>2000</td>
-		<td>failure</td>
-		<td>Delivery time exceeded</td>
-	</tr>
-	<tr>
-		<td>2001</td>
-		<td>failure</td>
-		<td>Delivery failed (mobile network)</td>
-	</tr>
-	<tr>
-		<td>2002</td>
-		<td>failure</td>
-		<td>Delivery failed (mobile network -> device)</td>
-	</tr>
-	<tr>
-		<td>2003</td>
-		<td>failure</td>
-		<td>Device power off</td>
-	</tr>
-	<tr>
-		<td>2004</td>
-		<td>failure</td>
-		<td>Device message buffer pool</td>
-	</tr>
-	<tr>
-		<td>2005</td>
-		<td>failure</td>
-		<td>Grey area</td>
-	</tr>
-	<tr>
-		<td>2006</td>
-		<td>failure</td>
-		<td>Message deleted</td>
-	</tr>
-	<tr>
-		<td>2007</td>
-		<td>failure</td>
-		<td>Temporary device issue</td>
-	</tr>
-	<tr>
-		<td>3000</td>
-		<td>Invalid</td>
-		<td>Unavailable to transfer</td>
-	</tr>
-	<tr>
-		<td>3001</td>
-		<td>Invalid</td>
-		<td>No subscriber available</td>
-	</tr>
-	<tr>
-		<td>3002</td>
-		<td>Invalid</td>
-		<td>Adult authentication failed</td>
-	</tr>
-	<tr>
-		<td>3003</td>
-		<td>Invalid</td>
-		<td>Recipient number format error or missing number (unavailable number)</td>
-	</tr>
-	<tr>
-		<td>3004</td>
-		<td>Invalid</td>
-		<td>Temporary service suspension on device</td>
-	</tr>
-	<tr>
-		<td>3005</td>
-		<td>Invalid</td>
-		<td>Device call processing status</td>
-	</tr>
-	<tr>
-		<td>3006</td>
-		<td>Invalid</td>
-		<td>Incoming call denied </td>
-	</tr>
-	<tr>
-		<td>3007</td>
-		<td>Invalid</td>
-		<td>Phone unavailable to receive callback URL </td>
-	</tr>
-	<tr>
-		<td>3008</td>
-		<td>Invalid</td>
-		<td>Other device issues</td>
-	</tr>
-	<tr>
-		<td>3009</td>
-		<td>Invalid</td>
-		<td>Message format error </td>
-	</tr>
-	<tr>
-		<td>3010</td>
-		<td>Invalid</td>
-		<td>Device not supporting MMS</td>
-	</tr>
-	<tr>
-		<td>3011</td>
-		<td>Invalid</td>
-		<td>Server error</td>
-	</tr>
-	<tr>
-		<td>3012</td>
-		<td>Invalid</td>
-		<td>Spam</td>
-	</tr>
-	<tr>
-		<td>3013</td>
-		<td>Invalid</td>
-		<td>Service rejected</td>
-	</tr>
-	<tr>
-		<td>3014</td>
-		<td>Invalid</td>
-		<td>Others </td>
-	</tr>
-	<tr>
-		<td>3015</td>
-		<td>Invalid</td>
-		<td>No transfer route available</td>
-	</tr>
-	<tr>
-		<td>3016</td>
-		<td>Invalid</td>
-		<td>Size restriction failed for attached file</td>
-	</tr>
-	<tr>
-		<td>3017</td>
-		<td>Invalid</td>
-		<td>Number format error due to sender number (=reply number) falsification prevention service </td>
-	</tr>
-	<tr>
-		<td>3018</td>
-		<td>Invalid</td>
-		<td>Personal mobile phone number subscribed to sender number (=reply number) falsification prevention service </td>
-	</tr>
-	<tr>
-		<td>3019</td>
-		<td>Invalid</td>
-		<td>Numbers not registered at sender number(=reply number) InfoBank via pre-registration of numbers </td>
-	</tr>
-	<tr>
-		<td rowspan=20>IB G/W</td>
-		<td>1001</td>
-		<td rowspan=20></td>
-		<td>Server Busy (internal RS saving queue Full)</td>
-	</tr>
-	<tr>
-		<td>1002</td>
-		<td> Error in recipient number format</td>
-	</tr>
-	<tr>
-		<td>1003</td>
-		<td> Error in reply number format</td>
-	</tr>
-	<tr>
-		<td>1004</td>
-		<td>SPAM</td>
-	</tr>
-	<tr>
-		<td>1005</td>
-		<td> Available usage exceeded</td>
-	</tr>
-	<tr>
-		<td>1006</td>
-		<td>No Attached file available</td>
-	</tr>
-	<tr>
-		<td>1007</td>
-		<td> Attached file available </td>
-	</tr>
-	<tr>
-		<td>1008</td>
-		<td>Failed to save attached file</td>
-	</tr>
-	<tr>
-		<td>1009</td>
-		<td> No CLIENT_MSG_KEY available</td>
-	</tr>
-	<tr>
-		<td>1010</td>
-		<td>No CONTENT available</td>
-	</tr>
-	<tr>
-		<td>1011</td>
-		<td>No CALLBACK available</td>
-	</tr>
-	<tr>
-		<td>1012</td>
-		<td>No RECIPIENT_INFO available</td>
-	</tr>
-	<tr>
-		<td>1013</td>
-		<td>No SUBJECT available</td>
-	</tr>
-	<tr>
-		<td>1014</td>
-		<td>No attached file KEY available </td>
-	</tr>
-	<tr>
-		<td>1015</td>
-		<td>No attached file NAME available </td>
-	</tr>
-	<tr>
-		<td>1016</td>
-		<td> No attached file size available</td>
-	</tr>
-	<tr>
-		<td>1017</td>
-		<td> No attached file content available</td>
-	</tr>
-	<tr>
-		<td>1018</td>
-		<td> No transfer authority available</td>
-	</tr>
-	<tr>
-		<td>1019</td>
-		<td>TTL exceeded</td>
-	</tr>
-	<tr>
-		<td>1020</td>
-		<td>charset conversion error</td>
-	</tr>
-	<tr>
-		<td rowspan=24>IB EMMA</td>
-		<td>E900</td>
-		<td rowspan=24>Invalid-IB</td>
-		<td>No transfer key available</td>
-	</tr>
-	<tr>
-		<td>E901</td>
-		<td>No recipient number available</td>
-	</tr>
-	<tr>
-		<td>E902</td>
-		<td>Order of recipient number (for broadcasts) is unavailable </td>
-	</tr>
-	<tr>
-		<td>E903</td>
-		<td>No title available</td>
-	</tr>
-	<tr>
-		<td>E904</td>
-		<td>No message available</td>
-	</tr>
-	<tr>
-		<td>E905</td>
-		<td>No reply number available</td>
-	</tr>
-	<tr>
-		<td>E906</td>
-		<td>No message key available</td>
-	</tr>
-	<tr>
-		<td>E907</td>
-		<td>Availability of broadcast message is unavailable </td>
-	</tr>
-	<tr>
-		<td>E908</td>
-		<td>No service type available</td>
-	</tr>
-	<tr>
-		<td>E909</td>
-		<td>Request hour for transfer is unavailable</td>
-	</tr>
-	<tr>
-		<td>E910</td>
-		<td>TTL time unavailable</td>
-	</tr>
-	<tr>
-		<td>E911</td>
-		<td>No attached file extension available, in the case of MMS MT</td>
-	</tr>
-	<tr>
-		<td>E912</td>
-		<td>No attached file available for attach_file folder, in the case of MMS MT</td>
-	</tr>
-	<tr>
-		<td>E913</td>
-		<td>If attached file is sized 0, in the case of MMS MT</td>
-	</tr>
-	<tr>
-		<td>E914</td>
-		<td>If data are available at message table but not at file table, in the case of MMS MT</td>
-	</tr>
-	<tr>
-		<td>E915</td>
-		<td>Duplicate message </td>
-	</tr>
-	<tr>
-		<td>E916</td>
-		<td>Prohibited number for authenticated server</td>
-	</tr>
-	<tr>
-		<td>E917</td>
-		<td>Prohibited number for customer database</td>
-	</tr>
-	<tr>
-		<td>E918</td>
-		<td>USER CALLBACK FAIL</td>
-	</tr>
-	<tr>
-		<td>E919</td>
-		<td>Resending message is prohibited during when delivery is restricted</td>
-	</tr>
-	<tr>
-		<td>E920</td>
-		<td>If file group key is available at message table, in the case of LMS MT</td>
-	</tr>
-	<tr>
-		<td>E921</td>
-		<td>If file group key is unavailable at message table, in the case of MMS MT</td>
-	</tr>
-	<tr>
-		<td>E922</td>
-		<td>Error in restricted use of characters for broadcast words </td>
-	</tr>
-	<tr>
-		<td>E999</td>
-		<td> Other errors </td>
-	</tr>
-</tbody>
-</table>
+| Telecom Provider | 1000 | Successful | Success |
+| Telecom Provider | 1001 | Failure | Server Busy |
+| Telecom Provider | 1002 | Failure | Receiving number format error |
+| Telecom Provider | 1003 | Failure | Reply-to number format error |
+| Telecom Provider | 1019 | Failure | Exceeded TTL |
+| Telecom Provider | 2000 | Failure | Delivery time exceeded |
+| Telecom Provider | 2001 | Failure | Delivery failed (mobile network) |
+| Telecom Provider | 2002 | Failure | Delivery failed (mobile network -> device) |
+| Telecom Provider | 2003 | Failure | Device power off |
+| Telecom Provider | 2004 | Failure | Device message buffer full |
+| Telecom Provider | 2005 | Failure | Grey area |
+| Telecom Provider | 2006 | Failure | Message deleted |
+| Telecom Provider | 2007 | Failure | Temporary device issue |
+| Telecom Provider | 3000 | Failure | Unavailable to transfer |
+| Telecom Provider | 3001 | Failure | No subscriber available |
+| Telecom Provider | 3002 | Failure | Adult authentication failed |
+| Telecom Provider | 3003 | Failure | Recipient number format error or missing (unavailable number) |
+| Telecom Provider | 3004 | Failure | Temporary service suspension on device |
+| Telecom Provider | 3005 | Failure | Device call processing status, Not reach to the device  |
+| Telecom Provider | 3006 | Failure | Incoming call denied |
+| Telecom Provider | 3007 | Failure | Device unavailable to receive callback URL |
+| Telecom Provider | 3008 | Failure | Other device issues |
+| Telecom Provider | 3009 | Failure | Message format error |
+| Telecom Provider | 3010 | Failure | Device not supporting MMS|
+| Telecom Provider | 3011 | Failure | Server error |
+| Telecom Provider | 3012 | Failure | Spam |
+| Telecom Provider | 3013 | Failure | Service rejected |
+| Telecom Provider | 3014 | Failure | Others |
+| Telecom Provider | 3015 | Failure | No transfer route available |
+| Telecom Provider | 3016 | Failure | Size restriction failed for attached file |
+| Telecom Provider | 3017 | Failure | Number format error due to sender number (=reply number) falsification prevention service |
+| Telecom Provider | 3018 | Failure | Personal mobile phone number subscribed to sender number (=reply number) falsification prevention service  |
+| Telecom Provider | 3019 | Failure | Numbers not registered at sender number(=reply number) InfoBank via pre-registration of numbers |
+| ETC | E911 | Failure | No attached file extension available |
+| ETC | E913 | Failure | Attached file size is 0 |
+| ETC | E915 | Failure | Duplicate messages |
+| ETC | E919 | Failure | Resending message is prohibited during when delivery is restricted |
+| ETC | E999 | Failure | Other errors |
