@@ -232,7 +232,64 @@ Find the number counts while uploading a template which is created.
 
 ![sms_24_201812](https://static.toastoven.net/prod_sms/sms_24_201812.png)
 
-## Sender Number Management 
+## Identity Verification
+* In order to comply with the amendment of Article 84(2) of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
+    * Only for members who joined after March 2, 2022
+* To use the SMS service, you must go through identity verification, which basically requires mobile phone identity verification and additional documentation depending on your membership type.
+    * If you don't verify your identity, all features other than the **Sender Number Pre-Registration** tab will be disabled.
+* The name and phone number you enter when you sign up must match the information you enter when you verify your identity to be approved.
+
+### Required Documentation by Member Type
+
+| Member Type | Verification Method | Required Documents |
+| --- | --- | --- |
+| Representative | Mobile verification | Business registration certificate, proof of employment |
+| Employee | Mobile verification | Business registration certificate, proof of employment |
+| IAM member | Mobile verification | Business registration certificate, proof of employment |
+| Personal | Mobile verification | - |
+
+
+### Identity Verification Process
+1. Select the **Sender Number Pre-registration**tab.
+2.  Click **Verify phone identity and attach required documents** to start the process.
+3. Confirm and agree to the Consent to collection and usage of personal information.
+4. Proceed to verify your identity with mobile verification or a quick identity verification.
+5. Attach and register any required documents if necessary.
+6. Wait for the operator review and approval process. 
+7. Once the identity verification process is complete, the approval result will be sent to the email registered to your account.
+
+## Pre-register Sender Numbers
+
+#### Enforce pre-registration of sender numbers
+* In accordance with Article 84 of the Telecommunications Business Act, the registration of a sender number requires the verification of the owner of the sender number.
+* The owner verification method and required documents are determined according to the member and sender number types.
+
+### Owner verification method by calling number
+
+* Representative (CEO, employee, IAM)
+
+| Sender Number Type | Verification Method | Required Documents |
+| --- | --- | --- |
+| Representative number, company number | Document verification | Communication service use certificate | 
+| Employee number | Document verification | Communication service use certificate, proof of employment |
+| Third-party number | Document verification | Telecommunication service usage certificate, usage agreement, (third-party) business license, documents confirming the relationship between the business and the third party (contract, etc.) |
+| Other’s number | Document verification | Telecommunication service usage certificate, usage agreement |
+
+
+* Personal
+
+| Sender Number Type | Verification Method | Required Documents |
+| --- | --- | --- |
+| Personal number (mobile) | Mobile verification or document verification | Communication service use certificate | 
+| Personal number (general) | Document verification | Communication service use certificate |
+| Company/Third-party number | Cannot register | - |
+
+#### ※ For reference
+
+* Usage agreement form can be downloaded from the console.
+* Documents confirming the relationship between the business and the third party can be consignment agreements, proof of headquarters and branch offices, etc.
+* Personal member cannot register company and third-party numbers.
+* After verifying your identity, you can register your sender number.
 
 ### Registration Format for Sender Numbers
 
@@ -249,7 +306,17 @@ Find the number counts while uploading a template which is created.
 
 - Numbers that are subscribed to 'Blocking Sender Number Abuses' as part of additional telecom services, do not receive messages (web/system text delivery).  
 
-### Registering Sender Numbers
+
+### Register Sender Numbers
+1. If you did not verify your identity before registering your sender number, proceed with identity verification.
+    * Even for accounts registered before March 2, 2022, you must go through identity verification.
+2. If you can register with identity authentication, click **Register Sender Number and Verify Mobile Phone**, otherwise select **Register Sender Number and Verify Documents** to start the registration process.
+3. Confirm and agree to the Consent to collection and usage of personal information.
+4. Select the type of sender number required for registration (personal number, representative number, employee number, etc.).
+5. Enter the sender number to register.
+6. Attach and register documents suitable for the number to be registered.
+7. Wait for the operator review and approval process. 
+8. Once the identity verification process is complete, the approval result will be sent to the email registered to your account.
 
 ### Select Authentication Type
 
@@ -339,14 +406,14 @@ Rejection targets, requested with request date and time as optional, can be quer
 
 ## Guide for Notice of Personal Information Assignor 
 
-When the Customer uses NHN Cloud > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act. 
+When the Customer uses TOAST > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act. 
 
-Accordingly, the Company may provide guidelines as below for the Customer, to abide by relevant regulations in the use of NHN Cloud SMS Service and not to be adversely affected for not disclosing his assignment status:
+Accordingly, the Company may provide guidelines as below for the Customer, to abide by relevant regulations in the use of TOAST SMS Service and not to be adversely affected for not disclosing his assignment status:
 
 (Example)
 
 [Notice of Personal Information Assignor] 
-To use NHN Cloud SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
+To use TOAST SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
 
 Assignor: NHN 
 Content of Business: Send SMS in lieu of customers

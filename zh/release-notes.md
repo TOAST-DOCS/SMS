@@ -1,5 +1,21 @@
 ## Notification > SMS > Release Notes
 
+### April 25, 2023
+#### Feature Updates
+* [API] Added code update webhook field as a result of sending message
+    * Added the recipientGroupingKey, senderGroupingKey fields to code update webhook as a result of sending message.
+* [API] Added the identification code field to the v3.0 delivery API and detailed query API
+    * Added the identification code field (originCode) to the v3.0 delivery API and detailed query API.
+    * Add the identification code of the mobile carrier that first sent message to quickly identify illegal text message senders, such as misrepresenting the sender number, illegal spam, etc. for shutdown action.
+        * For special value-added telecommunication business operators, must use the 9 digit registration number listed on certificates.
+        * If null in the field, NHN Cloud’s identification code is added.
+* [Console] Added a result code value to the detailed query delivery page
+    * Added result code values to the detailed query delivery page.
+* Added a feature to set the monthly delivery limit on international SMS
+    * If you enable international SMS delivery, you can set the monthly limit.
+* [Console] Improved attachment upload when sending MMS
+    * Improved to upload up to three attachments when sending an MMS.
+    
 ### March 28, 2023
 #### Feature Updates
 * [Console] Added a setting to use international SMS
@@ -14,6 +30,29 @@
         * API to retrieve sender number authentication history
     * After the enhancement of the sender number pre-registration system, all requests for approval of sender numbers registered through APIs will be rejected.
 
+### February 28, 2023
+#### Feature Updates
+* [Console/API] Added the validation logic for avaliable countries stated in the guide
+    * Modified to fail for countries other than those specified in the guide.
+
+### February 17, 2023
+#### Feature Updates
+* [Console] Enhanced pre-registration of calling numbers
+    * Added verification processes when using the SMS console and registering calling numbers.
+    * Modified the console so that members who signed up after March 2, 2022 must verify their identity before using the console.
+
+### January 31, 2023
+#### Feature Updates
+
+* [Console] Increased the recipient file size limit to upload for mass delivery
+    * Changed the limit from 10MB to 30MB.
+
+### October 25, 2022
+#### Feature Updates
+
+* [API] Fixed a bug that occurred to a single search of messages
+    * Fixed the bug where search results are exposed without type classification in a single search of messages.
+     
 ### August 23, 2022
 #### Feature Updates
 
