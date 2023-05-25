@@ -3,7 +3,7 @@
 ### May 30, 2023
 ### Feature Updates
 * [Console] Improved the identity verification process
-  * Improved so that you only have to authenticate yourself once within the same organization on the SMS console.
+    * Improved so that you only have to authenticate yourself once within the same organization on the SMS console.
 
 ### April 25, 2023
 #### Feature Updates
