@@ -78,7 +78,8 @@ Content-Type: application/json;charset=UTF-8
       }
    ],
    "userId":"UserId",
-   "statsId":"statsId"
+   "statsId":"statsId",
+   "originCode":"123456789"
 }
 ```
 
@@ -485,6 +486,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
          "messageType":"SMS",
          "userId":"tester",
          "adYn":"N",
+         "originCode":"123456789"
          "resultMessage": "",
          "senderGroupingKey":"SenderGroupingKey",
          "recipientGroupingKey":"RecipientGroupingKey"
@@ -515,11 +517,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
 |body.data.resultCodeName|	String|	受信結果コード名|
 |body.data.telecomCode|	Integer|	サービスプロバイダーコード|
 |body.data.telecomCodeName|	String|	サービスプロバイダー名|
-|body.data[].recipientSeq|	Integer|	送信詳細ID(詳細検索時は必須)(旧mtPr)|
+|body.data.recipientSeq|	Integer|	送信詳細ID(詳細検索時は必須)(旧mtPr)|
 |body.data.sendType|	String|	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	送信リクエストID|
 |body.data.adYn|	String|	広告かどうか|
+|body.data.originCode| String | 10 | X | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
 |body.data.senderGroupingKey|	String|	発信者グループキー|
 |body.data.recipientGroupingKey|	String|	受信者グループキー|
 
@@ -577,7 +580,8 @@ Content-Type: application/json;charset=UTF-8
       }
    ],
    "userId":"UserId",
-   "statsId":"statsId"
+   "statsId":"statsId",
+   "originCode":"123456789"
 }
 ```
 
@@ -598,6 +602,8 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 1000 | X | 受信者グループキー |
 |userId|	String| 100 |	X | 送信セパレータex)admin,system |
 |statsId| String | 10 | X | 統計ID(発信検索条件には含まれません) |
+|originCode| String | 10 | X | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)<br/>特殊なタイプの付加通信事業者ではない場合は使用しません。基本的にNHN Cloudの識別コードが挿入されます。<br/> |
+
 
 #### cURL
 ```
@@ -1015,6 +1021,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${R
       "messageType":"MMS",
       "userId":"tester",
       "adYn":"N",
+      "originCode":"123456789",
       "attachFileList": [{
             fileId: Integer,
             filePath: String,
@@ -1039,35 +1046,36 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${R
 |body.pageNum|	Integer|	現在のページ番号|
 |body.pageSize|	Integer|	検索されたデータ数|
 |body.totalCount|	Integer|	データの総数|
-|body.data[].requestId|	String|	リクエストID|
-|body.data[].requestDate|	String|	発信日時|
-|body.data[].resultDate|	String|	受信日時|
-|body.data[].templateId|	String|	テンプレートID|
-|body.data[].templateName|	String|	テンプレート名|
-|body.data[].categoryId|	String|	カテゴリーID|
-|body.data[].categoryName|	String|	カテゴリー名|
-|body.data[].body|	String|	本文内容|
-|body.data[].sendNo|	String|	発信番号|
-|body.data[].countryCode|	String|	国番号|
-|body.data[].recipientNo|	String|	受信番号|
-|body.data[].msgStatus|	String|	メッセージステータスコード|
-|body.data[].msgStatusName|	String|	メッセージステータスコード名|
-|body.data[].resultCode|	String|	受信結果コード[[受信結果コード表](./error-code/#emma-v3)]|
-|body.data[].resultCodeName|	String|	受信結果コード名|
-|body.data[].telecomCode|	Integer|	サービスプロバイダーコード|
-|body.data[].telecomCodeName|	String|	サービスプロバイダー名|
-|body.data[].recipientSeq|	Integer|	送信詳細ID(詳細検索時は必須)|
-|body.data[].sendType|	String|	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)|
-|body.data[].messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
-|body.data[].userId|	String|	送信リクエストID|
-|body.data[].adYn|	String|	広告かどうか|
-|body.data[].attachFileList[].fileId|	Integer|	ファイルID|
-|body.data[].attachFileList[].filePath|	String|	ファイル保存パス(内部用) |
-|body.data[].attachFileList[].filename|	String|	ファイル名|
-|body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイル名|
-|body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
-|body.data[].senderGroupingKey|	String|	発信者グループキー|
-|body.data[].recipientGroupingKey|	String|	受信者グループキー|
+|body.data.requestId|	String|	リクエストID|
+|body.data.requestDate|	String|	発信日時|
+|body.data.resultDate|	String|	受信日時|
+|body.data.templateId|	String|	テンプレートID|
+|body.data.templateName|	String|	テンプレート名|
+|body.data.categoryId|	String|	カテゴリーID|
+|body.data.categoryName|	String|	カテゴリー名|
+|body.data.body|	String|	本文内容|
+|body.data.sendNo|	String|	発信番号|
+|body.data.countryCode|	String|	国家番号|
+|body.data.recipientNo|	String|	受信番号|
+|body.data.msgStatus|	String|	メッセージステータスコード|
+|body.data.msgStatusName|	String|	メッセージステータスコード名|
+|body.data.resultCode|	String|	受信結果コード[[受信結果コード表](./error-code/#emma-v3)]|
+|body.data.resultCodeName|	String|	受信結果コード名|
+|body.data.telecomCode|	Integer|	サービスプロバイダーコード|
+|body.data.telecomCodeName|	String|	サービスプロバイダー名|
+|body.data.recipientSeq|	Integer|	送信詳細ID(詳細検索時に必須)|
+|body.data.sendType|	String|	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)|
+|body.data.messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
+|body.data.userId|	String|	送信リクエストID|
+|body.data.adYn|	String|	広告かどうか|
+|body.data.originCode| String | 10 | X | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
+|body.data.attachFileList[].fileId|	Integer|	ファイルID|
+|body.data.attachFileList[].filePath|	String|	ファイル保存パス(内部用) |
+|body.data.attachFileList[].filename|	String|	ファイル名|
+|body.data.attachFileList[].saveFileName|	String|	保存された添付ファイル名|
+|body.data.attachFileList[].uploadType|	String|	アップロードタイプ|
+|body.data.senderGroupingKey|	String|	発信者グループキー|
+|body.data..recipientGroupingKey|	String|	受信者グループキー|
 
 ## 認証用SMS(緊急)
 
@@ -1131,7 +1139,8 @@ Content-Type: application/json;charset=UTF-8
       }
    ],
    "userId":"UserId",
-   "statsId":"statsId"
+   "statsId":"statsId",
+   "originCode":"123456789"
 }
 ```
 
@@ -1151,6 +1160,7 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 100 | X | 受信者グループキー |
 |userId|	String| 100 |	X | 送信セパレータex)admin,system |
 |statsId| String | 10 | X | 統計ID(発信検索条件には含まれません) |
+|originCode| String | 10 | X | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)<br/>特殊なタイプの付加通信事業者ではない場合は使用しません。基本的にNHN Cloudの識別コードが挿入されます。<br/> |
 
 #### cURL
 ```
@@ -1491,6 +1501,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
          "messageType":"AUTH",
          "userId":"tester",
          "adYn":"N",
+         "originCode":"123456789",
          "resultMessage": "",
          "senderGroupingKey":"SenderGroupingKey",
          "recipientGroupingKey":"RecipientGroupingKey"
@@ -1521,11 +1532,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
 |body.data.resultCodeName|	String|	受信結果コード名|
 |body.data.telecomCode|	Integer|	サービスプロバイダーコード|
 |body.data.telecomCodeName|	String|	サービスプロバイダー名|
-|body.data[].recipientSeq|	Integer|	送信詳細ID(詳細検索時は必須)(旧mtPr)|
+|body.data.recipientSeq|	Integer|	送信詳細ID(詳細検索時は必須)(旧mtPr)|
 |body.data.sendType|	String|	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	送信リクエストID|
 |body.data.adYn|	String|	広告かどうか|
+|body.data.originCode| String | 10 | X | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
 |body.data.senderGroupingKey|	String|	発信者グループキー|
 |body.data.recipientGroupingKey|	String|	受信者グループキー|
 
