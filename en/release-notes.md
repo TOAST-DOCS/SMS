@@ -1,5 +1,10 @@
 ## Notification > SMS > Release Notes
 
+### May 30, 2023
+### Feature Updates
+* [Console] Improved the identity verification process
+    * Improved so that you only have to authenticate yourself once within the same organization on the SMS console.
+
 ### April 25, 2023
 #### Feature Updates
 * [API] Added code update webhook field as a result of sending message
