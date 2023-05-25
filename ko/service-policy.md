@@ -154,7 +154,7 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 | 덴마크 | Denmark | 45 |  |
 | 지부티 | Djibouti | 253 |  |
 | 도미니카 연방 | Dominica | 1767 |  |
-| 도미니카 공화국1 | Dominican Republic1 | 1809 |  |
+| 도미니카 공화국 | Dominican Republic | 1809 |  |
 | 에콰도르 | Ecuador | 593 |  |
 | 이집트 | Egypt | 20 |  |
 | 엘살바도르 | El Salvador | 503 |  |
