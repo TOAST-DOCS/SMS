@@ -49,7 +49,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -61,25 +61,25 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateId":"TemplateId",
-   "body":"본문",
-   "sendNo":"15446859",
-   "requestDate":"2018-08-10 10:00",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "countryCode":"82",
-         "internationalRecipientNo":"821000000000",
-         "templateParameter":{
-            "key":"value"
-         },
-         "recipientGroupingKey":"recipientGroupingKey"
-      }
-   ],
-   "userId":"UserId",
-   "statsId":"statsId",
-   "originCode":"123456789"
+    "templateId": "TemplateId",
+    "body": "본문",
+    "sendNo": "15446859",
+    "requestDate": "2018-08-10 10:00",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "countryCode": "82",
+            "internationalRecipientNo": "821000000000",
+            "templateParameter": {
+                "key": "value"
+            },
+            "recipientGroupingKey": "recipientGroupingKey"
+        }
+    ],
+    "userId": "UserId",
+    "statsId": "statsId",
+    "originCode": "123456789"
 }
 ```
 
@@ -110,7 +110,8 @@ curl -X POST \
 -d '{
     "body": "본문",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "internationalRecipientNo": "821000000000"
         }
     ]
@@ -121,27 +122,27 @@ curl -X POST \
 
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -161,67 +162,67 @@ curl -X POST \
 
 #### 단문 SMS 발송 예제(일반 국내 수신 번호)
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms|
 
 [Request body]
 ```
 {
-   "body":"본문",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      },
-      {
-         "recipientNo":"01000000001",
-         "recipientGroupingKey":"RecipientGroupingKey2"
-      }
-   ],
-   "statsId":"statsId"
+    "body": "본문",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        },
+        {
+            "recipientNo": "01000000001",
+            "recipientGroupingKey": "RecipientGroupingKey2"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            },
-            {
-               "recipientNo":"01000000001",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":2,
-               "recipientGroupingKey":"RecipientGroupingKey2"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                },
+                {
+                    "recipientNo": "01000000001",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 2,
+                    "recipientGroupingKey": "RecipientGroupingKey2"
+                }
+            ]
+        }
+    }
 }
 ```
 
 #### 단문 SMS 발송 예제(국가 코드가 포함된 수신 번호)
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms|
 
@@ -229,44 +230,44 @@ curl -X POST \
 [Request body]
 ```
 {
-   "body":"본문",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "internationalRecipientNo":"821000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      }
-   ],
-   "userId":"",
-   "statsId":"statsId"
+    "body": "본문",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "internationalRecipientNo": "821000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ],
+    "userId": "",
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -291,7 +292,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -335,45 +336,45 @@ curl -X GET \
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "pageNum":1,
-      "pageSize":15,
-      "totalCount":1,
-      "data":[
-         {
-            "requestId":"20180810100630ReZQ6KZzAH0",
-            "requestDate":"2018-08-10 10:06:30.0",
-            "resultDate":"2018-08-10 10:06:42.0",
-            "templateId":"TemplateId",
-            "templateName":"템플릿명",
-            "categoryId":0,
-            "categoryName":"카테고리명",
-            "body":"단문 테스트",
-            "sendNo":"15446859",
-            "countryCode":"82",
-            "recipientNo":"01000000000",
-            "msgStatus":"3",
-            "msgStatusName":"성공",
-            "resultCode":"1000",
-            "resultCodeName":"성공",
-            "telecomCode":10001,
-            "telecomCodeName":"SKT",
-            "recipientSeq":1,
-            "sendType":"0",
-            "messageType":"SMS",
-            "userId":"tester",
-            "adYn":"N",
-            "resultMessage": "",
-            "senderGroupingKey":"SenderGroupingKey",
-            "recipientGroupingKey":"RecipientGroupingKey"
-         }
-      ]
-   }
+    "header":{
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [
+            {
+                "requestId": "20180810100630ReZQ6KZzAH0",
+                "requestDate": "2018-08-10 10:06:30.0",
+                "resultDate": "2018-08-10 10:06:42.0",
+                "templateId": "TemplateId",
+                "templateName": "템플릿명",
+                "categoryId": 0,
+                "categoryName": "카테고리명",
+                "body": "단문 테스트",
+                "sendNo": "15446859",
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "msgStatus": "3",
+                "msgStatusName": "성공",
+                "resultCode": "1000",
+                "resultCodeName": "성공",
+                "telecomCode": 10001,
+                "telecomCodeName": "SKT",
+                "recipientSeq": 1,
+                "sendType": "0",
+                "messageType": "SMS",
+                "userId": "tester",
+                "adYn": "N",
+                "resultMessage": "",
+                "senderGroupingKey": "SenderGroupingKey",
+                "recipientGroupingKey": "RecipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -390,7 +391,7 @@ curl -X GET \
 |body.data[].resultDate|	String|	수신 일시|
 |body.data[].templateId|	String|	템플릿 ID|
 |body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
+|body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].body|	String|	본문 내용|
 |body.data[].sendNo|	String|	발신 번호|
@@ -407,6 +408,7 @@ curl -X GET \
 |body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
+|body.data[].resultMessage|	String|	결과 메시지|
 |body.data[].senderGroupingKey|	String|	발신자 그룹 키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹 키|
 
@@ -432,7 +434,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -458,41 +460,41 @@ curl -X GET \
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "requestDate":"2018-08-10 10:06:30.0",
-         "resultDate":"2018-08-10 10:06:42.0",
-         "templateId":"TemplateId",
-         "templateName":"템플릿명",
-         "categoryId":0,
-         "categoryName":"카테고리명",
-         "body":"본문",
-         "sendNo":"15446859",
-         "countryCode":"82",
-         "recipientNo":"01000000000",
-         "msgStatus":"3",
-         "msgStatusName":"성공",
-         "resultCode":"1000",
-         "resultCodeName":"성공",
-         "telecomCode":10001,
-         "telecomCodeName":"SKT",
-         "recipientSeq":1,
-         "sendType":"0",
-         "messageType":"SMS",
-         "userId":"tester",
-         "adYn":"N",
-         "originCode":"123456789"
-         "resultMessage": "",
-         "senderGroupingKey":"SenderGroupingKey",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      }
-   }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "requestDate": "2018-08-10 10:06:30.0",
+            "resultDate": "2018-08-10 10:06:42.0",
+            "templateId": "TemplateId",
+            "templateName": "템플릿명",
+            "categoryId": 0,
+            "categoryName": "카테고리명",
+            "body": "본문",
+            "sendNo": "15446859",
+            "countryCode": "82",
+            "recipientNo": "01000000000",
+            "msgStatus": "3",
+            "msgStatusName": "성공",
+            "resultCode": "1000",
+            "resultCodeName": "성공",
+            "telecomCode": 10001,
+            "telecomCodeName": "SKT",
+            "recipientSeq": 1,
+            "sendType": "0",
+            "messageType": "SMS",
+            "userId": "tester",
+            "adYn": "N",
+            "originCode": "123456789"
+            "resultMessage": "",
+            "senderGroupingKey": "SenderGroupingKey",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    }
 }
 ```
 
@@ -506,7 +508,7 @@ curl -X GET \
 |body.data.resultDate|	String|	수신 일시|
 |body.data.templateId|	String|	템플릿 ID|
 |body.data.templateName|	String|	템플릿명|
-|body.data.categoryId|	String|	카테고리 ID|
+|body.data.categoryId|	Integer|	카테고리 ID|
 |body.data.categoryName|	String|	카테고리명|
 |body.data.body|	String|	본문 내용|
 |body.data.sendNo|	String|	발신 번호|
@@ -524,6 +526,7 @@ curl -X GET \
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+|body.data.resultMessage|	String|	결과 메시지|
 |body.data.senderGroupingKey|	String|	발신자 그룹 키|
 |body.data.recipientGroupingKey|	String|	수신자 그룹 키|
 
@@ -551,7 +554,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -563,26 +566,26 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateId":"TemplateId",
-   "title":"Title",
-   "body":"Body",
-   "sendNo":"15446859",
-   "requestDate":"2018-08-10 10:00",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "countryCode":"82",
-         "internationalRecipientNo":"821000000000",
-         "templateParameter":{
-            "key":"value"
-         },
-         "recipientGroupingKey":"recipientGroupingKey"
-      }
-   ],
-   "userId":"UserId",
-   "statsId":"statsId",
-   "originCode":"123456789"
+    "templateId": "TemplateId",
+    "title": "Title",
+    "body": "Body",
+    "sendNo": "15446859",
+    "requestDate": "2018-08-10 10:00",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "countryCode": "82",
+            "internationalRecipientNo": "821000000000",
+            "templateParameter": {
+                "key": "value"
+            },
+            "recipientGroupingKey": "recipientGroupingKey"
+        }
+    ],
+    "userId": "UserId",
+    "statsId": "statsId",
+    "originCode": "123456789"
 }
 ```
 
@@ -617,7 +620,8 @@ curl -X POST \
     "body": "{본문 내용}",
     "sendNo": "15446859",
     "attachFileIdList": [0],
-    "recipientList": [{
+    "recipientList": [
+        {
             "recipientNo": "01000000000",
             "templateParameter": {}
         }
@@ -630,27 +634,27 @@ curl -X POST \
 
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -670,62 +674,62 @@ curl -X POST \
 
 #### 장문 MMS 발송 예제
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms|
 
 [Request body]
 ```
 {
-   "title": "제목",
-   "body":"본문",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      },
-      {
-         "recipientNo":"01000000001",
-         "recipientGroupingKey":"RecipientGroupingKey2"
-      }
-   ],
-   "statsId":"statsId"
+    "title": "제목",
+    "body": "본문",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        },
+        {
+            "recipientNo": "01000000001",
+            "recipientGroupingKey": "RecipientGroupingKey2"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            },
-            {
-               "recipientNo":"01000000001",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":2,
-               "recipientGroupingKey":"RecipientGroupingKey2"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                },
+                {
+                    "recipientNo": "01000000001",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 2,
+                    "recipientGroupingKey": "RecipientGroupingKey2"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -745,38 +749,40 @@ curl -X POST \
     "sendNo": "15446859",
     "senderGroupingKey": "SenderGrouping",
     "attachFileIdList": [0],
-    "recipientList": [{
-        "recipientNo": "01010000000",
-        "recipientGroupingKey":"RecipientGroupingKey"
-    }],
-    "statsId":"statsId"
+    "recipientList": [
+        {
+            "recipientNo": "01010000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "body": {
-    "data": {
-      "requestId": "20180810100630ReZQ6KZzAH0",
-      "statusCode": "2",
-      "senderGroupingKey": "SenderGrouping",
-      "sendResultList" : [
-          {
-              "recipientNo" : {수신 번호},
-              "resultCode" :  0,
-              "resultMessage" : "SUCCESS"
-              "recipientSeq": 1,
-              "recipientGroupingKey":"RecipientGroupingKey"
-          }
-      ]
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGrouping",
+            "sendResultList": [
+                {
+                    "recipientNo": {수신 번호},
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS"
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
     }
-  }
 }
 ```
 
@@ -810,7 +816,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -854,53 +860,55 @@ curl -X GET \
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"SUCCESS",
-    "isSuccessful":true
-  },
-  "body":{
-    "pageNum":1,
-    "pageSize":15,
-    "totalCount":1,
-    "data":[
-      {
-        "requestId":"20180810100630ReZQ6KZzAH0",
-        "requestDate":"2018-08-10 10:06:30.0",
-        "resultDate":"2018-08-10 10:06:42.0",
-        "templateId":"TemplateId",
-        "templateName":"템플릿명",
-        "categoryId":0,
-        "categoryName":"카테고리명",
-        "title":"제목",
-        "body":"본문",
-        "sendNo":"15446859",
-        "countryCode":"82",
-        "recipientNo":"01000000000",
-        "msgStatus":"3",
-        "msgStatusName":"성공",
-        "resultCode":"1000",
-        "resultCodeName":"성공",
-        "telecomCode":10001,
-        "telecomCodeName":"SKT",
-        "recipientSeq":1,
-        "sendType":"0",
-        "messageType":"LMS",
-        "userId":"tester",
-        "adYn":"N",
-        "attachFileList": [{
-               fileId: Integer,
-               filePath: String,
-               fileName: String,
-               saveFileName: String,
-               uploadType: String
-         }],
-        "resultMessage":"",
-        "senderGroupingKey":"SenderGroupingKey",
-        "recipientGroupingKey":"RecipientGroupingKey"
-      }
-    ]
-  }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [
+            {
+                "requestId": "20180810100630ReZQ6KZzAH0",
+                "requestDate": "2018-08-10 10:06:30.0",
+                "resultDate": "2018-08-10 10:06:42.0",
+                "templateId": "TemplateId",
+                "templateName": "템플릿명",
+                "categoryId": 0,
+                "categoryName": "카테고리명",
+                "title": "제목",
+                "body": "본문",
+                "sendNo": "15446859",
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "msgStatus": "3",
+                "msgStatusName": "성공",
+                "resultCode": "1000",
+                "resultCodeName": "성공",
+                "telecomCode": 10001,
+                "telecomCodeName": "SKT",
+                "recipientSeq": 1,
+                "sendType": "0",
+                "messageType": "LMS",
+                "userId": "tester",
+                "adYn": "N",
+                "attachFileList": [
+                    {
+                        "fileId": Integer,
+                        "filePath": String,
+                        "fileName": String,
+                        "saveFileName": String,
+                        "uploadType": String
+                    }
+                ],
+                "resultMessage": "",
+                "senderGroupingKey": "SenderGroupingKey",
+                "recipientGroupingKey": "RecipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -918,7 +926,7 @@ curl -X GET \
 |body.data[].resultDate|	String|	수신 일시|
 |body.data[].templateId|	String|	템플릿 ID|
 |body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
+|body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].body|	String|	본문 내용|
 |body.data[].sendNo|	String|	발신 번호|
@@ -940,6 +948,7 @@ curl -X GET \
 |body.data[].attachFileList[].filename|	String|	파일명|
 |body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
 |body.data[].attachFileList[].uploadType|	String|	업로드 타입|
+|body.data[].resultMessage|	String|	결과 메시지|
 |body.data[].senderGroupingKey|	String|	발신자 그룹 키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹 키|
 
@@ -966,7 +975,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -992,49 +1001,51 @@ curl -X GET \
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"SUCCESS",
-    "isSuccessful":true
-  },
-  "body":{
-    "data":{
-      "requestId":"20180810100630ReZQ6KZzAH0",
-      "requestDate":"2018-08-10 10:06:30.0",
-      "resultDate":"2018-08-10 10:06:42.0",
-      "templateId":"TemplateId",
-      "templateName":"템플릿명",
-      "categoryId":0,
-      "categoryName":"카테고리명",
-      "title":"제목",
-      "body":"본문",
-      "sendNo":"15446859",
-      "countryCode":"82",
-      "recipientNo":"01000000000",
-      "msgStatus":"3",
-      "msgStatusName":"성공",
-      "resultCode":"1000",
-      "resultCodeName":"성공",
-      "telecomCode":10001,
-      "telecomCodeName":"SKT",
-      "recipientSeq":1,
-      "sendType":"0",
-      "messageType":"MMS",
-      "userId":"tester",
-      "adYn":"N",
-      "originCode":"123456789",
-      "attachFileList": [{
-            fileId: Integer,
-            filePath: String,
-            fileName: String,
-            saveFileName: String,
-            uploadType: String
-      }],
-      "resultMessage":"",
-      "senderGroupingKey":"SenderGroupingKey",
-      "recipientGroupingKey":"RecipientGroupingKey"
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "requestDate": "2018-08-10 10:06:30.0",
+            "resultDate": "2018-08-10 10:06:42.0",
+            "templateId": "TemplateId",
+            "templateName": "템플릿명",
+            "categoryId": 0,
+            "categoryName": "카테고리명",
+            "title": "제목",
+            "body": "본문",
+            "sendNo": "15446859",
+            "countryCode": "82",
+            "recipientNo": "01000000000",
+            "msgStatus": "3",
+            "msgStatusName": "성공",
+            "resultCode": "1000",
+            "resultCodeName": "성공",
+            "telecomCode": 10001,
+            "telecomCodeName": "SKT",
+            "recipientSeq": 1,
+            "sendType": "0",
+            "messageType": "MMS",
+            "userId": "tester",
+            "adYn": "N",
+            "originCode": "123456789",
+            "attachFileList": [
+                {
+                    "fileId": Integer,
+                    "filePath": String,
+                    "fileName": String,
+                    "saveFileName": String,
+                    "uploadType": String
+                }
+            ],
+            "resultMessage": "",
+            "senderGroupingKey": "SenderGroupingKey",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
     }
-  }
 }
 ```
 
@@ -1052,7 +1063,7 @@ curl -X GET \
 |body.data.resultDate|	String|	수신 일시|
 |body.data.templateId|	String|	템플릿 ID|
 |body.data.templateName|	String|	템플릿명|
-|body.data.categoryId|	String|	카테고리 ID|
+|body.data.categoryId|	Integer|	카테고리 ID|
 |body.data.categoryName|	String|	카테고리명|
 |body.data.body|	String|	본문 내용|
 |body.data.sendNo|	String|	발신 번호|
@@ -1075,6 +1086,7 @@ curl -X GET \
 |body.data.attachFileList[].filename|	String|	파일명|
 |body.data.attachFileList[].saveFileName|	String|	저장된 첨부파일명|
 |body.data.attachFileList[].uploadType|	String|	업로드 타입|
+|body.data.resultMessage|	String|	결과 메시지|
 |body.data.senderGroupingKey|	String|	발신자 그룹 키|
 |body.data.recipientGroupingKey|	String|	수신자 그룹 키|
 
@@ -1087,7 +1099,7 @@ curl -X GET \
 
 | 구분 | 인증 문구 |
 | --- | --- | 
-| 인증용 SMS(긴급) | auth, password, verif, にんしょう, 認証, 비밀번호, 인증 |
+| 인증용 SMS(긴급) | auth, password, verify, にんしょう, 認証, 비밀번호, 인증 |
 
 - 예시 1-1) 인증용 SMS(긴급) API 발송 요청 시 전문(템플릿 치환자 포함)에 인증 문구가 포함되어 있지 않은 경우 발송에 실패합니다.
 - 예시 1-2) 인증 문구가 영문인 경우 대소문자 구분 없이 유효성 검사가 진행됩니다.
@@ -1111,7 +1123,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1123,25 +1135,25 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateId":"TemplateId",
-   "body":"본문",
-   "sendNo":"15446859",
-   "requestDate":"2018-08-10 10:00",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "countryCode":"82",
-         "internationalRecipientNo":"821000000000",
-         "templateParameter":{
-            "key":"value"
-         },
-         "recipientGroupingKey":"recipientGroupingKey"
-      }
-   ],
-   "userId":"UserId",
-   "statsId":"statsId",
-   "originCode":"123456789"
+    "templateId": "TemplateId",
+    "body": "본문",
+    "sendNo": "15446859",
+    "requestDate": "2018-08-10 10:00",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "countryCode": "82",
+            "internationalRecipientNo": "821000000000",
+            "templateParameter": {
+                "key": "value"
+            },
+            "recipientGroupingKey": "recipientGroupingKey"
+        }
+    ],
+    "userId": "UserId",
+    "statsId": "statsId",
+    "originCode": "123456789"
 }
 ```
 
@@ -1172,7 +1184,8 @@ curl -X POST \
 -d '{
     "body": "인증 테스트",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "recipientNo": "01000000000",
             "templateParameter": {}
         }
@@ -1185,27 +1198,27 @@ curl -X POST \
 #### 응답
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -1225,61 +1238,61 @@ curl -X POST \
 
 #### 예제
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/auth/sms|
 
 [Request body]
 ```
 {
-   "body":"본문",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      },
-      {
-         "recipientNo":"01000000001",
-         "recipientGroupingKey":"RecipientGroupingKey2"
-      }
-   ],
-   "statsId":"statsId"
+    "body": "본문",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        },
+        {
+            "recipientNo": "01000000001",
+            "recipientGroupingKey": "RecipientGroupingKey2"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            },
-            {
-               "recipientNo":"01000000001",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":2,
-               "recipientGroupingKey":"RecipientGroupingKey2"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                },
+                {
+                    "recipientNo": "01000000001",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 2,
+                    "recipientGroupingKey": "RecipientGroupingKey2"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -1305,7 +1318,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1349,45 +1362,45 @@ curl -X GET \
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "pageNum":1,
-      "pageSize":15,
-      "totalCount":1,
-      "data":[
-         {
-            "requestId":"20180810100630ReZQ6KZzAH0",
-            "requestDate":"2018-08-10 10:06:30.0",
-            "resultDate":"2018-08-10 10:06:42.0",
-            "templateId":"TemplateId",
-            "templateName":"템플릿명",
-            "categoryId":0,
-            "categoryName":"카테고리명",
-            "body":"단문 테스트",
-            "sendNo":"15446859",
-            "countryCode":"82",
-            "recipientNo":"01000000000",
-            "msgStatus":"3",
-            "msgStatusName":"성공",
-            "resultCode":"1000",
-            "resultCodeName":"성공",
-            "telecomCode":10001,
-            "telecomCodeName":"SKT",
-            "recipientSeq":1,
-            "sendType":"0",
-            "messageType":"AUTH",
-            "userId":"tester",
-            "adYn":"N",
-            "resultMessage": "",
-            "senderGroupingKey":"SenderGroupingKey",
-            "recipientGroupingKey":"RecipientGroupingKey"
-         }
-      ]
-   }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data":[
+            {
+                "requestId": "20180810100630ReZQ6KZzAH0",
+                "requestDate": "2018-08-10 10:06:30.0",
+                "resultDate": "2018-08-10 10:06:42.0",
+                "templateId": "TemplateId",
+                "templateName": "템플릿명",
+                "categoryId": 0,
+                "categoryName": "카테고리명",
+                "body": "단문 테스트",
+                "sendNo": "15446859",
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "msgStatus": "3",
+                "msgStatusName": "성공",
+                "resultCode": "1000",
+                "resultCodeName": "성공",
+                "telecomCode": 10001,
+                "telecomCodeName": "SKT",
+                "recipientSeq": 1,
+                "sendType": "0",
+                "messageType": "AUTH",
+                "userId": "tester",
+                "adYn": "N",
+                "resultMessage": "",
+                "senderGroupingKey": "SenderGroupingKey",
+                "recipientGroupingKey": "RecipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -1404,7 +1417,7 @@ curl -X GET \
 |body.data[].resultDate|	String|	수신 일시|
 |body.data[].templateId|	String|	템플릿 ID|
 |body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
+|body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].body|	String|	본문 내용|
 |body.data[].sendNo|	String|	발신 번호|
@@ -1421,6 +1434,7 @@ curl -X GET \
 |body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
+|body.data[].resultMessage|	String|	결과 메시지|
 |body.data[].senderGroupingKey|	String|	발신자 그룹 키|
 |body.data[].recipientGroupingKey|	String|	수신자 그룹 키|
 
@@ -1446,7 +1460,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1472,41 +1486,41 @@ curl -X GET \
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "requestDate":"2018-08-10 10:06:30.0",
-         "resultDate":"2018-08-10 10:06:42.0",
-         "templateId":"TemplateId",
-         "templateName":"템플릿명",
-         "categoryId":0,
-         "categoryName":"카테고리명",
-         "body":"본문",
-         "sendNo":"15446859",
-         "countryCode":"82",
-         "recipientNo":"01000000000",
-         "msgStatus":"3",
-         "msgStatusName":"성공",
-         "resultCode":"1000",
-         "resultCodeName":"성공",
-         "telecomCode":10001,
-         "telecomCodeName":"SKT",
-         "recipientSeq":1,
-         "sendType":"0",
-         "messageType":"AUTH",
-         "userId":"tester",
-         "adYn":"N",
-         "originCode":"123456789",
-         "resultMessage": "",
-         "senderGroupingKey":"SenderGroupingKey",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      }
-   }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "requestDate": "2018-08-10 10:06:30.0",
+            "resultDate": "2018-08-10 10:06:42.0",
+            "templateId": "TemplateId",
+            "templateName": "템플릿명",
+            "categoryId": 0,
+            "categoryName": "카테고리명",
+            "body": "본문",
+            "sendNo": "15446859",
+            "countryCode": "82",
+            "recipientNo": "01000000000",
+            "msgStatus": "3",
+            "msgStatusName": "성공",
+            "resultCode": "1000",
+            "resultCodeName": "성공",
+            "telecomCode": 10001,
+            "telecomCodeName": "SKT",
+            "recipientSeq": 1,
+            "sendType": "0",
+            "messageType": "AUTH",
+            "userId": "tester",
+            "adYn": "N",
+            "originCode": "123456789",
+            "resultMessage": "",
+            "senderGroupingKey": "SenderGroupingKey",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    }
 }
 ```
 
@@ -1520,7 +1534,7 @@ curl -X GET \
 |body.data.resultDate|	String|	수신 일시|
 |body.data.templateId|	String|	템플릿 ID|
 |body.data.templateName|	String|	템플릿명|
-|body.data.categoryId|	String|	카테고리 ID|
+|body.data.categoryId|	Integer|	카테고리 ID|
 |body.data.categoryName|	String|	카테고리명|
 |body.data.body|	String|	본문 내용|
 |body.data.sendNo|	String|	발신 번호|
@@ -1538,6 +1552,7 @@ curl -X GET \
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+|body.data.resultMessage|	String|	결과 메시지|
 |body.data.senderGroupingKey|	String|	발신자 그룹 키|
 |body.data.recipientGroupingKey|	String|	수신자 그룹 키|
 
@@ -1563,7 +1578,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1593,7 +1608,8 @@ curl -X POST \
 -d '{
     "body": "(광고) 테스트\n [무료 수신 거부]0808880327",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "recipientNo": "01000000000",
             "templateParameter": {}
         }
@@ -1643,7 +1659,8 @@ curl -X POST \
     "title": "{제목}",
     "body": "(광고) 테스트\n [무료 수신 거부]0808880327",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "recipientNo": "01000000000",
             "templateParameter": {}
         }
@@ -1678,7 +1695,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+     "X-Secret-Key": String
 }
 ```
 
@@ -1708,32 +1725,32 @@ curl -X GET \
 #### 응답
 ```
 {
-  "header":{
-    "isSuccessful":true,
-    "resultCode":0,
-    "resultMessage":"Success."
-  },
-  "body":{
-    "pageNum":1,
-    "pageSize":15,
-    "totalCount":1,
-    "data":[
-        {
-          "messageType":"SMS",
-          "requestId":"",
-          "recipientSeq":0,
-          "resultCode":"1000",
-          "resultCodeName":"성공",
-          "requestDate":"2018-10-04 16:16:00.0",
-          "resultDate":"2018-10-04 16:17:10.0",
-          "updateDate":"2018-10-04 16:17:15.0",
-          "telecomCode": "10003",
-          "telecomCodeName": "LGU",
-          "senderGroupingKey":"senderGroupingKey",
-          "recipientGroupingKey":"recipientGroupingKey"
-        }
-    ]
-  }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "Success."
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data":[
+            {
+                "messageType": "SMS",
+                "requestId": "",
+                "recipientSeq": 0,
+                "resultCode": "1000",
+                "resultCodeName": "성공",
+                "requestDate": "2018-10-04 16:16:00.0",
+                "resultDate": "2018-10-04 16:17:10.0",
+                "updateDate": "2018-10-04 16:17:15.0",
+                "telecomCode": "10003",
+                "telecomCodeName": "LGU",
+                "senderGroupingKey": "senderGroupingKey",
+                "recipientGroupingKey": "recipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -1775,7 +1792,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1826,15 +1843,15 @@ curl -X GET \
                 "messageType": "SMS",
                 "templateId": "",
                 "masterStatusCode": "MAS19",
-                "masterStatus" : "COMPLETED",
+                "masterStatus": "COMPLETED",
                 "sendNo": "01012345000",
                 "title": null,
                 "body": "test",
                 "adYn": "N",
                 "autoSendYn": "N",
                 "sendErrorCount": 0,
-                "createDate": "2021-09-01 03:34:36.0",
                 "createUser": "63b813a0-f664-11e7-9edb-005056ac7022",
+                "createDate": "2021-09-01 03:34:36.0"
             }
         ]
     }
@@ -1879,7 +1896,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1905,7 +1922,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requestId='"${REQUEST_ID}" \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/receive/'"${REQUEST_ID}"' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' 
 ```
@@ -1953,7 +1970,6 @@ curl -X GET \
 |body.data.msgStatusName | String | 메시지 상태 코드명 |
 |body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | 수신 일시 |
-|body.data.createDate | String | 등록 일시 |
 
 ### 대량 발송 수신자 목록 상세 검색 
 
@@ -1976,7 +1992,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2091,22 +2107,22 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-    "body":"본문",
-    "sendNo":"15446859",
-    "requestDate":"2018-03-22 10:00",
-    "templateId":"TemplateId",
-    "templateParameter" : {
-      "key" : "value"
+    "body": "본문",
+    "sendNo": "15446859",
+    "requestDate": "2018-03-22 10:00",
+    "templateId": "TemplateId",
+    "templateParameter": {
+        "key" : "value"
     },
     "tagExpression":[
         "tag1",
         "AND",
         "tag2"
-     ],
-    "userId":"user_id",
-    "adYn":"N",
-    "autoSendYn":"N",
-    "statsId":"statsId"
+    ],
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "N",
+    "statsId": "statsId"
 }
 ```
 
@@ -2188,7 +2204,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2199,27 +2215,27 @@ Content-Type: application/json;charset=UTF-8
 [Request body]
 ```
 {
-    "body":"본문",
-    "sendNo":"15446859",
-    "requestDate":"2018-03-22 10:00",
-    "templateId":"TemplateId",
-    "templateParameter" : {
-        "key" : "value"
+    "body": "본문",
+    "sendNo": "15446859",
+    "requestDate": "2018-03-22 10:00",
+    "templateId": "TemplateId",
+    "templateParameter": {
+        "key": "value"
     },
-    "attachFileIdList" : [
-     1,
-     2,
-     3
+    "attachFileIdList": [
+        1,
+        2,
+        3
     ],
-    "tagExpression":[
+    "tagExpression": [
         "tag1",
         "AND",
         "tag2"
-     ],
-    "userId":"user_id",
-    "adYn":"N",
-    "autoSendYn":"N",
-    "statsId":"statsId"
+    ],
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "N",
+    "statsId": "statsId"
 }
 ```
 
@@ -2302,7 +2318,7 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2337,16 +2353,17 @@ curl -X GET \
 #### 응답
 ```
 {
-    "header" : {
-    "isSuccessful" :  true,
-    "resultCode" :  0,
-    "resultMessage" :  "."
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "."
     },
-    "body":{
-        "pageNum":0,
-        "pageSize":0,
-        "totalCount":0,
-        "data" :[{
+    "body": {
+        "pageNum": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "data": [
+            {
                 "requestId": "20171220141558eonMsyDI6P0",
                 "requestIp": "127.0.0.1",
                 "sendType": "0",
@@ -2420,7 +2437,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2454,29 +2471,29 @@ curl -X GET \
 #### 응답
 ```
 {
-    "header" : {
-    "isSuccessful" :  true,
-    "resultCode" :  0,
-    "resultMessage" :  "."
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "."
     },
-    "body":{
-        "pageNum":0,
-        "pageSize":0,
-        "totalCount":0,
-        "data" :[
-        {
-            "requestId": "20180813022044Jps2xJ1qsv0",
-            "recipientSeq": 99,
-            "countryCode": "82",
-            "recipientNo": "01000000000",
-            "requestDate": "2018-08-13 02:20:44.0",
-            "msgStatus": "3",
-            "msgStatusName": "COMPLETED",
-            "resultCode": "3015",
-            "receiveDate": "2018-08-13 02:20:53.0",
-            "createDate": "2018-08-13 02:20:46.0",
-            "updateDate": "2018-08-13 02:27:00.0"
-        }
+    "body": {
+        "pageNum": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "data": [
+            {
+                "requestId": "20180813022044Jps2xJ1qsv0",
+                "recipientSeq": 99,
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "requestDate": "2018-08-13 02:20:44.0",
+                "msgStatus": "3",
+                "msgStatusName": "COMPLETED",
+                "resultCode": "3015",
+                "receiveDate": "2018-08-13 02:20:53.0",
+                "createDate": "2018-08-13 02:20:46.0",
+                "updateDate": "2018-08-13 02:27:00.0"
+            }
         ]
     }
 }
@@ -2522,7 +2539,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2625,7 +2642,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2701,9 +2718,9 @@ curl -X POST \
 [Request body]
 ```
 {
-  "fileName": "attachement.jpg",
-  "createUser": "CreateUser",
-  "fileBody": "/9j/4AAQSkZJRgABAQEAYABgAAD/4RDSRXhpZgAATU0AKgAAAAgABAE7AAIAAAAESkdHAIdpAAQAAAABAAAISpydAAEAAAAIAAAQwuocAAcAAAgMAAAAPgAAAAAc6gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAMAAgAAABQAABCYkAQAAgAAABQAABCskpEAAgAAAAM1MgAAkpIAAgAAAAM1MgAA6hwABwAACAwAAAiMAAAAABzqAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAxODowMjowOCAxNjoyOTo0MQAyMDE4OjAyOjA4IDE2OjI5OjQxAAAASgBHAEcAAAD/4QsWaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIvPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIj48eG1wOkNyZWF0ZURhdGU+MjAxOC0wMi0wOFQxNjoyOTo0MS41MTc8L3htcDpDcmVhdGVEYXRlPjwvcmRmOkRlc2NyaXB0aW9uPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48ZGM6Y3JlYXRvcj48cmRmOlNlcSB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPjxyZGY6bGk+SkdHPC9yZGY6bGk+PC9yZGY6U2VxPg0KCQkJPC9kYzpjcmVhdG9yPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgPD94cGFja2V0IGVuZD0ndyc/Pv/bAEMABwUFBgUEBwYFBggHBwgKEQsKCQkKFQ8QDBEYFRoZGBUYFxseJyEbHSUdFxgiLiIlKCkrLCsaIC8zLyoyJyorKv/bAEMBBwgICgkKFAsLFCocGBwqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKv/AABEIABoAHQMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APD6K6e88IxWemTamdQaSx+zW8trJ5GDPJLkGMjd8u0pKCcn7nTmq/jDTbHSvH2qadao1vY2940aqmZGRAe24/MQPU8+tVs7ev4f8OT0uYFFdvrmhWmo/Ee30wXVpp9rcWlvIs0FmIAQbZXX90ZCPMbgY34LHqM1zes6bbaXq81mHv18rAK3tiLeZWxyGj3tt/M5HpTWrsGyv/Wpb1bXIp/DekaLYzXEsFj5kztcRhP3shGVUBmyq44ORksxwM1JrfiyLXtSa/u/DmkpdSXHnzyRPdDz/VWBmIAPfaFPoRXO0UgOk1Pxemq6vb3914d0jMMAgeFftBjmRYxGgbMpYFVUYKlTnqTWfruuz69dQSTW8FrFa26W1vb24bZFGucKC7Mx5JOWYnn0wKy6KAP/2Q=="
+    "fileName": "attachement.jpg",
+    "createUser": "CreateUser",
+    "fileBody": "/9j/4AAQSkZJRgABAQEAYABgAAD/4RDSRXhpZgAATU0AKgAAAAgABAE7AAIAAAAESkdHAIdpAAQAAAABAAAISpydAAEAAAAIAAAQwuocAAcAAAgMAAAAPgAAAAAc6gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAMAAgAAABQAABCYkAQAAgAAABQAABCskpEAAgAAAAM1MgAAkpIAAgAAAAM1MgAA6hwABwAACAwAAAiMAAAAABzqAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAxODowMjowOCAxNjoyOTo0MQAyMDE4OjAyOjA4IDE2OjI5OjQxAAAASgBHAEcAAAD/4QsWaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIvPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIj48eG1wOkNyZWF0ZURhdGU+MjAxOC0wMi0wOFQxNjoyOTo0MS41MTc8L3htcDpDcmVhdGVEYXRlPjwvcmRmOkRlc2NyaXB0aW9uPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48ZGM6Y3JlYXRvcj48cmRmOlNlcSB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPjxyZGY6bGk+SkdHPC9yZGY6bGk+PC9yZGY6U2VxPg0KCQkJPC9kYzpjcmVhdG9yPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgPD94cGFja2V0IGVuZD0ndyc/Pv/bAEMABwUFBgUEBwYFBggHBwgKEQsKCQkKFQ8QDBEYFRoZGBUYFxseJyEbHSUdFxgiLiIlKCkrLCsaIC8zLyoyJyorKv/bAEMBBwgICgkKFAsLFCocGBwqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKv/AABEIABoAHQMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APD6K6e88IxWemTamdQaSx+zW8trJ5GDPJLkGMjd8u0pKCcn7nTmq/jDTbHSvH2qadao1vY2940aqmZGRAe24/MQPU8+tVs7ev4f8OT0uYFFdvrmhWmo/Ee30wXVpp9rcWlvIs0FmIAQbZXX90ZCPMbgY34LHqM1zes6bbaXq81mHv18rAK3tiLeZWxyGj3tt/M5HpTWrsGyv/Wpb1bXIp/DekaLYzXEsFj5kztcRhP3shGVUBmyq44ORksxwM1JrfiyLXtSa/u/DmkpdSXHnzyRPdDz/VWBmIAPfaFPoRXO0UgOk1Pxemq6vb3914d0jMMAgeFftBjmRYxGgbMpYFVUYKlTnqTWfruuz69dQSTW8FrFa26W1vb24bZFGucKC7Mx5JOWYnn0wKy6KAP/2Q=="
 }
 ```
 
@@ -2748,7 +2765,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2760,11 +2777,11 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "categoryParentId" : 0,
-   "categoryName" : "",
-   "categoryDesc" : "",
-   "useYn" : "",
-   "createUser" : ""
+    "categoryParentId": 0,
+    "categoryName": "",
+    "categoryDesc": "",
+    "useYn": "",
+    "createUser": ""
 }
 ```
 
@@ -2799,23 +2816,23 @@ curl -X POST \
 
 ```
 {  
-   "header":{  
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{  
-      "data":{  
-         "categoryId":0,
-         "categoryParentId":0,
-         "depth":0,
-         "sort" :0,
-         "categoryName":"",
-         "categoryDesc":"",
-         "useYn":"",
-         "createUser":""
-      }
-   }
+    "header": {  
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {  
+        "data": {  
+            "categoryId": 0,
+            "categoryParentId": 0,
+            "depth": 0,
+            "sort": 0,
+            "categoryName": "",
+            "categoryDesc": "",
+            "useYn": "",
+            "createUser": ""
+        }
+    }
 }
 ```
 
@@ -2829,7 +2846,7 @@ curl -X POST \
 |body.data[].depth|	Integer|	카테고리 깊이|
 |body.data[].sort|	Integer|	카테고리 정렬 순서|
 |body.data[].categoryName|	String|	카테고리명|
-|body.data[].categorycategoryDescame|	String|	카테고리 설명|
+|body.data[].categoryDesc|	String|	카테고리 설명|
 |body.data[].useYn|	String|	사용 여부|
 |body.data[].createUser|	String|	등록한 사용자|
 
@@ -2854,7 +2871,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2881,31 +2898,31 @@ curl -X GET \
 
 ```
 {  
-   "header":{  
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{  
-      "pageNum":1,
-      "pageSize":15,
-      "totalCount":1,
-      "data":[  
-         {  
-            "categoryId":137612,
-            "categoryParentId":0,
-            "depth":0,
-            "sort" :0,
-            "categoryName":"카테고리",
-            "categoryDesc":"최상위 카테고리",
-            "useYn":"Y",
-            "createDate":"2018-04-17 15:39:56.0",
-            "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
-            "updateDate":"2018-04-17 15:39:56.0",
-            "updateUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022"
-         }
-      ]
-   }
+    "header": {  
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {  
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [  
+            {  
+                "categoryId": 137612,
+                "categoryParentId": 0,
+                "depth": 0,
+                "sort": 0,
+                "categoryName": "카테고리",
+                "categoryDesc": "최상위 카테고리",
+                "useYn": "Y",
+                "createDate": "2018-04-17 15:39:56.0",
+                "createUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022",
+                "updateDate": "2018-04-17 15:39:56.0",
+                "updateUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022"
+            }
+        ]
+    }
 }
 ```
 
@@ -2922,7 +2939,7 @@ curl -X GET \
 |body.data[].depth|	Integer|	카테고리 깊이|
 |body.data[].sort|	Integer|	카테고리 정렬 순서|
 |body.data[].categoryName|	String|	카테고리명|
-|body.data[].categorycategoryDescame|	String|	카테고리 설명|
+|body.data[].categoryDesc|	String|	카테고리 설명|
 |body.data[].useYn|	String|	사용 여부|
 |body.data[].createDate|	String|	등록 날짜|
 |body.data[].createUser|	String|	등록한 사용자|
@@ -2951,7 +2968,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2971,28 +2988,28 @@ curl -X GET \
 
 ```
 {  
-   "header":{  
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{  
-      "data":[  
-         {  
-            "categoryId":137612,
-            "categoryParentId":0,
-            "depth":0,
-            "sort":0,
-            "categoryName":"카테고리",
-            "categoryDesc":"최상위 카테고리",
-            "useYn":"Y",
-            "createDate":"2018-04-17 15:39:56.0",
-            "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
-            "updateDate":"2018-04-17 15:39:56.0",
-            "updateUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022"
-         }
-      ]
-   }
+    "header": {  
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {  
+        "data": [  
+            {  
+                "categoryId": 137612,
+                "categoryParentId": 0,
+                "depth": 0,
+                "sort": 0,
+                "categoryName": "카테고리",
+                "categoryDesc": "최상위 카테고리",
+                "useYn": "Y",
+                "createDate": "2018-04-17 15:39:56.0",
+                "createUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022",
+                "updateDate": "2018-04-17 15:39:56.0",
+                "updateUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022"
+            }
+        ]
+    }
 }
 ```
 
@@ -3006,7 +3023,7 @@ curl -X GET \
 |body.data[].depth|	Integer|	카테고리 깊이|
 |body.data[].sort|	Integer|	카테고리 정렬 순서|
 |body.data[].categoryName|	String|	카테고리명|
-|body.data[].categorycategoryDescame|	String|	카테고리 설명|
+|body.data[].categoryDesc|	String|	카테고리 설명|
 |body.data[].useYn|	String|	사용 여부|
 |body.data[].createDate|	String|	등록 날짜|
 |body.data[].createUser|	String|	등록한 사용자|
@@ -3036,7 +3053,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3048,10 +3065,10 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "categoryName" : "",
-   "categoryDesc" : "",
-   "useYn" : "",
-   "updateUser" : ""
+    "categoryName": "",
+    "categoryDesc": "",
+    "useYn": "",
+    "updateUser": ""
 }
 ```
 
@@ -3082,11 +3099,11 @@ curl -X PUT \
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
@@ -3106,7 +3123,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	설명|
 |---|---|---|
 |appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|categoryId|	Integer|	카테고리 ID|
 
 [Header]
 
@@ -3132,11 +3149,11 @@ curl -X DELETE \
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
@@ -3163,7 +3180,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3175,19 +3192,19 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "categoryId" : 0,
-   "templateId" : "",
-   "templateName" : "",
-   "templateDesc" : "",
-   "sendNo" : "",
-   "sendType" : "",
-   "title" : "",
-   "body" : "",
-   "useYn" : "",
-   "attachFileIdList" : [
-      0,
-      1
-   ]
+    "categoryId": 0,
+    "templateId": "",
+    "templateName": "",
+    "templateDesc": "",
+    "sendNo": "",
+    "sendType": "",
+    "title": "",
+    "body": "",
+    "useYn": "",
+    "attachFileIdList": [
+        0,
+        1
+    ]
 }
 ```
 
@@ -3227,11 +3244,11 @@ curl -X POST \
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
@@ -3245,30 +3262,30 @@ curl -X POST \
 [Request body]
 ```
 {
-   "categoryId" : 199376 ,
-   "templateId" : "TemplateId",
-   "templateName" : "템플릿 발송 예시",
-   "templateDesc" : "템플릿 발송 예시",
-   "sendNo" : "01012341234",
-   "sendType" : "1",
-   "title" : "example",
-   "body" : "일반 발송 테스트용 입니다.\r\n##key1## 님 안녕하세요.\r\n##key2## 입니다.",
-   "useYn" : "Y",
-   "attachFileIdList" : [
-     123123,
-     456456
-   ]
+    "categoryId": 199376,
+    "templateId": "TemplateId",
+    "templateName": "템플릿 발송 예시",
+    "templateDesc": "템플릿 발송 예시",
+    "sendNo": "01012341234",
+    "sendType": "1",
+    "title": "example",
+    "body": "일반 발송 테스트용 입니다.\r\n##key1## 님 안녕하세요.\r\n##key2## 입니다.",
+    "useYn": "Y",
+    "attachFileIdList": [
+        123123,
+        456456
+    ]
 }
 ```
 
 [Response]
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
@@ -3299,14 +3316,16 @@ Request URL은 템플릿 등록시 선택한 발송 유형으로 선택하여 �
 {
     "templateId": "TemplateId",
     "senderGroupingKey": "SenderGroupingKey",
-    "recipientList": [{
-        "recipientNo": "01000000000",
-        "templateParameter": {
-          "key1" : "Toast Cloud",
-          "key2" : "SMS"
-        },
-        "recipientGroupingKey": "RecipientGroupingKey"
-    }]
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "templateParameter": {
+                "key1": "Toast Cloud",
+                "key2": "SMS"
+            },
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ]
 }
 ```
 
@@ -3362,17 +3381,19 @@ Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 �
 ```
 {
     "templateId": "TemplateId",
-    "body":"본문",
-    "sendNo":"15446859",
+    "body": "본문",
+    "sendNo": "15446859",
     "senderGroupingKey": "SenderGroupingKey",
-    "recipientList": [{
-        "recipientNo": "01000000000",
-        "templateParameter": {
-          "key1" : "Toast Cloud",
-          "key2" : "SMS"
-        },
-        "recipientGroupingKey": "RecipientGroupingKey"
-    }]
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "templateParameter": {
+                "key1": "Toast Cloud",
+                "key2": "SMS"
+            },
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ]
 }
 ```
 
@@ -3425,7 +3446,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3455,47 +3476,51 @@ curl -X GET \
 ```
 {
     "header": {
-        "isSuccessful": Boolean,
-        "resultCode": Integer,
-        "resultMessage": String
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
     },
     "body": {
         "pageNum": Integer,
         "pageSize": Integer,
         "totalCount": Integer,
-        "data": [{
-            "templateId": "TemplateId",
-            "serviceId": 0,
-            "categoryId": 0,
-            "categoryName": "카테고리명",
-            "sort": 0,
-            "templateName": "템플릿명",
-            "templateDesc": "템플릿 설명",
-            "useYn": "Y",
-            "priority": "S",
-            "sendNo": ""15446859String"",
-            "sendType": "0",
-            "sendTypeName": "SMS 발송",
-            "title": "제목",
-            "body": "본문",
-            "attachFileYn": "N",
-            "delYn": "N",
-            "createDate": "2018-01-28 17:50:55.0,
-            "createUser": "CreateUser",
-            "updateDate": "2018-01-28 17:50:55.0",
-            "updateUser": "UpdateUser",
-            "attachFileList": [{
-                "fileId": 0,
-                "serviceId": 0,
-                "attachType": 0,
+        "data": [
+            {
                 "templateId": "TemplateId",
-                "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                "fileName": "attachment.jpg",
-                "fileSize": 0,
-                "createDate": "2018-01-28 17:50:55.0",
-                "createUser": "CreateUser"
-            }]
-        }]
+                "serviceId": 0,
+                "categoryId": 0,
+                "categoryName": "카테고리명",
+                "sort": 0,
+                "templateName": "템플릿명",
+                "templateDesc": "템플릿 설명",
+                "useYn": "Y",
+                "priority": "S",
+                "sendNo": ""15446859String"",
+                "sendType": "0",
+                "sendTypeName": "SMS 발송",
+                "title": "제목",
+                "body": "본문",
+                "attachFileYn": "N",
+                "delYn": "N",
+                "createDate": "2018-01-28 17:50:55.0,
+                "createUser": "CreateUser",
+                "updateDate": "2018-01-28 17:50:55.0",
+                "updateUser": "UpdateUser",
+                "attachFileList": [
+                    {
+                        "fileId": 0,
+                        "serviceId": 0,
+                        "attachType": 0,
+                        "templateId": "TemplateId",
+                        "filePath": "26606/toast-mt-2018-01-29/1427/105316",
+                        "fileName": "attachment.jpg",
+                        "fileSize": 0,
+                        "createDate": "2018-01-28 17:50:55.0",
+                        "createUser": "CreateUser"
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
@@ -3561,7 +3586,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3600,7 +3625,7 @@ curl -X GET \
             "templateDesc": "템플릿 설명",
             "useYn": "Y",
             "priority": "S",
-            "sendNo": ""15446859String"",
+            "sendNo": "String",
             "sendType": "0",
             "sendTypeName": "SMS 발송",
             "title": "제목",
@@ -3611,17 +3636,19 @@ curl -X GET \
             "createUser": "CreateUser",
             "updateDate": "2018-01-28 17:50:55.0",
             "updateUser": "UpdateUser",
-            "attachFileList": [{
-                "fileId": 0,
-                "serviceId": 0,
-                "attachType": 0,
-                "templateId": "TemplateId",
-                "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                "fileName": "attachment.jpg",
-                "fileSize": 0,
-                "createDate": "2018-01-28 17:50:55.0",
-                "createUser": "CreateUser"
-            }]
+            "attachFileList": [
+                {
+                    "fileId": 0,
+                    "serviceId": 0,
+                    "attachType": 0,
+                    "templateId": "TemplateId",
+                    "filePath": "26606/toast-mt-2018-01-29/1427/105316",
+                    "fileName": "attachment.jpg",
+                    "fileSize": 0,
+                    "createDate": "2018-01-28 17:50:55.0",
+                    "createUser": "CreateUser"
+                }
+            ]
         }
     }
 }
@@ -3686,7 +3713,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3698,17 +3725,17 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateName" : "",
-   "templateDesc" : "",
-   "sendNo" : "",
-   "sendType" : "",
-   "title" : "",
-   "body" : "",
-   "useYn" : "",
-   "attachFileIdList" : [
-      0,
-      1
-   ]
+    "templateName": "",
+    "templateDesc": "",
+    "sendNo": "",
+    "sendType": "",
+    "title": "",
+    "body": "",
+    "useYn": "",
+    "attachFileIdList": [
+        0,
+        1
+    ]
 }
 ```
 
@@ -3736,10 +3763,10 @@ curl -X GET \
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
+   "header": {
+      "isSuccessful": true,
+      "resultCode": "",
+      "resultMessage": ""
    }
 }
 ```
@@ -3766,7 +3793,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3786,11 +3813,11 @@ curl -X DELETE \
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
@@ -3817,7 +3844,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3829,8 +3856,11 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-    "unsubscribeNo":"0800000000",
-    "recipientNoList":["0100000000", "0100000001"]
+    "unsubscribeNo": "0800000000",
+    "recipientNoList": [
+        "0100000000", 
+        "0100000001"
+    ]
 }
 ```
 
@@ -3847,7 +3877,10 @@ curl -X POST \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
     "unsubscribeNo": "0800000000",
-    "recipientNoList": ["0100000000", "0100000001"]
+    "recipientNoList": [
+        "0100000000",
+        "0100000001"
+    ]
 }'
 ```
 
@@ -3856,9 +3889,9 @@ curl -X POST \
 ```
 {
    "header":{
-       "isSuccessful":true,
-       "resultCode":0,
-       "resultMessage":"Success"
+       "isSuccessful": true,
+       "resultCode": 0,
+       "resultMessage": "Success"
    }
 }
 ```
@@ -3884,7 +3917,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3955,7 +3988,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4013,7 +4046,7 @@ curl -X DELETE \
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4042,27 +4075,27 @@ curl -X GET \
 #### 응답
 ```
 {
-    "header" : {
-        "isSuccessful" :  true,
-        "resultCode" :  0,
-        "resultMessage" :  ""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
     },
-    "body" : {
-        "pageNum" :  0,
-        "pageSize" :  0,
-        "totalCount" :  0,
-        "data" : [
-        {
-            "serviceId" :  0,
-            "sendNo" :  "",
-            "useYn" :  "",
-            "blockYn" :  "",
-            "blockReason" :  "",
-            "createDate" :  "",
-            "createUser" :  "",
-            "updateDate" :  "",
-            "updateUser" :  ""
-        }
+    "body": {
+        "pageNum": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "data": [
+            {
+                "serviceId": 0,
+                "sendNo": "",
+                "useYn": "",
+                "blockYn": "",
+                "blockReason": "",
+                "createDate": "",
+                "createUser": "",
+                "updateDate": "",
+                "updateUser": ""
+            }
         ]
     }
 }
@@ -4114,7 +4147,7 @@ curl -X GET \
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4147,24 +4180,22 @@ curl -X GET \
 #### 응답
 ```
 {
-    "header" : {
-        "isSuccessful" : true,
-        "resultCode" : 0,
-        "resultMessage" : "SUCCESS""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
     },
-    "body" : {
-        "data" :
-        [
-          {
-            "eventDateTime" : "",
-            "events" :
+    "body": {
+        "data": [
             {
-              "{statsCriteriaValue}.requested" : 10,
-              "{statsCriteriaValue}.sent" : 10,
-              "{statsCriteriaValue}.sentFailed" : 0,
-              "{statsCriteriaValue}.received" : 0
+                "eventDateTime": "",
+                "events": {
+                    "{statsCriteriaValue}.requested": 10,
+                    "{statsCriteriaValue}.sent": 10,
+                    "{statsCriteriaValue}.sentFailed : 0,
+                    "{statsCriteriaValue}.received": 0
+                }
             }
-          }
         ]
     }
 }
@@ -4208,7 +4239,7 @@ curl -X GET \
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4233,25 +4264,23 @@ curl -X GET \
 #### 응답
 ```
 {
-    "header" : {
-        "isSuccessful" : true,
-        "resultCode" : 0,
-        "resultMessage" : "SUCCESS""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
     },
-    "body" : {
-        "data" :
-        [
-          {
-            "eventDateTime" : "",
-            "events" :
+    "body": {
+        "data": [
             {
-              "{statsCriteriaValue}.requested" : 10,
-              "{statsCriteriaValue}.sent" : 10,
-              "{statsCriteriaValue}.sentFailed" : 0,
-              "{statsCriteriaValue}.received" : 0,
-              "{statsCriteriaValue}.pending" : 0
+                "eventDateTime": "",
+                "events": {
+                    "{statsCriteriaValue}.requested": 10,
+                    "{statsCriteriaValue}.sent": 10,
+                    "{statsCriteriaValue}.sentFailed": 0,
+                    "{statsCriteriaValue}.received": 0,
+                    "{statsCriteriaValue}.pending": 0
+                }
             }
-          }
         ]
     }
 }
@@ -4291,7 +4320,7 @@ curl -X GET \
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4313,27 +4342,25 @@ curl -X GET \
 #### 응답
 ```
 {
-    "header" : {
-        "isSuccessful" : true,
-        "resultCode" : 0,
-        "resultMessage" : "SUCCESS""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
     },
-    "body" : {
-        "data" :
-        [
-          {
-            "divisionName" : "2018-06-01",
-            "statisticsView" :
+    "body": {
+        "data": [
             {
-              "requestedCount" : 10,
-              "succeedCount" : 10,
-              "failedCount" : 0,
-              "pendingCount" : 0,
-              "succeedRate" : "100.00",
-              "failedRate" : "0.00",
-              "pendingRate" : "0.00"
+                "divisionName": "2018-06-01",
+                "statisticsView": {
+                    "requestedCount": 10,
+                    "succeedCount": 10,
+                    "failedCount": 0,
+                    "pendingCount": 0,
+                    "succeedRate": "100.00",
+                    "failedRate": "0.00",
+                    "pendingRate": "0.00"
+                }
             }
-          }
         ]
     }
 }
@@ -4376,7 +4403,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4413,38 +4440,38 @@ curl -X GET \
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
-    "isSuccessful":true
-  },
-  "body":{
-    "pageNum":1,
-    "pageSize":15,
-    "totalCount":15,
-    "data":[
-      {
-        "requestId":"{요청 ID}",
-        "recipientSeq":1,
-        "requestDate":"{예약 날짜}",
-        "sendNo":"{발신 번호}",
-        "recipientNo":"{수신 번호}",
-        "countryCode":"{국가코드}",
-        "sendType":"{발송 유형}",
-        "messageType":"{메시지타입}",
-        "adYn":"{광고 여부}",
-        "templateId":"{템플릿 ID}",
-        "templateParameter":"{템플릿 파라미터}",
-        "templateName":"{템플릿 명}",
-        "title":"{제목}",
-        "body":"{내용}",
-        "messageStatus":"{메시지 상태}",
-        "createUser":"{등록한 사용자}",
-        "createDate":"{등록 일시}",
-        "updateDate":"{수정 날짜}"
-      }
-    ]
-  }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 15,
+        "data": [
+            {
+                "requestId": "{요청 ID}",
+                "recipientSeq": 1,
+                "requestDate": "{예약 날짜}",
+                "sendNo": "{발신 번호}",
+                "recipientNo": "{수신 번호}",
+                "countryCode": "{국가코드}",
+                "sendType": "{발송 유형}",
+                "messageType": "{메시지타입}",
+                "adYn": "{광고 여부}",
+                "templateId": "{템플릿 ID}",
+                "templateParameter": "{템플릿 파라미터}",
+                "templateName": "{템플릿 명}",
+                "title": "{제목}",
+                "body": "{내용}",
+                "messageStatus": "{메시지 상태}",
+                "createUser": "{등록한 사용자}",
+                "createDate": "{등록 일시}",
+                "updateDate": "{수정 날짜}"
+            }
+        ]
+    }
 }
 ```
 
@@ -4499,7 +4526,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4519,40 +4546,40 @@ curl -X GET \
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
-    "isSuccessful":true
-  },
-  "body":{
-    "data":{
-      "requestId":"{요청 ID}",
-      "recipientSeq":1,
-      "requestDate":"{예약 날짜}",
-      "sendNo":"{발신 번호}",
-      "recipientNo":"{수신 번호}",
-      "countryCode":"{국가코드}",
-      "sendType":"{발송 유형}",
-      "messageType":"{메시지타입}",
-      "adYn":"{광고 여부}",
-      "templateId":"{템플릿 ID}",
-      "templateParameter":"{템플릿 파라미터}",
-      "templateName":"{템플릿 명}",
-      "title":"{제목}",
-      "body":"{내용}",
-      "messageStatus":"{메시지 상태}",
-      "createUser":"{등록한 사용자}",
-      "createDate":"{등록 일시}",
-      "updateDate":"{수정 날짜}",
-      "attachFileList":[
-        {
-          "fileId":0,
-          "filePath":"26606/toast-mt-2018-02-07/1555/105887/",
-          "fileName":"file_attach_test.jpg"
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestId": "{요청 ID}",
+            "recipientSeq": 1,
+            "requestDate": "{예약 날짜}",
+            "sendNo": "{발신 번호}",
+            "recipientNo": "{수신 번호}",
+            "countryCode": "{국가코드}",
+            "sendType": "{발송 유형}",
+            "messageType": "{메시지타입}",
+            "adYn": "{광고 여부}",
+            "templateId": "{템플릿 ID}",
+            "templateParameter": "{템플릿 파라미터}",
+            "templateName": "{템플릿 명}",
+            "title": "{제목}",
+            "body": "{내용}",
+            "messageStatus": "{메시지 상태}",
+            "createUser": "{등록한 사용자}",
+            "createDate": "{등록 일시}",
+            "updateDate": "{수정 날짜}",
+            "attachFileList": [
+                {
+                    "fileId": 0,
+                    "filePath": "26606/toast-mt-2018-02-07/1555/105887/",
+                    "fileName": "file_attach_test.jpg"
+                }
+            ]
         }
-      ]
     }
-  }
 }
 ```
 
@@ -4606,7 +4633,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4618,13 +4645,13 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "reservationList":[
-    {
-      "requestId":"{requestId}",
-      "recipientSeq":1
-    }
-  ],
-  "updateUser":"{updateUser}"
+    "reservationList": [
+        {
+            "requestId": "{requestId}",
+            "recipientSeq": 1
+        }
+    ],
+    "updateUser": "{updateUser}"
 }
 ```
 
@@ -4641,7 +4668,8 @@ curl -X PUT \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
-    "reservationList": [{
+    "reservationList": [
+        {
             "requestId": "1",
             "recipientSeq": 1
         }
@@ -4654,17 +4682,17 @@ curl -X PUT \
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
-    "isSuccessful":true
-  },
-  "body":{
-    "data":{
-      "requestedCount":1,
-      "canceledCount":1
+    "header":{
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestedCount": 1,
+            "canceledCount": 1
+        }
     }
-  }
 }
 ```
 
@@ -4700,7 +4728,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4710,22 +4738,22 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "searchParameter" : {
-      "sendType" : "0",
-      "startRequestDate" : "2020-02-01 00:00",
-      "endRequestDate" : "2020-02-01 10:00",
-      "startCreateDate" : "2020-02-01 00:00",
-      "endCreateDate" : "2020-02-01 10:00",
-      "sendNo" : "15880000",
-      "recipientNo" : "0100000000",
-      "templateId" : "TemplateId",
-      "requestId" : "20200201010630ReZQ6KZzAH0",
-      "createUser" : "CreateUser",
-      "senderGroupingKey" : "SenderGroupingKey"
-  },
-  "updateUser" : "UpdateUser"
+    "searchParameter": {
+        "sendType": "0",
+        "startRequestDate": "2020-02-01 00:00",
+        "endRequestDate": "2020-02-01 10:00",
+        "startCreateDate": "2020-02-01 00:00",
+        "endCreateDate": "2020-02-01 10:00",
+        "sendNo": "15880000",
+        "recipientNo": "0100000000",
+        "templateId": "TemplateId",
+        "requestId": "20200201010630ReZQ6KZzAH0",
+        "createUser": "CreateUser",
+        "senderGroupingKey": "SenderGroupingKey"
+    },
+    "updateUser": "UpdateUser"
 }
 ```
 
@@ -4774,20 +4802,20 @@ curl -X PUT \
 
 #### 응답
 
-```json
+```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
-    "isSuccessful":true
-  },
-  "body":{
-    "data":{
-      "reservationCancelId":"20200210113330OepQ1sAzSDa",
-      "requestedDateTime":"2020-02-10 11:33:30",
-      "reservationCancelStatus":"READY"
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "reservationCancelId": "20200210113330OepQ1sAzSDa",
+            "requestedDateTime": "2020-02-10 11:33:30",
+            "reservationCancelStatus": "READY"
+        }
     }
-  }
 }
 ```
 
@@ -4823,7 +4851,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4853,26 +4881,26 @@ curl -X GET \
 
 ```
 {
-    "header":{
-        "resultCode":0,
-        "resultMessage":"success",
-        "isSuccessful":true
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
     },
-    "body":{
-        "data":[
+    "body": {
+        "data": [
             {
-                "reservationCancelId":"",
-                "searchParameter":{
+                "reservationCancelId": "",
+                "searchParameter": {
 
                 },
-                "requestedDateTime":"",
-                "completedDateTime":"",
-                "reservationCancelStatus":"",
-                "totalCount":0,
-                "successCount":0,
-                "createUser":"",
-                "createdDateTime":"",
-                "updatedDateTime":""
+                "requestedDateTime": "",
+                "completedDateTime": "",
+                "reservationCancelStatus": "",
+                "totalCount": 0,
+                "successCount": 0,
+                "createUser": "",
+                "createdDateTime": "",
+                "updatedDateTime": ""
             }
         ]
     }
@@ -4919,7 +4947,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4933,23 +4961,23 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "sendType":"1",
-  "requestId":"20190601100630ReZQ6KZzAH0",
-  "startRequestDate":"2019-06-01 00:00:00",
-  "endRequestDate":"2019-06-08 00:00:00",
-  "startCreateDate":"2019-06-01 00:00:00",
-  "endCreateDate":"2019-06-08 00:00:00",
-  "startResultDate":"2019-06-01 00:00:00",
-  "endResultDate":"2019-06-08 00:00:00",
-  "sendNo":"15446859",
-  "recipientNo":"01000000000",
-  "templateId":"TemplateId",
-  "msgStatus":"3",
-  "resultCode":"MTR2",
-  "subResultCode":"MTR2_3",
-  "senderGroupingKey":"{발송자 그룹 키}",
-  "recipientGroupingKey":"{수신자 그룹 키}",
-  "isIncludeTitleAndBody":true
+    "sendType": "1",
+    "requestId": "20190601100630ReZQ6KZzAH0",
+    "startRequestDate": "2019-06-01 00:00:00",
+    "endRequestDate": "2019-06-08 00:00:00",
+    "startCreateDate": "2019-06-01 00:00:00",
+    "endCreateDate": "2019-06-08 00:00:00",
+    "startResultDate": "2019-06-01 00:00:00",
+    "endResultDate": "2019-06-08 00:00:00",
+    "sendNo": "15446859",
+    "recipientNo": "01000000000",
+    "templateId": "TemplateId",
+    "msgStatus": "3",
+    "resultCode": "MTR2",
+    "subResultCode": "MTR2_3",
+    "senderGroupingKey": "{발송자 그룹 키}",
+    "recipientGroupingKey": "{수신자 그룹 키}",
+    "isIncludeTitleAndBody": true
 }
 ```
 
@@ -4990,20 +5018,20 @@ curl -X POST \
 
 ```
 {
-  "header":{
-    "isSuccessful":true,
-    "resultCode":0,
-    "resultMessage":"SUCCESS"
-  },
-  "body":{
-    "data":{
-      "donwloadId":"20190610100630ReZQ6KZzAH0",
-      "downloadType":"NORMAL",
-      "fileType":"CSV",
-      "downloadStatusCode":"COMPLETED",
-      "expiredDate":"2019-07-09 10:06:00.0"
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "downloadId": "20190610100630ReZQ6KZzAH0",
+            "downloadType": "NORMAL",
+            "fileType": "CSV",
+            "downloadStatusCode": "COMPLETED",
+            "expiredDate": "2019-07-09 10:06:00.0"
+        }
     }
-  }
 }
 ```
 
@@ -5012,7 +5040,7 @@ curl -X POST \
 |header.isSuccessful|	Boolean|	성공 여부|
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
-|body.data.donwloadId|	String|	다운로드 ID|
+|body.data.downloadId|	String|	다운로드 ID|
 |body.data.downloadType|	String|	다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송|
 |body.data.fileType|	String|	파일 타입(현재 csv만 지원)|
 |body.data.downloadStatusCode|	String|	파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료|
@@ -5040,7 +5068,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5067,31 +5095,31 @@ curl -X GET \
 
 #### 응답
 
-```json
+```
 {
-  "header":{
-    "isSuccessful":true,
-    "resultCode":0,
-    "resultMessage":"SUCCESS"
-  },
-  "body":{
-    "totalCount":0,
-    "data":[
-      {
-        "downloadId":"",
-        "downloadType":"",
-        "fileType":"",
-        "parameter":"",
-        "size":0,
-        "downloadStatusCode":"",
-        "resultMessage":"",
-        "expiredDate":"",
-        "createUser":"",
-        "createDate":"",
-        "updateDate":""
-      }
-    ]
-  }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "totalCount": 0,
+        "data": [
+            {
+                "downloadId": "",
+                "downloadType": "",
+                "fileType": "",
+                "parameter": "",
+                "size": 0,
+                "downloadStatusCode": "",
+                "resultMessage": "",
+                "expiredDate": "",
+                "createUser": "",
+                "createDate": "",
+                "updateDate": ""
+            }
+        ]
+    }
 }
 ```
 
@@ -5136,7 +5164,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5181,7 +5209,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5206,7 +5234,7 @@ curl -X GET \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5261,7 +5289,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5271,9 +5299,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "tagName": "TAG"
+    "tagName": "TAG"
 }
 ```
 
@@ -5294,7 +5322,7 @@ curl -X POST \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5336,7 +5364,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5346,9 +5374,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "tagName": "TAG"
+    "tagName": "TAG"
 }
 ```
 
@@ -5369,7 +5397,7 @@ curl -X PUT \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5406,7 +5434,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5424,7 +5452,7 @@ curl -X DELETE \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5464,7 +5492,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5491,7 +5519,7 @@ curl -X GET \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5564,7 +5592,7 @@ GET /sms/v3.0/appKeys/{appKey}/uids/{uid}
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5582,7 +5610,7 @@ curl -X GET \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5645,7 +5673,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5655,19 +5683,20 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "uids": [
-  {
-      "uid": "UID",
-      "tagIds": ["ABCD1234"],
-      "contacts": [
+    "uids": [
         {
-          "contactType": "PHONE_NUMBER",
-          "contact": "0100000000"
+            "uid": "UID",
+            "tagIds": ["ABCD1234"],
+            "contacts": [
+                {
+                    "contactType": "PHONE_NUMBER",
+                    "contact": "0100000000"
+                }
+            ]
         }
-      ]
-  }]
+    ]
 }
 ```
 
@@ -5690,9 +5719,11 @@ curl -X POST \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}'  \
 -d '{
-    "uids": [{
+    "uids": [
+        {
             "uid": "USER ID",
-            "contacts": [{
+            "contacts": [
+                {
                     "contactType": "PHONE_NUMBER",
                     "contact": "0100000000"
                 }
@@ -5704,7 +5735,7 @@ curl -X POST \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5742,7 +5773,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5760,7 +5791,7 @@ curl -X DELETE \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5797,7 +5828,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5807,9 +5838,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "phoneNumber": "0100000000"
+    "phoneNumber": "0100000000"
 }
 ```
 
@@ -5831,7 +5862,7 @@ curl -X POST \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5869,7 +5900,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5887,7 +5918,7 @@ curl -X DELETE \
 
 #### 응답
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5923,20 +5954,20 @@ SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
 
 [Request body]
 
-```json
+```
 {
-    "hooksId":"202007271010101010sadasdavas",
-    "webhookConfigId":"String",
-    "productName":"SMS",
-    "appKey":"akb3dukdmdjsdSvgk",
-    "event":"UNSUBSCRIBE",
-    "hooks":[
+    "hooksId": "202007271010101010sadasdavas",
+    "webhookConfigId": "String",
+    "productName": "SMS",
+    "appKey": "akb3dukdmdjsdSvgk",
+    "event": "UNSUBSCRIBE",
+    "hooks": [
         {
-            "hookId":"202007271010101010sadasdavas",
-            "recipientNo":"01012341234",
-            "unsubscribeNo":"08012341234",
-            "enterpriseName":"NHN Cloud",
-            "createdDateTime":"2020-09-09T11:25:10.000+09:00"
+            "hookId": "202007271010101010sadasdavas",
+            "recipientNo": "01012341234",
+            "unsubscribeNo": "08012341234",
+            "enterpriseName": "NHN Cloud",
+            "createdDateTime": "2020-09-09T11:25:10.000+09:00"
         }
     ]
 }
@@ -5964,18 +5995,18 @@ curl -X POST \
     -H 'Content-Type: application/json;charset=UTF-8' \
     -H 'X-Toast-Webhook-Signature: application/json;charset=UTF-8' \
     -d '{
-        "hooksId":"202007271010101010sadasdavas",
-        "webhookConfigId":"String",
-        "productName":"Sms",
-        "appKey":"akb3dukdmdjsdSvgk",
-        "event":"UNSUBSCRIBE",
-        "hooks":[
+        "hooksId": "202007271010101010sadasdavas",
+        "webhookConfigId": "String",
+        "productName": "Sms",
+        "appKey": "akb3dukdmdjsdSvgk",
+        "event": "UNSUBSCRIBE",
+        "hooks": [
             {
-                "hookId":"202007271010101010sadasdavas",
-                "recipientNo":"01012341234",
-                "unsubscribeNo":"08012341234",
-                "enterpriseName":"NHN Cloud",
-                "createdDateTime":"2020-09-09T11:25:10.000+09:00"
+                "hookId": "202007271010101010sadasdavas",
+                "recipientNo": "01012341234",
+                "unsubscribeNo": "08012341234",
+                "enterpriseName": "NHN Cloud",
+                "createdDateTime": "2020-09-09T11:25:10.000+09:00"
             }
         ]
     }
