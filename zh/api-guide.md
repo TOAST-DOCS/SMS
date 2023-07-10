@@ -4,9 +4,9 @@
 
 ### Changes from v2.4
 1. Secret key has been added.
-	* Secret key must be added to the header to call v3.0 API successfully.  
+    * Secret key must be added to the header to call v3.0 API successfully.
 2. APIs that query mass delivery requests have been added.
-	* List Mass Delivery, List Recipients of Mass Delivery, and List Recipient Details of Mass Delivery APIs have been added.
+    * List Mass Delivery, List Recipients of Mass Delivery, and List Recipient Details of Mass Delivery APIs have been added.
 
 ### [API Domain]
 
@@ -49,7 +49,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -61,25 +61,25 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateId":"TemplateId",
-   "body":"Body",
-   "sendNo":"15446859",
-   "requestDate":"2018-08-10 10:00",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "countryCode":"82",
-         "internationalRecipientNo":"821000000000",
-         "templateParameter":{
-            "key":"value"
-         },
-         "recipientGroupingKey":"recipientGroupingKey"
-      }
-   ],
-   "userId":"UserId",
-   "statsId":"statsId",
-   "originCode":"123456789"
+    "templateId": "TemplateId",
+    "body": "Body",
+    "sendNo": "15446859",
+    "requestDate": "2018-08-10 10:00",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "countryCode": "82",
+            "internationalRecipientNo": "821000000000",
+            "templateParameter": {
+                "key": "value"
+            },
+            "recipientGroupingKey": "recipientGroupingKey"
+        }
+    ],
+    "userId": "UserId",
+    "statsId": "statsId",
+    "originCode": "123456789"
 }
 ```
 
@@ -106,11 +106,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "body": "Body",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "internationalRecipientNo": "821000000000"
         }
     ]
@@ -121,27 +122,27 @@ curl -X POST \
 
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -161,67 +162,67 @@ curl -X POST \
 
 #### Example of Sending Short SMS (general domestic recipient numbers)
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms|
 
 [Request body]
 ```
 {
-   "body":"Body",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      },
-      {
-         "recipientNo":"01000000001",
-         "recipientGroupingKey":"RecipientGroupingKey2"
-      }
-   ],
-   "statsId":"statsId"
+    "body": "Body",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        },
+        {
+            "recipientNo": "01000000001",
+            "recipientGroupingKey": "RecipientGroupingKey2"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            },
-            {
-               "recipientNo":"01000000001",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":2,
-               "recipientGroupingKey":"RecipientGroupingKey2"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                },
+                {
+                    "recipientNo": "01000000001",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 2,
+                    "recipientGroupingKey": "RecipientGroupingKey2"
+                }
+            ]
+        }
+    }
 }
 ```
 
 #### Example of Sending Short SMS (with country code included to recipient numbers)
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms|
 
@@ -229,48 +230,48 @@ curl -X POST \
 [Request body]
 ```
 {
-   "body":"Body",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "internationalRecipientNo":"821000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      }
-   ],
-   "userId":"",
-   "statsId":"statsId"
+    "body": "Body",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "internationalRecipientNo": "821000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ],
+    "userId": "",
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
-### List Delivery of Short SMS 
+### List Delivery of Short SMS
 
 #### Request
 
@@ -291,7 +292,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -301,7 +302,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
-* To query registered date and sent date at the same time, sent date shall be ignored. 
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
@@ -328,52 +329,52 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "pageNum":1,
-      "pageSize":15,
-      "totalCount":1,
-      "data":[
-         {
-            "requestId":"20180810100630ReZQ6KZzAH0",
-            "requestDate":"2018-08-10 10:06:30.0",
-            "resultDate":"2018-08-10 10:06:42.0",
-            "templateId":"TemplateId",
-            "templateName":"template name",
-            "categoryId":0,
-            "categoryName":"category name",
-            "body":"single-text test",
-            "sendNo":"15446859",
-            "countryCode":"82",
-            "recipientNo":"01000000000",
-            "msgStatus":"3",
-            "msgStatusName":"successful",
-            "resultCode":"1000",
-            "resultCodeName":"successful",
-            "telecomCode":10001,
-            "telecomCodeName":"SKT",
-            "recipientSeq":1,
-            "sendType":"0",
-            "messageType":"SMS",
-            "userId":"tester",
-            "adYn":"N",
-            "resultMessage": "",
-            "senderGroupingKey":"SenderGroupingKey",
-            "recipientGroupingKey":"RecipientGroupingKey"
-         }
-      ]
-   }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [
+            {
+                "requestId": "20180810100630ReZQ6KZzAH0",
+                "requestDate": "2018-08-10 10:06:30.0",
+                "resultDate": "2018-08-10 10:06:42.0",
+                "templateId": "TemplateId",
+                "templateName": "template name",
+                "categoryId": 0,
+                "categoryName": "category name",
+                "body": "single-text test",
+                "sendNo": "15446859",
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "msgStatus": "3",
+                "msgStatusName": "successful",
+                "resultCode": "1000",
+                "resultCodeName": "successful",
+                "telecomCode": 10001,
+                "telecomCodeName": "SKT",
+                "recipientSeq": 1,
+                "sendType": "0",
+                "messageType": "SMS",
+                "userId": "tester",
+                "adYn": "N",
+                "resultMessage": "",
+                "senderGroupingKey": "SenderGroupingKey",
+                "recipientGroupingKey": "RecipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -390,7 +391,7 @@ curl -X GET \
 |body.data[].resultDate|	String| Date and time of receiving |
 |body.data[].templateId|	String| Template ID |
 |body.data[].templateName|	String| Template name |
-|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryId|	Integer| Category ID |
 |body.data[].categoryName|	String| Category name |
 |body.data[].body|	String| Body |
 |body.data[].sendNo|	String| Sender number |
@@ -407,10 +408,11 @@ curl -X GET \
 |body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
+|body.data[].resultMessage|	String|	Result message |
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
-### Query Delivery of Short SMS 
+### Query Delivery of Short SMS
 
 #### Request
 
@@ -432,7 +434,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -451,48 +453,48 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "requestDate":"2018-08-10 10:06:30.0",
-         "resultDate":"2018-08-10 10:06:42.0",
-         "templateId":"TemplateId",
-         "templateName":"template name",
-         "categoryId":0,
-         "categoryName":"Category name",
-         "body":"body",
-         "sendNo":"15446859",
-         "countryCode":"82",
-         "recipientNo":"01000000000",
-         "msgStatus":"3",
-         "msgStatusName":"successful",
-         "resultCode":"1000",
-         "resultCodeName":"successful",
-         "telecomCode":10001,
-         "telecomCodeName":"SKT",
-         "recipientSeq":1,
-         "sendType":"0",
-         "messageType":"SMS",
-         "userId":"tester",
-         "adYn":"N",
-         "originCode":"123456789"
-         "resultMessage": "",
-         "senderGroupingKey":"SenderGroupingKey",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      }
-   }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "requestDate": "2018-08-10 10:06:30.0",
+            "resultDate": "2018-08-10 10:06:42.0",
+            "templateId": "TemplateId",
+            "templateName": "template name",
+            "categoryId": 0,
+            "categoryName": "Category name",
+            "body": "body",
+            "sendNo": "15446859",
+            "countryCode": "82",
+            "recipientNo": "01000000000",
+            "msgStatus": "3",
+            "msgStatusName": "successful",
+            "resultCode": "1000",
+            "resultCodeName": "successful",
+            "telecomCode": 10001,
+            "telecomCodeName": "SKT",
+            "recipientSeq": 1,
+            "sendType": "0",
+            "messageType": "SMS",
+            "userId": "tester",
+            "adYn": "N",
+            "originCode": "123456789"
+            "resultMessage": "",
+            "senderGroupingKey": "SenderGroupingKey",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    }
 }
 ```
 
@@ -506,7 +508,7 @@ curl -X GET \
 |body.data.resultDate|	String| Date and time of receiving |
 |body.data.templateId|	String| Template ID |
 |body.data.templateName|	String| Template name |
-|body.data.categoryId|	String| Category ID |
+|body.data.categoryId|	Integer| Category ID |
 |body.data.categoryName|	String| Category name |
 |body.data.body|	String| Body |
 |body.data.sendNo|	String| Sender name |
@@ -524,6 +526,7 @@ curl -X GET \
 |body.data.userId|	String| Delivery request ID |
 |body.data.adYn|	String| Ad or not |
 |body.data.originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+|body.data.resultMessage|	String|	Result message |
 |body.data.senderGroupingKey|	String| Sender's group key |
 |body.data.recipientGroupingKey|	String| Recipient's group key |
 
@@ -551,7 +554,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -563,26 +566,26 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateId":"TemplateId",
-   "title":"Title",
-   "body":"Body",
-   "sendNo":"15446859",
-   "requestDate":"2018-08-10 10:00",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "countryCode":"82",
-         "internationalRecipientNo":"821000000000",
-         "templateParameter":{
-            "key":"value"
-         },
-         "recipientGroupingKey":"recipientGroupingKey"
-      }
-   ],
-   "userId":"UserId",
-   "statsId":"statsId",
-   "originCode":"123456789"
+    "templateId": "TemplateId",
+    "title": "Title",
+    "body": "Body",
+    "sendNo": "15446859",
+    "requestDate": "2018-08-10 10:00",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "countryCode": "82",
+            "internationalRecipientNo": "821000000000",
+            "templateParameter": {
+                "key": "value"
+            },
+            "recipientGroupingKey": "recipientGroupingKey"
+        }
+    ],
+    "userId": "UserId",
+    "statsId": "statsId",
+    "originCode": "123456789"
 }
 ```
 
@@ -611,13 +614,14 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "title": "{title}",
     "body": "{body}",
     "sendNo": "15446859",
     "attachFileIdList": [0],
-    "recipientList": [{
+    "recipientList": [
+        {
             "recipientNo": "01000000000",
             "templateParameter": {}
         }
@@ -630,27 +634,27 @@ curl -X POST \
 
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                   "recipientNo": "01000000000",
+                   "resultCode": 0,
+                   "resultMessage": "SUCCESS",
+                   "recipientSeq": 1,
+                   "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -668,64 +672,64 @@ curl -X POST \
 |body.data.sendResultList[].recipientSeq| Integer | Recipient sequence (mtPr) |
 |body.data.sendResultList[].recipientGroupingKey| String | Recipient's group key |
 
-#### Example of Sending Long MMS 
+#### Example of Sending Long MMS
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms|
 
 [Request body]
 ```
 {
-   "title": "Title",
-   "body":"Body",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      },
-      {
-         "recipientNo":"01000000001",
-         "recipientGroupingKey":"RecipientGroupingKey2"
-      }
-   ],
-   "statsId":"statsId"
+    "title": "Title",
+    "body": "Body",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        },
+        {
+            "recipientNo": "01000000001",
+            "recipientGroupingKey": "RecipientGroupingKey2"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            },
-            {
-               "recipientNo":"01000000001",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":2,
-               "recipientGroupingKey":"RecipientGroupingKey2"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                   "recipientNo": "01000000000",
+                   "resultCode": 0,
+                   "resultMessage": "SUCCESS",
+                   "recipientSeq": 1,
+                   "recipientGroupingKey": "RecipientGroupingKey"
+                },
+                {
+                   "recipientNo": "01000000001",
+                   "resultCode": 0,
+                   "resultMessage": "SUCCESS",
+                   "recipientSeq": 2,
+                   "recipientGroupingKey": "RecipientGroupingKey2"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -745,45 +749,47 @@ curl -X POST \
     "sendNo": "15446859",
     "senderGroupingKey": "SenderGrouping",
     "attachFileIdList": [0],
-    "recipientList": [{
-        "recipientNo": "01010000000",
-        "recipientGroupingKey":"RecipientGroupingKey"
-    }],
-    "statsId":"statsId"
+    "recipientList": [
+        {
+            "recipientNo": "01010000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "body": {
-    "data": {
-      "requestId": "20180810100630ReZQ6KZzAH0",
-      "statusCode": "2",
-      "senderGroupingKey": "SenderGrouping",
-      "sendResultList" : [
-          {
-              "recipientNo" : {recipient number},
-              "resultCode" :  0,
-              "resultMessage" : "SUCCESS"
-              "recipientSeq": 1,
-              "recipientGroupingKey":"RecipientGroupingKey"
-          }
-      ]
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGrouping",
+            "sendResultList": [
+                {
+                  "recipientNo": {recipient number},
+                  "resultCode": 0,
+                  "resultMessage": "SUCCESS"
+                  "recipientSeq": 1,
+                  "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
     }
-  }
 }
 ```
 
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
-- Restrictions for Attached Images 
+- Restrictions for Attached Images
     - Supported Codec: .jpg, .jpeg
     - Number of Attached Images: 3 or less
     - Size of Attached Image: Less than 300KB per image. But, less than 8000KB in total if the number of attached images is 3
@@ -810,7 +816,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -832,7 +838,7 @@ Content-Type: application/json;charset=UTF-8
 |startResultDate|	String| - | Optional | Start date of receiving (yyyy-MM-dd HH:mm:ss) |
 |endResultDate|	String| - | Optional | End date of receiving (yyyy-MM-dd HH:mm:ss) |
 |sendNo|	String| 13 | Optional | Sender number |
-|recipientNo|	String| 20 | Optional | Recipient numbe |
+|recipientNo|	String| 20 | Optional | Recipient number |
 |templateId|	String| 50 | Optional | Template number |
 |msgStatus|	String| 1 | Optional | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
 |resultCode|	String| 10 | Optional | Result code of receiving [[Table on Query Codes](./error-code/#_2)] |
@@ -847,60 +853,62 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"SUCCESS",
-    "isSuccessful":true
-  },
-  "body":{
-    "pageNum":1,
-    "pageSize":15,
-    "totalCount":1,
-    "data":[
-      {
-        "requestId":"20180810100630ReZQ6KZzAH0",
-        "requestDate":"2018-08-10 10:06:30.0",
-        "resultDate":"2018-08-10 10:06:42.0",
-        "templateId":"TemplateId",
-        "templateName":"template name",
-        "categoryId":0,
-        "categoryName":"category name",
-        "title":"title",
-        "body":"body",
-        "sendNo":"15446859",
-        "countryCode":"82",
-        "recipientNo":"01000000000",
-        "msgStatus":"3",
-        "msgStatusName":"successful",
-        "resultCode":"1000",
-        "resultCodeName":"successful",
-        "telecomCode":10001,
-        "telecomCodeName":"SKT",
-        "recipientSeq":1,
-        "sendType":"0",
-        "messageType":"LMS",
-        "userId":"tester",
-        "adYn":"N",
-        "attachFileList": [{
-               fileId: Integer,
-               filePath: String,
-               fileName: String,
-               saveFileName: String,
-               uploadType: String
-         }],
-        "resultMessage":"",
-        "senderGroupingKey":"SenderGroupingKey",
-        "recipientGroupingKey":"RecipientGroupingKey"
-      }
-    ]
-  }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+        "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [
+            {
+                "requestId": "20180810100630ReZQ6KZzAH0",
+                "requestDate": "2018-08-10 10:06:30.0",
+                "resultDate": "2018-08-10 10:06:42.0",
+                "templateId": "TemplateId",
+                "templateName": "template name",
+                "categoryId": 0,
+                "categoryName": "category name",
+                "title": "title",
+                "body": "body",
+                "sendNo": "15446859",
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "msgStatus": "3",
+                "msgStatusName": "successful",
+                "resultCode": "1000",
+                "resultCodeName": "successful",
+                "telecomCode": 10001,
+                "telecomCodeName": "SKT",
+                "recipientSeq": 1,
+                "sendType": "0",
+                "messageType": "LMS",
+                "userId": "tester",
+                "adYn": "N",
+                "attachFileList": [
+                    {
+                        "fileId": Integer,
+                        "filePath": String,
+                        "fileName": String,
+                        "saveFileName": String,
+                        "uploadType": String
+                    }
+                ],
+                "resultMessage": "",
+                "senderGroupingKey": "SenderGroupingKey",
+                "recipientGroupingKey": "RecipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -918,7 +926,7 @@ curl -X GET \
 |body.data[].resultDate|	String| Date and time of receiving |
 |body.data[].templateId|	String| Template ID |
 |body.data[].templateName|	String| Template name |
-|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryId|	Integer| Category ID |
 |body.data[].categoryName|	String| Category name |
 |body.data[].body|	String| Body message |
 |body.data[].sendNo|	String| Sender number |
@@ -940,11 +948,12 @@ curl -X GET \
 |body.data[].attachFileList[].fileName|	String| File name |
 |body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
 |body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
+|body.data[].attachFileList[].resultMessage| String | Result message |
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
 
-### Query Single Delivery of Long MMS 
+### Query Single Delivery of Long MMS
 
 #### Request
 
@@ -966,7 +975,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -985,56 +994,58 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"SUCCESS",
-    "isSuccessful":true
-  },
-  "body":{
-    "data":{
-      "requestId":"20180810100630ReZQ6KZzAH0",
-      "requestDate":"2018-08-10 10:06:30.0",
-      "resultDate":"2018-08-10 10:06:42.0",
-      "templateId":"TemplateId",
-      "templateName":"template name",
-      "categoryId":0,
-      "categoryName":"category name",
-      "title":"title",
-      "body":"body",
-      "sendNo":"15446859",
-      "countryCode":"82",
-      "recipientNo":"01000000000",
-      "msgStatus":"3",
-      "msgStatusName":"succssful",
-      "resultCode":"1000",
-      "resultCodeName":"successful",
-      "telecomCode":10001,
-      "telecomCodeName":"SKT",
-      "recipientSeq":1,
-      "sendType":"0",
-      "messageType":"MMS",
-      "userId":"tester",
-      "adYn":"N",
-      "originCode":"123456789",
-      "attachFileList": [{
-               fileId: Integer,
-               filePath: String,
-               fileName: String,
-               saveFileName: String,
-               uploadType: String
-      }],
-      "resultMessage":"",
-      "senderGroupingKey":"SenderGroupingKey",
-      "recipientGroupingKey":"RecipientGroupingKey"
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "requestDate": "2018-08-10 10:06:30.0",
+            "resultDate": "2018-08-10 10:06:42.0",
+            "templateId": "TemplateId",
+            "templateName": "template name",
+            "categoryId": 0,
+            "categoryName": "category name",
+            "title": "title",
+            "body": "body",
+            "sendNo": "15446859",
+            "countryCode": "82",
+            "recipientNo": "01000000000",
+            "msgStatus": "3",
+            "msgStatusName": "succssful",
+            "resultCode": "1000",
+            "resultCodeName": "successful",
+            "telecomCode": 10001,
+            "telecomCodeName": "SKT",
+            "recipientSeq": 1,
+            "sendType": "0",
+            "messageType": "MMS",
+            "userId": "tester",
+            "adYn": "N",
+            "originCode": "123456789",
+            "attachFileList": [
+                {
+                    "fileId": Integer,
+                    "filePath": String,
+                    "fileName": String,
+                    "saveFileName": String,
+                    "uploadType": String
+                }
+            ],
+            "resultMessage": "",
+            "senderGroupingKey": "SenderGroupingKey",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
     }
-  }
 }
 ```
 
@@ -1063,7 +1074,7 @@ curl -X GET \
 |body.data.resultCode|	String| Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
 |body.data.resultCodeName|	String| Result code name of receiving |
 |body.data.telecomCode|	Integer| Code of telecom provider |
-|body.data.telecomCodeName|	String| Name of telecome provider |
+|body.data.telecomCodeName|	String| Name of telecom provider |
 |body.data.recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
@@ -1075,6 +1086,7 @@ curl -X GET \
 |body.data.attachFileList[].fileName|	String| File name |
 |body.data.attachFileList[].saveFileName|	String|	Name of saved file|
 |body.data.attachFileList[].uploadType|	String|	Type of uploaded|
+|body.data.resultMessage|	String| Result message |
 |body.data.senderGroupingKey|	String| Sender's group key |
 |body.data.recipientGroupingKey|	String| Recipient's group key |
 
@@ -1083,14 +1095,14 @@ curl -X GET \
 ### Send SMS for Authentication
 
 <span id="precautions-authword"></span>
-1. Guide for authentication words required to be included for sending authentication SMS 
+1. Guide for authentication words required to be included for sending authentication SMS
 
 | Category | Authentication Words |
 | --- | --- |
-| Authentication SMS (for emergency) | auth, password, verif, にんしょう, 認証, password, authentication |
+| Authentication SMS (for emergency) | auth, password, verify, にんしょう, 認証, password, authentication |
 
-- Example 1) Delivery shall fail if the full text (including template replacement) does not include authentication words, in the request of Send Authentication SMS API (for emergency) 
-- Example 2) Validity for English words shall be checked regardless of small or capital letters 
+- Example 1) Delivery shall fail if the full text (including template replacement) does not include authentication words, in the request of Send Authentication SMS API (for emergency)
+- Example 2) Validity for English words shall be checked regardless of small or capital letters
 
 #### Request
 
@@ -1111,7 +1123,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1123,25 +1135,25 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateId":"TemplateId",
-   "body":"body",
-   "sendNo":"15446859",
-   "requestDate":"2018-08-10 10:00",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "countryCode":"82",
-         "internationalRecipientNo":"821000000000",
-         "templateParameter":{
-            "key":"value"
-         },
-         "recipientGroupingKey":"recipientGroupingKey"
-      }
-   ],
-   "userId":"UserId",
-   "statsId":"statsId",
-   "originCode":"123456789"
+    "templateId": "TemplateId",
+    "body": "body",
+    "sendNo": "15446859",
+    "requestDate": "2018-08-10 10:00",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "countryCode": "82",
+            "internationalRecipientNo": "821000000000",
+            "templateParameter": {
+                "key": "value"
+            },
+            "recipientGroupingKey": "recipientGroupingKey"
+        }
+    ],
+    "userId": "UserId",
+    "statsId": "statsId",
+    "originCode": "123456789"
 }
 ```
 
@@ -1161,18 +1173,19 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 100 | X | Recipient's group key |
 |userId|	String| 100 |	X | Delivery delimiter e.g.) admin,system |
 | statsId | String | 10 | X | Statistics ID (not included in the delivery search conditions) |
-|originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+|originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
 
 #### cURL
 ```
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "body": "Authentication Test",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "recipientNo": "01000000000",
             "templateParameter": {}
         }
@@ -1185,27 +1198,27 @@ curl -X POST \
 #### Response
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -1225,61 +1238,61 @@ curl -X POST \
 
 #### Example
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/auth/sms|
 
 [Request body]
 ```
 {
-   "body":"body",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      },
-      {
-         "recipientNo":"01000000001",
-         "recipientGroupingKey":"RecipientGroupingKey2"
-      }
-   ],
-   "statsId":"statsId"
+    "body": "body",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        },
+        {
+            "recipientNo": "01000000001",
+            "recipientGroupingKey": "RecipientGroupingKey2"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            },
-            {
-               "recipientNo":"01000000001",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":2,
-               "recipientGroupingKey":"RecipientGroupingKey2"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                },
+                {
+                    "recipientNo": "01000000001",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 2,
+                    "recipientGroupingKey": "RecipientGroupingKey2"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -1305,7 +1318,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1343,52 +1356,52 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "pageNum":1,
-      "pageSize":15,
-      "totalCount":1,
-      "data":[
-         {
-            "requestId":"20180810100630ReZQ6KZzAH0",
-            "requestDate":"2018-08-10 10:06:30.0",
-            "resultDate":"2018-08-10 10:06:42.0",
-            "templateId":"TemplateId",
-            "templateName":"template name",
-            "categoryId":0,
-            "categoryName":"category name",
-            "body":"single text test",
-            "sendNo":"15446859",
-            "countryCode":"82",
-            "recipientNo":"01000000000",
-            "msgStatus":"3",
-            "msgStatusName":"successful",
-            "resultCode":"1000",
-            "resultCodeName":"successful",
-            "telecomCode":10001,
-            "telecomCodeName":"SKT",
-            "recipientSeq":1,
-            "sendType":"0",
-            "messageType":"AUTH",
-            "userId":"tester",
-            "adYn":"N",
-            "resultMessage": "",
-            "senderGroupingKey":"SenderGroupingKey",
-            "recipientGroupingKey":"RecipientGroupingKey"
-         }
-      ]
-   }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [
+            {
+                "requestId": "20180810100630ReZQ6KZzAH0",
+                "requestDate": "2018-08-10 10:06:30.0",
+                "resultDate": "2018-08-10 10:06:42.0",
+                "templateId": "TemplateId",
+                "templateName": "template name",
+                "categoryId": 0,
+                "categoryName": "category name",
+                "body": "single text test",
+                "sendNo": "15446859",
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "msgStatus": "3",
+                "msgStatusName": "successful",
+                "resultCode": "1000",
+                "resultCodeName": "successful",
+                "telecomCode": 10001,
+                "telecomCodeName": "SKT",
+                "recipientSeq": 1,
+                "sendType": "0",
+                "messageType": "AUTH",
+                "userId": "tester",
+                "adYn": "N",
+                "resultMessage": "",
+                "senderGroupingKey": "SenderGroupingKey",
+                "recipientGroupingKey": "RecipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -1405,7 +1418,7 @@ curl -X GET \
 |body.data[].resultDate|	String| Date and time of receiving |
 |body.data[].templateId|	String| Template ID |
 |body.data[].templateName|	String| Template name |
-|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryId|	Integer| Category ID |
 |body.data[].categoryName|	String| Category name |
 |body.data[].body|	String| Body message |
 |body.data[].sendNo|	String| Sender number |
@@ -1422,12 +1435,13 @@ curl -X GET \
 |body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data[].userId|	String| Request ID for sending |
 |body.data[].adYn|	String| Ad or not |
+|body.data[].resultMessage|	String| Result message |
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
 ### Query Single SMS Delivery for Authentication
 
-#### Request	
+#### Request
 
 [URL]
 
@@ -1447,7 +1461,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1466,48 +1480,48 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "requestDate":"2018-08-10 10:06:30.0",
-         "resultDate":"2018-08-10 10:06:42.0",
-         "templateId":"TemplateId",
-         "templateName":"template name",
-         "categoryId":0,
-         "categoryName":"category name",
-         "body":"body",
-         "sendNo":"15446859",
-         "countryCode":"82",
-         "recipientNo":"01000000000",
-         "msgStatus":"3",
-         "msgStatusName":"successful",
-         "resultCode":"1000",
-         "resultCodeName":"successful",
-         "telecomCode":10001,
-         "telecomCodeName":"SKT",
-         "recipientSeq":1,
-         "sendType":"0",
-         "messageType":"AUTH",
-         "userId":"tester",
-         "adYn":"N",
-         "originCode":"123456789",
-         "resultMessage": "",
-         "senderGroupingKey":"SenderGroupingKey",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      }
-   }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "requestDate": "2018-08-10 10:06:30.0",
+            "resultDate": "2018-08-10 10:06:42.0",
+            "templateId": "TemplateId",
+            "templateName": "template name",
+            "categoryId": 0,
+            "categoryName": "category name",
+            "body": "body",
+            "sendNo": "15446859",
+            "countryCode": "82",
+            "recipientNo": "01000000000",
+            "msgStatus": "3",
+            "msgStatusName": "successful",
+            "resultCode": "1000",
+            "resultCodeName": "successful",
+            "telecomCode": 10001,
+            "telecomCodeName": "SKT",
+            "recipientSeq": 1,
+            "sendType": "0",
+            "messageType": "AUTH",
+            "userId": "tester",
+            "adYn": "N",
+            "originCode": "123456789",
+            "resultMessage": "",
+            "senderGroupingKey": "SenderGroupingKey",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    }
 }
 ```
 
@@ -1521,7 +1535,7 @@ curl -X GET \
 |body.data.resultDate|	String| Date and time of receiving |
 |body.data.templateId|	String| Template ID |
 |body.data.templateName|	String| Template name |
-|body.data.categoryId|	String| Category ID |
+|body.data.categoryId|	Integer| Category ID |
 |body.data.categoryName|	String| Category name |
 |body.data.body|	String| Body message |
 |body.data.sendNo|	String| Sender number |
@@ -1539,6 +1553,7 @@ curl -X GET \
 |body.data.userId|	String| Request ID for sending |
 |body.data.adYn|	String| Ad or not |
 |body.data.originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+|body.data.resultMessage|	String| Result message |
 |body.data.senderGroupingKey|	String| Sender's group key |
 |body.data.recipientGroupingKey|	String| Recipient's group key |
 
@@ -1564,7 +1579,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1573,7 +1588,7 @@ Content-Type: application/json;charset=UTF-8
 |X-Secret-Key|	String|	Original secret key|
 
 [Request Body]
-Same as Send SMS in the above. 
+Same as Send SMS in the above.
 [[See Request Body](./api-guide/#sms_2)]
 
 <span style="color:red"> However, following messages must be included in the body. </span>
@@ -1590,11 +1605,12 @@ Same as Send SMS in the above.
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "body": "(Ad) Test\n [Unsubscribe for free]0808880327",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "recipientNo": "01000000000",
             "templateParameter": {}
         }
@@ -1604,8 +1620,8 @@ curl -X POST \
 ```
 
 
-### Send MMS for Advertisement 
-※ LMS/MMS are not available for oversead delivery.
+### Send MMS for Advertisement
+※ LMS/MMS are not available for overseas delivery.
 
 #### Request
 [URL]
@@ -1622,7 +1638,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Request Body]
-Same as Send MMS in the above. 
+Same as Send MMS in the above.
 [[See Request Body](./api-guide/#mms_1)]
 
 <span style="color:red"> However, following messages must be included in the body. </span>
@@ -1639,12 +1655,13 @@ Same as Send MMS in the above.
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 -d '{
     "title": "{Title}",
     "body": "(Ad) Test\n [Unsubscribe for free]0808880327",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "recipientNo": "01000000000",
             "templateParameter": {}
         }
@@ -1655,10 +1672,10 @@ curl -X POST \
 
 
 ## Query Messages by Result Updates
-* The API is queried as of the update time of message delivery result. 
-* Please apply this API to import delivery results on device from service. 
+* The API is queried as of the update time of message delivery result.
+* Please apply this API to import delivery results on device from service.
 
-### Query Messages 
+### Query Messages
 
 #### Request
 
@@ -1680,7 +1697,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1704,38 +1721,38 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 ```
 {
-  "header":{
-    "isSuccessful":true,
-    "resultCode":0,
-    "resultMessage":"Success."
-  },
-  "body":{
-    "pageNum":1,
-    "pageSize":15,
-    "totalCount":1,
-    "data":[
-        {
-          "messageType":"SMS",
-          "requestId":"",
-          "recipientSeq":0,
-          "resultCode":"1000",
-          "resultCodeName":"successful",
-          "requestDate":"2018-10-04 16:16:00.0",
-          "resultDate":"2018-10-04 16:17:10.0",
-          "updateDate":"2018-10-04 16:17:15.0",
-          "telecomCode": "10003",
-          "telecomCodeName": "LGU",
-          "senderGroupingKey":"senderGroupingKey",
-          "recipientGroupingKey":"recipientGroupingKey"
-        }
-    ]
-  }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "Success."
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [
+            {
+                "messageType": "SMS",
+                "requestId": "",
+                "recipientSeq": 0,
+                "resultCode": "1000",
+                "resultCodeName": "successful",
+                "requestDate": "2018-10-04 16:16:00.0",
+                "resultDate": "2018-10-04 16:17:10.0",
+                "updateDate": "2018-10-04 16:17:15.0",
+                "telecomCode": "10003",
+                "telecomCodeName": "LGU",
+                "senderGroupingKey": "senderGroupingKey",
+                "recipientGroupingKey": "recipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -1777,7 +1794,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1805,7 +1822,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender?requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
@@ -1828,7 +1845,7 @@ curl -X GET \
                 "messageType": "SMS",
                 "templateId": "",
                 "masterStatusCode": "MAS19",
-                "masterStatus" : "COMPLETED",
+                "masterStatus": "COMPLETED",
                 "sendNo": "01012345000",
                 "title": null,
                 "body": "test",
@@ -1882,7 +1899,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1908,9 +1925,9 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requestId='"${REQUEST_ID}" \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/receive/'"${REQUEST_ID}"' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
@@ -1956,9 +1973,8 @@ curl -X GET \
 |body.data.msgStatusName | String | Name of message status code |
 |body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | Date and time of receiving |
-|body.data.createDate | String | Date and time of registration |
 
-### List Recipient Details of Mass Delivery 
+### List Recipient Details of Mass Delivery
 
 #### Request
 [URL]
@@ -1979,7 +1995,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1992,7 +2008,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
@@ -2017,7 +2033,7 @@ curl -X GET \
             "recipientNo": "01020060836",
             "countryCode": "82",
             "requestDate": "2021-09-01 03:34:36.0",
-            "msgStatus" : "3",
+            "msgStatus": "3",
             "msgStatusName": "COMPLETED",
             "resultCode": null,
             "receiveDate": null,
@@ -2061,7 +2077,7 @@ curl -X GET \
 
 ## Tag Delivery
 
-### Send Tagged SMS 
+### Send Tagged SMS
 
 #### Request
 
@@ -2082,7 +2098,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2094,22 +2110,22 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-    "body":"body",
-    "sendNo":"15446859",
-    "requestDate":"2018-03-22 10:00",
-    "templateId":"TemplateId",
-    "templateParameter" : {
-      "key" : "value"
+    "body": "body",
+    "sendNo": "15446859",
+    "requestDate": "2018-03-22 10:00",
+    "templateId": "TemplateId",
+    "templateParameter": {
+      "key": "value"
     },
-    "tagExpression":[
+    "tagExpression": [
         "tag1",
         "AND",
         "tag2"
-     ],
-    "userId":"user_id",
-    "adYn":"N",
-    "autoSendYn":"N",
-    "statsId":"statsId"
+    ],
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "N",
+    "statsId": "statsId"
 }
 ```
 
@@ -2131,7 +2147,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "body": "body",
     "sendNo": "15446859",
@@ -2170,9 +2186,9 @@ curl -X POST \
 |body.data.requestId|	String| Request ID |
 
 ### Send Tagged LMS
-※ LMS/MMS are not avilable for overseas delivery.
+※ LMS/MMS are not available for overseas delivery.
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2202,27 +2218,27 @@ Content-Type: application/json;charset=UTF-8
 [Request body]
 ```
 {
-    "body":"body",
-    "sendNo":"15446859",
-    "requestDate":"2018-03-22 10:00",
-    "templateId":"TemplateId",
-    "templateParameter" : {
-        "key" : "value"
+    "body": "body",
+    "sendNo": "15446859",
+    "requestDate": "2018-03-22 10:00",
+    "templateId": "TemplateId",
+    "templateParameter": {
+        "key": "value"
     },
-    "attachFileIdList" : [
-     1,
-     2,
-     3
+    "attachFileIdList": [
+        1,
+        2,
+        3
     ],
-    "tagExpression":[
+    "tagExpression": [
         "tag1",
         "AND",
         "tag2"
-     ],
-    "userId":"user_id",
-    "adYn":"N",
-    "autoSendYn":"N",
-    "statsId":"statsId"
+    ],
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "N",
+    "statsId": "statsId"
 }
 ```
 
@@ -2246,7 +2262,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "title": "Title",
     "body": "Body",
@@ -2285,9 +2301,9 @@ curl -X POST \
 |body.data.requestId|	String| Request ID |
 
 
-### List Tag Delivery  
+### List Tag Delivery
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2305,7 +2321,7 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2334,22 +2350,23 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 ```
 {
-    "header" : {
-    "isSuccessful" :  true,
-    "resultCode" :  0,
-    "resultMessage" :  "."
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "."
     },
-    "body":{
-        "pageNum":0,
-        "pageSize":0,
-        "totalCount":0,
-        "data" :[{
+    "body": {
+        "pageNum": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "data": [
+            {
                 "requestId": "20171220141558eonMsyDI6P0",
                 "requestIp": "127.0.0.1",
                 "sendType": "0",
@@ -2401,7 +2418,7 @@ curl -X GET \
 |body.data[].updateDate | String | Date and time of modification |
 
 
-### List Recipients of Tag Delivery 
+### List Recipients of Tag Delivery
 
 #### Request
 
@@ -2423,7 +2440,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2451,35 +2468,35 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 ```
 {
-    "header" : {
-    "isSuccessful" :  true,
-    "resultCode" :  0,
-    "resultMessage" :  "."
+    "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "."
     },
-    "body":{
-        "pageNum":0,
-        "pageSize":0,
-        "totalCount":0,
-        "data" :[
-        {
-            "requestId": "20180813022044Jps2xJ1qsv0",
-            "recipientSeq": 99,
-            "countryCode": "82",
-            "recipientNo": "01000000000",
-            "requestDate": "2018-08-13 02:20:44.0",
-            "msgStatus": "3",
-            "msgStatusName": "COMPLETED",
-            "resultCode": "3015",
-            "receiveDate": "2018-08-13 02:20:53.0",
-            "createDate": "2018-08-13 02:20:46.0",
-            "updateDate": "2018-08-13 02:27:00.0"
-        }
+    "body": {
+        "pageNum": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "data": [
+            {
+                "requestId": "20180813022044Jps2xJ1qsv0",
+                "recipientSeq": 99,
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "requestDate": "2018-08-13 02:20:44.0",
+                "msgStatus": "3",
+                "msgStatusName": "COMPLETED",
+                "resultCode": "3015",
+                "receiveDate": "2018-08-13 02:20:53.0",
+                "createDate": "2018-08-13 02:20:46.0",
+                "updateDate": "2018-08-13 02:27:00.0"
+            }
         ]
     }
 }
@@ -2502,7 +2519,7 @@ curl -X GET \
 |body.data.createDate | String | Date and time of registration |
 |body.data.updateDate | String | Date of modification |
 
-### List Recipient Details of Tagged Delivery  
+### List Recipient Details of Tagged Delivery
 
 #### Request
 
@@ -2525,7 +2542,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2544,10 +2561,10 @@ X
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
-#### Response 
+#### Response
 ```
 {
     "header": {
@@ -2630,7 +2647,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2660,7 +2677,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "fileName": "attachement.jpg",
     "createUser": "API Guide",
@@ -2734,7 +2751,7 @@ curl -X POST \
 
 ### Register
 
-####  Request 
+####  Request
 
 [URL]
 
@@ -2753,7 +2770,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2765,11 +2782,11 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "categoryParentId" : 0,
-   "categoryName" : "",
-   "categoryDesc" : "",
-   "useYn" : "",
-   "createUser" : ""
+    "categoryParentId": 0,
+    "categoryName": "",
+    "categoryDesc": "",
+    "useYn": "",
+    "createUser": ""
 }
 ```
 
@@ -2782,14 +2799,14 @@ Content-Type: application/json;charset=UTF-8
 | createUser |	String| 100 | Optional | Registered user |
 
 ##### Description
-- categoryParentId, if empty, is registered right below the highest category. 
+- categoryParentId, if empty, is registered right below the highest category.
 
 #### cURL
 ```
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "categoryParentId": 0,
     "categoryName": "API Guide",
@@ -2803,23 +2820,23 @@ curl -X POST \
 
 ```
 {  
-   "header":{  
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{  
-      "data":{  
-         "categoryId":0,
-         "categoryParentId":0,
-         "depth":0,
-         "sort":0,
-         "categoryName":"",
-         "categoryDesc":"",
-         "useYn":"",
-         "createUser":""
-      }
-   }
+    "header": {  
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {  
+        "data": {  
+            "categoryId": 0,
+            "categoryParentId": 0,
+            "depth": 0,
+            "sort": 0,
+            "categoryName": "",
+            "categoryDesc": "",
+            "useYn": "",
+            "createUser": ""
+        }
+    }
 }
 ```
 
@@ -2833,13 +2850,13 @@ curl -X POST \
 |body.data[].depth|	Integer| Depth of category |
 |body.data[].sort|	Integer| Sorting order of category |
 |body.data[].categoryName|	String| Category name |
-|body.data[].categorycategoryDescame|	String| Category description |
+|body.data[].categoryDesc|	String| Category description |
 |body.data[].useYn|	String| Use or not |
 |body.data[].createUser|	String| Registered user |
 
-### List Category  
+### List Category
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2858,7 +2875,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2871,45 +2888,45 @@ Content-Type: application/json;charset=UTF-8
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
 |pageNum|	Integer| - | Optional | Page number (default : 1) |
-|pageSize|	Integer| 1000 | Optional | Query count (default: 15) |
+|pageSize|	Integer| 1000 | Optional | Query count (default : 15) |
 
 #### cURL
 ```
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {  
-   "header":{  
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{  
-      "pageNum":1,
-      "pageSize":15,
-      "totalCount":1,
-      "data":[  
-         {  
-            "categoryId":137612,
-            "categoryParentId":0,
-            "depth":0,
-            "sort" :0,
-            "categoryName":"Category",
-            "categoryDesc":"Highest category",
-            "useYn":"Y",
-            "createDate":"2018-04-17 15:39:56.0",
-            "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
-            "updateDate":"2018-04-17 15:39:56.0",
-            "updateUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022"
-         }
-      ]
-   }
+    "header": {  
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {  
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [  
+            {  
+                "categoryId": 137612,
+                "categoryParentId": 0,
+                "depth": 0,
+                "sort": 0,
+                "categoryName": "Category",
+                "categoryDesc": "Highest category",
+                "useYn": "Y",
+                "createDate": "2018-04-17 15:39:56.0",
+                "createUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022",
+                "updateDate": "2018-04-17 15:39:56.0",
+                "updateUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022"
+            }
+        ]
+    }
 }
 ```
 
@@ -2926,16 +2943,16 @@ curl -X GET \
 |body.data[].depth|	Integer| Depth of category |
 |body.data[].sort|	Integer| Sorting order of category |
 |body.data[].categoryName|	String| Category name |
-|body.data[].categorycategoryDescame|	String| Category description |
+|body.data[].categoryDesc|	String| Category description |
 |body.data[].useYn|	String| Use or not |
 |body.data[].createDate|	String| Date of registration |
 |body.data[].createUser|	String| Registered user |
 |body.data[].updateDate|	String| Date of modification |
 |body.data[].updateUser|	String| Modified user |
 
-### Get Category 
+### Get Category
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2955,7 +2972,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2968,7 +2985,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 
@@ -2976,28 +2993,28 @@ curl -X GET \
 
 ```
 {  
-   "header":{  
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{  
-      "data":[  
-         {  
-            "categoryId":137612,
-            "categoryParentId":0,
-            "depth":0,
-            "sort":0,
-            "categoryName":"Category",
-            "categoryDesc":"Highest category",
-            "useYn":"Y",
-            "createDate":"2018-04-17 15:39:56.0",
-            "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
-            "updateDate":"2018-04-17 15:39:56.0",
-            "updateUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022"
-         }
-      ]
-   }
+    "header": {  
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {  
+        "data": [  
+            {  
+                "categoryId":137612,
+                "categoryParentId": 0,
+                "depth": 0,
+                "sort": 0,
+                "categoryName": "Category",
+                "categoryDesc": "Highest category",
+                "useYn": "Y",
+                "createDate": "2018-04-17 15:39:56.0",
+                "createUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022",
+                "updateDate": "2018-04-17 15:39:56.0",
+                "updateUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022"
+            }
+        ]
+    }
 }
 ```
 
@@ -3011,7 +3028,7 @@ curl -X GET \
 |body.data[].depth|	Integer| Depth of category |
 |body.data[].sort|	Integer| Sorting order of category |
 |body.data[].categoryName|	String| Category name |
-|body.data[].categorycategoryDescame|	String| Category description |
+|body.data[].categoryDesc|	String| Category description |
 |body.data[].useYn|	String| Use or not |
 |body.data[].createDate|	String| Date of registration |
 |body.data[].createUser|	String| Registered user |
@@ -3021,7 +3038,7 @@ curl -X GET \
 
 ### Modify Category
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -3053,10 +3070,10 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "categoryName" : "",
-   "categoryDesc" : "",
-   "useYn" : "",
-   "updateUser" : ""
+    "categoryName": "",
+    "categoryDesc": "",
+    "useYn": "",
+    "updateUser": ""
 }
 ```
 
@@ -3072,7 +3089,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "categoryParentId": 788,
     "categoryName": "secondMMS",
@@ -3086,11 +3103,11 @@ curl -X PUT \
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
@@ -3116,7 +3133,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3129,18 +3146,18 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
@@ -3169,7 +3186,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3181,19 +3198,19 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "categoryId" : 0,
-   "templateId" : "",
-   "templateName" : "",
-   "templateDesc" : "",
-   "sendNo" : "",
-   "sendType" : "",
-   "title" : "",
-   "body" : "",
-   "useYn" : "",
-   "attachFileIdList" : [
-      0,
-      1
-   ]
+    "categoryId": 0,
+    "templateId": "",
+    "templateName": "",
+    "templateDesc": "",
+    "sendNo": "",
+    "sendType": "",
+    "title": "",
+    "body": "",
+    "useYn": "",
+    "attachFileIdList": [
+        0,
+        1
+    ]
 }
 ```
 
@@ -3215,7 +3232,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "categoryId": 199376,
     "templateId": "TemplateId",
@@ -3234,15 +3251,15 @@ curl -X POST \
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
-#### Example of Registration 
+#### Example of Registration
 
 | Http method | URL |
 | - | - |
@@ -3251,70 +3268,72 @@ curl -X POST \
 [Request body]
 ```
 {
-   "categoryId" : 199376 ,
-   "templateId" : "TemplateId",
-   "templateName" : "Example of template delivery",
-   "templateDesc" : "Example of template delivery",
-   "sendNo" : "01012341234",
-   "sendType" : "1",
-   "title" : "example",
-   "body" : "Test for general delivery.Dear \r\n##key1##. This is \r\n##key2##.",
-   "useYn" : "Y",
-   "attachFileIdList" : [
-     123123,
-     456456
-   ]
+    "categoryId": 199376,
+    "templateId": "TemplateId",
+    "templateName": "Example of template delivery",
+    "templateDesc": "Example of template delivery",
+    "sendNo": "01012341234",
+    "sendType": "1",
+    "title": "example",
+    "body": "Test for general delivery.Dear \r\n##key1##. This is \r\n##key2##.",
+    "useYn": "Y",
+    "attachFileIdList": [
+        123123,
+        456456
+    ]
 }
 ```
 
 [Response]
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
-- Restrictions for Attached Images 
-    * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 2 
-    * Size of Attached Image: Less than 300KB 
-    * Resolution of Image: Less than 1000 x 1000  
+- Restrictions for Attached Images
+    * Supported Codec: .jpg
+    * Number of Attached Images: Less than 2
+    * Size of Attached Image: Less than 300KB
+    * Resolution of Image: Less than 1000 x 1000
 
 
 ### Send Templates (requiring no body updates)
 
-#### Example 
+#### Example
 
 |Http method| Type | URL|
 | - | - | - |
 | POST | SMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms |
 | POST | MMS | https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/mms |
 
-For Request URL, choose a delivery type selected to register templates.  
+For Request URL, choose a delivery type selected to register templates.
 
 **If request parameter body is empty, replace it with the body of the corresponding templateId.**
 
-[Request body] Replace with key and value for those for replacement. 
+[Request body] Replace with key and value for those for replacement.
 
 ```
 {
     "templateId": "TemplateId",
     "senderGroupingKey": "SenderGroupingKey",
-    "recipientList": [{
-        "recipientNo": "01000000000",
-        "templateParameter": {
-          "key1" : "Toast Cloud",
-          "key2" : "SMS"
-        },
-        "recipientGroupingKey": "RecipientGroupingKey"
-    }]
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "templateParameter": {
+                "key1": "Toast Cloud",
+                "key2": "SMS"
+            },
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ]
 }
 ```
 
@@ -3349,7 +3368,7 @@ For Request URL, choose a delivery type selected to register templates.
 
 ### Send Templates (requiring body updates)
 
-#### Example of Sending Tempaltes
+#### Example of Sending Templates
 
 |Http method| Type | URL|
 | - | - | - |
@@ -3360,26 +3379,28 @@ For Request URL, choose a delivery type selected to register templates.
 
 **If template ID and request parameter body include values, sender number and body message are not replaced with template. **
 
-Nevertheless, with the input of template ID, it is available to query with the template. 
+Nevertheless, with the input of template ID, it is available to query with the template.
 
-Such case is applicable when template needs to be modified after queried. 
+Such case is applicable when template needs to be modified after queried.
 
 [Request body]
 
 ```
 {
     "templateId": "TemplateId",
-    "body":"body",
-    "sendNo":"15446859",
+    "body": "body",
+    "sendNo": "15446859",
     "senderGroupingKey": "SenderGroupingKey",
-    "recipientList": [{
-        "recipientNo": "01000000000",
-        "templateParameter": {
-          "key1" : "Toast Cloud",
-          "key2" : "SMS"
-        },
-        "recipientGroupingKey": "RecipientGroupingKey"
-    }]
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "templateParameter": {
+                "key1": "Toast Cloud",
+                "key2": "SMS"
+            },
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ]
 }
 ```
 
@@ -3411,7 +3432,7 @@ Such case is applicable when template needs to be modified after queried.
 ```
 
 
-### List Templates 
+### List Templates
 
 #### Request
 
@@ -3432,7 +3453,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3447,14 +3468,14 @@ Content-Type: application/json;charset=UTF-8
 |categoryId|	Integer| Optional | Category ID |
 |useYn|	String| Optional | Use or Not (Y/N) |
 |pageNum|	Integer | Optional | Page number (default : 1) |
-|pageSize|	Integer | Optional | Query count (default: 15) |
+|pageSize|	Integer | Optional | Query count (default : 15) |
 
 #### cURL
 ```
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
@@ -3470,39 +3491,43 @@ curl -X GET \
         "pageNum": Integer,
         "pageSize": Integer,
         "totalCount": Integer,
-        "data": [{
-            "templateId": "TemplateId",
-            "serviceId": 0,
-            "categoryId": 0,
-            "categoryName": "category name",
-            "sort": 0,
-            "templateName": "template name",
-            "templateDesc": "template description",
-            "useYn": "Y",
-            "priority": "S",
-            "sendNo": ""15446859String"",
-            "sendType": "0",
-            "sendTypeName": "send SMS",
-            "title": "title",
-            "body": "body",
-            "attachFileYn": "N",
-            "delYn": "N",
-            "createDate": "2018-01-28 17:50:55.0,
-            "createUser": "CreateUser",
-            "updateDate": "2018-01-28 17:50:55.0",
-            "updateUser": "UpdateUser",
-            "attachFileList": [{
-                "fileId": 0,
-                "serviceId": 0,
-                "attachType": 0,
+        "data": [
+            {
                 "templateId": "TemplateId",
-                "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                "fileName": "attachment.jpg",
-                "fileSize": 0,
-                "createDate": "2018-01-28 17:50:55.0",
-                "createUser": "CreateUser"
-            }]
-        }]
+                "serviceId": 0,
+                "categoryId": 0,
+                "categoryName": "category name",
+                "sort": 0,
+                "templateName": "template name",
+                "templateDesc": "template description",
+                "useYn": "Y",
+                "priority": "S",
+                "sendNo": ""15446859String"",
+                "sendType": "0",
+                "sendTypeName": "send SMS",
+                "title": "title",
+                "body": "body",
+                "attachFileYn": "N",
+                "delYn": "N",
+                "createDate": "2018-01-28 17:50:55.0,
+                "createUser": "CreateUser",
+                "updateDate": "2018-01-28 17:50:55.0",
+                "updateUser": "UpdateUser",
+                "attachFileList": [
+                    {
+                        "fileId": 0,
+                        "serviceId": 0,
+                        "attachType": 0,
+                        "templateId": "TemplateId",
+                        "filePath": "26606/toast-mt-2018-01-29/1427/105316",
+                        "fileName": "attachment.jpg",
+                        "fileSize": 0,
+                        "createDate": "2018-01-28 17:50:55.0",
+                        "createUser": "CreateUser"
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
@@ -3568,7 +3593,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3581,7 +3606,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
@@ -3607,7 +3632,7 @@ curl -X GET \
             "templateDesc": "template description",
             "useYn": "Y",
             "priority": "S",
-            "sendNo": ""15446859String"",
+            "sendNo": "String",
             "sendType": "0",
             "sendTypeName": "send SMS",
             "title": "title",
@@ -3618,17 +3643,19 @@ curl -X GET \
             "createUser": "CreateUser",
             "updateDate": "2018-01-28 17:50:55.0",
             "updateUser": "UpdateUser",
-            "attachFileList": [{
-                "fileId": 0,
-                "serviceId": 0,
-                "attachType": 0,
-                "templateId": "TemplateId",
-                "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                "fileName": "attachment.jpg",
-                "fileSize": 0,
-                "createDate": "2018-01-28 17:50:55.0",
-                "createUser": "CreateUser"
-            }]
+            "attachFileList": [
+                {
+                    "fileId": 0,
+                    "serviceId": 0,
+                    "attachType": 0,
+                    "templateId": "TemplateId",
+                    "filePath": "26606/toast-mt-2018-01-29/1427/105316",
+                    "fileName": "attachment.jpg",
+                    "fileSize": 0,
+                    "createDate": "2018-01-28 17:50:55.0",
+                    "createUser": "CreateUser"
+                }
+            ]
         }
     }
 }
@@ -3705,17 +3732,17 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateName" : "",
-   "templateDesc" : "",
-   "sendNo" : "",
-   "sendType" : "",
-   "title" : "",
-   "body" : "",
-   "useYn" : "",
-   "attachFileIdList" : [
-      0,
-      1
-   ]
+    "templateName": "",
+    "templateDesc": "",
+    "sendNo": "",
+    "sendType": "",
+    "title": "",
+    "body": "",
+    "useYn": "",
+    "attachFileIdList": [
+        0,
+        1
+    ]
 }
 ```
 
@@ -3741,11 +3768,11 @@ curl -X GET \
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
@@ -3771,7 +3798,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3784,25 +3811,25 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": "",
+        "resultMessage": ""
+    }
 }
 ```
 
 
 ## Rejection of Receiving 080 Numbers
 
-### Register Unsubsribers
+### Register Unsubscribers
 
 #### Request
 
@@ -3823,7 +3850,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3835,8 +3862,11 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-    "unsubscribeNo":"0800000000",
-    "recipientNoList":["0100000000", "0100000001"]
+    "unsubscribeNo": "0800000000",
+    "recipientNoList": [
+        "0100000000", 
+        "0100000001"
+    ]
 }
 ```
 
@@ -3850,10 +3880,13 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "unsubscribeNo": "0800000000",
-    "recipientNoList": ["0100000000", "0100000001"]
+    "recipientNoList": [
+        "0100000000", 
+        "0100000001"
+    ]
 }'
 ```
 
@@ -3861,15 +3894,15 @@ curl -X POST \
 
 ```
 {
-   "header":{
-       "isSuccessful":true,
-       "resultCode":0,
-       "resultMessage":"Success"
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "Success"
+    }
 }
 ```
 
-### Query Target of Rejection 
+### Query Target of Rejection
 
 #### Request
 
@@ -3914,7 +3947,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
@@ -3931,9 +3964,9 @@ curl -X GET \
         "totalCount": 1,
         "data": [
             {
-              "unsubscribeNo": "0808888888",
-              "recipientNo": "01000000000",
-              "requestDate": "2018-05-14 17:07:29.0"
+                "unsubscribeNo": "0808888888",
+                "recipientNo": "01000000000",
+                "requestDate": "2018-05-14 17:07:29.0"
             }
         ]
     }
@@ -3961,7 +3994,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3982,7 +4015,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${UNSUB_NO}"'&updateUser='"${UPDATE_USER}"'&recipientNoList='"${RECIPIENT_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
@@ -4019,7 +4052,7 @@ curl -X DELETE \
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4034,41 +4067,41 @@ curl -X DELETE \
 | sendNo | String | Sender number |
 | useYn | String | Use or not |
 | blockYn | String | Block or not |
-|pageNum|	Integer| Page number (default: 1) |
-|pageSize|	Integer| Number of queries (default: 15) |
+|pageNum|	Integer| Page number (default : 1) |
+|pageSize|	Integer| Number of queries (default : 15) |
 
 #### cURL
 ```
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 ```
 {
-    "header" : {
-        "isSuccessful" :  true,
-        "resultCode" :  0,
-        "resultMessage" :  ""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
     },
-    "body" : {
-        "pageNum" :  0,
-        "pageSize" :  0,
-        "totalCount" :  0,
-        "data" : [
-        {
-            "serviceId" :  0,
-            "sendNo" :  "",
-            "useYn" :  "",
-            "blockYn" :  "",
-            "blockReason" :  "",
-            "createDate" :  "",
-            "createUser" :  "",
-            "updateDate" :  "",
-            "updateUser" :  ""
-        }
+    "body": {
+        "pageNum": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "data": [
+            {
+                "serviceId": 0,
+                "sendNo": "",
+                "useYn": "",
+                "blockYn": "",
+                "blockReason": "",
+                "createDate": "",
+                "createUser": "",
+                "updateDate": "",
+                "updateUser": ""
+            }
         ]
     }
 }
@@ -4094,13 +4127,13 @@ curl -X GET \
 
 ## Query Statistics
 
-### Search Statistics - Based on Events 
-* Statistics are collected based on time of event occurrence. 
-* Statistics are collected based on the following time criteria: 
-    * Request Count (requested): Delivery request time 
-    * Delivery Count (sent): Delivery request time to telco provider (vendor) 
-    * Success Count(received): Actual received time on device  
-    * Failure Count (sentFailed): Response time of failure      
+### Search Statistics - Based on Events
+* Statistics are collected based on time of event occurrence.
+* Statistics are collected based on the following time criteria:
+    * Request Count(requested): Delivery request time
+    * Delivery Count(sent): Delivery request time to telco provider (vendor)
+    * Success Count(received): Actual received time on device
+    * Failure Count(sentFailed): Response time of failure
 
 #### Request
 
@@ -4120,7 +4153,7 @@ curl -X GET \
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4147,30 +4180,28 @@ curl -X GET \
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${STATISTICS_TYPE}"'&from='"${FROM}"'&to='"${TO}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 ```
 {
-    "header" : {
-        "isSuccessful" : true,
-        "resultCode" : 0,
-        "resultMessage" : "SUCCESS""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
     },
-    "body" : {
-        "data" :
-        [
-          {
-            "eventDateTime" : "",
-            "events" :
+    "body": {
+        "data": [
             {
-              "{statsCriteriaValue}.requested" : 10,
-              "{statsCriteriaValue}.sent" : 10,
-              "{statsCriteriaValue}.sentFailed" : 0,
-              "{statsCriteriaValue}.received" : 0
+                "eventDateTime": "",
+                "events": {
+                    "{statsCriteriaValue}.requested": 10,
+                    "{statsCriteriaValue}.sent": 10,
+                    "{statsCriteriaValue}.sentFailed": 0,
+                    "{statsCriteriaValue}.received": 0
+                }
             }
-          }
         ]
     }
 }
@@ -4188,14 +4219,14 @@ curl -X GET \
 |body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	Number of failures|
 |body.data.events[].{statsCriteriaValue}.received |	Integer|	Number of successes|
 
-### Statistics Search - Based on Request Time 
-* Statistics are collected based on delivery request time. 
-* Statistics are collected based on the following criteria: 
-    * Request Count (requested): Delivery request time 
+### Statistics Search - Based on Request Time
+* Statistics are collected based on delivery request time.
+* Statistics are collected based on the following criteria:
+    * Request Count (requested): Delivery request time
     * Delivery Count (sent): Delivery request time, with the increase incurred when delivery is requested to telecom provider (vendor)
     * Success count (received): Delivery request time, with the increase incurred on the actual received time on device
     * Failure Count (sentFailed): Delivery request time, with the increase incurred on the response time of failure
-    
+
 #### Request
 
 [URL]
@@ -4214,7 +4245,7 @@ curl -X GET \
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4239,25 +4270,23 @@ curl -X GET \
 #### Response
 ```
 {
-    "header" : {
-        "isSuccessful" : true,
-        "resultCode" : 0,
-        "resultMessage" : "SUCCESS""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
     },
-    "body" : {
-        "data" :
-        [
-          {
-            "eventDateTime" : "",
-            "events" :
+    "body": {
+        "data": [
             {
-              "{statsCriteriaValue}.requested" : 10,
-              "{statsCriteriaValue}.sent" : 10,
-              "{statsCriteriaValue}.sentFailed" : 0,
-              "{statsCriteriaValue}.received" : 0,
-              "{statsCriteriaValue}.pending" : 0
+                "eventDateTime": "",
+                "events": {
+                    "{statsCriteriaValue}.requested": 10,
+                    "{statsCriteriaValue}.sent": 10,
+                    "{statsCriteriaValue}.sentFailed": 0,
+                    "{statsCriteriaValue}.received": 0,
+                    "{statsCriteriaValue}.pending": 0
+                }
             }
-          }
         ]
     }
 }
@@ -4278,7 +4307,7 @@ curl -X GET \
 
 |body.data.events[].{statsCriteriaValue}.pending |	Integer|	Number of pending items|
 
-### (Old)Query Integrated Statistics 
+### (Old)Query Integrated Statistics
 
 #### Request
 
@@ -4298,7 +4327,7 @@ curl -X GET \
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4320,27 +4349,25 @@ curl -X GET \
 #### Response
 ```
 {
-    "header" : {
-        "isSuccessful" : true,
-        "resultCode" : 0,
-        "resultMessage" : "SUCCESS""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
     },
-    "body" : {
-        "data" :
-        [
-          {
-            "divisionName" : "2018-06-01",
-            "statisticsView" :
+    "body": {
+        "data": [
             {
-              "requestedCount" : 10,
-              "succeedCount" : 10,
-              "failedCount" : 0,
-              "pendingCount" : 0,
-              "succeedRate" : "100.00",
-              "failedRate" : "0.00",
-              "pendingRate" : "0.00"
+                "divisionName": "2018-06-01",
+                "statisticsView": {
+                    "requestedCount": 10,
+                    "succeedCount": 10,
+                    "failedCount": 0,
+                    "pendingCount": 0,
+                    "succeedRate": "100.00",
+                    "failedRate": "0.00",
+                    "pendingRate": "0.00"
+                }
             }
-          }
         ]
     }
 }
@@ -4362,7 +4389,7 @@ curl -X GET \
 
 ## Scheduled Delivery
 
-### List Scheduled Delivery 
+### List Scheduled Delivery
 
 #### Request
 
@@ -4383,7 +4410,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4413,45 +4440,45 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
-    "isSuccessful":true
-  },
-  "body":{
-    "pageNum":1,
-    "pageSize":15,
-    "totalCount":15,
-    "data":[
-      {
-        "requestId":"{request ID}",
-        "recipientSeq":1,
-        "requestDate":"{scheduled date}",
-        "sendNo":"{sender number}",
-        "recipientNo":"{recipient number}",
-        "countryCode":"{country code}",
-        "sendType":"{delivery type}",
-        "messageType":"{message type}",
-        "adYn":"{Ad or not}",
-        "templateId":"{template ID}",
-        "templateParameter":"{template parameter}",
-        "templateName":"{template name}",
-        "title":"{title}",
-        "body":"{body}",
-        "messageStatus":"{message status}",
-        "createUser":"{registered user}",
-        "createDate":"{date and time of registration}",
-        "updateDate":"{modified date}"
-      }
-    ]
-  }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 15,
+        "data": [
+            {
+                "requestId": "{request ID}",
+                "recipientSeq": 1,
+                "requestDate": "{scheduled date}",
+                "sendNo": "{sender number}",
+                "recipientNo": "{recipient number}",
+                "countryCode": "{country code}",
+                "sendType": "{delivery type}",
+                "messageType": "{message type}",
+                "adYn": "{Ad or not}",
+                "templateId": "{template ID}",
+                "templateParameter": "{template parameter}",
+                "templateName": "{template name}",
+                "title": "{title}",
+                "body": "{body}",
+                "messageStatus": "{message status}",
+                "createUser": "{registered user}",
+                "createDate": "{date and time of registration}",
+                "updateDate": "{modified date}"
+            }
+        ]
+    }
 }
 ```
 
@@ -4482,7 +4509,7 @@ curl -X GET \
 |body.data[].createDate|	String| Date of registration |
 |body.data[].updateDate|	String| Date of modification |
 
-### Query Detail Scheduled Delivery 
+### Query Detail Scheduled Delivery
 
 #### Request
 
@@ -4505,7 +4532,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4518,47 +4545,47 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
-    "isSuccessful":true
-  },
-  "body":{
-    "data":{
-      "requestId":"{request ID}",
-      "recipientSeq":1,
-      "requestDate":"{scheduled date}",
-      "sendNo":"{sender number}",
-      "recipientNo":"{recipient number}",
-      "countryCode":"{country code}",
-      "sendType":"{delivery type}",
-      "messageType":"{message type}",
-      "adYn":"{ad or not}",
-      "templateId":"{template ID}",
-      "templateParameter":"{template parameter}",
-      "templateName":"{template name}",
-      "title":"{title}",
-      "body":"{body}",
-      "messageStatus":"{message status}",
-      "createUser":"{registered user}",
-      "createDate":"{date and time of registration}",
-      "updateDate":"{modified date}",
-      "attachFileList":[
-        {
-          "fileId":0,
-          "filePath":"26606/toast-mt-2018-02-07/1555/105887/",
-          "fileName":"file_attach_test.jpg"
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestId": "{request ID}",
+            "recipientSeq": 1,
+            "requestDate": "{scheduled date}",
+            "sendNo": "{sender number}",
+            "recipientNo": "{recipient number}",
+            "countryCode": "{country code}",
+            "sendType": "{delivery type}",
+            "messageType": "{message type}",
+            "adYn": "{ad or not}",
+            "templateId": "{template ID}",
+            "templateParameter": "{template parameter}",
+            "templateName": "{template name}",
+            "title": "{title}",
+            "body": "{body}",
+            "messageStatus": "{message status}",
+            "createUser": "{registered user}",
+            "createDate": "{date and time of registration}",
+            "updateDate": "{modified date}",
+            "attachFileList": [
+                {
+                    "fileId": 0,
+                    "filePath": "26606/toast-mt-2018-02-07/1555/105887/",
+                    "fileName": "file_attach_test.jpg"
+                }
+            ]
         }
-      ]
     }
-  }
 }
 ```
 
@@ -4592,7 +4619,7 @@ curl -X GET \
 |body.data.attachFileList[].fileName|	String| File name |
 
 
-### Cancel Scheduled Delivery 
+### Cancel Scheduled Delivery
 
 #### Request
 
@@ -4613,7 +4640,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4625,13 +4652,13 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "reservationList":[
-    {
-      "requestId":"{requestId}",
-      "recipientSeq":1
-    }
-  ],
-  "updateUser":"{updateUser}"
+    "reservationList": [
+        {
+            "requestId": "{requestId}",
+            "recipientSeq": 1
+        }
+    ],
+    "updateUser": "{updateUser}"
 }
 ```
 
@@ -4646,9 +4673,10 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/cancel' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
-    "reservationList": [{
+    "reservationList": [
+        {
             "requestId": "1",
             "recipientSeq": 1
         }
@@ -4660,17 +4688,17 @@ curl -X PUT \
 [Response body]
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
-    "isSuccessful":true
-  },
-  "body":{
-    "data":{
-      "requestedCount":1,
-      "canceledCount":1
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "requestedCount": 1,
+            "canceledCount": 1
+        }
     }
-  }
 }
 ```
 
@@ -4685,8 +4713,8 @@ curl -X PUT \
 ### Cancel Scheduled Delivery - Multiple Filter
 
 #### Request
-* Request for schedule cancellation is available only when the statu is 'Scheduled'. 
-* Cannot cancel already delivered messages. 
+* Request for schedule cancellation is available only when the statu is 'Scheduled'.
+* Cannot cancel already delivered messages.
 
 [URL]
 
@@ -4705,7 +4733,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4715,22 +4743,22 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "searchParameter" : {
-      "sendType" : "0",
-      "startRequestDate" : "2020-02-01 00:00",
-      "endRequestDate" : "2020-02-01 10:00",
-      "startCreateDate" : "2020-02-01 00:00",
-      "endCreateDate" : "2020-02-01 10:00",
-      "sendNo" : "15880000",
-      "recipientNo" : "0100000000",
-      "templateId" : "TemplateId",
-      "requestId" : "20200201010630ReZQ6KZzAH0",
-      "createUser" : "CreateUser",
-      "senderGroupingKey" : "SenderGroupingKey"
-  },
-  "updateUser" : "UpdateUser"
+    "searchParameter": {
+        "sendType": "0",
+        "startRequestDate": "2020-02-01 00:00",
+        "endRequestDate": "2020-02-01 10:00",
+        "startCreateDate": "2020-02-01 00:00",
+        "endCreateDate": "2020-02-01 10:00",
+        "sendNo": "15880000",
+        "recipientNo": "0100000000",
+        "templateId": "TemplateId",
+        "requestId": "20200201010630ReZQ6KZzAH0",
+        "createUser": "CreateUser",
+        "senderGroupingKey": "SenderGroupingKey"
+    },
+    "updateUser": "UpdateUser"
 }
 ```
 
@@ -4758,7 +4786,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "searchParameter": {
         "sendType": "0",
@@ -4779,20 +4807,20 @@ curl -X PUT \
 
 #### Response
 
-```json
+```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
-    "isSuccessful":true
-  },
-  "body":{
-    "data":{
-      "reservationCancelId":"20200210113330OepQ1sAzSDa",
-      "requestedDateTime":"2020-02-10 11:33:30",
-      "reservationCancelStatus":"READY"
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
+    },
+    "body": {
+        "data": {
+            "reservationCancelId": "20200210113330OepQ1sAzSDa",
+            "requestedDateTime": "2020-02-10 11:33:30",
+            "reservationCancelStatus": "READY"
+        }
     }
-  }
 }
 ```
 
@@ -4827,7 +4855,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4850,33 +4878,33 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
 ```
 {
-    "header":{
-        "resultCode":0,
-        "resultMessage":"success",
-        "isSuccessful":true
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
+        "isSuccessful": true
     },
-    "body":{
-        "data":[
+    "body": {
+        "data": [
             {
-                "reservationCancelId":"",
-                "searchParameter":{
+                "reservationCancelId": "",
+                "searchParameter": {
 
                 },
-                "requestedDateTime":"",
-                "completedDateTime":"",
-                "reservationCancelStatus":"",
-                "totalCount":0,
-                "successCount":0,
-                "createUser":"",
-                "createdDateTime":"",
-                "updatedDateTime":""
+                "requestedDateTime": "",
+                "completedDateTime": "",
+                "reservationCancelStatus": "",
+                "totalCount": 0,
+                "successCount": 0,
+                "createUser": "",
+                "createdDateTime": "",
+                "updatedDateTime": ""
             }
         ]
     }
@@ -4899,11 +4927,11 @@ curl -X GET \
 |body.data[].createdDateTime |	String|	Request Creation Time for Schedule Cancellation |
 |body.data[].updatedDateTime |	String|	Modified Time for Scheduled Cancellation |
 
-## Download Delivery Result Files 
+## Download Delivery Result Files
 
-### Request for Creating Query Files 
+### Request for Creating Query Files
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -4922,7 +4950,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4936,23 +4964,23 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "sendType":"1",
-  "requestId":"20190601100630ReZQ6KZzAH0",
-  "startRequestDate":"2019-06-01 00:00:00",
-  "endRequestDate":"2019-06-08 00:00:00",
-  "startCreateDate":"2019-06-01 00:00:00",
-  "endCreateDate":"2019-06-08 00:00:00",
-  "startResultDate":"2019-06-01 00:00:00",
-  "endResultDate":"2019-06-08 00:00:00",
-  "sendNo":"15446859",
-  "recipientNo":"01000000000",
-  "templateId":"TemplateId",
-  "msgStatus":"3",
-  "resultCode":"MTR2",
-  "subResultCode":"MTR2_3",
-  "senderGroupingKey":"{sender's group key}",
-  "recipientGroupingKey":"{recipient's group key}",
-  "isIncludeTitleAndBody":true
+    "sendType": "1",
+    "requestId": "20190601100630ReZQ6KZzAH0",
+    "startRequestDate": "2019-06-01 00:00:00",
+    "endRequestDate": "2019-06-08 00:00:00",
+    "startCreateDate": "2019-06-01 00:00:00",
+    "endCreateDate": "2019-06-08 00:00:00",
+    "startResultDate": "2019-06-01 00:00:00",
+    "endResultDate": "2019-06-08 00:00:00",
+    "sendNo": "15446859",
+    "recipientNo": "01000000000",
+    "templateId": "TemplateId",
+    "msgStatus": "3",
+    "resultCode": "MTR2",
+    "subResultCode": "MTR2_3",
+    "senderGroupingKey": "{sender's group key}",
+    "recipientGroupingKey": "{recipient's group key}",
+    "isIncludeTitleAndBody": true
 }
 ```
 
@@ -4981,7 +5009,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "sendType": "1",
     "startRequestDate": "2020-08-01T00:00:00",
@@ -4993,20 +5021,20 @@ curl -X POST \
 
 ```
 {
-  "header":{
-    "isSuccessful":true,
-    "resultCode":0,
-    "resultMessage":"SUCCESS"
-  },
-  "body":{
-    "data":{
-      "donwloadId":"20190610100630ReZQ6KZzAH0",
-      "downloadType":"NORMAL",
-      "fileType":"CSV",
-      "downloadStatusCode":"COMPLETED",
-      "expiredDate":"2019-07-09 10:06:00.0"
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "downloadId": "20190610100630ReZQ6KZzAH0",
+            "downloadType": "NORMAL",
+            "fileType": "CSV",
+            "downloadStatusCode": "COMPLETED",
+            "expiredDate": "2019-07-09 10:06:00.0"
+        }
     }
-  }
 }
 ```
 
@@ -5015,7 +5043,7 @@ curl -X POST \
 |header.isSuccessful|	Boolean| Successful or not |
 |header.resultCode|	Integer| Failure code |
 |header.resultMessage|	String| Failure message |
-|body.data.donwloadId|	String| Download ID |
+|body.data.downloadId|	String| Download ID |
 |body.data.downloadType|	String| Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery |
 |body.data.fileType|	String| File type (currently supports csv only) |
 |body.data.downloadStatusCode|	String| Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
@@ -5065,36 +5093,36 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
-```json
+```
 {
-  "header":{
-    "isSuccessful":true,
-    "resultCode":0,
-    "resultMessage":"SUCCESS"
-  },
-  "body":{
-    "totalCount":0,
-    "data":[
-      {
-        "downloadId":"",
-        "downloadType":"",
-        "fileType":"",
-        "parameter":"",
-        "size":0,
-        "downloadStatusCode":"",
-        "resultMessage":"",
-        "expiredDate":"",
-        "createUser":"",
-        "createDate":"",
-        "updateDate":""
-      }
-    ]
-  }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "totalCount": 0,
+        "data": [
+            {
+                "downloadId": "",
+                "downloadType": "",
+                "fileType": "",
+                "parameter": "",
+                "size": 0,
+                "downloadStatusCode": "",
+                "resultMessage": "",
+                "expiredDate": "",
+                "createUser": "",
+                "createDate": "",
+                "updateDate": ""
+            }
+        ]
+    }
 }
 ```
 
@@ -5117,9 +5145,9 @@ curl -X GET \
 |body.data[].updateDate| String | Date and time of completion or failure of file creation |
 
 
-### Request for Downloading Delivery Result Files 
+### Request for Downloading Delivery Result Files
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -5139,7 +5167,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5152,7 +5180,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reservations/'"${DOWNLOAD_RESERVATION_ID}"'/download' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
@@ -5184,7 +5212,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5204,12 +5232,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5274,9 +5302,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "tagName": "TAG"
+    "tagName": "TAG"
 }
 ```
 
@@ -5289,7 +5317,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "tagName": "API-Guide"
 }'
@@ -5297,7 +5325,7 @@ curl -X POST \
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5339,7 +5367,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5349,9 +5377,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "tagName": "TAG"
+    "tagName": "TAG"
 }
 ```
 
@@ -5364,7 +5392,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "tagName": "API-Guide2"
 }'
@@ -5372,7 +5400,7 @@ curl -X PUT \
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5409,7 +5437,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5422,12 +5450,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5468,7 +5496,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5490,12 +5518,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5568,7 +5596,7 @@ GET /sms/v3.0/appKeys/{appKey}/uids/{uid}
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5581,12 +5609,12 @@ GET /sms/v3.0/appKeys/{appKey}/uids/{uid}
 curl -X GET \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5649,7 +5677,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5659,19 +5687,20 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "uids": [
-  {
-      "uid": "UID",
-      "tagIds": ["ABCD1234"],
-      "contacts": [
+    "uids": [
         {
-          "contactType": "PHONE_NUMBER",
-          "contact": "0100000000"
+            "uid": "UID",
+            "tagIds": ["ABCD1234"],
+            "contacts": [
+                {
+                    "contactType": "PHONE_NUMBER",
+                    "contact": "0100000000"
+                }
+            ]
         }
-      ]
-  }]
+    ]
 }
 ```
 
@@ -5692,11 +5721,13 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
-    "uids": [{
+    "uids": [
+        {
             "uid": "USER ID",
-            "contacts": [{
+            "contacts": [
+                {
                     "contactType": "PHONE_NUMBER",
                     "contact": "0100000000"
                 }
@@ -5708,7 +5739,7 @@ curl -X POST \
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5746,7 +5777,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5759,12 +5790,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5801,7 +5832,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5811,9 +5842,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "phoneNumber": "0100000000"
+    "phoneNumber": "0100000000"
 }
 ```
 
@@ -5826,7 +5857,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "phoneNumber": "0100000000"
 }'
@@ -5834,7 +5865,7 @@ curl -X POST \
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5872,7 +5903,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5885,12 +5916,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### Response
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5925,20 +5956,20 @@ When a specific event occurs in the SMS service, a Post request is created to th
 
 [Request body]
 
-```json
+```
 {
-    "hooksId":"202007271010101010sadasdavas",
-    "webhookConfigId":"String",
-    "productName":"SMS",
-    "appKey":"akb3dukdmdjsdSvgk",
-    "event":"UNSUBSCRIBE",
-    "hooks":[
+    "hooksId": "202007271010101010sadasdavas",
+    "webhookConfigId": "String",
+    "productName": "SMS",
+    "appKey": "akb3dukdmdjsdSvgk",
+    "event": "UNSUBSCRIBE",
+    "hooks": [
         {
-            "hookId":"202007271010101010sadasdavas",
-            "recipientNo":"01012341234",
-            "unsubscribeNo":"08012341234",
-            "enterpriseName":"NHN Cloud",
-            "createdDateTime":"2020-09-09T11:25:10.000+09:00"
+            "hookId": "202007271010101010sadasdavas",
+            "recipientNo": "01012341234",
+            "unsubscribeNo": "08012341234",
+            "enterpriseName": "NHN Cloud",
+            "createdDateTime": "2020-09-09T11:25:10.000+09:00"
         }
     ]
 }
@@ -5966,18 +5997,18 @@ curl -X POST \
     -H 'Content-Type: application/json;charset=UTF-8' \
     -H 'X-Toast-Webhook-Signature: application/json;charset=UTF-8' \
     -d '{
-        "hooksId":"202007271010101010sadasdavas",
-        "webhookConfigId":"String",
-        "productName":"Sms",
-        "appKey":"akb3dukdmdjsdSvgk",
-        "event":"UNSUBSCRIBE",
-        "hooks":[
+        "hooksId": "202007271010101010sadasdavas",
+        "webhookConfigId": "String",
+        "productName": "Sms",
+        "appKey": "akb3dukdmdjsdSvgk",
+        "event": "UNSUBSCRIBE",
+        "hooks": [
             {
-                "hookId":"202007271010101010sadasdavas",
-                "recipientNo":"01012341234",
-                "unsubscribeNo":"08012341234",
-                "enterpriseName":"NHN Cloud",
-                "createdDateTime":"2020-09-09T11:25:10.000+09:00"
+                "hookId": "202007271010101010sadasdavas",
+                "recipientNo": "01012341234",
+                "unsubscribeNo": "08012341234",
+                "enterpriseName": "NHN Cloud",
+                "createdDateTime": "2020-09-09T11:25:10.000+09:00"
             }
         ]
     }

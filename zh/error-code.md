@@ -1,6 +1,6 @@
 ## Notification > SMS > Result Code
 
-### API Result Code
+## API Result Code
 
 | Service | Successful or not | Result code | Result code message | API response message |
 | - | - | - | - | - |
@@ -86,7 +86,7 @@
 | Tag | false | -7001 | Invalid paramter | Invalid parameter. |
 | Tag | false | -7002 | Failed to read .csv file | Invalid csv read. |
 
-### Result Code of Receiving
+## Result Code of Receiving
 
 | Category | Result code | Classification | Description |
 | - | - | - | - |
@@ -128,3 +128,19 @@
 | ETC | E915 | Failure | Duplicate messages |
 | ETC | E919 | Failure | Resending message is prohibited during when delivery is restricted |
 | ETC | E999 | Failure | Other errors |
+
+## Query Delivery Codes
+### Result Code of Receiving
+
+| Code Value | Description | 
+| - | - |
+| MTR1 | Successful | 
+| MTR2 | Failed | 
+
+### Detail Result Code of Receiving 
+
+| Code Value | Description | 
+| - | - |
+| MTR2_1 | Validity Check Failed | 
+| MTR2_2 | Issue of Telecom Provider | 
+| MTR2_3 | Issue of Device | 

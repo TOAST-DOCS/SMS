@@ -49,7 +49,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+      "X-Secret-Key": String
 }
 ```
 
@@ -61,25 +61,25 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateId":"TemplateId",
-   "body":"本文",
-   "sendNo":"15446859",
-   "requestDate":"2018-08-10 10:00",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "countryCode":"82",
-         "internationalRecipientNo":"821000000000",
-         "templateParameter":{
-            "key":"value"
-         },
-         "recipientGroupingKey":"recipientGroupingKey"
-      }
-   ],
-   "userId":"UserId",
-   "statsId":"statsId",
-   "originCode":"123456789"
+    "templateId": "TemplateId",
+    "body": "本文",
+    "sendNo": "15446859",
+    "requestDate": "2018-08-10 10:00",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "countryCode": "82",
+            "internationalRecipientNo": "821000000000",
+            "templateParameter": {
+                "key": "value"
+            },
+            "recipientGroupingKey": "recipientGroupingKey"
+        }
+    ],
+    "userId": "UserId",
+    "statsId": "statsId",
+    "originCode": "123456789"
 }
 ```
 
@@ -99,17 +99,19 @@ Content-Type: application/json;charset=UTF-8
 |recipientList[].recipientGroupingKey| String| 100 | X | 受信者グループキー |
 |userId|	String|	100 | X | 送信セパレータex)admin,system |
 |statsId| String | 10 | X | 統計ID(発信検索条件には含まれません) |
+|originCode| String | 10 | X | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
 
 #### cURL
 ```
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "body"："本文",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "internationalRecipientNo": "821000000000"
         }
     ]
@@ -120,27 +122,27 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
 
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -160,67 +162,67 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
 
 #### SMS送信例(一般国内受信番号)
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms|
 
 [Request body]
 ```
 {
-   "body":"本文",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      },
-      {
-         "recipientNo":"01000000001",
-         "recipientGroupingKey":"RecipientGroupingKey2"
-      }
-   ],
-   "statsId":"statsId"
+    "body": "本文",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        },
+        {
+            "recipientNo": "01000000001",
+            "recipientGroupingKey": "RecipientGroupingKey2"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            },
-            {
-               "recipientNo":"01000000001",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":2,
-               "recipientGroupingKey":"RecipientGroupingKey2"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                },
+                {
+                    "recipientNo": "01000000001",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 2,
+                    "recipientGroupingKey": "RecipientGroupingKey2"
+                }
+            ]
+        }
+    }
 }
 ```
 
 #### SMS送信例(国コードが含まれた受信番号)
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms|
 
@@ -228,44 +230,44 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
 [Request body]
 ```
 {
-   "body":"本文",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "internationalRecipientNo":"821000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      }
-   ],
-   "userId":"",
-   "statsId":"statsId"
+    "body": "本文",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "internationalRecipientNo": "821000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ],
+    "userId": "",
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -290,7 +292,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -327,52 +329,52 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "pageNum":1,
-      "pageSize":15,
-      "totalCount":1,
-      "data":[
-         {
-            "requestId":"20180810100630ReZQ6KZzAH0",
-            "requestDate":"2018-08-10 10:06:30.0",
-            "resultDate":"2018-08-10 10:06:42.0",
-            "templateId":"TemplateId",
-            "templateName":"テンプレート名",
-            "categoryId":0,
-            "categoryName":"カテゴリー名",
-            "body":"短文テスト",
-            "sendNo":"15446859",
-            "countryCode":"82",
-            "recipientNo":"01000000000",
-            "msgStatus":"3",
-            "msgStatusName":"成功",
-            "resultCode":"1000",
-            "resultCodeName":"成功",
-            "telecomCode":10001,
-            "telecomCodeName":"SKT",
-            "recipientSeq":1,
-            "sendType":"0",
-            "messageType":"SMS",
-            "userId":"tester",
-            "adYn":"N",
-            "resultMessage": "",
-            "senderGroupingKey":"SenderGroupingKey",
-            "recipientGroupingKey":"RecipientGroupingKey"
-         }
-      ]
-   }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful":true
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [
+            {
+                "requestId": "20180810100630ReZQ6KZzAH0",
+                "requestDate": "2018-08-10 10:06:30.0",
+                "resultDate": "2018-08-10 10:06:42.0",
+                "templateId": "TemplateId",
+                "templateName": "テンプレート名",
+                "categoryId": 0,
+                "categoryName": "カテゴリー名",
+                "body": "短文テスト",
+                "sendNo": "15446859",
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "msgStatus": "3",
+                "msgStatusName": "成功",
+                "resultCode": "1000",
+                "resultCodeName": "成功",
+                "telecomCode": 10001,
+                "telecomCodeName": "SKT",
+                "recipientSeq": 1,
+                "sendType": "0",
+                "messageType": "SMS",
+                "userId": "tester",
+                "adYn": "N",
+                "resultMessage": "",
+                "senderGroupingKey": "SenderGroupingKey",
+                "recipientGroupingKey": "RecipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -389,7 +391,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?start
 |body.data[].resultDate|	String|	受信日時|
 |body.data[].templateId|	String|	テンプレートID|
 |body.data[].templateName|	String|	テンプレート名|
-|body.data[].categoryId|	String|	カテゴリーID|
+|body.data[].categoryId|	Integer|	カテゴリーID|
 |body.data[].categoryName|	String|	カテゴリー名|
 |body.data[].body|	String|	本文内容|
 |body.data[].sendNo|	String|	発信番号|
@@ -406,6 +408,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?start
 |body.data[].messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
 |body.data[].userId|	String|	送信リクエストID|
 |body.data[].adYn|	String|	広告かどうか|
+|body.data[].resultMessage|	String|	結果メッセージ |
 |body.data[].senderGroupingKey|	String|	発信者グループキー|
 |body.data[].recipientGroupingKey|	String|	受信者グループキー|
 
@@ -431,7 +434,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -450,48 +453,48 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
-      "isSuccessful":true
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "requestDate":"2018-08-10 10:06:30.0",
-         "resultDate":"2018-08-10 10:06:42.0",
-         "templateId":"TemplateId",
-         "templateName":"テンプレート名",
-         "categoryId":0,
-         "categoryName":"カテゴリー名",
-         "body":"本文",
-         "sendNo":"15446859",
-         "countryCode":"82",
-         "recipientNo":"01000000000",
-         "msgStatus":"3",
-         "msgStatusName":"成功",
-         "resultCode":"1000",
-         "resultCodeName":"成功",
-         "telecomCode":10001,
-         "telecomCodeName":"SKT",
-         "recipientSeq":1,
-         "sendType":"0",
-         "messageType":"SMS",
-         "userId":"tester",
-         "adYn":"N",
-         "originCode":"123456789"
-         "resultMessage": "",
-         "senderGroupingKey":"SenderGroupingKey",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      }
-   }
+    "header": {
+    "resultCode": 0,
+    "resultMessage": "SUCCESS",
+    "isSuccessful":true
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "requestDate": "2018-08-10 10:06:30.0",
+            "resultDate": "2018-08-10 10:06:42.0",
+            "templateId": "TemplateId",
+            "templateName": "テンプレート名",
+            "categoryId": 0,
+            "categoryName": "カテゴリー名",
+            "body": "本文",
+            "sendNo": "15446859",
+            "countryCode": "82",
+            "recipientNo": "01000000000",
+            "msgStatus": "3",
+            "msgStatusName": "成功",
+            "resultCode": "1000",
+            "resultCodeName": "成功",
+            "telecomCode": 10001,
+            "telecomCodeName": "SKT",
+            "recipientSeq": 1,
+            "sendType": "0",
+            "messageType": "SMS",
+            "userId": "tester",
+            "adYn": "N",
+            "originCode": "123456789"
+            "resultMessage": "",
+            "senderGroupingKey": "SenderGroupingKey",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    }
 }
 ```
 
@@ -505,7 +508,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
 |body.data.resultDate|	String|	受信日時|
 |body.data.templateId|	String|	テンプレートID|
 |body.data.templateName|	String|	テンプレート名|
-|body.data.categoryId|	String|	カテゴリーID|
+|body.data.categoryId|	Integer|	カテゴリーID|
 |body.data.categoryName|	String|	カテゴリー名|
 |body.data.body|	String|	本文内容|
 |body.data.sendNo|	String|	発信番号|
@@ -523,6 +526,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
 |body.data.userId|	String|	送信リクエストID|
 |body.data.adYn|	String|	広告かどうか|
 |body.data.originCode| String | 10 | X | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
+|body.data.resultMessage|	String|	結果メッセージ |
 |body.data.senderGroupingKey|	String|	発信者グループキー|
 |body.data.recipientGroupingKey|	String|	受信者グループキー|
 
@@ -550,7 +554,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -562,26 +566,26 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateId":"TemplateId",
-   "title":"Title",
-   "body":"Body",
-   "sendNo":"15446859",
-   "requestDate":"2018-08-10 10:00",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "countryCode":"82",
-         "internationalRecipientNo":"821000000000",
-         "templateParameter":{
-            "key":"value"
-         },
-         "recipientGroupingKey":"recipientGroupingKey"
-      }
-   ],
-   "userId":"UserId",
-   "statsId":"statsId",
-   "originCode":"123456789"
+    "templateId": "TemplateId",
+    "title": "Title",
+    "body": "Body",
+    "sendNo": "15446859",
+    "requestDate": "2018-08-10 10:00",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "countryCode": "82",
+            "internationalRecipientNo": "821000000000",
+            "templateParameter": {
+                "key": "value"
+            },
+            "recipientGroupingKey": "recipientGroupingKey"
+        }
+    ],
+    "userId": "UserId",
+    "statsId": "statsId",
+    "originCode": "123456789"
 }
 ```
 
@@ -610,7 +614,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "title"："{タイトル}",
     "body"："{本文内容}",
@@ -629,27 +633,27 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -669,62 +673,62 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 
 #### 長文MMS送信例
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms|
 
 [Request body]
 ```
 {
-   "title"："タイトル",
-   "body":"本文",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      },
-      {
-         "recipientNo":"01000000001",
-         "recipientGroupingKey":"RecipientGroupingKey2"
-      }
-   ],
-   "statsId":"statsId"
+    "title"："タイトル",
+    "body": "本文",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        },
+        {
+            "recipientNo": "01000000001",
+            "recipientGroupingKey": "RecipientGroupingKey2"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            },
-            {
-               "recipientNo":"01000000001",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":2,
-               "recipientGroupingKey":"RecipientGroupingKey2"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                },
+                {
+                    "recipientNo": "01000000001",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 2,
+                    "recipientGroupingKey": "RecipientGroupingKey2"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -744,38 +748,40 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
     "sendNo": "15446859",
     "senderGroupingKey": "SenderGrouping",
     "attachFileIdList": [0],
-    "recipientList": [{
-        "recipientNo": "01010000000",
-        "recipientGroupingKey":"RecipientGroupingKey"
-    }],
-    "statsId":"statsId"
+    "recipientList": [
+        {
+            "recipientNo": "01010000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "body": {
-    "data": {
-      "requestId": "20180810100630ReZQ6KZzAH0",
-      "statusCode": "2",
-      "senderGroupingKey": "SenderGrouping",
-      "sendResultList" : [
-          {
-              "recipientNo" ：{受信番号},
-              "resultCode" :  0,
-              "resultMessage" : "SUCCESS"
-              "recipientSeq": 1,
-              "recipientGroupingKey":"RecipientGroupingKey"
-          }
-      ]
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGrouping",
+            "sendResultList": [
+                {
+                    "recipientNo" ：{受信番号},
+                    "resultCode":  0,
+                    "resultMessage": "SUCCESS"
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
     }
-  }
 }
 ```
 
@@ -809,7 +815,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -846,60 +852,62 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"SUCCESS",
-    "isSuccessful":true
-  },
-  "body":{
-    "pageNum":1,
-    "pageSize":15,
-    "totalCount":1,
-    "data":[
-      {
-        "requestId":"20180810100630ReZQ6KZzAH0",
-        "requestDate":"2018-08-10 10:06:30.0",
-        "resultDate":"2018-08-10 10:06:42.0",
-        "templateId":"TemplateId",
-        "templateName":"テンプレート名",
-        "categoryId":0,
-        "categoryName":"カテゴリー名",
-        "title":"タイトル",
-        "body":"本文",
-        "sendNo":"15446859",
-        "countryCode":"82",
-        "recipientNo":"01000000000",
-        "msgStatus":"3",
-        "msgStatusName":"成功",
-        "resultCode":"1000",
-        "resultCodeName":"成功",
-        "telecomCode":10001,
-        "telecomCodeName":"SKT",
-        "recipientSeq":1,
-        "sendType":"0",
-        "messageType":"LMS",
-        "userId":"tester",
-        "adYn":"N",
-        "attachFileList": [{
-               fileId: Integer,
-               filePath: String,
-               fileName: String,
-               saveFileName: String,
-               uploadType: String
-         }],
-        "resultMessage":"",
-        "senderGroupingKey":"SenderGroupingKey",
-        "recipientGroupingKey":"RecipientGroupingKey"
-      }
-    ]
-  }
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful":true
+    },
+    "body": {
+        "pageNum": 1,
+        "pageSize": 15,
+        "totalCount": 1,
+        "data": [
+            {
+                "requestId": "20180810100630ReZQ6KZzAH0",
+                "requestDate": "2018-08-10 10:06:30.0",
+                "resultDate": "2018-08-10 10:06:42.0",
+                "templateId": "TemplateId",
+                "templateName": "テンプレート名",
+                "categoryId": 0,
+                "categoryName": "カテゴリー名",
+                "title": "タイトル",
+                "body": "本文",
+                "sendNo": "15446859",
+                "countryCode": "82",
+                "recipientNo": "01000000000",
+                "msgStatus": "3",
+                "msgStatusName": "成功",
+                "resultCode": "1000",
+                "resultCodeName": "成功",
+                "telecomCode": 10001,
+                "telecomCodeName": "SKT",
+                "recipientSeq": 1,
+                "sendType": "0",
+                "messageType": "LMS",
+                "userId": "tester",
+                "adYn": "N",
+                "attachFileList": [
+                    {
+                        "fileId": Integer,
+                        "filePath": String,
+                        "fileName": String,
+                        "savefileName": String,
+                        "uploadType": String
+                    }
+                ],
+                "resultMessage": "",
+                "senderGroupingKey": "SenderGroupingKey",
+                "recipientGroupingKey": "RecipientGroupingKey"
+            }
+        ]
+    }
 }
 ```
 
@@ -917,7 +925,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?start
 |body.data[].resultDate|	String|	受信日時|
 |body.data[].templateId|	String|	テンプレートID|
 |body.data[].templateName|	String|	テンプレート名|
-|body.data[].categoryId|	String|	カテゴリーID|
+|body.data[].categoryId|	Integer|	カテゴリーID|
 |body.data[].categoryName|	String|	カテゴリー名|
 |body.data[].body|	String|	本文内容|
 |body.data[].sendNo|	String|	発信番号|
@@ -939,6 +947,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?start
 |body.data[].attachFileList[].filename|	String|	ファイル名|
 |body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイル名|
 |body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
+|body.data[].attachFileList[].resultMessage| String | 結果メッセージ |
 |body.data[].senderGroupingKey|	String|	発信者グループキー|
 |body.data[].recipientGroupingKey|	String|	受信者グループキー|
 
@@ -965,7 +974,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -984,56 +993,58 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"SUCCESS",
-    "isSuccessful":true
-  },
-  "body":{
-    "data":{
-      "requestId":"20180810100630ReZQ6KZzAH0",
-      "requestDate":"2018-08-10 10:06:30.0",
-      "resultDate":"2018-08-10 10:06:42.0",
-      "templateId":"TemplateId",
-      "templateName":"テンプレート名",
-      "categoryId":0,
-      "categoryName":"カテゴリー名",
-      "title":"タイトル",
-      "body":"本文",
-      "sendNo":"15446859",
-      "countryCode":"82",
-      "recipientNo":"01000000000",
-      "msgStatus":"3",
-      "msgStatusName":"成功",
-      "resultCode":"1000",
-      "resultCodeName":"成功",
-      "telecomCode":10001,
-      "telecomCodeName":"SKT",
-      "recipientSeq":1,
-      "sendType":"0",
-      "messageType":"MMS",
-      "userId":"tester",
-      "adYn":"N",
-      "originCode":"123456789",
-      "attachFileList": [{
-            fileId: Integer,
-            filePath: String,
-            fileName: String,
-            saveFileName: String,
-            uploadType: String
-      }],
-      "resultMessage":"",
-      "senderGroupingKey":"SenderGroupingKey",
-      "recipientGroupingKey":"RecipientGroupingKey"
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "SUCCESS",
+        "isSuccessful":true
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "requestDate": "2018-08-10 10:06:30.0",
+            "resultDate": "2018-08-10 10:06:42.0",
+            "templateId": "TemplateId",
+            "templateName": "テンプレート名",
+            "categoryId": 0,
+            "categoryName": "カテゴリー名",
+            "title": "タイトル",
+            "body": "本文",
+            "sendNo": "15446859",
+            "countryCode": "82",
+            "recipientNo": "01000000000",
+            "msgStatus": "3",
+            "msgStatusName": "成功",
+            "resultCode": "1000",
+            "resultCodeName": "成功",
+            "telecomCode": 10001,
+            "telecomCodeName": "SKT",
+            "recipientSeq": 1,
+            "sendType": "0",
+            "messageType": "MMS",
+            "userId": "tester",
+            "adYn": "N",
+            "originCode": "123456789",
+            "attachFileList": [
+                {
+                    "fileId": Integer,
+                    "filePath": String,
+                    "fileName": String,
+                    "savefileName": String,
+                    "uploadType": String
+                }
+            ],
+            "resultMessage": "",
+            "senderGroupingKey": "SenderGroupingKey",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        }
     }
-  }
 }
 ```
 
@@ -1074,8 +1085,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${R
 |body.data.attachFileList[].filename|	String|	ファイル名|
 |body.data.attachFileList[].saveFileName|	String|	保存された添付ファイル名|
 |body.data.attachFileList[].uploadType|	String|	アップロードタイプ|
+|body.data.resultMessage|	String| 結果メッセージ |
 |body.data.senderGroupingKey|	String|	発信者グループキー|
-|body.data..recipientGroupingKey|	String|	受信者グループキー|
+|body.data.recipientGroupingKey|	String|	受信者グループキー|
 
 ## 認証用SMS(緊急)
 
@@ -1110,7 +1122,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1122,25 +1134,25 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateId":"TemplateId",
-   "body":"本文",
-   "sendNo":"15446859",
-   "requestDate":"2018-08-10 10:00",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "countryCode":"82",
-         "internationalRecipientNo":"821000000000",
-         "templateParameter":{
-            "key":"value"
-         },
-         "recipientGroupingKey":"recipientGroupingKey"
-      }
-   ],
-   "userId":"UserId",
-   "statsId":"statsId",
-   "originCode":"123456789"
+    "templateId": "TemplateId",
+    "body": "本文",
+    "sendNo": "15446859",
+    "requestDate": "2018-08-10 10:00",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "countryCode": "82",
+            "internationalRecipientNo": "821000000000",
+            "templateParameter": {
+                "key": "value"
+            },
+            "recipientGroupingKey": "recipientGroupingKey"
+        }
+    ],
+    "userId": "UserId",
+    "statsId": "statsId",
+    "originCode": "123456789"
 }
 ```
 
@@ -1167,11 +1179,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "body"："認証テスト",
     "sendNo": "15446859",
-    "recipientList": [{
+    "recipientList": [
+        {
             "recipientNo": "01000000000",
             "templateParameter": {}
         }
@@ -1184,27 +1197,27 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms'
 #### レスポンス
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -1224,61 +1237,61 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms'
 
 #### 例
 
-| Http metho | URL |
+| Http method | URL |
 | - | - |
 | POST | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/auth/sms|
 
 [Request body]
 ```
 {
-   "body":"本文",
-   "sendNo":"15446859",
-   "senderGroupingKey":"SenderGroupingKey",
-   "recipientList":[
-      {
-         "recipientNo":"01000000000",
-         "recipientGroupingKey":"RecipientGroupingKey"
-      },
-      {
-         "recipientNo":"01000000001",
-         "recipientGroupingKey":"RecipientGroupingKey2"
-      }
-   ],
-   "statsId":"statsId"
+    "body": "本文",
+    "sendNo": "15446859",
+    "senderGroupingKey": "SenderGroupingKey",
+    "recipientList": [
+        {
+            "recipientNo": "01000000000",
+            "recipientGroupingKey": "RecipientGroupingKey"
+        },
+        {
+            "recipientNo": "01000000001",
+            "recipientGroupingKey": "RecipientGroupingKey2"
+        }
+    ],
+    "statsId": "statsId"
 }
 ```
 
 [Response]
 ```
 {
-   "header":{
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
-   },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "statusCode":"2",
-         "senderGroupingKey":"SenderGroupingKey",
-         "sendResultList":[
-            {
-               "recipientNo":"01000000000",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":1,
-               "recipientGroupingKey":"RecipientGroupingKey"
-            },
-            {
-               "recipientNo":"01000000001",
-               "resultCode":0,
-               "resultMessage":"SUCCESS",
-               "recipientSeq":2,
-               "recipientGroupingKey":"RecipientGroupingKey2"
-            }
-         ]
-      }
-   }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "body": {
+        "data": {
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "statusCode": "2",
+            "senderGroupingKey": "SenderGroupingKey",
+            "sendResultList": [
+                {
+                    "recipientNo": "01000000000",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 1,
+                    "recipientGroupingKey": "RecipientGroupingKey"
+                },
+                {
+                    "recipientNo": "01000000001",
+                    "resultCode": 0,
+                    "resultMessage": "SUCCESS",
+                    "recipientSeq": 2,
+                    "recipientGroupingKey": "RecipientGroupingKey2"
+                }
+            ]
+        }
+    }
 }
 ```
 
@@ -1304,7 +1317,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1342,49 +1355,49 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
+   "header": {
+      "resultCode": 0,
+      "resultMessage": "SUCCESS",
       "isSuccessful":true
    },
-   "body":{
-      "pageNum":1,
-      "pageSize":15,
-      "totalCount":1,
-      "data":[
+   "body": {
+      "pageNum": 1,
+      "pageSize": 15,
+      "totalCount": 1,
+      "data": [
          {
-            "requestId":"20180810100630ReZQ6KZzAH0",
-            "requestDate":"2018-08-10 10:06:30.0",
-            "resultDate":"2018-08-10 10:06:42.0",
-            "templateId":"TemplateId",
-            "templateName":"テンプレート名",
-            "categoryId":0,
-            "categoryName":"カテゴリー名",
-            "body":"短文テスト",
-            "sendNo":"15446859",
-            "countryCode":"82",
-            "recipientNo":"01000000000",
-            "msgStatus":"3",
-            "msgStatusName":"成功",
-            "resultCode":"1000",
-            "resultCodeName":"成功",
-            "telecomCode":10001,
-            "telecomCodeName":"SKT",
-            "recipientSeq":1,
-            "sendType":"0",
-            "messageType":"AUTH",
-            "userId":"tester",
-            "adYn":"N",
+            "requestId": "20180810100630ReZQ6KZzAH0",
+            "requestDate": "2018-08-10 10:06:30.0",
+            "resultDate": "2018-08-10 10:06:42.0",
+            "templateId": "TemplateId",
+            "templateName": "テンプレート名",
+            "categoryId": 0,
+            "categoryName": "カテゴリー名",
+            "body": "短文テスト",
+            "sendNo": "15446859",
+            "countryCode": "82",
+            "recipientNo": "01000000000",
+            "msgStatus": "3",
+            "msgStatusName": "成功",
+            "resultCode": "1000",
+            "resultCodeName": "成功",
+            "telecomCode": 10001,
+            "telecomCodeName": "SKT",
+            "recipientSeq": 1,
+            "sendType": "0",
+            "messageType": "AUTH",
+            "userId": "tester",
+            "adYn": "N",
             "resultMessage": "",
-            "senderGroupingKey":"SenderGroupingKey",
-            "recipientGroupingKey":"RecipientGroupingKey"
+            "senderGroupingKey": "SenderGroupingKey",
+            "recipientGroupingKey": "RecipientGroupingKey"
          }
       ]
    }
@@ -1446,7 +1459,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1465,46 +1478,46 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-   "header":{
-      "resultCode":0,
-      "resultMessage":"SUCCESS",
+   "header": {
+      "resultCode": 0,
+      "resultMessage": "SUCCESS",
       "isSuccessful":true
    },
-   "body":{
-      "data":{
-         "requestId":"20180810100630ReZQ6KZzAH0",
-         "requestDate":"2018-08-10 10:06:30.0",
-         "resultDate":"2018-08-10 10:06:42.0",
-         "templateId":"TemplateId",
-         "templateName":"テンプレート名",
-         "categoryId":0,
-         "categoryName":"カテゴリー名",
-         "body":"本文",
-         "sendNo":"15446859",
-         "countryCode":"82",
-         "recipientNo":"01000000000",
-         "msgStatus":"3",
-         "msgStatusName":"成功",
-         "resultCode":"1000",
-         "resultCodeName":"成功",
-         "telecomCode":10001,
-         "telecomCodeName":"SKT",
-         "recipientSeq":1,
-         "sendType":"0",
-         "messageType":"AUTH",
-         "userId":"tester",
-         "adYn":"N",
-         "originCode":"123456789",
+   "body": {
+      "data": {
+         "requestId": "20180810100630ReZQ6KZzAH0",
+         "requestDate": "2018-08-10 10:06:30.0",
+         "resultDate": "2018-08-10 10:06:42.0",
+         "templateId": "TemplateId",
+         "templateName": "テンプレート名",
+         "categoryId": 0,
+         "categoryName": "カテゴリー名",
+         "body": "本文",
+         "sendNo": "15446859",
+         "countryCode": "82",
+         "recipientNo": "01000000000",
+         "msgStatus": "3",
+         "msgStatusName": "成功",
+         "resultCode": "1000",
+         "resultCodeName": "成功",
+         "telecomCode": 10001,
+         "telecomCodeName": "SKT",
+         "recipientSeq": 1,
+         "sendType": "0",
+         "messageType": "AUTH",
+         "userId": "tester",
+         "adYn": "N",
+         "originCode": "123456789",
          "resultMessage": "",
-         "senderGroupingKey":"SenderGroupingKey",
-         "recipientGroupingKey":"RecipientGroupingKey"
+         "senderGroupingKey": "SenderGroupingKey",
+         "recipientGroupingKey": "RecipientGroupingKey"
       }
    }
 }
@@ -1563,7 +1576,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1589,7 +1602,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "body"："(広告)テスト\n [無料受信拒否]0808880327",
     "sendNo": "15446859",
@@ -1638,7 +1651,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 -d '{
     "title"："{タイトル}",
     "body"："(広告)テスト\n [無料受信拒否]0808880327",
@@ -1679,7 +1692,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1702,35 +1715,35 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 ```
 {
-  "header":{
-    "isSuccessful":true,
-    "resultCode":0,
-    "resultMessage":"Success."
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "Success."
   },
-  "body":{
-    "pageNum":1,
-    "pageSize":15,
-    "totalCount":1,
-    "data":[
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
         {
-          "messageType":"SMS",
-          "requestId":"",
-          "recipientSeq":0,
-          "resultCode":"1000",
-          "resultCodeName":"成功",
-          "requestDate":"2018-10-04 16:16:00.0",
-          "resultDate":"2018-10-04 16:17:10.0",
-          "updateDate":"2018-10-04 16:17:15.0",
+          "messageType": "SMS",
+          "requestId": "",
+          "recipientSeq": 0,
+          "resultCode": "1000",
+          "resultCodeName": "成功",
+          "requestDate": "2018-10-04 16:16:00.0",
+          "resultDate": "2018-10-04 16:17:10.0",
+          "updateDate": "2018-10-04 16:17:15.0",
           "telecomCode": "10003",
           "telecomCodeName": "LGU",
-          "senderGroupingKey":"senderGroupingKey",
-          "recipientGroupingKey":"recipientGroupingKey"
+          "senderGroupingKey": "senderGroupingKey",
+          "recipientGroupingKey": "recipientGroupingKey"
         }
     ]
   }
@@ -1775,7 +1788,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1803,7 +1816,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender?requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
@@ -1826,7 +1839,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender?requ
                 "messageType": "SMS",
                 "templateId": "",
                 "masterStatusCode": "MAS19",
-                "masterStatus" : "COMPLETED",
+                "masterStatus": "COMPLETED",
                 "sendNo": "01012345000",
                 "title": null,
                 "body": "test",
@@ -1879,7 +1892,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1907,7 +1920,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
@@ -1976,7 +1989,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -1989,7 +2002,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
@@ -2014,7 +2027,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${
             "recipientNo": "01020060836",
             "countryCode": "82",
             "requestDate": "2021-09-01 03:34:36.0",
-            "msgStatus" : "3",
+            "msgStatus": "3",
             "msgStatusName": "COMPLETED",
             "resultCode": null,
             "receiveDate": null,
@@ -2079,7 +2092,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2091,22 +2104,22 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-    "body":"本文",
-    "sendNo":"15446859",
-    "requestDate":"2018-03-22 10:00",
-    "templateId":"TemplateId",
-    "templateParameter" : {
-      "key" : "value"
+    "body": "本文",
+    "sendNo": "15446859",
+    "requestDate": "2018-03-22 10:00",
+    "templateId": "TemplateId",
+    "templateParameter": {
+      "key": "value"
     },
-    "tagExpression":[
+    "tagExpression": [
         "tag1",
         "AND",
         "tag2"
      ],
-    "userId":"user_id",
-    "adYn":"N",
-    "autoSendYn":"N",
-    "statsId":"statsId"
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "N",
+    "statsId": "statsId"
 }
 ```
 
@@ -2128,7 +2141,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "body"："本文",
     "sendNo": "15446859",
@@ -2188,7 +2201,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2199,27 +2212,27 @@ Content-Type: application/json;charset=UTF-8
 [Request body]
 ```
 {
-    "body":"本文",
-    "sendNo":"15446859",
-    "requestDate":"2018-03-22 10:00",
-    "templateId":"TemplateId",
-    "templateParameter" : {
-        "key" : "value"
+    "body": "本文",
+    "sendNo": "15446859",
+    "requestDate": "2018-03-22 10:00",
+    "templateId": "TemplateId",
+    "templateParameter": {
+        "key": "value"
     },
-    "attachFileIdList" : [
+    "attachFileIdList": [
      1,
      2,
 3
     ],
-    "tagExpression":[
+    "tagExpression": [
         "tag1",
         "AND",
         "tag2"
      ],
-    "userId":"user_id",
-    "adYn":"N",
-    "autoSendYn":"N",
-    "statsId":"statsId"
+    "userId": "user_id",
+    "adYn": "N",
+    "autoSendYn": "N",
+    "statsId": "statsId"
 }
 ```
 
@@ -2243,7 +2256,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "title"："タイトル",
     "body"："本文",
@@ -2302,7 +2315,7 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2331,22 +2344,22 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 ```
 {
-    "header" : {
-    "isSuccessful" :  true,
-    "resultCode" :  0,
-    "resultMessage" :  "."
+    "header": {
+    "isSuccessful":  true,
+    "resultCode":  0,
+    "resultMessage":  "."
     },
-    "body":{
-        "pageNum":0,
-        "pageSize":0,
-        "totalCount":0,
-        "data" :[{
+    "body": {
+        "pageNum": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "data": [{
                 "requestId": "20171220141558eonMsyDI6P0",
                 "requestIp": "127.0.0.1",
                 "sendType": "0",
@@ -2420,7 +2433,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2448,22 +2461,22 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 ```
 {
-    "header" : {
-    "isSuccessful" :  true,
-    "resultCode" :  0,
-    "resultMessage" :  "."
+    "header": {
+    "isSuccessful":  true,
+    "resultCode":  0,
+    "resultMessage":  "."
     },
-    "body":{
-        "pageNum":0,
-        "pageSize":0,
-        "totalCount":0,
-        "data" :[
+    "body": {
+        "pageNum": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "data": [
         {
             "requestId": "20180813022044Jps2xJ1qsv0",
             "recipientSeq": 99,
@@ -2522,7 +2535,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2541,7 +2554,7 @@ X
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
@@ -2625,7 +2638,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2655,7 +2668,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "fileName": "attachement.jpg",
     "createUser": "API Guide",
@@ -2748,7 +2761,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2760,11 +2773,11 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "categoryParentId" : 0,
-   "categoryName" : "",
-   "categoryDesc" : "",
-   "useYn" : "",
-   "createUser" : ""
+   "categoryParentId": 0,
+   "categoryName": "",
+   "categoryDesc": "",
+   "useYn": "",
+   "createUser": ""
 }
 ```
 
@@ -2785,7 +2798,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "categoryParentId": 0,
     "categoryName": "API Guide",
@@ -2799,21 +2812,21 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 
 ```
 {  
-   "header":{  
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
+   "header": {  
+      "isSuccessful": true,
+      "resultCode": 0,
+      "resultMessage": "SUCCESS"
    },
-   "body":{  
-      "data":{  
-         "categoryId":0,
-         "categoryParentId":0,
-         "depth":0,
-         "sort" :0,
-         "categoryName":"",
-         "categoryDesc":"",
-         "useYn":"",
-         "createUser":""
+   "body": {  
+      "data": {  
+         "categoryId": 0,
+         "categoryParentId": 0,
+         "depth": 0,
+         "sort": 0,
+         "categoryName": "",
+         "categoryDesc": "",
+         "useYn": "",
+         "createUser": ""
       }
    }
 }
@@ -2854,7 +2867,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2874,35 +2887,35 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {  
-   "header":{  
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
+   "header": {  
+      "isSuccessful": true,
+      "resultCode": 0,
+      "resultMessage": "SUCCESS"
    },
-   "body":{  
-      "pageNum":1,
-      "pageSize":15,
-      "totalCount":1,
-      "data":[  
+   "body": {  
+      "pageNum": 1,
+      "pageSize": 15,
+      "totalCount": 1,
+      "data": [  
          {  
             "categoryId":137612,
-            "categoryParentId":0,
-            "depth":0,
-            "sort" :0,
+            "categoryParentId": 0,
+            "depth": 0,
+            "sort": 0,
             "categoryName"："カテゴリー",
             "categoryDesc"："最上位カテゴリー",
-            "useYn":"Y",
-            "createDate":"2018-04-17 15:39:56.0",
-            "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
-            "updateDate":"2018-04-17 15:39:56.0",
-            "updateUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022"
+            "useYn": "Y",
+            "createDate": "2018-04-17 15:39:56.0",
+            "createUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022",
+            "updateDate": "2018-04-17 15:39:56.0",
+            "updateUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022"
          }
       ]
    }
@@ -2951,7 +2964,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -2964,32 +2977,32 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {  
-   "header":{  
-      "isSuccessful":true,
-      "resultCode":0,
-      "resultMessage":"SUCCESS"
+   "header": {  
+      "isSuccessful": true,
+      "resultCode": 0,
+      "resultMessage": "SUCCESS"
    },
-   "body":{  
-      "data":[  
+   "body": {  
+      "data": [  
          {  
             "categoryId":137612,
-            "categoryParentId":0,
-            "depth":0,
-            "sort":0,
+            "categoryParentId": 0,
+            "depth": 0,
+            "sort": 0,
             "categoryName"："カテゴリー",
             "categoryDesc"："最上位カテゴリー",
-            "useYn":"Y",
-            "createDate":"2018-04-17 15:39:56.0",
-            "createUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022",
-            "updateDate":"2018-04-17 15:39:56.0",
-            "updateUser":"bb076dc0-ef5e-11e7-9ede-005056ac7022"
+            "useYn": "Y",
+            "createDate": "2018-04-17 15:39:56.0",
+            "createUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022",
+            "updateDate": "2018-04-17 15:39:56.0",
+            "updateUser": "bb076dc0-ef5e-11e7-9ede-005056ac7022"
          }
       ]
    }
@@ -3036,7 +3049,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3048,10 +3061,10 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "categoryName" : "",
-   "categoryDesc" : "",
-   "useYn" : "",
-   "updateUser" : ""
+   "categoryName": "",
+   "categoryDesc": "",
+   "useYn": "",
+   "updateUser": ""
 }
 ```
 
@@ -3067,7 +3080,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "categoryParentId": 788,
     "categoryName": "secondMMS",
@@ -3082,10 +3095,10 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
+   "header": {
+      "isSuccessful": true,
+      "resultCode": "",
+      "resultMessage": ""
    }
 }
 ```
@@ -3112,7 +3125,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3125,17 +3138,17 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
+   "header": {
+      "isSuccessful": true,
+      "resultCode": "",
+      "resultMessage": ""
    }
 }
 ```
@@ -3163,7 +3176,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3175,16 +3188,16 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "categoryId" : 0,
-   "templateId" : "",
-   "templateName" : "",
-   "templateDesc" : "",
-   "sendNo" : "",
-   "sendType" : "",
-   "title" : "",
-   "body" : "",
-   "useYn" : "",
-   "attachFileIdList" : [
+   "categoryId": 0,
+   "templateId": "",
+   "templateName": "",
+   "templateDesc": "",
+   "sendNo": "",
+   "sendType": "",
+   "title": "",
+   "body": "",
+   "useYn": "",
+   "attachFileIdList": [
       0,
 1
    ]
@@ -3209,7 +3222,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "categoryId": 199376,
     "templateId": "TemplateId",
@@ -3227,10 +3240,10 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
+   "header": {
+      "isSuccessful": true,
+      "resultCode": "",
+      "resultMessage": ""
    }
 }
 ```
@@ -3245,16 +3258,16 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 [Request body]
 ```
 {
-   "categoryId" : 199376 ,
-   "templateId" : "TemplateId",
+   "categoryId": 199376 ,
+   "templateId": "TemplateId",
    "templateName" ："テンプレート送信例",
    "templateDesc" ："テンプレート送信例",
-   "sendNo" : "01012341234",
-   "sendType" : "1",
-   "title" : "example",
-   "body" ："一般送信テスト用です。\r\n##key1## さん、こんにちは。\r\n##key2## です。",
-   "useYn" : "Y",
-   "attachFileIdList" : [
+   "sendNo": "01012341234",
+   "sendType": "1",
+   "title": "example",
+   "body": "一般送信テスト用です。\r\n##key1## さん、こんにちは。\r\n##key2## です。",
+   "useYn": "Y",
+   "attachFileIdList": [
      123123,
 456456
    ]
@@ -3264,10 +3277,10 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 [Response]
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
+   "header": {
+      "isSuccessful": true,
+      "resultCode": "",
+      "resultMessage": ""
    }
 }
 ```
@@ -3302,8 +3315,8 @@ Request URLはテンプレート登録時に選択した送信タイプを選択
     "recipientList": [{
         "recipientNo": "01000000000",
         "templateParameter": {
-          "key1" : "Toast Cloud",
-          "key2" : "SMS"
+          "key1": "Toast Cloud",
+          "key2": "SMS"
         },
         "recipientGroupingKey": "RecipientGroupingKey"
     }]
@@ -3362,14 +3375,14 @@ Request URLはテンプレート登録時に選択した送信タイプを選択
 ```
 {
     "templateId": "TemplateId",
-    "body":"本文",
-    "sendNo":"15446859",
+    "body": "本文",
+    "sendNo": "15446859",
     "senderGroupingKey": "SenderGroupingKey",
     "recipientList": [{
         "recipientNo": "01000000000",
         "templateParameter": {
-          "key1" : "Toast Cloud",
-          "key2" : "SMS"
+          "key1": "Toast Cloud",
+          "key2": "SMS"
         },
         "recipientGroupingKey": "RecipientGroupingKey"
     }]
@@ -3425,7 +3438,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3447,7 +3460,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
@@ -3561,7 +3574,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3574,7 +3587,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
@@ -3686,7 +3699,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3698,14 +3711,14 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-   "templateName" : "",
-   "templateDesc" : "",
-   "sendNo" : "",
-   "sendType" : "",
-   "title" : "",
-   "body" : "",
-   "useYn" : "",
-   "attachFileIdList" : [
+   "templateName": "",
+   "templateDesc": "",
+   "sendNo": "",
+   "sendType": "",
+   "title": "",
+   "body": "",
+   "useYn": "",
+   "attachFileIdList": [
       0,
 1
    ]
@@ -3729,17 +3742,17 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
+   "header": {
+      "isSuccessful": true,
+      "resultCode": "",
+      "resultMessage": ""
    }
 }
 ```
@@ -3766,7 +3779,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3779,17 +3792,17 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-   "header" : {
-      "isSuccessful" : true,
-      "resultCode" : "",
-      "resultMessage" : ""
+   "header": {
+      "isSuccessful": true,
+      "resultCode": "",
+      "resultMessage": ""
    }
 }
 ```
@@ -3817,7 +3830,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3829,8 +3842,8 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-    "unsubscribeNo":"0800000000",
-    "recipientNoList":["0100000000", "0100000001"]
+    "unsubscribeNo": "0800000000",
+    "recipientNoList": ["0100000000", "0100000001"]
 }
 ```
 
@@ -3844,7 +3857,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "unsubscribeNo": "0800000000",
     "recipientNoList": ["0100000000", "0100000001"]
@@ -3855,10 +3868,10 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/rec
 
 ```
 {
-   "header":{
-       "isSuccessful":true,
-       "resultCode":0,
-       "resultMessage":"Success"
+   "header": {
+       "isSuccessful": true,
+       "resultCode": 0,
+       "resultMessage": "Success"
    }
 }
 ```
@@ -3884,7 +3897,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3908,7 +3921,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
@@ -3955,7 +3968,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -3976,7 +3989,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${UNSUB_NO}"'&updateUser='"${UPDATE_USER}"'&recipientNoList='"${RECIPIENT_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
@@ -4013,7 +4026,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/rec
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4036,32 +4049,32 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/rec
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 ```
 {
-    "header" : {
-        "isSuccessful" :  true,
-        "resultCode" :  0,
-        "resultMessage" :  ""
+    "header": {
+        "isSuccessful":  true,
+        "resultCode":  0,
+        "resultMessage":  ""
     },
-    "body" : {
-        "pageNum" :  0,
-        "pageSize" :  0,
-        "totalCount" :  0,
-        "data" : [
+    "body": {
+        "pageNum":  0,
+        "pageSize":  0,
+        "totalCount":  0,
+        "data": [
         {
-            "serviceId" :  0,
-            "sendNo" :  "",
-            "useYn" :  "",
-            "blockYn" :  "",
-            "blockReason" :  "",
-            "createDate" :  "",
-            "createUser" :  "",
-            "updateDate" :  "",
-            "updateUser" :  ""
+            "serviceId":  0,
+            "sendNo":  "",
+            "useYn":  "",
+            "blockYn":  "",
+            "blockReason":  "",
+            "createDate":  "",
+            "createUser":  "",
+            "updateDate":  "",
+            "updateUser":  ""
         }
         ]
     }
@@ -4114,7 +4127,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4141,28 +4154,28 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${STATISTICS_TYPE}"'&from='"${FROM}"'&to='"${TO}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 ```
 {
-    "header" : {
-        "isSuccessful" : true,
-        "resultCode" : 0,
-        "resultMessage" : "SUCCESS""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS""
     },
-    "body" : {
-        "data" :
+    "body": {
+        "data":
         [
           {
-            "eventDateTime" : "",
-            "events" :
+            "eventDateTime": "",
+            "events":
             {
-              "{statsCriteriaValue}.requested" : 10,
-              "{statsCriteriaValue}.sent" : 10,
-              "{statsCriteriaValue}.sentFailed" : 0,
-              "{statsCriteriaValue}.received" : 0
+              "{statsCriteriaValue}.requested": 10,
+              "{statsCriteriaValue}.sent": 10,
+              "{statsCriteriaValue}.sentFailed": 0,
+              "{statsCriteriaValue}.received": 0
             }
           }
         ]
@@ -4208,7 +4221,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4233,23 +4246,23 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 #### レスポンス
 ```
 {
-    "header" : {
-        "isSuccessful" : true,
-        "resultCode" : 0,
-        "resultMessage" : "SUCCESS""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS""
     },
-    "body" : {
-        "data" :
+    "body": {
+        "data":
         [
           {
-            "eventDateTime" : "",
-            "events" :
+            "eventDateTime": "",
+            "events":
             {
-              "{statsCriteriaValue}.requested" : 10,
-              "{statsCriteriaValue}.sent" : 10,
-              "{statsCriteriaValue}.sentFailed" : 0,
-              "{statsCriteriaValue}.received" : 0,
-              "{statsCriteriaValue}.pending" : 0
+              "{statsCriteriaValue}.requested": 10,
+              "{statsCriteriaValue}.sent": 10,
+              "{statsCriteriaValue}.sentFailed": 0,
+              "{statsCriteriaValue}.received": 0,
+              "{statsCriteriaValue}.pending": 0
             }
           }
         ]
@@ -4291,7 +4304,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4313,25 +4326,25 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 #### レスポンス
 ```
 {
-    "header" : {
-        "isSuccessful" : true,
-        "resultCode" : 0,
-        "resultMessage" : "SUCCESS""
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS""
     },
-    "body" : {
-        "data" :
+    "body": {
+        "data":
         [
           {
-            "divisionName" : "2018-06-01",
-            "statisticsView" :
+            "divisionName": "2018-06-01",
+            "statisticsView":
             {
-              "requestedCount" : 10,
-              "succeedCount" : 10,
-              "failedCount" : 0,
-              "pendingCount" : 0,
-              "succeedRate" : "100.00",
-              "failedRate" : "0.00",
-              "pendingRate" : "0.00"
+              "requestedCount": 10,
+              "succeedCount": 10,
+              "failedCount": 0,
+              "pendingCount": 0,
+              "succeedRate": "100.00",
+              "failedRate": "0.00",
+              "pendingRate": "0.00"
             }
           }
         ]
@@ -4376,7 +4389,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4406,42 +4419,42 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
     "isSuccessful":true
   },
-  "body":{
-    "pageNum":1,
-    "pageSize":15,
-    "totalCount":15,
-    "data":[
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 15,
+    "data": [
       {
-        "requestId":"{リクエストID}",
-        "recipientSeq":1,
-        "requestDate":"{予約日}",
-        "sendNo":"{発信番号}",
-        "recipientNo":"{受信番号}",
-        "countryCode":"{国コード}",
-        "sendType":"{送信タイプ}",
-        "messageType":"{メッセージタイプ}",
-        "adYn":"{広告かどうか}",
-        "templateId":"{テンプレートID}",
-        "templateParameter":"{テンプレートパラメータ}",
-        "templateName":"{テンプレート名}",
-        "title":"{タイトル}",
-        "body":"{内容}",
-        "messageStatus":"{メッセージ状態}",
-        "createUser":"{登録したユーザー}",
-        "createDate":"{登録日時}",
-        "updateDate":"{修正日}"
+        "requestId": "{リクエストID}",
+        "recipientSeq": 1,
+        "requestDate": "{予約日}",
+        "sendNo": "{発信番号}",
+        "recipientNo": "{受信番号}",
+        "countryCode": "{国コード}",
+        "sendType": "{送信タイプ}",
+        "messageType": "{メッセージタイプ}",
+        "adYn": "{広告かどうか}",
+        "templateId": "{テンプレートID}",
+        "templateParameter": "{テンプレートパラメータ}",
+        "templateName": "{テンプレート名}",
+        "title": "{タイトル}",
+        "body": "{内容}",
+        "messageStatus": "{メッセージ状態}",
+        "createUser": "{登録したユーザー}",
+        "createDate": "{登録日時}",
+        "updateDate": "{修正日}"
       }
     ]
   }
@@ -4499,7 +4512,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4512,43 +4525,43 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
     "isSuccessful":true
   },
-  "body":{
-    "data":{
-      "requestId":"{リクエストID}",
-      "recipientSeq":1,
-      "requestDate":"{予約日}",
-      "sendNo":"{発信番号}",
-      "recipientNo":"{受信番号}",
-      "countryCode":"{国コード}",
-      "sendType":"{送信タイプ}",
-      "messageType":"{メッセージタイプ}",
-      "adYn":"{広告かどうか}",
-      "templateId":"{テンプレートID}",
-      "templateParameter":"{テンプレートパラメータ}",
-      "templateName":"{テンプレート名}",
-      "title":"{タイトル}",
-      "body":"{内容}",
-      "messageStatus":"{メッセージ状態}",
-      "createUser":"{登録したユーザー}",
-      "createDate":"{登録日時}",
-      "updateDate":"{修正日}",
-      "attachFileList":[
+  "body": {
+    "data": {
+      "requestId": "{リクエストID}",
+      "recipientSeq": 1,
+      "requestDate": "{予約日}",
+      "sendNo": "{発信番号}",
+      "recipientNo": "{受信番号}",
+      "countryCode": "{国コード}",
+      "sendType": "{送信タイプ}",
+      "messageType": "{メッセージタイプ}",
+      "adYn": "{広告かどうか}",
+      "templateId": "{テンプレートID}",
+      "templateParameter": "{テンプレートパラメータ}",
+      "templateName": "{テンプレート名}",
+      "title": "{タイトル}",
+      "body": "{内容}",
+      "messageStatus": "{メッセージ状態}",
+      "createUser": "{登録したユーザー}",
+      "createDate": "{登録日時}",
+      "updateDate": "{修正日}",
+      "attachFileList": [
         {
-          "fileId":0,
-          "filePath":"26606/toast-mt-2018-02-07/1555/105887/",
-          "fileName":"file_attach_test.jpg"
+          "fileId": 0,
+          "filePath": "26606/toast-mt-2018-02-07/1555/105887/",
+          "fileName": "file_attach_test.jpg"
         }
       ]
     }
@@ -4606,7 +4619,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4618,13 +4631,13 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "reservationList":[
+  "reservationList": [
     {
-      "requestId":"{requestId}",
+      "requestId": "{requestId}",
       "recipientSeq":1
     }
   ],
-  "updateUser":"{updateUser}"
+  "updateUser": "{updateUser}"
 }
 ```
 
@@ -4639,7 +4652,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/cancel' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "reservationList": [{
             "requestId": "1",
@@ -4654,14 +4667,14 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/can
 
 ```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
     "isSuccessful":true
   },
-  "body":{
-    "data":{
-      "requestedCount":1,
+  "body": {
+    "data": {
+      "requestedCount": 1,
       "canceledCount":1
     }
   }
@@ -4700,7 +4713,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4710,22 +4723,22 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "searchParameter" : {
-      "sendType" : "0",
-      "startRequestDate" : "2020-02-01 00:00",
-      "endRequestDate" : "2020-02-01 10:00",
-      "startCreateDate" : "2020-02-01 00:00",
-      "endCreateDate" : "2020-02-01 10:00",
-      "sendNo" : "15880000",
-      "recipientNo" : "0100000000",
-      "templateId" : "TemplateId",
-      "requestId" : "20200201010630ReZQ6KZzAH0",
-      "createUser" : "CreateUser",
-      "senderGroupingKey" : "SenderGroupingKey"
+  "searchParameter": {
+      "sendType": "0",
+      "startRequestDate": "2020-02-01 00:00",
+      "endRequestDate": "2020-02-01 10:00",
+      "startCreateDate": "2020-02-01 00:00",
+      "endCreateDate": "2020-02-01 10:00",
+      "sendNo": "15880000",
+      "recipientNo": "0100000000",
+      "templateId": "TemplateId",
+      "requestId": "20200201010630ReZQ6KZzAH0",
+      "createUser": "CreateUser",
+      "senderGroupingKey": "SenderGroupingKey"
   },
-  "updateUser" : "UpdateUser"
+  "updateUser": "UpdateUser"
 }
 ```
 
@@ -4753,7 +4766,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "searchParameter": {
         "sendType": "0",
@@ -4774,18 +4787,18 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/sea
 
 #### レスポンス
 
-```json
+```
 {
-  "header":{
-    "resultCode":0,
-    "resultMessage":"success",
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
     "isSuccessful":true
   },
-  "body":{
-    "data":{
-      "reservationCancelId":"20200210113330OepQ1sAzSDa",
-      "requestedDateTime":"2020-02-10 11:33:30",
-      "reservationCancelStatus":"READY"
+  "body": {
+    "data": {
+      "reservationCancelId": "20200210113330OepQ1sAzSDa",
+      "requestedDateTime": "2020-02-10 11:33:30",
+      "reservationCancelStatus": "READY"
     }
   }
 }
@@ -4823,7 +4836,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4846,33 +4859,33 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
 ```
 {
-    "header":{
-        "resultCode":0,
-        "resultMessage":"success",
+    "header": {
+        "resultCode": 0,
+        "resultMessage": "success",
         "isSuccessful":true
     },
-    "body":{
-        "data":[
+    "body": {
+        "data": [
             {
-                "reservationCancelId":"",
-                "searchParameter":{
+                "reservationCancelId": "",
+                "searchParameter": {
 
                 },
-                "requestedDateTime":"",
-                "completedDateTime":"",
-                "reservationCancelStatus":"",
-                "totalCount":0,
-                "successCount":0,
-                "createUser":"",
-                "createdDateTime":"",
-                "updatedDateTime":""
+                "requestedDateTime": "",
+                "completedDateTime": "",
+                "reservationCancelStatus": "",
+                "totalCount": 0,
+                "successCount": 0,
+                "createUser": "",
+                "createdDateTime": "",
+                "updatedDateTime": ""
             }
         ]
     }
@@ -4919,7 +4932,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -4933,20 +4946,20 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "sendType":"1",
-  "requestId":"20190601100630ReZQ6KZzAH0",
-  "startRequestDate":"2019-06-01 00:00:00",
-  "endRequestDate":"2019-06-08 00:00:00",
-  "startCreateDate":"2019-06-01 00:00:00",
-  "endCreateDate":"2019-06-08 00:00:00",
-  "startResultDate":"2019-06-01 00:00:00",
-  "endResultDate":"2019-06-08 00:00:00",
-  "sendNo":"15446859",
-  "recipientNo":"01000000000",
-  "templateId":"TemplateId",
-  "msgStatus":"3",
-  "resultCode":"MTR2",
-  "subResultCode":"MTR2_3",
+  "sendType": "1",
+  "requestId": "20190601100630ReZQ6KZzAH0",
+  "startRequestDate": "2019-06-01 00:00:00",
+  "endRequestDate": "2019-06-08 00:00:00",
+  "startCreateDate": "2019-06-01 00:00:00",
+  "endCreateDate": "2019-06-08 00:00:00",
+  "startResultDate": "2019-06-01 00:00:00",
+  "endResultDate": "2019-06-08 00:00:00",
+  "sendNo": "15446859",
+  "recipientNo": "01000000000",
+  "templateId": "TemplateId",
+  "msgStatus": "3",
+  "resultCode": "MTR2",
+  "subResultCode": "MTR2_3",
   "senderGroupingKey"："{送信者グループキー}",
   "recipientGroupingKey"："{受信者グループキー}",
   "isIncludeTitleAndBody":true
@@ -4978,7 +4991,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "sendType": "1",
     "startRequestDate": "2020-08-01T00:00:00",
@@ -4990,18 +5003,18 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-
 
 ```
 {
-  "header":{
-    "isSuccessful":true,
-    "resultCode":0,
-    "resultMessage":"SUCCESS"
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
   },
-  "body":{
-    "data":{
-      "donwloadId":"20190610100630ReZQ6KZzAH0",
-      "downloadType":"NORMAL",
-      "fileType":"CSV",
-      "downloadStatusCode":"COMPLETED",
-      "expiredDate":"2019-07-09 10:06:00.0"
+  "body": {
+    "data": {
+      "donwloadId": "20190610100630ReZQ6KZzAH0",
+      "downloadType": "NORMAL",
+      "fileType": "CSV",
+      "downloadStatusCode": "COMPLETED",
+      "expiredDate": "2019-07-09 10:06:00.0"
     }
   }
 }
@@ -5040,7 +5053,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5062,33 +5075,33 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
-```json
+```
 {
-  "header":{
-    "isSuccessful":true,
-    "resultCode":0,
-    "resultMessage":"SUCCESS"
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
   },
-  "body":{
-    "totalCount":0,
-    "data":[
+  "body": {
+    "totalCount": 0,
+    "data": [
       {
-        "downloadId":"",
-        "downloadType":"",
-        "fileType":"",
-        "parameter":"",
-        "size":0,
-        "downloadStatusCode":"",
-        "resultMessage":"",
-        "expiredDate":"",
-        "createUser":"",
-        "createDate":"",
-        "updateDate":""
+        "downloadId": "",
+        "downloadType": "",
+        "fileType": "",
+        "parameter": "",
+        "size": 0,
+        "downloadStatusCode": "",
+        "resultMessage": "",
+        "expiredDate": "",
+        "createUser": "",
+        "createDate": "",
+        "updateDate": ""
       }
     ]
   }
@@ -5136,7 +5149,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5149,7 +5162,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reservations/'"${DOWNLOAD_RESERVATION_ID}"'/download' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
@@ -5181,7 +5194,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5201,12 +5214,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5261,7 +5274,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5271,7 +5284,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
   "tagName": "TAG"
 }
@@ -5286,7 +5299,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "tagName": "API-Guide"
 }'
@@ -5294,7 +5307,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5336,7 +5349,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5346,7 +5359,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
   "tagName": "TAG"
 }
@@ -5361,7 +5374,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "tagName": "API-Guide2"
 }'
@@ -5369,7 +5382,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5406,7 +5419,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5419,12 +5432,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5464,7 +5477,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5486,12 +5499,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5564,7 +5577,7 @@ GET /sms/v3.0/appKeys/{appKey}/uids/{uid}
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5577,12 +5590,12 @@ GET /sms/v3.0/appKeys/{appKey}/uids/{uid}
 curl -X GET \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5645,7 +5658,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5655,19 +5668,20 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "uids": [
-  {
-      "uid": "UID",
-      "tagIds": ["ABCD1234"],
-      "contacts": [
+    "uids": [
         {
-          "contactType": "PHONE_NUMBER",
-          "contact": "0100000000"
+            "uid": "UID",
+            "tagIds": ["ABCD1234"],
+            "contacts": [
+                {
+                    "contactType": "PHONE_NUMBER",
+                    "contact": "0100000000"
+                }
+            ]
         }
-      ]
-  }]
+    ]
 }
 ```
 
@@ -5688,11 +5702,13 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/' \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
-    "uids": [{
+    "uids": [
+        {
             "uid": "USER ID",
-            "contacts": [{
+            "contacts": [
+                {
                     "contactType": "PHONE_NUMBER",
                     "contact": "0100000000"
                 }
@@ -5704,7 +5720,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/' \
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5742,7 +5758,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5755,12 +5771,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5797,7 +5813,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5807,9 +5823,9 @@ Content-Type: application/json;charset=UTF-8
 
 [Request body]
 
-```json
+```
 {
-  "phoneNumber": "0100000000"
+    "phoneNumber": "0100000000"
 }
 ```
 
@@ -5822,7 +5838,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}'  \
+-H 'X-Secret-Key: {secretkey}'  \
 -d '{
     "phoneNumber": "0100000000"
 }'
@@ -5831,7 +5847,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5869,7 +5885,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-  "X-Secret-Key": String
+    "X-Secret-Key": String
 }
 ```
 
@@ -5882,12 +5898,12 @@ Content-Type: application/json;charset=UTF-8
 curl -X DELETE \
 https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
--H 'X-Secret-Key:{secretkey}' 
+-H 'X-Secret-Key: {secretkey}' 
 ```
 
 #### レスポンス
 
-```json
+```
 {
     "header": {
         "isSuccessful": true,
@@ -5923,20 +5939,20 @@ SMSサービス内で特定イベントが発生すると、Webフック設定�
 
 [Request body]
 
-```json
+```
 {
-    "hooksId":"202007271010101010sadasdavas",
-    "webhookConfigId":"String",
-    "productName":"SMS",
-    "appKey":"akb3dukdmdjsdSvgk",
-    "event":"UNSUBSCRIBE",
-    "hooks":[
+    "hooksId": "202007271010101010sadasdavas",
+    "webhookConfigId": "String",
+    "productName": "SMS",
+    "appKey": "akb3dukdmdjsdSvgk",
+    "event": "UNSUBSCRIBE",
+    "hooks": [
         {
-            "hookId":"202007271010101010sadasdavas",
-            "recipientNo":"01012341234",
-            "unsubscribeNo":"08012341234",
-            "enterpriseName":"NHN Cloud",
-            "createdDateTime":"2020-09-09T11:25:10.000+09:00"
+            "hookId": "202007271010101010sadasdavas",
+            "recipientNo": "01012341234",
+            "unsubscribeNo": "08012341234",
+            "enterpriseName": "NHN Cloud",
+            "createdDateTime": "2020-09-09T11:25:10.000+09:00"
         }
     ]
 }
@@ -5964,18 +5980,18 @@ curl -X POST \
     -H 'Content-Type: application/json;charset=UTF-8' \
     -H 'X-Toast-Webhook-Signature: application/json;charset=UTF-8' \
     -d '{
-        "hooksId":"202007271010101010sadasdavas",
-        "webhookConfigId":"String",
-        "productName":"Sms",
-        "appKey":"akb3dukdmdjsdSvgk",
-        "event":"UNSUBSCRIBE",
-        "hooks":[
+        "hooksId": "202007271010101010sadasdavas",
+        "webhookConfigId": "String",
+        "productName": "Sms",
+        "appKey": "akb3dukdmdjsdSvgk",
+        "event": "UNSUBSCRIBE",
+        "hooks": [
             {
-                "hookId":"202007271010101010sadasdavas",
-                "recipientNo":"01012341234",
-                "unsubscribeNo":"08012341234",
-                "enterpriseName":"NHN Cloud",
-                "createdDateTime":"2020-09-09T11:25:10.000+09:00"
+                "hookId": "202007271010101010sadasdavas",
+                "recipientNo": "01012341234",
+                "unsubscribeNo": "08012341234",
+                "enterpriseName": "NHN Cloud",
+                "createdDateTime": "2020-09-09T11:25:10.000+09:00"
             }
         ]
     }
