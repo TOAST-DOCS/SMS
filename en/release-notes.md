@@ -1,5 +1,10 @@
 ## Notification > SMS > Release Notes
 
+### July 11, 2023
+#### Feature Updates
+* [API] Fixed a bug where message could be sent with a deleted template
+    * Improved so that message could not be sent with a deleted template.
+
 ### May 30, 2023
 ### Feature Updates
 * [Console] Improved the identity verification process
