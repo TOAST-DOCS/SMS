@@ -487,6 +487,7 @@ curl -X GET \
             "recipientSeq": 1,
             "sendType": "0",
             "messageType": "SMS",
+            "messageCount": 1,
             "userId": "tester",
             "adYn": "N",
             "originCode": "123456789"
@@ -523,9 +524,10 @@ curl -X GET \
 |body.data.recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
+|body.data.messageCount|	Integer|	발송된 메시지 건수(국제 발송)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
-|body.data.originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+|body.data.originCode| String | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
 |body.data.resultMessage|	String|	결과 메시지|
 |body.data.senderGroupingKey|	String|	발신자 그룹 키|
 |body.data.recipientGroupingKey|	String|	수신자 그룹 키|
@@ -1080,7 +1082,7 @@ curl -X GET \
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
-|body.data.originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+|body.data.originCode| String | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
 |body.data.attachFileList[].fileId|	Integer|	파일 ID|
 |body.data.attachFileList[].filePath|	String|	파일 저장경로(내부용) |
 |body.data.attachFileList[].filename|	String|	파일명|
@@ -1513,6 +1515,7 @@ curl -X GET \
             "recipientSeq": 1,
             "sendType": "0",
             "messageType": "AUTH",
+            "messageCount": 1,
             "userId": "tester",
             "adYn": "N",
             "originCode": "123456789",
@@ -1549,9 +1552,10 @@ curl -X GET \
 |body.data.recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
+|body.data.messageCount|Integer|발송된 메시지 건수(국제 발송)|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
-|body.data.originCode| String | 10 | X | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+|body.data.originCode| String | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
 |body.data.resultMessage|	String|	결과 메시지|
 |body.data.senderGroupingKey|	String|	발신자 그룹 키|
 |body.data.recipientGroupingKey|	String|	수신자 그룹 키|
@@ -2032,6 +2036,7 @@ curl -X GET \
             "requestDate": "2021-09-01 03:34:36.0",
             "msgStatus" : "3",
             "msgStatusName": "COMPLETED",
+            "messageCount": 0,
             "resultCode": null,
             "receiveDate": null,
             "createDate": null,
@@ -2061,6 +2066,7 @@ curl -X GET \
 |body.data.requestDate | String | 요청 일시 |
 |body.data.msgStatus | String | 메시지 상태 |
 |body.data.msgStatusName | String | 메시지 상태 이름 |
+|body.data.messageCount| Integer | 발송된 메시지 건수(국제 발송) |
 |body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | 수신 일시 |
 |body.data.createDate | String | 등록 일시 |
@@ -2585,6 +2591,7 @@ curl -X GET \
             "requestDate": "2018-08-13 02:20:44.0",
             "msgStatusName": "COMPLETED",
             "msgStatus": "3",
+            "messageCount": 0,
             "resultCode": "3015",
             "receiveDate": "2018-08-13 02:20:48.0",
             "attachFileList": []
@@ -2611,6 +2618,7 @@ curl -X GET \
 |body.data.recipientNum | String | 수신자 번호 |
 |body.data.requestDate | String | 요청 일시 |
 |body.data.msgStatusName | String | 메시지 상태 이름 |
+|body.data.messageCount| Integer | 발송된 메시지 건수(국제 발송) |
 |body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | 수신 일시 |
 |body.data.attachFileList[].filePath | String | 첨부 파일 - 경로 |
