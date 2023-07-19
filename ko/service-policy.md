@@ -267,7 +267,7 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 | 푸에르토리코 | Puerto Rico | 1787 |  |
 | 카타르 | Qatar | 974 |  |
 | 프랑스령 레위니옹 | Réunion Island | 262 |  |
-| 루마니아 | Romania | 40 |  |핀
+| 루마니아 | Romania | 40 |  |
 | 르완다 | Rwanda | 250 |  |
 | 상투메프린시페 | S. Tomé & Principe | 239 |  |
 | 산마리노 | San Marino | 378 |  |
