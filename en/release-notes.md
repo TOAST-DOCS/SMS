@@ -1,5 +1,13 @@
 ## Notification > SMS > Release Notes
 
+### July 25, 2023
+#### Feature Updates
+* [Console] Improved the identity verification process
+    * Improved so that, when identity verification is rejected or requested again, users can change business registration certificates registered in the organization.
+    * Added the attachment field when verifying identities.
+* [Console] Improved sender number registration process
+    * Added the attachent field when registering sender numbers.
+
 ### July 11, 2023
 #### Feature Updates
 * [API] Fixed a bug where message could be sent with a deleted template
