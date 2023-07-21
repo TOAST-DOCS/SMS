@@ -45,7 +45,7 @@
 | 발송/조회 | false | -2044 | 발송 불가능한 국가로 요청을 보낸 경우 | Invalid countryCode for sending. |
 | 발송/조회 | false | -2045 | 국제 발송을 차단한 경우 | International sending blocked by service. |
 | 발송/조회 | false | -2046 | 차단한 국가에 발송한 경우 | Blocked country by service. |
-| 발송/조회 | false | -2047 | 차단 제한 건 수가 넘은 경우 | Blocked by total indicator. |
+| 발송/조회 | false | -2047 | 차단 제한 건수가 넘은 경우 | Blocked by total indicator. |
 | 발송/조회 | false | -2048 | 국제 발송 본문이 초과된 경우 | International message body exceed maximum length. |
 | 발송/조회 | false | -4000 | 조회 범위가 한달이 넘어간 경우 | Search is possible within one month. |
 | 발송/조회 | false | -8000 | 인증 발송에 인증 문구가 포함되지 않은 경우 | The body must contain auth guide ment. |
