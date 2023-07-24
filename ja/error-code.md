@@ -5,6 +5,7 @@
 | サービス | 成否 | 結果コード | 結果コードメッセージ | APIレスポンスメッセージ | 
 | - | - | - | - | - |
 | 共通 | true | 0 | 成功 | SUCCESS |
+| 共通 | false | 4 | パラメータ検証に失敗しました | |
 | 共通 | false | -1000 | 有効ではないアプリケーションキー | Invalid appKey. |
 | 共通 | false | -1001 | 存在しないアプリケーションキー | Service is not exist. |
 | 共通 | false | -1002 | 使用が終了したアプリケーションキー | Service is disabled. |

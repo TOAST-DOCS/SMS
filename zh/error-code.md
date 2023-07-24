@@ -5,6 +5,7 @@
 | Service | Successful or not | Result code | Result code message | API response message |
 | - | - | - | - | - |
 | Common | true | 0 | Successful | SUCCESS |
+| Common | false | 4 | Parameter validation failed | |
 | Common | false | -1000 | Invalid appkey | Invalid appKey. |
 | Common | false | -1001 | Not exist appkey | Service does not exist. |
 | Common | false | -1002 | Terminated appkey | Service is disabled. |
