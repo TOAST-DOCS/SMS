@@ -96,11 +96,11 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 ### Billing Policy
 + International SMS messages are charged based on successful data transmission from overseas carriers.
 + The device reception result means the success of data transmission to the overseas communication service provider, and may differ from the actual device reception result. Even if the actual user did not receive the message, it may still count towards billing.
-+ International SMS can send long messages through the concat function. In the case of a long message, you will be charged for the number of sendong based on the number of characters.
-+ When concating messages, the number of characters is reduced in the process of processing headers. 
++ International SMS can send long messages through the concat feature. In the case of a long message, you will be charged for the number of messages sent based on character count.
++ When concating messages, the number of characters is reduced while processing headers. 
 + The number of characters and concat standards follow the international SMS standards.
-+ Even if the message is sent by concat, it may be received by the terminal in the form of several short messages rather than a long message, depending on the communication company and terminal policy.
-+ The number of charges per message can be checked with the messageCount field of the detailed inquiry console and detailed inquiry api.
++ Even if the message is sent by concat, it may be received by the device in the form of several short messages rather than a long message, depending on the mobile carrier and device policy.
++ The number of charges per message can be checked with the messageCount field of the detailed inquiry from the console and the detailed inquiry api.
 | encoding | 1 charge | 2 charges | 3 charges | 4 charges | 5 charges |
 | UCS-2 (Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
@@ -323,6 +323,6 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + If you want faster delivery, we recommend that you make a request by reducing the size of attachments.
 
 ## Guide for sending contents according to character set
-+ When received, messages included in EUC-KR normally appears the same as the contents sent.
++ When received, messages included in EUC-KR normally appear the same as the contents sent.
 + When characters not included in EUC-KR are included in the title/body, the contents may appear as broken characters such as '?'.
      + Depending on the type of receiving device and carrier, the contents of the message may appear differently.
