@@ -42,6 +42,12 @@
 | Send/Query | false | -2022 | Request date and time is set earlier than the current time | requestDate is not before currentDate |
 | Send/Query | false | -2023 | Title or body includes characters that are not allowed (e.g. emojis) | Unacceptable characters in title and body|
 | Send/Query | false | -2024 |  International delivery is sent with LMS/MMS | LMS/MMS Type is not sent to outside of Korea. |
+| Send/Query | false | -2044 | Request is sent to unavailable country | Invalid countryCode for sending. |
+| Send/Query | false | -2045 | International sending is blocked | International sending blocked by service. |
+| Send/Query | false | -2046 | Sent to blocked country | Blocked country by service. |
+| Send/Query | false | -2047 | Exceeded the block limit | Blocked by total indicator. |
+| Send/Query | false | -2048 | Exceeded the international message body limit | International message body exceed maximum length. |
+| Send/Query | false | -4000 | Query range is more than a month | Search is possible within one month. |
 | Send/Query | false | -4000 | Query range is more than a month | Search is possible within one month. |
 | Send/Query | false | -8000 | If authenticaiton doesn't include a authentication statement | The body must contain auth guide ment. |
 | Template | false | -2100 | Template ID is missing | The templateId can not be empty. |
