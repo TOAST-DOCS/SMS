@@ -101,8 +101,10 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + The number of characters and concat standards follow the international SMS standards.
 + Even if the message is sent by concat, it may be received by the device in the form of several short messages rather than a long message, depending on the mobile carrier and device policy.
 + The number of charges per message can be checked with the messageCount field of the detailed inquiry from the console and the detailed inquiry api.
+
 | encoding | 1 charge | 2 charges | 3 charges | 4 charges | 5 charges |
-| UCS-2 (Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
+| --- | --- | --- | --- | --- | --- |
+| UCS-2<br>(Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
 
 ### Countries Available for Message Delivery
