@@ -9,7 +9,7 @@
 | Common | false | -1000 | Invalid appkey | Invalid appKey. |
 | Common | false | -1001 | Not exist appkey | Service does not exist. |
 | Common | false | -1002 | Terminated appkey | Service is disabled. |
-| Common | false | -1003 | Member not inlcuded in the project | Not project memeber id. |
+| Common | false | -1003 | Member not included in the project | Not project member id. |
 | Common | false | -1004 | Not allowed IP | Not allow ip. |
 | Common | false | -1007 | Invalid member | MemberType is invalid. |
 | Common | false | -1008 | Blocked project | Service is blocked. |
@@ -42,8 +42,13 @@
 | Send/Query | false | -2022 | Request date and time is set earlier than the current time | requestDate is not before currentDate |
 | Send/Query | false | -2023 | Title or body includes characters that are not allowed (e.g. emojis) | Unacceptable characters in title and body|
 | Send/Query | false | -2024 |  International delivery is sent with LMS/MMS | LMS/MMS Type is not sent to outside of Korea. |
+| Send/Query | false | -2044 | Request is sent to unavailable country | Invalid countryCode for sending. |
+| Send/Query | false | -2045 | International sending is blocked | International sending blocked by service. |
+| Send/Query | false | -2046 | Sent to blocked country | Blocked country by service. |
+| Send/Query | false | -2047 | Exceeded the block limit | Blocked by total indicator. |
+| Send/Query | false | -2048 | Exceeded the international message body limit | International message body exceed maximum length. |
 | Send/Query | false | -4000 | Query range is more than a month | Search is possible within one month. |
-| Send/Query | false | -8000 | If authenticaiton doesn't include a authentication statement | The body must contain auth guide ment. |
+| Send/Query | false | -8000 | If authentication doesn't include a authentication statement | The body must contain auth guide ment. |
 | Template | false | -2100 | Template ID is missing | The templateId can not be empty. |
 | Template | false | -2101 | Already registered Template ID | Already used templateId. |
 | Template | false | -2102 | Template name is missing | The template name can not be empty. |
@@ -51,7 +56,7 @@
 | Template | false | -2104 | Delivery type is missing (0: sms, 1: mms) | The sendType can not be empty.(0-sms, 1-mms) |
 | Template | false | -2105 | Body is missing | The body can not be empty. |
 | Template | false | -2106 | Use or not is invalid | UseYn is invalid. |
-| Template | false | -2107 | Invalid Template ID(When modifing/deleting) | Invalid template. |
+| Template | false | -2107 | Invalid Template ID(When modifying/deleting) | Invalid template. |
 | Template | false | -2108 | Category ID is missing | The categoryId can not be empty. |
 | Template | false | -2109 | Template ID exceeds 50 characters | templateId length must be under 50. |
 | Template | false | -2110 | Not exist Template | template is not exist. |
@@ -79,12 +84,12 @@
 | Statistics | false | -2701 | Invalid statistics search parameter | Invalid statistics search parameter. |
 | Statistics | false | -2703 | Invalid detail range of statistics | Invalid duration time. |
 | Statistics | false | -2704 | Invalid statistics parameter | Invalid stats parameter. |
-| 080 Call Regection | false | -6000 | Call rejection is not used | Block service is not joined. |
-| 080 Call Regection | false | -6001 | Refused recipient number | Recipient Number is refused. |
-| 080 Call Regection | false | -6003 | Body does not include guide message on call rejection | The body must contain block guide ment. |
-| 080 Call Regection | false | -6004 | Call rejection numbers are not in service | This is not a joined unsubscribeNo. |
+| 080 Call Rejection | false | -6000 | Call rejection is not used | Block service is not joined. |
+| 080 Call Rejection | false | -6001 | Refused recipient number | Recipient Number is refused. |
+| 080 Call Rejection | false | -6003 | Body does not include guide message on call rejection | The body must contain block guide ment. |
+| 080 Call Rejection | false | -6004 | Call rejection numbers are not in service | This is not a joined unsubscribeNo. |
 | Tag | false | -7000 | Internal tag error (failed to call API) | Fail to call Tag API. |
-| Tag | false | -7001 | Invalid paramter | Invalid parameter. |
+| Tag | false | -7001 | Invalid parameter | Invalid parameter. |
 | Tag | false | -7002 | Failed to read .csv file | Invalid csv read. |
 
 ## Result Code of Receiving
@@ -133,15 +138,15 @@
 ## Query Delivery Codes
 ### Result Code of Receiving
 
-| Code Value | Description | 
+| Code Value | Description |
 | - | - |
-| MTR1 | Successful | 
-| MTR2 | Failed | 
+| MTR1 | Successful |
+| MTR2 | Failed |
 
-### Detail Result Code of Receiving 
+### Detail Result Code of Receiving
 
-| Code Value | Description | 
+| Code Value | Description |
 | - | - |
-| MTR2_1 | Validity Check Failed | 
-| MTR2_2 | Issue of Telecom Provider | 
+| MTR2_1 | Validity Check Failed |
+| MTR2_2 | Issue of Telecom Provider |
 | MTR2_3 | Issue of Device | 

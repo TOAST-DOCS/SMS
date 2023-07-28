@@ -1,12 +1,12 @@
 ## Notification > SMS > API v2.2 Guide
 
-## v2.2 API Overview  
+## v2.2 API Overview
 
 ### Changes from v 2.1
 1. Modified to raise request parameter for delivery via template to a higher on the priority.
-   - e.g.) Modified, that data saved on a template cannot be used when request parameter includes title, body, sender number, or attached files, if delivery is requested via template
-2. Validity checks tightend for title/body in text delivery.
-    * More restrictions in the length of title/body, like below. 
+    - e.g.) Modified, that data saved on a template cannot be used when request parameter includes title, body, sender number, or attached files, if delivery is requested via template
+2. Validation tightened for title/body in text delivery.
+    * More restrictions in the length of title/body, like below.
     * SMS (Body: up to 255 characters), LMS/MMS (title: up to 120, and body: up to 4000 characters)
 
 ### [API Domain]
@@ -247,7 +247,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "body","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
 ```
 
-### List Delivery of Short SMS 
+### List Delivery of Short SMS
 
 #### Request
 
@@ -266,7 +266,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
-* To query registered date and sent date at the same time, sent date shall be ignored. 
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
@@ -365,7 +365,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
-### Query Delivery of Short SMS 
+### Query Delivery of Short SMS
 
 #### Request
 
@@ -561,7 +561,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.sendResultList[].recipientSeq| Integer | Recipient sequence (mtPr) |
 |body.data.sendResultList[].recipientGroupingKey| String | Recipient's group key |
 
-#### Example of Sending Long MMS 
+#### Example of Sending Long MMS
 
 | Http metho | URL |
 | - | - |
@@ -680,11 +680,11 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
-- Restrictions for Attached Images 
-    * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 2 
-    * Size of Attached Image: Less than 300KB 
-    * Resolution of Image: Less than 1000 x 1000  
+- Restrictions for Attached Images
+    - Supported Codec: .jpg, .jpeg
+    - Number of Attached Images: 3 or less
+    - Size of Attached Image: Less than 300KB per image. But, less than 8000KB in total if the number of attached images is 3
+    - Resolution of Image: Less than 1000*1000
 
 ### List Delivery of Long MMS Request
 
@@ -835,7 +835,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
 
-### Query Single Delivery of Long MMS 
+### Query Single Delivery of Long MMS
 
 #### Request
 
@@ -1248,7 +1248,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Query Single SMS Delivery for Authentication
 
-#### Request	
+#### Request
 
 [URL]
 
@@ -1355,7 +1355,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Request Body]
-Same as Send SMS in the above. 
+Same as Send SMS in the above.
 [[See Request Body](./api-guide/#sms_2)]
 
 <span style="color:red"> However, following messages must be included in the body. </span>
@@ -1364,11 +1364,11 @@ Same as Send SMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 
-### Send MMS for Advertisement 
+### Send MMS for Advertisement
 [URL]
 
 ```
@@ -1383,7 +1383,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Request Body]
-Same as Send MMS in the above. 
+Same as Send MMS in the above.
 [[See Request Body](./api-guide/#mms_1)]
 
 <span style="color:red"> However, following messages must be included in the body. </span>
@@ -1392,16 +1392,16 @@ Same as Send MMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 
 
 ## Query Messages by Result Updates
-* The API is queried as of the update time of message delivery result. 
-* Please apply this API to import delivery results on device from service. 
+* The API is queried as of the update time of message delivery result.
+* Please apply this API to import delivery results on device from service.
 
-### Query Messages 
+### Query Messages
 
 #### Request
 
@@ -1419,6 +1419,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Query parameter]
+* The range between search start time and search end time is limited to one day.
 
 |Value| Type | Required | Description |
 |---|---|---|---|
@@ -1481,7 +1482,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## Tag Delivery
 
-### Send Tagged SMS 
+### Send Tagged SMS
 
 #### Request
 
@@ -1558,7 +1559,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Send Tagged LMS
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1638,9 +1639,9 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestId|	String| Request ID |
 
 
-### List Tag Delivery  
+### List Tag Delivery
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1735,7 +1736,7 @@ GET /sms/v2.2/appKeys/{appKey}/tag-sender
 |body.data[].updateDate | String | Date and time of modification |
 
 
-### List Recipients of Tag Delivery 
+### List Recipients of Tag Delivery
 
 #### Request
 
@@ -1816,7 +1817,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.createDate | String | Date and time of registration |
 |body.data.updateDate | String | Date of modification |
 
-### List Recipient Details of Tagged Delivery  
+### List Recipient Details of Tagged Delivery
 
 #### Request
 
@@ -1841,7 +1842,7 @@ Content-Type: application/json;charset=UTF-8
 X
 ```
 
-#### Response 
+#### Response
 ```
 {
     "header": {
@@ -2003,7 +2004,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Register
 
-####  Request 
+####  Request
 
 [URL]
 
@@ -2039,7 +2040,7 @@ Content-Type: application/json;charset=UTF-8
 | createUser |	String| 100 | Optional | Registered user |
 
 ##### Description
-- categoryParentId, if empty, is registered right below the highest category. 
+- categoryParentId, if empty, is registered right below the highest category.
 
 #### Response
 
@@ -2079,9 +2080,9 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].useYn|	String| Use or not |
 |body.data[].createUser|	String| Registered user |
 
-### List Category  
+### List Category
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2155,9 +2156,9 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].updateDate|	String| Date of modification |
 |body.data[].updateUser|	String| Modified user |
 
-### Get Category 
+### Get Category
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2220,9 +2221,9 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].updateUser|	String| Modified user |
 
 
-### Modify 
+### Modify
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2271,7 +2272,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Delete
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2366,7 +2367,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-#### Example of Registration 
+#### Example of Registration
 
 | Http method | URL |
 | - | - |
@@ -2405,27 +2406,27 @@ Content-Type: application/json;charset=UTF-8
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
-- Restrictions for Attached Images 
-    * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 2 
-    * Size of Attached Image: Less than 300KB 
-    * Resolution of Image: Less than 1000 x 1000  
+- Restrictions for Attached Images
+    * Supported Codec: .jpg
+    * Number of Attached Images: Less than 2
+    * Size of Attached Image: Less than 300KB
+    * Resolution of Image: Less than 1000 x 1000
 
 
 ### Send Templates (requiring no body updates)
 
-#### Example 
+#### Example
 
 |Http method| Type | URL|
 | - | - | - |
 | POST | SMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
 | POST | MMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
-For Request URL, choose a delivery type selected to register templates.  
+For Request URL, choose a delivery type selected to register templates.
 
 **If request parameter body is empty, replace it with the body of the corresponding templateId.**
 
-[Request body] Replace with key and value for those for replacement. 
+[Request body] Replace with key and value for those for replacement.
 
 ```
 {
@@ -2484,9 +2485,9 @@ For Request URL, choose a delivery type selected to register templates.
 
 **If template ID and request parameter body include values, sender number and body message are not replaced with template. **
 
-Nevertheless, with the input of template ID, it is available to query with the template. 
+Nevertheless, with the input of template ID, it is available to query with the template.
 
-Such case is applicable when template needs to be modified after queried. 
+Such case is applicable when template needs to be modified after queried.
 
 [Request body]
 
@@ -2535,7 +2536,7 @@ Such case is applicable when template needs to be modified after queried.
 ```
 
 
-### List Templates 
+### List Templates
 
 #### Request
 
@@ -2759,7 +2760,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Modify
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2892,7 +2893,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### Query Target of Rejection 
+### Query Target of Rejection
 
 #### Request
 
@@ -3057,7 +3058,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## Query Statistics
 
-### Query Integrated Statistics 
+### Query Integrated Statistics
 
 #### Request
 
@@ -3129,7 +3130,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## Scheduled Delivery
 
-### List Scheduled Delivery 
+### List Scheduled Delivery
 
 #### Request
 
@@ -3229,7 +3230,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createDate|	String| Date of registration |
 |body.data[].updateDate|	String| Date of modification |
 
-### Query Detail Scheduled Delivery 
+### Query Detail Scheduled Delivery
 
 #### Request
 
@@ -3319,7 +3320,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.attachFileList[].fileName|	String| File name |
 
 
-### Cancel Scheduled Delivery 
+### Cancel Scheduled Delivery
 
 #### Request
 
@@ -3381,11 +3382,11 @@ Content-Type: application/json;charset=UTF-8
 |body.data.requestedCount|	Integer| Number of failed requests |
 |body.data.canceledCount|	Integer| Number of successful cancellation |
 
-## Download Delivery Result Files 
+## Download Delivery Result Files
 
-### Request for Creating Query Files 
+### Request for Creating Query Files
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -3554,9 +3555,9 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].updateDate| String | Date and time of completion or failure of file creation |
 
 
-### Request for Downloading Delivery Result Files 
+### Request for Downloading Delivery Result Files
 
-#### Request 
+#### Request
 
 [URL]
 

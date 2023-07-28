@@ -3,7 +3,7 @@
 <span id='fabrication-number'></span>
 ## Prevention of Caller Number Fabrication
 + To enable SMS, your own (or corporate-owned) caller number must be registered first.
-+ If you use other's (or other company's) caller number,  in accordance with <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">(Notice 2015-32 by the Ministry of Science, ICT and Future Planning) Public notice on preventing damage on users due to falsified phone numbers]</a> and <a href="https://www.toast.com/terms/terms-service" target="_blank">[NHN Cloud Terms of Services]</a>, take note that following measures may be taken.
++ If you use other's (or other company's) caller number, in accordance with <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">(Notice 2015-32 by the Ministry of Science, ICT and Future Planning) Public notice on preventing damage on users due to falsified phone numbers]</a> and <a href="https://www.toast.com/terms/terms-service" target="_blank">[NHN Cloud Terms of Services]</a>, take note that following measures may be taken.
 
 
 ```
@@ -68,11 +68,9 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
 
 <span id="rejection-of-receiving-080"></span>
-
 ### Unsubscribing 080 Numbers
 + With Unsubscribe 080 Numbers, recipients can reject receiving ad messages.
 + Ads must be sent along with how to unsubscribe for free, so that recipients can reject or withdraw consent to receiving ads, without a charge.
-
 ### Please Check
 + Charges for Unsubscribe 080 Numbers are not based on the delivery time, but upon the public release of each number (monthly fixed charges).
 + It takes about 3 to 4 days to get a new number for unsubscription, so one-off or repetitive service cancellation or application is not recommended.
@@ -90,14 +88,24 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + In countries with strict international SMS message policies such as China and Vietnam, messages can be sent normally only if the content of the sending message is a verification number (OTP).
 + To send messages properly, it is recommended to enter the verification number (OTP) as follows. (Example: Your verification code is 00000)
 + If you wish to send marketing messages, please contact the [Customer Center](https://www.nhncloud.com/kr/support/inquiry) in advance.
-+ To send international SMS messages properly, some characters may be added to the message content according to country-specific policies.
++ To send international SMS messages normally, phrases of up to 12 characters may be added to messages according to country-specific policies, and the phrases are included in the number of charged characters.
 + Overseas carriers generally only keep sending logs within 7 days, so it may be difficult to confirm the cause of non-receipt depending on the time of inquiry.
 + It may take some time to confirm the cause of non-receipt through overseas carriers, and may be difficult to determine the exact cause.
 + Transmission quality by country is affected by the network and infrastructure environment in that country and may differ from the domestic environment.
 
 ### Billing Policy
 + International SMS messages are charged based on successful data transmission from overseas carriers.
-+ The device reception result means successful data transmission to overseas carriers and may differ from the result of arriving at the actual device. Even if real users are not receiving the message, they may be included in the billing target.
++ The device reception result means the success of data transmission to the overseas communication service provider, and may differ from the actual device reception result. Even if the actual user did not receive the message, it may still count towards billing.
++ International SMS can send long messages through the concat feature. In the case of a long message, you will be charged for the number of messages sent based on character count.
++ When concating messages, the number of characters is reduced while processing headers.
++ The number of characters and concat standards follow the international SMS standards.
++ Even if the message is sent by concat, it may be received by the device in the form of several short messages rather than a long message, depending on the mobile carrier and device policy.
++ The number of charges per message can be checked with the messageCount field of the detailed inquiry from the console and the detailed inquiry api.
+
+| encoding | 1 charge | 2 charges | 3 charges | 4 charges | 5 charges |
+| --- | --- | --- | --- | --- | --- |
+| UCS-2<br>(Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
+| GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
 
 ### Countries Available for Message Delivery
 | Country name  | Country name | Country code | Note |
@@ -121,7 +129,7 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Bangladesh | Bangladesh | 880 |  |
 | Barbados | Barbados | 1246 |  |
 | Belarus | Belarus | 375 |  |
-| Belgium | Belgium | 32 | - Unicode (Chinese) support may not be available |
+| Belgium | Belgium | 32 | - UCS-2 (Chinese) support may not be available |
 | Belize | Belize | 501 |  |
 | Benin | Benin | 229 |  |
 | Bermuda | Bermuda | 1441 |  |
@@ -142,7 +150,7 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Central African Republic | Central African Republic | 236 |  |
 | Chad | Chad | 235 |  |
 | Chile | Chile | 56 |  |
-| China | China | 86 | - Sending the same message more than three times in a row to a single recipient may result in spamming.<br>- You can only send a maximum of 15 times to one recipient per day<br>- Sending messages with URL links is not allowed<br>- Marketing content must be pre-approved | 
+| China | China | 86 | - Sending the same message more than three times in a row to a single recipient may result in spamming.<br>- You can only send a maximum of 15 times to one recipient per day<br>- Sending messages with URL links is not allowed<br>- Marketing content must be pre-approved<br>- UCS-2 (Chinese) encoding used  | 
 | Cocos Keeling Islands (Cook Islands) | Cocos Keeling Islands (Cook Islands) | 682 |  |
 | Colombia | Colombia | 57 |  |
 | Congo | Congo | 242 |  |
@@ -254,7 +262,7 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Panama | Panama | 507 |  |
 | Papua New Guinea | Papua New Guinea | 675 |  |
 | Papua New Guinea | Paraguay | 595 |  |
-| Peru | Peru | 51 | - Unicode (Chinese) support may not be available |
+| Peru | Peru | 51 | - UCS-2 (Chinese) support may not be available |
 | Philippines | Philippines | 63 | - Messages with URLs can be spammed |
 | Poland | Poland | 48 |  |
 | Portugal | Portugal | 351 |  |
@@ -308,10 +316,15 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Uruguay | Uruguay | 598 |  |
 | Uzbekistan | Uzbekistan | 998 |  |
 | Venezuela | Venezuela | 58 |  |
-| Vietnam | Vietnam | 84 | - Vietnamese authorities' strong filtering of international SMS may alter the content of the message before reaching to the device<br>- Marketing content must be pre-approved |
+| Vietnam | Vietnam | 84 | - Vietnamese authorities' strong filtering of international SMS may alter the content of the message before reaching to the device<br>-Only two verification message types allowed<br>: Your verification code is 000000<br>: Your OTP code is 000000<br>- Marketing content must be pre-approved |
 | Virgin Islands (US) | Virgin Islands (US) |  |  |
 
 ## Guide for Sending Speed Depending on the Size of MMS Attachments
 + When sending MMS, there may be a difference in the sending speed depending on the size of the attachments.
 + The larger the size of uploaded attachments is, the slower the sending speed and the update of reception result may become due to carrier's sending speed restrictions.
 + If you want faster delivery, we recommend that you make a request by reducing the size of attachments.
+
+## Guide for sending contents according to character set
++ When received, messages included in EUC-KR normally appear the same as the contents sent.
++ When characters not included in EUC-KR are included in the title/body, the contents may appear as broken characters such as '?'.
+    + Depending on the type of receiving device and carrier, the contents of the message may appear differently.
