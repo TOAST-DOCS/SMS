@@ -3518,8 +3518,6 @@ curl -X GET \
 |body.data.events[].{statsCriteriaValue}.sent |	Integer|	Number of sent items|
 |body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	Number of failures|
 |body.data.events[].{statsCriteriaValue}.received |	Integer|	Number of successes|
-
-
 |body.data.events[].{statsCriteriaValue}.pending |	Integer|	Number of pending items|
 
 ### (Old)Query Integrated Statistics 
