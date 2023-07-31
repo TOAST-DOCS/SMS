@@ -1,4 +1,4 @@
-## Notification > SMS > API v2.0 Guide 
+## Notification > SMS > API v2.0 Guide
 
 ## v2.0 API Overview
 
@@ -22,9 +22,9 @@
 
 ## SMS for Short-Messages
 
-### Send Short SMS 
+### Send Short SMS
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -184,7 +184,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 </table>
 
 
-[Request body] { } refers to a required value. 
+[Request body] { } refers to a required value.
 ```
 {
     "body": "{body}",
@@ -231,9 +231,9 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.0/appKeys/{appKey}/sender/sms -d '{"body": "{body}","sendNo": "{sender number}","recipientList": [{"internationalRecipientNo": "{recipient number including country code}"},{"recipientNo":"{recipient number}","countryCode":"{country code}"}],"userId": ""}'
 ```
 
-### List Delivery of Short SMS 
+### List Delivery of Short SMS
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -248,7 +248,7 @@ Content-Type: application/json;charset=UTF-8
 |---|---|---|
 |appKey|	String| Original appkey |
 
-[Query parameter] Number 1 or 2 is conditionally required  
+[Query parameter] Number 1 or 2 is conditionally required
 
 |Value| Type | Required | Description |
 |---|---|---|---|
@@ -341,7 +341,7 @@ Content-Type: application/json;charset=UTF-8
 |-- sendType|	String| Delivery type (0:SMS, 1:MMS, 2:Auth) |
 |-- userId|	String| Delivery request ID |
 
-### Query Delivery of Short SMS  
+### Query Delivery of Short SMS
 
 #### Request
 
@@ -434,7 +434,7 @@ Content-Type: application/json;charset=UTF-8
 |-- sendType|	String| Delivery type (0:SMS, 1:MMS, 2:Auth) |
 |-- userId|	String| Delivery request ID |
 
-## Long MMS  
+## Long MMS
 
 ### Send Long MMS (attached file excluded)
 
@@ -545,7 +545,7 @@ Content-Type: application/json;charset=UTF-8
 </table>
 
 
-[Request body] { } refers to a required value. 
+[Request body] { } refers to a required value.
 ```
 {
     "title": "{title}",
@@ -711,7 +711,7 @@ Content-Type: application/json;charset=UTF-8
 </table>
 
 
-[Request body] { } refers to a required value. 
+[Request body] { } refers to a required value.
 ```
 {
     "title": "{Title}",
@@ -787,7 +787,7 @@ Content-Type: application/json;charset=UTF-8
 |pageNum|	Integer| Optional | Page number (default : 1) |
 |pageSize|	Integer| Optional | Number of queries  (default : 15) |
 
-#### Response 
+#### Response
 
 ```
 {
@@ -895,7 +895,7 @@ Content-Type: application/json;charset=UTF-8
 |--- uploadType|	String|	Upload Type|
 |--- existFileName|	String|	Name of saved file|
 
-### Query Single Delivery of Long MMS  
+### Query Single Delivery of Long MMS
 
 #### Request
 
@@ -1025,7 +1025,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Send SMS for Authenticataion
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1115,7 +1115,7 @@ Content-Type: application/json;charset=UTF-8
 |--- resultCode| Integer | Result code |
 |--- resultMessage| String | Result messsage |
 
-#### Example 
+#### Example
 
 <table>
   <thead>
@@ -1174,7 +1174,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 
 ### List SMS Delivery for Authentication
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1189,7 +1189,7 @@ Content-Type: application/json;charset=UTF-8
 |---|----|---|
 |appKey|	String| Original appkey |
 
-[Query parameter] No. 1 or 2 is conditionally required 
+[Query parameter] No. 1 or 2 is conditionally required
 
 |Value| Type | Required | Description |
 |---|---|---|---|
@@ -1284,7 +1284,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Query Single SMS Delivery for Authentication
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1306,7 +1306,7 @@ Content-Type: application/json;charset=UTF-8
 |---|----|---|---|
 |mtPr|	Integer| Required | Detail delivery ID |
 
-#### Response 
+#### Response
 
 ```
 {
@@ -1375,7 +1375,7 @@ Content-Type: application/json;charset=UTF-8
 |-- sendType|	String| Delivery type (0:SMS, 1:MMS, 2:Auth) |
 |-- userId|	String| ID of delivery request |
 
-## Ad Messages 
+## Ad Messages
 ### Send SMS for Advertisement
 [URL]
 
@@ -1391,7 +1391,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Request Body]
-Same as Send SMS in the above. 
+Same as Send SMS in the above.
 [[See Request Body](./api-guide/#sms_2)]
 
 <span style="color:red"> However, following messages must be included in the body. </span>
@@ -1400,7 +1400,7 @@ Same as Send SMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 
@@ -1419,7 +1419,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Request Body]
-Same as Send MMS in the above. 
+Same as Send MMS in the above.
 [[See Request Body](./api-guide/#mms_1)]
 
 <span style="color:red"> However, following messages must be included in the body. </span>
@@ -1428,7 +1428,7 @@ Same as Send MMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 
@@ -1438,7 +1438,7 @@ Same as Send MMS in the above.
 
 ### Send Tagged SMS
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1516,7 +1516,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Send Tagged LMS
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1599,9 +1599,9 @@ Content-Type: application/json;charset=UTF-8
 |-- requestId|	String| Request ID |
 
 
-### List Tag Delivery 
+### List Tag Delivery
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1700,7 +1700,7 @@ X
 |-- updateDate | String | Date and time of modification |
 
 
-### List Recipients of Tag Delivery 
+### List Recipients of Tag Delivery
 
 #### Request
 
@@ -1905,7 +1905,7 @@ X
 
 ### Send Templates (requiring no body updates)
 
-#### Example 
+#### Example
 ![[그림 1] 템플릿 등록](http://static.toastoven.net/prod_sms/img_26.png)
 
 <table>
@@ -1930,11 +1930,11 @@ X
   </tbody>
 </table>
 
-For Request URL, choose a delivery type selected to register templates.  
+For Request URL, choose a delivery type selected to register templates.
 
 **If request parameter body is empty, replace it with the body of the corresponding templateId.**
 
-[Request body] Replace with key and value for those for replacement. 
+[Request body] Replace with key and value for those for replacement.
 
 ```
 {
@@ -1971,7 +1971,7 @@ For Request URL, choose a delivery type selected to register templates.
 
 ### Send Templates (requiring body updates)
 
-#### Example of Sending Templates  
+#### Example of Sending Templates
 
 <table>
   <thead>
@@ -2000,9 +2000,9 @@ For Request URL, choose a delivery type selected to register templates.
 
 **If template ID and request parameter body include values, sender number and body message are not replaced with template. **
 
-Nevertheless, with the input of template ID, it is available to query with the template. 
+Nevertheless, with the input of template ID, it is available to query with the template.
 
-Such case is applicable when template needs to be modified after queried. 
+Such case is applicable when template needs to be modified after queried.
 
 [Request body]
 
@@ -2037,7 +2037,7 @@ Such case is applicable when template needs to be modified after queried.
 ```
 
 
-### List Templates 
+### List Templates
 
 #### Request
 
@@ -2159,7 +2159,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Query Single Template
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2262,6 +2262,7 @@ Content-Type: application/json;charset=UTF-8
 |--- createUser|	String| Registered user of attached files |
 
 ## Rejection of Receiving 080 Numbers
+
 ### Register Unsubsribers
 
 #### Request
@@ -2305,9 +2306,9 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### Query Target of Rejection 
+### Query Target of Rejection
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2393,7 +2394,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-## Sender Number 
+## Sender Number
 
 ### List Registered Sender Numbers API
 
@@ -2468,9 +2469,9 @@ Content-Type: application/json;charset=UTF-8
 |-- updateDate | String | Date and time of modification |
 |-- updateUser | String | Modifier |
 
-## Query Statistics 
+## Query Statistics
 
-### Query Integrated Statistics 
+### Query Integrated Statistics
 
 #### Request
 

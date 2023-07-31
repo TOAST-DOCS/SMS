@@ -487,6 +487,7 @@ curl -X GET \
             "recipientSeq": 1,
             "sendType": "0",
             "messageType": "SMS",
+            "messageCount": 1,
             "userId": "tester",
             "adYn": "N",
             "originCode": "123456789"
@@ -523,9 +524,10 @@ curl -X GET \
 |body.data.recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data.messageCount|	Integer|	Number of messages sent (international sending)|
 |body.data.userId|	String| Delivery request ID |
 |body.data.adYn|	String| Ad or not |
-|body.data.originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+|body.data.originCode| String | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
 |body.data.resultMessage|	String|	Result message |
 |body.data.senderGroupingKey|	String| Sender's group key |
 |body.data.recipientGroupingKey|	String| Recipient's group key |
@@ -1080,7 +1082,7 @@ curl -X GET \
 |body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data.userId|	String| Delivery request ID |
 |body.data.adYn|	String| Ad or not |
-|body.data.originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+|body.data.originCode| String | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
 |body.data.attachFileList[].fileId|	Integer| File ID |
 |body.data.attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
 |body.data.attachFileList[].fileName|	String| File name |
@@ -1514,6 +1516,7 @@ curl -X GET \
             "recipientSeq": 1,
             "sendType": "0",
             "messageType": "AUTH",
+            "messageCount": 1,
             "userId": "tester",
             "adYn": "N",
             "originCode": "123456789",
@@ -1550,9 +1553,10 @@ curl -X GET \
 |body.data.recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data.messageCount|Integer| Number of messages sent (international sending)|
 |body.data.userId|	String| Request ID for sending |
 |body.data.adYn|	String| Ad or not |
-|body.data.originCode| String | 10 | X | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+|body.data.originCode| String | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
 |body.data.resultMessage|	String| Result message |
 |body.data.senderGroupingKey|	String| Sender's group key |
 |body.data.recipientGroupingKey|	String| Recipient's group key |
@@ -2035,6 +2039,7 @@ curl -X GET \
             "requestDate": "2021-09-01 03:34:36.0",
             "msgStatus": "3",
             "msgStatusName": "COMPLETED",
+            "messageCount": 0,
             "resultCode": null,
             "receiveDate": null,
             "createDate": null,
@@ -2064,6 +2069,7 @@ curl -X GET \
 |body.data.requestDate | String | Date and time of request |
 |body.data.msgStatus | String | Message status |
 |body.data.msgStatusName | String | Message status name|
+|body.data.messageCount| Integer | Number of messages sent (international sending) |
 |body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | Data and time of receiving |
 |body.data.createDate | String | Date and time of registration |
@@ -2588,6 +2594,7 @@ curl -X GET \
             "requestDate": "2018-08-13 02:20:44.0",
             "msgStatusName": "COMPLETED",
             "msgStatus": "3",
+            "messageCount": 0,
             "resultCode": "3015",
             "receiveDate": "2018-08-13 02:20:48.0",
             "attachFileList": []
@@ -2614,6 +2621,7 @@ curl -X GET \
 |body.data.recipientNum | String | Recipient number |
 |body.data.requestDate | String | Date and time of request |
 |body.data.msgStatusName | String | Message status name |
+|body.data.messageCount| Integer | Number of messages sent (international sending) |
 |body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | Date and time of receiving |
 |body.data.attachFileList[].filePath | String | Attached file- path |

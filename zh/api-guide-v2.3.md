@@ -1,9 +1,9 @@
 ## Notification > SMS > API v2.3 Guide
 
-## v2.3 API Overview  
+## v2.3 API Overview
 
 ### Changes from v 2.2
-1. Validity checks for the main text for Send Authentication SMS API has been added.
+1. Validation for the main text for Send Authentication SMS API has been added.
 - For more details, see [[Send Authentication SMS API](./api-guide/#precautions-authword)].
 
 ### [API Domain]
@@ -253,7 +253,7 @@ curl -X POST \
 }
 ```
 
-### List Delivery of Short SMS 
+### List Delivery of Short SMS
 
 #### Request
 
@@ -272,7 +272,7 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 * requestId or startRequestDate + endRequestDate or startCreateDate + endCreateDate is required.
-* To query registered date and sent date at the same time, sent date shall be ignored. 
+* To query registered date and sent date at the same time, sent date shall be ignored.
 
 |Value| Type |	Max Length | Required | Description |
 |---|---|---|---|---|
@@ -378,7 +378,7 @@ curl -X GET \
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
-### Query Delivery of Short SMS 
+### Query Delivery of Short SMS
 
 #### Request
 
@@ -603,7 +603,7 @@ curl -X POST \
 |body.data.sendResultList[].recipientSeq| Integer | Recipient sequence (mtPr) |
 |body.data.sendResultList[].recipientGroupingKey| String | Recipient's group key |
 
-#### Example of Sending Long MMS 
+#### Example of Sending Long MMS
 
 | Http metho | URL |
 | - | - |
@@ -717,11 +717,11 @@ curl -X POST \
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
-- Restrictions for Attached Images 
-    * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 2 
-    * Size of Attached Image: Less than 300KB 
-    * Resolution of Image: Less than 1000 x 1000  
+- Restrictions for Attached Images
+  - Supported Codec: .jpg, .jpeg
+  - Number of Attached Images: 3 or less
+  - Size of Attached Image: Less than 300KB per image. But, less than 8000KB in total if the number of attached images is 3
+  - Resolution of Image: Less than 1000*1000
 
 ### List Delivery of Long MMS Request
 
@@ -861,7 +861,7 @@ curl -X GET \
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
 
-### Query Single Delivery of Long MMS 
+### Query Single Delivery of Long MMS
 
 #### Request
 
@@ -983,14 +983,14 @@ curl -X GET \
 ### Send SMS for Authentication
 
 <span id="precautions-authword"></span>
-1. Guide for authentication words required to be included for sending authentication SMS 
+1. Guide for authentication words required to be included for sending authentication SMS
 
 | Category | Authentication Words |
 | --- | --- |
 | Authentication SMS (for emergency) | auth, password, verif, にんしょう, 認証, 비밀번호, 인증 |
 
-- Example 1) Delivery shall fail if the full text (including template replacement) does not include authentication words, in the request of Send Authentication SMS API (for emergency) 
-- Example 2) Validity for English words shall be checked regardless of small or capital letters 
+- Example 1) Delivery shall fail if the full text (including template replacement) does not include authentication words, in the request of Send Authentication SMS API (for emergency)
+- Example 2) Validity for English words shall be checked regardless of small or capital letters
 
 #### Request
 
@@ -1293,7 +1293,7 @@ curl -X GET \
 
 ### Query Single SMS Delivery for Authentication
 
-#### Request	
+#### Request
 
 [URL]
 
@@ -1407,7 +1407,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Request Body]
-Same as Send SMS in the above. 
+Same as Send SMS in the above.
 [[See Request Body](./api-guide/#sms_2)]
 
 <span style="color:red"> However, following messages must be included in the body. </span>
@@ -1416,7 +1416,7 @@ Same as Send SMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 #### cURL
@@ -1437,7 +1437,7 @@ curl -X POST \
 ```
 
 
-### Send MMS for Advertisement 
+### Send MMS for Advertisement
 [URL]
 
 ```
@@ -1452,7 +1452,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Request Body]
-Same as Send MMS in the above. 
+Same as Send MMS in the above.
 [[See Request Body](./api-guide/#mms_1)]
 
 <span style="color:red"> However, following messages must be included in the body. </span>
@@ -1461,7 +1461,7 @@ Same as Send MMS in the above.
 ```
 (Ad)
 
-[Reject receiving ads charge-free]080XXXXXXX
+[Unsubscribe for free]080XXXXXXX
 ```
 
 #### cURL
@@ -1484,10 +1484,10 @@ curl -X POST \
 
 
 ## Query Messages by Result Updates
-* The API is queried as of the update time of message delivery result. 
-* Please apply this API to import delivery results on device from service. 
+* The API is queried as of the update time of message delivery result.
+* Please apply this API to import delivery results on device from service.
 
-### Query Messages 
+### Query Messages
 
 #### Request
 
@@ -1505,6 +1505,7 @@ Content-Type: application/json;charset=UTF-8
 |appKey|	String| Original appkey |
 
 [Query parameter]
+* The range between search start time and search end time is limited to one day.
 
 |Value| Type | Required | Description |
 |---|---|---|---|
@@ -1574,7 +1575,7 @@ curl -X GET \
 
 ## Tag Delivery
 
-### Send Tagged SMS 
+### Send Tagged SMS
 
 #### Request
 
@@ -1671,7 +1672,7 @@ curl -X POST \
 
 ### Send Tagged LMS
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1771,9 +1772,9 @@ curl -X POST \
 |body.data.requestId|	String| Request ID |
 
 
-### List Tag Delivery  
+### List Tag Delivery
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -1875,7 +1876,7 @@ curl -X GET \
 |body.data[].updateDate | String | Date and time of modification |
 
 
-### List Recipients of Tag Delivery 
+### List Recipients of Tag Delivery
 
 #### Request
 
@@ -1963,7 +1964,7 @@ curl -X GET \
 |body.data.createDate | String | Date and time of registration |
 |body.data.updateDate | String | Date of modification |
 
-### List Recipient Details of Tagged Delivery  
+### List Recipient Details of Tagged Delivery
 
 #### Request
 
@@ -1995,7 +1996,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-#### Response 
+#### Response
 ```
 {
     "header": {
@@ -2169,7 +2170,7 @@ curl -X POST \
 
 ### Register
 
-####  Request 
+####  Request
 
 [URL]
 
@@ -2205,7 +2206,7 @@ Content-Type: application/json;charset=UTF-8
 | createUser |	String| 100 | Optional | Registered user |
 
 ##### Description
-- categoryParentId, if empty, is registered right below the highest category. 
+- categoryParentId, if empty, is registered right below the highest category.
 
 #### cURL
 ```
@@ -2259,9 +2260,9 @@ curl -X POST \
 |body.data[].useYn|	String| Use or not |
 |body.data[].createUser|	String| Registered user |
 
-### List Category  
+### List Category
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2342,9 +2343,9 @@ curl -X GET \
 |body.data[].updateDate|	String| Date of modification |
 |body.data[].updateUser|	String| Modified user |
 
-### Get Category 
+### Get Category
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2415,9 +2416,9 @@ curl -X GET \
 |body.data[].updateUser|	String| Modified user |
 
 
-### Modify 
+### Modify
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2479,7 +2480,7 @@ curl -X PUT \
 
 ### Delete
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -2599,7 +2600,7 @@ curl -X POST \
 }
 ```
 
-#### Example of Registration 
+#### Example of Registration
 
 | Http method | URL |
 | - | - |
@@ -2638,27 +2639,27 @@ curl -X POST \
 ##### Description
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
 - See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
-- Restrictions for Attached Images 
-    * Supported Codec: .jpg 
-    * Number of Attached Images: Less than 2 
-    * Size of Attached Image: Less than 300KB 
-    * Resolution of Image: Less than 1000 x 1000  
+- Restrictions for Attached Images
+  * Supported Codec: .jpg
+  * Number of Attached Images: Less than 2
+  * Size of Attached Image: Less than 300KB
+  * Resolution of Image: Less than 1000 x 1000
 
 
 ### Send Templates (requiring no body updates)
 
-#### Example 
+#### Example
 
 |Http method| Type | URL|
 | - | - | - |
 | POST | SMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/sms |
 | POST | MMS | https://api-sms.cloud.toast.com/sms/v2.3/appKeys/{appKey}/sender/mms |
 
-For Request URL, choose a delivery type selected to register templates.  
+For Request URL, choose a delivery type selected to register templates.
 
 **If request parameter body is empty, replace it with the body of the corresponding templateId.**
 
-[Request body] Replace with key and value for those for replacement. 
+[Request body] Replace with key and value for those for replacement.
 
 ```
 {
@@ -2717,9 +2718,9 @@ For Request URL, choose a delivery type selected to register templates.
 
 **If template ID and request parameter body include values, sender number and body message are not replaced with template. **
 
-Nevertheless, with the input of template ID, it is available to query with the template. 
+Nevertheless, with the input of template ID, it is available to query with the template.
 
-Such case is applicable when template needs to be modified after queried. 
+Such case is applicable when template needs to be modified after queried.
 
 [Request body]
 
@@ -2768,7 +2769,7 @@ Such case is applicable when template needs to be modified after queried.
 ```
 
 
-### List Templates 
+### List Templates
 
 #### Request
 
@@ -3006,7 +3007,7 @@ curl -X GET \
 
 ### Modify
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -3163,7 +3164,7 @@ curl -X POST \
 }
 ```
 
-### Query Target of Rejection 
+### Query Target of Rejection
 
 #### Request
 
@@ -3349,13 +3350,13 @@ curl -X GET \
 
 ## Query Statistics
 
-### Search Statistics - Based on Events 
-* Statistics are collected based on time of event occurrence. 
-* Statistics are collected based on the following time criteria: 
-    * Request Count (requested): Delivery request time 
-    * Delivery Count (sent): Delivery request time to telco provider (vendor) 
-    * Success Count(received): Actual received time on device  
-    * Failure Count (sentFailed): Response time of failure      
+### Search Statistics - Based on Events
+* Statistics are collected based on time of event occurrence.
+* Statistics are collected based on the following time criteria:
+  * Request Count (requested): Delivery request time
+  * Delivery Count (sent): Delivery request time to telco provider (vendor)
+  * Success Count(received): Actual received time on device
+  * Failure Count (sentFailed): Response time of failure
 
 #### Request
 
@@ -3383,6 +3384,7 @@ curl -X GET \
 | isAd | Boolean | - | Optional | Ad or Not <br/>true/false |
 | templateIds | List<String> | - | Optional | Template ID List |
 | requestIds | List<String> | 5 | Optional | Request ID List |
+| statsCriteria | List<String> | Option | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
 
 #### cURL
 ```
@@ -3406,10 +3408,10 @@ curl -X GET \
             "eventDateTime" : "",
             "events" :
             {
-              "requested" : 10,
-              "sent" : 10,
-              "sentFailed" : 0,
-              "received" : 0
+              "{statsCriteriaValue}.requested" : 10,
+              "{statsCriteriaValue}.sent" : 10,
+              "{statsCriteriaValue}.sentFailed" : 0,
+              "{statsCriteriaValue}.received" : 0
             }
           }
         ]
@@ -3423,19 +3425,20 @@ curl -X GET \
 |header.resultCode|	Integer|	Failure code|
 |header.resultMessage|	String|	Failure message|
 |body.data.eventDateTime |	String|	Display name<br/> Minutely, Hourly, Daily, Monthly|
-|body.data.events[].requested |	Integer|	Request count|
-|body.data.events[].sent |	Integer|	Delivery count|
-|body.data.events[].sentFailed |	Integer|	Failure count|
-|body.data.events[].received |	Integer|	Success count|
+|body.data.events[].{statsCriteriaValue} | List | Value for statsCriteria<br/>This can be message type/ad type/calling number value<br/>If statsCriteria is set to EVENT only, {statsCriteriaValue} is omitted |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	Number of requests|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	Number of sent items|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	Number of failures|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	Number of successes|
 
-### Statistics Search - Based on Request Time 
-* Statistics are collected based on delivery request time. 
-* Statistics are collected based on the following criteria: 
-    * Request Count (requested): Delivery request time 
-    * Delivery Count (sent): Delivery request time, with the increase incurred when delivery is requested to telecom provider (vendor)
-    * Success count (received): Delivery request time, with the increase incurred on the actual received time on device
-    * Failure Count (sentFailed): Delivery request time, with the increase incurred on the response time of failure
-    
+### Statistics Search - Based on Request Time
+* Statistics are collected based on delivery request time.
+* Statistics are collected based on the following criteria:
+  * Request Count (requested): Delivery request time
+  * Delivery Count (sent): Delivery request time, with the increase incurred when delivery is requested to telecom provider (vendor)
+  * Success count (received): Delivery request time, with the increase incurred on the actual received time on device
+  * Failure Count (sentFailed): Delivery request time, with the increase incurred on the response time of failure
+
 #### Request
 
 [URL]
@@ -3462,6 +3465,7 @@ curl -X GET \
 | isAd | Boolean | - | Optional | Ad or not <br/>true/false |
 | templateIds | List<String> | - | Optional | Template ID List |
 | requestIds | List<String> | 5 | Optional | Request ID List |
+| statsCriteria | List<String> | Option | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
 
 #### Response
 ```
@@ -3478,11 +3482,11 @@ curl -X GET \
             "eventDateTime" : "",
             "events" :
             {
-              "requested" : 10,
-              "sent" : 10,
-              "sentFailed" : 0,
-              "received" : 0,
-              "pending" : 0
+              "{statsCriteriaValue}.requested" : 10,
+              "{statsCriteriaValue}.sent" : 10,
+              "{statsCriteriaValue}.sentFailed" : 0,
+              "{statsCriteriaValue}.received" : 0,
+              "{statsCriteriaValue}.pending" : 0
             }
           }
         ]
@@ -3496,13 +3500,14 @@ curl -X GET \
 |header.resultCode|	Integer|	Failure code|
 |header.resultMessage|	String|	Failure message|
 |body.data.eventDateTime |	String|	Display name <br/>Minutely,Hourly, Daily, and Monthly|
-|body.data.events[].requested |	Integer|	Request count|
-|body.data.events[].sent |	Integer|	Delivery count|
-|body.data.events[].sentFailed |	Integer|	Failure count|
-|body.data.events[].received |	Integer|	Success count|
-|body.data.events[].pending |	Integer|	Under Delivery Count|
+|body.data.events[].{statsCriteriaValue} | List | Value for statsCriteria<br/>This can be message type/ad type/calling number value<br/>If statsCriteria is set to EVENT only, {statsCriteriaValue} is omitted |
+|body.data.events[].{statsCriteriaValue}.requested |	Integer|	Number of requests|
+|body.data.events[].{statsCriteriaValue}.sent |	Integer|	Number of sent items|
+|body.data.events[].{statsCriteriaValue}.sentFailed |	Integer|	Number of failures|
+|body.data.events[].{statsCriteriaValue}.received |	Integer|	Number of successes|
+|body.data.events[].{statsCriteriaValue}.pending |	Integer|	Number of pending items|
 
-### (Old)Query Integrated Statistics 
+### (Old)Query Integrated Statistics
 
 #### Request
 
@@ -3574,7 +3579,7 @@ curl -X GET \
 
 ## Scheduled Delivery
 
-### List Scheduled Delivery 
+### List Scheduled Delivery
 
 #### Request
 
@@ -3681,7 +3686,7 @@ curl -X GET \
 |body.data[].createDate|	String| Date of registration |
 |body.data[].updateDate|	String| Date of modification |
 
-### Query Detail Scheduled Delivery 
+### Query Detail Scheduled Delivery
 
 #### Request
 
@@ -3778,7 +3783,7 @@ curl -X GET \
 |body.data.attachFileList[].fileName|	String| File name |
 
 
-### Cancel Scheduled Delivery 
+### Cancel Scheduled Delivery
 
 #### Request
 
@@ -3858,8 +3863,8 @@ curl -X PUT \
 ### Cancel Scheduled Delivery - Multiple Filter
 
 #### Request
-* Request for schedule cancellation is available only when the statu is 'Scheduled'. 
-* Cannot cancel already delivered messages. 
+* Request for schedule cancellation is available only when the statu is 'Scheduled'.
+* Cannot cancel already delivered messages.
 
 [URL]
 
@@ -4046,11 +4051,11 @@ curl -X GET \
 |body.data[].createdDateTime |	String|	Request Creation Time for Schedule Cancellation |
 |body.data[].updatedDateTime |	String|	Modified Time for Scheduled Cancellation |
 
-## Download Delivery Result Files 
+## Download Delivery Result Files
 
-### Request for Creating Query Files 
+### Request for Creating Query Files
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -4238,9 +4243,9 @@ curl -X GET \
 |body.data[].updateDate| String | Date and time of completion or failure of file creation |
 
 
-### Request for Downloading Delivery Result Files 
+### Request for Downloading Delivery Result Files
 
-#### Request 
+#### Request
 
 [URL]
 
@@ -4700,7 +4705,7 @@ Content-Type: application/json;charset=UTF-8
 | contacts[].contactType | String | - | Required | Contact type(PHONE_NUMBER) |
 | contacts[].contact | String | - | Required | Contact (phone number) |
 
-[주의]
+[Caution]
 * When tagIds is provided, contacts is not required.
 * When contacts is provided, tagIds is not required.
 * For this product, contactType must be requested in the "PHONE_NUMBER" value.

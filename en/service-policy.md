@@ -3,7 +3,7 @@
 <span id='fabrication-number'></span>
 ## Prevention of Caller Number Fabrication
 + To enable SMS, your own (or corporate-owned) caller number must be registered first.
-+ If you use other's (or other company's) caller number,  in accordance with <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">(Notice 2015-32 by the Ministry of Science, ICT and Future Planning) Public notice on preventing damage on users due to falsified phone numbers]</a> and <a href="https://www.toast.com/terms/terms-service" target="_blank">[NHN Cloud Terms of Services]</a>, take note that following measures may be taken.
++ If you use other's (or other company's) caller number, in accordance with <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">(Notice 2015-32 by the Ministry of Science, ICT and Future Planning) Public notice on preventing damage on users due to falsified phone numbers]</a> and <a href="https://www.toast.com/terms/terms-service" target="_blank">[NHN Cloud Terms of Services]</a>, take note that following measures may be taken.
 
 
 ```
@@ -101,8 +101,10 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + The number of characters and concat standards follow the international SMS standards.
 + Even if the message is sent by concat, it may be received by the device in the form of several short messages rather than a long message, depending on the mobile carrier and device policy.
 + The number of charges per message can be checked with the messageCount field of the detailed inquiry from the console and the detailed inquiry api.
+
 | encoding | 1 charge | 2 charges | 3 charges | 4 charges | 5 charges |
-| UCS-2 (Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
+| --- | --- | --- | --- | --- | --- |
+| UCS-2<br>(Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
 
 ### Countries Available for Message Delivery
