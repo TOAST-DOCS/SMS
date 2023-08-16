@@ -1629,7 +1629,7 @@ X
 | requestId | String | O | 요청 아이디 |
 | startRequestDate | String | O | 발송 날짜 시작 |
 | endRequestDate | String | O | 발송 날짜 종료 |
-| statusCode | String | X | 발송상태코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
+| statusCode | String | X | 발송상태코드<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCELING : "MAS90"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
 | pageNum | optional, Integer | X | 페이지 번호 |
 | pageSize | optional, Integer | X | 조회건수 |
 
