@@ -129,7 +129,7 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Bangladesh | Bangladesh | 880 |  |
 | Barbados | Barbados | 1246 |  |
 | Belarus | Belarus | 375 |  |
-| Belgium | Belgium | 32 | - UCS-2 (Chinese) support may not be available |
+| Belgium | Belgium | 32 | - UCS-2 support may not be available |
 | Belize | Belize | 501 |  |
 | Benin | Benin | 229 |  |
 | Bermuda | Bermuda | 1441 |  |
@@ -150,7 +150,7 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Central African Republic | Central African Republic | 236 |  |
 | Chad | Chad | 235 |  |
 | Chile | Chile | 56 |  |
-| China | China | 86 | - Sending the same message more than three times in a row to a single recipient may result in spamming.<br>- You can only send a maximum of 15 times to one recipient per day<br>- Sending messages with URL links is not allowed<br>- Marketing content must be pre-approved<br>- UCS-2 (Chinese) encoding used  | 
+| China | China | 86 | - Sending the same message more than three times in a row to a single recipient may result in spamming.<br>- You can only send a maximum of 15 times to one recipient per day<br>- Sending messages with URL links is not allowed<br>- Marketing content must be pre-approved<br>- UCS-2 encoding used  | 
 | Cocos Keeling Islands (Cook Islands) | Cocos Keeling Islands (Cook Islands) | 682 |  |
 | Colombia | Colombia | 57 |  |
 | Congo | Congo | 242 |  |
@@ -262,7 +262,7 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Panama | Panama | 507 |  |
 | Papua New Guinea | Papua New Guinea | 675 |  |
 | Papua New Guinea | Paraguay | 595 |  |
-| Peru | Peru | 51 | - UCS-2 (Chinese) support may not be available |
+| Peru | Peru | 51 | - Chinese characters support may not be available |
 | Philippines | Philippines | 63 | - Messages with URLs can be spammed |
 | Poland | Poland | 48 |  |
 | Portugal | Portugal | 351 |  |
@@ -296,10 +296,10 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 | Sweden | Sweden | 46 |  |
 | Switzerland | Switzerland | 41 |  |
 | Syria | Syria | 963 |  |
-| Taiwan | Taiwan | 886 | - Messages with URLs can be spammed<br>- Strings outside the GSM 7 encoding range may be randomly altered<br>- Marketing content must be pre-approved |
+| Taiwan | Taiwan | 886 | - Messages with URLs can be spammed<br>- Strings outside the GSM-7bit encoding range may be randomly altered<br>- Marketing content must be pre-approved |
 | Tajikistan | Tajikistan | 992 |  |
 | Tanzania | Tanzania | 255 |  |
-| Thailand | Thailand | 66 | - Not allow newlines (""/n"") in message content |
+| Thailand | Thailand | 66 | - Not allow newlines (""\n"") in message content |
 | Timor-Leste | Timor-Leste | 670 |  |
 | Togo | Togo | 228 |  |
 | Tonga | Tonga | 676 |  |
