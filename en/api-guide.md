@@ -1817,7 +1817,7 @@ Content-Type: application/json;charset=UTF-8
 | endRequestDate | String | - | O | End date of delivery |
 | startCreateDate |	String| - |	O |	Start date of registration |
 | endCreateDate |	String| - |	O |	End date of registration |
-| statusCode | String | 10 | X | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
+| statusCode | String | 10 | X | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCELING : "MAS90"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
 | pageNum | optional, Integer | - | X | Page number |
 | pageSize | optional, Integer | 1000 | X | Number of queries |
 
@@ -2347,7 +2347,7 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 | endRequestDate | String | - | O | End date of delivery |
 | startCreateDate|	String| - |	O | Start date of registration |
 | endCreateDate|	String| - |	O | End date of registration |
-| statusCode | String | 10 | X | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
+| statusCode | String | 10 | X | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCELING : "MAS90"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
 | pageNum | optional, Integer | - | X | Page number |
 | pageSize | optional, Integer | 1000 | X | Number of queries |
 

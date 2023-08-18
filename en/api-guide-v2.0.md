@@ -1630,7 +1630,7 @@ X
 | requestId | String | O |Request ID |
 | startRequestDate | String | O | Start date of delivery |
 | endRequestDate | String | O | End date of delivery |
-| statusCode | String | X | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
+| statusCode | String | X | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCELING : "MAS90"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
 | pageNum | optional, Integer | X | Page number |
 | pageSize | optional, Integer | X | Number of queries |
 
