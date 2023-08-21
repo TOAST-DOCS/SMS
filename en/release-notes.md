@@ -1,5 +1,15 @@
 ## Notification > SMS > Release Notes
 
+### August 29, 2023
+#### Feature Updates
+* [API] Improved template deletion
+    * Improved to allow reregistration with deleted template ID.
+* [API] Improved the createUser, updateUser response fields.
+    * Improved to send user email addresses to the createUser and updateUser fields when querying
+* [Console/API] Improved the mass delivery cancellation feature
+    * During mass delivery, cancellation request is viewed as "Canceling" until all recipients have been canceled, and "Canceled" after all recipients have been canceled.
+    * For more information on status code, see [[List Mass Delivery](./api-guide/#_30)].
+
 ### August 1, 2023
 #### Added Features
 * [Console] Added split sending feature
