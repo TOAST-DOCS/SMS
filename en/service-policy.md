@@ -328,3 +328,14 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + When received, messages included in EUC-KR normally appear the same as the contents sent.
 + When characters not included in EUC-KR are included in the title/body, the contents may appear as broken characters such as '?'.
      + Depending on the type of receiving device and carrier, the contents of the message may appear differently.
+
+## Timeout Policy for Message Receiving Result
++ Depending on the device and communication status, there may be a delay in updating message receiving results.
++ In case of delay in receiving messages, delivery is attempted according to the NHN Cloud resending policy.
++ The resending policy is as follows.
+
+| Send Type | Timeout duration | After Timeout |
+|---|---|---|
+| SMS | 25 hour | Do not retry. Update of receive failure result (Result code: 2000) |
+| LMS | 80 hour | Do not retry. Update of receive failure result (Result code: 2000) |
+| MMS | 80 hour | Do not retry. Update of receive failure result (Result code: 2000) |
