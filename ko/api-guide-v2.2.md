@@ -348,7 +348,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String|	수신 일시|
 |body.data[].templateId|	String|	템플릿 ID|
 |body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
+|body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].body|	String|	본문 내용|
 |body.data[].sendNo|	String|	발신 번호|
@@ -441,7 +441,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultDate|	String|	수신 일시|
 |body.data.templateId|	String|	템플릿 ID|
 |body.data.templateName|	String|	템플릿명|
-|body.data.categoryId|	String|	카테고리 ID|
+|body.data.categoryId|	Integer|	카테고리 ID|
 |body.data.categoryName|	String|	카테고리명|
 |body.data.body|	String|	본문 내용|
 |body.data.sendNo|	String|	발신 번호|
@@ -805,7 +805,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String|	수신 일시|
 |body.data[].templateId|	String|	템플릿 ID|
 |body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
+|body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].body|	String|	본문 내용|
 |body.data[].sendNo|	String|	발신 번호|
@@ -934,7 +934,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String|	수신 일시|
 |body.data[].templateId|	String|	템플릿 ID|
 |body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
+|body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].body|	String|	본문 내용|
 |body.data[].sendNo|	String|	발신 번호|
@@ -1231,7 +1231,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String|	수신 일시|
 |body.data[].templateId|	String|	템플릿 ID|
 |body.data[].templateName|	String|	템플릿명|
-|body.data[].categoryId|	String|	카테고리 ID|
+|body.data[].categoryId|	Integer|	카테고리 ID|
 |body.data[].categoryName|	String|	카테고리명|
 |body.data[].body|	String|	본문 내용|
 |body.data[].sendNo|	String|	발신 번호|
@@ -1324,7 +1324,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultDate|	String|	수신 일시|
 |body.data.templateId|	String|	템플릿 ID|
 |body.data.templateName|	String|	템플릿명|
-|body.data.categoryId|	String|	카테고리 ID|
+|body.data.categoryId|	Integer|	카테고리 ID|
 |body.data.categoryName|	String|	카테고리명|
 |body.data.body|	String|	본문 내용|
 |body.data.sendNo|	String|	발신 번호|
@@ -2184,7 +2184,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	설명|
 |---|---|---|
 |appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|categoryId|	Integer|	카테고리 ID|
 
 #### 응답
 
@@ -2249,7 +2249,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	설명|
 |---|---|---|
 |appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|categoryId|	Integer|	카테고리 ID|
 
 [Request body]
 
@@ -2298,7 +2298,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	설명|
 |---|---|---|
 |appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|categoryId|	Integer|	카테고리 ID|
 
 #### 응답
 

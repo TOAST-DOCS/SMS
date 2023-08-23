@@ -286,7 +286,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -324,7 +324,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String| Date and time of receiving |
 |-- templateId|	String| Template ID |
 |-- templateName|	String| Template name |
-|-- categoryId|	String| Category ID |
+|-- categoryId|	Integer| Category ID |
 |-- categoryName|	String| Category name |
 |-- body|	String| Body |
 |-- sendNo|	String| Sender number |
@@ -382,7 +382,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -417,7 +417,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String| Date and time of receiving |
 |-- templateId|	String| Template ID |
 |-- templateName|	String| Template Name |
-|-- categoryId|	String| Category ID |
+|-- categoryId|	Integer| Category ID |
 |-- categoryName|	String| Category Name |
 |-- body|	String| Body |
 |-- sendNo|	String| Sender number |
@@ -861,7 +861,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String| Date and time of receiving |
 ||  | Template ID |
 |-- templateName|	String| Template name |
-|-- categoryId|	String| Category ID |
+|-- categoryId|	Integer| Category ID |
 |-- categoryName|	String| Category name |
 |-- title|	String| Title |
 |-- body|	String| Body |
@@ -987,7 +987,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String| Date and time of receiving |
 |-- templateId|	String| Template ID |
 |-- templateName|	String| Template name |
-|-- categoryId|	String| Category ID |
+|-- categoryId|	Integer| Category ID |
 |-- categoryName|	String| Category name |
 |-- title|	String| Title |
 |-- body|	String| Body |
@@ -1227,7 +1227,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -1265,7 +1265,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String| Date and time of receiving |
 |-- templateId|	String| Template ID |
 |-- templateName|	String| Template name |
-|-- categoryId|	String| Category ID |
+|-- categoryId|	Integer| Category ID |
 |-- categoryName|	String| Category name |
 |-- body|	String| Body |
 |-- sendNo|	String| Sender number |
@@ -1323,7 +1323,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -1358,7 +1358,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String| Date and time of receiving |
 |-- templateId|	String| Template ID |
 |-- templateName|	String| Template name |
-|-- categoryId|	String| Category ID |
+|-- categoryId|	Integer| Category ID |
 |-- categoryName|	String| Category name |
 |-- body|	String| Body |
 |-- sendNo|	String| Sender number |

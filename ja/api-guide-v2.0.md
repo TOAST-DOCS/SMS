@@ -285,7 +285,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -323,7 +323,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	受信日時|
 |-- templateId|	String|	テンプレートID|
 |-- templateName|	String|	テンプレート名|
-|-- categoryId|	String|	カテゴリーID|
+|-- categoryId|	Integer|	カテゴリーID|
 |-- categoryName|	String|	カテゴリー名|
 |-- body|	String|	本文内容|
 |-- sendNo|	String|	発信番号|
@@ -381,7 +381,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -416,7 +416,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	受信日時|
 |-- templateId|	String|	テンプレートID|
 |-- templateName|	String|	テンプレート名|
-|-- categoryId|	String|	カテゴリーID|
+|-- categoryId|	Integer|	カテゴリーID|
 |-- categoryName|	String|	カテゴリー名|
 |-- body|	String|	本文内容|
 |-- sendNo|	String|	発信番号|
@@ -861,7 +861,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	受信日時|
 |-- templateId|	String|	テンプレートID|
 |-- templateName|	String|	テンプレート名|
-|-- categoryId|	String|	カテゴリーID|
+|-- categoryId|	Integer|	カテゴリーID|
 |-- categoryName|	String|	カテゴリー名|
 |-- title|	String|	タイトル|
 |-- body|	String|	本文内容|
@@ -987,7 +987,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	受信日時|
 |-- templateId|	String|	テンプレートID|
 |-- templateName|	String|	テンプレート名|
-|-- categoryId|	String|	カテゴリーID|
+|-- categoryId|	Integer|	カテゴリーID|
 |-- categoryName|	String|	カテゴリー名|
 |-- title|	String|	タイトル|
 |-- body|	String|	本文内容|
@@ -1227,7 +1227,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -1265,7 +1265,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	受信日時|
 |-- templateId|	String|	テンプレートID|
 |-- templateName|	String|	テンプレート名|
-|-- categoryId|	String|	カテゴリーID|
+|-- categoryId|	Integer|	カテゴリーID|
 |-- categoryName|	String|	カテゴリー名|
 |-- body|	String|	本文内容|
 |-- sendNo|	String|	発信番号|
@@ -1323,7 +1323,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -1358,7 +1358,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	受信日時|
 |-- templateId|	String|	テンプレートID|
 |-- templateName|	String|	テンプレート名|
-|-- categoryId|	String|	カテゴリーID|
+|-- categoryId|	Integer|	カテゴリーID|
 |-- categoryName|	String|	カテゴリー名|
 |-- body|	String|	本文内容|
 |-- sendNo|	String|	発信番号|
