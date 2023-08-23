@@ -347,7 +347,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String|	受信日時|
 |body.data[].templateId|	String|	テンプレートID|
 |body.data[].templateName|	String|	テンプレート名|
-|body.data[].categoryId|	String|	カテゴリーID|
+|body.data[].categoryId|	Integer|	カテゴリーID|
 |body.data[].categoryName|	String|	カテゴリー名|
 |body.data[].body|	String|	本文内容|
 |body.data[].sendNo|	String|	発信番号|
@@ -440,7 +440,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultDate|	String|	受信日時|
 |body.data.templateId|	String|	テンプレートID|
 |body.data.templateName|	String|	テンプレート名|
-|body.data.categoryId|	String|	カテゴリーID|
+|body.data.categoryId|	Integer|	カテゴリーID|
 |body.data.categoryName|	String|	カテゴリー名|
 |body.data.body|	String|	本文内容|
 |body.data.sendNo|	String|	発信番号|
@@ -804,7 +804,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String|	受信日時|
 |body.data[].templateId|	String|	テンプレートID|
 |body.data[].templateName|	String|	テンプレート名|
-|body.data[].categoryId|	String|	カテゴリーID|
+|body.data[].categoryId|	Integer|	カテゴリーID|
 |body.data[].categoryName|	String|	カテゴリー名|
 |body.data[].body|	String|	本文内容|
 |body.data[].sendNo|	String|	発信番号|
@@ -933,7 +933,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String|	受信日時|
 |body.data[].templateId|	String|	テンプレートID|
 |body.data[].templateName|	String|	テンプレート名|
-|body.data[].categoryId|	String|	カテゴリーID|
+|body.data[].categoryId|	Integer|	カテゴリーID|
 |body.data[].categoryName|	String|	カテゴリー名|
 |body.data[].body|	String|	本文内容|
 |body.data[].sendNo|	String|	発信番号|
@@ -1230,7 +1230,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String|	受信日時|
 |body.data[].templateId|	String|	テンプレートID|
 |body.data[].templateName|	String|	テンプレート名|
-|body.data[].categoryId|	String|	カテゴリーID|
+|body.data[].categoryId|	Integer|	カテゴリーID|
 |body.data[].categoryName|	String|	カテゴリー名|
 |body.data[].body|	String|	本文内容|
 |body.data[].sendNo|	String|	発信番号|
@@ -1323,7 +1323,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultDate|	String|	受信日時|
 |body.data.templateId|	String|	テンプレートID|
 |body.data.templateName|	String|	テンプレート名|
-|body.data.categoryId|	String|	カテゴリーID|
+|body.data.categoryId|	Integer|	カテゴリーID|
 |body.data.categoryName|	String|	カテゴリー名|
 |body.data.body|	String|	本文内容|
 |body.data.sendNo|	String|	発信番号|
@@ -2177,7 +2177,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	説明|
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
-|categoryId|	String|	カテゴリーID|
+|categoryId|	Integer|	カテゴリーID|
 
 #### レスポンス
 
@@ -2242,7 +2242,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	説明|
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
-|categoryId|	String|	カテゴリーID|
+|categoryId|	Integer|	カテゴリーID|
 
 [Request body]
 
@@ -2291,7 +2291,7 @@ Content-Type: application/json;charset=UTF-8
 |値|	タイプ|	説明|
 |---|---|---|
 |appKey|	String|	固有のアプリケーションキー|
-|categoryId|	String|	カテゴリーID|
+|categoryId|	Integer|	カテゴリーID|
 
 #### レスポンス
 

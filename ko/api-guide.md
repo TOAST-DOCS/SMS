@@ -2970,7 +2970,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	설명|
 |---|---|---|
 |appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|categoryId|	Integer|	카테고리 ID|
 
 [Header]
 
@@ -3055,7 +3055,7 @@ Content-Type: application/json;charset=UTF-8
 |값|	타입|	설명|
 |---|---|---|
 |appKey|	String|	고유의 앱키|
-|categoryId|	String|	카테고리 ID|
+|categoryId|	Integer|	카테고리 ID|
 
 [Header]
 

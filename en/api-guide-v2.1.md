@@ -343,7 +343,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String| Date and time of receiving |
 |body.data[].templateId|	String| Template ID |
 |body.data[].templateName|	String| Template name |
-|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryId|	Integer| Category ID |
 |body.data[].categoryName|	String| Category name |
 |body.data[].body|	String| Body |
 |body.data[].sendNo|	String| Sender number |
@@ -436,7 +436,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultDate|	String| Date and time of receiving |
 |body.data.templateId|	String| Template ID |
 |body.data.templateName|	String| Template name |
-|body.data.categoryId|	String| Category ID |
+|body.data.categoryId|	Integer| Category ID |
 |body.data.categoryName|	String| Category name |
 |body.data.body|	String| Body |
 |body.data.sendNo|	String| Sender name |
@@ -883,7 +883,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String| Date and time of receiving |
 |body.data[].templateId|	String| Template ID |
 |body.data[].templateName|	String| Template name |
-|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryId|	Integer| Category ID |
 |body.data[].categoryName|	String| Category name |
 |body.data[].body|	String| Body message |
 |body.data[].sendNo|	String| Sender number |
@@ -1012,7 +1012,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String| Date and time of receiving |
 |body.data[].templateId|	String| Template ID |
 |body.data[].templateName|	String| Template name |
-|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryId|	Integer| Category ID |
 |body.data[].categoryName|	String| Category name |
 |body.data[].body|	String| Body message |
 |body.data[].sendNo|	String| Sender number |
@@ -1309,7 +1309,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].resultDate|	String| Date and time of receiving |
 |body.data[].templateId|	String| Template ID |
 |body.data[].templateName|	String| Template name |
-|body.data[].categoryId|	String| Category ID |
+|body.data[].categoryId|	Integer| Category ID |
 |body.data[].categoryName|	String| Category name |
 |body.data[].body|	String| Body message |
 |body.data[].sendNo|	String| Sender number |
@@ -1402,7 +1402,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.resultDate|	String| Date and time of receiving |
 |body.data.templateId|	String| Template ID |
 |body.data.templateName|	String| Template name |
-|body.data.categoryId|	String| Category ID |
+|body.data.categoryId|	Integer| Category ID |
 |body.data.categoryName|	String| Category name |
 |body.data.body|	String| Body message |
 |body.data.sendNo|	String| Sender number |

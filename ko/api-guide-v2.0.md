@@ -286,7 +286,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -324,7 +324,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	수신일시|
 |-- templateId|	String|	템플릿아이디|
 |-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
+|-- categoryId|	Integer|	카테고리아이디|
 |-- categoryName|	String|	카테고리명|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
@@ -382,7 +382,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -417,7 +417,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	수신일시|
 |-- templateId|	String|	템플릿아이디|
 |-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
+|-- categoryId|	Integer|	카테고리아이디|
 |-- categoryName|	String|	카테고리명|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
@@ -861,7 +861,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	수신일시|
 |-- templateId|	String|	템플릿아이디|
 |-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
+|-- categoryId|	Integer|	카테고리아이디|
 |-- categoryName|	String|	카테고리명|
 |-- title|	String|	제목|
 |-- body|	String|	본문내용|
@@ -988,7 +988,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	수신일시|
 |-- templateId|	String|	템플릿아이디|
 |-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
+|-- categoryId|	Integer|	카테고리아이디|
 |-- categoryName|	String|	카테고리명|
 |-- title|	String|	제목|
 |-- body|	String|	본문내용|
@@ -1228,7 +1228,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -1266,7 +1266,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	수신일시|
 |-- templateId|	String|	템플릿아이디|
 |-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
+|-- categoryId|	Integer|	카테고리아이디|
 |-- categoryName|	String|	카테고리명|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
@@ -1324,7 +1324,7 @@ Content-Type: application/json;charset=UTF-8
                 "resultDate": String,
                 "templateId": String,
                 "templateName": String,
-                "categoryId": String,
+                "categoryId": Integer,
                 "categoryName": String,
                 "body": String,
                 "sendNo": String,
@@ -1359,7 +1359,7 @@ Content-Type: application/json;charset=UTF-8
 |-- resultDate|	String|	수신일시|
 |-- templateId|	String|	템플릿아이디|
 |-- templateName|	String|	템플릿명|
-|-- categoryId|	String|	카테고리아이디|
+|-- categoryId|	Integer|	카테고리아이디|
 |-- categoryName|	String|	카테고리명|
 |-- body|	String|	본문내용|
 |-- sendNo|	String|	발신번호|
