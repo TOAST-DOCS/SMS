@@ -367,6 +367,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?start
                 "recipientSeq": 1,
                 "sendType": "0",
                 "messageType": "SMS",
+                "messageCount": 1,
                 "userId": "tester",
                 "adYn": "N",
                 "resultMessage": "",
@@ -406,6 +407,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?start
 |body.data[].recipientSeq|	Integer|	送信詳細ID(詳細検索時は必須)(旧mtPr)|
 |body.data[].sendType|	String|	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
+|body.data[].messageCount| Integer| 送信されたメッセージ件数|
 |body.data[].userId|	String|	送信リクエストID|
 |body.data[].adYn|	String|	広告かどうか|
 |body.data[].resultMessage|	String|	結果メッセージ |
@@ -524,7 +526,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
 |body.data.recipientSeq|	Integer|	送信詳細ID(詳細検索時は必須)(旧mtPr)|
 |body.data.sendType|	String|	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
-|body.data.messageCount|	Integer|	送信されたメッセージの件数(国際送信)|
+|body.data.messageCount|	Integer|	送信されたメッセージの件数|
 |body.data.userId|	String|	送信リクエストID|
 |body.data.adYn|	String|	広告かどうか|
 |body.data.originCode| String | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
@@ -1395,6 +1397,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?
             "recipientSeq": 1,
             "sendType": "0",
             "messageType": "AUTH",
+                "messageCount": 1,
             "userId": "tester",
             "adYn": "N",
             "resultMessage": "",
@@ -1434,6 +1437,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?
 |body.data[].recipientSeq|	Integer|	送信詳細ID(詳細検索時は必須)(旧mtPr)|
 |body.data[].sendType|	String|	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
+|body.data[].messageCount|	Integer|	送信されたメッセージ件数|
 |body.data[].userId|	String|	送信リクエストID|
 |body.data[].adYn|	String|	広告かどうか|
 |body.data[].senderGroupingKey|	String|	発信者グループキー|
@@ -1551,7 +1555,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
 |body.data.recipientSeq|	Integer|	送信詳細ID(詳細検索時は必須)(旧mtPr)|
 |body.data.sendType|	String|	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	メッセージタイプ(SMS/LMS/MMS/AUTH)|
-|body.data.messageCount|Integer|送信されたメッセージの件数(国際送信)|
+|body.data.messageCount|Integer|送信されたメッセージの件数|
 |body.data.userId|	String|	送信リクエストID|
 |body.data.adYn|	String|	広告かどうか|
 |body.data.originCode| String | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
@@ -1948,6 +1952,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requ
                 "requestDate": "2021-09-01 03:34:36.0",
                 "msgStatus": "3",
                 "msgStatusName": "COMPLETED",
+                "messageCount": 1,
                 "resultCode": null,
                 "receiveDate": null,
             }
@@ -1961,16 +1966,16 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requ
 |header.isSuccessful|	Boolean|	成否|
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
-|body.data.requestId | String | リクエストID |
-|body.data.recipientSeq | Integer | 受信者シーケンス |
-|body.data.countryCode | String | 受信者国コード |
-|body.data.recipientNo | String | 受信者番号 |
-|body.data.requestDate | String | リクエスト日時 |
-|body.data.msgStatus | String | メッセージステータスコード |
-|body.data.msgStatusName | String | メッセージステータスコード名 |
-|body.data.resultCode | String | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | 受信日時 |
-|body.data.createDate | String | 登録日時 |
+|body.data[].requestId | String | リクエストID |
+|body.data[].recipientSeq | Integer | 受信者シーケンス |
+|body.data[].countryCode | String | 受信者国家コード |
+|body.data[].recipientNo | String | 受信者番号 |
+|body.data[].requestDate | String | リクエスト日時 |
+|body.data[].msgStatus | String | メッセージステータスコード |
+|body.data[].msgStatusName | String | メッセージステータスコード名 |
+|body.data[].messageCount| Integer | 送信されたメッセージの件数 |
+|body.data[].resultCode | String | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
+|body.data[].receiveDate | String | 受信日時 |
 
 ### 大量送信受信者リスト詳細検索 
 
@@ -2063,7 +2068,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${
 |body.data.requestDate | String | リクエスト日時 |
 |body.data.msgStatus | String | メッセージ状態 |
 |body.data.msgStatusName | String | メッセージ状態名 |
-|body.data.messageCount| Integer | 送信されたメッセージの件数(国際送信) |
+|body.data.messageCount| Integer | 送信されたメッセージの件数 |
 |body.data.resultCode | String | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | 受信日時 |
 |body.data.createDate | String | 登録日時 |
@@ -2491,6 +2496,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
             "requestDate": "2018-08-13 02:20:44.0",
             "msgStatus": "3",
             "msgStatusName": "COMPLETED",
+                "messageCount": 1,
             "resultCode": "3015",
             "receiveDate": "2018-08-13 02:20:53.0",
             "createDate": "2018-08-13 02:20:46.0",
@@ -2506,17 +2512,18 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 |header.isSuccessful|	Boolean|	成否|
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
-|body.data.requestId | String | リクエストID |
-|body.data.recipientSeq | Integer | 受信者シーケンス |
-|body.data.countryCode | String | 受信者国コード |
-|body.data.recipientNo | String | 受信者番号 |
-|body.data.requestDate | String | リクエスト日時 |
-|body.data.msgStatus | String | メッセージステータスコード |
-|body.data.msgStatusName | String | メッセージステータスコード名 |
-|body.data.resultCode | String | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | 受信日時 |
-|body.data.createDate | String | 登録日時 |
-|body.data.updateDate | String | 修正日 |
+|body.data[].requestId | String | リクエストID |
+|body.data[].recipientSeq | Integer | 受信者シーケンス |
+|body.data[].countryCode | String | 受信者国家コード |
+|body.data[].recipientNo | String | 受信者番号 |
+|body.data[].requestDate | String | リクエスト日時 |
+|body.data[].msgStatus | String | メッセージステータスコード |
+|body.data[].msgStatusName | String | メッセージステータスコード名 |
+|body.data[].messageCount| Integer | 送信されたメッセージ件数 |
+|body.data[].resultCode | String | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
+|body.data[].receiveDate | String | 受信日時 |
+|body.data[].createDate | String | 登録日時 |
+|body.data[].updateDate | String | 修正日付 |
 
 ### タグ送信受信者リスト詳細検索
 
@@ -2614,7 +2621,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 |body.data.recipientNum | String | 受信者番号 |
 |body.data.requestDate | String | リクエスト日時 |
 |body.data.msgStatusName | String | メッセージ状態名 |
-|body.data.messageCount| Integer | 送信されたメッセージの件数(国際送信) |
+|body.data.messageCount| Integer | 送信されたメッセージの件数 |
 |body.data.resultCode | String | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | 受信日時 |
 |body.data.attachFileList[].filePath | String | 添付ファイル - パス |
