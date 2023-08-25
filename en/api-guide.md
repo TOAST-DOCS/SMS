@@ -367,6 +367,7 @@ curl -X GET \
                 "recipientSeq": 1,
                 "sendType": "0",
                 "messageType": "SMS",
+                "messageCount": 1,
                 "userId": "tester",
                 "adYn": "N",
                 "resultMessage": "",
@@ -406,6 +407,7 @@ curl -X GET \
 |body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data[].sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data[].messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
+|body.data[].messageCount| Integer| Number of messages sent |
 |body.data[].userId|	String| Delivery request ID |
 |body.data[].adYn|	String| Ad or not |
 |body.data[].resultMessage|	String|	Result message |
@@ -525,6 +527,7 @@ curl -X GET \
 |body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
 |body.data.messageCount|	Integer|	Number of messages sent (international sending)|
+|body.data.messageCount|	Integer|	Number of messages sent |
 |body.data.userId|	String| Delivery request ID |
 |body.data.adYn|	String| Ad or not |
 |body.data.originCode| String | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
@@ -1396,6 +1399,7 @@ curl -X GET \
                 "recipientSeq": 1,
                 "sendType": "0",
                 "messageType": "AUTH",
+                "messageCount": 1,
                 "userId": "tester",
                 "adYn": "N",
                 "resultMessage": "",
@@ -1430,6 +1434,7 @@ curl -X GET \
 |body.data[].msgStatusName|	String| Name of message status code |
 |body.data[].resultCode|	String| Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
 |body.data[].resultCodeName|	String| Result code name of receiving |
+|body.data[].messageCount|	Integer|	Number of messages sent |
 |body.data[].telecomCode|	Integer| Code of telecom provider |
 |body.data[].telecomCodeName|	String| Name of telecom provider |
 |body.data[].recipientSeq|	Integer| Detail delivery ID (required to query details) |
@@ -1553,7 +1558,7 @@ curl -X GET \
 |body.data.recipientSeq|	Integer| Detail delivery ID (required to query details) |
 |body.data.sendType|	String| Delivery type (0:Sms, 1:Lms/Mms, 2:Auth) |
 |body.data.messageType|	String| Message type (SMS/LMS/MMS/AUTH) |
-|body.data.messageCount|Integer| Number of messages sent (international sending)|
+|body.data.messageCount|Integer| Number of messages sent |
 |body.data.userId|	String| Request ID for sending |
 |body.data.adYn|	String| Ad or not |
 |body.data.originCode| String | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
@@ -1955,6 +1960,7 @@ curl -X GET \
                 "requestDate": "2021-09-01 03:34:36.0",
                 "msgStatus": "3",
                 "msgStatusName": "COMPLETED",
+                "messageCount": 1,
                 "resultCode": null,
                 "receiveDate": null,
             }
@@ -1974,7 +1980,8 @@ curl -X GET \
 |body.data.recipientNo | String | Recipient number |
 |body.data.requestDate | String | Date and time of request |
 |body.data.msgStatus | String | Message status code |
-|body.data.msgStatusName | String | Name of message status code |
+|body.data[].msgStatusName | String | Name of message status code |
+|body.data[].messageCount| Integer | Number of messages sent |
 |body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | Date and time of receiving |
 
@@ -2069,7 +2076,7 @@ curl -X GET \
 |body.data.requestDate | String | Date and time of request |
 |body.data.msgStatus | String | Message status |
 |body.data.msgStatusName | String | Message status name|
-|body.data.messageCount| Integer | Number of messages sent (international sending) |
+|body.data.messageCount| Integer | Number of messages sent |
 |body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | Data and time of receiving |
 |body.data.createDate | String | Date and time of registration |
@@ -2498,6 +2505,7 @@ curl -X GET \
                 "requestDate": "2018-08-13 02:20:44.0",
                 "msgStatus": "3",
                 "msgStatusName": "COMPLETED",
+                "messageCount": 1,
                 "resultCode": "3015",
                 "receiveDate": "2018-08-13 02:20:53.0",
                 "createDate": "2018-08-13 02:20:46.0",
@@ -2520,6 +2528,7 @@ curl -X GET \
 |body.data.requestDate | String | Date and time of request |
 |body.data.msgStatus | String | Message status code |
 |body.data.msgStatusName | String | Name of message status code |
+|body.data[].messageCount| Integer | Number of messages sent |
 |body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | Date and time of receiving |
 |body.data.createDate | String | Date and time of registration |
@@ -2621,7 +2630,7 @@ curl -X GET \
 |body.data.recipientNum | String | Recipient number |
 |body.data.requestDate | String | Date and time of request |
 |body.data.msgStatusName | String | Message status name |
-|body.data.messageCount| Integer | Number of messages sent (international sending) |
+|body.data.messageCount| Integer | Number of messages sent |
 |body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | Date and time of receiving |
 |body.data.attachFileList[].filePath | String | Attached file- path |
