@@ -9,6 +9,12 @@
 * [Console/API] Improved the mass delivery cancellation feature
     * During mass delivery, cancellation request is viewed as "Canceling" until all recipients have been canceled, and "Canceled" after all recipients have been canceled.
     * For more information on status codes, see [[List Mass Delivery](./api-guide/#_30)].
+* [API] Added the delivered message count field to the v3.0 list query and detailed query APIs
+    * Added the delivered message count (messageCount) to the v3.0 list query and detailed query APIs.
+    * If a long message is divided into several messages and sent using the international concat function, you can check the number of messages sent based on the number of characters.
+    * For information on the character count, refer to [](./service-policy/#_12)Pricing Policy[](./service-policy/#_12).
+* [Console] Added the delivered message count column to the retrieved list
+    * You can check the number of messages sent in the delivery lists of Query by SMS Request, Query Mass SMS Delivery, Query Tagged SMS Delivery.
 
 ### August 1, 2023
 #### Added Features

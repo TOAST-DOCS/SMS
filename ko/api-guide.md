@@ -367,6 +367,7 @@ curl -X GET \
                 "recipientSeq": 1,
                 "sendType": "0",
                 "messageType": "SMS",
+                "messageCount": 1,
                 "userId": "tester",
                 "adYn": "N",
                 "resultMessage": "",
@@ -406,6 +407,7 @@ curl -X GET \
 |body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
+|body.data[].messageCount| Integer| 발송된 메시지 건수|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].resultMessage|	String|	결과 메시지|
@@ -524,7 +526,7 @@ curl -X GET \
 |body.data.recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data.messageCount|	Integer|	발송된 메시지 건수(국제 발송)|
+|body.data.messageCount|	Integer|	발송된 메시지 건수|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.originCode| String | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
@@ -1395,6 +1397,7 @@ curl -X GET \
                 "recipientSeq": 1,
                 "sendType": "0",
                 "messageType": "AUTH",
+                "messageCount": 1,
                 "userId": "tester",
                 "adYn": "N",
                 "resultMessage": "",
@@ -1434,6 +1437,7 @@ curl -X GET \
 |body.data[].recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data[].sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data[].messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
+|body.data[].messageCount|	Integer|	발송된 메시지 건수|
 |body.data[].userId|	String|	발송 요청 ID|
 |body.data[].adYn|	String|	광고 여부|
 |body.data[].resultMessage|	String|	결과 메시지|
@@ -1552,7 +1556,7 @@ curl -X GET \
 |body.data.recipientSeq|	Integer|	발송 상세 ID(상세 검색 시 필수)(구 mtPr)|
 |body.data.sendType|	String|	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)|
 |body.data.messageType|	String|	메시지 타입(SMS/LMS/MMS/AUTH)|
-|body.data.messageCount|Integer|발송된 메시지 건수(국제 발송)|
+|body.data.messageCount|Integer|발송된 메시지 건수|
 |body.data.userId|	String|	발송 요청 ID|
 |body.data.adYn|	String|	광고 여부|
 |body.data.originCode| String | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
@@ -1952,6 +1956,7 @@ curl -X GET \
                 "requestDate": "2021-09-01 03:34:36.0",
                 "msgStatus": "3",
                 "msgStatusName": "COMPLETED",
+                "messageCount": 1,
                 "resultCode": null,
                 "receiveDate": null,
             }
@@ -1965,15 +1970,16 @@ curl -X GET \
 |header.isSuccessful|	Boolean|	성공 여부|
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
-|body.data.requestId | String | 요청 ID |
-|body.data.recipientSeq | Integer | 수신자 시퀀스 |
-|body.data.countryCode | String | 수신자 국가코드 |
-|body.data.recipientNo | String | 수신자 번호 |
-|body.data.requestDate | String | 요청 일시 |
-|body.data.msgStatus | String | 메시지 상태 코드 |
-|body.data.msgStatusName | String | 메시지 상태 코드명 |
-|body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | 수신 일시 |
+|body.data[].requestId | String | 요청 ID |
+|body.data[].recipientSeq | Integer | 수신자 시퀀스 |
+|body.data[].countryCode | String | 수신자 국가코드 |
+|body.data[].recipientNo | String | 수신자 번호 |
+|body.data[].requestDate | String | 요청 일시 |
+|body.data[].msgStatus | String | 메시지 상태 코드 |
+|body.data[].msgStatusName | String | 메시지 상태 코드명 |
+|body.data[].messageCount| Integer | 발송된 메시지 건수 |
+|body.data[].resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
+|body.data[].receiveDate | String | 수신 일시 |
 
 ### 대량 발송 수신자 목록 상세 검색 
 
@@ -2066,7 +2072,7 @@ curl -X GET \
 |body.data.requestDate | String | 요청 일시 |
 |body.data.msgStatus | String | 메시지 상태 |
 |body.data.msgStatusName | String | 메시지 상태 이름 |
-|body.data.messageCount| Integer | 발송된 메시지 건수(국제 발송) |
+|body.data.messageCount| Integer | 발송된 메시지 건수 |
 |body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | 수신 일시 |
 |body.data.createDate | String | 등록 일시 |
@@ -2495,6 +2501,7 @@ curl -X GET \
                 "requestDate": "2018-08-13 02:20:44.0",
                 "msgStatus": "3",
                 "msgStatusName": "COMPLETED",
+                "messageCount": 1,
                 "resultCode": "3015",
                 "receiveDate": "2018-08-13 02:20:53.0",
                 "createDate": "2018-08-13 02:20:46.0",
@@ -2510,17 +2517,18 @@ curl -X GET \
 |header.isSuccessful|	Boolean|	성공 여부|
 |header.resultCode|	Integer|	실패 코드|
 |header.resultMessage|	String|	실패 메시지|
-|body.data.requestId | String | 요청 ID |
-|body.data.recipientSeq | Integer | 수신자 시퀀스 |
-|body.data.countryCode | String | 수신자 국가코드 |
-|body.data.recipientNo | String | 수신자 번호 |
-|body.data.requestDate | String | 요청 일시 |
-|body.data.msgStatus | String | 메시지 상태 코드 |
-|body.data.msgStatusName | String | 메시지 상태 코드명 |
-|body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | 수신 일시 |
-|body.data.createDate | String | 등록 일시 |
-|body.data.updateDate | String | 수정 날짜 |
+|body.data[].requestId | String | 요청 ID |
+|body.data[].recipientSeq | Integer | 수신자 시퀀스 |
+|body.data[].countryCode | String | 수신자 국가코드 |
+|body.data[].recipientNo | String | 수신자 번호 |
+|body.data[].requestDate | String | 요청 일시 |
+|body.data[].msgStatus | String | 메시지 상태 코드 |
+|body.data[].msgStatusName | String | 메시지 상태 코드명 |
+|body.data[].messageCount| Integer | 발송된 메시지 건수 |
+|body.data[].resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
+|body.data[].receiveDate | String | 수신 일시 |
+|body.data[].createDate | String | 등록 일시 |
+|body.data[].updateDate | String | 수정 날짜 |
 
 ### 태그 발송 수신자 목록 상세 검색
 
@@ -2618,7 +2626,7 @@ curl -X GET \
 |body.data.recipientNum | String | 수신자 번호 |
 |body.data.requestDate | String | 요청 일시 |
 |body.data.msgStatusName | String | 메시지 상태 이름 |
-|body.data.messageCount| Integer | 발송된 메시지 건수(국제 발송) |
+|body.data.messageCount| Integer | 발송된 메시지 건수 |
 |body.data.resultCode | String | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
 |body.data.receiveDate | String | 수신 일시 |
 |body.data.attachFileList[].filePath | String | 첨부 파일 - 경로 |
