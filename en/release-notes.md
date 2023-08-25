@@ -12,7 +12,7 @@
 * [API] Added the delivered message count field to the v3.0 list query and detailed query APIs
     * Added the delivered message count (messageCount) to the v3.0 list query and detailed query APIs.
     * If a long message is divided into several messages and sent using the international concat function, you can check the number of messages sent based on the number of characters.
-    * For information on the character count, refer to [](./service-policy/#_12)Pricing Policy[](./service-policy/#_12).
+    * For information on the character count, refer to [](./international-sending-policy/#_3)Pricing Policy[](./international-sending-policy/#_3).
 * [Console] Added the delivered message count column to the retrieved list
     * You can check the number of messages sent in the delivery lists of Query by SMS Request, Query Mass SMS Delivery, Query Tagged SMS Delivery.
 
@@ -25,7 +25,7 @@
     * The setting is available on the **Delivery Setting** tab.
 * [Console/API] Provide international sending concat
     * When sending international text messages, you can send up to 765 characters in GSM-7 and 335 characters in UCS-2, and send them as long messages through the concat function.
-    * For more details, please refer to the [[Billing Policy]](./service-policy/#_12) of the service policy.
+    * For more details, please refer to the [[Billing Policy]](./international-sending-policy/#_3) of the service policy.
 
 #### Feature Updates
 * [Console/API] Improved international text message sending encoding

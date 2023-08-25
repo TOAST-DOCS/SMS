@@ -9,7 +9,7 @@
     * The setting is available on the **Delivery Setting** tab.
 * [Console/API] Provide international sending concat
     * When sending international text messages, you can send up to 765 characters in GSM-7 and 335 characters in UCS-2, and send them as long messages through the concat function.
-    * For more details, please refer to the [[Billing Policy]](./service-policy/#_12) of the service policy.
+    * For more details, please refer to the [[Billing Policy]](./international-sending-policy/#_3) of the service policy.
 
 #### Feature Updates
 * [Console/API] Improved international text message sending encoding
