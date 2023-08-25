@@ -1974,16 +1974,16 @@ curl -X GET \
 |header.isSuccessful|	Boolean|	Successful or not|
 |header.resultCode|	Integer|Failure code|
 |header.resultMessage|	String|	Failure message|
-|body.data.requestId | String | Request ID |
-|body.data.recipientSeq | Integer | Recipient sequence |
-|body.data.countryCode | String | Recipient's country code |
-|body.data.recipientNo | String | Recipient number |
-|body.data.requestDate | String | Date and time of request |
-|body.data.msgStatus | String | Message status code |
+|body.data[].requestId | String | Request ID |
+|body.data[].recipientSeq | Integer | Recipient sequence |
+|body.data[].countryCode | String | Recipient's country code |
+|body.data[].recipientNo | String | Recipient number |
+|body.data[].requestDate | String | Date and time of request |
+|body.data[].msgStatus | String | Message status code |
 |body.data[].msgStatusName | String | Name of message status code |
-|body.data[].messageCount| Integer | Number of messages sent |
-|body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | Date and time of receiving |
+|body.data[].messageCount | Integer | Number of messages sent |
+|body.data[].resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+|body.data[].receiveDate | String | Date and time of receiving |
 
 ### List Recipient Details of Mass Delivery 
 
@@ -2521,18 +2521,18 @@ curl -X GET \
 |header.isSuccessful|	Boolean| Successful or not |
 |header.resultCode|	Integer| Failure code |
 |header.resultMessage|	String| Failure message |
-|body.data.requestId | String | Request ID |
-|body.data.recipientSeq | Integer | Recipient sequence |
-|body.data.countryCode | String | Recipient's country code |
-|body.data.recipientNo | String | Recipient number |
-|body.data.requestDate | String | Date and time of request |
-|body.data.msgStatus | String | Message status code |
-|body.data.msgStatusName | String | Name of message status code |
+|body.data[].requestId | String | Request ID |
+|body.data[].recipientSeq | Integer | Recipient sequence |
+|body.data[].countryCode | String | Recipient's country code |
+|body.data[].recipientNo | String | Recipient number |
+|body.data[].requestDate | String | Date and time of request |
+|body.data[].msgStatus | String | Message status code |
+|body.data[].msgStatusName | String | Name of message status code |
 |body.data[].messageCount| Integer | Number of messages sent |
-|body.data.resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
-|body.data.receiveDate | String | Date and time of receiving |
-|body.data.createDate | String | Date and time of registration |
-|body.data.updateDate | String | Date of modification |
+|body.data[].resultCode | String | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+|body.data[].receiveDate | String | Date and time of receiving |
+|body.data[].createDate | String | Date and time of registration |
+|body.data[].updateDate | String | Date of modification |
 
 ### List Recipient Details of Tagged Delivery  
 

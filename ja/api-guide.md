@@ -1397,7 +1397,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?
             "recipientSeq": 1,
             "sendType": "0",
             "messageType": "AUTH",
-                "messageCount": 1,
+            "messageCount": 1,
             "userId": "tester",
             "adYn": "N",
             "resultMessage": "",
@@ -1973,7 +1973,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requ
 |body.data[].requestDate | String | リクエスト日時 |
 |body.data[].msgStatus | String | メッセージステータスコード |
 |body.data[].msgStatusName | String | メッセージステータスコード名 |
-|body.data[].messageCount| Integer | 送信されたメッセージの件数 |
+|body.data[].messageCount | Integer | 送信されたメッセージの件数 |
 |body.data[].resultCode | String | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
 |body.data[].receiveDate | String | 受信日時 |
 
