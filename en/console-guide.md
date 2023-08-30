@@ -2,6 +2,114 @@
 
 > To enable SMS Service, you may first register sender numbers on [Console > SMS > Sender Number Management] (Article 84 of Telecommunications Business Law).
 
+## Identity Verification
+* In order to comply with the amendment of Article 84(2) of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
+    * Only for members who joined after March 2, 2022
+* To use the SMS service, you must go through identity verification, which basically requires mobile phone identity verification and additional documentation depending on your membership type.
+    * If you don't verify your identity, all features other than the **Sender Number Pre-Registration** tab will be disabled.
+* The name and phone number you enter when you sign up must match the information you enter when you verify your identity to be approved.
+
+### Required Documentation by Member Type
+
+| Member Type | Verification Method | Required Documents |
+| --- | --- | --- |
+| Representative | Mobile verification | Business registration certificate, proof of employment |
+| Employee | Mobile verification | Business registration certificate, proof of employment |
+| IAM member | Mobile verification | Business registration certificate, proof of employment |
+| Personal | Mobile verification | - |
+
+
+### Identity Verification Process
+1. Select the **Sender Number Pre-registration**tab.
+2.  Click **Verify phone identity and attach required documents** to start the process.
+3. Confirm and agree to the Consent to collection and usage of personal information.
+4. Proceed to verify your identity with mobile verification or a quick identity verification.
+5. Attach and register any required documents if necessary.
+6. Wait for the operator review and approval process. 
+7. Once the identity verification process is complete, the approval result will be sent to the email registered to your account.
+
+## Pre-register Sender Numbers
+
+#### Enforce pre-registration of sender numbers
+* In accordance with Article 84 of the Telecommunications Business Act, the registration of a sender number requires the verification of the owner of the sender number.
+* The owner verification method and required documents are determined according to the member and sender number types.
+
+### Owner verification method by calling number
+
+* Representative (CEO, employee, IAM)
+
+| Sender Number Type | Verification Method | Required Documents |
+| --- | --- | --- |
+| Representative number, company number | Document verification | Communication service use certificate | 
+| Employee number | Document verification | Communication service use certificate, proof of employment |
+| Third-party number | Document verification | Telecommunication service usage certificate, usage agreement, (third-party) business license, documents confirming the relationship between the business and the third party (contract, etc.) |
+| Other’s number | Document verification | Telecommunication service usage certificate, usage agreement |
+
+
+* Personal
+
+| Sender Number Type | Verification Method | Required Documents |
+| --- | --- | --- |
+| Personal number (mobile) | Mobile verification or document verification | Communication service use certificate | 
+| Personal number (general) | Document verification | Communication service use certificate |
+| Company/Third-party number | Cannot register | - |
+
+#### ※ For reference
+
+* Usage agreement form can be downloaded from the console.
+* Documents confirming the relationship between the business and the third party can be consignment agreements, proof of headquarters and branch offices, etc.
+* Personal member cannot register company and third-party numbers.
+* After verifying your identity, you can register your sender number.
+
+### Registration Format for Sender Numbers
+
+```
+* Fixed phone number: 02-YYY-YYYY (including area code)
+* Mobile phone number: 010-ABYY-YYYY
+* Official phone number: 15YY, 16YY, 18YY (area code prohibited ahead of the number)
+* Common service identification number: 0N0 (area code prohibited ahead of the number)
+* Sender numbers are available between 8 and 11 characters 
+* Unavailable to send messaged from invalid number bandwidth (e.g.:070-0YYY, 070-1YYY, 010-0YYY, 010-1YYY)
+```
+
+#### ※ For reference
+
+- Numbers that are subscribed to 'Blocking Sender Number Abuses' as part of additional telecom services, do not receive messages (web/system text delivery).  
+
+
+### Register Sender Numbers
+1. If you did not verify your identity before registering your sender number, proceed with identity verification.
+    * Even for accounts registered before March 2, 2022, you must go through identity verification.
+2. If you can register with identity authentication, click **Register Sender Number and Verify Mobile Phone**, otherwise select **Register Sender Number and Verify Documents** to start the registration process.
+3. Confirm and agree to the Consent to collection and usage of personal information.
+4. Select the type of sender number required for registration (personal number, representative number, employee number, etc.).
+5. Enter the sender number to register.
+6. Attach and register documents suitable for the number to be registered.
+7. Wait for the operator review and approval process. 
+8. Once the identity verification process is complete, the approval result will be sent to the email registered to your account.
+
+### Select Authentication Type
+
+1. Authentication on Mobile Phone 
+  ![sms_26_201812](https://static.toastoven.net/prod_sms/sms_26_201812.png)
+  ![sms_27_201812](https://static.toastoven.net/prod_sms/sms_27_201812.png)
+  -  After authentication is completed, check sender number registration from **Status of Sender Number Screening**.   
+  - Enter personal information and execute authentication. 
+  - To send messages on your own mobile phone, **Authenticate on Mobile Phone** to immediately register sender numbers.  
+
+2. Authenticate by Documents
+  ![sms_28_201812](https://static.toastoven.net/prod_sms/sms_28_201812.png)
+  ![sms_29_201812](https://static.toastoven.net/prod_sms/sms_29_201812.png)
+  - After authentication is completed, check sender number registration in **Sender Number Evaluation Status**. 
+  - Upload required documents for authentication. 
+  - To make calls to phone numbers authenticated on documents by telecom service providers, register numbers by **Document Authentication**. 
+  - Enter sender number and press Enter to register more than one number. 
+
+
+Sender numbers that are properly registered can be found on the **Query Sender Numbers** page. 
+
+![sms_31_201812](https://static.toastoven.net/prod_sms/sms_31_201812.png)
+
 ## Sending SMS  
 
 ### Send General SMS
@@ -112,6 +220,49 @@ Send with UID according to tag conditions.
 
 Tags can be registered on **Tag Management**, while UID and phone numbers can be saved on the **UID Management** tab.  
 
+## Setting for Rejection of Receiving 080 Numbers 
+
+The rejection of receiving 080 numbers service allows recipients to reject receiving of ad messages. 
+Advertisement messages<span style="color:red"> must include how to reject receiving charge-free </span> for recipients to reject or withdraw consent of receiving.   
+
+### Subscription
+
+Go to **Setting for rejection of receiving 080 numbers** to find the subscription page. 
+Click **Add 080 Numbers to Reject Receiving** to enter business names. 
+
+* Business names refer to such businesses which are guided when you make calls via 080 numbers rejected of receiving.   
+
+![sms_33_201812](https://static.toastoven.net/prod_sms/sms_33_201812.png)
+
+### Registration Scheduled
+
+When subscription is fully applied, the status is changed to Registration Scheduled.  It takes 3 to 4 business days to open the rejection of receiving 080-number service, and the service is enabled after opening. 
+
+### Registration Completed
+
+When the service is completely open, you can find the start date and status of service.  
+**While the rejection of 080-number is scheduled for registration or in service, SMS Service cannot be closed.** Service can be closed only after it is canceled.  
+To cancel the service, press **Cancel Service**. 
+
+### Send Ad Messages 
+
+1. Ad messages can be sent only when the rejection 080-number service is enable. 
+2. When the delivery type is changed into **For Advertisement**, you can find an option to select numbers to reject receiving. 
+3. Click **Apply Option**, and the message body is changed to the phrase as below. 
+4. To send ad messages, following phrase must be included; otherwise, sending fails. 
+
+```
+(Ad)
+
+[Reject receiving charge-free]080XXXXXXX
+```
+
+![sms_34_1_201909](https://static.toastoven.net/prod_sms/sms_34_1_201909.png)
+
+### Query Target of Rejection 
+
+Rejection targets, requested with request date and time as optional, can be queried from the panel at the bottom.    
+
 ## Query of SMS 
 
 ### Query by SMS Request 
@@ -214,12 +365,6 @@ Select a template to modify.
 
 ![sms_20_201909](https://static.toastoven.net/prod_sms/sms_20_201909.png)
 
-## Tag Management
-
-Tags can be added or deleted for a registered UID. 
-
-![sms_21_201812](https://static.toastoven.net/prod_sms/sms_21_201812.png)
-
 ## UID Management 
 
 UIDs and mobile phone numbers can be registered or deleted. 
@@ -236,156 +381,11 @@ Find the number counts while uploading a template which is created.
 
 ![sms_24_201812](https://static.toastoven.net/prod_sms/sms_24_201812.png)
 
-## Identity Verification
-* In order to comply with the amendment of Article 84(2) of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
-    * Only for members who joined after March 2, 2022
-* To use the SMS service, you must go through identity verification, which basically requires mobile phone identity verification and additional documentation depending on your membership type.
-    * If you don't verify your identity, all features other than the **Sender Number Pre-Registration** tab will be disabled.
-* The name and phone number you enter when you sign up must match the information you enter when you verify your identity to be approved.
+## Tag Management
 
-### Required Documentation by Member Type
+Tags can be added or deleted for a registered UID. 
 
-| Member Type | Verification Method | Required Documents |
-| --- | --- | --- |
-| Representative | Mobile verification | Business registration certificate, proof of employment |
-| Employee | Mobile verification | Business registration certificate, proof of employment |
-| IAM member | Mobile verification | Business registration certificate, proof of employment |
-| Personal | Mobile verification | - |
-
-
-### Identity Verification Process
-1. Select the **Sender Number Pre-registration**tab.
-2.  Click **Verify phone identity and attach required documents** to start the process.
-3. Confirm and agree to the Consent to collection and usage of personal information.
-4. Proceed to verify your identity with mobile verification or a quick identity verification.
-5. Attach and register any required documents if necessary.
-6. Wait for the operator review and approval process. 
-7. Once the identity verification process is complete, the approval result will be sent to the email registered to your account.
-
-## Pre-register Sender Numbers
-
-#### Enforce pre-registration of sender numbers
-* In accordance with Article 84 of the Telecommunications Business Act, the registration of a sender number requires the verification of the owner of the sender number.
-* The owner verification method and required documents are determined according to the member and sender number types.
-
-### Owner verification method by calling number
-
-* Representative (CEO, employee, IAM)
-
-| Sender Number Type | Verification Method | Required Documents |
-| --- | --- | --- |
-| Representative number, company number | Document verification | Communication service use certificate | 
-| Employee number | Document verification | Communication service use certificate, proof of employment |
-| Third-party number | Document verification | Telecommunication service usage certificate, usage agreement, (third-party) business license, documents confirming the relationship between the business and the third party (contract, etc.) |
-| Other’s number | Document verification | Telecommunication service usage certificate, usage agreement |
-
-
-* Personal
-
-| Sender Number Type | Verification Method | Required Documents |
-| --- | --- | --- |
-| Personal number (mobile) | Mobile verification or document verification | Communication service use certificate | 
-| Personal number (general) | Document verification | Communication service use certificate |
-| Company/Third-party number | Cannot register | - |
-
-#### ※ For reference
-
-* Usage agreement form can be downloaded from the console.
-* Documents confirming the relationship between the business and the third party can be consignment agreements, proof of headquarters and branch offices, etc.
-* Personal member cannot register company and third-party numbers.
-* After verifying your identity, you can register your sender number.
-
-### Registration Format for Sender Numbers
-
-```
-* Fixed phone number: 02-YYY-YYYY (including area code)
-* Mobile phone number: 010-ABYY-YYYY
-* Official phone number: 15YY, 16YY, 18YY (area code prohibited ahead of the number)
-* Common service identification number: 0N0 (area code prohibited ahead of the number)
-* Sender numbers are available between 8 and 11 characters 
-* Unavailable to send messaged from invalid number bandwidth (e.g.:070-0YYY, 070-1YYY, 010-0YYY, 010-1YYY)
-```
-
-#### ※ For reference
-
-- Numbers that are subscribed to 'Blocking Sender Number Abuses' as part of additional telecom services, do not receive messages (web/system text delivery).  
-
-
-### Register Sender Numbers
-1. If you did not verify your identity before registering your sender number, proceed with identity verification.
-    * Even for accounts registered before March 2, 2022, you must go through identity verification.
-2. If you can register with identity authentication, click **Register Sender Number and Verify Mobile Phone**, otherwise select **Register Sender Number and Verify Documents** to start the registration process.
-3. Confirm and agree to the Consent to collection and usage of personal information.
-4. Select the type of sender number required for registration (personal number, representative number, employee number, etc.).
-5. Enter the sender number to register.
-6. Attach and register documents suitable for the number to be registered.
-7. Wait for the operator review and approval process. 
-8. Once the identity verification process is complete, the approval result will be sent to the email registered to your account.
-
-### Select Authentication Type
-
-1. Authentication on Mobile Phone 
-  ![sms_26_201812](https://static.toastoven.net/prod_sms/sms_26_201812.png)
-  ![sms_27_201812](https://static.toastoven.net/prod_sms/sms_27_201812.png)
-  -  After authentication is completed, check sender number registration from **Status of Sender Number Screening**.   
-  - Enter personal information and execute authentication. 
-  - To send messages on your own mobile phone, **Authenticate on Mobile Phone** to immediately register sender numbers.  
-
-2. Authenticate by Documents
-  ![sms_28_201812](https://static.toastoven.net/prod_sms/sms_28_201812.png)
-  ![sms_29_201812](https://static.toastoven.net/prod_sms/sms_29_201812.png)
-  - After authentication is completed, check sender number registration in **Sender Number Evaluation Status**. 
-  - Upload required documents for authentication. 
-  - To make calls to phone numbers authenticated on documents by telecom service providers, register numbers by **Document Authentication**. 
-  - Enter sender number and press Enter to register more than one number. 
-
-
-Sender numbers that are properly registered can be found on the **Query Sender Numbers** page. 
-
-![sms_31_201812](https://static.toastoven.net/prod_sms/sms_31_201812.png)
-
-## Setting for Rejection of Receiving 080 Numbers 
-
-The rejection of receiving 080 numbers service allows recipients to reject receiving of ad messages. 
-Advertisement messages<span style="color:red"> must include how to reject receiving charge-free </span> for recipients to reject or withdraw consent of receiving.   
-
-### Subscription
-
-Go to **Setting for rejection of receiving 080 numbers** to find the subscription page. 
-Click **Add 080 Numbers to Reject Receiving** to enter business names. 
-
-* Business names refer to such businesses which are guided when you make calls via 080 numbers rejected of receiving.   
-
-![sms_33_201812](https://static.toastoven.net/prod_sms/sms_33_201812.png)
-
-### Registration Scheduled
-
-When subscription is fully applied, the status is changed to Registration Scheduled.  It takes 3 to 4 business days to open the rejection of receiving 080-number service, and the service is enabled after opening. 
-
-### Registration Completed
-
-When the service is completely open, you can find the start date and status of service.  
-**While the rejection of 080-number is scheduled for registration or in service, SMS Service cannot be closed.** Service can be closed only after it is canceled.  
-To cancel the service, press **Cancel Service**. 
-
-### Send Ad Messages 
-
-1. Ad messages can be sent only when the rejection 080-number service is enable. 
-2. When the delivery type is changed into **For Advertisement**, you can find an option to select numbers to reject receiving. 
-3. Click **Apply Option**, and the message body is changed to the phrase as below. 
-4. To send ad messages, following phrase must be included; otherwise, sending fails. 
-
-```
-(Ad)
-
-[Reject receiving charge-free]080XXXXXXX
-```
-
-![sms_34_1_201909](https://static.toastoven.net/prod_sms/sms_34_1_201909.png)
-
-### Query Target of Rejection 
-
-Rejection targets, requested with request date and time as optional, can be queried from the panel at the bottom.    
+![sms_21_201812](https://static.toastoven.net/prod_sms/sms_21_201812.png)
 
 ## Setting for Duplicates 
 
@@ -421,3 +421,68 @@ To use TOAST SMS Service, make sure the following is displayed for 'Personal Inf
 
 Assignor: NHN 
 Content of Business: Send SMS in lieu of customers
+
+## Reference 
+
+<span id='tag-uid'></span>
+### Tags and UIDs
+
+#### Glossary
+| Term    | Description                                                  |
+| ------- | ------------------------------------------------------------ |
+| Tag     | A system that classifies UIDs. <br>Many tags can be attached to an UID so as to help users to easily search and use UID information. |
+| UID     | ID (identifier) that classifies users. <br>One UID can have multiple contacts to be applied for delivery. |
+| Contact | A specified location to contact. <br>Notification provides three products to register contact: Push, Email, and SMS. <br>Push regards to tokens; Email to mail addresses; and, SMS to phone numbers. |
+
+#### Use Tags to Send SMS 
+You can text by selecting tags, instead of phone numbers, as recipient information. 
+
+1. Register UID.
+
+* Go to **Manage UIDs** and register UID and one or many phone numbers. 
+* For more details, see [Manage UIDs](./console-guide/#uid).
+
+2. Register tags.
+
+* Go to **Manage Tags** to register tags. 
+* For more details, see [Manage Tags](./console-guide/#_15).
+
+3. Register UID to a tag. 
+
+* Go to **Manage Tags** to register UID to a registered tag. 
+
+4. Select tags to send text messages. 
+
+* Go to **Send General SMS** and select **Send Tags** instead of mail addresses, and register tags.
+* Mails are to be sent to phone numbers of UID which is registered to a tag. 
+* For more details, see [Send SMS using Tags](./console-guide/#_8).
+
+#### Tags of Other Services 
+* You can share your tag and UI information of Email, with Push or SMS in a same project, with no need of re-registration. 
+* Other contacts can be added to a same UID of each product console. 
+
+### Statistics Event Key and Statistics 
+#### Terminology 
+| Term           | Description                                       |
+| ------------ | ---------------------------------------- |
+| Statistics Event Key | Event key enabled to collect statistics by specific unit. |
+| statsId | Original ID Of a statistics event key, mostly each value called via API.  |
+
+#### Extracting Statistics by Specific Unit for Message Delivery 
+1. Go to the **Statistics Event Key Management** tab and register statistics event key. To send via API, statistics ID (statsId) must be acquired from this page. 
+2. To send messages via console or API, statistics event key must be sent as well.
+
+    2-1. Sending from Console  
+    * To send text messages from the **SMS Delivery** tab, select statistics event key.  
+    * Enter all message information and click **Send**.  
+    * After some time, check statistics data on the **Statistics** tab.
+
+    2-2. Sending via API
+    * Put statsId gained from the **Statistics Event Key Management** tab into message delivery parameter. 
+    * After some time, check statistics data on the **Statistics** tab. 
+
+### Data retention period
+* Retains the sending history for the last 180 days in accordance with the data retention policy.
+* The attachments used in services are retained for 7 days. After 7 days, they are deleted and cannot be retrieved.
+* However, the attachments and evidential documents (communications service certificate) registered to a template are retained as long as the service is provided.
+* Statistics data retains information from the last 90 days.
