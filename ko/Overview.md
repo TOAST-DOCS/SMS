@@ -6,7 +6,7 @@ SMS, LMS, MMS 발송, 발송 예약 기능, 템플릿 관리, 발송 내역 조�
 ## 특징
 
 - SMS, LMS, MMS 발송을 제공합니다.
-    - SMS : 90byte, LMS : 2,000byte, MMS : 2,000byte+이미지
+    - SMS: 90byte, LMS: 2,000byte, MMS: 2,000byte+이미지
 - 대량 발송을 지원합니다.
     - Excel 파일로 수신자 목록을 입력하고 대량으로 SMS를 발송할 수 있습니다.
 - 예약 발송
