@@ -1,5 +1,12 @@
 ## Notification > SMS > Release Notes
 
+### September 26, 2023
+#### Feature Updates
+* [Console] Improved international sending statistics
+  * Improved to view request, sending, sending failed, receiving, and message count event in international sending statistics.
+* [API] Improved international sending process
+    * Improved to send international messages via a sender number without pre-registering the number.
+
 ### August 29, 2023
 #### Feature Updates
 * [API] Improved template deletion
