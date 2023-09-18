@@ -1531,7 +1531,7 @@ curl -X GET \
   "header":{
     "isSuccessful":true,
     "resultCode":0,
-    "resultMessage":"Success."
+    "resultMessage":"success"
   },
   "body":{
     "pageNum":1,
@@ -1821,7 +1821,7 @@ curl -X GET \
     "header" : {
     "isSuccessful" :  true,
     "resultCode" :  0,
-    "resultMessage" :  "."
+    "resultMessage" :  "success"
     },
     "body":{
         "pageNum":0,
@@ -1925,7 +1925,7 @@ curl -X GET \
     "header" : {
     "isSuccessful" :  true,
     "resultCode" :  0,
-    "resultMessage" :  "."
+    "resultMessage" :  "success"
     },
     "body":{
         "pageNum":0,
@@ -2570,7 +2570,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | 120 | オプション | メッセージのタイトル(送信タイプがLms/MmSの場合は必須) |
 | body | String | 4000 | 必須 | メッセージの内容 |
 | useYn |	String| 1 |	必須|	使用有無(Y/N)|
-| attachFileIdList | List<Integer> | - | X | 添付ファイルID(fileId) |
+| attachFileIdList | List<Integer> | - | オプション | 添付ファイルID(fileId) |
 
 #### cURL
 ```
@@ -2810,49 +2810,49 @@ curl -X GET \
 
 ```
 {
-    "header": {
-        "isSuccessful": boolean,
-        "resultCode": Integer,
-        "resultMessage": String
-    },
-    "body": {
-        "pageNum": Integer,
-        "pageSize": Integer,
-        "totalCount": Integer,
-        "data": [{
-            "templateId": "TemplateId",
-            "serviceId": 0,
-            "categoryId": 0,
-            "categoryName": "カテゴリー名",
-            "sort": 0,
-            "templateName": "テンプレート名",
-            "templateDesc": "テンプレートの説明",
-            "useYn": "Y",
-            "priority": "S",
-            "sendNo": ""15446859String"",
-            "sendType": "0",
-            "sendTypeName": "SMS送信",
-            "title": "タイトル",
-            "body": "本文",
-            "attachFileYn": "N",
-            "delYn": "N",
-            "createDate": "2018-01-28 17:50:55.0,
-            "createUser": "CreateUser",
-            "updateDate": "2018-01-28 17:50:55.0",
-            "updateUser": "UpdateUser",
-            "attachFileList": [{
-                "fileId": 0,
-                "serviceId": 0,
-                "attachType": 0,
-                "templateId": "TemplateId",
-                "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                "fileName": "attachment.jpg",
-                "fileSize": 0,
-                "createDate": "2018-01-28 17:50:55.0",
-                "createUser": "CreateUser"
-            }]
-        }]
-    }
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "templateId": "ee13efe5-58c2-4e61-a59f-1fa47cc21cd0",
+        "serviceId": 71191,
+        "categoryId": 415978,
+        "categoryName": "categoryName",
+        "sort": 0,
+        "templateName": "templateName",
+        "templateDesc": "templateDescription",
+        "useYn": "Y",
+        "priority": "S",
+        "sendNo": "12341234",
+        "sendType": "0",
+        "sendTypeName": "SMS 발송",
+        "title": "title",
+        "body": "body",
+        "attachFileYn": "Y",
+        "delYn": "N",
+        "createDate": "2023-09-18 14:30:03.0",
+        "createUser": null,
+        "updateDate": "2023-09-18 14:30:03.0",
+        "updateUser": null,
+        "attachFileList": [
+          {
+            "fileId": 535186,
+            "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+            "fileName": "attachment.jpg",
+            "saveFileName": "20230918eA8JmR0.jpg",
+            "uploadType": "TEMPORARY"
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
@@ -2884,15 +2884,11 @@ curl -X GET \
 |body.data[].createUser|	String|	登録したユーザー|
 |body.data[].updateDate|	String|	修正日|
 |body.data[].updateUser|	String|	修正したユーザー|
-|body.data[].attachFileList[].fileId|	Integer|	添付ファイルID|
-|body.data[].attachFileList[].serviceId|	Integer|	サービスID(内部用、未使用値)|
-|body.data[].attachFileList[].attachType|	Integer|	添付ファイルのアップロードタイプ(0：臨時、1：アップロード、2：テンプレート)|
-|body.data[].attachFileList[].templateId|	String|	テンプレートID|
-|body.data[].attachFileList[].filePath|	String|	添付ファイルのパス|
-|body.data[].attachFileList[].fileName|	String|	添付ファイル名|
-|body.data[].attachFileList[].fileSize|  Integer| ファイルサイズ|
-|body.data[].attachFileList[].createDate|	String|	添付ファイルの登録日|
-|body.data[].attachFileList[].createUser|	String|	添付ファイルの登録ユーザー|
+|body.data[].attachFileList[].fileId|	Integer|	ファイルID|
+|body.data[].attachFileList[].filePath|	String|	ファイル保存パス(内部用)|
+|body.data[].attachFileList[].fileName|	String|	ファイル名|
+|body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイルの名前|
+|body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
 
 
 ### テンプレートの単一照会
@@ -2924,49 +2920,44 @@ curl -X GET \
 
 ```
 {
-    "header": {
-        "isSuccessful": boolean,
-        "resultCode": Integer,
-        "resultMessage": String
-    },
-    "body": {
-        "pageNum": Integer,
-        "pageSize": Integer,
-        "totalCount": Integer,
-        "data": {
-            "templateId": "TemplateId",
-            "serviceId": 0,
-            "categoryId": 0,
-            "categoryName": "カテゴリー名",
-            "sort": 0,
-            "templateName": "テンプレート名",
-            "templateDesc": "テンプレートの説明",
-            "useYn": "Y",
-            "priority": "S",
-            "sendNo": ""15446859String"",
-            "sendType": "0",
-            "sendTypeName": "SMS送信",
-            "title": "タイトル",
-            "body": "本文",
-            "attachFileYn": "N",
-            "delYn": "N",
-            "createDate": "2018-01-28 17:50:55.0,
-            "createUser": "CreateUser",
-            "updateDate": "2018-01-28 17:50:55.0",
-            "updateUser": "UpdateUser",
-            "attachFileList": [{
-                "fileId": 0,
-                "serviceId": 0,
-                "attachType": 0,
-                "templateId": "TemplateId",
-                "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                "fileName": "attachment.jpg",
-                "fileSize": 0,
-                "createDate": "2018-01-28 17:50:55.0",
-                "createUser": "CreateUser"
-            }]
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "templateId": "ee13efe5-58c2-4e61-a59f-1fa47cc21cd0",
+      "serviceId": 71191,
+      "categoryId": 415978,
+      "categoryName": "categoryName",
+      "sort": 0,
+      "templateName": "templateName",
+      "templateDesc": "templateDescription",
+      "useYn": "Y",
+      "priority": "S",
+      "sendNo": "12341234",
+      "sendType": "0",
+      "sendTypeName": "SMS 발송",
+      "title": "title",
+      "body": "body",
+      "attachFileYn": "Y",
+      "delYn": "N",
+      "createDate": "2023-09-18 14:30:03.0",
+      "createUser": null,
+      "updateDate": "2023-09-18 14:30:03.0",
+      "updateUser": null,
+      "attachFileList": [
+        {
+          "fileId": 535186,
+          "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+          "fileName": "attachment.jpg",
+          "saveFileName": "20230918eA8JmR0.jpg",
+          "uploadType": "TEMPORARY"
         }
+      ]
     }
+  }
 }
 ```
 
@@ -2998,15 +2989,11 @@ curl -X GET \
 |body.data.createUser|	String|	登録したユーザー|
 |body.data.updateDate|	String|	修正日|
 |body.data.updateUser|	String|	修正したユーザー|
-|body.data.attachFileList[].fileId|	Integer|	添付ファイルID|
-|body.data.attachFileList[].serviceId|	Integer|	サービスID(内部用、未使用値)|
-|body.data.attachFileList[].attachType|	Integer|	添付ファイルのアップロードタイプ(0：臨時、1：アップロード、2：テンプレート)|
-|body.data.attachFileList[].templateId|	String|	テンプレートID|
-|body.data.attachFileList[].filePath|	String|	添付ファイルのパス|
-|body.data.attachFileList[].fileName|	String|	添付ファイル名|
-|body.data.attachFileList[].fileSize|  Integer| ファイルサイズ|
-|body.data.attachFileList[].createDate|	String|	添付ファイルの登録日|
-|body.data.attachFileList[].createUser|	String|	添付ファイル登録ユーザー|
+|body.data[].attachFileList[].fileId|	Integer|	ファイルID|
+|body.data[].attachFileList[].filePath|	String|	ファイル保存パス(内部用)|
+|body.data[].attachFileList[].fileName|	String|	ファイル名|
+|body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイルの名前|
+|body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
 
 ### テンプレートの修正
 
@@ -3052,7 +3039,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | 120 | オプション | メッセージのタイトル(送信タイプがLms/MmSの場合は必須) |
 | body | String | 4000 | 必須 | メッセージの内容 |
 | useYn |	String| 1 |	必須|	使用有無(Y/N)|
-| attachFileIdList | List<Integer> | - | X | 添付ファイルID(fileId) |
+| attachFileIdList | List<Integer> | - | オプション | 添付ファイルID(fileId) |
 
 #### cURL
 ```
@@ -3307,29 +3294,42 @@ curl -X GET \
 #### レスポンス
 ```
 {
-    "header" : {
-        "isSuccessful" :  true,
-        "resultCode" :  0,
-        "resultMessage" :  ""
-    },
-    "body" : {
-        "pageNum" :  0,
-        "pageSize" :  0,
-        "totalCount" :  0,
-        "data" : [
-        {
-            "serviceId" :  0,
-            "sendNo" :  "",
-            "useYn" :  "",
-            "blockYn" :  "",
-            "blockReason" :  "",
-            "createDate" :  "",
-            "createUser" :  "",
-            "updateDate" :  "",
-            "updateUser" :  ""
-        }
-        ]
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 2,
+    "data": [
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "01012341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-07-18 12:05:35",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-07-31 13:45:48",
+        "updateUser": "test@nhn.com"
+      },
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "12341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-09-14 10:30:30",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-09-14 10:30:30",
+        "updateUser": null
+      }
+    ]
+  }
 }
 ```
 
@@ -3746,9 +3746,11 @@ curl -X GET \
       "updateDate":"{修正日}",
       "attachFileList":[
         {
-          "fileId":0,
-          "filePath":"26606/toast-mt-2018-02-07/1555/105887/",
-          "fileName":"file_attach_test.jpg"
+          "fileId": 535186,
+          "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+          "fileName": "attachment.jpg",
+          "saveFileName": "20230918eA8JmR0.jpg",
+          "uploadType": "TEMPORARY"
         }
       ]
     }
@@ -3781,9 +3783,11 @@ curl -X GET \
 |body.data.messageStatus|	String|	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：予約キャンセル、DUPLICATED：重複送信)|
 |body.data.createUser|	String|	登録したユーザー|
 |body.data.createDate|	String|	登録日|
-|body.data.attachFileList[].fileId|	Integer|	ファイルID|
-|body.data.attachFileList[].filePath|	String|	ファイルパス(内部用)|
-|body.data.attachFileList[].fileName|	String|	ファイル名|
+|body.data[].attachFileList[].fileId|	Integer|	ファイルID|
+|body.data[].attachFileList[].filePath|	String|	ファイル保存パス(内部用)|
+|body.data[].attachFileList[].fileName|	String|	ファイル名|
+|body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイルの名前|
+|body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
 
 
 ### 予約送信の取消
@@ -4136,11 +4140,11 @@ curl -X POST \
   "header":{
     "isSuccessful":true,
     "resultCode":0,
-    "resultMessage":"SUCCESS"
+    "resultMessage":"success"
   },
   "body":{
     "data":{
-      "donwloadId":"20190610100630ReZQ6KZzAH0",
+      "downloadId":"20190610100630ReZQ6KZzAH0",
       "downloadType":"NORMAL",
       "fileType":"CSV",
       "downloadStatusCode":"COMPLETED",
@@ -4155,7 +4159,7 @@ curl -X POST \
 |header.isSuccessful|	Boolean|	成否|
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
-|body.data.donwloadId|	String|	ダウンロードID|
+|body.data.downloadId|	String|	ダウンロードID|
 |body.data.downloadType|	String|	ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信|
 |body.data.fileType|	String|	ファイルタイプ(現在csvのみサポート)|
 |body.data.downloadStatusCode|	String|	ファイル作成状態<br/>- READY：作成準備<br/>- MAKING：作成中<br/>- COMPLETED：作成完了<br/>- FAILED：作成失敗<br/>- EXPIRED：ダウンロード期間終了|
@@ -4566,7 +4570,7 @@ curl -X GET \
                     ]
                 }
             ],
-            "isLast": false,
+            "last": false,
             "totalCount": 5
         }
     }
@@ -4586,8 +4590,7 @@ curl -X GET \
 |body.data.uids[].contacts[].contactType| String | 連絡先タイプ |
 |body.data.uids[].contacts[].contact| String | 連絡先(携帯電話番号) |
 |body.data.uids[].contacts[].createdDate| String | 連絡先作成日時 |
-|body.data.uids[].isLast| Boolean| 最後のリストかどうか |
-|body.data.uids[].totalCount| Integer| 総データ件数 |
+|body.data.uids[].last| Boolean| 最後のリストかどうか |
 
 ### UID単件照会
 

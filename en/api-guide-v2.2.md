@@ -1435,7 +1435,7 @@ Content-Type: application/json;charset=UTF-8
   "header":{
     "isSuccessful":true,
     "resultCode":0,
-    "resultMessage":"Success."
+    "resultMessage":"success"
   },
   "body":{
     "pageNum":1,
@@ -1678,7 +1678,7 @@ GET /sms/v2.2/appKeys/{appKey}/tag-sender
     "header" : {
     "isSuccessful" :  true,
     "resultCode" :  0,
-    "resultMessage" :  "."
+    "resultMessage" :  "success"
     },
     "body":{
         "pageNum":0,
@@ -1775,7 +1775,7 @@ Content-Type: application/json;charset=UTF-8
     "header" : {
     "isSuccessful" :  true,
     "resultCode" :  0,
-    "resultMessage" :  "."
+    "resultMessage" :  "success"
     },
     "body":{
         "pageNum":0,
@@ -2352,7 +2352,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | 120 | Optional | Text title (required, if delivery type is LMS/MMS) |
 | body | String | 4000 | Required | Text body |
 | useYn |	String| 1 | Required |	Use or not|
-| attachFileIdList | List<Integer> | - | X | Attached file ID(fileId) |
+| attachFileIdList | List<Integer> | - | Optional | Attached file ID(fileId) |
 
 
 #### Response
@@ -2566,49 +2566,58 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 {
-    "header": {
-        "isSuccessful": Boolean,
-        "resultCode": Integer,
-        "resultMessage": String
-    },
-    "body": {
-        "pageNum": Integer,
-        "pageSize": Integer,
-        "totalCount": Integer,
-        "data": [{
-            "templateId": "TemplateId",
-            "serviceId": 0,
-            "categoryId": 0,
-            "categoryName": "category name",
-            "sort": 0,
-            "templateName": "template name",
-            "templateDesc": "template description",
-            "useYn": "Y",
-            "priority": "S",
-            "sendNo": ""15446859String"",
-            "sendType": "0",
-            "sendTypeName": "send SMS",
-            "title": "title",
-            "body": "body",
-            "attachFileYn": "N",
-            "delYn": "N",
-            "createDate": "2018-01-28 17:50:55.0,
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 1000,
+    "totalCount": 1,
+    "data": [
+      {
+        "templateId": "0cc60fce-4251-44a0-bbdf-06b863ac2212",
+        "serviceId": 71191,
+        "categoryId": 415975,
+        "categoryName": "categoryName",
+        "sort": 0,
+        "templateName": "templateName",
+        "templateDesc": "templateDescription",
+        "useYn": "Y",
+        "priority": "S",
+        "sendNo": "15771234",
+        "sendType": "0",
+        "sendTypeName": "SMS 발송",
+        "title": "title",
+        "body": "body",
+        "attachFileYn": "Y",
+        "delYn": "N",
+        "createDate": "2023-09-18 14:03:13.0",
+        "createUser": null,
+        "updateDate": "2023-09-18 14:03:13.0",
+        "updateUser": null,
+        "attachFileList": [
+          {
+            "fileId": 535162,
+            "serviceId": 71191,
+            "attachType": 2,
+            "templateId": "0cc60fce-4251-44a0-bbdf-06b863ac2212",
+            "filePath": "/permanent/71191/toast-mt-2023-09-18/1403/535162",
+            "fileName": "attachment.jpg",
+            "saveFileName": "20230918bc7eyh0.jpg",
+            "fileSize": null,
+            "createDate": "2023-09-18 14:03:11.0",
             "createUser": "CreateUser",
-            "updateDate": "2018-01-28 17:50:55.0",
-            "updateUser": "UpdateUser",
-            "attachFileList": [{
-                "fileId": 0,
-                "serviceId": 0,
-                "attachType": 0,
-                "templateId": "TemplateId",
-                "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                "fileName": "attachment.jpg",
-                "fileSize": 0,
-                "createDate": "2018-01-28 17:50:55.0",
-                "createUser": "CreateUser"
-            }]
-        }]
-    }
+            "updateDate": null,
+            "updateUser": null,
+            "uploadType": "TEMPORARY",
+            "existFileName": "20230918bc7eyh0.jpg"
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
@@ -2640,15 +2649,20 @@ Content-Type: application/json;charset=UTF-8
 |body.data[].createUser|	String| Registered user |
 |body.data[].updateDate|	String| Date of modification |
 |body.data[].updateUser|	String| Modifier |
-|body.data[].attachFileList[].fileId|	Integer| Attached file ID |
-|body.data[].attachFileList[].serviceId|	Integer| Service ID (unused, for internal purpose) |
-|body.data[].attachFileList[].attachType|	Integer| Upload type of attachment (0:Temporary,1:Upload,2:Template) |
-|body.data[].attachFileList[].templateId|	String| Template ID |
-|body.data[].attachFileList[].filePath|	String| Path of attached file |
-|body.data[].attachFileList[].fileName|	String| Name of attached file |
-|body.data[].attachFileList[].fileSize|  Integer| File size |
-|body.data[].attachFileList[].createDate|	String| Date of registration for attachment |
-|body.data[].attachFileList[].createUser|	String| Registered user of attachment |
+|body.data[].attachFileList[].fileId|	Integer| File ID |
+|body.data[].attachFileList[].serviceId|	Integer|	Service ID|
+|body.data[].attachFileList[].attachType|	Integer|	Type of Attachment|
+|body.data[].attachFileList[].templateId|	String|	Template ID|
+|body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
+|body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].fileSize|	Long|	File Size|
+|body.data[].attachFileList[].createDate|	String|	Date and time of creation |
+|body.data[].attachFileList[].createUser|	String|	Creator|
+|body.data[].attachFileList[].updateDate|	String|	Date and time of modification|
+|body.data[].attachFileList[].updateUser|	String|	Modifier|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
+|body.data[].attachFileList[].existFileName|	String|	Name of saved file|
 
 
 ### Query Single Template
@@ -2802,7 +2816,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | 120 | Optional | Text title (required, if delivery type is Lms/MmS) |
 | body | String | 4000 | Required | Text body |
 | useYn |	String| 1 | Required |	Use or not|
-| attachFileIdList | List<Integer> | - | X | Attached file ID(fileId) |
+| attachFileIdList | List<Integer> | - | Optional | Attached file ID(fileId) |
 
 
 #### Response
@@ -3012,29 +3026,42 @@ Content-Type: application/json;charset=UTF-8
 #### Response
 ```
 {
-    "header" : {
-        "isSuccessful" :  true,
-        "resultCode" :  0,
-        "resultMessage" :  ""
-    },
-    "body" : {
-        "pageNum" :  0,
-        "pageSize" :  0,
-        "totalCount" :  0,
-        "data" : [
-        {
-            "serviceId" :  0,
-            "sendNo" :  "",
-            "useYn" :  "",
-            "blockYn" :  "",
-            "blockReason" :  "",
-            "createDate" :  "",
-            "createUser" :  "",
-            "updateDate" :  "",
-            "updateUser" :  ""
-        }
-        ]
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 2,
+    "data": [
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "01012341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-07-18 12:05:35",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-07-31 13:45:48",
+        "updateUser": "test@nhn.com"
+      },
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "12341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-09-14 10:30:30",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-09-14 10:30:30",
+        "updateUser": null
+      }
+    ]
+  }
 }
 ```
 
@@ -3066,7 +3093,7 @@ Content-Type: application/json;charset=UTF-8
 
 |Http method|	URI|
 |---|---|
-|GET|	/sms/v2.2/appKeys/{appKey}}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
+|GET|	/sms/v2.2/appKeys/{appKey}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId}|
 
 [Path parameter]
 
@@ -3454,11 +3481,11 @@ Content-Type: application/json;charset=UTF-8
   "header":{
     "isSuccessful":true,
     "resultCode":0,
-    "resultMessage":"SUCCESS"
+    "resultMessage":"success"
   },
   "body":{
     "data":{
-      "donwloadId":"20190610100630ReZQ6KZzAH0",
+      "downloadId":"20190610100630ReZQ6KZzAH0",
       "downloadType":"NORMAL",
       "fileType":"CSV",
       "downloadStatusCode":"COMPLETED",
@@ -3473,7 +3500,7 @@ Content-Type: application/json;charset=UTF-8
 |header.isSuccessful|	Boolean| Successful or not |
 |header.resultCode|	Integer| Failure code |
 |header.resultMessage|	String| Failure message |
-|body.data.donwloadId|	String| Download ID |
+|body.data.downloadId|	String| Download ID |
 |body.data.downloadType|	String| Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery |
 |body.data.fileType|	String| File type (currently supports csv only) |
 |body.data.downloadStatusCode|	String| Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
@@ -3836,7 +3863,7 @@ Content-Type: application/json;charset=UTF-8
                     ]
                 }
             ],
-            "isLast": false,
+            "last": false,
             "totalCount": 5
         }
     }
@@ -3856,8 +3883,7 @@ Content-Type: application/json;charset=UTF-8
 |body.data.uids[].contacts[].contactType| String | Contact type(PHONE_NUMBER) |
 |body.data.uids[].contacts[].contact| String | Contact (phone number) |
 |body.data.uids[].contacts[].createdDate| String | Date and time of contact creation |
-|body.data.uids[].isLast| Boolean| Last on list or not |
-|body.data.uids[].totalCount| Integer| Total number of data |
+|body.data.uids[].last| Boolean| Last on list or not |
 
 ### Get UIDs
 

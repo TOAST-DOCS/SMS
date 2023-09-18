@@ -951,7 +951,6 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?start
 |body.data[].attachFileList[].filename|	String|	ファイル名|
 |body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイル名|
 |body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
-|body.data[].attachFileList[].resultMessage| String | 結果メッセージ |
 |body.data[].senderGroupingKey|	String|	発信者グループキー|
 |body.data[].recipientGroupingKey|	String|	受信者グループキー|
 
@@ -1782,7 +1781,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/message-results?
 #### リクエスト
 [URL]
 ```
-GET /sms/v3.0/appKeys/{appKey}/mass-sender/
+GET /sms/v3.0/appKeys/{appKey}/mass-sender
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1830,35 +1829,33 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender?requ
 #### レスポンス
 ```
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "body": {
-        "pageNum": 1,
-        "pageSize": 15,
-        "totalCount": 1,
-        "data": [
-            {
-                "requestId": "20210901033436ZLdZtl8GWZ0",
-                "requestDate": "2021-09-01 03:34:36.0",
-                "sendType": "0",
-                "messageType": "SMS",
-                "templateId": "",
-                "masterStatusCode": "MAS19",
-                "masterStatus": "COMPLETED",
-                "sendNo": "01012345000",
-                "title": null,
-                "body": "test",
-                "adYn": "N",
-                "autoSendYn": "N",
-                "sendErrorCount": 0,
-                "createDate": "2021-09-01 03:34:36.0",
-                "createUser": "63b813a0-f664-11e7-9edb-005056ac7022",
-            }
-        ]
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "requestId": "20230918100859e1SoH6zC4o0",
+        "requestDate": "2023-09-18 10:08:59",
+        "masterStatusCode": "MAS19",
+        "masterStatus": "COMPLETE",
+        "templateId": "",
+        "sendNo": "12341234",
+        "title": null,
+        "body": "body",
+        "adYn": "N",
+        "autoSendYn": "Y",
+        "sendErrorCount": 0,
+        "createUser": "25d09a62-0bf7-4d6f-b823-80e49536cc08",
+        "createDate": "2023-09-18 10:08:59.0"
+      }
+    ]
+  }
 }
 ```
 
@@ -3482,49 +3479,49 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 
 ```
 {
-    "header": {
-        "isSuccessful": Boolean,
-        "resultCode": Integer,
-        "resultMessage": String
-    },
-    "body": {
-        "pageNum": Integer,
-        "pageSize": Integer,
-        "totalCount": Integer,
-        "data": [{
-            "templateId": "TemplateId",
-            "serviceId": 0,
-            "categoryId": 0,
-            "categoryName"："カテゴリー名",
-            "sort": 0,
-            "templateName"："テンプレート名",
-            "templateDesc"："テンプレート説明",
-            "useYn": "Y",
-            "priority": "S",
-            "sendNo": ""15446859String"",
-            "sendType": "0",
-            "sendTypeName"："SMS送信",
-            "title"："タイトル",
-            "body"："本文",
-            "attachFileYn": "N",
-            "delYn": "N",
-            "createDate": "2018-01-28 17:50:55.0,
-            "createUser": "CreateUser",
-            "updateDate": "2018-01-28 17:50:55.0",
-            "updateUser": "UpdateUser",
-            "attachFileList": [{
-                "fileId": 0,
-                "serviceId": 0,
-                "attachType": 0,
-                "templateId": "TemplateId",
-                "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                "fileName": "attachment.jpg",
-                "fileSize": 0,
-                "createDate": "2018-01-28 17:50:55.0",
-                "createUser": "CreateUser"
-            }]
-        }]
-    }
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "templateId": "ee13efe5-58c2-4e61-a59f-1fa47cc21cd0",
+        "serviceId": 71191,
+        "categoryId": 415978,
+        "categoryName": "categoryName",
+        "sort": 0,
+        "templateName": "templateName",
+        "templateDesc": "templateDescription",
+        "useYn": "Y",
+        "priority": "S",
+        "sendNo": "12341234",
+        "sendType": "0",
+        "sendTypeName": "SMS 발송",
+        "title": "title",
+        "body": "body",
+        "attachFileYn": "Y",
+        "delYn": "N",
+        "createDate": "2023-09-18 14:30:03.0",
+        "createUser": null,
+        "updateDate": "2023-09-18 14:30:03.0",
+        "updateUser": null,
+        "attachFileList": [
+          {
+            "fileId": 535186,
+            "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+            "fileName": "attachment.jpg",
+            "saveFileName": "20230918eA8JmR0.jpg",
+            "uploadType": "TEMPORARY"
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
@@ -3556,15 +3553,11 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 |body.data[].createUser|	String|	登録したユーザー|
 |body.data[].updateDate|	String|	修正日|
 |body.data[].updateUser|	String|	修正したユーザー|
-|body.data[].attachFileList[].fileId|	Integer|	添付ファイルID|
-|body.data[].attachFileList[].serviceId|	Integer|	サービスID(内部用、未使用値)|
-|body.data[].attachFileList[].attachType|	Integer|	添付ファイルアップロードタイプ(0：臨時、1：アップロード、2：テンプレート)|
-|body.data[].attachFileList[].templateId|	String|	テンプレートID|
-|body.data[].attachFileList[].filePath|	String|	添付ファイルパス|
-|body.data[].attachFileList[].fileName|	String|	添付ファイル名|
-|body.data[].attachFileList[].fileSize|  Integer| ファイルサイズ|
-|body.data[].attachFileList[].createDate|	String|	添付ファイル登録日|
-|body.data[].attachFileList[].createUser|	String|	添付ファイル登録ユーザー|
+|body.data[].attachFileList[].fileId|	Integer|	ファイルID|
+|body.data[].attachFileList[].filePath|	String|	ファイル保存パス(内部用) |
+|body.data[].attachFileList[].filename|	String|	ファイル名|
+|body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイル名|
+|body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
 
 
 ### テンプレート単一検索
@@ -3609,49 +3602,44 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
 
 ```
 {
-    "header": {
-        "isSuccessful": Boolean,
-        "resultCode": Integer,
-        "resultMessage": String
-    },
-    "body": {
-        "pageNum": Integer,
-        "pageSize": Integer,
-        "totalCount": Integer,
-        "data": {
-            "templateId": "TemplateId",
-            "serviceId": 0,
-            "categoryId": 0,
-            "categoryName"："カテゴリー名",
-            "sort": 0,
-            "templateName"："テンプレート名",
-            "templateDesc"："テンプレート説明",
-            "useYn": "Y",
-            "priority": "S",
-            "sendNo": ""15446859String"",
-            "sendType": "0",
-            "sendTypeName"："SMS送信",
-            "title"："タイトル",
-            "body"："本文",
-            "attachFileYn": "N",
-            "delYn": "N",
-            "createDate": "2018-01-28 17:50:55.0,
-            "createUser": "CreateUser",
-            "updateDate": "2018-01-28 17:50:55.0",
-            "updateUser": "UpdateUser",
-            "attachFileList": [{
-                "fileId": 0,
-                "serviceId": 0,
-                "attachType": 0,
-                "templateId": "TemplateId",
-                "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                "fileName": "attachment.jpg",
-                "fileSize": 0,
-                "createDate": "2018-01-28 17:50:55.0",
-                "createUser": "CreateUser"
-            }]
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "templateId": "ee13efe5-58c2-4e61-a59f-1fa47cc21cd0",
+      "serviceId": 71191,
+      "categoryId": 415978,
+      "categoryName": "categoryName",
+      "sort": 0,
+      "templateName": "templateName",
+      "templateDesc": "templateDescription",
+      "useYn": "Y",
+      "priority": "S",
+      "sendNo": "12341234",
+      "sendType": "0",
+      "sendTypeName": "SMS 발송",
+      "title": "title",
+      "body": "body",
+      "attachFileYn": "Y",
+      "delYn": "N",
+      "createDate": "2023-09-18 14:30:03.0",
+      "createUser": null,
+      "updateDate": "2023-09-18 14:30:03.0",
+      "updateUser": null,
+      "attachFileList": [
+        {
+          "fileId": 535186,
+          "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+          "fileName": "attachment.jpg",
+          "saveFileName": "20230918eA8JmR0.jpg",
+          "uploadType": "TEMPORARY"
         }
+      ]
     }
+  }
 }
 ```
 
@@ -3683,15 +3671,11 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
 |body.data.createUser|	String|	登録したユーザー|
 |body.data.updateDate|	String|	修正日|
 |body.data.updateUser|	String|	修正したユーザー|
-|body.data.attachFileList[].fileId|	Integer|	添付ファイルID|
-|body.data.attachFileList[].serviceId|	Integer|	サービスID(内部用、未使用値)|
-|body.data.attachFileList[].attachType|	Integer|	添付ファイルアップロードタイプ(0：臨時、1：アップロード、2：テンプレート)|
-|body.data.attachFileList[].templateId|	String|	テンプレートID|
-|body.data.attachFileList[].filePath|	String|	添付ファイルパス|
-|body.data.attachFileList[].fileName|	String|	添付ファイル名|
-|body.data.attachFileList[].fileSize|  Integer| ファイルサイズ|
-|body.data.attachFileList[].createDate|	String|	添付ファイル登録日|
-|body.data.attachFileList[].createUser|	String|	添付ファイル登録ユーザー|
+|body.data[].attachFileList[].fileId|	Integer|	ファイルID|
+|body.data[].attachFileList[].filePath|	String|	ファイル保存パス(内部用) |
+|body.data[].attachFileList[].filename|	String|	ファイル名|
+|body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイル名|
+|body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
 
 ### テンプレート修正
 
@@ -3749,7 +3733,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | 120 | オプション | メッセージタイトル(送信タイプがLMS/MMSの場合は必須) |
 | body | String | 4000 | 必須 | メッセージ内容 |
 | useYn |	String| 1 |	必須|	使用するかどうか(Y/N)|
-| attachFileIdList | List<Integer> | - | X | 添付ファイルID(fileId) |
+| attachFileIdList | List<Integer> | - | オプション | 添付ファイルID(fileId) |
 
 
 #### cURL
@@ -4070,29 +4054,42 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 #### レスポンス
 ```
 {
-    "header": {
-        "isSuccessful":  true,
-        "resultCode":  0,
-        "resultMessage":  ""
-    },
-    "body": {
-        "pageNum":  0,
-        "pageSize":  0,
-        "totalCount":  0,
-        "data": [
-        {
-            "serviceId":  0,
-            "sendNo":  "",
-            "useYn":  "",
-            "blockYn":  "",
-            "blockReason":  "",
-            "createDate":  "",
-            "createUser":  "",
-            "updateDate":  "",
-            "updateUser":  ""
-        }
-        ]
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 2,
+    "data": [
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "01012341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-07-18 12:05:35",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-07-31 13:45:48",
+        "updateUser": "test@nhn.com"
+      },
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "12341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-09-14 10:30:30",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-09-14 10:30:30",
+        "updateUser": null
+      }
+    ]
+  }
 }
 ```
 
@@ -4574,9 +4571,11 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/'"$
       "updateDate": "{修正日}",
       "attachFileList": [
         {
-          "fileId": 0,
-          "filePath": "26606/toast-mt-2018-02-07/1555/105887/",
-          "fileName": "file_attach_test.jpg"
+          "fileId": 535186,
+          "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+          "fileName": "attachment.jpg",
+          "saveFileName": "20230918eA8JmR0.jpg",
+          "uploadType": "TEMPORARY"
         }
       ]
     }
@@ -4609,9 +4608,11 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/'"$
 |body.data.messageStatus|	String|	メッセージ状態<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：予約キャンセル、DUPLICATED：重複送信)|
 |body.data.createUser|	String|	登録したユーザー|
 |body.data.createDate|	String|	登録日|
-|body.data.attachFileList[].fileId|	Integer|	ファイルID|
-|body.data.attachFileList[].filePath|	String|	ファイルパス(内部用)|
-|body.data.attachFileList[].fileName|	String|	ファイル名|
+|body.data[].attachFileList[].fileId|	Integer|	ファイルID|
+|body.data[].attachFileList[].filePath|	String|	ファイル保存パス(内部用) |
+|body.data[].attachFileList[].filename|	String|	ファイル名|
+|body.data[].attachFileList[].saveFileName|	String|	保存された添付ファイル名|
+|body.data[].attachFileList[].uploadType|	String|	アップロードタイプ|
 
 ### 予約送信キャンセル
 
@@ -5021,11 +5022,11 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-
   "header": {
     "isSuccessful": true,
     "resultCode": 0,
-    "resultMessage": "SUCCESS"
+    "resultMessage": "success"
   },
   "body": {
     "data": {
-      "donwloadId": "20190610100630ReZQ6KZzAH0",
+      "downloadId": "20190610100630ReZQ6KZzAH0",
       "downloadType": "NORMAL",
       "fileType": "CSV",
       "downloadStatusCode": "COMPLETED",
@@ -5040,7 +5041,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-
 |header.isSuccessful|	Boolean|	成否|
 |header.resultCode|	Integer|	失敗コード|
 |header.resultMessage|	String|	失敗メッセージ|
-|body.data.donwloadId|	String|	ダウンロードID|
+|body.data.downloadId|	String|	ダウンロードID|
 |body.data.downloadType|	String|	ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信|
 |body.data.fileType|	String|	ファイルタイプ(現在csvのみサポート)|
 |body.data.downloadStatusCode|	String|	ファイル作成状態<br/>- READY：作成準備<br/>- MAKING：作成中<br/>- COMPLETED：作成完了<br/>- FAILED：作成失敗<br/>- EXPIRED：ダウンロード期間終了|
@@ -5098,25 +5099,25 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reserva
 ```
 {
   "header": {
-    "isSuccessful": true,
     "resultCode": 0,
-    "resultMessage": "SUCCESS"
+    "resultMessage": "success",
+    "isSuccessful": true
   },
   "body": {
-    "totalCount": 0,
+    "totalCount": 11,
     "data": [
       {
-        "downloadId": "",
-        "downloadType": "",
-        "fileType": "",
-        "parameter": "",
+        "downloadId": "20230918142321iut0Dvz7bb0",
+        "downloadType": "NORMAL",
+        "fileType": "CSV",
+        "parameter": "{\"pageNum\":1,\"pageSize\":15,\"offset\":0,\"rowCount\":15,\"serviceId\":71191,\"requestId\":\"202309181423208yLgttheqX0\",\"sendNo\":\"12341234\",\"recipientNo\":\"01012341234\",\"startRequestDate\":\"2023-09-18 00:00:20\",\"endRequestDate\":\"2023-09-18 23:59:20\",\"startResultDate\":\"2023-09-18 00:00:20\",\"endResultDate\":\"2023-09-18 23:59:20\",\"startCreateDate\":\"2023-09-18 00:00:20\",\"endCreateDate\":\"2023-09-18 14:23:21\",\"msgStatus\":\"3\",\"msgStatusName\":\"COMPLETED\",\"resultCode\":\"MTR2\",\"subResultCode\":\"MTR2_3\",\"resultCodeList\":[\"2004\",\"2003\",\"2006\",\"2005\",\"2000\",\"2002\",\"2001\"],\"sendType\":\"1\",\"senderGroupingKey\":\"senderGroupingKey\",\"recipientGroupingKey\":\"recipientGroupingKey\",\"countryCodeSet\":[],\"isIncludeTitleAndBody\":true,\"searchedByCreateDate\":true,\"targetMonths\":[\"sep\"],\"lastResultCode\":\"MTR2_3\"}",
         "size": 0,
-        "downloadStatusCode": "",
-        "resultMessage": "",
-        "expiredDate": "",
-        "createUser": "",
-        "createDate": "",
-        "updateDate": ""
+        "downloadStatusCode": "COMPLETED",
+        "resultMessage": null,
+        "expiredDate": "2023-09-25 14:23:22.0",
+        "createUser": "test@nhn.com",
+        "createDate": "2023-09-18 14:23:21.0",
+        "updateDate": "2023-09-18 14:23:22.0"
       }
     ]
   }
@@ -5548,7 +5549,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids' \
                     ]
                 }
             ],
-            "isLast": false,
+            "last": false,
             "totalCount": 5
         }
     }
@@ -5568,8 +5569,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids' \
 |body.data.uids[].contacts[].contactType| String | 連絡先タイプ |
 |body.data.uids[].contacts[].contact| String | 連絡先(携帯電話番号) |
 |body.data.uids[].contacts[].createdDate| String | 連絡先作成日時 |
-|body.data.uids[].isLast| Boolean| 最後のリストかどうか |
-|body.data.uids[].totalCount| Integer| データの総件数 |
+|body.data.uids[].last| Boolean| 最後のリストかどうか |
 
 ### UID単件検索
 

@@ -1786,7 +1786,7 @@ curl -X GET \
 #### 요청
 [URL]
 ```
-GET /sms/v3.0/appKeys/{appKey}/mass-sender/
+GET /sms/v3.0/appKeys/{appKey}/mass-sender
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1834,35 +1834,33 @@ curl -X GET \
 #### 응답
 ```
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "body": {
-        "pageNum": 1,
-        "pageSize": 15,
-        "totalCount": 1,
-        "data": [
-            {
-                "requestId": "20210901033436ZLdZtl8GWZ0",
-                "requestDate": "2021-09-01 03:34:36.0",
-                "sendType": "0",
-                "messageType": "SMS",
-                "templateId": "",
-                "masterStatusCode": "MAS19",
-                "masterStatus": "COMPLETED",
-                "sendNo": "01012345000",
-                "title": null,
-                "body": "test",
-                "adYn": "N",
-                "autoSendYn": "N",
-                "sendErrorCount": 0,
-                "createUser": "63b813a0-f664-11e7-9edb-005056ac7022",
-                "createDate": "2021-09-01 03:34:36.0"
-            }
-        ]
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "requestId": "20230918100859e1SoH6zC4o0",
+        "requestDate": "2023-09-18 10:08:59",
+        "masterStatusCode": "MAS19",
+        "masterStatus": "COMPLETE",
+        "templateId": "",
+        "sendNo": "12341234",
+        "title": null,
+        "body": "body",
+        "adYn": "N",
+        "autoSendYn": "Y",
+        "sendErrorCount": 0,
+        "createUser": "25d09a62-0bf7-4d6f-b823-80e49536cc08",
+        "createDate": "2023-09-18 10:08:59.0"
+      }
+    ]
+  }
 }
 ```
 
@@ -3235,7 +3233,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | 120 | 옵션 | 문자 제목(발송 유형이 Lms/MmS인 경우 필수) |
 | body | String | 4000 | 필수 | 문자 내용 |
 | useYn |	String| 1 |	필수|	사용 여부(Y/N)|
-| attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
+| attachFileIdList | List<Integer> | - | 옵션 | 첨부 파일 ID(fileId) |
 
 #### cURL
 ```
@@ -3491,53 +3489,49 @@ curl -X GET \
 
 ```
 {
-    "header": {
-        "resultCode": 0,
-        "resultMessage": "SUCCESS",
-        "isSuccessful": true
-    },
-    "body": {
-        "pageNum": Integer,
-        "pageSize": Integer,
-        "totalCount": Integer,
-        "data": [
-            {
-                "templateId": "TemplateId",
-                "serviceId": 0,
-                "categoryId": 0,
-                "categoryName": "카테고리명",
-                "sort": 0,
-                "templateName": "템플릿명",
-                "templateDesc": "템플릿 설명",
-                "useYn": "Y",
-                "priority": "S",
-                "sendNo": ""15446859String"",
-                "sendType": "0",
-                "sendTypeName": "SMS 발송",
-                "title": "제목",
-                "body": "본문",
-                "attachFileYn": "N",
-                "delYn": "N",
-                "createDate": "2018-01-28 17:50:55.0,
-                "createUser": "CreateUser",
-                "updateDate": "2018-01-28 17:50:55.0",
-                "updateUser": "UpdateUser",
-                "attachFileList": [
-                    {
-                        "fileId": 0,
-                        "serviceId": 0,
-                        "attachType": 0,
-                        "templateId": "TemplateId",
-                        "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                        "fileName": "attachment.jpg",
-                        "fileSize": 0,
-                        "createDate": "2018-01-28 17:50:55.0",
-                        "createUser": "CreateUser"
-                    }
-                ]
-            }
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "templateId": "ee13efe5-58c2-4e61-a59f-1fa47cc21cd0",
+        "serviceId": 71191,
+        "categoryId": 415978,
+        "categoryName": "categoryName",
+        "sort": 0,
+        "templateName": "templateName",
+        "templateDesc": "templateDescription",
+        "useYn": "Y",
+        "priority": "S",
+        "sendNo": "12341234",
+        "sendType": "0",
+        "sendTypeName": "SMS 발송",
+        "title": "title",
+        "body": "body",
+        "attachFileYn": "Y",
+        "delYn": "N",
+        "createDate": "2023-09-18 14:30:03.0",
+        "createUser": null,
+        "updateDate": "2023-09-18 14:30:03.0",
+        "updateUser": null,
+        "attachFileList": [
+          {
+            "fileId": 535186,
+            "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+            "fileName": "attachment.jpg",
+            "saveFileName": "20230918eA8JmR0.jpg",
+            "uploadType": "TEMPORARY"
+          }
         ]
-    }
+      }
+    ]
+  }
 }
 ```
 
@@ -3569,15 +3563,11 @@ curl -X GET \
 |body.data[].createUser|	String|	등록한 사용자|
 |body.data[].updateDate|	String|	수정 날짜|
 |body.data[].updateUser|	String|	수정한 사용자|
-|body.data[].attachFileList[].fileId|	Integer|	첨부 파일 ID|
-|body.data[].attachFileList[].serviceId|	Integer|	서비스 ID(내부용, 미사용값)|
-|body.data[].attachFileList[].attachType|	Integer|	첨부 파일 업로드 타입(0:임시,1:업로드,2:템플릿)|
-|body.data[].attachFileList[].templateId|	String|	템플릿 ID|
-|body.data[].attachFileList[].filePath|	String|	첨부 파일 경로|
-|body.data[].attachFileList[].fileName|	String|	첨부 파일명|
-|body.data[].attachFileList[].fileSize|  Integer| 파일 사이즈|
-|body.data[].attachFileList[].createDate|	String|	첨부 파일 등록 날짜|
-|body.data[].attachFileList[].createUser|	String|	첨부 파일 등록 사용자|
+|body.data[].attachFileList[].fileId|	Integer|	파일 ID|
+|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용) |
+|body.data[].attachFileList[].filename|	String|	파일명|
+|body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
+|body.data[].attachFileList[].uploadType|	String|	업로드 타입|
 
 
 ### 템플릿 단일 검색
@@ -3622,51 +3612,44 @@ curl -X GET \
 
 ```
 {
-    "header": {
-        "isSuccessful": Boolean,
-        "resultCode": Integer,
-        "resultMessage": String
-    },
-    "body": {
-        "pageNum": Integer,
-        "pageSize": Integer,
-        "totalCount": Integer,
-        "data": {
-            "templateId": "TemplateId",
-            "serviceId": 0,
-            "categoryId": 0,
-            "categoryName": "카테고리명",
-            "sort": 0,
-            "templateName": "템플릿명",
-            "templateDesc": "템플릿 설명",
-            "useYn": "Y",
-            "priority": "S",
-            "sendNo": "String",
-            "sendType": "0",
-            "sendTypeName": "SMS 발송",
-            "title": "제목",
-            "body": "본문",
-            "attachFileYn": "N",
-            "delYn": "N",
-            "createDate": "2018-01-28 17:50:55.0,
-            "createUser": "CreateUser",
-            "updateDate": "2018-01-28 17:50:55.0",
-            "updateUser": "UpdateUser",
-            "attachFileList": [
-                {
-                    "fileId": 0,
-                    "serviceId": 0,
-                    "attachType": 0,
-                    "templateId": "TemplateId",
-                    "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                    "fileName": "attachment.jpg",
-                    "fileSize": 0,
-                    "createDate": "2018-01-28 17:50:55.0",
-                    "createUser": "CreateUser"
-                }
-            ]
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "templateId": "ee13efe5-58c2-4e61-a59f-1fa47cc21cd0",
+      "serviceId": 71191,
+      "categoryId": 415978,
+      "categoryName": "categoryName",
+      "sort": 0,
+      "templateName": "templateName",
+      "templateDesc": "templateDescription",
+      "useYn": "Y",
+      "priority": "S",
+      "sendNo": "15771234",
+      "sendType": "0",
+      "sendTypeName": "SMS 발송",
+      "title": "title",
+      "body": "body",
+      "attachFileYn": "Y",
+      "delYn": "N",
+      "createDate": "2023-09-18 14:30:03.0",
+      "createUser": null,
+      "updateDate": "2023-09-18 14:30:03.0",
+      "updateUser": null,
+      "attachFileList": [
+        {
+          "fileId": 535186,
+          "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+          "fileName": "attachment.jpg",
+          "saveFileName": "20230918eA8JmR0.jpg",
+          "uploadType": "TEMPORARY"
         }
+      ]
     }
+  }
 }
 ```
 
@@ -3698,15 +3681,11 @@ curl -X GET \
 |body.data.createUser|	String|	등록한 사용자|
 |body.data.updateDate|	String|	수정 날짜|
 |body.data.updateUser|	String|	수정한 사용자|
-|body.data.attachFileList[].fileId|	Integer|	첨부 파일 ID|
-|body.data.attachFileList[].serviceId|	Integer|	서비스 ID(내부용, 미사용값)|
-|body.data.attachFileList[].attachType|	Integer|	첨부 파일 업로드 타입(0:임시,1:업로드,2:템플릿)|
-|body.data.attachFileList[].templateId|	String|	템플릿 ID|
-|body.data.attachFileList[].filePath|	String|	첨부 파일 경로|
-|body.data.attachFileList[].fileName|	String|	첨부 파일명|
-|body.data.attachFileList[].fileSize|  Integer| 파일 사이즈|
-|body.data.attachFileList[].createDate|	String|	첨부 파일 등록 날짜|
-|body.data.attachFileList[].createUser|	String|	첨부 파일 등록 사용자|
+|body.data[].attachFileList[].fileId|	Integer|	파일 ID|
+|body.data[].attachFileList[].filePath|	String|	파일 저장경로(내부용) |
+|body.data[].attachFileList[].filename|	String|	파일명|
+|body.data[].attachFileList[].saveFileName|	String|	저장된 첨부파일명|
+|body.data[].attachFileList[].uploadType|	String|	업로드 타입|
 
 ### 템플릿 수정
 
@@ -3764,7 +3743,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | 120 | 옵션 | 문자 제목(발송 유형이 Lms/MmS인 경우 필수) |
 | body | String | 4000 | 필수 | 문자 내용 |
 | useYn |	String| 1 |	필수|	사용 여부(Y/N)|
-| attachFileIdList | List<Integer> | - | X | 첨부 파일 ID(fileId) |
+| attachFileIdList | List<Integer> | - | 옵션 | 첨부 파일 ID(fileId) |
 
 
 #### cURL
@@ -4091,29 +4070,42 @@ curl -X GET \
 #### 응답
 ```
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": ""
-    },
-    "body": {
-        "pageNum": 0,
-        "pageSize": 0,
-        "totalCount": 0,
-        "data": [
-            {
-                "serviceId": 0,
-                "sendNo": "",
-                "useYn": "",
-                "blockYn": "",
-                "blockReason": "",
-                "createDate": "",
-                "createUser": "",
-                "updateDate": "",
-                "updateUser": ""
-            }
-        ]
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 2,
+    "data": [
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "01012341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-07-18 12:05:35",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-07-31 13:45:48",
+        "updateUser": "test@nhn.com"
+      },
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "12341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-09-14 10:30:30",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-09-14 10:30:30",
+        "updateUser": null
+      }
+    ]
+  }
 }
 ```
 
@@ -5037,7 +5029,7 @@ curl -X POST \
     "header": {
         "isSuccessful": true,
         "resultCode": 0,
-        "resultMessage": "SUCCESS"
+        "resultMessage": "success"
     },
     "body": {
         "data": {
@@ -5113,29 +5105,29 @@ curl -X GET \
 
 ```
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "body": {
-        "totalCount": 0,
-        "data": [
-            {
-                "downloadId": "",
-                "downloadType": "",
-                "fileType": "",
-                "parameter": "",
-                "size": 0,
-                "downloadStatusCode": "",
-                "resultMessage": "",
-                "expiredDate": "",
-                "createUser": "",
-                "createDate": "",
-                "updateDate": ""
-            }
-        ]
-    }
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "totalCount": 11,
+    "data": [
+      {
+        "downloadId": "20230918142321iut0Dvz7bb0",
+        "downloadType": "NORMAL",
+        "fileType": "CSV",
+        "parameter": "{\"pageNum\":1,\"pageSize\":15,\"offset\":0,\"rowCount\":15,\"serviceId\":71191,\"requestId\":\"202309181423208yLgttheqX0\",\"sendNo\":\"12341234\",\"recipientNo\":\"01012341234\",\"startRequestDate\":\"2023-09-18 00:00:20\",\"endRequestDate\":\"2023-09-18 23:59:20\",\"startResultDate\":\"2023-09-18 00:00:20\",\"endResultDate\":\"2023-09-18 23:59:20\",\"startCreateDate\":\"2023-09-18 00:00:20\",\"endCreateDate\":\"2023-09-18 14:23:21\",\"msgStatus\":\"3\",\"msgStatusName\":\"COMPLETED\",\"resultCode\":\"MTR2\",\"subResultCode\":\"MTR2_3\",\"resultCodeList\":[\"2004\",\"2003\",\"2006\",\"2005\",\"2000\",\"2002\",\"2001\"],\"sendType\":\"1\",\"senderGroupingKey\":\"senderGroupingKey\",\"recipientGroupingKey\":\"recipientGroupingKey\",\"countryCodeSet\":[],\"isIncludeTitleAndBody\":true,\"searchedByCreateDate\":true,\"targetMonths\":[\"sep\"],\"lastResultCode\":\"MTR2_3\"}",
+        "size": 0,
+        "downloadStatusCode": "COMPLETED",
+        "resultMessage": null,
+        "expiredDate": "2023-09-25 14:23:22.0",
+        "createUser": "test@nhn.com",
+        "createDate": "2023-09-18 14:23:21.0",
+        "updateDate": "2023-09-18 14:23:22.0"
+      }
+    ]
+  }
 }
 ```
 
@@ -5564,7 +5556,7 @@ curl -X GET \
                     ]
                 }
             ],
-            "isLast": false,
+            "last": false,
             "totalCount": 5
         }
     }
@@ -5584,8 +5576,7 @@ curl -X GET \
 |body.data.uids[].contacts[].contactType| String | 연락처 타입 |
 |body.data.uids[].contacts[].contact| String | 연락처(휴대폰 번호) |
 |body.data.uids[].contacts[].createdDate| String | 연락처 생성 일시 |
-|body.data.uids[].isLast| Boolean| 마지막 목록 여부 |
-|body.data.uids[].totalCount| Integer| 총 데이터 건수 |
+|body.data.uids[].last| Boolean| 마지막 목록 여부 |
 
 ### UID 단건 검색
 

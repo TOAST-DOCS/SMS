@@ -953,7 +953,6 @@ curl -X GET \
 |body.data[].attachFileList[].fileName|	String| File name |
 |body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
 |body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
-|body.data[].attachFileList[].resultMessage| String | Result message |
 |body.data[].senderGroupingKey|	String| Sender's group key |
 |body.data[].recipientGroupingKey|	String| Recipient's group key |
 
@@ -1789,7 +1788,7 @@ curl -X GET \
 #### Request
 [URL]
 ```
-GET /sms/v3.0/appKeys/{appKey}/mass-sender/
+GET /sms/v3.0/appKeys/{appKey}/mass-sender
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -1837,35 +1836,33 @@ curl -X GET \
 #### Response
 ```
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "body": {
-        "pageNum": 1,
-        "pageSize": 15,
-        "totalCount": 1,
-        "data": [
-            {
-                "requestId": "20210901033436ZLdZtl8GWZ0",
-                "requestDate": "2021-09-01 03:34:36.0",
-                "sendType": "0",
-                "messageType": "SMS",
-                "templateId": "",
-                "masterStatusCode": "MAS19",
-                "masterStatus": "COMPLETED",
-                "sendNo": "01012345000",
-                "title": null,
-                "body": "test",
-                "adYn": "N",
-                "autoSendYn": "N",
-                "sendErrorCount": 0,
-                "createDate": "2021-09-01 03:34:36.0",
-                "createUser": "63b813a0-f664-11e7-9edb-005056ac7022",
-            }
-        ]
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "requestId": "20230918100859e1SoH6zC4o0",
+        "requestDate": "2023-09-18 10:08:59",
+        "masterStatusCode": "MAS19",
+        "masterStatus": "COMPLETE",
+        "templateId": "",
+        "sendNo": "12341234",
+        "title": null,
+        "body": "body",
+        "adYn": "N",
+        "autoSendYn": "Y",
+        "sendErrorCount": 0,
+        "createUser": "25d09a62-0bf7-4d6f-b823-80e49536cc08",
+        "createDate": "2023-09-18 10:08:59.0"
+      }
+    ]
+  }
 }
 ```
 
@@ -3242,7 +3239,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | 120 | Optional | Text title (required, if delivery type is LMS/MMS) |
 | body | String | 4000 | Required | Text body |
 | useYn |	String| 1 | Required |	Use or not|
-| attachFileIdList | List<Integer> | - | X | Attached file ID(fileId) |
+| attachFileIdList | List<Integer> | - | Optional | Attached file ID(fileId) |
 
 #### cURL
 ```
@@ -3499,53 +3496,49 @@ curl -X GET \
 
 ```
 {
-    "header": {
-        "isSuccessful": Boolean,
-        "resultCode": Integer,
-        "resultMessage": String
-    },
-    "body": {
-        "pageNum": Integer,
-        "pageSize": Integer,
-        "totalCount": Integer,
-        "data": [
-            {
-                "templateId": "TemplateId",
-                "serviceId": 0,
-                "categoryId": 0,
-                "categoryName": "category name",
-                "sort": 0,
-                "templateName": "template name",
-                "templateDesc": "template description",
-                "useYn": "Y",
-                "priority": "S",
-                "sendNo": ""15446859String"",
-                "sendType": "0",
-                "sendTypeName": "send SMS",
-                "title": "title",
-                "body": "body",
-                "attachFileYn": "N",
-                "delYn": "N",
-                "createDate": "2018-01-28 17:50:55.0,
-                "createUser": "CreateUser",
-                "updateDate": "2018-01-28 17:50:55.0",
-                "updateUser": "UpdateUser",
-                "attachFileList": [
-                    {
-                        "fileId": 0,
-                        "serviceId": 0,
-                        "attachType": 0,
-                        "templateId": "TemplateId",
-                        "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                        "fileName": "attachment.jpg",
-                        "fileSize": 0,
-                        "createDate": "2018-01-28 17:50:55.0",
-                        "createUser": "CreateUser"
-                    }
-                ]
-            }
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "templateId": "ee13efe5-58c2-4e61-a59f-1fa47cc21cd0",
+        "serviceId": 71191,
+        "categoryId": 415978,
+        "categoryName": "categoryName",
+        "sort": 0,
+        "templateName": "templateName",
+        "templateDesc": "templateDescription",
+        "useYn": "Y",
+        "priority": "S",
+        "sendNo": "12341234",
+        "sendType": "0",
+        "sendTypeName": "SMS 발송",
+        "title": "title",
+        "body": "body",
+        "attachFileYn": "Y",
+        "delYn": "N",
+        "createDate": "2023-09-18 14:30:03.0",
+        "createUser": null,
+        "updateDate": "2023-09-18 14:30:03.0",
+        "updateUser": null,
+        "attachFileList": [
+          {
+            "fileId": 535186,
+            "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+            "fileName": "attachment.jpg",
+            "saveFileName": "20230918eA8JmR0.jpg",
+            "uploadType": "TEMPORARY"
+          }
         ]
-    }
+      }
+    ]
+  }
 }
 ```
 
@@ -3577,15 +3570,11 @@ curl -X GET \
 |body.data[].createUser|	String| Registered user |
 |body.data[].updateDate|	String| Date of modification |
 |body.data[].updateUser|	String| Modifier |
-|body.data[].attachFileList[].fileId|	Integer| Attached file ID |
-|body.data[].attachFileList[].serviceId|	Integer| Service ID (unused, for internal purpose) |
-|body.data[].attachFileList[].attachType|	Integer| Upload type of attachment (0:Temporary,1:Upload,2:Template) |
-|body.data[].attachFileList[].templateId|	String| Template ID |
-|body.data[].attachFileList[].filePath|	String| Path of attached file |
-|body.data[].attachFileList[].fileName|	String| Name of attached file |
-|body.data[].attachFileList[].fileSize|  Integer| File size |
-|body.data[].attachFileList[].createDate|	String| Date of registration for attachment |
-|body.data[].attachFileList[].createUser|	String| Registered user of attachment |
+|body.data[].attachFileList[].fileId|	Integer| File ID |
+|body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
+|body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
 
 
 ### Query Single Template
@@ -3630,51 +3619,44 @@ curl -X GET \
 
 ```
 {
-    "header": {
-        "isSuccessful": Boolean,
-        "resultCode": Integer,
-        "resultMessage": String
-    },
-    "body": {
-        "pageNum": Integer,
-        "pageSize": Integer,
-        "totalCount": Integer,
-        "data": {
-            "templateId": "TemplateId",
-            "serviceId": 0,
-            "categoryId": 0,
-            "categoryName": "category name",
-            "sort": 0,
-            "templateName": "template name",
-            "templateDesc": "template description",
-            "useYn": "Y",
-            "priority": "S",
-            "sendNo": "String",
-            "sendType": "0",
-            "sendTypeName": "send SMS",
-            "title": "title",
-            "body": "body",
-            "attachFileYn": "N",
-            "delYn": "N",
-            "createDate": "2018-01-28 17:50:55.0,
-            "createUser": "CreateUser",
-            "updateDate": "2018-01-28 17:50:55.0",
-            "updateUser": "UpdateUser",
-            "attachFileList": [
-                {
-                    "fileId": 0,
-                    "serviceId": 0,
-                    "attachType": 0,
-                    "templateId": "TemplateId",
-                    "filePath": "26606/toast-mt-2018-01-29/1427/105316",
-                    "fileName": "attachment.jpg",
-                    "fileSize": 0,
-                    "createDate": "2018-01-28 17:50:55.0",
-                    "createUser": "CreateUser"
-                }
-            ]
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "templateId": "ee13efe5-58c2-4e61-a59f-1fa47cc21cd0",
+      "serviceId": 71191,
+      "categoryId": 415978,
+      "categoryName": "categoryName",
+      "sort": 0,
+      "templateName": "templateName",
+      "templateDesc": "templateDescription",
+      "useYn": "Y",
+      "priority": "S",
+      "sendNo": "12341234",
+      "sendType": "0",
+      "sendTypeName": "SMS 발송",
+      "title": "title",
+      "body": "body",
+      "attachFileYn": "Y",
+      "delYn": "N",
+      "createDate": "2023-09-18 14:30:03.0",
+      "createUser": null,
+      "updateDate": "2023-09-18 14:30:03.0",
+      "updateUser": null,
+      "attachFileList": [
+        {
+          "fileId": 535186,
+          "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+          "fileName": "attachment.jpg",
+          "saveFileName": "20230918eA8JmR0.jpg",
+          "uploadType": "TEMPORARY"
         }
+      ]
     }
+  }
 }
 ```
 
@@ -3706,15 +3688,11 @@ curl -X GET \
 |body.data.createUser|	String| Registered user |
 |body.data.updateDate|	String| Date of modification |
 |body.data.updateUser|	String| Modifier |
-|body.data.attachFileList[].fileId|	Integer| Attached file ID |
-|body.data.attachFileList[].serviceId|	Integer| Service ID (unused, for internal purpose) |
-|body.data.attachFileList[].attachType|	Integer| Upload type of attachment (0:Temporary,1:Upload,2:Template) |
-|body.data.attachFileList[].templateId|	String| Template ID |
-|body.data.attachFileList[].filePath|	String| Path of attachment |
-|body.data.attachFileList[].fileName|	String| Name of attachment |
-|body.data.attachFileList[].fileSize|  Integer| File size |
-|body.data.attachFileList[].createDate|	String| Date of registration of attachment |
-|body.data.attachFileList[].createUser|	String| Registered user of attachment |
+|body.data[].attachFileList[].fileId|	Integer| File ID |
+|body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
+|body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
 
 ### Modify Template
 
@@ -3772,7 +3750,7 @@ Content-Type: application/json;charset=UTF-8
 | title | String | 120 | Optional | Text title (required, if delivery type is Lms/MmS) |
 | body | String | 4000 | Required | Text body |
 | useYn |	String| 1 | Required |	Use or not|
-| attachFileIdList | List<Integer> | - | X | Attached file ID(fileId) |
+| attachFileIdList | List<Integer> | - | Optional | Attached file ID(fileId) |
 
 #### cURL
 ```
@@ -4098,29 +4076,42 @@ curl -X GET \
 #### Response
 ```
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": ""
-    },
-    "body": {
-        "pageNum": 0,
-        "pageSize": 0,
-        "totalCount": 0,
-        "data": [
-            {
-                "serviceId": 0,
-                "sendNo": "",
-                "useYn": "",
-                "blockYn": "",
-                "blockReason": "",
-                "createDate": "",
-                "createUser": "",
-                "updateDate": "",
-                "updateUser": ""
-            }
-        ]
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 2,
+    "data": [
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "01012341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-07-18 12:05:35",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-07-31 13:45:48",
+        "updateUser": "test@nhn.com"
+      },
+      {
+        "appKey": null,
+        "serviceId": 71191,
+        "sendNo": "12341234",
+        "useYn": "Y",
+        "blockYn": "N",
+        "blockReason": null,
+        "createDate": "2023-09-14 10:30:30",
+        "createUser": "test@nhn.com",
+        "updateDate": "2023-09-14 10:30:30",
+        "updateUser": null
+      }
+    ]
+  }
 }
 ```
 
@@ -4596,9 +4587,11 @@ curl -X GET \
             "updateDate": "{modified date}",
             "attachFileList": [
                 {
-                    "fileId": 0,
-                    "filePath": "26606/toast-mt-2018-02-07/1555/105887/",
-                    "fileName": "file_attach_test.jpg"
+                  "fileId": 535186,
+                  "filePath": "/permanent/71191/toast-mt-2023-09-18/1430/535186",
+                  "fileName": "attachment.jpg",
+                  "saveFileName": "20230918eA8JmR0.jpg",
+                  "uploadType": "TEMPORARY"
                 }
             ]
         }
@@ -4631,9 +4624,11 @@ curl -X GET \
 |body.data.messageStatus|	String| Message status <br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Sending completed, FAILED:Sending failed, CANCEL:Schedule canceled, and DUPLICATED: Duplicate delivery) |
 |body.data.createUser|	String| Registered user |
 |body.data.createDate|	String| Date of registration |
-|body.data.attachFileList[].fileId|	Integer| File ID |
-|body.data.attachFileList[].filePath|	String| File path (for internal purpose) |
-|body.data.attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].fileId|	Integer| File ID |
+|body.data[].attachFileList[].filePath|	String| Path of file saving (for internal purpose) |
+|body.data[].attachFileList[].fileName|	String| File name |
+|body.data[].attachFileList[].saveFileName|	String|	Name of saved file|
+|body.data[].attachFileList[].uploadType|	String|	Type of uploaded|
 
 
 ### Cancel Scheduled Delivery 
@@ -5041,7 +5036,7 @@ curl -X POST \
     "header": {
         "isSuccessful": true,
         "resultCode": 0,
-        "resultMessage": "SUCCESS"
+        "resultMessage": "success"
     },
     "body": {
         "data": {
@@ -5569,7 +5564,7 @@ curl -X GET \
                     ]
                 }
             ],
-            "isLast": false,
+            "last": false,
             "totalCount": 5
         }
     }
@@ -5589,8 +5584,7 @@ curl -X GET \
 |body.data.uids[].contacts[].contactType| String | Contact type(PHONE_NUMBER) |
 |body.data.uids[].contacts[].contact| String | Contact (phone number) |
 |body.data.uids[].contacts[].createdDate| String | Date and time of contact creation |
-|body.data.uids[].isLast| Boolean| Last on list or not |
-|body.data.uids[].totalCount| Integer| Total number of data |
+|body.data.uids[].last| Boolean| Last on list or not |
 
 ### Get UIDs
 
