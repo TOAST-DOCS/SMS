@@ -273,9 +273,9 @@ To send after delivery information and mass delivery files are uploaded, click *
 - Scheduled Delivery after Check: Check recipient numbers and message body to send, from the **Query Mass SMS Delivery** tab and then send. Otherwise, you cannot send messages.
 - Scheduled Delivery: Send immediately, without checking recipient numbers and text messages. Find delivery results on the **Query Mass SMS Delivery** tab.
 
-#### Split Delivery
+#### Split Send
 
-Using split delivery, you can split messages and send them by setting the **number of splits** and **sending interval**.
+Split send allows you to split messages before sending by setting **Number of Splits** and **Send Interval**.
 
 ### Send Tags
 
