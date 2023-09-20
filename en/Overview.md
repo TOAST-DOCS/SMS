@@ -6,6 +6,7 @@ RESTful API is provided for easy integration.
 ## Specifications 
 
 - Send SMS, LMS, and MMS. 
+    - SMS: 90 bytes, LMS: 2,000 bytes, MMS: 2,000 bytes + images
 - Support Mass Delivery 
   - Enter the list of recipients in excel and send SMS in mass. 
 - Schedule Delivery 
