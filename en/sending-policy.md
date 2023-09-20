@@ -83,12 +83,12 @@ You must obtain the recipient's express prior consent and comply with the sendin
 + Prohibition of sending advertising information at night: Requires individual prior consent of the recipient when sending at night (PM 09 ~ AM 08)
 + Notify the recipient of the result of the opt-out request: name of the sender, the fact and date of the expression of intent, and the result of the processing.
 
-## Guide for Sending Speed Depending on the Size of MMS Attachments
+## Guide to Sending Speed Depending on the Size of MMS Attachments
 + When sending MMS, there may be a difference in the sending speed depending on the size of the attachments.
 + The larger the size of uploaded attachments is, the slower the sending speed and the update of reception result may become due to carrier's sending speed restrictions.
 + If you want faster delivery, we recommend that you make a request by reducing the size of attachments.
 
-## Guide for sending contents according to character set
+## Guide to sending contents according to character set
 + When received, messages included in EUC-KR normally appear the same as the contents sent.
 + When characters not included in EUC-KR are included in the title/body, the contents may appear as broken characters such as '?'.
      + Depending on the type of receiving device and carrier, the contents of the message may appear differently.
