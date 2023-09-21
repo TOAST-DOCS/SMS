@@ -40,7 +40,7 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 + 통신사 홈페이지
     + SKT 번호 도용 문자 차단 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
     + KT 번호 도용 문자 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
-    + LG U+ 번호 도용 문자 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
+    + LG U+ 번호 도용 문자 차단 [[해지 바로 가기](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0002297)]
 + 통신사 고객 센터
     + 휴대폰 114 + 통화 버튼
     + SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
@@ -60,7 +60,7 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 + 통신사 홈페이지
     + SKT 스팸 필터링 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
     + KT 스팸 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
-    + LG U+ 스팸 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
+    + LG U+ 스팸 차단 [[해지 바로 가기](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0000277)]
 + 통신사 고객 센터
     + 휴대폰 114 + 통화 버튼
     + SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
@@ -73,15 +73,15 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 + 080 수신 거부 번호가 해지된 경우 또는 외부에서 신청한 080 번호인 경우에는 발송에 실패합니다.
 
 ### 광고성 문자 발송 안내
-정보통신망 이용촉진 및 정보보호 등에 관한 법률 제 50조에 의거하여 영리 목적의 광고성 정보 전송 시\
-수신자의 명시적인 사전 동의를 받아야 하며 발송 표기 의무사항을 반드시 준수해야 합니다.\
-[[한국인터넷진흥원(KISA) 불법스팸 방지를 위한 정보통신망법 안내서](https://static.toastoven.net/prod_sms/kisa_spam_guide.pdf)]
-+ 발신 번호는 실제 전송자와 직접적으로 연락 가능한 유효 번호 등록
-+ 내용 맨 앞에 (광고) 문구 삽입
-+ 전송자 업체명 또는 서비스명 기재
-+ 무료수신거부 방법 기재
-+ 야간시간 광고성정보 전송 금지: 야간시간 (PM 09 ~ AM 08) 전송 시 수신자 개별 사전동의 필수
-+ 수신거부 요청 수신자에 결과 고지: 전송자의 명칭, 의사표시 사실 및 날짜, 처리 결과를 모두 안내
+정보통신망 이용촉진 및 정보보호 등에 관한 법률 제 50조에 의거하여 영리 목적의 광고성 정보 전송 시 <br/>
+수신자의 명시적인 사전 동의를 받아야 하며 발송 표기 의무사항을 반드시 준수해야 합니다. <br/>
+[[한국인터넷진흥원(KISA) 불법스팸 방지를 위한 정보통신망법 안내서](https://static.toastoven.net/prod_sms/kisa_spam_guide.pdf)] <br/>
+* 발신 번호는 실제 전송자와 직접적으로 연락 가능한 유효 번호 등록
+* 내용 맨 앞에 (광고) 문구 삽입
+* 전송자 업체명 또는 서비스명 기재
+* 무료수신거부 방법 기재
+* 야간시간 광고성정보 전송 금지: 야간시간 (PM 09 ~ AM 08) 전송 시 수신자 개별 사전동의 필수
+* 수신거부 요청 수신자에 결과 고지: 전송자의 명칭, 의사표시 사실 및 날짜, 처리 결과를 모두 안내
 
 ## MMS 첨부 파일 크기에 따른 발송 속도 안내
 + MMS 발송 시에 첨부 파일의 크기에 따라 발송 속도 차이가 있을 수 있습니다.

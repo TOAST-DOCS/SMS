@@ -40,7 +40,7 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + On Website
     + For SKT: [[Go to Disable Service](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
     + For KT: [[Go to Disable Service](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
-    + For LG U+: [[Go to Disable Service](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
+    + For LG U+: [[Go to Disable Service](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0002297)]
 + Via Customer Center
     + Press 114 on mobile phone + Call
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
@@ -60,7 +60,7 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + On Website
     + For SKT: [[Go to Disable Service](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
     + For KT: [[Go to Disable Service](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
-    + For LG U+: [[Go to Disable Service](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
+    + For LG U+: [[Go to Disable Service](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0000277)]
 + Via Customer Center
     + Press 114 on mobile phone + Call
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
@@ -74,8 +74,8 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 
 ### Guide to Sending Advertising Messages
 In accordance with Article 50 of the Act on Promotion of Information and Communications Network Utilization and Information Protection etc.
-You must obtain the recipient's express prior consent and comply with the sending marking obligations.\
-[[Korea Internet & Security Agency (KISA) Guide to the Information and Communication Network Act to Prevent Illegal Spam](https://static.toastoven.net/prod_sms/kisa_spam_guide.pdf)]
+You must obtain the recipient's express prior consent and comply with the sending marking obligations.<br/>
+[[Korea Internet & Security Agency (KISA) Guide to the Information and Communication Network Act to Prevent Illegal Spam](https://static.toastoven.net/prod_sms/eng/kisa_spam_guide.pdf)]
 + The sending number must be a valid number that can be directly contacted by the actual sender.
 + Insert (advertising) text at the beginning of the content
 + Include the sender's business name or service name

@@ -1,3 +1,17 @@
+<style>
+    .custom-table thead {
+        background-color: #FAFAFA;
+    }
+    
+    .custom-table tbody tr {
+        background-color: white;
+    }
+    
+    .custom-table td {
+        vertical-align: middle;
+    }
+</style>
+
 ## Notification > SMS > コンソール使用ガイド
 
 > SMSサービスを利用するには、[コンソール > SMS > 発信番号管理]で発信番号を事前に登録した後、使用できます(電気通信事業法 第84条)。
@@ -9,11 +23,11 @@
     * 本人認証を行っていいない場合、**発信番号事前登録タブ**以外の機能はすべて無効になります。
 * 会員登録時に入力した名前と携帯電話番号が本人認証時に入力する情報と一致すれば本人認証が承認されます。
 * **個人会員は組織のOwnerのみ本人認証が可能です。**個人会員が作成した組織/プロジェクトに招待されたNHN Cloud会員または個人会員が作成した組織に招待されたIAMメンバーは本人認証ができません。
-* 在職証明書は <span style="color:red;font-weight:bold">発行日が表記されており、職印が押された書類</span>のみ可能です。\
+* 在職証明書は <span style="color:red;font-weight:bold">発行日が表記されており、職印が押された書類</span>のみ可能です。<br/>
 在職証明書内の住民番号後ろ6桁は <span style="color:red;font-weight:bold">必ずマスキング(伏せ字)処理</span>してください。例) 000000-0****** 
 
 ### 会員タイプ別に必要な書類
-<table style="text-align: center">
+<table class="custom-table" style="text-align: center">
   <thead>
       <tr>
           <th>会員タイプ</th>
@@ -53,7 +67,7 @@
 </table>
 
 ### 本人認証の手順
-![sms_01_20230818](https://static.toastoven.net/prod_sms/SMS_01_20230818.png)
+![sms_01_20230818](https://static.toastoven.net/prod_sms/eng/SMS_01_20230818.png)
 1. **発信番号事前登録**タブを選択します。
 2. **携帯電話本人認証および必要書類を添付する**をクリックして手続きを開始します。
 3. 個人情報収集利用同意内容を確認し、同意します。
@@ -70,12 +84,12 @@
 
 ## 発信番号の事前登録
 
-#### 発信番号の事前登録制施行
+### 発信番号の事前登録制施行
 * 電気通信事業法第84条により、発信番号の登録時、発信番号の名義人認証が必要です。
 * 名義人認証は、会員と発信番号の種類によって認証方法と必要な書類が決定されます。
 
 ### 発信番号に名義者に基づく認証方法
-<table style="text-align: center">
+<table class="custom-table" style="text-align: center">
   <thead>
       <tr>
           <th>会員タイプ</th>
@@ -133,7 +147,7 @@
 * 本人認証後に発信番号の登録が可能です。
 * 携帯電話本人認証が不可能な番号は通信サービス利用証明証により認証します。
 * 通信サービス <span style="color:red;font-weight:bold">利用証明書はマスキング(伏せ字)処理された部分がなく、最近3か月以内に発行された書類</span>のみ可能です。
-* 在職証明書は <span style="color:red;font-weight:bold">発行日が表記されており、職印が押された書類</span>のみ可能です。\
+* 在職証明書は <span style="color:red;font-weight:bold">発行日が表記されており、職印が押された書類</span>のみ可能です。<br/>
 在職証明書内の住民番号後ろ6桁は <span style="color:red;font-weight:bold">必ずマスキング(伏せ字)処理</span>してください。例) 000000-0******
 
 ### 発信番号の登録形式
@@ -153,7 +167,7 @@
 
 
 ### 発信番号登録の手順
-![sms_02_20230818](https://static.toastoven.net/prod_sms/SMS_02_20230818.png)
+![sms_02_20230818](https://static.toastoven.net/prod_sms/eng/SMS_02_20230818.png)
 1. 発信番号を登録する前に、本人認証を行っていない場合は本人認証手続きを行います。
     * 2022年3月2日以前に加入した場合、本人認証なしでコンソールの利用が可能です。
 2. 本人認証で登録できる場合は**発信番号の登録および携帯電話本人認証**を、そうでない場合は**発信番号の登録および書類認証**を押して登録手続きを開始します。
@@ -171,7 +185,7 @@
 
 正常に登録が完了した発信番号は**発信番号照会**画面で確認できます。
 
-![sms_03_20230818](https://static.toastoven.net/prod_sms/SMS_03_20230818.png)
+![sms_03_20230818](https://static.toastoven.net/prod_sms/eng/SMS_03_20230818.png)
 
 ## SMS送信
 
@@ -179,7 +193,7 @@
 
 一般SMS(Short Message Service)送信ガイドです。
 
-![sms_04_20230818](https://static.toastoven.net/prod_sms/SMS_04_20230818.png)
+![sms_04_20230818](https://static.toastoven.net/prod_sms/eng/SMS_04_20230818.png)
 
 1. **送信タイプ**はSMSを選択します。
 2. **発信番号**を選択します。(発信番号は**発信番号管理**タブで追加できます。)
@@ -193,7 +207,7 @@
 
 一般LMS(Long Message Service)の送信ガイドです。
 
-![sms_05_20230818](https://static.toastoven.net/prod_sms/SMS_05_20230818.png)
+![sms_05_20230818](https://static.toastoven.net/prod_sms/eng/SMS_05_20230818.png)
 
 1. **送信タイプ**はMMSを選択します。
 2. **発信番号**を選択します。(発信番号は**発信番号管理タブ**で追加できます。)
@@ -208,12 +222,12 @@
 
 MMS(Multimedia Messaging Service)の送信ガイドです。
 
-![sms_06_20230818](https://static.toastoven.net/prod_sms/SMS_06_20230818.png)
+![sms_06_20230818](https://static.toastoven.net/prod_sms/eng/SMS_06_20230818.png)
 
 1. **送信タイプ**はMMSを選択します。
 2. **発信番号**を選択します。(発信番号は**発信番号管理**タブで追加できます。)
 3. 送信時間を指定する場合、**予約送信**欄に入力します。
-4.**添付ファイルのアップロード**ボタンをクリックして、添付ファイルをアップロードします。
+4. **添付ファイルのアップロード**ボタンをクリックして、添付ファイルをアップロードします。
 5. タイトルを入力します。(文字切れ防止のために40バイト(ハングル20文字、英文40文字)を基準に作成します。)
 6. **メッセージ内容**を入力します。
 7. **受信者情報**は国内の番号または国コードを含む番号をすべて提供します。
@@ -224,7 +238,7 @@ MMS(Multimedia Messaging Service)の送信ガイドです。
 
 ユーザーが作ったテンプレートを使用して送信できます。
 
-![sms_07_20230818](https://static.toastoven.net/prod_sms/SMS_07_20230818.png)
+![sms_07_20230818](https://static.toastoven.net/prod_sms/eng/SMS_07_20230818.png)
 
 1. **テンプレート使用**を使用に選択し、**テンプレート選択**ウィンドウで希望するテンプレートを選択します。(テンプレートは**テンプレート管理**タブで登録できます。) 
 2. **発信番号**を選択します。(発信番号は**発信番号管理**タブで追加できます。)
@@ -242,17 +256,17 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 テンプレートファイルは**大量送信**タブ選択後、**テンプレートダウンロード**ボタンをクリックしてダウンロードできます。
 
-![sms_08_20230818](https://static.toastoven.net/prod_sms/SMS_08_20230818.png)
-![sms_09_20230818](https://static.toastoven.net/prod_sms/SMS_09_20230818.png)
+![sms_08_20230818](https://static.toastoven.net/prod_sms/eng/SMS_08_20230818.png)
+![sms_09_20230818](https://static.toastoven.net/prod_sms/eng/SMS_09_20230818.png)
 
 テンプレートファイルは、CSVファイルとExcel(xls, xlsx)ファイルを提供します。
 メッセージ内容にある置換キーに応じて、CSVおよびExcelファイルに列が自動的に作成されます。
 
 ダウンロードしたテンプレートに**受信者番号**と**置換**データを入力します。
 
-![sms_10_20230818](https://static.toastoven.net/prod_sms/SMS_10_20230818.png)
+![sms_10_20230818](https://static.toastoven.net/prod_sms/eng/SMS_10_20230818.png)
 
-> [注意]テンプレート置換機能を使用する場合、タイトルまたは内容に'##key##'のように置換キーを##の間に入力してください。
+> [注意] テンプレート置換機能を使用する場合、タイトルまたは内容に'##key##'のように置換キーを##の間に入力してください。
 
 受信番号は、'+'、'-'、スペースを含めて入力できます。
 
@@ -278,13 +292,14 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 分割送信を使用すると、**分割回数**と**送信間隔**を設定してメッセージ分割して送信できます。
 
+<span id='tag-send'></span>
 ### タグ送信
 
 タグの条件に合ったUIDで送信できる機能です。
 
-![sms_11_20230818](https://static.toastoven.net/prod_sms/SMS_11_20230818.png)
-![sms_12_20230818](https://static.toastoven.net/prod_sms/SMS_12_20230818.png)
-![sms_13_20230818](https://static.toastoven.net/prod_sms/SMS_13_20230818.png)
+![sms_11_20230818](https://static.toastoven.net/prod_sms/eng/SMS_11_20230818.png)
+![sms_12_20230818](https://static.toastoven.net/prod_sms/eng/SMS_12_20230818.png)
+![sms_13_20230818](https://static.toastoven.net/prod_sms/eng/SMS_13_20230818.png)
 
 タグ登録は**タグ管理**タブで、UIDと電話番号の保存は**UID管理**タブで行えます。
 
@@ -300,7 +315,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 * 入力する業者名は、080受信拒否番号に電話をかける時に案内される業者名です。
 
-![sms_14_20230818](https://static.toastoven.net/prod_sms/SMS_14_20230818.png)
+![sms_14_20230818](https://static.toastoven.net/prod_sms/eng/SMS_14_20230818.png)
 
 ### 登録予約
 
@@ -326,8 +341,8 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 [無料受信拒否]080XXXXXXX
 ```
 
-![sms_15_20230818](https://static.toastoven.net/prod_sms/SMS_15_20230818.png)
-![sms_16_20230818](https://static.toastoven.net/prod_sms/SMS_16_20230818.png)
+![sms_15_20230818](https://static.toastoven.net/prod_sms/eng/SMS_15_20230818.png)
+![sms_16_20230818](https://static.toastoven.net/prod_sms/eng/SMS_16_20230818.png)
 
 ### 受信拒否対象者の照会
 
@@ -340,7 +355,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 各項目を条件に照会できます。
 (リクエストIDまたは発信日時は必須値です。)
 
-![sms_17_20230818](https://static.toastoven.net/prod_sms/SMS_17_20230818.png)
+![sms_17_20230818](https://static.toastoven.net/prod_sms/eng/SMS_17_20230818.png)
 
 * **リクエストID**または**受信番号**をクリックすると、詳細表示ポップアップが表示されます。
 * 登録/発信/受信日時の検索は最大1か月以内で検索可能です。
@@ -352,7 +367,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 予約送信されたリストを照会できます。
 
-![sms_18_20230818](https://static.toastoven.net/prod_sms/SMS_18_20230818.png)
+![sms_18_20230818](https://static.toastoven.net/prod_sms/eng/SMS_18_20230818.png)
 
 * **リクエストID**または**受信番号**をクリックすると、詳細表示ポップアップが表示されます。
 * 登録/発信/受信日時の検索は最大1か月以内で検索可能です。
@@ -363,10 +378,10 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 送信タイプ別に大量の送信件を照会できます。
 
-![sms_19_20230818](https://static.toastoven.net/prod_sms/SMS_19_20230818.png)
+![sms_19_20230818](https://static.toastoven.net/prod_sms/eng/SMS_19_20230818.png)
 
 * 照会:上の照会フォームで、大量SMS送信予約件を照会できます。照会件のリスト行を選択すると、下にある照会フォームで受信番号と送信情報(送信内容、送信結果)を確認できます。
-送信/キャンセル:大量アップロード送信の予約時に「受信対象者の確認後に予約送信」を選択した場合、'送信準備完了'状態の予約件を選択し、
+* 送信/キャンセル:大量アップロード送信の予約時に「受信対象者の確認後に予約送信」を選択した場合、'送信準備完了'状態の予約件を選択し、
 * **送信/キャンセル**ボタンをクリックして送信またはキャンセルができます。予約送信の場合、自動的に現在時間に送信処理されます。
 * 送信失敗の確認:進行状態が'送信完了'状態の予約件で、一部の送信リクエストが失敗した件は、送信失敗件数を確認できます。**失敗件数**ボタンをクリックすると、失敗した受信番号と送信内容が表示されます。
 
@@ -385,11 +400,11 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 大量送信件(リストの行)を選択すると、下にあるリストで受信番号別の送信内容と送信結果を照会できます。
 
-![sms_20_20230818](https://static.toastoven.net/prod_sms/SMS_20_20230818.png)
+![sms_20_20230818](https://static.toastoven.net/prod_sms/eng/SMS_20_20230818.png)
 
 **詳細表示**ボタンをクリックすると、詳細な送信内容を確認できます。
 
-![sms_21_20230818](https://static.toastoven.net/prod_sms/SMS_21_20230818.png)
+![sms_21_20230818](https://static.toastoven.net/prod_sms/eng/SMS_21_20230818.png)
 
 置換されたデータを確認できます。
 
@@ -399,17 +414,17 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 タグ送信リクエスト件を照会できます。クリックすると、下にある受信者別照会で受信者別の照会ができます。
 
-![sms_22_20230818](https://static.toastoven.net/prod_sms/SMS_22_20230818.png)
+![sms_22_20230818](https://static.toastoven.net/prod_sms/eng/SMS_22_20230818.png)
 
 #### 受信者別の送信照会
 
 1つのリクエストで送信した受信者リストを照会できます。
 
-![sms_23_20230818](https://static.toastoven.net/prod_sms/SMS_23_20230818.png)
+![sms_23_20230818](https://static.toastoven.net/prod_sms/eng/SMS_23_20230818.png)
 
 **詳細表示**ボタンをクリックすると、詳細な送信内容を確認できます。
 
-![sms_24_20230818](https://static.toastoven.net/prod_sms/SMS_24_20230818.png)
+![sms_24_20230818](https://static.toastoven.net/prod_sms/eng/SMS_24_20230818.png)
 
 ## テンプレートの管理
 
@@ -417,7 +432,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 **カテゴリー追加**ボタンをクリックすると、カテゴリーの追加ができます。
 
-![sms_25,26_20230818](https://static.toastoven.net/prod_sms/SMS_25,26_20230818.png)
+![sms_25,26_20230818](https://static.toastoven.net/prod_sms/eng/SMS_25,26_20230818.png)
 
 カテゴリーを選択した状態で**カテゴリー追加**ボタンをクリックする必要があります。
 
@@ -425,7 +440,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 **カテゴリー修正**ボタンをクリックすると、カテゴリーの修正ができます。
 
-![sms_27_1_20230818](https://static.toastoven.net/prod_sms/SMS_27_1_20230818.png)
+![sms_27_1_20230818](https://static.toastoven.net/prod_sms/eng/SMS_27_1_20230818.png)
 
 カテゴリーを選択した状態で**カテゴリー修正**ボタンをクリックする必要があります。
 
@@ -433,7 +448,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 **テンプレート追加**ボタンをクリックすると、テンプレートを追加できます。
 
-![sms_27_20230818](https://static.toastoven.net/prod_sms/SMS_27_20230818.png)
+![sms_27_20230818](https://static.toastoven.net/prod_sms/eng/SMS_27_20230818.png)
 
 1. **テンプレート追加**ボタンをクリックします。
 2. ご希望の**送信タイプ、テンプレート情報を入力**します。
@@ -444,43 +459,45 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 テンプレートを選択し、修正できます。
 
-![sms_28_20230818](https://static.toastoven.net/prod_sms/SMS_28_20230818.png)
+![sms_28_20230818](https://static.toastoven.net/prod_sms/eng/SMS_28_20230818.png)
 
 1. 修正が必要なテンプレートを選択します。
 2. **送信タイプ、テンプレート情報、内容**を修正します。
 3. 修正完了後、必ずカテゴリーを選択した状態で**テンプレート修正**をクリックします。
 
+<span id='uid-manage'></span>
 ## UIDの管理
 
 UIDおよび携帯電話番号の登録や削除ができます。タグとUID用語の意味は[参考](./console-guide/#tag-uid)で確認してください。 
 
-![sms_29,30_20230818](https://static.toastoven.net/prod_sms/SMS_29,30_20230818.png)
+![sms_29,30_20230818](https://static.toastoven.net/prod_sms/eng/SMS_29,30_20230818.png)
 
 **UID登録**ボタンをクリックします。CSV形式のテンプレートで大量のUIDを追加できます。
 
-![sms_31_20230818](https://static.toastoven.net/prod_sms/SMS_31_20230818.png)
+![sms_31_20230818](https://static.toastoven.net/prod_sms/eng/SMS_31_20230818.png)
 
-uid,phoneNumber形式で入力します。\
+uid,phoneNumber形式で入力します。<br/>
 ex) sms_uuid1,01012345678
 
-![sms_32_20230818](https://static.toastoven.net/prod_sms/SMS_32_20230818.png)
+![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_32_20230818.png)
 テンプレート作成後、アップロード時に確認された番号の数を確認できます。
 
+<span id='tag-manage'></span>
 ## タグの管理
 
 登録されたUIDへのタグ付けや削除ができるページです。タグとUID用語の意味は[参考](./console-guide/#tag-uid)で確認してください。
 
-![sms_32_20230818](https://static.toastoven.net/prod_sms/SMS_33_20230818.png)
+![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_33_20230818.png)
 
 **タグ登録**ボタンをクリックしてタグを登録します。
 
-![sms_34_20230818](https://static.toastoven.net/prod_sms/SMS_34_20230818.png)
+![sms_34_20230818](https://static.toastoven.net/prod_sms/eng/SMS_34_20230818.png)
 タグにUIDを登録します。(UIDタブで登録したUIDを登録します。) 
 
 ## Webフック管理
 指定したイベントが発生した場合、URLを指定してWebフックイベントを受け取れます。
 
-![sms_35_20230818](https://static.toastoven.net/prod_sms/SMS_35_20230818.png)
+![sms_35_20230818](https://static.toastoven.net/prod_sms/eng/SMS_35_20230818.png)
 
 1. 登録するイベントタイプを選択します。
 2. Webフックに送信されるデータを受信できるURLアドレスを記載します。
@@ -493,13 +510,13 @@ ex) sms_uuid1,01012345678
 
 ### 国際SMS送信設定
 * 国際SMS送信機能を使用しない場合は、**未使用**に設定することでアビューズによる事故を未然に防ぐことができます。
-* 国際送信自動遮断機能は、異常な国際送信を減らすことができる補助的機能です。\
+* 国際送信自動遮断機能は、異常な国際送信を減らすことができる補助的機能です。<br/>
 設定されたしきい値を超えると自動的に遮断され、国際送信の特性上、送信データが収集される速度によっては遮断タイミングが正確ではない場合があります。
 * 送信限度は最大月1,000件に制限されます。限度の調整が必要な場合は**月制限件数変更リクエスト**をクリックしてお問い合わせください。
 
-> [注意]\
-世界的に国際SMSのアビューズ事例が増加しています。\
-月制限件数は必ず必要な件数のみをリクエストすることを推奨します。\
+> [注意]
+世界的に国際SMSのアビューズ事例が増加しています。
+月制限件数は必ず必要な件数のみをリクエストすることを推奨します。
 NHN Cloudは、アビューズにより送信された国際SMSに対して一切の責任を負いません。 
 
 ### 代替文字設定
@@ -528,7 +545,7 @@ NHN Cloudは、アビューズにより送信された国際SMSに対して一�
 イベントキーを登録して該当キーを送信する場合、統計イベントキーごとに統計データを収集できます。/
 統計イベントキーの用語の意味は[参考](./console-guide/#tag-uid)で確認してください。
 
-![sms_36_20230818](https://static.toastoven.net/prod_sms/SMS_36_20230818.png)
+![sms_36_20230818](https://static.toastoven.net/prod_sms/eng/SMS_36_20230818.png)
 
 1. **イベントキー登録**をクリックしてデータ収集期間を設定します。
 2. 統計イベントキーの名前と詳細説明を入力します。
@@ -541,7 +558,7 @@ NHN Cloudは、アビューズにより送信された国際SMSに対して一�
 
 ### 統計照会
 
-![sms_37_20230818](https://static.toastoven.net/prod_sms/SMS_37_20230818.png)
+![sms_37_20230818](https://static.toastoven.net/prod_sms/eng/SMS_37_20230818.png)
 
 * 送信リクエスト期間、テンプレート、送信タイプ、送信内容別に統計を照会できます。
 * 送信リクエスト、成功、失敗件をグラフと表で確認できます。
@@ -563,24 +580,20 @@ NHN Cloudは、アビューズにより送信された国際SMSに対して一�
 受信者情報である電話番号の代わりに、タグを選択してメッセージを送信できる機能です。
 
 1. UIDを登録します。
-
-* **UID管理**タブでUIDと、1つまたは複数の電話番号を登録します。
-* 詳細は[UID管理](./console-guide/#uid)を参照してください。
+   - **UID管理**タブでUIDと、1つまたは複数の電話番号を登録します。
+   - 詳細は[UID管理](./console-guide/#uid-manage)を参照してください。
 
 2. タグを登録します。
-
-* **タグ管理**タブで、タグを登録します。
-* 詳細は[タグ管理](./console-guide/#_15)を参照してください。
+   - **タグ管理**タブで、タグを登録します。
+   - 詳細は[タグ管理](./console-guide/#tag-manage)を参照してください。
 
 3. タグにUIDを登録します。
-
-* **タグ管理**タブで、登録したタグにUIDを登録します。
+- **タグ管理**タブで、登録したタグにUIDを登録します。
 
 4. タグを選択し、メッセージを送信します。
-
-* **一般送信**タブで、メールアドレスの代わりに**タグ送信**を選択してタグを登録します。
-* メールは、タグに登録されているUIDの電話番号に送信されます。
-* 詳細は[タグを使用したメッセージ送信](./console-guide/#_8)を参照してください。
+   - **一般送信**タブで、メールアドレスの代わりに**タグ送信**を選択してタグを登録します。
+   - メールは、タグに登録されているUIDの電話番号に送信されます。
+   - 詳細は[タグを使用したメッセージ送信](./console-guide/#tag-send)を参照してください。
 
 #### 他のサービスのタグ機能との関係
 * 同じプロジェクトでPushまたはSMSサービスを使用している場合、Emailで使用しているタグとUID情報を再登録せずに、一緒に使用できます。

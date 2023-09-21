@@ -40,7 +40,7 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 + サービスプロバイダーWebサイト
     + SKT番号盗用メッセージ遮断[[解除する](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
     + KT番号盗用メッセージ遮断[[解除する](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
-    + LG U+ 番号盗用メッセージ遮断[[解除する](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
+    + LG U+ 番号盗用メッセージ遮断[[解除する](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0002297)]
 + サービスプロバイダーサポート
     + 携帯電話114 + 通話ボタン
     + SKTサポート(1599-0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
@@ -60,7 +60,7 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 + サービスプロバイダーWebサイト
     + SKT迷惑メールフィルタリング[[解除する](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
     + KT迷惑メール遮断[[解除する](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
-    + LG U+ 迷惑メール遮断[[解除する](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
+    + LG U+ 迷惑メール遮断[[解除する](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0000277)]
 + サービスプロバイダーサポート
     + 携帯電話114 + 通話ボタン
     + SKTサポート(1599-0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
@@ -73,9 +73,9 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 + 080受信拒否番号を解約した場合や、外部で申請した080番号の場合は送信に失敗します。
 
 ### 広告性メッセージ送信案内
-情報通信網利用促進および情報保護などに関する法律第50条に基づき営利目的の広告性情報を送信する場合\
-受信者の明確な事前同意を得なければならず、送信表記義務事項を必ず遵守する必要があります。\
-[[韓国インターネット振興院(KISA)不法迷惑メール防止のための情報通信網法案内書](https://static.toastoven.net/prod_sms/kisa_spam_guide.pdf)]
+情報通信網利用促進および情報保護などに関する法律第50条に基づき営利目的の広告性情報を送信する場合 <br/>
+受信者の明確な事前同意を得なければならず、送信表記義務事項を必ず遵守する必要があります。<br/>
+[[韓国インターネット振興院(KISA)不法迷惑メール防止のための情報通信網法案内書](https://static.toastoven.net/prod_sms/eng/kisa_spam_guide.pdf)]
 + 発信番号は実際の送信者と直接の連絡が可能な有効番号を登録
 + 内容の先頭に(広告)文言を挿入
 + 送信業者名またはサービス名を記載
