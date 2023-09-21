@@ -53,7 +53,7 @@
 </table>
 
 ### 本人認証の手順
-![sms_01_20230818](https://static.toastoven.net/prod_sms/SMS_01_20230818.png)
+![sms_01_20230818](https://static.toastoven.net/prod_sms/eng/SMS_01_20230818.png)
 1. **発信番号事前登録**タブを選択します。
 2. **携帯電話本人認証および必要書類を添付する**をクリックして手続きを開始します。
 3. 個人情報収集利用同意内容を確認し、同意します。
@@ -153,7 +153,7 @@
 
 
 ### 発信番号登録の手順
-![sms_02_20230818](https://static.toastoven.net/prod_sms/SMS_02_20230818.png)
+![sms_02_20230818](https://static.toastoven.net/prod_sms/eng/SMS_02_20230818.png)
 1. 発信番号を登録する前に、本人認証を行っていない場合は本人認証手続きを行います。
     * 2022年3月2日以前に加入した場合、本人認証なしでコンソールの利用が可能です。
 2. 本人認証で登録できる場合は**発信番号の登録および携帯電話本人認証**を、そうでない場合は**発信番号の登録および書類認証**を押して登録手続きを開始します。
@@ -171,7 +171,7 @@
 
 正常に登録が完了した発信番号は**発信番号照会**画面で確認できます。
 
-![sms_03_20230818](https://static.toastoven.net/prod_sms/SMS_03_20230818.png)
+![sms_03_20230818](https://static.toastoven.net/prod_sms/eng/SMS_03_20230818.png)
 
 ## SMS送信
 
@@ -179,7 +179,7 @@
 
 一般SMS(Short Message Service)送信ガイドです。
 
-![sms_04_20230818](https://static.toastoven.net/prod_sms/SMS_04_20230818.png)
+![sms_04_20230818](https://static.toastoven.net/prod_sms/eng/SMS_04_20230818.png)
 
 1. **送信タイプ**はSMSを選択します。
 2. **発信番号**を選択します。(発信番号は**発信番号管理**タブで追加できます。)
@@ -193,7 +193,7 @@
 
 一般LMS(Long Message Service)の送信ガイドです。
 
-![sms_05_20230818](https://static.toastoven.net/prod_sms/SMS_05_20230818.png)
+![sms_05_20230818](https://static.toastoven.net/prod_sms/eng/SMS_05_20230818.png)
 
 1. **送信タイプ**はMMSを選択します。
 2. **発信番号**を選択します。(発信番号は**発信番号管理タブ**で追加できます。)
@@ -208,7 +208,7 @@
 
 MMS(Multimedia Messaging Service)の送信ガイドです。
 
-![sms_06_20230818](https://static.toastoven.net/prod_sms/SMS_06_20230818.png)
+![sms_06_20230818](https://static.toastoven.net/prod_sms/eng/SMS_06_20230818.png)
 
 1. **送信タイプ**はMMSを選択します。
 2. **発信番号**を選択します。(発信番号は**発信番号管理**タブで追加できます。)
@@ -224,7 +224,7 @@ MMS(Multimedia Messaging Service)の送信ガイドです。
 
 ユーザーが作ったテンプレートを使用して送信できます。
 
-![sms_07_20230818](https://static.toastoven.net/prod_sms/SMS_07_20230818.png)
+![sms_07_20230818](https://static.toastoven.net/prod_sms/eng/SMS_07_20230818.png)
 
 1. **テンプレート使用**を使用に選択し、**テンプレート選択**ウィンドウで希望するテンプレートを選択します。(テンプレートは**テンプレート管理**タブで登録できます。) 
 2. **発信番号**を選択します。(発信番号は**発信番号管理**タブで追加できます。)
@@ -242,15 +242,15 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 テンプレートファイルは**大量送信**タブ選択後、**テンプレートダウンロード**ボタンをクリックしてダウンロードできます。
 
-![sms_08_20230818](https://static.toastoven.net/prod_sms/SMS_08_20230818.png)
-![sms_09_20230818](https://static.toastoven.net/prod_sms/SMS_09_20230818.png)
+![sms_08_20230818](https://static.toastoven.net/prod_sms/eng/SMS_08_20230818.png)
+![sms_09_20230818](https://static.toastoven.net/prod_sms/eng/SMS_09_20230818.png)
 
 テンプレートファイルは、CSVファイルとExcel(xls, xlsx)ファイルを提供します。
 メッセージ内容にある置換キーに応じて、CSVおよびExcelファイルに列が自動的に作成されます。
 
 ダウンロードしたテンプレートに**受信者番号**と**置換**データを入力します。
 
-![sms_10_20230818](https://static.toastoven.net/prod_sms/SMS_10_20230818.png)
+![sms_10_20230818](https://static.toastoven.net/prod_sms/eng/SMS_10_20230818.png)
 
 > [注意] テンプレート置換機能を使用する場合、タイトルまたは内容に'##key##'のように置換キーを##の間に入力してください。
 
@@ -283,9 +283,9 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 タグの条件に合ったUIDで送信できる機能です。
 
-![sms_11_20230818](https://static.toastoven.net/prod_sms/SMS_11_20230818.png)
-![sms_12_20230818](https://static.toastoven.net/prod_sms/SMS_12_20230818.png)
-![sms_13_20230818](https://static.toastoven.net/prod_sms/SMS_13_20230818.png)
+![sms_11_20230818](https://static.toastoven.net/prod_sms/eng/SMS_11_20230818.png)
+![sms_12_20230818](https://static.toastoven.net/prod_sms/eng/SMS_12_20230818.png)
+![sms_13_20230818](https://static.toastoven.net/prod_sms/eng/SMS_13_20230818.png)
 
 タグ登録は**タグ管理**タブで、UIDと電話番号の保存は**UID管理**タブで行えます。
 
@@ -301,7 +301,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 * 入力する業者名は、080受信拒否番号に電話をかける時に案内される業者名です。
 
-![sms_14_20230818](https://static.toastoven.net/prod_sms/SMS_14_20230818.png)
+![sms_14_20230818](https://static.toastoven.net/prod_sms/eng/SMS_14_20230818.png)
 
 ### 登録予約
 
@@ -327,8 +327,8 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 [無料受信拒否]080XXXXXXX
 ```
 
-![sms_15_20230818](https://static.toastoven.net/prod_sms/SMS_15_20230818.png)
-![sms_16_20230818](https://static.toastoven.net/prod_sms/SMS_16_20230818.png)
+![sms_15_20230818](https://static.toastoven.net/prod_sms/eng/SMS_15_20230818.png)
+![sms_16_20230818](https://static.toastoven.net/prod_sms/eng/SMS_16_20230818.png)
 
 ### 受信拒否対象者の照会
 
@@ -341,7 +341,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 各項目を条件に照会できます。
 (リクエストIDまたは発信日時は必須値です。)
 
-![sms_17_20230818](https://static.toastoven.net/prod_sms/SMS_17_20230818.png)
+![sms_17_20230818](https://static.toastoven.net/prod_sms/eng/SMS_17_20230818.png)
 
 * **リクエストID**または**受信番号**をクリックすると、詳細表示ポップアップが表示されます。
 * 登録/発信/受信日時の検索は最大1か月以内で検索可能です。
@@ -353,7 +353,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 予約送信されたリストを照会できます。
 
-![sms_18_20230818](https://static.toastoven.net/prod_sms/SMS_18_20230818.png)
+![sms_18_20230818](https://static.toastoven.net/prod_sms/eng/SMS_18_20230818.png)
 
 * **リクエストID**または**受信番号**をクリックすると、詳細表示ポップアップが表示されます。
 * 登録/発信/受信日時の検索は最大1か月以内で検索可能です。
@@ -364,7 +364,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 送信タイプ別に大量の送信件を照会できます。
 
-![sms_19_20230818](https://static.toastoven.net/prod_sms/SMS_19_20230818.png)
+![sms_19_20230818](https://static.toastoven.net/prod_sms/eng/SMS_19_20230818.png)
 
 * 照会:上の照会フォームで、大量SMS送信予約件を照会できます。照会件のリスト行を選択すると、下にある照会フォームで受信番号と送信情報(送信内容、送信結果)を確認できます。
 * 送信/キャンセル:大量アップロード送信の予約時に「受信対象者の確認後に予約送信」を選択した場合、'送信準備完了'状態の予約件を選択し、
@@ -386,11 +386,11 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 大量送信件(リストの行)を選択すると、下にあるリストで受信番号別の送信内容と送信結果を照会できます。
 
-![sms_20_20230818](https://static.toastoven.net/prod_sms/SMS_20_20230818.png)
+![sms_20_20230818](https://static.toastoven.net/prod_sms/eng/SMS_20_20230818.png)
 
 **詳細表示**ボタンをクリックすると、詳細な送信内容を確認できます。
 
-![sms_21_20230818](https://static.toastoven.net/prod_sms/SMS_21_20230818.png)
+![sms_21_20230818](https://static.toastoven.net/prod_sms/eng/SMS_21_20230818.png)
 
 置換されたデータを確認できます。
 
@@ -400,17 +400,17 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 タグ送信リクエスト件を照会できます。クリックすると、下にある受信者別照会で受信者別の照会ができます。
 
-![sms_22_20230818](https://static.toastoven.net/prod_sms/SMS_22_20230818.png)
+![sms_22_20230818](https://static.toastoven.net/prod_sms/eng/SMS_22_20230818.png)
 
 #### 受信者別の送信照会
 
 1つのリクエストで送信した受信者リストを照会できます。
 
-![sms_23_20230818](https://static.toastoven.net/prod_sms/SMS_23_20230818.png)
+![sms_23_20230818](https://static.toastoven.net/prod_sms/eng/SMS_23_20230818.png)
 
 **詳細表示**ボタンをクリックすると、詳細な送信内容を確認できます。
 
-![sms_24_20230818](https://static.toastoven.net/prod_sms/SMS_24_20230818.png)
+![sms_24_20230818](https://static.toastoven.net/prod_sms/eng/SMS_24_20230818.png)
 
 ## テンプレートの管理
 
@@ -418,7 +418,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 **カテゴリー追加**ボタンをクリックすると、カテゴリーの追加ができます。
 
-![sms_25,26_20230818](https://static.toastoven.net/prod_sms/SMS_25,26_20230818.png)
+![sms_25,26_20230818](https://static.toastoven.net/prod_sms/eng/SMS_25,26_20230818.png)
 
 カテゴリーを選択した状態で**カテゴリー追加**ボタンをクリックする必要があります。
 
@@ -426,7 +426,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 **カテゴリー修正**ボタンをクリックすると、カテゴリーの修正ができます。
 
-![sms_27_1_20230818](https://static.toastoven.net/prod_sms/SMS_27_1_20230818.png)
+![sms_27_1_20230818](https://static.toastoven.net/prod_sms/eng/SMS_27_1_20230818.png)
 
 カテゴリーを選択した状態で**カテゴリー修正**ボタンをクリックする必要があります。
 
@@ -434,7 +434,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 **テンプレート追加**ボタンをクリックすると、テンプレートを追加できます。
 
-![sms_27_20230818](https://static.toastoven.net/prod_sms/SMS_27_20230818.png)
+![sms_27_20230818](https://static.toastoven.net/prod_sms/eng/SMS_27_20230818.png)
 
 1. **テンプレート追加**ボタンをクリックします。
 2. ご希望の**送信タイプ、テンプレート情報を入力**します。
@@ -445,7 +445,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 テンプレートを選択し、修正できます。
 
-![sms_28_20230818](https://static.toastoven.net/prod_sms/SMS_28_20230818.png)
+![sms_28_20230818](https://static.toastoven.net/prod_sms/eng/SMS_28_20230818.png)
 
 1. 修正が必要なテンプレートを選択します。
 2. **送信タイプ、テンプレート情報、内容**を修正します。
@@ -456,16 +456,16 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 UIDおよび携帯電話番号の登録や削除ができます。タグとUID用語の意味は[参考](./console-guide/#tag-uid)で確認してください。 
 
-![sms_29,30_20230818](https://static.toastoven.net/prod_sms/SMS_29,30_20230818.png)
+![sms_29,30_20230818](https://static.toastoven.net/prod_sms/eng/SMS_29,30_20230818.png)
 
 **UID登録**ボタンをクリックします。CSV形式のテンプレートで大量のUIDを追加できます。
 
-![sms_31_20230818](https://static.toastoven.net/prod_sms/SMS_31_20230818.png)
+![sms_31_20230818](https://static.toastoven.net/prod_sms/eng/SMS_31_20230818.png)
 
 uid,phoneNumber形式で入力します。<br/>
 ex) sms_uuid1,01012345678
 
-![sms_32_20230818](https://static.toastoven.net/prod_sms/SMS_32_20230818.png)
+![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_32_20230818.png)
 テンプレート作成後、アップロード時に確認された番号の数を確認できます。
 
 <span id='tag-manage'></span>
@@ -473,17 +473,17 @@ ex) sms_uuid1,01012345678
 
 登録されたUIDへのタグ付けや削除ができるページです。タグとUID用語の意味は[参考](./console-guide/#tag-uid)で確認してください。
 
-![sms_32_20230818](https://static.toastoven.net/prod_sms/SMS_33_20230818.png)
+![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_33_20230818.png)
 
 **タグ登録**ボタンをクリックしてタグを登録します。
 
-![sms_34_20230818](https://static.toastoven.net/prod_sms/SMS_34_20230818.png)
+![sms_34_20230818](https://static.toastoven.net/prod_sms/eng/SMS_34_20230818.png)
 タグにUIDを登録します。(UIDタブで登録したUIDを登録します。) 
 
 ## Webフック管理
 指定したイベントが発生した場合、URLを指定してWebフックイベントを受け取れます。
 
-![sms_35_20230818](https://static.toastoven.net/prod_sms/SMS_35_20230818.png)
+![sms_35_20230818](https://static.toastoven.net/prod_sms/eng/SMS_35_20230818.png)
 
 1. 登録するイベントタイプを選択します。
 2. Webフックに送信されるデータを受信できるURLアドレスを記載します。
@@ -531,7 +531,7 @@ NHN Cloudは、アビューズにより送信された国際SMSに対して一�
 イベントキーを登録して該当キーを送信する場合、統計イベントキーごとに統計データを収集できます。/
 統計イベントキーの用語の意味は[参考](./console-guide/#tag-uid)で確認してください。
 
-![sms_36_20230818](https://static.toastoven.net/prod_sms/SMS_36_20230818.png)
+![sms_36_20230818](https://static.toastoven.net/prod_sms/eng/SMS_36_20230818.png)
 
 1. **イベントキー登録**をクリックしてデータ収集期間を設定します。
 2. 統計イベントキーの名前と詳細説明を入力します。
@@ -544,7 +544,7 @@ NHN Cloudは、アビューズにより送信された国際SMSに対して一�
 
 ### 統計照会
 
-![sms_37_20230818](https://static.toastoven.net/prod_sms/SMS_37_20230818.png)
+![sms_37_20230818](https://static.toastoven.net/prod_sms/eng/SMS_37_20230818.png)
 
 * 送信リクエスト期間、テンプレート、送信タイプ、送信内容別に統計を照会できます。
 * 送信リクエスト、成功、失敗件をグラフと表で確認できます。

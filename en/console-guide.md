@@ -53,7 +53,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 </table>
 
 ### Identity Verification Process
-![sms_01_20230818](https://static.toastoven.net/prod_sms/SMS_01_20230818.png)
+![sms_01_20230818](https://static.toastoven.net/prod_sms/eng/SMS_01_20230818.png)
 1. Select the **Sender Number Pre-registration**tab.
 2. Click **Verify phone identity and attach required documents** to start the process.
 3. Confirm and agree to the Consent to collection and usage of personal information.
@@ -152,7 +152,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 
 
 ### Register Sender Numbers
-![sms_02_20230818](https://static.toastoven.net/prod_sms/SMS_02_20230818.png)
+![sms_02_20230818](https://static.toastoven.net/prod_sms/eng/SMS_02_20230818.png)
 1. If you did not verify your identity before registering your sender number, proceed with identity verification.
     * If you are a subscriber before March 2, 2022, you can use the console without identity verification.
 2. If you can register with identity authentication, click **Register Sender Number and Verify Mobile Phone**, otherwise select **Register Sender Number and Verify Documents** to start the registration process.
@@ -170,7 +170,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 
 Sender numbers that are properly registered can be found on the **Retrieve Outgoing Numbers** page.
 
-![sms_03_20230818](https://static.toastoven.net/prod_sms/SMS_03_20230818.png)
+![sms_03_20230818](https://static.toastoven.net/prod_sms/eng/SMS_03_20230818.png)
 
 ## Sending SMS
 
@@ -178,7 +178,7 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 
 Following is the guide to send Short Message Service (SMS).
 
-![sms_04_20230818](https://static.toastoven.net/prod_sms/SMS_04_20230818.png)
+![sms_04_20230818](https://static.toastoven.net/prod_sms/eng/SMS_04_20230818.png)
 
 1. Select SMS for **Text Type**.
 2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
@@ -192,7 +192,7 @@ Following is the guide to send Short Message Service (SMS).
 
 Following is the guide to send general Long Message Service (LMS).
 
-![sms_05_20230818](https://static.toastoven.net/prod_sms/SMS_05_20230818.png)
+![sms_05_20230818](https://static.toastoven.net/prod_sms/eng/SMS_05_20230818.png)
 
 1. Select MMS for **Text Type**.
 2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
@@ -207,7 +207,7 @@ Following is the guide to send general Long Message Service (LMS).
 
 Multimedia Messaging Service (MMS) can be sent as below:
 
-![sms_06_20230818](https://static.toastoven.net/prod_sms/SMS_06_20230818.png)
+![sms_06_20230818](https://static.toastoven.net/prod_sms/eng/SMS_06_20230818.png)
 
 1. Select MMS for **Text Type**.
 2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
@@ -223,7 +223,7 @@ Multimedia Messaging Service (MMS) can be sent as below:
 
 You can send messages on user-created templates.
 
-![sms_07_20230818](https://static.toastoven.net/prod_sms/SMS_07_20230818.png)
+![sms_07_20230818](https://static.toastoven.net/prod_sms/eng/SMS_07_20230818.png)
 
 1. Enable **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.) 
 2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
@@ -241,15 +241,15 @@ You can send SMS/MMS to many numbers via template files in Excel/CSV.
 
 To download template files, select **Mass Delivery** and click **Download Templates**.
 
-![sms_08_20230818](https://static.toastoven.net/prod_sms/SMS_08_20230818.png)
-![sms_09_20230818](https://static.toastoven.net/prod_sms/SMS_09_20230818.png)
+![sms_08_20230818](https://static.toastoven.net/prod_sms/eng/SMS_08_20230818.png)
+![sms_09_20230818](https://static.toastoven.net/prod_sms/eng/SMS_09_20230818.png)
 
 Template files are available either in CSV or Excel (xlx, xlsx).
 Rows are automatically created in files according to the replacement key in message.
 
 Fill out **recipient numbers** and **replacement data** in the downloaded template.
 
-![sms_10_20230818](https://static.toastoven.net/prod_sms/SMS_10_20230818.png)
+![sms_10_20230818](https://static.toastoven.net/prod_sms/eng/SMS_10_20230818.png)
 
 > [Caution] To enable template replacement, bind the replacement key with ##, like '##key##'.
 
@@ -282,9 +282,9 @@ Split send allows you to split messages before sending by setting **Number of Sp
 
 Send with UID according to tag conditions.
 
-![sms_11_20230818](https://static.toastoven.net/prod_sms/SMS_11_20230818.png)
-![sms_12_20230818](https://static.toastoven.net/prod_sms/SMS_12_20230818.png)
-![sms_13_20230818](https://static.toastoven.net/prod_sms/SMS_13_20230818.png)
+![sms_11_20230818](https://static.toastoven.net/prod_sms/eng/SMS_11_20230818.png)
+![sms_12_20230818](https://static.toastoven.net/prod_sms/eng/SMS_12_20230818.png)
+![sms_13_20230818](https://static.toastoven.net/prod_sms/eng/SMS_13_20230818.png)
 
 Tags can be registered on **Tag Management**, while UID and phone numbers can be saved on the **UID Management** tab.
 
@@ -300,7 +300,7 @@ Click **Add 080 Numbers to Reject Receiving** to enter business names.
 
 * Business names refer to such businesses which are guided when you make calls via 080 numbers rejected of receiving.
 
-![sms_14_20230818](https://static.toastoven.net/prod_sms/SMS_14_20230818.png)
+![sms_14_20230818](https://static.toastoven.net/prod_sms/eng/SMS_14_20230818.png)
 
 ### Registration Scheduled
 
@@ -323,8 +323,8 @@ When the service is completely open, you can find the start date and status of s
 [Reject receiving charge-free]080XXXXXXX
 ```
 
-![sms_15_20230818](https://static.toastoven.net/prod_sms/SMS_15_20230818.png)
-![sms_16_20230818](https://static.toastoven.net/prod_sms/SMS_16_20230818.png)
+![sms_15_20230818](https://static.toastoven.net/prod_sms/eng/SMS_15_20230818.png)
+![sms_16_20230818](https://static.toastoven.net/prod_sms/eng/SMS_16_20230818.png)
 
 ### Query Target of Rejection
 
@@ -337,7 +337,7 @@ Rejection targets, requested with request date and time as optional, can be quer
 Each item can be queried by conditions.
 (request id or date and time of delivery are required).
 
-![sms_17_20230818](https://static.toastoven.net/prod_sms/SMS_17_20230818.png)
+![sms_17_20230818](https://static.toastoven.net/prod_sms/eng/SMS_17_20230818.png)
 
 * Click **Request ID** or **Recipient Numbers** to show pop-up window for details.
 * Registration/sending/receiving date search is possible within a maximum of one month.
@@ -349,7 +349,7 @@ Each item can be queried by conditions.
 
 You can query the list of scheduled delivery.
 
-![sms_18_20230818](https://static.toastoven.net/prod_sms/SMS_18_20230818.png)
+![sms_18_20230818](https://static.toastoven.net/prod_sms/eng/SMS_18_20230818.png)
 
 * Click **Request ID** or **Recipient Numbers** to show pop-up window for details.
 * Registration/sending/receiving date search is possible within a maximum of one month.
@@ -360,7 +360,7 @@ You can query the list of scheduled delivery.
 
 You can search for mass delivery by sending type.
 
-![sms_19_20230818](https://static.toastoven.net/prod_sms/SMS_19_20230818.png)
+![sms_19_20230818](https://static.toastoven.net/prod_sms/eng/SMS_19_20230818.png)
 
 * Query: You can search for bulk SMS sending reservations in the inquiry form at the top. When you select a row in the inquiry list, you can check the receiving number and sending information (sending details, sending results) in the inquiry form at the bottom.
 * Send/Cancel: When making a reservation for bulk upload sending, if you select the scheduled send after confirming the recipient, select the reservation with the status of ‘Ready to Send’ and cancel.
@@ -382,11 +382,11 @@ You can search for mass delivery by sending type.
 
 Select mass delivery (column on the list) to check delivery information of each recipient number and the result.
 
-![sms_20_20230818](https://static.toastoven.net/prod_sms/SMS_20_20230818.png)
+![sms_20_20230818](https://static.toastoven.net/prod_sms/eng/SMS_20_20230818.png)
 
 To find more details of delivery, click **View Details**.
 
-![sms_21_20230818](https://static.toastoven.net/prod_sms/SMS_21_20230818.png)
+![sms_21_20230818](https://static.toastoven.net/prod_sms/eng/SMS_21_20230818.png)
 
 You can find successfully replaced data.
 
@@ -396,17 +396,17 @@ You can find successfully replaced data.
 
 You can query requests for tag delivery. Click to query each recipient as below.
 
-![sms_22_20230818](https://static.toastoven.net/prod_sms/SMS_22_20230818.png)
+![sms_22_20230818](https://static.toastoven.net/prod_sms/eng/SMS_22_20230818.png)
 
 #### Query Sending by Recipient
 
 You can query the list of recipients sent from one request.
 
-![sms_23_20230818](https://static.toastoven.net/prod_sms/SMS_23_20230818.png)
+![sms_23_20230818](https://static.toastoven.net/prod_sms/eng/SMS_23_20230818.png)
 
 To find more details of delivery, click **View Details**.
 
-![sms_24_20230818](https://static.toastoven.net/prod_sms/SMS_24_20230818.png)
+![sms_24_20230818](https://static.toastoven.net/prod_sms/eng/SMS_24_20230818.png)
 
 ## Template Management
 
@@ -414,7 +414,7 @@ To find more details of delivery, click **View Details**.
 
 Click **Add Categories** to add categories.
 
-![sms_25,26_20230818](https://static.toastoven.net/prod_sms/SMS_25,26_20230818.png)
+![sms_25,26_20230818](https://static.toastoven.net/prod_sms/eng/SMS_25,26_20230818.png)
 
 Make sure to click **Add Categories** while a category is selected.
 
@@ -422,7 +422,7 @@ Make sure to click **Add Categories** while a category is selected.
 
 Click **Modify Categories** to modify categories.
 
-![sms_27_1_20230818](https://static.toastoven.net/prod_sms/SMS_27_1_20230818.png)
+![sms_27_1_20230818](https://static.toastoven.net/prod_sms/eng/SMS_27_1_20230818.png)
 
 Make sure to click **Modify Categories** while a category is selected.
 
@@ -430,7 +430,7 @@ Make sure to click **Modify Categories** while a category is selected.
 
 Click **Add Templates** to add templates.
 
-![sms_27_20230818](https://static.toastoven.net/prod_sms/SMS_27_20230818.png)
+![sms_27_20230818](https://static.toastoven.net/prod_sms/eng/SMS_27_20230818.png)
 
 1. Click the **Add Template** button.
 2. Enter a **sending type and template information**.
@@ -441,7 +441,7 @@ Click **Add Templates** to add templates.
 
 Select a template to modify.
 
-![sms_28_20230818](https://static.toastoven.net/prod_sms/SMS_28_20230818.png)
+![sms_28_20230818](https://static.toastoven.net/prod_sms/eng/SMS_28_20230818.png)
 
 1. Select the template that needs to be modified.
 2. Modify the sending type, template information, and content.
@@ -450,19 +450,19 @@ Select a template to modify.
 <span id='uid-manage'></span>
 ## UID Management
 
-You can register and delete UID and mobile phone number. Please refer to [](./console-guide/#tag-uid)the reference[](./console-guide/#tag-uid) for the meaning of tags and UID terms. 
+You can register and delete UID and mobile phone number. Please refer to [the reference](./console-guide/#tag-uid)
 
-![sms_29,30_20230818](https://static.toastoven.net/prod_sms/SMS_29,30_20230818.png)
+![sms_29,30_20230818](https://static.toastoven.net/prod_sms/eng/SMS_29,30_20230818.png)
 
 Click **Register UID**.
 Mass UIDs can be added in the CSV template.
 
-![sms_31_20230818](https://static.toastoven.net/prod_sms/SMS_31_20230818.png)
+![sms_31_20230818](https://static.toastoven.net/prod_sms/eng/SMS_31_20230818.png)
 
 Enter in uid,phoneNumber format.<br/>
 ex) sms_uuid1,01012345678
 
-![](https://static.toastoven.net/prod_sms/SMS_32_20230818.png)sms_32_20230818![](https://static.toastoven.net/prod_sms/SMS_32_20230818.png)
+![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_32_20230818.png)
 Find the number counts while uploading a template which is created.
 
 <span id='tag-manage'></span>
@@ -470,17 +470,17 @@ Find the number counts while uploading a template which is created.
 
 This is a page where you can tag or delete registered UIDs. Please refer to the reference for the meaning of tags and UID terms.
 
-![sms_32_20230818](https://static.toastoven.net/prod_sms/SMS_33_20230818.png)
+![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_33_20230818.png)
 
 Click **Register Tag** to register the tag.
 
-![sms_34_20230818](https://static.toastoven.net/prod_sms/SMS_34_20230818.png)
+![sms_34_20230818](https://static.toastoven.net/prod_sms/eng/SMS_34_20230818.png)
 Register UID in tag. (Register the UID registered in the UID tab.) 
 
 ## Webhook Management
 You can receive a webhook event by specifying a URL when a specified event occurs.
 
-![sms_35_20230818](https://static.toastoven.net/prod_sms/SMS_35_20230818.png)
+![sms_35_20230818](https://static.toastoven.net/prod_sms/eng/SMS_35_20230818.png)
 
 1. Select the event type to register.
 2. Enter the URL address where data to be sent via webhook can be received.
@@ -529,7 +529,7 @@ NHN Cloud is not responsible for any international SMS sent due to abuse.
 When registering an event key and sending with that key, you can collect statistical data by statistical event key./
 Please refer to the [reference](./console-guide/#tag-uid) for the meaning of statistical event key terms.
 
-![sms_36_20230818](https://static.toastoven.net/prod_sms/SMS_36_20230818.png)
+![sms_36_20230818](https://static.toastoven.net/prod_sms/eng/SMS_36_20230818.png)
 
 1. Click **Register Event Key** to set the data collection period.
 2. Enter a name and detailed description for the statistical event key.
@@ -542,7 +542,7 @@ When the data collection period ends, it becomes inactive and no longer collects
 
 ### Query Statistics
 
-![sms_37_20230818](https://static.toastoven.net/prod_sms/SMS_37_20230818.png)
+![sms_37_20230818](https://static.toastoven.net/prod_sms/eng/SMS_37_20230818.png)
 
 * You can view statistics by delivery request duration, template, delivery type, and delivery content.
 * You can view delivery requests, successes, and failures in graphs and tables.

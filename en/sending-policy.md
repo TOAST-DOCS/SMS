@@ -75,7 +75,7 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 ### Guide to Sending Advertising Messages
 In accordance with Article 50 of the Act on Promotion of Information and Communications Network Utilization and Information Protection etc.
 You must obtain the recipient's express prior consent and comply with the sending marking obligations.<br/>
-[[Korea Internet & Security Agency (KISA) Guide to the Information and Communication Network Act to Prevent Illegal Spam](https://static.toastoven.net/prod_sms/kisa_spam_guide.pdf)]
+[[Korea Internet & Security Agency (KISA) Guide to the Information and Communication Network Act to Prevent Illegal Spam](https://static.toastoven.net/prod_sms/eng/kisa_spam_guide.pdf)]
 + The sending number must be a valid number that can be directly contacted by the actual sender.
 + Insert (advertising) text at the beginning of the content
 + Include the sender's business name or service name
