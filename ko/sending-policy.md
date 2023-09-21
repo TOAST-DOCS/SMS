@@ -40,7 +40,7 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 + 통신사 홈페이지
     + SKT 번호 도용 문자 차단 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
     + KT 번호 도용 문자 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
-    + LG U+ 번호 도용 문자 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
+    + LG U+ 번호 도용 문자 차단 [[해지 바로 가기](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0002297)]
 + 통신사 고객 센터
     + 휴대폰 114 + 통화 버튼
     + SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
@@ -60,7 +60,7 @@ SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침
 + 통신사 홈페이지
     + SKT 스팸 필터링 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
     + KT 스팸 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
-    + LG U+ 스팸 차단 [[해지 바로 가기](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
+    + LG U+ 스팸 차단 [[해지 바로 가기](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0000277)]
 + 통신사 고객 센터
     + 휴대폰 114 + 통화 버튼
     + SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
