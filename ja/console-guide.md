@@ -1,3 +1,17 @@
+<style>
+    .custom-table thead {
+        background-color: #FAFAFA;
+    }
+    
+    .custom-table tbody tr {
+        background-color: white;
+    }
+    
+    .custom-table td {
+        vertical-align: middle;
+    }
+</style>
+
 ## Notification > SMS > コンソール使用ガイド
 
 > SMSサービスを利用するには、[コンソール > SMS > 発信番号管理]で発信番号を事前に登録した後、使用できます(電気通信事業法 第84条)。
@@ -13,7 +27,7 @@
 在職証明書内の住民番号後ろ6桁は <span style="color:red;font-weight:bold">必ずマスキング(伏せ字)処理</span>してください。例) 000000-0****** 
 
 ### 会員タイプ別に必要な書類
-<table style="text-align: center">
+<table class="custom-table" style="text-align: center">
   <thead>
       <tr>
           <th>会員タイプ</th>
@@ -75,7 +89,7 @@
 * 名義人認証は、会員と発信番号の種類によって認証方法と必要な書類が決定されます。
 
 ### 発信番号に名義者に基づく認証方法
-<table style="text-align: center">
+<table class="custom-table" style="text-align: center">
   <thead>
       <tr>
           <th>会員タイプ</th>

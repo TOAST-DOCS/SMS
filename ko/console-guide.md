@@ -1,3 +1,17 @@
+<style>
+    .custom-table thead {
+        background-color: #FAFAFA;
+    }
+    
+    .custom-table tbody tr {
+        background-color: white;
+    }
+    
+    .custom-table td {
+        vertical-align: middle;
+    }
+</style>
+
 ## Notification > SMS > 콘솔 사용 가이드
 
 > SMS 서비스를 이용하려면 [콘솔 > SMS > 발신 번호 관리]에서 발신 번호를 사전에 등록한 후 사용할 수 있습니다(전기통신사업법 제84조).
@@ -13,7 +27,7 @@
 재직증명서 내 주민번호 뒤 6자리는 <span style="color:red;font-weight:bold">반드시 마스킹(숨김) 처리</span>해 주세요. 예) 000000-0****** 
 
 ### 회원 유형에 따른 필요한 서류
-<table style="text-align: center">
+<table class="custom-table" style="text-align: center">
   <thead>
       <tr>
           <th>회원 유형</th>
@@ -75,7 +89,7 @@
 * 명의자 인증은 회원과 발신 번호 종류 따라 인증 방법과 필요한 서류가 결정됩니다.
 
 ### 발신 번호에 명의자에 따른 인증 방법
-<table style="text-align: center">
+<table class="custom-table" style="text-align: center">
   <thead>
       <tr>
           <th>회원 유형</th>

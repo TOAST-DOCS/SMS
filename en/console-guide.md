@@ -1,3 +1,17 @@
+<style>
+    .custom-table thead {
+        background-color: #FAFAFA;
+    }
+    
+    .custom-table tbody tr {
+        background-color: white;
+    }
+    
+    .custom-table td {
+        vertical-align: middle;
+    }
+</style>
+
 ## Notification > SMS > Console Guide
 
 > To enable SMS Service, you may first register sender numbers on [Console > SMS > Sender Number Management] (Article 84 of Telecommunications Business Law).
@@ -13,7 +27,7 @@
 Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\** 
 
 ### Required Documentation by Member Type
-<table style="text-align: center">
+<table class="custom-table" style="text-align: center">
   <thead>
       <tr>
           <th>Member Type</th>
@@ -75,7 +89,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 * The owner verification method and required documents are determined according to the member and sender number types.
 
 ### Owner verification method by calling number
-<table style="text-align: center">
+<table class="custom-table" style="text-align: center">
   <thead>
       <tr>
           <th>Member Type</th>
