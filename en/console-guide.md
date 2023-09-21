@@ -70,7 +70,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 
 ## Pre-register Sender Numbers
 
-#### Enforce pre-registration of sender numbers
+### Enforce pre-registration of sender numbers
 * In accordance with Article 84 of the Telecommunications Business Act, the registration of a sender number requires the verification of the owner of the sender number.
 * The owner verification method and required documents are determined according to the member and sender number types.
 
