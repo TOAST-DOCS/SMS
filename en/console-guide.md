@@ -9,7 +9,7 @@
     * If you don't verify your identity, all features other than the **Sender Number Pre-Registration** tab will be disabled.
 * The name and phone number you enter when you sign up must match the information you enter when you verify your identity to be approved.
 * **For individual members, only the owner of the organization can authenticate his or her identity.** NHN Cloud members invited to an organization/project created by an individual member or IAM members invited to an organization created by an individual member cannot authenticate their identity.
-* Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold">\
+* Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>
 Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\** 
 
 ### Required Documentation by Member Type
@@ -132,7 +132,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 * After verifying your identity, you can register your sender number.
 * Numbers for which mobile phone identity verification is not possible are verified through the communication service use certificate.
 * There are no masked (hidden) parts of the communication service use certificate, and only documents issued within the last 3 months are accepted.
-* Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold">\
+* Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>
 Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\**
 
 ### Registration Format for Sender Numbers
@@ -457,7 +457,7 @@ Mass UIDs can be added in the CSV template.
 
 ![sms_31_20230818](https://static.toastoven.net/prod_sms/SMS_31_20230818.png)
 
-Enter in uid,phoneNumber format.\
+Enter in uid,phoneNumber format.<br/>
 ex) sms_uuid1,01012345678
 
 ![](https://static.toastoven.net/prod_sms/SMS_32_20230818.png)sms_32_20230818![](https://static.toastoven.net/prod_sms/SMS_32_20230818.png)
@@ -490,13 +490,13 @@ Registered webhooks can be checked in the **webhook registration list**.
 
 ### International SMS Sending Settings
 * If you do not want to use the international SMS sending feature, you can prevent accidents due to abusing by setting it to unused.
-* The automatic international sending blocking feature is a subsidiary feature that can reduce abnormal international sendings. \
+* The automatic international sending blocking feature is a subsidiary feature that can reduce abnormal international sendings. <br/>
 If it exceeds the set threshold, it is automatically blocked. Due to the nature of international shipping, the timing of blocking may not be accurate depending on the speed at which shipping data is collected.
 * Sending limit is limited to a maximum of 1,000 items per month. If you need to adjust the limit, please contact us by clicking **Request to Change the Monthly Limit**.
 
-> [Caution]\
-Cases of international SMS abuse are increasing globally.\
-It is recommended to request only as many monthly requests as you absolutely need.\
+> [Caution]
+Cases of international SMS abuse are increasing globally.
+It is recommended to request only as many monthly requests as you absolutely need.
 NHN Cloud is not responsible for any international SMS sent due to abuse.
 
 ### Alternative Characters Settings
@@ -532,7 +532,7 @@ Please refer to the [](./console-guide/#tag-uid)reference[](./console-guide/#tag
 2. Enter a name and detailed description for the statistical event key.
 3. Click **Save** and the event key will be registered.
 
-When the data collection period ends, it becomes inactive and no longer collects data.\
+When the data collection period ends, it becomes inactive and no longer collects data.<br/>
 **The end point of the data collection period can be modified if activated.**
 
 ## Statistics
