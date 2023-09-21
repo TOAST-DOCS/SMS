@@ -561,24 +561,20 @@ When the data collection period ends, it becomes inactive and no longer collects
 This feature allows you to send a text message by selecting a tag instead of the phone number that is the recipient's information.
 
 1. Register UID.
-
-* Register UID and one or multiple phone numbers in the **UID management** tab.
-* For more information, please refer to [](./console-guide/#uid)UID Management[](./console-guide/#uid).
+   - Register UID and one or multiple phone numbers in the **UID management** tab.
+   - For more information, please refer to [](./console-guide/#uid)UID Management[](./console-guide/#uid).
 
 2. Register a tag.
-
-* Register tags in the **Manage Tags** tab.
-* For more information, please refer to [](./console-guide/#_15)Manage Tags[](./console-guide/#_15).
+   - Register tags in the **Manage Tags** tab.
+   - For more information, please refer to [](./console-guide/#_15)Manage Tags[](./console-guide/#_15).
 
 3. Register UID in tag.
-
-* Register the UID to the tag registered in the **Manage Tags** tab.
+   - Register the UID to the tag registered in the **Manage Tags** tab.
 
 4. Select a tag and send a text message.
-
-* In the **General Send** tab, select **Send Tag** instead of email address to register the tag.
-* The email is sent to the phone number of the UID registered in the tag.
-* For more information, please refer to [](./console-guide/#_8)Sending messages using tags[](./console-guide/#_8).
+   - In the **General Send** tab, select **Send Tag** instead of email address to register the tag.
+   - The email is sent to the phone number of the UID registered in the tag.
+   - For more information, please refer to [](./console-guide/#_8)Sending messages using tags[](./console-guide/#_8).
 
 #### Relationship with tag features in other services
 * If you are using Push or SMS services in the same project, you can use the tag and UID information used in Email together without re-registering.
