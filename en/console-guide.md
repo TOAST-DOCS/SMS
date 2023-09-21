@@ -362,7 +362,7 @@ You can search for mass delivery by sending type.
 ![sms_19_20230818](https://static.toastoven.net/prod_sms/SMS_19_20230818.png)
 
 * Query: You can search for bulk SMS sending reservations in the inquiry form at the top. When you select a row in the inquiry list, you can check the receiving number and sending information (sending details, sending results) in the inquiry form at the bottom.
-Send/Cancel: When making a reservation for bulk upload sending, if you select the scheduled send after confirming the recipient, select the reservation with the status of ‘Ready to Send’ and cancel.
+* Send/Cancel: When making a reservation for bulk upload sending, if you select the scheduled send after confirming the recipient, select the reservation with the status of ‘Ready to Send’ and cancel.
 * You can send or cancel by clicking the **Send/Cancel** button. In case of scheduled sending is automatically processed at the current time.
 * Check Failed Delivery: If delivery request fails while the progress status is 'Delivery Completed', the number of failure can be found. Click **Failure Cases** to check failed recipient numbers and messages.
 
