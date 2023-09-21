@@ -441,12 +441,12 @@ You can text by selecting tags, instead of phone numbers, as recipient informati
 1. Register UID.
 
 * Go to **Manage UIDs** and register UID and one or many phone numbers.
-* For more details, see [Manage UIDs](./console-guide/#uid).
+* For more details, see [Manage UIDs](./console-guide/#uid-manage).
 
 2. Register tags.
 
 * Go to **Manage Tags** to register tags.
-* For more details, see [Manage Tags](./console-guide/#_15).
+* For more details, see [Manage Tags](./console-guide/#tag-manage).
 
 3. Register UID to a tag.
 
@@ -456,7 +456,7 @@ You can text by selecting tags, instead of phone numbers, as recipient informati
 
 * Go to **Send General SMS** and select **Send Tags** instead of mail addresses, and register tags.
 * Mails are to be sent to phone numbers of UID which is registered to a tag.
-* For more details, see [Send SMS using Tags](./console-guide/#_8).
+* For more details, see [Send SMS using Tags](./console-guide/#tag-send).
 
 #### Tags of Other Services
 * You can share your tag and UI information of Email, with Push or SMS in a same project, with no need of re-registration.

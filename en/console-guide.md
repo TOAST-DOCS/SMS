@@ -277,6 +277,7 @@ To send after delivery information and mass delivery files are uploaded, click *
 
 Split send allows you to split messages before sending by setting **Number of Splits** and **Send Interval**.
 
+<span id='tag-send'></span>
 ### Send Tags
 
 Send with UID according to tag conditions.
@@ -446,6 +447,7 @@ Select a template to modify.
 2. Modify the sending type, template information, and content.
 3. Make sure to click **Modify Templates** while a category is selected after modification is completed.
 
+<span id='uid-manage'></span>
 ## UID Management
 
 You can register and delete UID and mobile phone number. Please refer to [](./console-guide/#tag-uid)the reference[](./console-guide/#tag-uid) for the meaning of tags and UID terms. 
@@ -463,6 +465,7 @@ ex) sms_uuid1,01012345678
 ![](https://static.toastoven.net/prod_sms/SMS_32_20230818.png)sms_32_20230818![](https://static.toastoven.net/prod_sms/SMS_32_20230818.png)
 Find the number counts while uploading a template which is created.
 
+<span id='tag-manage'></span>
 ## Tag Management
 
 This is a page where you can tag or delete registered UIDs. Please refer to the reference for the meaning of tags and UID terms.
@@ -524,7 +527,7 @@ NHN Cloud is not responsible for any international SMS sent due to abuse.
 
 ## Statistical Event Key Settings
 When registering an event key and sending with that key, you can collect statistical data by statistical event key./
-Please refer to the [](./console-guide/#tag-uid)reference[](./console-guide/#tag-uid) for the meaning of statistical event key terms.
+Please refer to the [reference](./console-guide/#tag-uid) for the meaning of statistical event key terms.
 
 ![sms_36_20230818](https://static.toastoven.net/prod_sms/SMS_36_20230818.png)
 
@@ -562,11 +565,11 @@ This feature allows you to send a text message by selecting a tag instead of the
 
 1. Register UID.
    - Register UID and one or multiple phone numbers in the **UID management** tab.
-   - For more information, please refer to [](./console-guide/#uid)UID Management[](./console-guide/#uid).
+   - For more information, please refer to [UID Management](./console-guide/#uid-manage).
 
 2. Register a tag.
    - Register tags in the **Manage Tags** tab.
-   - For more information, please refer to [](./console-guide/#_15)Manage Tags[](./console-guide/#_15).
+   - For more information, please refer to [Manage Tags](./console-guide/#tag-manage).
 
 3. Register UID in tag.
    - Register the UID to the tag registered in the **Manage Tags** tab.
@@ -574,7 +577,7 @@ This feature allows you to send a text message by selecting a tag instead of the
 4. Select a tag and send a text message.
    - In the **General Send** tab, select **Send Tag** instead of email address to register the tag.
    - The email is sent to the phone number of the UID registered in the tag.
-   - For more information, please refer to [](./console-guide/#_8)Sending messages using tags[](./console-guide/#_8).
+   - For more information, please refer to [Sending messages using tags](./console-guide/#tag-send).
 
 #### Relationship with tag features in other services
 * If you are using Push or SMS services in the same project, you can use the tag and UID information used in Email together without re-registering.
