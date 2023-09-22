@@ -24,7 +24,7 @@
 * 会員登録時に入力した名前と携帯電話番号が本人認証時に入力する情報と一致すれば本人認証が承認されます。
 * **個人会員は組織のOwnerのみ本人認証が可能です。**個人会員が作成した組織/プロジェクトに招待されたNHN Cloud会員または個人会員が作成した組織に招待されたIAMメンバーは本人認証ができません。
 * 在職証明書は <span style="color:red;font-weight:bold">発行日が表記されており、職印が押された書類</span>のみ可能です。<br/>
-在職証明書内の住民番号後ろ6桁は <span style="color:red;font-weight:bold">必ずマスキング(伏せ字)処理</span>してください。例) 000000-0****** 
+在職証明書内の住民番号後ろ6桁は <span style="color:red;font-weight:bold">必ずマスキング(伏せ字)処理</span>してください。例) 000000-0\*\*\*\*\*\* 
 
 ### 会員タイプ別に必要な書類
 <table class="custom-table" style="text-align: center">
@@ -148,7 +148,7 @@
 * 携帯電話本人認証が不可能な番号は通信サービス利用証明証により認証します。
 * 通信サービス <span style="color:red;font-weight:bold">利用証明書はマスキング(伏せ字)処理された部分がなく、最近3か月以内に発行された書類</span>のみ可能です。
 * 在職証明書は <span style="color:red;font-weight:bold">発行日が表記されており、職印が押された書類</span>のみ可能です。<br/>
-在職証明書内の住民番号後ろ6桁は <span style="color:red;font-weight:bold">必ずマスキング(伏せ字)処理</span>してください。例) 000000-0******
+在職証明書内の住民番号後ろ6桁は <span style="color:red;font-weight:bold">必ずマスキング(伏せ字)処理</span>してください。例) 000000-0\*\*\*\*\*\*
 
 ### 発信番号の登録形式
 

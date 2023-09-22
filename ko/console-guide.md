@@ -24,7 +24,7 @@
 * 회원 가입 시 입력한 이름과 휴대폰 번호가 본인 인증 시 입력하는 정보와 일치해야 본인 인증 승인이 됩니다.
 * **개인 회원은 조직의 Owner만 본인 인증이 가능합니다.** 개인 회원이 생성한 조직/프로젝트에 초대된 NHN Cloud 회원 또는 개인 회원이 생성한 조직에 초대된 IAM 멤버는 본인 인증이 불가합니다.
 * 재직증명서는 <span style="color:red;font-weight:bold">발급일이 표기되어 있고, 직인이 날인된 서류</span>만 가능합니다.<br/>
-재직증명서 내 주민번호 뒤 6자리는 <span style="color:red;font-weight:bold">반드시 마스킹(숨김) 처리</span>해 주세요. 예) 000000-0****** 
+재직증명서 내 주민번호 뒤 6자리는 <span style="color:red;font-weight:bold">반드시 마스킹(숨김) 처리</span>해 주세요. 예) 000000-0\*\*\*\*\*\* 
 
 ### 회원 유형에 따른 필요한 서류
 <table class="custom-table" style="text-align: center">
@@ -146,9 +146,9 @@
 * 개인 회원은 기업, 타인 번호를 등록할 수 없습니다.
 * 본인 인증 후 발신 번호 등록이 가능합니다.
 * 휴대폰 본인 인증이 불가능한 번호는 통신서비스 이용증명원을 통해 인증합니다.
-* 통신서비스 <span style="color:red;font-weight:bold">이용증명원은 마스킹(숨김) 처리된 부분이 없고, 최근 3개월 이내 발급된 서류</span>만 가능합니다.
+* 통신서비스 이용증명원은 <span style="color:red;font-weight:bold">마스킹(숨김) 처리된 부분이 없고, 최근 3개월 이내 발급된 서류</span>만 가능합니다.
 * 재직증명서는 <span style="color:red;font-weight:bold">발급일이 표기되어 있고, 직인이 날인된 서류</span>만 가능합니다.<br/>
-재직증명서 내 주민번호 뒤 6자리는 <span style="color:red;font-weight:bold">반드시 마스킹(숨김) 처리</span>해 주세요. 예) 000000-0******
+재직증명서 내 주민번호 뒤 6자리는 <span style="color:red;font-weight:bold">반드시 마스킹(숨김) 처리</span>해 주세요. 예) 000000-0\*\*\*\*\*\*
 
 ### 발신 번호 등록 형식
 
@@ -542,7 +542,7 @@ NHN Cloud는 어뷰징으로 발송된 국제 SMS에 대해 일체의 책임을 
 
 
 ## 통계 이벤트 키 설정
-이벤트 키를 등록하여 해당 키로 발송 시, 통계 이벤트 키별로 통계 데이터를 수집할 수 있습니다./
+이벤트 키를 등록하여 해당 키로 발송 시, 통계 이벤트 키별로 통계 데이터를 수집할 수 있습니다.<br/>
 통계 이벤트 키 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인해 주세요.
 
 ![sms_36_20230818](https://static.toastoven.net/prod_sms/SMS_36_20230818.png)
