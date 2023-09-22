@@ -3,7 +3,7 @@
 ### September 26, 2023
 #### Feature Updates
 * [Console] Improved international sending statistics
-  * Improved to view request, sending, sending failed, receiving, and message count event in international sending statistics.
+    * Improved to view request, sending, sending failed, receiving, and message count event in international sending statistics.
 * [API] Improved international sending process
     * Improved to send international messages via a sender number without pre-registering the number.
 
@@ -118,7 +118,7 @@
 * [Console] Changed the button name and message for mass and tag delivery
     * Changed the button name of Schedule Delivery to reduce confusion because pressing the mass delivery or tag delivery button immediately executes delivery.
 
-#### Bug Fixes    
+#### Bug Fixes
 * [API] Added a field that was omitted for webhook delivery
     * Added the recipientNo field that was omitted for webhook delivery.
 * [API] Fixed a bug that occurred to the statisticsType field in Statistics API
@@ -203,7 +203,7 @@
     * Only the project that requested an 080 phone number can share phone numbers.
     * Only the requested project can edit the business name and cancel the business.
     * The blocked 080 phone numbers are shared.
-  
+
 ### December 29, 2020
 #### Feature Updates
 * [API] Applied partial changes to response body of SMS sent list search and send single search for short text/long text/authentication
@@ -234,7 +234,7 @@
 * [Console/API] Enhanced validation of attachment image format
     * When uploading attachments for MMS delivery, validation will fail if the image format is not .jpg.
 * [Console] Enhanced validation of backup settings
-    * If '/' is appended before or after the file save path in the backup setting of the **Delivery Setting** tab, the validation will fail. 
+    * If '/' is appended before or after the file save path in the backup setting of the **Delivery Setting** tab, the validation will fail.
 
 #### Bug Fixes
 * [Console] Fixed an issue where a file uploaded from the **Register Sender Number** tab could not be downloaded
@@ -254,7 +254,7 @@
 
 #### Bug Fixes
 * [Console] Unable to download attached files from the detail page of scheduled delivery list
-    * Fixed the 404 error occurred at the click of an attached file within View Details of Scheduled Delivery on the **Query SMS Request** tab.  
+    * Fixed the 404 error occurred at the click of an attached file within View Details of Scheduled Delivery on the **Query SMS Request** tab.
 
 ### April 28, 2020
 #### Feature Updates
@@ -264,7 +264,7 @@
 * [API] Added Request ID as a filter condition for Search Statistics API
     * Added a filter condition of listing request IDs for **Search Statistics- Based on Event/Request Time**.
 
-#### Bug Fixes    
+#### Bug Fixes
 * [Console] Fixed error of pagination on the list of failed data from the **Mass/Tag Delivery List** tab.
     * Fixed inoperability of pagination while listing failure from the **Mass/Tag Delivery List** tab.
 
@@ -336,7 +336,7 @@
     * While the 080 number rejection service is enabled, it must be disabled first to disable the SMS service.
 * [Console/API] Sending ad messages only when the 080 number rejection service is enabled
     * Delivery is available only when the 080 number rejection service is 'Enabled'.
-* [API] Tighter validation for the delivery of certification messages 
+* [API] Tighter validation for the delivery of certification messages
     * Message delivery is unavailable when authentication message is not included
     * For more details, see [[API User Guide](./api-guide/#precautions-authword)].
 
@@ -356,7 +356,7 @@
 * [Console/API] Fixed Partial Failure in Scheduled Delivery
     * Infrequently, messages scheduled as of current time were partially not delivered.
     * Fixed the issue so as messages, which are scheduled even as of current time, can all be delivered.
-    
+
 
 ### August 27, 2019
 #### Feature Updates
@@ -391,7 +391,7 @@
 * [Console] Added sender's group key and recipient's group key in the query of request by SMS
     * Sender's group key and recipient's group key have been added as part of query conditions for each SMS request.
 * [Console] Added check boxes to include or exclude title/body in scheduling a file downloading after query of delivery list
-    * Check boxes have been added to include title/body or not, in the request of downloading after query of general/mass/tag delivery list. 
+    * Check boxes have been added to include title/body or not, in the request of downloading after query of general/mass/tag delivery list.
 * [API] Added Create/Query/Download delivery list in files for General messages
     * APIs have been added to download general delivery list in files.
 
@@ -400,7 +400,7 @@
     * The issue of template parameter which was not properly replaced in the query of scheduled delivery list and details has been fixed.
 * [Console/API] Fixed bugs in collecting statistics
     * It has been modified to collect duplicate delivery as failed delivery, not as ready for receiving
-     
+
 
 ### May 28, 2019
 #### Feature Updates
@@ -705,7 +705,7 @@
 * [API] Changed the logic to allow only normal cases from validation to be sent to a number of recipients.
     * AS-IS: If request of sending for a number of recipients fails, message is not sent to other recipients after failed recipient.
     * TO-BE: Message is sent to all recipients, and delivery result by recipient is provided at the response. Even with failed delivery, result of request becomes successful. <br/>
-    See [[API Guide](./api-guide/)] for more details.
+      See [[API Guide](./api-guide/)] for more details.
 * Method of calculating charges has changed.
     * AS-IS: Charged on the basis of request time of text delivery
     * TO-BE: Charged by the response time for delivery result
