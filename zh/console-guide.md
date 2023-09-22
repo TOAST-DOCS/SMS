@@ -439,24 +439,17 @@ Content of Business: Send SMS in lieu of customers
 You can text by selecting tags, instead of phone numbers, as recipient information.
 
 1. Register UID.
-
-* Go to **Manage UIDs** and register UID and one or many phone numbers.
-* For more details, see [Manage UIDs](./console-guide/#uid-manage).
-
+    - Go to **Manage UIDs** and register UID and one or many phone numbers.
+    - For more details, see [Manage UIDs](./console-guide/#uid-manage).
 2. Register tags.
-
-* Go to **Manage Tags** to register tags.
-* For more details, see [Manage Tags](./console-guide/#tag-manage).
-
+    - Go to **Manage Tags** to register tags.
+    - For more details, see [Manage Tags](./console-guide/#tag-manage).
 3. Register UID to a tag.
-
-* Go to **Manage Tags** to register UID to a registered tag.
-
+    - Go to **Manage Tags** to register UID to a registered tag.
 4. Select tags to send text messages.
-
-* Go to **Send General SMS** and select **Send Tags** instead of mail addresses, and register tags.
-* Mails are to be sent to phone numbers of UID which is registered to a tag.
-* For more details, see [Send SMS using Tags](./console-guide/#tag-send).
+    - Go to **Send General SMS** and select **Send Tags** instead of mail addresses, and register tags.
+    - Mails are to be sent to phone numbers of UID which is registered to a tag.
+    - For more details, see [Send SMS using Tags](./console-guide/#tag-send).
 
 #### Tags of Other Services
 * You can share your tag and UI information of Email, with Push or SMS in a same project, with no need of re-registration.
