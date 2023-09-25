@@ -3225,7 +3225,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo           | 	String  | 13     | 옵션  | 	발신 번호                                                                                                  |
 | recipientNo      | 	String  | 20     | 	옵션 | 	수신 번호                                                                                                  |
 | templateId       | 	String  | 50     | 	옵션 | 	템플릿 번호                                                                                                 |
-| messageStatus    | 	String  | 10     | 	옵션 | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패,CANCEL:예약 취소,DUPLICATED:중복 발송) |
+| messageStatus    | 	String  | 10     | 	옵션 | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패,CANCEL:취소,DUPLICATED:중복 발송) |
 | pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                                                                        |
 | pageSize         | 	Integer | 1000   | 	옵션 | 	조회 수(기본값 : 15)                                                                                         |
 
@@ -3290,7 +3290,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].templateName      | 	String       | 	템플릿명                                                                                                |
 | body.data[].title             | 	String       | 	제목                                                                                                  |
 | body.data[].body              | 	String       | 	본문 내용                                                                                               |
-| body.data[].messageStatus     | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기,SENDING:발송 중,COMPLETED:발송 완료,FAILED:발송 실패,CANCEL:예약 취소,DUPLICATED:중복 발송) |
+| body.data[].messageStatus     | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기,SENDING:발송 중,COMPLETED:발송 완료,FAILED:발송 실패,CANCEL:취소,DUPLICATED:중복 발송) |
 | body.data[].createUser        | 	String       | 	등록한 사용자                                                                                             |
 | body.data[].createDate        | 	String       | 	등록 날짜                                                                                               |
 | body.data[].updateDate        | 	String       | 	수정 날짜                                                                                               |
@@ -3377,7 +3377,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data.templateName              | 	String       | 	템플릿명                                                                                                |
 | body.data.title                     | 	String       | 	제목                                                                                                  |
 | body.data.body                      | 	String       | 	본문 내용                                                                                               |
-| body.data.messageStatus             | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기,SENDING:발송 중,COMPLETED:발송 완료,FAILED:발송 실패,CANCEL:예약 취소,DUPLICATED:중복 발송) |
+| body.data.messageStatus             | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기,SENDING:발송 중,COMPLETED:발송 완료,FAILED:발송 실패,CANCEL:취소,DUPLICATED:중복 발송) |
 | body.data.createUser                | 	String       | 	등록한 사용자                                                                                             |
 | body.data.createDate                | 	String       | 	등록 날짜                                                                                               |
 | body.data.attachFileList[].fileId   | 	Integer      | 	파일 ID                                                                                               |

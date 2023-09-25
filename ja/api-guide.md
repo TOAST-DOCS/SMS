@@ -4507,7 +4507,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo           | 	String  | 13    | オプション  | 	発信番号                                                                                                 |
 | recipientNo      | 	String  | 20    | 	オプション | 	受信番号                                                                                                 |
 | templateId       | 	String  | 50    | 	オプション | 	テンプレート番号                                                                                             |
-| messageStatus    | 	String  | 10    | 	オプション | 	メッセージ状態<br/>(RESERVED：予約待機、 SENDING：送信中、 COMPLETED：送信完了、 FAILED：送信失敗、CANCEL：予約キャンセル、DUPLICATED：重複送信) |
+| messageStatus    | 	String  | 10    | 	オプション | 	メッセージ状態<br/>(RESERVED：予約待機、 SENDING：送信中、 COMPLETED：送信完了、 FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信) |
 | pageNum          | 	Integer | -     | 	オプション | 	ページ番号(デフォルト値：1)                                                                                      |
 | pageSize         | 	Integer | 1000  | 	オプション | 	検索数(デフォルト値：15)                                                                                       |
 
@@ -4581,7 +4581,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations' \
 | body.data[].templateName      | 	String       | 	テンプレート名                                                                                           |
 | body.data[].title             | 	String       | 	タイトル                                                                                              |
 | body.data[].body              | 	String       | 	本文内容                                                                                              |
-| body.data[].messageStatus     | 	String       | 	メッセージ状態<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：予約キャンセル、DUPLICATED：重複送信) |
+| body.data[].messageStatus     | 	String       | 	メッセージ状態<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信) |
 | body.data[].createUser        | 	String       | 	登録したユーザー                                                                                          |
 | body.data[].createDate        | 	String       | 	登録日                                                                                               |
 | body.data[].updateDate        | 	String       | 	修正日                                                                                               |
@@ -4691,7 +4691,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/'"$
 | body.data.templateName                    | 	String       | 	テンプレート名                                                                                           |
 | body.data.title                           | 	String       | 	タイトル                                                                                              |
 | body.data.body                            | 	String       | 	本文内容                                                                                              |
-| body.data.messageStatus                   | 	String       | 	メッセージ状態<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：予約キャンセル、DUPLICATED：重複送信) |
+| body.data.messageStatus                   | 	String       | 	メッセージ状態<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信) |
 | body.data.createUser                      | 	String       | 	登録したユーザー                                                                                          |
 | body.data.createDate                      | 	String       | 	登録日                                                                                               |
 | body.data[].attachFileList[].fileId       | 	Integer      | 	ファイルID                                                                                            |
