@@ -14,10 +14,10 @@
 
 ## Notification > SMS > Console Guide
 
-> To enable SMS Service, you may first register sender numbers on [Console > SMS > Sender Number Management] (Article 84 of Telecommunications Business Law).
+> To enable SMS Service, you may first register sender numbers on [Console > SMS > Sender Number Management] (Telecommunications Business Law).
 
 ## Identity Verification
-* In order to comply with the amendment of Article 84(2) of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
+* In order to comply with the amendment of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
     * Only for members who joined after March 2, 2022
 * To use the SMS service, you must go through identity verification, which basically requires mobile phone identity verification and additional documentation depending on your membership type.
     * If you don't verify your identity, all features other than the **Sender Number Pre-Registration** tab will be disabled.
@@ -85,7 +85,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 ## Pre-register Sender Numbers
 
 ### Enforce pre-registration of sender numbers
-* In accordance with Article 84 of the Telecommunications Business Act, the registration of a sender number requires the verification of the owner of the sender number.
+* In accordance with the Telecommunications Business Act, the registration of a sender number requires the verification of the owner of the sender number.
 * The owner verification method and required documents are determined according to the member and sender number types.
 
 ### Owner verification method by calling number
