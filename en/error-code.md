@@ -39,8 +39,8 @@
 | Send/Query | false | -2018 | Recipient number is missing | RecipientNo can not be empty. |
 | Send/Query | false | -2019 | Recipient number is invalid | RecipientNo is invalid. |
 | Send/Query | false | -2021 | System error (failed in saving queue) | System error. Failed insert queue. |
-| Send/Query | false | -2022 | Request date and time is set earlier than the current time | requestDate is not before currentDate |
-| Send/Query | false | -2023 | Title or body includes characters that are not allowed (e.g. emojis) | Unacceptable characters in title and body|
+| Send/Query | false | -2022 | Request date and time is set earlier than the current time | RequestDate is not before currentDate. |
+| Send/Query | false | -2023 | Title or body includes characters that are not allowed (e.g. emojis) | Unacceptable characters in title and body. |
 | Send/Query | false | -2024 |  International delivery is sent with LMS/MMS | LMS/MMS Type is not sent to outside of Korea. |
 | Send/Query | false | -2044 | Request is sent to unavailable country | Invalid countryCode for sending. |
 | Send/Query | false | -2045 | International sending is blocked | International sending blocked by service. |
@@ -58,9 +58,9 @@
 | Template | false | -2106 | Use or not is invalid | UseYn is invalid. |
 | Template | false | -2107 | Invalid Template ID(When modifying/deleting) | Invalid template. |
 | Template | false | -2108 | Category ID is missing | The categoryId can not be empty. |
-| Template | false | -2109 | Template ID exceeds 50 characters | templateId length must be under 50. |
-| Template | false | -2110 | Not exist Template | template is not exist. |
-| Template | false | -2111 | Invalid Template parameter | template add parameter is invalid. |
+| Template | false | -2109 | Template ID exceeds 50 characters | TemplateId length must be under 50. |
+| Template | false | -2110 | Not exist Template | Template is not exist. |
+| Template | false | -2111 | Invalid Template parameter | Template add parameter is invalid. |
 | Template | false | -2112 | Exceeded the maximum available number of templates for registration (Max: 1000)  | The maximum number of registered templates. |
 | Template | false | -2114 | Title is empty  | The title can not be empty. |
 | Template | false | -2115 | Title exceeds 120 characters  | Title length must be under 120. |
@@ -74,10 +74,10 @@
 | Category | false | -2200 | Invalid category parameter (to register) | Invalid add category parameter.(categoryName, useYn) |
 | Category | false | -2201 | Invalid category parameter (to modify) | Invalid modify category parameter.(categoryId, categoryName, useYn) |
 | Category | false | -2202 | Invalid category (failed to query category) | Invalid category. |
-| Category | false | -2203 | Parent category does not exist | categoryParentId is invalid. |
+| Category | false | -2203 | Parent category does not exist | CategoryParentId is invalid. |
 | Category | false | -2204 | Use or not is invalid | UseYn is invalid. |
 | Category | false | -2205 | Deleting the highest category | Cannot delete the highest category. |
-| Category | false | -2206 | Category does not exist | category is not exist. |
+| Category | false | -2206 | Category does not exist | Category is not exist. |
 | Sender number | false | -2312 | Sender number is missing or unregistered | Not regist sendno. |
 | Sender number | false | -2313 | Blocked Sender number | This sendno is blocked. |
 | Statistics | false | -2700 | Invalid statistics range | Invalid search period. |
@@ -138,15 +138,15 @@
 ## Query Delivery Codes
 ### Result Code of Receiving
 
-| Code Value | Description | 
+| Code Value | Description |
 | - | - |
-| MTR1 | Successful | 
-| MTR2 | Failed | 
+| MTR1 | Successful |
+| MTR2 | Failed |
 
-### Detail Result Code of Receiving 
+### Detail Result Code of Receiving
 
-| Code Value | Description | 
+| Code Value | Description |
 | - | - |
-| MTR2_1 | Validity Check Failed | 
-| MTR2_2 | Issue of Telecom Provider | 
+| MTR2_1 | Validity Check Failed |
+| MTR2_2 | Issue of Telecom Provider |
 | MTR2_3 | Issue of Device | 
