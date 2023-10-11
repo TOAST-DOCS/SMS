@@ -39,8 +39,8 @@
 | 발송/조회 | false | -2018 | 수신자 번호가 비어 있는 경우 | RecipientNo can not be empty. |
 | 발송/조회 | false | -2019 | 수신자 번호가 유효하지 않는 경우 | RecipientNo is invalid. |
 | 발송/조회 | false | -2021 | 시스템 오류(큐 저장 실패) | System error. Failed insert queue. |
-| 발송/조회 | false | -2022 | 요청 일시를 현재 시간보다 이전으로 설정한 경우 | requestDate is not before currentDate |
-| 발송/조회 | false | -2023 | 제목 또는 본문에 허용되지 않는 문자(Emoji 등)가 포함된 경우 | Unacceptable characters in title and body|
+| 발송/조회 | false | -2022 | 요청 일시를 현재 시간보다 이전으로 설정한 경우 | RequestDate is not before currentDate. |
+| 발송/조회 | false | -2023 | 제목 또는 본문에 허용되지 않는 문자(Emoji 등)가 포함된 경우 | Unacceptable characters in title and body. |
 | 발송/조회 | false | -2024 | LMS/MMS로 국제 발송을 전송하는 경우 | LMS/MMS Type is not sent to outside of Korea. |
 | 발송/조회 | false | -2044 | 발송 불가능한 국가로 요청을 보낸 경우 | Invalid countryCode for sending. |
 | 발송/조회 | false | -2045 | 국제 발송을 차단한 경우 | International sending blocked by service. |
@@ -58,9 +58,9 @@
 | 템플릿 | false | -2106 | 사용 여부가 잘못된 경우 | UseYn is invalid. |
 | 템플릿 | false | -2107 | 유효하지 않는 템플릿 ID(수정/삭제 시) | Invalid template. |
 | 템플릿 | false | -2108 | 카테고리 ID가 비어 있는 경우 | The categoryId can not be empty. |
-| 템플릿 | false | -2109 | 템플릿 ID가 50 글자를 초과하는 경우 | templateId length must be under 50. |
-| 템플릿 | false | -2110 | 템플릿이 존재하지 않는 경우 | template is not exist. |
-| 템플릿 | false | -2111 | 유효하지 않는 템플릿 파라미터인 경우 | template add parameter is invalid. |
+| 템플릿 | false | -2109 | 템플릿 ID가 50 글자를 초과하는 경우 | TemplateId length must be under 50. |
+| 템플릿 | false | -2110 | 템플릿이 존재하지 않는 경우 | Template is not exist. |
+| 템플릿 | false | -2111 | 유효하지 않는 템플릿 파라미터인 경우 | Template add parameter is invalid. |
 | 템플릿 | false | -2112 | 최대 등록 가능한 템플릿 개수를 초과한 경우(최대: 1000)  | The maximum number of registered templates. |
 | 템플릿 | false | -2114 | 제목이 비어 있는 경우  | The title can not be empty. |
 | 템플릿 | false | -2115 | 제목이 120 글자를 초과하는 경우  | Title length must be under 120. |
@@ -70,10 +70,10 @@
 | 카테고리 | false | -2200 | 유효하지 않는 카테고리 파라미터(등록 시) | Invalid add category parameter.(categoryName, useYn) |
 | 카테고리 | false | -2201 | 유효하지 않는 카테고리 파라미터(수정 시) | Invalid modify category parameter.(categoryId, categoryName, useYn) |
 | 카테고리 | false | -2202 | 유효하지 않는 카테고리(카테고리 조회 실패) | Invalid category. |
-| 카테고리 | false | -2203 | 부모 카테고리가 존재하지 않은 경우 | categoryParentId is invalid. |
+| 카테고리 | false | -2203 | 부모 카테고리가 존재하지 않은 경우 | CategoryParentId is invalid. |
 | 카테고리 | false | -2204 | 사용 여부가 잘못된 경우 | UseYn is invalid. |
 | 카테고리 | false | -2205 | 최상위 카테고리를 삭제하려는 경우 | Cannot delete the highest category. |
-| 카테고리 | false | -2206 | 존재하지 않은 카테고리인 경우 | category is not exist. |
+| 카테고리 | false | -2206 | 존재하지 않은 카테고리인 경우 | Category is not exist. |
 | 발신 번호 | false | -2312 | 발신 번호가 비어 있거나 미등록 상태 | Not regist sendno. |
 | 발신 번호 | false | -2313 | 차단된 발신 번호 | This sendno is blocked. |
 | 통계 | false | -2700 | 유효하지 않는 통계 범위 | Invalid search period. |
