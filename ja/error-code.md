@@ -9,7 +9,7 @@
 | 共通 | false | -1000 | 有効ではないアプリケーションキー | Invalid appKey. |
 | 共通 | false | -1001 | 存在しないアプリケーションキー | Service is not exist. |
 | 共通 | false | -1002 | 使用が終了したアプリケーションキー | Service is disabled. |
-| 共通 | false | -1003 | プロジェクトに含まれないメンバー | Not project memeber id. |
+| 共通 | false | -1003 | プロジェクトに含まれないメンバー | Not project member id. |
 | 共通 | false | -1004 | 許可されていないIP | Not allow ip. |
 | 共通 | false | -1007 | 有効ではないメンバー | MemberType is invalid. |
 | 共通 | false | -1008 | ブロックされたプロジェクト | Service is blocked. |
@@ -39,8 +39,8 @@
 | 送信/照会 | false | -2018 | 受信者番号が空白の場合 | RecipientNo can not be empty. |
 | 送信/照会 | false | -2019 | 受信者番号が有効ではない場合 | RecipientNo is invalid. |
 | 送信/照会 | false | -2021 | システムエラー(キュー保存失敗) | System error. Failed insert queue. |
-| 送信/照会 | false | -2022 | リクエスト日時を現在時間より前に設定した場合 | requestDate is not before currentDate |
-| 送信/照会 | false | -2023 | タイトルまたは本文に許可されていない文字(Emojiなど)が含まれる場合 | Unacceptable characters in title and body|
+| 送信/照会 | false | -2022 | リクエスト日時を現在時間より前に設定した場合 | RequestDate is not before currentDate. |
+| 送信/照会 | false | -2023 | タイトルまたは本文に許可されていない文字(Emojiなど)が含まれる場合 | Unacceptable characters in title and body. |
 | 送信/照会 | false | -2024 | LMS/MMSで国際送信を送信する場合 | LMS/MMS Type is not sent to outside of Korea. |
 | 送信/照会 | false | -2044 | 送信不可能な国にリクエストを送信した場合 | Invalid countryCode for sending. |
 | 送信/照会 | false | -2045 | 国際送信をブロックした場合 | International sending blocked by service. |
@@ -58,9 +58,9 @@
 | テンプレート | false | -2106 | 使用有無が間違っている場合 | UseYn is invalid. |
 | テンプレート | false | -2107 | 有効ではないテンプレートID(修正/削除時) | Invalid template. |
 | テンプレート | false | -2108 | カテゴリーIDが空白の場合 | The categoryId can not be empty. |
-| テンプレート | false | -2109 | テンプレートIDが50文字を超える場合 | templateId length must be under 50. |
-| テンプレート | false | -2110 | テンプレートが存在しない場合 | template is not exist. |
-| テンプレート | false | -2111 | 有効ではないテンプレートパラメータの場合 | template add parameter is invalid. |
+| テンプレート | false | -2109 | テンプレートIDが50文字を超える場合 | TemplateId length must be under 50. |
+| テンプレート | false | -2110 | テンプレートが存在しない場合 | Template is not exist. |
+| テンプレート | false | -2111 | 有効ではないテンプレートパラメータの場合 | Template add parameter is invalid. |
 | テンプレート | false | -2112 | 最大登録可能なテンプレート数を超過した場合(最大: 1000)  | The maximum number of registered templates. |
 | テンプレート | false | -2114 | タイトルが空白の場合 | The title can not be empty. |
 | テンプレート | false | -2115 | タイトルが120文字を超える場合 | Title length must be under 120. |
@@ -70,10 +70,10 @@
 | カテゴリー | false | -2200 | 有効ではないカテゴリーパラメータ(登録時) | Invalid add category parameter.(categoryName, useYn) |
 | カテゴリー | false | -2201 | 有効ではないカテゴリーパラメータ(修正時) | Invalid modify category parameter.(categoryId、categoryName、useYn) |
 | カテゴリー | false | -2202 | 有効ではないカテゴリー(カテゴリー照会失敗) | Invalid category. |
-| カテゴリー | false | -2203 | 親カテゴリーが存在しない場合 | categoryParentId is invalid. |
+| カテゴリー | false | -2203 | 親カテゴリーが存在しない場合 | CategoryParentId is invalid. |
 | カテゴリー | false | -2204 | 使用の有無が正しくない場合 | UseYn is invalid. |
 | カテゴリー | false | -2205 | 最上位カテゴリーを削除しようとしている場合 | Cannot delete the highest category. |
-| カテゴリー | false | -2206 | 存在しないカテゴリーの場合 | category is not exist. |
+| カテゴリー | false | -2206 | 存在しないカテゴリーの場合 | Category is not exist. |
 | 発信番号 | false | -2312 | 発信番号が空白または未登録の状態 | Not regist sendno. |
 | 発信番号 | false | -2313 | ブロックされた発信番号 | This sendno is blocked. |
 | 統計 | false | -2700 | 有効ではない統計範囲 | Invalid search period. |
