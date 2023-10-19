@@ -1,5 +1,17 @@
 ## Notification > SMS > Release Notes
 
+### 2023. 10. 31.
+#### 기능 개선/변경
+* [Console] 발신번호 등록 페이지 문구 추가
+    * 발신번호 등록 시 필요한 서류인 재직증명서와 통신서비스 이용증명서에 대한 설명이 추가되었습니다.
+* [Console] 국제 SMS 발송 설정 개선
+    * 발송 설정 메뉴가 일반 SMS, 국제 SMS 탭으로 구분되었습니다.
+    * "자동 차단 월 제한 건수"를 직접 설정할 수 있게 되었습니다.
+    * 발송 허용 국가 관리 기능이 추가되었습니다.
+* [Console] SMS 발송 내용 글자 수 제한 개선
+    * 국내 SMS 발송 기준인 최대 255자 제한을 완화하여 국제 SMS 기준에도 부합하도록 변경되었습니다.
+    * 인코딩에 따라 최대 입력 가능한 글자 수가 변경됩니다. (UCS-2: 335자, GSM-7bit: 765자)
+
 ### September 26, 2023
 #### Feature Updates
 * [Console] Improved international sending statistics
