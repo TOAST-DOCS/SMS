@@ -82,7 +82,7 @@
 | 차드 | Chad | 235 |  |
 | 칠레 | Chile | 56 |  |
 | 중국 | China | 86 | - 한 수신자에게 3번을 초과하여 동일 메시지가 연속 발송될 경우 스팸 처리될 수 있음<br>- 하루 한 수신자에게 최대 15번까지만 발송할 수 있음<br>- URL 링크가 포함된 메시지 발송은 허용되지 않음<br>- 마케팅 내용은 반드시 사전 승인 절차 필요<br>- UCS-2 인코딩 사용 | 
-| 쿡 제도 | Cocos Keeling Islands (Cook Islands) | 682 |  |
+| 쿡 제도 | Cocos Keeling Islands(Cook Islands) | 682 |  |
 | 콜롬비아 | Colombia | 57 |  |
 | 콩고 | Congo | 242 |  |
 | 코스타리카 | Costa Rica | 506 |  |
