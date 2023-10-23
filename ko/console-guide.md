@@ -190,7 +190,11 @@
 ## SMS 발송
 * 최대 글자 수는 저장 기준입니다. 문자 잘림을 방지하기 위해서 최대 글자 수가 아닌 표준 규격을 기준으로 작성합니다.
 * 내용 표준 규격: 국내 SMS 90 바이트(한글 45자, 영문 90자) / 국내 MMS 2,000 바이트(한글 1,000자, 영문 2,000자) / 국제 SMS UCS-2 335자 / 국제 SMS GSM-7bit 765자   
-* 국제 SMS의 경우 인코딩과 글자 수에 따라 Concatenated message로 발송됩니다. [[가이드 바로 가기]](./international-sending-policy/#_3)
+* 국제 SMS의 경우 인코딩과 글자 수에 따라 Concatenated message로 전송됩니다. [[가이드 바로 가기]](./international-sending-policy/#_3)
+    * Concatenated message란, 국제SMS 발송에서 보낼 수 있는 문자 수 제한을 극복하기 위해, 우리나라의 LMS처럼 단말기에 하나의 긴 문자로 연결되어 보이게 만드는 서비스입니다.
+    * 본문 글자 수, 인코딩 및 해외 통신사의 지원 여부에 따라 Concatenated message 기능이 제공됩니다. Concatenated message가 되지 않는 경우 단문 메시지 여러 건으로 단말기에 수신될 수 있습니다.
+    * Concatenated message가 되는 과정에서 특정 해더가 메시지 연결을 위해 바이트 수(6바이트 가량)를 차지하여 1건보다는 글자수가 약간 줄어듭니다. 과금은 Concatenated message 건수에 따라 진행 됩니다.
+
 * 발신 번호 차단으로 문자 전송에 실패한 경우에는 '번호 도용 문자 차단 서비스'를 확인 바랍니다. [[가이드 바로 가기]](./sending-policy/#fraud-number)
 * 전송 결과는 성공이지만 문자를 수신하지 못하는 경우는 '통신사 스팸 차단 서비스'를 확인 바랍니다. [[가이드 바로 가기]](./sending-policy/#spam-number)
 
