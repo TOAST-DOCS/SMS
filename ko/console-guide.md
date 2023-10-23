@@ -57,7 +57,7 @@
           <td>사업자등록증, 재직증명서</td>
       </tr>
       <tr>
-          <td>IAM 멤버</td>
+          <td>개인</td>
           <td>NHN Cloud 회원</td>
           <td>개인 회원 자신이 인증하는 경우</td>
           <td>휴대폰 본인 인증</td>

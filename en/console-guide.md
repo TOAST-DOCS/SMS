@@ -57,7 +57,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
           <td>Business registration certificate, proof of employment</td>
       </tr>
       <tr>
-          <td>IAM member</td>
+          <td>Personal</td>
           <td>NHN Cloud member</td>
           <td>When individual members authenticates themselves</td>
           <td>Mobile verification</td>
