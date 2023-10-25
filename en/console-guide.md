@@ -194,8 +194,8 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
     * The Concatenated message feature is available depending on the number of characters in the body, encoding, and support from international mobile carriers. If concatenated message is not supported, the device may receive multiple short messages.
     * When a concatenated message is created, certain headers take up a number of bytes (around 6) to concatenate the message, slightly reducing the number of characters you can send. Billing is based on the number of concatenated messages.
 
-* If you fail to send a text due to blocking the sender number, please check the 'Stolen Number Text Blocking Service'. [[Go to the user guide].](./sending-policy/#fraud-number)
-* If the sending is successful but you do not receive the text, please check ‘Mobile Carrier Spam Blocking Service’. [[Shortcut to guide].](./sending-policy/#spam-number)
+* If you fail to send a text due to blocking the sender number, please check the 'Stolen Number Text Blocking Service'. [Go to the user guide](./sending-policy/#fraud-number)
+* If the sending is successful but you do not receive the text, please check ‘Mobile Carrier Spam Blocking Service’. [Shortcut to guide](./sending-policy/#spam-number)
 
 
 ### Send General SMS
