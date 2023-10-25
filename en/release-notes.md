@@ -1,7 +1,25 @@
 ## Notification > SMS > Release Notes
 
+### October 31, 2023.
+#### Feature Updates
+* [Console] Improved international SMS sending settings
+    * Split the sending settings menu into two tabs: General SMS and International SMS.
+    * Modified to allow you to set ‘Monthly Auto Ban Limit’.
+    * Added a feature to manage countries allowed to send.
+* [Console] Improved character limit for SMS messages
+    * Eased the 255-character maximum limit for domestic SMS sending to align with international SMS standard.
+    * Changed the maximum number of characters that can be entered according to the encoding (UCS-2: 335 characters, GSM-7bit: 765 characters).
+* [Console/API] Improved bulk and tagged delivery
+    * Applied the identification code to mass and tag delivery according to the revised KISA .
+
+#### Bug Fixes
+* [Console/API] Fixed a bug that displayed as ETC when sending LMS/MMS to KT mobile devices
+    * Fixed a bug that intermittently displayed as ETC when sending LMS/MMS to KT mobile devices.
+
 ### September 26, 2023
 #### Feature Updates
+* Improved to identify the reason behind denied personal authentication
+    * Improved to identify why you were denied authentication in your authentication history.
 * [Console] Improved international sending statistics
     * Improved to view request, sending, sending failed, receiving, and message count event in international sending statistics.
 * [API] Improved international sending process

@@ -18,10 +18,10 @@
 ### Billing Policy
 + International SMS messages are charged based on successful data transmission from overseas carriers.
 + The device reception result means the success of data transmission to the overseas communication service provider, and may differ from the actual device reception result. Even if the actual user did not receive the message, it may still count towards billing.
-+ International SMS can send long messages through the concat feature. In the case of a long message, you will be charged for the number of messages sent based on character count.
-+ When concating messages, the number of characters is reduced while processing headers. 
-+ The number of characters and concat standards follow the international SMS standards.
-+ Even if the message is sent by concat, it may be received by the device in the form of several short messages rather than a long message, depending on the mobile carrier and device policy.
++ International SMS can send long messages through the Concatenated message feature. In the case of a long message, you will be charged for the number of messages sent based on character count.
++ With Concatenated message applied, the number of characters that can be sent is reduced while processing headers. 
++ The number of characters and concatenated message standards follow the international SMS standards.
++ Even if the message is sent with the concatenated message applied, it may be received by the device in the form of several short messages rather than a long message, depending on the mobile carrier and device policy.
 + The number of charges per message can be checked with the messageCount field of the detailed inquiry from the console and the detailed inquiry api.
 
 | encoding | 1 charge | 2 charges | 3 charges | 4 charges | 5 charges |
