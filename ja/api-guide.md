@@ -2176,7 +2176,8 @@ Content-Type: application/json;charset=UTF-8
   "userId": "user_id",
   "adYn": "N",
   "autoSendYn": "N",
-  "statsId": "statsId"
+  "statsId": "statsId",
+  "originCode": "123456789"
 }
 ```
 
@@ -2192,6 +2193,7 @@ Content-Type: application/json;charset=UTF-8
 | adYn              | String              | 1                                                              | X  | 広告かどうか(デフォルト値：N)                    |
 | autoSendYn        | String              | 1                                                              | X  | 自動送信(即時送信)を行うかどうか(デフォルト値：Y)         |
 | statsId           | String              | 10                                                             | X  | 統計ID(発信検索条件には含まれません)                |
+| originCode        | String              | 10                                                             | X  | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators)<br/>Do not use unless you are special value-added telecommunications business operator. NHN Cloud's identification code is added by default.<br/> |
 
 #### cURL
 
@@ -2293,7 +2295,8 @@ Content-Type: application/json;charset=UTF-8
   "userId": "user_id",
   "adYn": "N",
   "autoSendYn": "N",
-  "statsId": "statsId"
+  "statsId": "statsId",
+  "originCode": "123456789"
 }
 ```
 
@@ -2311,6 +2314,7 @@ Content-Type: application/json;charset=UTF-8
 | adYn              | String              | 1     | X  | 広告かどうか(デフォルト値：N)                    |
 | autoSendYn        | String              | 1     | X  | 自動送信(即時送信)を行うかどうか(基本Y)              |
 | statsId           | String              | 10    | X  | 統計ID(発信検索条件には含まれません)                |
+| originCode        | String              | 10    | X  | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)               |
 
 #### cURL
 
