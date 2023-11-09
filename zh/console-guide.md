@@ -14,7 +14,7 @@
 
 ## Notification > SMS > Console Guide
 
-> To enable SMS Service, you may first register sender numbers on [Console > SMS > Sender Number Management] (Telecommunications Business Law).
+> To enable SMS Service, you may first register sender numbers on [Console > SMS > Pre-register Sender Numbers > Register Sender Number and Verify Owner] (Telecommunications Business Law).
 
 ## Identity Verification
 * In order to comply with the amendment of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
@@ -123,8 +123,8 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
       <tr>
           <td rowspan=3>Personal</td>
           <td>Personal number (mobile)</td>
-          <td>Mobile verification or document verification</td>
-          <td>Communication service use certificate (when authenticating with documents)</td>
+          <td>Document verification</td>
+          <td>Communication service use certificate</td>
       </tr>
       <tr>
           <td>Personal number (general)</td>
@@ -187,6 +187,16 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 ![sms_03_20230818](https://static.toastoven.net/prod_sms/eng/SMS_03_20230818.png)
 
 ## Sending SMS
+* The maximum character count is based on storage. To avoid character truncation, write to a standard size, not a maximum character count.
+* Content standard: Domestic SMS 90 bytes (45 Korean characters, 90 English characters) / Domestic MMS 2,000 bytes (1,000 Korean characters, 2,000 English characters) / International SMS UCS-2 335 characters / International SMS GSM-7bit 765 characters   
+* For international SMS, it is concatenated based on encoding and character count.
+    * Concatenated message is a service that makes a message appear to be connected as one long text on the device, like an LMS in Korea, to overcome the limitation of the number of characters that can be sent in international SMS sending.
+    * The Concatenated message feature is available depending on the number of characters in the body, encoding, and support from international mobile carriers. If concatenated message is not supported, the device may receive multiple short messages.
+    * When a concatenated message is created, certain headers take up a number of bytes (around 6) to concatenate the message, slightly reducing the number of characters you can send. Billing is based on the number of concatenated messages.
+
+* If you fail to send a text due to blocking the sender number, please check the 'Stolen Number Text Blocking Service'. [Go to the user guide](./sending-policy/#fraud-number)
+* If the sending is successful but you do not receive the text, please check ‘Mobile Carrier Spam Blocking Service’. [Shortcut to guide](./sending-policy/#spam-number)
+
 
 ### Send General SMS
 
@@ -195,7 +205,7 @@ Following is the guide to send Short Message Service (SMS).
 ![sms_04_20230818](https://static.toastoven.net/prod_sms/eng/SMS_04_20230818.png)
 
 1. Select SMS for **Text Type**.
-2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
+2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Fill in the **Body** of message.
 5. **Recipient Information** provides all numbers including domestic numbers or country code.
@@ -224,7 +234,7 @@ Multimedia Messaging Service (MMS) can be sent as below:
 ![sms_06_20230818](https://static.toastoven.net/prod_sms/eng/SMS_06_20230818.png)
 
 1. Select MMS for **Text Type**.
-2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
+2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Click **Upload Attachment** and upload attached files.
 5. Enter the title. (To prevent character truncation, write based on 40 bytes (20 Korean characters, 40 English characters).)
@@ -240,7 +250,7 @@ You can send messages on user-created templates.
 ![sms_07_20230818](https://static.toastoven.net/prod_sms/eng/SMS_07_20230818.png)
 
 1. Enable **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.) 
-2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
+2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Fill in the **Body** of message.
 5. **Recipient Information** provides all numbers including domestic numbers or country code.
@@ -504,16 +514,16 @@ You can receive a webhook event by specifying a URL when a specified event occur
 Registered webhooks can be checked in the **webhook registration list**.
 
 ## Sending Settings
-
 ### International SMS Sending Settings
+* Before using the international SMS sending feature, see [International SMS Sending Policy](./international-sending-policy).
 * If you do not want to use the international SMS sending feature, you can prevent accidents due to abusing by setting it to unused.
-* The automatic international sending blocking feature is a subsidiary feature that can reduce abnormal international sendings. <br/>
-If it exceeds the set threshold, it is automatically blocked. Due to the nature of international shipping, the timing of blocking may not be accurate depending on the speed at which shipping data is collected.
-* Sending limit is limited to a maximum of 1,000 items per month. If you need to adjust the limit, please contact us by clicking **Request to Change the Monthly Limit**.
+* Only the specified major countries are enabled for sending during the initial setup. You can manage whether to ship to each country through the [Select countries to allow] button.
+* The sending limit is 1,000 per month by default, and can be adjusted up to 10,000. If you need to adjust the limit over 10,000, please contact us via the [Request to exceed 10,000] button.
+* The 'International Auto Blocking Monthly Limit' is an subsidiary feature and the time of blocking may not be accurate. NHN Cloud is not responsible for any errors in the subsidiary features.
 
 > [Caution]
 Cases of international SMS abuse are increasing globally.
-It is recommended to request only as many monthly requests as you absolutely need.
+It is recommended to set the monthly limit and the country of origin only as much as necessary.
 NHN Cloud is not responsible for any international SMS sent due to abuse.
 
 ### Alternative Characters Settings

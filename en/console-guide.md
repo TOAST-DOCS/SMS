@@ -14,7 +14,7 @@
 
 ## Notification > SMS > Console Guide
 
-> To enable SMS Service, you may first register sender numbers on [Console > SMS > Sender Number Management] (Telecommunications Business Law).
+> To enable SMS Service, you may first register sender numbers on [Console > SMS > Pre-register Sender Numbers > Register Sender Number and Verify Owner] (Telecommunications Business Law).
 
 ## Identity Verification
 * In order to comply with the amendment of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
