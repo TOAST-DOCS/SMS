@@ -18,12 +18,10 @@
 
 ### September 26, 2023
 #### Feature Updates
-* Improved to identify the reason behind denied personal authentication
+* [Console] Improved to identify the reason behind denied personal authentication
     * Improved to identify why you were denied authentication in your authentication history.
 * [Console] Improved international sending statistics
     * Improved to view request, sending, sending failed, receiving, and message count event in international sending statistics.
-* [API] Improved international sending process
-    * Improved to send international messages via a sender number without pre-registering the number.
 
 ### August 29, 2023
 #### Feature Updates
