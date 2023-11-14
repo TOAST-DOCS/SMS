@@ -2060,7 +2060,7 @@ curl -X GET \
 | body.data.createDate    | String   | 등록 일시                                        |
 | body.data.updateDate    | String   | 수정 날짜                                        |
 
-### 태그 발송 수신자 목록 상세 검색
+### 태그 발송 수신자 상세 검색
 
 #### 요청
 
