@@ -1445,9 +1445,20 @@ Content-Type: application/json;charset=UTF-8
 Same as Send SMS in the above.
 [[See Request Body](./api-guide/#sms_2)]
 
-<span style="color:red"> However, following messages must be included in the body. </span>
+<span style="color:red">  However, required statements for ads must be included in the body.</span>
+
 080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console. 
 
+Required statements for ads are as follows.
+- Opening statement: `(Ads)`
+- Last statement: `Deny-to-receive-free {080-unsubscribed-number}` or `Deny-free {080-unsubscribed-number}` (the phrase can include spaces).
+
+Example
+```
+(Ads)
+[Deny-to-receive-free]080XXXXXXX
+```
+```
 ```
 (Ad)
 
@@ -1491,9 +1502,19 @@ Content-Type: application/json;charset=UTF-8
 Same as Send MMS in the above.
 [[See Request Body](./api-guide/#mms_1)]
 
-<span style="color:red"> However, following messages must be included in the body. </span>
+<span style="color:red">  However, required statements for ads must be included in the body.</span>
+
 080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console. 
 
+Required statements for ads are as follows.
+- Opening statement: `(Ads)`
+- Last statement: `Deny-to-receive-free {080-unsubscribed-number}` or `Deny-free {080-unsubscribed-number}` (the phrase can include spaces).
+
+Example
+```
+(Ads)
+[Deny-to-receive-free]080XXXXXXX
+```
 ```
 (Ad)
 
