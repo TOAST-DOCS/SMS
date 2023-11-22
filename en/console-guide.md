@@ -14,7 +14,7 @@
 
 ## Notification > SMS > Console Guide
 
-> To enable SMS Service, you may first register sender numbers on [Console > SMS > Sender Number Management] (Telecommunications Business Law).
+> To enable SMS Service, you may first register sender numbers on [Console > SMS > Pre-register Sender Numbers > Register Sender Number and Verify Owner] (Telecommunications Business Law).
 
 ## Identity Verification
 * In order to comply with the amendment of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
@@ -123,8 +123,8 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
       <tr>
           <td rowspan=3>Personal</td>
           <td>Personal number (mobile)</td>
-          <td>Mobile verification or document verification</td>
-          <td>Communication service use certificate (when authenticating with documents)</td>
+          <td>Document verification</td>
+          <td>Communication service use certificate</td>
       </tr>
       <tr>
           <td>Personal number (general)</td>
@@ -205,7 +205,7 @@ Following is the guide to send Short Message Service (SMS).
 ![sms_04_20230818](https://static.toastoven.net/prod_sms/eng/SMS_04_20230818.png)
 
 1. Select SMS for **Text Type**.
-2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
+2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Fill in the **Body** of message.
 5. **Recipient Information** provides all numbers including domestic numbers or country code.
@@ -234,7 +234,7 @@ Multimedia Messaging Service (MMS) can be sent as below:
 ![sms_06_20230818](https://static.toastoven.net/prod_sms/eng/SMS_06_20230818.png)
 
 1. Select MMS for **Text Type**.
-2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
+2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Click **Upload Attachment** and upload attached files.
 5. Enter the title. (To prevent character truncation, write based on 40 bytes (20 Korean characters, 40 English characters).)
@@ -250,7 +250,7 @@ You can send messages on user-created templates.
 ![sms_07_20230818](https://static.toastoven.net/prod_sms/eng/SMS_07_20230818.png)
 
 1. Enable **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.) 
-2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
+2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Fill in the **Body** of message.
 5. **Recipient Information** provides all numbers including domestic numbers or country code.
