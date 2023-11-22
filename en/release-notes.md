@@ -1,5 +1,13 @@
 ## Notification > SMS > Release Notes
 
+[Console] Monthly limit threshold notifications for International SMS
+  * Added the feature to send a notification email to all project members when the auto blocking monthly limit is reached.
+  * You can set whether to enable the notification on the Sending Settings tab.
+* [Console/API] Changed the body for validation when sending ads.
+* The phrase **Deny to receive for free**, which is required to be included in the body when sending ads, has been relaxed to **Deny for free**.
+* [API] Improved the detailed search for tagged delivery recipient API v3.0
+  * Improved the detailed search for tagged delivery recipient API v3.0 to include identification code.
+
 ### October 31, 2023.
 #### Feature Updates
 * [Console] Improved international SMS sending settings
@@ -31,7 +39,7 @@
     * Improved to send user email addresses to the createUser and updateUser fields when querying.
 * [Console/API] Improved the mass delivery cancellation feature
     * During mass delivery, cancellation request is viewed as "Canceling" until all recipients have been canceled, and "Canceled" after all recipients have been canceled.
-    * For more information on status codes, see [[List Mass Delivery](./api-guide/#_30)].
+    * For more information on status codes, see [List Mass Delivery](./api-guide/#_30).
 * [API] Added the delivered message count field to the v3.0 list query and detailed query APIs
     * Added the delivered message count (messageCount) to the v3.0 list query and detailed query APIs.
     * If a long message is divided into several messages and sent using the international concat function, you can check the number of messages sent based on the number of characters.

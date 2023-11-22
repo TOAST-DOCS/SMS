@@ -1403,7 +1403,7 @@ Example
 ```
 (Ad)
 
-[Unsubscribe for free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 
 ### Send MMS for Advertisement
@@ -1441,7 +1441,7 @@ Example
 ```
 (Ad)
 
-[Unsubscribe for free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 
 ## Query Messages by Result Updates

@@ -1462,7 +1462,7 @@ Example
 ```
 (Ad)
 
-[Unsubscribe for free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 
 #### cURL
@@ -1518,7 +1518,7 @@ Example
 ```
 (Ad)
 
-[Unsubscribe for free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 
 #### cURL
