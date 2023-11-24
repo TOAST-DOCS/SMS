@@ -338,13 +338,21 @@ When the service is completely open, you can find the start date and status of s
 
 1. Ad messages can be sent only when the rejection 080-number service is enable.
 2. When the delivery type is changed into **For Advertisement**, you can find an option to select numbers to reject receiving.
-3. Ad messages caClick **Apply Option**, and the message body is changed to the phrase as below.n be sent only when the rejection 080-number service is enable.
-4. To send ad messages, following phrase must be included; otherwise, sending fails.
+3. Click **Apply Option** to add the required statements for ads.
+4. To send ad messages, required statements for ads must be included and the statements are as follows.
+    - Opening statement: `(Ads)`
+    - Last statement: `Deny-to-receive-free {080-unsubscribed-number}` or `Deny-free {080-unsubscribed-number}` (the phrase can include spaces).
 
+Example
 ```
 (Ad)
 
 [Reject receiving charge-free]080XXXXXXX
+```
+```
+(Ad)
+
+Deny for free 080XXXXXXX
 ```
 
 ![sms_15_20230818](https://static.toastoven.net/prod_sms/eng/SMS_15_20230818.png)
@@ -519,7 +527,8 @@ Registered webhooks can be checked in the **webhook registration list**.
 * If you do not want to use the international SMS sending feature, you can prevent accidents due to abusing by setting it to unused.
 * Only the specified major countries are enabled for sending during the initial setup. You can manage whether to ship to each country through the [Select countries to allow] button.
 * The sending limit is 1,000 per month by default, and can be adjusted up to 10,000. If you need to adjust the limit over 10,000, please contact us via the [Request to exceed 10,000] button.
-* The 'International Auto Blocking Monthly Limit' is an subsidiary feature and the time of blocking may not be accurate. NHN Cloud is not responsible for any errors in the subsidiary features.
+* * If 'Monthly limit threshold notifications' is set to 'Enabled', a notification email will be sent to all project members when 70% and 100% of the value set by 'Auto Blocking Monthly Limit' is reached.
+* The 'Auto Blocking Monthly Limit' is an subsidiary feature and the time of blocking may not be accurate. NHN Cloud is not responsible for any errors in the subsidiary features.
 
 > [Caution]
 Cases of international SMS abuse are increasing globally.

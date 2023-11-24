@@ -1623,14 +1623,24 @@ Content-Type: application/json;charset=UTF-8
 위에 SMS 발송과 동일.
 [[Request Body 참고](./api-guide/#sms_2)]
 
-<span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+<span style="color:red">단, 본문에 광고성 필수 문구가 포함되어야 합니다.</span>
 
 080 번호는 콘솔의 **080 수신 거부 설정** 탭에서 확인할 수 있습니다.
 
+광고성 필수 문구의 규칙은 다음과 같습니다.
+- 시작 문구: `(광고)`
+- 마지막 문구: `무료수신거부 {080수신거부번호}` 또는 `무료거부 {080수신거부번호}` (해당 문구에는 공백이 포함될 수 있습니다.)
+
+예시
 ```
 (광고)
 
-[무료 수신 거부]080XXXXXXX
+[무료 수신거부]080XXXXXXX
+```
+```
+(광고)
+
+무료거부 080XXXXXXX
 ```
 
 #### cURL
@@ -1676,14 +1686,24 @@ Content-Type: application/json;charset=UTF-8
 위에 MMS 발송과 동일.
 [[Request Body 참고](./api-guide/#mms_1)]
 
-<span style="color:red">단, 본문에 아래 문구가 필수로 들어가야 합니다.</span>
+<span style="color:red">단, 본문에 광고성 필수 문구가 포함되어야 합니다.</span>
 
 080 번호는 콘솔의 **080 수신 거부 설정** 탭에서 확인할 수 있습니다.
 
+광고성 필수 문구의 규칙은 다음과 같습니다.
+- 시작 문구: `(광고)`
+- 마지막 문구: `무료수신거부 {080수신거부번호}` 또는 `무료거부 {080수신거부번호}` (해당 문구에는 공백이 포함될 수 있습니다.)
+
+예시
 ```
 (광고)
 
-[무료 수신 거부]080XXXXXXX
+[무료 수신거부]080XXXXXXX
+```
+```
+(광고)
+
+무료거부 080XXXXXXX
 ```
 
 #### cURL
@@ -2590,7 +2610,7 @@ curl -X GET \
 | body.data[].createDate    | String   | 등록 일시                                        |
 | body.data[].updateDate    | String   | 수정 날짜                                        |
 
-### 태그 발송 수신자 목록 상세 검색
+### 태그 발송 수신자 상세 검색
 
 #### 요청
 
@@ -2664,7 +2684,8 @@ curl -X GET \
       "messageCount": 0,
       "resultCode": "3015",
       "receiveDate": "2018-08-13 02:20:48.0",
-      "attachFileList": []
+      "attachFileList": [],
+      "originCode": "123456789"
     }
   }
 }
@@ -2697,7 +2718,7 @@ curl -X GET \
 | body.data.attachFileList[].fileSequence | Integer  | 첨부 파일 - 파일 번호                                |
 | body.data.attachFileList[].createDate   | String   | 첨부 파일 - 생성 일시                                |
 | body.data.attachFileList[].updateDate   | String   | 첨부 파일 - 수정 날짜                                |
-
+| body.data.originCode                    | String   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
 <span id="binaryUpload"></span>
 
 ## 첨부 파일
