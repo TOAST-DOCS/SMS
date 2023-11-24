@@ -1621,14 +1621,23 @@ Content-Type: application/json;charset=UTF-8
 上のSMS送信と同じ
 [[Request Body参考](./api-guide/#sms_2)]
 
-<span style="color:red">ただし、本文に以下の文言が必ず入る必要があります。</span>
+<span style="color:red">ただし、本文に広告性必須文言が含まれている必要があります</span>
 
 080番号はコンソールの**080受信拒否設定**タブで確認できます。
 
+広告性必須文言のルールは次のとおりです。
+- 冒頭の文言: `(広告)`
+- 最後の文言： 無料受信拒否 {080受信拒否番号}`または `無料受信拒否 {080受信拒否番号}` (この文言には空白が含まれる場合があります。)
+
+例
 ```
 (広告)
 
 [無料受信拒否]080XXXXXXX
+```
+```
+(広告)
+無料拒否080XXXXXXX
 ```
 
 #### cURL
@@ -2586,7 +2595,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 | body.data[].createDate    | String   | 登録日時                                       |
 | body.data[].updateDate    | String   | 修正日付                                       |
 
-### タグ送信受信者リスト詳細検索
+### タグ送信受信者詳細検索
 
 #### リクエスト
 
@@ -2660,7 +2669,8 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
       "messageCount": 0,
       "resultCode": "3015",
       "receiveDate": "2018-08-13 02:20:48.0",
-      "attachFileList": []
+      "attachFileList": [],
+      "originCode": "123456789"
     }
   }
 }
@@ -2693,7 +2703,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 | body.data.attachFileList[].fileSequence | Integer  | 添付ファイル - ファイル番号                            |
 | body.data.attachFileList[].createDate   | String   | 添付ファイル - 作成日時                              |
 | body.data.attachFileList[].updateDate   | String   | 添付ファイル - 修正日                               |
-
+| body.data.originCode                    | String   | 識別コード（特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除く登録番号9桁の数字) |
 <span id="binaryUpload"></span>
 
 ## 添付ファイル
