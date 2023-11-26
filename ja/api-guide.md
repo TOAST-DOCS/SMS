@@ -105,7 +105,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                            | X   | 受信者グループキー                                                            |
 | userId                                    | 	String | 	100                                                           | X   | 送信セパレータex)admin,system                                               |
 | statsId                                   | String  | 10                                                             | X   | 統計ID(発信検索条件には含まれません)                                                 |
-| originCode                                | String  | 10                                                             | X   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)               |
+| originCode                                | String  | 9                                                              | X   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)               |
 
 #### cURL
 
@@ -624,7 +624,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 1000 | X   | 受信者グループキー                                                                                                               |
 | userId                                    | 	String | 100  | 	X  | 送信セパレータex)admin,system                                                                                                  |
 | statsId                                   | String  | 10   | X   | 統計ID(発信検索条件には含まれません)                                                                                                    |
-| originCode                                | String  | 10   | X   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)<br/>特殊なタイプの付加通信事業者ではない場合は使用しません。基本的にNHN Cloudの識別コードが挿入されます。<br/> |
+| originCode                                | String  | 9    | X   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)<br/>特殊なタイプの付加通信事業者ではない場合は使用しません。基本的にNHN Cloudの識別コードが挿入されます。<br/> |
 
 #### cURL
 
@@ -1196,7 +1196,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                            | X   | 受信者グループキー                                                                                                               |
 | userId                                    | 	String | 100                                                            | 	X  | 送信セパレータex)admin,system                                                                                                  |
 | statsId                                   | String  | 10                                                             | X   | 統計ID(発信検索条件には含まれません)                                                                                                    |
-| originCode                                | String  | 10                                                             | X   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)<br/>特殊なタイプの付加通信事業者ではない場合は使用しません。基本的にNHN Cloudの識別コードが挿入されます。<br/> |
+| originCode                                | String  | 9                                                              | X   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)<br/>特殊なタイプの付加通信事業者ではない場合は使用しません。基本的にNHN Cloudの識別コードが挿入されます。<br/> |
 
 #### cURL
 

@@ -102,7 +102,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                               | X   | 수신자 그룹 키                                                                                                                                   |
 | userId                                    | 	String | 	100                                                              | X   | 발송 구분자 ex)admin,system                                                                                                                     |
 | statsId                                   | String  | 10                                                                | X   | 통계 ID(발신 검색 조건에는 포함되지 않습니다)                                                                                                                |
-| originCode                                | String  | 10                                                                | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록 번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+| originCode                                | String  | 9                                                                 | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록 번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
 
 #### cURL
 
@@ -621,7 +621,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 1000  | X   | 수신자 그룹 키                                                                                                                                  |
 | userId                                    | 	String | 100   | 	X  | 발송 구분자 ex)admin,system                                                                                                                    |
 | statsId                                   | String  | 10    | X   | 통계 ID(발신 검색 조건에는 포함되지 않습니다)                                                                                                               |
-| originCode                                | String  | 10    | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+| originCode                                | String  | 9     | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
 
 #### cURL
 
@@ -1196,7 +1196,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                               | X   | 수신자 그룹 키                                                                                                                                  |
 | userId                                    | 	String | 100                                                               | 	X  | 발송 구분자 ex)admin,system                                                                                                                    |
 | statsId                                   | String  | 10                                                                | X   | 통계 ID(발신 검색 조건에는 포함되지 않습니다)                                                                                                               |
-| originCode                                | String  | 10                                                                | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+| originCode                                | String  | 9                                                                 | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
 
 #### cURL
 
