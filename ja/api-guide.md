@@ -917,6 +917,8 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?start
         "telecomCodeName": "LGU",
         "mtPr": "1",
         "sendType": "1",
+        "messageType": "LMS",
+        "messageCount": 1,
         "userId": null,
         "adYn": "N",
         "attachFileList": [
@@ -966,6 +968,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?start
 | body.data[].recipientSeq                  | 	Integer | 	送信詳細ID(詳細検索時は必須)(旧mtPr)                    |
 | body.data[].sendType                      | 	String  | 	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)            |
 | body.data[].messageType                   | 	String  | 	メッセージタイプ(SMS/LMS/MMS/AUTH)                 |
+| body.data[].messageCount                  | 	Integer | 	送信されたメッセージ件数                               |
 | body.data[].userId                        | 	String  | 	送信リクエストID                                  |
 | body.data[].adYn                          | 	String  | 	広告かどうか                                     |
 | body.data[].attachFileList[].fileId       | 	Integer | 	ファイルID                                     |
@@ -1054,6 +1057,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${R
       "sendType": "1",
       "userId": null,
       "adYn": "N",
+      "originCode": "123456789",
       "attachFileList": [
         {
           "fileId": 535191,

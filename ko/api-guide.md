@@ -916,6 +916,7 @@ curl -X GET \
         "recipientSeq": 1,
         "sendType": "0",
         "messageType": "LMS",
+        "messageCount": 1,
         "userId": "tester",
         "adYn": "N",
         "attachFileList": [
@@ -965,6 +966,7 @@ curl -X GET \
 | body.data[].recipientSeq                  | 	Integer | 	발송 상세 ID(상세 검색 시 필수)(구 mtPr)                  |
 | body.data[].sendType                      | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)               |
 | body.data[].messageType                   | 	String  | 	메시지 타입(SMS/LMS/MMS/AUTH)                      |
+| body.data[].messageCount                  | Integer  | 발송된 메시지 건수                                     |
 | body.data[].userId                        | 	String  | 	발송 요청 ID                                      |
 | body.data[].adYn                          | 	String  | 	광고 여부                                         |
 | body.data[].attachFileList[].fileId       | 	Integer | 	파일 ID                                         |
@@ -1054,6 +1056,7 @@ curl -X GET \
       "sendType": "1",
       "userId": null,
       "adYn": "N",
+      "originCode": "123456789",
       "attachFileList": [
         {
           "fileId": 535191,
