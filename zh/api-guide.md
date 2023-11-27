@@ -536,7 +536,6 @@ curl -X GET \
 | body.data.recipientSeq         | 	Integer | Detail delivery ID (required to query details)                                                                                                                                     |
 | body.data.sendType             | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
 | body.data.messageType          | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
-| body.data.messageCount         | 	Integer | 	Number of messages sent (international sending)                                                                                                                                   |
 | body.data.messageCount         | 	Integer | 	Number of messages sent                                                                                                                                                           |
 | body.data.userId               | 	String  | Delivery request ID                                                                                                                                                                |
 | body.data.adYn                 | 	String  | Ad or not                                                                                                                                                                          |
@@ -916,6 +915,8 @@ curl -X GET \
         "telecomCodeName": "LGU",
         "mtPr": "1",
         "sendType": "1",
+        "messageType": "LMS",
+        "messageCount": 1,
         "userId": null,
         "adYn": "N",
         "attachFileList": [
@@ -965,6 +966,7 @@ curl -X GET \
 | body.data[].recipientSeq                  | 	Integer | Detail delivery ID (required to query details)                                        |
 | body.data[].sendType                      | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
 | body.data[].messageType                   | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                       |
+| body.data[].messageCount                  | Integer  | Number of messages sent                                                               |
 | body.data[].userId                        | 	String  | Delivery request ID                                                                   |
 | body.data[].adYn                          | 	String  | Ad or not                                                                             |
 | body.data[].attachFileList[].fileId       | 	Integer | File ID                                                                               |
@@ -1053,6 +1055,7 @@ curl -X GET \
       "sendType": "1",
       "userId": null,
       "adYn": "N",
+      "originCode": "123456789",
       "attachFileList": [
         {
           "fileId": 535191,
