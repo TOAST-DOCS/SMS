@@ -315,7 +315,7 @@ Tags can be registered on **Tag Management**, while UID and phone numbers can be
 ## Setting for Rejection of Receiving 080 Numbers
 
 The rejection of receiving 080 numbers service allows recipients to reject receiving of ad messages.
-Advertisement messages<span style="color:red"> must include how to reject receiving charge-free </span> for recipients to reject or withdraw consent of receiving.
+Advertisement messages<span style="color:red"> must include how to Deny for free </span> for recipients to reject or withdraw consent of receiving.
 
 ### Subscription
 
@@ -341,13 +341,13 @@ When the service is completely open, you can find the start date and status of s
 3. Click **Apply Option** to add the required statements for ads.
 4. To send ad messages, required statements for ads must be included and the statements are as follows.
     - Opening statement: `(Ads)`
-    - Last statement: `Deny-to-receive-free {080-unsubscribed-number}` or `Deny-free {080-unsubscribed-number}` (the phrase can include spaces).
+    - Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
 
 Example
 ```
 (Ad)
 
-[Reject receiving charge-free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 ```
 (Ad)

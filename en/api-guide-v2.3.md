@@ -1451,12 +1451,12 @@ Same as Send SMS in the above.
 
 Required statements for ads are as follows.
 - Opening statement: `(Ads)`
-- Last statement: `Deny-to-receive-free {080-unsubscribed-number}` or `Deny-free {080-unsubscribed-number}` (the phrase can include spaces).
+- Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
 
 Example
 ```
 (Ads)
-[Deny-to-receive-free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 ```
 ```
@@ -1508,12 +1508,12 @@ Same as Send MMS in the above.
 
 Required statements for ads are as follows.
 - Opening statement: `(Ads)`
-- Last statement: `Deny-to-receive-free {080-unsubscribed-number}` or `Deny-free {080-unsubscribed-number}` (the phrase can include spaces).
+- Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
 
 Example
 ```
 (Ads)
-[Deny-to-receive-free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 ```
 (Ad)
