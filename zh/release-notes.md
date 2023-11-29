@@ -682,7 +682,7 @@
 * [API] Changed the logic to allow only normal cases from validation to be sent to a number of recipients.
     * AS-IS: If request of sending for a number of recipients fails, message is not sent to other recipients after failed recipient.
     * TO-BE: Message is sent to all recipients, and delivery result by recipient is provided at the response. Even with failed delivery, result of request becomes successful. <br/>
-        See [[API Guide](./api-guide/)] for more details.
+      See [[API Guide](./api-guide/)] for more details.
 * Method of calculating charges has changed.
     * AS-IS: Charged on the basis of request time of text delivery
     * TO-BE: Charged by the response time for delivery result

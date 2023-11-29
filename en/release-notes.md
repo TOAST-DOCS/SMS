@@ -1,12 +1,12 @@
 ## Notification > SMS > Release Notes
 
 [Console] Monthly limit threshold notifications for International SMS
-  * Added the feature to send a notification email to all project members when the auto blocking monthly limit is reached.
-  * You can set whether to enable the notification on the Sending Settings tab.
+    * Added the feature to send a notification email to all project members when the auto blocking monthly limit is reached.
+    * You can set whether to enable the notification on the Sending Settings tab.
 * [Console/API] Changed the body for validation when sending ads.
-* The phrase **Deny to receive for free**, which is required to be included in the body when sending ads, has been relaxed to **Deny for free**.
+    * The phrase **Deny to receive for free**, which is required to be included in the body when sending ads, has been relaxed to **Deny for free**.
 * [API] Improved the detailed search for tagged delivery recipient API v3.0
-  * Improved the detailed search for tagged delivery recipient API v3.0 to include identification code.
+    * Improved the detailed search for tagged delivery recipient API v3.0 to include identification code.
 
 ### October 31, 2023.
 #### Feature Updates
