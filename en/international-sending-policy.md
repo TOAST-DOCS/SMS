@@ -100,8 +100,10 @@
 | Egypt | Egypt | 20 |  |
 | El Salvador | El Salvador | 503 |  |
 | Equatorial Guinea | Equatorial Guinea | 240 |  |
+| Eritrea | Eritrea | 291 |  |
 | Estonia | Estonia | 372 |  |
 | Ethiopia | Ethiopia | 251 |  |
+| Falkland Islands | Falkland Islands | 500 |  |
 | Faroe Islands | Faroe Islands | 298 |  |
 | Fiji | Fiji | 679 |  |
 | Finland | Finland | 358 |  |
@@ -201,8 +203,11 @@
 | Qatar | Qatar | 974 |  |
 | Réunion Island | Réunion Island | 262 |  |
 | Romania | Romania | 40 |  |
+| Russia / Kazakhstan | Russia / Kazakhstan | 7 |  |
 | Rwanda | Rwanda | 250 |  |
 | S. Tomé & Principe | S. Tomé & Principe | 239 |  |
+| Saint Helena | Saint Helena | 290 |  |
+| Samoa | Samoa | 685 |  |
 | San Marino | San Marino | 378 |  |
 | Saudi Arabia | Saudi Arabia | 966 |  |
 | Senegal | Senegal | 221 |  |
@@ -214,6 +219,7 @@
 | Slovenia | Slovenia | 386 |  |
 | Solomon Islands | Solomon Islands | 677 |  |
 | Somalia | Somalia | 252 |  |
+| South Africa | South Africa | 27 |  |
 | South Sudan | South Sudan | 211 |  |
 | Spain | Spain | 34 |  |
 | Sri Lanka | Sri Lanka | 94 |  |
@@ -246,6 +252,11 @@
 | United States / Canada | United States / Canada | 1 |  |
 | Uruguay | Uruguay | 598 |  |
 | Uzbekistan | Uzbekistan | 998 |  |
+| Vanuatu | Vanuatu | 678 |  |
 | Venezuela | Venezuela | 58 |  |
 | Vietnam | Vietnam | 84 | - Vietnamese authorities' strong filtering of international SMS may alter the content of the message before reaching to the device<br>-Only two verification message types allowed<br>: Your verification code is 000000<br>: Your OTP code is 000000<br>- Marketing content must be pre-approved |
-| Virgin Islands (US) | Virgin Islands (US) |  |  |
+| Virgin Islands (US) | Virgin Islands (US) | 1284 |  |
+| Wallis and Futuna | Wallis and Futuna | 681 |  |
+| Yemen | Yemen | 967 |  |
+| Zambia | Zambia | 260 |  |
+| Zimbabwe | Zimbabwe | 263 |  |
