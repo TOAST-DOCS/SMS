@@ -98,8 +98,10 @@
 | エジプト | Egypt | 20 |  |
 | エルサルバドル | El Salvador | 503 |  |
 | 赤道ギニア | Equatorial Guinea | 240 |  |
+| エリトリア | Eritrea | 291 |  |
 | エストニア | Estonia | 372 |  |
 | エチオピア | Ethiopia | 251 |  |
+| イギリス領フォークランド諸島 | Falkland Islands | 500 |  |
 | フェロー諸島 | Faroe Islands | 298 |  |
 | フィジー | Fiji | 679 |  |
 | フィンランド | Finland | 358 |  |
@@ -199,8 +201,11 @@
 | カタール | Qatar | 974 |  |
 | フランス領レユニオン | Réunion Island | 262 |  |
 | ルーマニア | Romania | 40 |  |
+| ロシア/カザフスタン | Russia / Kazakhstan | 7 |  |
 | ルワンダ | Rwanda | 250 |  |
 | サントメ・プリンシペ | S. Tomé & Principe | 239 |  |
+| イギリス領セントヘレナ | Saint Helena | 290 |  |
+| サモア | Samoa | 685 |  |
 | サンマリノ | San Marino | 378 |  |
 | サウジアラビア | Saudi Arabia | 966 |  |
 | セネガル | Senegal | 221 |  |
@@ -212,6 +217,7 @@
 | スロベニア | Slovenia | 386 |  |
 | ソロモン諸島 | Solomon Islands | 677 |  |
 | ソマリア | Somalia | 252 |  |
+| 南アフリカ共和国 | South Africa | 27 |  |
 | 南スーダン | South Sudan | 211 |  |
 | スペイン | Spain | 34 |  |
 | スリランカ | Sri Lanka | 94 |  |
@@ -244,6 +250,11 @@
 | アメリカ/カナダ | United States / Canada | 1 |  |
 | ウルグアイ | Uruguay | 598 |  |
 | ウズベキスタン | Uzbekistan | 998 |  |
+| バヌアツ | Vanuatu | 678 |  |
 | ベネズエラ | Venezuela | 58 |  |
 | ベトナム | Vietnam | 84 | - 国際SMSに対するベトナム当局の強いフィルタリングにより、メッセージ内容が変更されて端末に配信される場合があります<br>- 認証メッセージの形式は2つのみ許可<br>: Your verification code is 000000<br>: Your OTP code is 000000<br>- マーケティング内容は必ず事前承認手続きが必要 |
 | アメリカ領バージン諸島 | Virgin Islands(US) | 1284 |  |
+| フランス領ウォリス・フツナ諸島 | Wallis and Futuna | 681 |  |
+| イエメン | Yemen | 967 |  |
+| ザンビア | Zambia | 260 |  |
+| ジンバブエ | Zimbabwe | 263 |  |

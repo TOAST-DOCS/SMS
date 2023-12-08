@@ -98,9 +98,11 @@
 | 에콰도르 | Ecuador | 593 |  |
 | 이집트 | Egypt | 20 |  |
 | 엘살바도르 | El Salvador | 503 |  |
+| 에리트레아 | Eritrea | 291 |  |
 | 적도 기니 | Equatorial Guinea | 240 |  |
 | 에스토니아 | Estonia | 372 |  |
 | 에티오피아 | Ethiopia | 251 |  |
+| 영국령 포클랜드 제도 | Falkland Islands | 500 |  |
 | 페로 제도 | Faroe Islands | 298 |  |
 | 피지 | Fiji | 679 |  |
 | 핀란드 | Finland | 358 |  |
@@ -200,8 +202,11 @@
 | 카타르 | Qatar | 974 |  |
 | 프랑스령 레위니옹 | Réunion Island | 262 |  |
 | 루마니아 | Romania | 40 |  |
+| 러시아 / 카자흐스탄 | Russia / Kazakhstan | 7 |  |
 | 르완다 | Rwanda | 250 |  |
 | 상투메프린시페 | S. Tomé & Principe | 239 |  |
+| 영국령 세인트헬레나 | Saint Helena | 290 |  |
+| 사모아 | Samoa | 685 |  |
 | 산마리노 | San Marino | 378 |  |
 | 사우디아라비아 | Saudi Arabia | 966 |  |
 | 세네갈 | Senegal | 221 |  |
@@ -213,6 +218,7 @@
 | 슬로베니아 | Slovenia | 386 |  |
 | 솔로몬 제도 | Solomon Islands | 677 |  |
 | 소말리아 | Somalia | 252 |  |
+| 남아프리카 공화국 | South Africa | 27 |  |
 | 남수단 공화국 | South Sudan | 211 |  |
 | 스페인 | Spain | 34 |  |
 | 스리랑카 | Sri Lanka | 94 |  |
@@ -245,6 +251,11 @@
 | 미국/캐나다 | United States / Canada | 1 |  |
 | 우루과이 | Uruguay | 598 |  |
 | 우즈베키스탄 | Uzbekistan | 998 |  |
+| 바누아투 | Vanuatu | 678 |  |
 | 베네수엘라 | Venezuela | 58 |  |
 | 베트남 | Vietnam | 84 | - 국제 SMS에 대한 베트남 당국의 강한 필터링으로 메시지 내용이 변경되어 단말기에 전달될 수 있음<br>- 인증 메시지 형식은 2개만 허용<br>: Your verification code is 000000<br>: Your OTP code is 000000<br>- 마케팅 내용은 반드시 사전 승인 절차 필요 |
 | 미국령 버진아일랜드 | Virgin Islands(US) | 1284 |  |
+| 프랑스령 윌리스 푸투나 제도 | Wallis and Futuna | 681 |  |
+| 예멘 | Yemen | 967 |  |
+| 잠비아 | Zambia | 260 |  |
+| 짐바브웨 | Zimbabwe | 263 |  |

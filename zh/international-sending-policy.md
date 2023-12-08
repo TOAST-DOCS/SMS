@@ -18,16 +18,25 @@
 ### Billing Policy
 + International SMS messages are charged based on successful data transmission from overseas carriers.
 + The device reception result means the success of data transmission to the overseas communication service provider, and may differ from the actual device reception result. Even if the actual user did not receive the message, it may still count towards billing.
-+ International SMS can send long messages through the concat feature. In the case of a long message, you will be charged for the number of messages sent based on character count.
-+ When concating messages, the number of characters is reduced while processing headers. 
-+ The number of characters and concat standards follow the international SMS standards.
-+ Even if the message is sent by concat, it may be received by the device in the form of several short messages rather than a long message, depending on the mobile carrier and device policy.
++ International SMS can send long messages through the Concatenated message feature. In the case of a long message, you will be charged for the number of messages sent based on character count.
++ With Concatenated message applied, the number of characters that can be sent is reduced while processing headers.
++ The number of characters and concatenated message standards follow the international SMS standards.
++ Even if the message is sent with the concatenated message applied, it may be received by the device in the form of several short messages rather than a long message, depending on the mobile carrier and device policy.
 + The number of charges per message can be checked with the messageCount field of the detailed inquiry from the console and the detailed inquiry api.
 
 | encoding | 1 charge | 2 charges | 3 charges | 4 charges | 5 charges |
 | --- | --- | --- | --- | --- | --- |
 | UCS-2<br>(Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
+
+
+## International SMS Traffic Pumping
+
++ SMS traffic pumping refers to exploiting input fields, such as a request to verify a membership number, to send large volumes of SMS  for sending OTP messages. Some international mobile network operators (MNOs) artificially drive message sending to increase revenue.
++ When SMS traffic pumping occurs, there is a spike in messages sent to similar number ranges (e.g. +1111111110, +1111111111, +1111111112, +1111111113, etc.) and if you send a one-time password (OTP) SMS, there is a high chance that authentication will not complete.
++ To prevent SMS traffic pumping, if you block sending to country codes where there is no intent to send messages reduces the probability of SMS traffic pumping. Additionally, if you limit the allowed number of OTP verification requests to similar or identical numbers or limit the speed of message delivery per second, you can reduce the magnitude of the damage.
+* When SMS traffic pumping occurs, NHN Cloud may block the sending of some or all volumes of international SMS without prior notice to the relevant AppKey. NHN Cloud is not responsible for any cases of abusing and any cases blocked due to abusing.
+
 
 ### Countries Available for Message Delivery
 | Country name  | Country name | Country code | Note |
@@ -91,8 +100,10 @@
 | Egypt | Egypt | 20 |  |
 | El Salvador | El Salvador | 503 |  |
 | Equatorial Guinea | Equatorial Guinea | 240 |  |
+| Eritrea | Eritrea | 291 |  |
 | Estonia | Estonia | 372 |  |
 | Ethiopia | Ethiopia | 251 |  |
+| Falkland Islands | Falkland Islands | 500 |  |
 | Faroe Islands | Faroe Islands | 298 |  |
 | Fiji | Fiji | 679 |  |
 | Finland | Finland | 358 |  |
@@ -192,8 +203,11 @@
 | Qatar | Qatar | 974 |  |
 | Réunion Island | Réunion Island | 262 |  |
 | Romania | Romania | 40 |  |
+| Russia / Kazakhstan | Russia / Kazakhstan | 7 |  |
 | Rwanda | Rwanda | 250 |  |
 | S. Tomé & Principe | S. Tomé & Principe | 239 |  |
+| Saint Helena | Saint Helena | 290 |  |
+| Samoa | Samoa | 685 |  |
 | San Marino | San Marino | 378 |  |
 | Saudi Arabia | Saudi Arabia | 966 |  |
 | Senegal | Senegal | 221 |  |
@@ -205,6 +219,7 @@
 | Slovenia | Slovenia | 386 |  |
 | Solomon Islands | Solomon Islands | 677 |  |
 | Somalia | Somalia | 252 |  |
+| South Africa | South Africa | 27 |  |
 | South Sudan | South Sudan | 211 |  |
 | Spain | Spain | 34 |  |
 | Sri Lanka | Sri Lanka | 94 |  |
@@ -237,6 +252,11 @@
 | United States / Canada | United States / Canada | 1 |  |
 | Uruguay | Uruguay | 598 |  |
 | Uzbekistan | Uzbekistan | 998 |  |
+| Vanuatu | Vanuatu | 678 |  |
 | Venezuela | Venezuela | 58 |  |
 | Vietnam | Vietnam | 84 | - Vietnamese authorities' strong filtering of international SMS may alter the content of the message before reaching to the device<br>-Only two verification message types allowed<br>: Your verification code is 000000<br>: Your OTP code is 000000<br>- Marketing content must be pre-approved |
-| Virgin Islands (US) | Virgin Islands (US) |  |  |
+| Virgin Islands (US) | Virgin Islands (US) | 1284 |  |
+| Wallis and Futuna | Wallis and Futuna | 681 |  |
+| Yemen | Yemen | 967 |  |
+| Zambia | Zambia | 260 |  |
+| Zimbabwe | Zimbabwe | 263 |  |
