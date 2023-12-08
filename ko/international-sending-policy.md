@@ -255,7 +255,7 @@
 | 베네수엘라 | Venezuela | 58 |  |
 | 베트남 | Vietnam | 84 | - 국제 SMS에 대한 베트남 당국의 강한 필터링으로 메시지 내용이 변경되어 단말기에 전달될 수 있음<br>- 인증 메시지 형식은 2개만 허용<br>: Your verification code is 000000<br>: Your OTP code is 000000<br>- 마케팅 내용은 반드시 사전 승인 절차 필요 |
 | 미국령 버진아일랜드 | Virgin Islands(US) | 1284 |  |
-| 프랑스령 윌리스 푸투나 제도 | Wallis and Futuna | 681 |  |
+| 프랑스령 월리스 푸투나 제도 | Wallis and Futuna | 681 |  |
 | 예멘 | Yemen | 967 |  |
 | 잠비아 | Zambia | 260 |  |
 | 짐바브웨 | Zimbabwe | 263 |  |
