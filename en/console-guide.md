@@ -62,7 +62,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 </table>
 
 ### Identity Verification Process
-![sms_01_20240104](https://static.toastoven.net/prod_sms/SMS_01_20240104.png)
+![sms_01_20240104](https://static.toastoven.net/prod_sms/eng/SMS_01_20240104.png)
 1. Select the **Sender Number Pre-registration**tab.
 2. Click **Verify phone identity and attach required documents** to start the process.
 3. Confirm and agree to the Consent to collection and usage of personal information.
@@ -143,7 +143,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 
 
 ### Register Sender Numbers
-![sms_02_20240104](https://static.toastoven.net/prod_sms/SMS_02_20240104.png)
+![sms_02_20240104](https://static.toastoven.net/prod_sms/eng/SMS_02_20240104.png)
 1. If you did not verify your identity before registering your sender number, proceed with identity verification.
     * If you are a subscriber before March 2, 2022, you can use the console without identity verification.
 2. If you can register with identity authentication, click **Register Sender Number and Verify Mobile Phone**, otherwise select **Register Sender Number and Verify Documents** to start the registration process.
