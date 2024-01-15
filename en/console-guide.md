@@ -19,12 +19,14 @@
 ## Identity Verification
 * In order to comply with the amendment of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
     * Only for members who joined after March 2, 2022
+* Individual members are not eligible to use the service. (As of December 15, 2023, the individual member service usage policy has changed.)
+    * Only for members who joined after December 15, 2023
 * To use the SMS service, you must go through identity verification, which basically requires mobile phone identity verification and additional documentation depending on your membership type.
     * If you don't verify your identity, all features other than the **Sender Number Pre-Registration** tab will be disabled.
 * The name and phone number you enter when you sign up must match the information you enter when you verify your identity to be approved.
-* **For individual members, only the owner of the organization can authenticate his or her identity.** NHN Cloud members invited to an organization/project created by an individual member or IAM members invited to an organization created by an individual member cannot authenticate their identity.
+* NHN Cloud members invited to an organization/project created by a business member or IAM members invited to an organization created by a business member must authenticate themselves to use the service.
 * Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>
-Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\** 
+Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
 
 ### Required Documentation by Member Type
 <table class="custom-table" style="text-align: center">
@@ -56,18 +58,11 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
           <td>Personal verification by employee’s own mobile</td>
           <td>Business registration certificate, proof of employment</td>
       </tr>
-      <tr>
-          <td>Personal</td>
-          <td>NHN Cloud member</td>
-          <td>When individual members authenticates themselves</td>
-          <td>Mobile verification</td>
-          <td>-</td>
-      </tr>
   </tbody>
 </table>
 
 ### Identity Verification Process
-![sms_01_20230818](https://static.toastoven.net/prod_sms/eng/SMS_01_20230818.png)
+![sms_01_20240104](https://static.toastoven.net/prod_sms/eng/SMS_01_20240104.png)
 1. Select the **Sender Number Pre-registration**tab.
 2. Click **Verify phone identity and attach required documents** to start the process.
 3. Confirm and agree to the Consent to collection and usage of personal information.
@@ -86,7 +81,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 
 ### Enforce pre-registration of sender numbers
 * In accordance with the Telecommunications Business Act, the registration of a sender number requires the verification of the owner of the sender number.
-* The owner verification method and required documents are determined according to the member and sender number types.
+* The owner verification method and required documents are determined according to the sender number type.
 
 ### Owner verification method by calling number
 <table class="custom-table" style="text-align: center">
@@ -120,34 +115,16 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
           <td>Document verification</td>
           <td>Telecommunication service usage certificate, usage agreement</td>
       </tr>
-      <tr>
-          <td rowspan=3>Personal</td>
-          <td>Personal number (mobile)</td>
-          <td>Document verification</td>
-          <td>Communication service use certificate</td>
-      </tr>
-      <tr>
-          <td>Personal number (general)</td>
-          <td>Document verification</td>
-          <td>Communication service use certificate</td>
-      </tr>
-      <tr>
-          <td>Company/Third-party number</td>
-          <td>Cannot register</td>
-          <td>-</td>
-      </tr>
   </tbody>
 </table>
 
 #### ※ For reference
+* After verifying your identity, you can register your sender number.
 * Usage agreement form can be downloaded from the console.
 * Documents confirming the relationship between the business and the third party can be consignment agreements, proof of headquarters and branch offices, etc.
-* Personal member cannot register company and third-party numbers.
-* After verifying your identity, you can register your sender number.
-* Numbers for which mobile phone identity verification is not possible are verified through the communication service use certificate.
 * There are no masked (hidden) parts of the communication service use certificate, and only documents issued within the last 3 months are accepted.
 * Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>
-Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\**
+Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
 
 ### Registration Format for Sender Numbers
 
@@ -166,7 +143,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 
 
 ### Register Sender Numbers
-![sms_02_20230818](https://static.toastoven.net/prod_sms/eng/SMS_02_20230818.png)
+![sms_02_20240104](https://static.toastoven.net/prod_sms/eng/SMS_02_20240104.png)
 1. If you did not verify your identity before registering your sender number, proceed with identity verification.
     * If you are a subscriber before March 2, 2022, you can use the console without identity verification.
 2. If you can register with identity authentication, click **Register Sender Number and Verify Mobile Phone**, otherwise select **Register Sender Number and Verify Documents** to start the registration process.
@@ -249,7 +226,7 @@ You can send messages on user-created templates.
 
 ![sms_07_20230818](https://static.toastoven.net/prod_sms/eng/SMS_07_20230818.png)
 
-1. Enable **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.) 
+1. Select **Use** from **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.) 
 2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Fill in the **Body** of message.
@@ -507,7 +484,7 @@ This is a page where you can tag or delete registered UIDs. Please refer to the 
 Click **Register Tag** to register the tag.
 
 ![sms_34_20230818](https://static.toastoven.net/prod_sms/eng/SMS_34_20230818.png)
-Register UID in tag. (Register the UID registered in the UID tab.) 
+Register UID in tag. (Register the UID registered in the UID tab.)
 
 ## Webhook Management
 You can receive a webhook event by specifying a URL when a specified event occurs.
@@ -549,8 +526,8 @@ NHN Cloud is not responsible for any international SMS sent due to abuse.
 ### Limit Advertising Messages
 * You can limit the sending time of advertising messages.
 * Advertising messages will not be sent during the set time.
-  * Ad limit start time can be set: 18:00~21:00
-  * Ad limit end time can be set: 08:00~12:00
+    * Ad limit start time can be set: 18:00~21:00
+    * Ad limit end time can be set: 08:00~12:00
 * Failure/re-delivery is possible depending on how the undelivered message is set up.
 
 ### Backup Settings
@@ -625,13 +602,13 @@ This feature allows you to send a text message by selecting a tag instead of the
 2. When sending a message from the console or to the API, you must also send the statistics event key.
 
     2-1. When sending from console 
-    * When sending a text message in the **Deliver SMS** tab, select the statistical event key.
-    * After entering all message information, click the **Send** button.
-    * You can check statistical information after a certain period of time in the **Statistics** tab.
+    - When sending a text message in the **Deliver SMS** tab, select the statistical event key.
+    - After entering all message information, click the **Send** button.
+    - You can check statistical information after a certain period of time in the **Statistics** tab.
 
     2-2. When sending via API
-    * Enter the statsId obtained from the **statistics event key management** tab into the message transmission parameters.
-    * You can check statistical information after a certain period of time in the **Statistics** tab.
+    - Enter the statsId obtained from the **statistics event key management** tab into the message transmission parameters.
+    - You can check statistical information after a certain period of time in the **Statistics** tab.
 
 ### Data retention period
 * Retains the sending history for the last 180 days in accordance with the data retention policy.
