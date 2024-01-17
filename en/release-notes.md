@@ -1,6 +1,20 @@
 ## Notification > SMS > Release Notes
 
-[Console] Monthly limit threshold notifications for International SMS
+### January 23, 2024
+#### Added Features
+* [Console/API]
+    *     
+        * 
+        *
+    * 
+    * 
+#### Feature Updates
+* [Console]
+    * 
+
+### November 28, 2023
+#### Feature Updates
+* [Console] Monthly limit threshold notifications for International SMS
     * Added the feature to send a notification email to all project members when the auto blocking monthly limit is reached.
     * You can set whether to enable the notification on the Sending Settings tab.
 * [Console/API] Changed the body for validation when sending ads.

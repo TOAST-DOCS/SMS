@@ -505,7 +505,12 @@ curl -X GET \
       "originCode": "123456789",
       "resultMessage": "",
       "senderGroupingKey": "SenderGroupingKey",
-      "recipientGroupingKey": "RecipientGroupingKey"
+      "recipientGroupingKey": "RecipientGroupingKey",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -543,6 +548,9 @@ curl -X GET \
 | body.data.resultMessage        | 	String  | 	결과 메시지                                                         |
 | body.data.senderGroupingKey    | 	String  | 	발신자 그룹 키                                                       |
 | body.data.recipientGroupingKey | 	String  | 	수신자 그룹 키                                                       |
+| body.data.dlr.dlrStatus        | 	String  | 	DLR 상태 코드                                                       |
+| body.data.dlr.networkCode      | 	String  | 	DLR 네트워크 코드                                                     |
+| body.data.dlr.errorCode        | 	String  | 	DLR 에러 코드                                                       |
 
 ## 장문 MMS
 
@@ -1552,7 +1560,12 @@ curl -X GET \
       "originCode": "123456789",
       "resultMessage": "",
       "senderGroupingKey": "SenderGroupingKey",
-      "recipientGroupingKey": "RecipientGroupingKey"
+      "recipientGroupingKey": "RecipientGroupingKey",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -1590,6 +1603,9 @@ curl -X GET \
 | body.data.resultMessage        | 	String  | 	결과 메시지                                                         |
 | body.data.senderGroupingKey    | 	String  | 	발신자 그룹 키                                                       |
 | body.data.recipientGroupingKey | 	String  | 	수신자 그룹 키                                                       |
+| body.data.dlr.dlrStatus        | String   | DLR 상태 코드                                                         |
+| body.data.dlr.networkCode      | String   | DLR 네트워크 코드                                                      |
+| body.data.dlr.errorCode        | String   | DLR 에러 코드                                                         |
 
 ## 광고 문자
 
@@ -2082,7 +2098,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/receive/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' 
 ```
@@ -2116,7 +2132,12 @@ curl -X GET \
       "resultCode": null,
       "receiveDate": null,
       "createDate": null,
-      "attachFileList": []
+      "attachFileList": [],
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -2152,6 +2173,9 @@ curl -X GET \
 | body.data.attachFileList[].fileSequence | Integer  | 첨부 파일 - 파일 번호                                |
 | body.data.attachFileList[].createDate   | String   | 첨부 파일 - 생성 일시                                |
 | body.data.attachFileList[].updateDate   | String   | 첨부 파일 - 수정 날짜                                |
+| body.data.dlr.dlrStatus                 |	String   | DLR 상태 코드                                      |
+| body.data.dlr.networkCode               | String   | DLR 네트워크 코드                                   |
+| body.data.dlr.errorCode                 | String   | DLR 에러 코드                                      |
 
 ## 태그 발송
 
@@ -2688,7 +2712,12 @@ curl -X GET \
       "resultCode": "3015",
       "receiveDate": "2018-08-13 02:20:48.0",
       "attachFileList": [],
-      "originCode": "123456789"
+      "originCode": "123456789",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -2722,6 +2751,9 @@ curl -X GET \
 | body.data.attachFileList[].createDate   | String   | 첨부 파일 - 생성 일시                                |
 | body.data.attachFileList[].updateDate   | String   | 첨부 파일 - 수정 날짜                                |
 | body.data.originCode                    | String   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+| body.data.dlr.dlrStatus                 | String   | 	DLR 상태 코드                                      |
+| body.data.dlr.networkCode               | String   | 	DLR 네트워크 코드                                   |
+| body.data.dlr.errorCode                 | String   | 	DLR 에러 코드                                      |
 <span id="binaryUpload"></span>
 
 ## 첨부 파일

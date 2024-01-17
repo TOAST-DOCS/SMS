@@ -505,7 +505,12 @@ curl -X GET \
       "originCode": "123456789",
       "resultMessage": "",
       "senderGroupingKey": "SenderGroupingKey",
-      "recipientGroupingKey": "RecipientGroupingKey"
+      "recipientGroupingKey": "RecipientGroupingKey",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -537,13 +542,15 @@ curl -X GET \
 | body.data.sendType             | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
 | body.data.messageType          | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
 | body.data.messageCount         | 	Integer | 	Number of messages sent (international sending)                                                                                                                                   |
-| body.data.messageCount         | 	Integer | 	Number of messages sent                                                                                                                                                           |
 | body.data.userId               | 	String  | Delivery request ID                                                                                                                                                                |
 | body.data.adYn                 | 	String  | Ad or not                                                                                                                                                                          |
 | body.data.originCode           | String   | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
 | body.data.resultMessage        | 	String  | 	Result message                                                                                                                                                                    |
 | body.data.senderGroupingKey    | 	String  | Sender's group key                                                                                                                                                                 |
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                                                                                                              |
+| body.data.dlr.dlrStatus        | 	String  | 	DLR status code                                                      |
+| body.data.dlr.networkCode      | 	String  | 	DLR network code                                                     |
+| body.data.dlr.errorCode        | 	String  | 	DLR error code                                                       |
 
 ## Long MMS
 
@@ -1553,7 +1560,12 @@ curl -X GET \
       "originCode": "123456789",
       "resultMessage": "",
       "senderGroupingKey": "SenderGroupingKey",
-      "recipientGroupingKey": "RecipientGroupingKey"
+      "recipientGroupingKey": "RecipientGroupingKey",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -1591,6 +1603,9 @@ curl -X GET \
 | body.data.resultMessage        | 	String  | Result message                                                                                                                                                                     |
 | body.data.senderGroupingKey    | 	String  | Sender's group key                                                                                                                                                                 |
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                                                                                                              |
+| body.data.dlr.dlrStatus        | String   | DLR status code                                                                                                                                                                    |
+| body.data.dlr.networkCode      | String   | DLR network code                                                                                                                                                                   |
+| body.data.dlr.errorCode        | String   | DLR error code                                                                                                                                                                     |
 
 ## Ad Messages
 
@@ -2081,7 +2096,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/receive/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -2115,7 +2130,12 @@ curl -X GET \
       "resultCode": null,
       "receiveDate": null,
       "createDate": null,
-      "attachFileList": []
+      "attachFileList": [],
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -2151,6 +2171,9 @@ curl -X GET \
 | body.data.attachFileList[].fileSequence | Integer  | Attached file - file sequence                                                         |
 | body.data.attachFileList[].createDate   | String   | Attached file - date and time of creation                                             |
 | body.data.attachFileList[].updateDate   | String   | Attached file - date of modification                                                  |
+| body.data.dlr.dlrStatus                 |	String   | DLR status code                                                                       |
+| body.data.dlr.networkCode               | String   | DLR network code                                                                      |
+| body.data.dlr.errorCode                 | String   | DLR error code                                                                        |
 
 ## Tag Delivery
 
@@ -2687,7 +2710,12 @@ curl -X GET \
       "resultCode": "3015",
       "receiveDate": "2018-08-13 02:20:48.0",
       "attachFileList": [],
-      "originCode": "123456789"
+      "originCode": "123456789",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -2721,6 +2749,9 @@ curl -X GET \
 | body.data.attachFileList[].createDate   | String   | Attached file - date of creation                                                      |
 | body.data.attachFileList[].updateDate   | String   | Attached file - date of modification                                                  |
 | body.data.originCode                    | String   | Identification code (For special value-added telecommunication business operators, must use the 9 digit registration number listed on certificates excluding symbols, letters, and spaces.) |
+| body.data.dlr.dlrStatus                 | String   | DLR status code                                                                       |
+| body.data.dlr.networkCode               | String   | DLR network code                                                                      |
+| body.data.dlr.errorCode                 | String   | DLR error code                                                                        |
 <span id="binaryUpload"></span>
 
 ## Attached Files
