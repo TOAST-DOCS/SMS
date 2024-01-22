@@ -2,15 +2,16 @@
 
 ### January 23, 2024
 #### Added Features
-* [Console/API]
-    *     
-        * 
-        *
-    * 
-    * 
+* [Console/API] Added DLR result retrieval for international SMS delivery
+    * Added the feature to query DLR results when sending international SMS.
+        * Added the dlr field to the v3.0 detailed list API.
+        * Added the DLR status, DLR network code, and DLR error code to the detailed list API.
+    * For more information, see [International SMS sending policy](./international-sending-policy).
+    * For DLR status and error code, see [DLR Result Code](./error-code/#_2).
+    
 #### Feature Updates
-* [Console]
-    * 
+* [Console] Separated sender number pre-registration from identity verification
+    * Separated the sender number pre-registration tab from the identity verification tab.
 
 ### November 28, 2023
 #### Feature Updates
