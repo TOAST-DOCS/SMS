@@ -1,5 +1,67 @@
 ## Notification > SMS > Release Notes
 
+### January 23, 2024
+#### Added Features
+* [Console/API] Added DLR result retrieval for international SMS delivery
+    * Added the feature to query DLR results when sending international SMS.
+        * Added the dlr field to the v3.0 detailed list API.
+        * Added the DLR status, DLR network code, and DLR error code to the detailed list API.
+    * For more information, see [International SMS sending policy](./international-sending-policy).
+    * For DLR status and error code, see [DLR Result Code](./error-code/#dlr).
+
+#### Feature Updates
+* [Console] Separated sender number pre-registration from identity verification
+    * Separated the sender number pre-registration tab from the identity verification tab.
+
+### November 28, 2023
+#### Feature Updates
+* [Console] Monthly limit threshold notifications for International SMS
+    * Added the feature to send a notification email to all project members when the auto blocking monthly limit is reached.
+    * You can set whether to enable the notification on the Sending Settings tab.
+* [Console/API] Changed the body for validation when sending ads.
+    * The phrase **Deny to receive for free**, which is required to be included in the body when sending ads, has been relaxed to **Deny for free**.
+* [API] Improved the detailed search for tagged delivery recipient API v3.0
+    * Improved the detailed search for tagged delivery recipient API v3.0 to include identification code.
+
+### October 31, 2023.
+#### Feature Updates
+* [Console] Improved international SMS sending settings
+    * Split the sending settings menu into two tabs: General SMS and International SMS.
+    * Modified to allow you to set ‘Monthly Auto Ban Limit’.
+    * Added a feature to manage countries allowed to send.
+* [Console] Improved character limit for SMS messages
+    * Eased the 255-character maximum limit for domestic SMS sending to align with international SMS standard.
+    * Changed the maximum number of characters that can be entered according to the encoding (UCS-2: 335 characters, GSM-7bit: 765 characters).
+* [Console/API] Improved bulk and tagged delivery
+    * Applied the identification code to mass and tag delivery according to the revised KISA .
+
+#### Bug Fixes
+* [Console/API] Fixed a bug that displayed as ETC when sending LMS/MMS to KT mobile devices
+    * Fixed a bug that intermittently displayed as ETC when sending LMS/MMS to KT mobile devices.
+
+### September 26, 2023
+#### Feature Updates
+* [Console] Improved to identify the reason behind denied personal authentication
+    * Improved to identify why you were denied authentication in your authentication history.
+* [Console] Improved international sending statistics
+    * Improved to view request, sending, sending failed, receiving, and message count event in international sending statistics.
+
+### August 29, 2023
+#### Feature Updates
+* [API] Improved template deletion
+    * Improved to allow reregistration with deleted template ID.
+* [API] Improved the createUser, updateUser response fields
+    * Improved to send user email addresses to the createUser and updateUser fields when querying.
+* [Console/API] Improved the mass delivery cancellation feature
+    * During mass delivery, cancellation request is viewed as "Canceling" until all recipients have been canceled, and "Canceled" after all recipients have been canceled.
+    * For more information on status codes, see [List Mass Delivery](./api-guide/#_30).
+* [API] Added the delivered message count field to the v3.0 list query and detailed query APIs
+    * Added the delivered message count (messageCount) to the v3.0 list query and detailed query APIs.
+    * If a long message is divided into several messages and sent using the international concat function, you can check the number of messages sent based on the number of characters.
+    * For information on the character count, refer to [](./international-sending-policy/#_3)Pricing Policy[](./international-sending-policy/#_3).
+* [Console] Added the delivered message count column to the retrieved list
+    * You can check the number of messages sent in the delivery lists of Query by SMS Request, Query Mass SMS Delivery, Query Tagged SMS Delivery.
+
 ### August 1, 2023
 #### Added Features
 * [Console] Added split sending feature

@@ -7,7 +7,7 @@
         * Added the dlr field to the v3.0 detailed list API.
         * Added the DLR status, DLR network code, and DLR error code to the detailed list API.
     * For more information, see [International SMS sending policy](./international-sending-policy).
-    * For DLR status and error code, see [DLR Result Code](./error-code/#_2).
+    * For DLR status and error code, see [DLR Result Code](./error-code/#dlr).
     
 #### Feature Updates
 * [Console] Separated sender number pre-registration from identity verification

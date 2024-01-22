@@ -11,12 +11,14 @@
 + To send messages properly, it is recommended to enter the verification number (OTP) as follows. (Example: Your verification code is 00000)
 + If you wish to send marketing messages, please contact the [Customer Center](https://www.nhncloud.com/kr/support/inquiry) in advance.
 + To send international SMS messages normally, phrases of up to 12 characters may be added to messages according to country-specific policies, and the phrases are included in the number of charged characters.
-+ Overseas carriers generally only keep sending logs within 7 days, so it may be difficult to confirm the cause of non-receipt depending on the time of inquiry.
-+ It may take some time to confirm the cause of non-receipt through overseas carriers, and may be difficult to determine the exact cause.
++ International SMS is sent to international carriers and returns a DLR.
++ Each DLR provides a message status and result code, which allows you to know the delivery status of a particular SMS, but accuracy cannot be absolutely guaranteed, and the message status and result code can be NULL depending on the carrier and handset circumstances.
++ International carriers generally only keep sending logs within 7 days, so depending on the time of inquiry, it is difficult to confirm the exact cause of non-receipt and may take some time.
 + Transmission quality by country is affected by the network and infrastructure environment in that country and may differ from the domestic environment.
 
 ### Billing Policy
 + International SMS messages are charged based on successful data transmission from overseas carriers.
++ International SMS billing policies are independent of DLR message status and DLR result codes.
 + The device reception result means the success of data transmission to the overseas communication service provider, and may differ from the actual device reception result. Even if the actual user did not receive the message, it may still count towards billing.
 + International SMS can send long messages through the Concatenated message feature. In the case of a long message, you will be charged for the number of messages sent based on character count.
 + With Concatenated message applied, the number of characters that can be sent is reduced while processing headers.
