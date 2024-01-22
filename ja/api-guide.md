@@ -508,7 +508,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
       "originCode": "123456789",
       "resultMessage": "",
       "senderGroupingKey": "SenderGroupingKey",
-      "recipientGroupingKey": "RecipientGroupingKey"
+      "recipientGroupingKey": "RecipientGroupingKey",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -546,6 +551,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
 | body.data.resultMessage        | 	String  | 	結果メッセージ                                               |
 | body.data.senderGroupingKey    | 	String  | 	発信者グループキー                                             |
 | body.data.recipientGroupingKey | 	String  | 	受信者グループキー                                             |
+| body.data.dlr.dlrStatus        | 	String  | 	DLRステータスコード                                                      |
+| body.data.dlr.networkCode      | 	String  | 	DLRネットワークコード                                                    |
+| body.data.dlr.errorCode        | 	String  | 	DLRエラーコード                                                      |
 
 ## 長文MMS
 
@@ -769,7 +777,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-    0
+0
   ],
   "recipientList": [
     {
@@ -1552,7 +1560,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
       "originCode": "123456789",
       "resultMessage": "",
       "senderGroupingKey": "SenderGroupingKey",
-      "recipientGroupingKey": "RecipientGroupingKey"
+      "recipientGroupingKey": "RecipientGroupingKey",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -1589,6 +1602,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
 | body.data.originCode           | String   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
 | body.data.senderGroupingKey    | 	String  | 	発信者グループキー                                             |
 | body.data.recipientGroupingKey | 	String  | 	受信者グループキー                                             |
+| body.data.dlr.dlrStatus        | String   | DLRステータスコード                                                        |
+| body.data.dlr.networkCode      | String   | DLRネットワークコード                                                     |
+| body.data.dlr.errorCode        | String   | DLRエラーコード                                                        |
 
 ## 広告文字
 
@@ -2068,7 +2084,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/receive/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -2102,7 +2118,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${
       "resultCode": null,
       "receiveDate": null,
       "createDate": null,
-      "attachFileList": []
+      "attachFileList": [],
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -2138,6 +2159,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${
 | body.data.attachFileList[].fileSequence | Integer  | 添付ファイル - ファイル番号                            |
 | body.data.attachFileList[].createDate   | String   | 添付ファイル - 作成日時                              |
 | body.data.attachFileList[].updateDate   | String   | 添付ファイル - 修正日                               |
+| body.data.dlr.dlrStatus                 |	String   | DLR status code                                                                       |
+| body.data.dlr.networkCode               | String   | DLR network code                                                                      |
+| body.data.dlr.errorCode                 | String   | DLR error code                                                                        |
 
 ## タグ送信
 
@@ -2298,7 +2322,7 @@ Content-Type: application/json;charset=UTF-8
   "attachFileIdList": [
     1,
     2,
-    3
+3
   ],
   "tagExpression": [
     "tag1",
@@ -2674,7 +2698,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
       "resultCode": "3015",
       "receiveDate": "2018-08-13 02:20:48.0",
       "attachFileList": [],
-      "originCode": "123456789"
+      "originCode": "123456789",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -2709,6 +2738,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 | body.data.attachFileList[].updateDate   | String   | 添付ファイル - 修正日                               |
 | body.data.originCode                    | String   | 識別コード（特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除く登録番号9桁の数字) |
 <span id="binaryUpload"></span>
+| body.data.dlr.dlrStatus                 | String   | 	DLRステータスコード                                     |
+| body.data.dlr.networkCode               | String   | 	DLRネットワークコード                                  |
+| body.data.dlr.errorCode                 | String   | 	DLRエラーコード                                     |
 
 ## 添付ファイル
 
@@ -3296,7 +3328,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -3367,7 +3399,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
   "useYn": "Y",
   "attachFileIdList": [
     123123,
-    456456
+456456
   ]
 }
 ```
@@ -3811,7 +3843,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
