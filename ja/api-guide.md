@@ -2159,9 +2159,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/rece
 | body.data.attachFileList[].fileSequence | Integer  | 添付ファイル - ファイル番号                            |
 | body.data.attachFileList[].createDate   | String   | 添付ファイル - 作成日時                              |
 | body.data.attachFileList[].updateDate   | String   | 添付ファイル - 修正日                               |
-| body.data.dlr.dlrStatus                 |	String   | DLR status code                                                                       |
-| body.data.dlr.networkCode               | String   | DLR network code                                                                      |
-| body.data.dlr.errorCode                 | String   | DLR error code                                                                        |
+| body.data.dlr.dlrStatus                 |	String   | DLRステータスコード                                                                       |
+| body.data.dlr.networkCode               | String   | DLRネットワークコード                                                                      |
+| body.data.dlr.errorCode                 | String   | DLRエラーコード                                                                        |
 
 ## タグ送信
 
