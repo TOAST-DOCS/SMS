@@ -34,14 +34,14 @@ SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
 }
 ```
 
-| 값               | 타입        | 설명                                                                       |
-|-----------------|-----------|--------------------------------------------------------------------------|
-| hooksId         | String    | 웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID                              |
-| webhookConfigId | String    | 웹훅 설정 ID                                                                 |
-| productName     | String    | 웹훅 이벤트가 발생한 서비스명                                                         |
-| appKey          | String    | 웹훅 이벤트가 발생한 서비스 앱키                                                       |
-| event           | String    | 웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록                                 |
-| hooks           | List<Map> | 웹훅 이벤트 발생 시 데이터<br>* 상세한 내용은 [이벤트 유형별 hooks 정의](./#event-hooks)를 참고해주세요. |
+| 값               | 타입        | 설명                                                                        |
+|-----------------|-----------|---------------------------------------------------------------------------|
+| hooksId         | String    | 웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID                               |
+| webhookConfigId | String    | 웹훅 설정 ID                                                                  |
+| productName     | String    | 웹훅 이벤트가 발생한 서비스명                                                          |
+| appKey          | String    | 웹훅 이벤트가 발생한 서비스 앱키                                                        |
+| event           | String    | 웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록                                  |
+| hooks           | List<Map> | 웹훅 이벤트 발생 시 데이터<br>* 상세한 내용은 [이벤트 유형별 hooks 정의](./#event-hooks)를 참고해 주세요. |
 
 #### cURL
 
