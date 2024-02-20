@@ -26,7 +26,7 @@
 * The name and phone number you enter when you sign up must match the information you enter when you verify your identity to be approved.
 * NHN Cloud members invited to an organization/project created by a business member or IAM members invited to an organization created by a business member must authenticate themselves to use the service.
 * Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>
-Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
+  Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
 
 ### Required Documentation by Member Type
 <table class="custom-table" style="text-align: center">
@@ -68,7 +68,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 3. Confirm and agree to the Consent to collection and usage of personal information.
 4. Proceed to verify your identity with mobile verification or a quick identity verification.
 5. Attach and register any required documents if necessary.
-6. Wait for the operator review and approval process. 
+6. Wait for the operator review and approval process.
 7. Once the identity verification process is complete, the approval result will be sent to the email registered to your account.
 
 ### Description of identity verification status
@@ -124,7 +124,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 * Documents confirming the relationship between the business and the third party can be consignment agreements, proof of headquarters and branch offices, etc.
 * There are no masked (hidden) parts of the communication service use certificate, and only documents issued within the last 3 months are accepted.
 * Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>
-Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
+  Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
 
 ### How to Issue Documents for Each Mobile Carrier
 * You can download the service usage certificate from your carrier's website.
@@ -176,7 +176,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 4. Select the type of sender number required for registration (personal number, representative number, employee number, etc.).
 5. Enter the sender number to register.
 6. Attach and register documents suitable for the number to be registered.
-7. Wait for the operator review and approval process. 
+7. Wait for the operator review and approval process.
 8. Once the sender number verification process is complete, the approval result will be sent to the email registered to your account.
 
 ### Description for Sender Number Registration Status
@@ -190,7 +190,7 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 
 ## Sending SMS
 * The maximum character count is based on storage. To avoid character truncation, write to a standard size, not a maximum character count.
-* Content standard: Domestic SMS 90 bytes (45 Korean characters, 90 English characters) / Domestic MMS 2,000 bytes (1,000 Korean characters, 2,000 English characters) / International SMS UCS-2 335 characters / International SMS GSM-7bit 765 characters   
+* Content standard: Domestic SMS 90 bytes (45 Korean characters, 90 English characters) / Domestic MMS 2,000 bytes (1,000 Korean characters, 2,000 English characters) / International SMS UCS-2 335 characters / International SMS GSM-7bit 765 characters
 * For international SMS, it is concatenated based on encoding and character count.
     * Concatenated message is a service that makes a message appear to be connected as one long text on the device, like an LMS in Korea, to overcome the limitation of the number of characters that can be sent in international SMS sending.
     * The Concatenated message feature is available depending on the number of characters in the body, encoding, and support from international mobile carriers. If concatenated message is not supported, the device may receive multiple short messages.
@@ -211,7 +211,7 @@ Following is the guide to send Short Message Service (SMS).
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Fill in the **Body** of message.
 5. **Recipient Information** provides all numbers including domestic numbers or country code.
-	- e.g.) 01012345678, 821012345678
+    - e.g.) 01012345678, 821012345678
 6. Click the **Send** button.
 
 ### Send General LMS
@@ -226,7 +226,7 @@ Following is the guide to send general Long Message Service (LMS).
 4. Enter the title. (To prevent character truncation, write based on 40 bytes (20 Korean characters, 40 English characters).)
 5. Fill in the **Body** of message.
 6. **Recipient Information** provides all numbers including domestic numbers or country code.
-	- e.g.) 01012345678, 821012345678
+    - e.g.) 01012345678, 821012345678
 7. Click the **Send** button.
 
 ### Send MMS (Send Attachment)
@@ -242,7 +242,7 @@ Multimedia Messaging Service (MMS) can be sent as below:
 5. Enter the title. (To prevent character truncation, write based on 40 bytes (20 Korean characters, 40 English characters).)
 6. Fill in the **Body** of message.
 7. **Recipient Information** provides all numbers including domestic numbers or country code.
-	- e.g.) 01012345678, 821012345678
+    - e.g.) 01012345678, 821012345678
 8. Click the **Send** button.
 
 ### Send Templates
@@ -251,12 +251,12 @@ You can send messages on user-created templates.
 
 ![sms_07_20230818](https://static.toastoven.net/prod_sms/eng/SMS_07_20230818.png)
 
-1. Select **Use** from **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.) 
+1. Select **Use** from **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.)
 2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Fill in the **Body** of message.
 5. **Recipient Information** provides all numbers including domestic numbers or country code.
-	- e.g.) 01012345678, 821012345678
+    - e.g.) 01012345678, 821012345678
 6. Click the **Send** button.
 
 ### Mass Delivery
@@ -558,7 +558,7 @@ NHN Cloud is not responsible for any international SMS sent due to abuse.
 * Failure/re-delivery is possible depending on how the undelivered message is set up.
 
 ### Backup Settings
-* Depending on the message retention period policy, you can back up sending history data that is older than 180 days. 
+* Depending on the message retention period policy, you can back up sending history data that is older than 180 days.
 * If you enter information about whether to back up messages, the file extension, and the storage to upload the file to, a file containing the backup date will be created in that storage.
 
 
@@ -628,7 +628,7 @@ This feature allows you to send a text message by selecting a tag instead of the
 1. Register statistical event keys in the **statistical event key management** tab. If sending using the API, you must obtain the statistics ID (statsId) from this screen.
 2. When sending a message from the console or to the API, you must also send the statistics event key.
 
-    2-1. When sending from console 
+    2-1. When sending from console
     - When sending a text message in the **Deliver SMS** tab, select the statistical event key.
     - After entering all message information, click the **Send** button.
     - You can check statistical information after a certain period of time in the **Statistics** tab.

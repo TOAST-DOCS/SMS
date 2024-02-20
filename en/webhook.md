@@ -87,7 +87,7 @@ Hook data per event type when generating a POST request to the URL defined in th
     "recipientNo": "01012341234",
     "unsubscribeNo": "08012341234",
     "enterpriseName": "NHN Cloud",
-    "createdDateTime": "2020-09-09T11:25:10.000+09:00"    
+    "createdDateTime": "2020-09-09T11:25:10.000+09:00"
   }
 ]
 ```

@@ -3,14 +3,14 @@
 ### February 27, 2024
 #### Added Features
 * [Console] Role segmentation
-  * Added the feature to grant separate SMS menu access and feature control permissions based on role. 
+    * Added the feature to grant separate SMS menu access and feature control permissions based on role.
 #### Feature Updates
 * [Console/API] Eased advertising copy restrictions
-  * Modified to allow ads to be sent even if they contain other characters on either end of the free unsubscribe or free opt-out text that must be included when sending the ads.
+    * Modified to allow ads to be sent even if they contain other characters on either end of the free unsubscribe or free opt-out text that must be included when sending the ads.
 #### Bug Fixes
 * [Console] Fixed bugs that occurred when requesting mass delivery, tagged delivery file download
-  * Fixed a bug where you cannot download the lists filtered by search criteria from Query by Recipient for mass delivery or tagged delivery when requesting a file download.
-  
+    * Fixed a bug where you cannot download the lists filtered by search criteria from Query by Recipient for mass delivery or tagged delivery when requesting a file download.
+
 ### January 23, 2024
 #### Added Features
 * [Console/API] Added DLR result retrieval for international SMS delivery
@@ -19,7 +19,7 @@
         * Added the DLR status, DLR network code, and DLR error code to the detailed list API.
     * For more information, see [International SMS sending policy](./international-sending-policy).
     * For DLR status and error code, see [DLR Result Code](./error-code/#dlr).
-    
+
 #### Feature Updates
 * [Console] Separated sender number pre-registration from identity verification
     * Separated the sender number pre-registration tab from the identity verification tab.
