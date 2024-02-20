@@ -41,7 +41,7 @@ This is a document for the API for the created POST request.
 | productName     | String    | Service name to which webhook events occur                                                   |
 | appKey          | String    | Service appkey to which webhook events occur                                                 |
 | event           | String    | Webhook event name<br>* UNSUBSCRIBE: Registration of recipient number for ad messages        |
-| hooks           | List<Map> | 웹훅 이벤트 발생 시 데이터<br>* 상세한 내용은 [이벤트 유형별 hooks 정의](./#event-hooks)를 참고해주세요.                     |
+| hooks           | List<Map> | Data when Webhook event occurs<br>* For more details, see [Hooks Definitions by Event Type](./#event-hooks).                     |
 
 #### cURL
 
@@ -69,8 +69,8 @@ curl -X POST \
 '
 ```
 
-### 이벤트 유형별 hooks 정의
-웹훅 설정에 정의된 URL로 POST 요청을 생성할 때 이벤트 타입별 훅(hook) 데이터입니다.
+### Hooks Definitions by Event Type
+Hook data per event type when generating a POST request to the URL defined in the webhook settings.
 #### Registration of recipient number for ad messages
 | Value                   | Type   | Description                                                               |
 |-------------------------|--------|---------------------------------------------------------------------------|
