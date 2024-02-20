@@ -215,7 +215,7 @@
 | 세르비아 | Serbia | 381 |  |
 | 세이셸 | Seychelles | 248 |  |
 | 시에라리온 | Sierra Leone | 232 |  |
-| 싱가포르 | Singapore | 65 | -  발신 번호 사정 등록 절차가 필요하며 등록하지 않을 경우 메시지 발송 실패됨(싱가포르 현지 법인이 있는 경우에만 등록 가능)<br>- 사전 등록 페이지: https://smsregistry.sg/web/login |
+| 싱가포르 | Singapore | 65 | - 발신 번호 사전 등록 절차 필요<br>- 사전 등록 페이지: https://smsregistry.sg/web/login |
 | 슬로바키아 | Slovakia | 421 |  |
 | 슬로베니아 | Slovenia | 386 |  |
 | 솔로몬 제도 | Solomon Islands | 677 |  |
