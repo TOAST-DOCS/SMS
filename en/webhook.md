@@ -34,14 +34,14 @@ This is a document for the API for the created POST request.
 }
 ```
 
-| Value           | Type      | Description                                                                                                  |
-|-----------------|-----------|--------------------------------------------------------------------------------------------------------------|
-| hooksId         | String    | Unique ID created whenever a POST request is made to the URL defined in the webhook settings                 |
-| webhookConfigId | String    | Webhook configuration ID                                                                                     |
-| productName     | String    | Service name to which webhook events occur                                                                   |
-| appKey          | String    | Service appkey to which webhook events occur                                                                 |
-| event           | String    | Webhook event name<br>* UNSUBSCRIBE: Registration of recipient number for ad messages                        |
-| hooks           | List<Map> | Data when Webhook event occurs<br>* For more details, see [Hooks Definitions by Event Type](./#event-hooks). |
+| Value           | Type      | Description                                                                                            |
+|-----------------|-----------|--------------------------------------------------------------------------------------------------------|
+| hooksId         | String    | Unique ID created whenever a POST request is made to the URL defined in the webhook settings           |
+| webhookConfigId | String    | Webhook configuration ID                                                                               |
+| productName     | String    | Service name to which webhook events occur                                                             |
+| appKey          | String    | Service appkey to which webhook events occur                                                           |
+| event           | String    | Webhook event name<br>* UNSUBSCRIBE: Registration of recipient number for ad messages                  |
+| hooks           | List<Map> | Data when Webhook event occurs<br>* For more details, see [Hooks Definitions by Event Type](./#hooks). |
 
 #### cURL
 
