@@ -216,7 +216,7 @@
 | Serbia | Serbia | 381 |  |
 | Seychelles | Seychelles | 248 |  |
 | Sierra Leone | Sierra Leone | 232 |  |
-| Singapore | Singapore | 65 | - Requires caller ID registration process and fails to send messages if not registered (can only be registered if you have a local entity in Singapore)<br>- Pre-registration page: https://smsregistry.sg/web/login |
+| Singapore | Singapore | 65 | - Requires caller ID registration process in advance<br>- Pre-registration page: https://smsregistry.sg/web/login |
 | Slovakia | Slovakia | 421 |  |
 | Slovenia | Slovenia | 386 |  |
 | Solomon Islands | Solomon Islands | 677 |  |
