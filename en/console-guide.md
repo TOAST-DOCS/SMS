@@ -531,7 +531,7 @@ Registered webhooks can be checked in the **webhook registration list**.
 * If you do not want to use the international SMS sending feature, you can prevent accidents due to abusing by setting it to unused.
 * Only the specified major countries are enabled for sending during the initial setup. You can manage whether to ship to each country through the [Select countries to allow] button.
 * The sending limit is 1,000 per month by default, and can be adjusted up to 10,000. If you need to adjust the limit over 10,000, please contact us via the [Request to exceed 10,000] button.
-* * If 'Monthly limit threshold notifications' is set to 'Enabled', a notification email will be sent to all project members when 70% and 100% of the value set by 'Auto Blocking Monthly Limit' is reached.
+* If 'Monthly limit threshold notifications' is set to 'Enabled', a notification email will be sent to all project members when 70% and 100% of the value set by 'Auto Blocking Monthly Limit' is reached.
 * The 'Auto Blocking Monthly Limit' is an subsidiary feature and the time of blocking may not be accurate. NHN Cloud is not responsible for any errors in the subsidiary features.
 
 > [Caution]
