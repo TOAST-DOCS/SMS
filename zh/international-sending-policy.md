@@ -21,7 +21,7 @@
 + International SMS billing policies are independent of DLR message status and DLR result codes.
 + The device reception result means the success of data transmission to the overseas communication service provider, and may differ from the actual device reception result. Even if the actual user did not receive the message, it may still count towards billing.
 + International SMS can send long messages through the Concatenated message feature. In the case of a long message, you will be charged for the number of messages sent based on character count.
-+ With Concatenated message applied, the number of characters that can be sent is reduced while processing headers.
++ With Concatenated message applied, the number of characters that can be sent is reduced while processing headers. 
 + The number of characters and concatenated message standards follow the international SMS standards.
 + Even if the message is sent with the concatenated message applied, it may be received by the device in the form of several short messages rather than a long message, depending on the mobile carrier and device policy.
 + The number of charges per message can be checked with the messageCount field of the detailed inquiry from the console and the detailed inquiry api.
@@ -34,7 +34,7 @@
 
 ## International SMS Traffic Pumping
 
-+ SMS traffic pumping refers to exploiting input fields, such as a request to verify a membership number, to send large volumes of SMS  for sending OTP messages. Some international mobile network operators (MNOs) artificially drive message sending to increase revenue.
++ SMS traffic pumping refers to exploiting input fields, such as a request to verify a membership number, to send large volumes of SMS  for sending OTP messages. Some international mobile network operators (MNOs) artificially drive message sending to increase revenue. 
 + When SMS traffic pumping occurs, there is a spike in messages sent to similar number ranges (e.g. +1111111110, +1111111111, +1111111112, +1111111113, etc.) and if you send a one-time password (OTP) SMS, there is a high chance that authentication will not complete.
 + To prevent SMS traffic pumping, if you block sending to country codes where there is no intent to send messages reduces the probability of SMS traffic pumping. Additionally, if you limit the allowed number of OTP verification requests to similar or identical numbers or limit the speed of message delivery per second, you can reduce the magnitude of the damage.
 * When SMS traffic pumping occurs, NHN Cloud may block the sending of some or all volumes of international SMS without prior notice to the relevant AppKey. NHN Cloud is not responsible for any cases of abusing and any cases blocked due to abusing.
@@ -216,7 +216,7 @@
 | Serbia | Serbia | 381 |  |
 | Seychelles | Seychelles | 248 |  |
 | Sierra Leone | Sierra Leone | 232 |  |
-| Singapore | Singapore | 65 | - Requires caller ID registration process and fails to send messages if not registered (can only be registered if you have a local entity in Singapore)<br>- Pre-registration page: https://smsregistry.sg/web/login |
+| Singapore | Singapore | 65 | - Requires caller ID registration process in advance<br>- Pre-registration page: https://smsregistry.sg/web/login |
 | Slovakia | Slovakia | 421 |  |
 | Slovenia | Slovenia | 386 |  |
 | Solomon Islands | Solomon Islands | 677 |  |

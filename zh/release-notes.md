@@ -1,5 +1,16 @@
 ## Notification > SMS > Release Notes
 
+### February 27, 2024
+#### Added Features
+* [Console] Role segmentation
+  * Added the feature to grant separate SMS menu access and feature control permissions based on role. 
+#### Feature Updates
+* [Console/API] Eased advertising copy restrictions
+  * Modified to allow ads to be sent even if they contain other characters on either end of the free unsubscribe or free opt-out text that must be included when sending the ads.
+#### Bug Fixes
+* [Console] Fixed bugs that occurred when requesting mass delivery, tagged delivery file download
+  * Fixed a bug where you cannot download the lists filtered by search criteria from Query by Recipient for mass delivery or tagged delivery when requesting a file download.
+  
 ### January 23, 2024
 #### Added Features
 * [Console/API] Added DLR result retrieval for international SMS delivery
@@ -8,7 +19,7 @@
         * Added the DLR status, DLR network code, and DLR error code to the detailed list API.
     * For more information, see [International SMS sending policy](./international-sending-policy).
     * For DLR status and error code, see [DLR Result Code](./error-code/#dlr).
-
+    
 #### Feature Updates
 * [Console] Separated sender number pre-registration from identity verification
     * Separated the sender number pre-registration tab from the identity verification tab.
@@ -225,7 +236,7 @@
         * The following two lists are available for download if invalid recipients are included in the uploaded recipient file.
             * Download the list of valid recipient numbers
             * Download the list of invalid recipient numbers
-        * If you want to send SMS to valid recipients only, you can do so by clicking the **Send Text Messages to Valid Recipients Only**    button.
+        * If you want to send SMS to valid recipients only, you can do so by clicking the **Send Text Messages to Valid Recipients Only**  button.
 * [Console] Statistics feature improved/changed
     * Improved to enable viewing the stats by any one of the following: template ID, message type, presence of ad, and calling number.
 * [Console/API] Disallowed use of some special characters for template ID
@@ -361,7 +372,7 @@
 #### Feature Updates
 * [Console] Changed Mailing Period for Guide on Failed Mass/Tag Message Delivery
     * In case mass/tag messages are not actually delivered even after [Confirm and Send] is selected without time scheduled, they are 'Processed as Failure' one day after registered, and guiding mail is sent to users.
-    * If    a message is not actually delivered after [Confirm and Send] is selected with time scheduled, it is 'Processed as Failure' one day after scheduled time and guiding mail is sent to user.
+    * If  a message is not actually delivered after [Confirm and Send] is selected with time scheduled, it is 'Processed as Failure' one day after scheduled time and guiding mail is sent to user.
 * [Console] Updated to show byte counts for title or body on the deliver page
 * [Console] Updated to query by the 'Sender Registrant' on the General/Mass/Tag delivery page
 
@@ -399,7 +410,7 @@
 
 ### August 27, 2019
 #### Feature Updates
-* [Console] Allowed more length for a business name,    for the setting of Rejection of Receiving 080 Numbers
+* [Console] Allowed more length for a business name,  for the setting of Rejection of Receiving 080 Numbers
     * Updated to save up to 100 characters for a business name
 * [Console] Added a column on an excel sheet when downloading files on the list of each request
 
@@ -709,7 +720,7 @@
 
 ### April 20, 2017
 #### Added Features
-* [API]    Rejection of Receiving 080 Numbers added
+* [API]  Rejection of Receiving 080 Numbers added
     * You may join the rejection service of receiving 080 numbers to send ad messages. [[API Guide](./api-guide/#sms_11)]
     * See [[Rejection of Receiving 080 Numbers](./console-guide/#080)] for more details on subscription.
 
@@ -754,7 +765,7 @@
 #### Bug Fixes
 * [API] Fixed the bug in which server error occurred for the sending of MMS attachment when the file was unavailable attached file
     * AS-IS: Responded with server error when sent by unavailable attached file ID
-    * TO-BE: Provide error messages for causes of failure, when there is unavailable attached file for MMS attachment delivery     M
+    * TO-BE: Provide error messages for causes of failure, when there is unavailable attached file for MMS attachment delivery   M
 * [Console] Fixed the bug of space in CSV template files for mass delivery.
     * AS-IS: Error in parsing when there is space between fields in CSV template files
     * TO-BE: Normal operations for spaces by , between fields in CSV template files
@@ -769,7 +780,7 @@
     * TO-BE: When all is selected for the cause of result, the selection windows for the cause of result is not available.
 * [Console] For sender number registration, validation has been enforced.
     * AS-IS: Check duplicate checks only
-    * TO-BE: Duplicate checks + Check sender number registration format      [[Format of Sender Number Registration](./console-guide/#_16)]
+    * TO-BE: Duplicate checks + Check sender number registration format    [[Format of Sender Number Registration](./console-guide/#_16)]
 
 
 #### Bug Fixes

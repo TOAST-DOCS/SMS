@@ -96,7 +96,7 @@ You must obtain the recipient's express prior consent and comply with the sendin
 ## Guide to sending contents according to character set
 + When received, messages included in EUC-KR normally appear the same as the contents sent.
 + When characters not included in EUC-KR are included in the title/body, the contents may appear as broken characters such as '?'.
-    + Depending on the type of receiving device and carrier, the contents of the message may appear differently.
+     + Depending on the type of receiving device and carrier, the contents of the message may appear differently.
 
 ## Timeout Policy for Message Receiving Result
 + Depending on the device and communication status, there may be a delay in updating message receiving results.
