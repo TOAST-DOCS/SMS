@@ -1,5 +1,16 @@
 ## Notification > SMS > Release Notes
 
+### February 27, 2024
+#### Added Features
+* [Console] Role segmentation
+  * Added the feature to grant separate SMS menu access and feature control permissions based on role. 
+#### Feature Updates
+* [Console/API] Eased advertising copy restrictions
+  * Modified to allow ads to be sent even if they contain other characters on either end of the free unsubscribe or free opt-out text that must be included when sending the ads.
+#### Bug Fixes
+* [Console] Fixed bugs that occurred when requesting mass delivery, tagged delivery file download
+  * Fixed a bug where you cannot download the lists filtered by search criteria from Query by Recipient for mass delivery or tagged delivery when requesting a file download.
+  
 ### January 23, 2024
 #### Added Features
 * [Console/API] Added DLR result retrieval for international SMS delivery

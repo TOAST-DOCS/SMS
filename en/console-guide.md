@@ -126,6 +126,31 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 * Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>
 Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
 
+### How to Issue Documents for Each Mobile Carrier
+* You can download the service usage certificate from your carrier's website.
+* Depending on the carrier, the service usage certificate may differ such as "subscription confirmation," "proof of subscription," or "proof of contract registration".
+
+* SKT [[Visit]](https://www.tworld.co.kr/web/home)
+    * How to issue: Sign in > My Account > Get Certificate of Use
+    * Mobile service customer center: 114, 080-011-6000, 1599-0011
+    * Wireline service customer center: 080-816-2000, 1600-2000
+
+* KT [Visit](https://www.kt.com/)
+    * How to issue: Sign in > Membership Information > View/Change > Print Proof of Membership
+    * Mobile service customer center: 114, 1588-0010
+    * Wireline service customer center: 100
+
+* LGU+ [[Visit]](https://www.lguplus.com/)
+    * How to issue: Log in > Product Signup > Get Confirmation of Signup
+    * Mobile service customer center: 114, 1544-0010
+    * Wireline service customer center: 101
+
+* Budget carriers and others
+    * SK Broadband Customer Center: 106
+    * Sejong Telecom Customer Center: 1688-1000, 080-889-1000
+    * KCT Korea Cable Telecom Customer Center: 070-8188-0114
+    * Hello Mobile Customer Center: 1855-1144 (LGU+), 1855-1144 (KT), 1855-2114 (SKT)
+
 ### Registration Format for Sender Numbers
 
 ```
@@ -378,14 +403,16 @@ You can search for mass delivery by sending type.
 
 #### Delivery Status of Mass SMS
 
-- Waiting: Template file data are yet to be read.
-- Preparing: Loading template file data.
-- Ready: All template file data are loaded and SMS delivery is ready. Select a schedule (column on the list) and you can find recipient numbers and delivery information.
+- Waiting: Recipient file data are yet to be read.
+- Preparing to send: The recipient file is being read.
+- Converting file: The recipient file is being converted.
+- Ready: All recipient file data are loaded and SMS delivery is ready. Select a schedule (column on the list) and you can find recipient numbers and delivery information.
 - Waiting for Delivery: SMS delivery is yet to be processed.
 - Delivering: SMS delivery is currently underway. Select a schedule (column on the list) to check the delivery progress rate.
 - Delivery Completed: Request for SMS delivery has been properly completed.
+- Canceling: The delivery is in the process of being canceled.
+- Canceled: The delivery has been canceled.
 - Delivery Failed: Error occurred during delivery.
-- Delivery Canceled: User has canceled delivery.
 
 #### Query SMS Delivery per Recipient
 
