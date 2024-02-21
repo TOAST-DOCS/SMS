@@ -83,7 +83,7 @@
 | 080 수신거부 | false | -6000 | 수신 거부 기능을 사용하고 있지 않음 | Block service is not joined. |
 | 080 수신거부 | false | -6001 | 수신 거부된 번호 | Recipient Number is refused. |
 | 080 수신거부 | false | -6003 | 본문에 수신 거부 안내 메시지가 없음 | The body must contain block guide ment. |
-| 080 수신거부 | false | -6004 | 수신 거부 번호가 사용되고 있지 않음 | This is not a joined unsubscribeNo. |
+| 080 수신거부 | false | -6004 | 수신 거부 번호가 비어있거나 미가입 번호 | This is not a joined unsubscribeNo. |
 | 태그 | false | -7000 | 태그 내부 오류(APi 호출 실패) | Fail to call Tag API. |
 | 태그 | false | -7001 | 유효하지 않는 파라미터 | Invalid parameter. |
 | 태그 | false | -7002 | .csv 읽기 실패 | Invalid csv read. |
