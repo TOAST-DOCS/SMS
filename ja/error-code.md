@@ -83,8 +83,8 @@
 | 080受信拒否 | false | -6000 | 受信拒否機能を使用していない | Block service is not joined. |
 | 080受信拒否 | false | -6001 | 受信拒否された番号 | Recipient Number is refused. |
 | 080受信拒否 | false | -6003 | 本文に受信拒否案内メッセージがない | The body must contain block guide ment. |
-| 080受信拒否 | false | -6004 | 受信拒否番号が使用されていない | This is not a joined unsubscribeNo. |
-| タグ | false | -7000 | タグ内部エラー(APi呼び出し失敗) | Fail to call Tag API. |
+| 080受信拒否 | false | -6004 | 受信拒否番号が空白または未加入の番号 | This is not a joined unsubscribeNo. |
+| タグ | false | -7000 | タグ内部エラー(API呼び出し失敗) | Fail to call Tag API. |
 | タグ | false | -7001 | 有効ではないパラメータ | Invalid parameter. |
 | タグ | false | -7002 | .csv読み込み失敗 | Invalid csv read. |
 
