@@ -34,14 +34,14 @@ SMSサービス内で特定イベントが発生すると、Webフック設定�
 }
 ```
 
-| 値               | タイプ       | 説明                                                              |
-|-----------------|-----------|-----------------------------------------------------------------|
-| hooksId         | String    | Webフック設定に定義されているURLにPOSTリクエストを行うたびに作成される固有のID                   |
-| webhookConfigId | String    | Webフック設定ID                                                      |
-| productName     | String    | Webフックイベントが発生したサービス名                                            |
-| appKey          | String    | Webフックイベントが発生したサービスアプリケーションキー                                   |
-| event           | String    | Webフックイベント名<br>* UNSUBSCRIBE：広告メッセージ受信番号登録                      |
-| hooks           | List<Map> | Webフックイベント発生時のデータ<br>* 詳細は[イベントタイプ別hooks定義](./#hooks)を参照してください。 |
+| 値               | タイプ       | 説明                                                                      |
+|-----------------|-----------|-------------------------------------------------------------------------|
+| hooksId         | String    | Webフック設定に定義されているURLにPOSTリクエストを行うたびに作成される固有のID                           |
+| webhookConfigId | String    | Webフック設定ID                                                              |
+| productName     | String    | Webフックイベントが発生したサービス名                                                    |
+| appKey          | String    | Webフックイベントが発生したサービスアプリケーションキー                                           |
+| event           | String    | Webフックイベント名<br>* UNSUBSCRIBE：広告メッセージ受信番号登録                              |
+| hooks           | List<Map> | Webフックイベント発生時のデータ<br>* 詳細は[イベントタイプ別hooks定義](./webhook/#hooks)を参照してください。 |
 
 #### cURL
 
