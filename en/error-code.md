@@ -87,7 +87,7 @@
 | 080 Call Rejection | false | -6000 | Call rejection is not used | Block service is not joined. |
 | 080 Call Rejection | false | -6001 | Refused recipient number | Recipient Number is refused. |
 | 080 Call Rejection | false | -6003 | Body does not include guide message on call rejection | The body must contain block guide ment. |
-| 080 Call Rejection | false | -6004 | Call rejection numbers are are empty or unsubscribed | This is not a joined unsubscribeNo. |
+| 080 Call Rejection | false | -6004 | Call rejection numbers are empty or unsubscribed | This is not a joined unsubscribeNo. |
 | Tag | false | -7000 | Internal tag error (failed to call API) | Fail to call Tag API. |
 | Tag | false | -7001 | Invalid parameter | Invalid parameter. |
 | Tag | false | -7002 | Failed to read .csv file | Invalid csv read. |
