@@ -149,7 +149,7 @@
 
 ### DLR error code
 | DLR error code | Description | Notes |
-| - | - |
+| - | - | - |
 | 0 | Delivered | Message was delivered successfully |
 | 1 | Unknown | Message was not delivered, and no reason could be determined |
 | 2 | Absent Subscriber - Temporary | Message was not delivered because handset was temporarily unavailable - retry |
