@@ -4449,6 +4449,104 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	성공 개수                                                                                                              |
 | body.data.events[].{statsCriteriaValue}.pending    | 	Integer | 	발송 중 개수                                                                                                            |
 
+### 통계 검색 - 국제 발송
+
+* 이벤트 발생 시간 기준으로 수집된 통계입니다.
+* 다음 시간 기준으로 통계가 수집됩니다.
+    * 요청 개수(requested): 발송 요청 시간
+    * 발송 개수(sent): 통신 사업자(벤더)로 발송 요청한 시간
+    * 성공 개수(concat): 단건 혹은 Concatenated message(연결) 기능을 통해 발송된 메시지의 수신 시간
+    * 실패 개수(sentFailed): 실패 응답이 발생한 시간
+
+#### 요청
+
+[URL]
+
+| Http method | URI                                            |
+|-------------|------------------------------------------------|
+| GET         | /sms/v3.0/appKeys/{appKey}/stats/international |
+
+[Path parameter]
+
+| 값      | 타입     | 설명     |
+|--------|--------|--------|
+| appKey | String | 고유의 앱키 |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 값            | 타입     | 설명        |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 고유의 시크릿 키 |
+
+[Query parameter]
+
+| 값              | 	타입          | 	최대 길이 | 필수 | 설명                                                                                                  |
+|----------------|--------------|--------|----|-----------------------------------------------------------------------------------------------------|
+| statisticsType | String       | -      | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:요일별                                  |
+| from           | String       | -      | 필수 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss                                                                 | 
+| to             | String       | -      | 필수 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss                                                                 |
+| statsIds       | List<String> | -      | 옵션 | 통계 ID 목록                                                                                            |
+| countryCode    | String       | -      | 옵션 | 국가 코드                                                                                               |
+| templateIds    | List<String> | -      | 옵션 | 템플릿 ID 목록                                                                                           |
+| requestIds     | List<String> | 5      | 옵션 | 요청 ID 목록                                                                                            |
+| statsCriteria  | List<String> | -      | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- COUNTRY_CODE,EVENT: 국가 코드, 이벤트 |
+
+#### 응답
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "data": [
+      {
+        "eventDateTime": "",
+        "events": {
+          "{statsCriteriaValue}": {
+            "REQUESTED": 10,
+            "SENT": 10,
+            "SENT_FAILED": 0,
+            "CONCAT": 10
+          },
+          "{statsCriteriaValue}": {
+            "REQUESTED": 10,
+            "SENT": 10,
+            "SENT_FAILED": 0,
+            "CONCAT": 20
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+| 값                    | 타입      | 설명            |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | 성공 여부         |
+| header.resultCode    | Integer | 실패 코드         |
+| header.resultMessage | String  | 실패 메시지        |
+| body.data            | List    | 통계 이벤트 객체 리스트 |
+
+#### 통계 이벤트 객체
+| 값                                       | 타입      | 설명                                                                                                     |
+|-----------------------------------------|---------|--------------------------------------------------------------------------------------------------------|
+| eventDateTime                           | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                                                                             |
+| events.{statsCriteriaValue}             | Object  | statsCriteria에 해당 하는 값<br/>국가 코드 값이 올 수 있음<br/>statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                                                                                  |
+| events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                                                                                  |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                                                                                  |
+| events.{statsCriteriaValue}.CONCAT      | Integer | 성공 개수                                                                                                  |
+
 ### (구)통합 통계 검색
 
 #### 요청
