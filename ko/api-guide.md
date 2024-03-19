@@ -4279,41 +4279,40 @@ curl -X GET \
 
 [URL]
 
-| Http method | 	URI                              |
-|-------------|-----------------------------------|
-| GET         | 	/sms/v3.0/appKeys/{appKey}/stats |
+| Http method | URI                              |
+|-------------|----------------------------------|
+| GET         | /sms/v3.0/appKeys/{appKey}/stats |
 
 [Path parameter]
 
-| 값      | 	타입     | 	설명     |
-|--------|---------|---------|
-| appKey | 	String | 	고유의 앱키 |
+| 값      | 타입     | 설명     |
+|--------|--------|--------|
+| appKey | String | 고유의 앱키 |
 
 [Header]
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
-| 값            | 	타입     | 	설명        |
-|--------------|---------|------------|
-| X-Secret-Key | 	String | 	고유의 시크릿 키 |
+| 값            | 타입     | 설명        |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 고유의 시크릿 키 |
 
 [Query parameter]
 
-| 값              | 	타입          | 	최대 길이 | 필수                                                                                                                                                             | 설명                                                                 |
-|----------------|--------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
-| statisticsType | String       | -      | 필수                                                                                                                                                             | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:요일별 |
-| from           | String       | -      | 필수                                                                                                                                                             | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss                                | 
-| to             | String       | -      | 필수                                                                                                                                                             | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss                                |
-| statsIds       | List<String> | -      | 옵션                                                                                                                                                             | 통계 ID 목록                                                           |
-| messageType    | String       | -      | 옵션                                                                                                                                                             | 메시지 타입<br/>SMS, LMS, MMS, AUTH                                     |
-| isAd           | Boolean      | -      | 옵션                                                                                                                                                             | 광고 여부<br/>true/false                                               |
-| templateIds    | List<String> | -      | 옵션                                                                                                                                                             | 템플릿 ID 목록                                                          |
-| requestIds     | List<String> | 5      | 옵션                                                                                                                                                             | 요청 ID 목록                                                           |
-| statsCriteria  | List<String> | 옵션     | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- EXTRA_1,EVENT: 메시지 타입, 이벤트<br/>- EXTRA_2,EVENT: 광고여부, 이벤트<br/>- EXTRA_3,EVENT: 발신 번호, 이벤트 |
+| 값              | 타입           | 최대 길이 | 필수 | 설명                                                                 |
+|----------------|--------------|-------|----|--------------------------------------------------------------------|
+| statisticsType | String       | -     | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:요일별 |
+| from           | String       | -     | 필수 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss                                | 
+| to             | String       | -     | 필수 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss                                |
+| statsIds       | List<String> | -     | 옵션 | 통계 ID 목록                                                           |
+| messageType    | String       | -     | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH                                     |
+| isAd           | Boolean      | -     | 옵션 | 광고 여부<br/>true/false                                               |
+| templateIds    | List<String> | -     | 옵션 | 템플릿 ID 목록                                                          |
+| requestIds     | List<String> | 5     | 옵션 | 요청 ID 목록                                                           |
 
 #### cURL
 
@@ -4338,10 +4337,10 @@ curl -X GET \
       {
         "eventDateTime": "",
         "events": {
-          "{statsCriteriaValue}.requested": 10,
-          "{statsCriteriaValue}.sent": 10,
-          "{statsCriteriaValue}.sentFailed" : 0,
-          "{statsCriteriaValue}.received": 0
+          "requested": 10,
+          "sent": 10,
+          "sentFailed" : 0,
+          "received": 0
         }
       }
     ]
@@ -4349,17 +4348,22 @@ curl -X GET \
 }
 ```
 
-| 값                                                  | 	타입      | 	설명                                                                                                                 |
-|----------------------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                                | 	Boolean | 	성공 여부                                                                                                              |
-| header.resultCode                                  | 	Integer | 	실패 코드                                                                                                              |
-| header.resultMessage                               | 	String  | 	실패 메시지                                                                                                             |
-| body.data.eventDateTime                            | 	String  | 	표시 이름<br/>분별, 시간별, 요일별, 월별                                                                                         |
-| body.data.events[].{statsCriteriaValue}            | List     | statsCriteria에 해당 하는 값<br/>메시지 타입/광고 유형/발신 번호 값이 올 수 있음<br/>statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
-| body.data.events[].{statsCriteriaValue}.requested  | 	Integer | 	요청 개수                                                                                                              |
-| body.data.events[].{statsCriteriaValue}.sent       | 	Integer | 	발송 개수                                                                                                              |
-| body.data.events[].{statsCriteriaValue}.sentFailed | 	Integer | 	실패 개수                                                                                                              |
-| body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	성공 개수                                                                                                              |
+| 값                    | 타입      | 설명            |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | 성공 여부         |
+| header.resultCode    | Integer | 실패 코드         |
+| header.resultMessage | String  | 실패 메시지        |
+| body.data            | List    | 통계 이벤트 객체 리스트 |
+
+#### 통계 이벤트 객체
+| 값                 | 타입      | 설명                         |
+|-------------------|---------|----------------------------|
+| eventDateTime     | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
+| events            | Object  | 통계 값 객체                    |
+| events.requested  | Integer | 요청 개수                      |
+| events.sent       | Integer | 발송 개수                      |
+| events.sentFailed | Integer | 실패 개수                      |
+| events.received   | Integer | 성공 개수                      |
 
 ### 통계 검색 - 요청 시간 기반
 
@@ -4374,27 +4378,27 @@ curl -X GET \
 
 [URL]
 
-| Http method | 	URI                                     |
-|-------------|------------------------------------------|
-| GET         | 	/sms/v3.0/appKeys/{appKey}/stats/legacy |
+| Http method | URI                                     |
+|-------------|-----------------------------------------|
+| GET         | /sms/v3.0/appKeys/{appKey}/stats/legacy |
 
 [Path parameter]
 
-| 값      | 	타입     | 	설명     |
-|--------|---------|---------|
-| appKey | 	String | 	고유의 앱키 |
+| 값      | 타입     | 설명     |
+|--------|--------|--------|
+| appKey | String | 고유의 앱키 |
 
 [Header]
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
-| 값            | 	타입     | 	설명        |
-|--------------|---------|------------|
-| X-Secret-Key | 	String | 	고유의 시크릿 키 |
+| 값            | 타입     | 설명        |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 고유의 시크릿 키 |
 
 [Query parameter]
 
@@ -4408,7 +4412,6 @@ curl -X GET \
 | isAd           | Boolean      | -      | 옵션                                                                                                                                                             | 광고 여부<br/>true/false                                               |
 | templateIds    | List<String> | -      | 옵션                                                                                                                                                             | 템플릿 ID 목록                                                          |
 | requestIds     | List<String> | 5      | 옵션                                                                                                                                                             | 요청 ID 목록                                                           |
-| statsCriteria  | List<String> | 옵션     | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- EXTRA_1,EVENT: 메시지 타입, 이벤트<br/>- EXTRA_2,EVENT: 광고여부, 이벤트<br/>- EXTRA_3,EVENT: 발신 번호, 이벤트 |
 
 #### 응답
 
@@ -4424,11 +4427,11 @@ curl -X GET \
       {
         "eventDateTime": "",
         "events": {
-          "{statsCriteriaValue}.requested": 10,
-          "{statsCriteriaValue}.sent": 10,
-          "{statsCriteriaValue}.sentFailed": 0,
-          "{statsCriteriaValue}.received": 0,
-          "{statsCriteriaValue}.pending": 0
+          "requested": 10,
+          "sent": 10,
+          "sentFailed": 0,
+          "received": 0,
+          "pending": 0
         }
       }
     ]
@@ -4436,18 +4439,23 @@ curl -X GET \
 }
 ```
 
-| 값                                                  | 	타입      | 	설명                                                                                                                 |
-|----------------------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                                | 	Boolean | 	성공 여부                                                                                                              |
-| header.resultCode                                  | 	Integer | 	실패 코드                                                                                                              |
-| header.resultMessage                               | 	String  | 	실패 메시지                                                                                                             |
-| body.data.eventDateTime                            | 	String  | 	표시 이름<br/>분별, 시간별, 요일별, 월별                                                                                         |
-| body.data.events[].{statsCriteriaValue}            | List     | statsCriteria에 해당 하는 값<br/>메시지 타입/광고 유형/발신 번호 값이 올 수 있음<br/>statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
-| body.data.events[].{statsCriteriaValue}.requested  | 	Integer | 	요청 개수                                                                                                              |
-| body.data.events[].{statsCriteriaValue}.sent       | 	Integer | 	발송 개수                                                                                                              |
-| body.data.events[].{statsCriteriaValue}.sentFailed | 	Integer | 	실패 개수                                                                                                              |
-| body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	성공 개수                                                                                                              |
-| body.data.events[].{statsCriteriaValue}.pending    | 	Integer | 	발송 중 개수                                                                                                            |
+| 값                    | 타입      | 설명            |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | 성공 여부         |
+| header.resultCode    | Integer | 실패 코드         |
+| header.resultMessage | String  | 실패 메시지        |
+| body.data            | List    | 통계 이벤트 객체 리스트 |
+
+#### 통계 이벤트 객체
+| 값                 | 타입      | 설명                         |
+|-------------------|---------|----------------------------|
+| eventDateTime     | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
+| events            | Object  | 통계 값 객체                    |
+| events.requested  | Integer | 요청 개수                      |
+| events.sent       | Integer | 발송 개수                      |
+| events.sentFailed | Integer | 실패 개수                      |
+| events.received   | Integer | 성공 개수                      |
+| events.pending    | Integer | 발송 중 개수                    |
 
 ### 통계 검색 - 국제 발송
 
