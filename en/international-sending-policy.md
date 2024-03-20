@@ -105,7 +105,7 @@
 | Equatorial Guinea | Equatorial Guinea | 240 |
 | Estonia | Estonia | 372 |
 | Ethiopia | Ethiopia | 251 |
-| British Falkland Islands | Falkland Islands | 500 |
+| Falkland Islands | Falkland Islands | 500 |
 | Faroe Islands | Faroe Islands | 298 |
 | Fiji | Fiji | 679 |
 | Finland | Finland | 358 |
