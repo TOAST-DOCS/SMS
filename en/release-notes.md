@@ -4,6 +4,7 @@
 #### Added Features
 * [Console] Role segmentation
     * Added the feature to grant separate SMS menu access and feature control permissions based on role.
+    ([Link](https://docs.nhncloud.com/ko/nhncloud/ko/console-guide/#_24))
 #### Feature Updates
 * [Console/API] Eased advertising copy restrictions
     * Modified to allow ads to be sent even if they contain other characters on either end of the free unsubscribe or free opt-out text that must be included when sending the ads.
