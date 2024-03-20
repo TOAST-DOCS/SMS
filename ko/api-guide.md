@@ -4505,7 +4505,7 @@ curl -X GET \
 | requestIds     | List<String> | 5      | 옵션 | 요청 ID 목록                                                                                            |
 | statsCriteria  | List<String> | -      | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- COUNTRY_CODE,EVENT: 국가 코드, 이벤트 |
 
-#### 응답 (통계 기준 : 기본 값)
+#### 응답(통계 기준: 기본 값)
 
 ```json
 {
@@ -4537,7 +4537,7 @@ curl -X GET \
 | header.resultMessage | String  | 실패 메시지        |
 | body.data            | List    | 통계 이벤트 객체 리스트 |
 
-#### 통계 이벤트 객체 (통계 기준 : 기본 값)
+#### 통계 이벤트 객체(통계 기준: 기본 값)
 | 값                  | 타입      | 설명                                                      |
 |--------------------|---------|---------------------------------------------------------|
 | eventDateTime      | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                              |
@@ -4547,7 +4547,7 @@ curl -X GET \
 | events.SENT_FAILED | Integer | 실패 개수                                                   |
 | events.CONCAT      | Integer | 성공 개수                                                   |
 
-#### 응답 (통계 기준 추가)
+#### 응답(통계 기준 추가)
 
 ```json
 {
@@ -4587,11 +4587,11 @@ curl -X GET \
 | header.resultMessage | String  | 실패 메시지        |
 | body.data            | List    | 통계 이벤트 객체 리스트 |
 
-#### 통계 이벤트 객체 (통계 기준 추가)
+#### 통계 이벤트 객체(통계 기준 추가)
 | 값                                       | 타입      | 설명                                         |
 |-----------------------------------------|---------|--------------------------------------------|
 | eventDateTime                           | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                 |
-| events.{statsCriteriaValue}             | Object  | statsCriteria에 해당 하는 값<br/>국가 코드 값이 올 수 있음 |
+| events.{statsCriteriaValue}             | Object  | statsCriteria에 해당하는 값<br/>국가 코드 값이 올 수 있음 |
 | events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                      |
 | events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                      |
 | events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                      |
