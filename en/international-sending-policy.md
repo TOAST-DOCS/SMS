@@ -2,11 +2,12 @@
 
 ## Guide to Sending International SMS Messages
 + When sending international SMS messages, please check the following key points.
+
 ### Country-specific Sender ID Policy
 + International SMS messages are sent according to country-specific sender ID policies and may be treated as spam if you do not follow the policies.
 + The sending number set by the customer is not guaranteed to be exposed on the receiving device. In most cases, the messages are sent after changing the sending number to a random number in order to send international SMS messages normally.
 
-### Sending Policy
+## Sending Policy
 * For detailed country-specific policies, see the [Detailed guide to SMS sending by country](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board).
 + In countries with strict international SMS message policies such as China and Vietnam, messages can be sent normally only if the content of the sending message is a verification number (OTP).
 + To send messages properly, it is recommended to enter the verification number (OTP) as follows. (Example: Your verification code is 00000)
@@ -17,7 +18,7 @@
 + International carriers generally only keep sending logs within 7 days, so depending on the time of inquiry, it is difficult to confirm the exact cause of non-receipt and may take some time.
 + Transmission quality by country is affected by the network and infrastructure environment in that country and may differ from the domestic environment.
 
-### Billing Policy
+## Billing Policy
 + International SMS messages are charged based on successful data transmission from overseas carriers.
 + International SMS billing policies are independent of DLR message status and DLR result codes.
 + The device reception result means the success of data transmission to the overseas communication service provider, and may differ from the actual device reception result. Even if the actual user did not receive the message, it may still count towards billing.
@@ -32,14 +33,12 @@
 | UCS-2<br>(Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
 
-
 ## International SMS Traffic Pumping
 
 + SMS traffic pumping refers to exploiting input fields, such as a request to verify a membership number, to send large volumes of SMS  for sending OTP messages. Some international mobile network operators (MNOs) artificially drive message sending to increase revenue.
 + When SMS traffic pumping occurs, there is a spike in messages sent to similar number ranges (e.g. +1111111110, +1111111111, +1111111112, +1111111113, etc.) and if you send a one-time password (OTP) SMS, there is a high chance that authentication will not complete.
 + To prevent SMS traffic pumping, if you block sending to country codes where there is no intent to send messages reduces the probability of SMS traffic pumping. Additionally, if you limit the allowed number of OTP verification requests to similar or identical numbers or limit the speed of message delivery per second, you can reduce the magnitude of the damage.
 * When SMS traffic pumping occurs, NHN Cloud may block the sending of some or all volumes of international SMS without prior notice to the relevant AppKey. NHN Cloud is not responsible for any cases of abusing and any cases blocked due to abusing.
-
 
 ## Available countries
 | Country name (in Korean) | Country name (in English) | Country code |
@@ -101,12 +100,12 @@
 | Dominican Republic | Dominican Republic | 1809 |
 | Ecuador | Ecuador | 593 |
 | Egypt | Egypt | 20 |
-| El Salvador | El Salvador | Appkey is not set |
+| El Salvador | El Salvador | 503 |
 | Eritrea | Eritrea | 291 |
 | Equatorial Guinea | Equatorial Guinea | 240 |
 | Estonia | Estonia | 372 |
 | Ethiopia | Ethiopia | 251 |
-| British Falkland Islands | Falkland Islands | Exceeded server connection time |
+| British Falkland Islands | Falkland Islands | 500 |
 | Faroe Islands | Faroe Islands | 298 |
 | Fiji | Fiji | 679 |
 | Finland | Finland | 358 |
@@ -146,7 +145,7 @@
 | Kenya | Kenya | 254 |
 | Kiribati | Kiribati | 686 |
 | Kuwait | Kuwait | 965 |
-| - Requires pre-registration of the sending number and fails to send the message if not registered | Kyrgyzstan | 996 |
+| Kyrgyzstan | Kyrgyzstan | 996 |
 | Laos | Laos | 856 |
 | Latvia | Latvia | 371 |
 | Lebanon | Lebanon | 961 |
