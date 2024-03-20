@@ -4505,7 +4505,49 @@ curl -X GET \
 | requestIds     | List<String> | 5      | 옵션 | 요청 ID 목록                                                                                            |
 | statsCriteria  | List<String> | -      | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- COUNTRY_CODE,EVENT: 국가 코드, 이벤트 |
 
-#### 응답
+#### 응답 (통계 기준 : 기본 값)
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "data": [
+      {
+        "eventDateTime": "",
+        "events": {
+          "REQUESTED": 10,
+          "SENT": 10,
+          "SENT_FAILED": 0,
+          "CONCAT": 20
+        }
+      }
+    ]
+  }
+}
+```
+
+| 값                    | 타입      | 설명            |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | 성공 여부         |
+| header.resultCode    | Integer | 실패 코드         |
+| header.resultMessage | String  | 실패 메시지        |
+| body.data            | List    | 통계 이벤트 객체 리스트 |
+
+#### 통계 이벤트 객체 (통계 기준 : 기본 값)
+| 값                  | 타입      | 설명                                                      |
+|--------------------|---------|---------------------------------------------------------|
+| eventDateTime      | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                              |
+| events             | Object  | statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
+| events.REQUESTED   | Integer | 요청 개수                                                   |
+| events.SENT        | Integer | 발송 개수                                                   |
+| events.SENT_FAILED | Integer | 실패 개수                                                   |
+| events.CONCAT      | Integer | 성공 개수                                                   |
+
+#### 응답 (통계 기준 추가)
 
 ```json
 {
@@ -4545,15 +4587,15 @@ curl -X GET \
 | header.resultMessage | String  | 실패 메시지        |
 | body.data            | List    | 통계 이벤트 객체 리스트 |
 
-#### 통계 이벤트 객체
-| 값                                       | 타입      | 설명                                                                                                     |
-|-----------------------------------------|---------|--------------------------------------------------------------------------------------------------------|
-| eventDateTime                           | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                                                                             |
-| events.{statsCriteriaValue}             | Object  | statsCriteria에 해당 하는 값<br/>국가 코드 값이 올 수 있음<br/>statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
-| events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                                                                                  |
-| events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                                                                                  |
-| events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                                                                                  |
-| events.{statsCriteriaValue}.CONCAT      | Integer | 성공 개수                                                                                                  |
+#### 통계 이벤트 객체 (통계 기준 추가)
+| 값                                       | 타입      | 설명                                         |
+|-----------------------------------------|---------|--------------------------------------------|
+| eventDateTime                           | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                 |
+| events.{statsCriteriaValue}             | Object  | statsCriteria에 해당 하는 값<br/>국가 코드 값이 올 수 있음 |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                      |
+| events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                      |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                      |
+| events.{statsCriteriaValue}.CONCAT      | Integer | 성공 개수                                      |
 
 ### (구)통합 통계 검색
 
