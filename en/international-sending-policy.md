@@ -41,23 +41,23 @@
 * When SMS traffic pumping occurs, NHN Cloud may block the sending of some or all volumes of international SMS without prior notice to the relevant AppKey. NHN Cloud is not responsible for any cases of abusing and any cases blocked due to abusing.
 
 
-### Countries Available for Message Delivery
-| Country name (Korean) | Country name (English) | Country code |
+## Available countries
+| Country name (in Korean) | Country name (in English) | Country code |
 |---|---|---|
 | Afghanistan | Afghanistan | 93 |
 | Albania | Albania | 355 |
 | Algeria | Algeria | 213 |
 | American Samoa | American Samoa | 1684 |
-| Andorra | Andorra | 376
+| Andorra | Andorra | 376 |
 | Angola | Angola | 244 |
-| Anguilla | Anguilla | 1264 | British Virgin Islands
-| Antigua & Barbuda | Antigua & Barbuda | 1268
+| Anguilla | Anguilla | 1264 |
+| Antigua & Barbuda | Antigua & Barbuda | 1268 |
 | Argentina | Argentina | 54 |
-| Armenia | Armenia | 374
-| Aruba | Aruba | 297
+| Armenia | Armenia | 374 |
+| Aruba | Aruba | 297 |
 | Australia | Australia | 61 |
 | Austria | Austria | 43 |
-| Azerbaijan | Azerbaijan | 994 | Azerbaijan
+| Azerbaijan | Azerbaijan | 994 |
 | Bahamas | Bahamas | 1242 |
 | Bahrain | Bahrain | 973 |
 | Bangladesh | Bangladesh | 880 |
@@ -66,200 +66,200 @@
 | Belgium | Belgium | 32 |
 | Belize | Belize | 501 |
 | Benin | Benin | 229 |
-| British Bermuda | Bermuda | 1441
+| Bermuda | Bermuda | 1441 |
 | Bhutan | Bhutan | 975 |
-| Bolivia | Bolivia | 591
-| Bosnia and Herzegovina | Bosnia and Herzegovina | 387
-| Botswana | Botswana | 267
+| Bolivia | Bolivia | 591 |
+| Bosnia and Herzegovina | Bosnia and Herzegovina | 387 |
+| Botswana | Botswana | 267 |
 | Brazil | Brazil | 55 |
 | British Virgin Islands | British Virgin Islands | 1340 |
-| Brunei Darussalam | Brunei Darussalam | 673
+| Brunei Darussalam | Brunei Darussalam | 673 |
 | Bulgaria | Bulgaria | 359 |
-| Burkina Faso | Burkina Faso | 226 | Burkina Faso
+| Burkina Faso | Burkina Faso | 226 |
 | Burundi | Burundi | 257 |
 | Cambodia | Cambodia | 855 |
 | Cameroon | Cameroon | 237 |
 | Cape Verde | Cape Verde | 238 |
-| British Cayman Islands | Cayman Islands | 1345
-| Central African Republic | Central African Republic | 236
+| Cayman Islands | Cayman Islands | 1345 |
+| Central African Republic | Central African Republic | 236 |
 | Chad | Chad | 235 |
 | Chile | Chile | 56 |
 | China | China | 86 |
-| Cook Islands | Cocos Keeling Islands (Cook Islands) | 682 |
+| Cocos Keeling Islands (Cook Islands) | Cocos Keeling Islands (Cook Islands) | 682 |
 | Colombia | Colombia | 57 |
 | Congo | Congo | 242 |
-| Costa Rica | Costa Rica | 506
-| Côte d'Ivoire | Côte d'Ivoire | 225
+| Costa Rica | Costa Rica | 506 |
+| Côte d'Ivoire | Côte d'Ivoire | 225 |
 | Croatia | Croatia | 385 |
 | Cuba | Cuba | 53 |
-| Cyprus | Cyprus | 357
-| Czech Republic | Czechia | 420 |
-| Democratic Republic of the Congo | Democratic Republic of the Congo | 243
+| Cyprus | Cyprus | 357 |
+| Czechia | Czechia | 420 |
+| Democratic Republic of the Congo | Democratic Republic of the Congo | 243 |
 | Denmark | Denmark | 45 |
-| Djibouti | Djibouti | 253
-| Commonwealth of Dominica | Dominica | 1767 |
+| Djibouti | Djibouti | 253 |
+| Dominica | Dominica | 1767 |
 | Dominican Republic | Dominican Republic | 1809 |
 | Ecuador | Ecuador | 593 |
 | Egypt | Egypt | 20 |
-| El Salvador | El Salvador | 503 |
-| Eritrea | Eritrea | 291
-| Equatorial Guinea | Equatorial Guinea | 240
-| Estonia | Estonia | 372
-| Ethiopia | Ethiopia | 251 | Ethiopia | 251
-| British Falkland Islands | Falkland Islands | 500 | 500
-| Faroe Islands | Faroe Islands | 298
+| El Salvador | El Salvador | Appkey is not set |
+| Eritrea | Eritrea | 291 |
+| Equatorial Guinea | Equatorial Guinea | 240 |
+| Estonia | Estonia | 372 |
+| Ethiopia | Ethiopia | 251 |
+| British Falkland Islands | Falkland Islands | Exceeded server connection time |
+| Faroe Islands | Faroe Islands | 298 |
 | Fiji | Fiji | 679 |
 | Finland | Finland | 358 |
 | France | France | 33 |
 | French Guiana | French Guiana | 594 |
-| French Polynesia | French Polynesia | 689
+| French Polynesia | French Polynesia | 689 |
 | Gabon | Gabon | 241 |
 | Gambia | Gambia | 220 |
 | Georgia | Georgia | 995 |
 | Germany | Germany | 49 |
 | Ghana | Ghana | 233 |
-| Gibraltar | Gibraltar | 350 | Gibraltar | 350
+| Gibraltar | Gibraltar | 350 |
 | Greece | Greece | 30 |
 | Greenland | Greenland | 299 |
 | Grenada | Grenada | 1473 |
-| French Guadeloupe | Guadeloupe | 590
+| Guadeloupe | Guadeloupe | 590 |
 | Guam | Guam | 1671 |
-| Guatemala | Guatemala | 502
+| Guatemala | Guatemala | 502 |
 | Guinea | Guinea | 224 |
-| Guinea-Bissau | Guinea-Bissau | 245
-| Guyana | Guyana | 592
-| Haiti | Haiti | 509
+| Guinea-Bissau | Guinea-Bissau | 245 |
+| Guyana | Guyana | 592 |
+| Haiti | Haiti | 509 |
 | Honduras | Honduras | 504 |
-| Hong Kong | Hong-Kong | 852
+| Hong-Kong | Hong-Kong | 852 |
 | Hungary | Hungary | 36 |
-| Iceland | Iceland | 354 | Iceland
+| Iceland | Iceland | 354 |
 | India | India | 91 |
 | Indonesia | Indonesia | 62 |
 | Iran | Iran | 98 |
 | Iraq | Iraq | 964 |
-| Ireland | Ireland | 353
-| Israel | Israel | 972
+| Ireland | Ireland | 353 |
+| Israel | Israel | 972 |
 | Italy | Italy | 39 |
 | Jamaica | Jamaica | 1876 |
 | Japan | Japan | 81 |
 | Jordan | Jordan | 962 |
 | Kenya | Kenya | 254 |
-| Kiribati | Kiribati | 686
-| Kuwait | Kuwait | 965
-| Kyrgyzstan | Kyrgyzstan | 996
-| Laos | Laos | 856
-| Latvia | Latvia | 371
-| Lebanon | Lebanon | 961
+| Kiribati | Kiribati | 686 |
+| Kuwait | Kuwait | 965 |
+| - Requires pre-registration of the sending number and fails to send the message if not registered | Kyrgyzstan | 996 |
+| Laos | Laos | 856 |
+| Latvia | Latvia | 371 |
+| Lebanon | Lebanon | 961 |
 | Lesotho | Lesotho | 266 |
-| Liberia | Liberia | 231
+| Liberia | Liberia | 231 |
 | Libya | Libya | 218 |
 | Liechtenstein | Liechtenstein | 423 |
-| Lithuania | Lithuania | 370
-| Luxembourg | Luxembourg | 352
+| Lithuania | Lithuania | 370 |
+| Luxembourg | Luxembourg | 352 |
 | Macau | Macau | 853 |
-| Madagascar | Madagascar | 261
-| Malawi | Malawi | 265
+| Madagascar | Madagascar | 261 |
+| Malawi | Malawi | 265 |
 | Malaysia | Malaysia | 60 |
 | Maldives | Maldives | 960 |
 | Mali | Mali | 223 |
 | Malta | Malta | 356 |
-| Republic of the Marshall Islands | Marshall Islands | 692
-| Martinique, France | Martinique | 596
-| Mauritania | Mauritania | 222
-| Mauritius | Mauritius | 230
+| Marshall Islands | Marshall Islands | 692 |
+| Martinique | Martinique | 596 |
+| Mauritania | Mauritania | 222 |
+| Mauritius | Mauritius | 230 |
 | Mayotte | Mayotte | 269 |
 | Mexico | Mexico | 52 |
-| Micronesia | Micronesia | 691
+| Micronesia | Micronesia | 691 |
 | Moldova | Moldova | 373 |
 | Monaco | Monaco | 377 |
 | Mongolia | Mongolia | 976 |
-| Montenegro | Montenegro | 382
-| British Montserrat | Montserrat | 1664 |
+| Montenegro | Montenegro | 382 |
+| Montserrat | Montserrat | 1664 |
 | Morocco | Morocco | 212 |
-| Mozambique | Mozambique | 258
+| Morocco | Mozambique | 258 |
 | Myanmar | Myanmar | 95 |
-| Namibia | Namibia | 264
+| Namibia | Namibia | 264 |
 | Nauru | Nauru | 674 |
-| Netherlands Antilles | Nederlandse Antillen | 599 |
+| Nederlandse Antillen | Nederlandse Antillen | 599 |
 | Nepal | Nepal | 977 |
 | Netherlands | Netherlands | 31 |
-| New Caledonia | New Caledonia | 687 | New Caledonia
+| New Caledonia | New Caledonia | 687 |
 | New Zealand | New Zealand | 64 |
-| Nicaragua | Nicaragua | 505
-| Niger | Niger | 227
-| Nigeria | Nigeria | 234
-| North Macedonia | North Macedonia | 389 | North Macedonia
-| United States Northern Mariana Islands | Northern Marianas | 1670 |
+| Nicaragua | Nicaragua | 505 |
+| Niger | Niger | 227 |
+| Nigeria | Nigeria | 234 |
+| North Macedonia | North Macedonia | 389 |
+| Northern Marianas | Northern Marianas | 1670 |
 | Norway | Norway | 47 |
 | Oman | Oman | 968 |
 | Pakistan | Pakistan | 92 |
 | Palau | Palau | 680 |
-| Palestine | Palestine | 970
+| Palestine | Palestine | 970 |
 | Panama | Panama | 507 |
-| Papua New Guinea | Papua New Guinea | 675
-| Paraguay | Paraguay | 595
+| Papua New Guinea | Papua New Guinea | 675 |
+| Papua New Guinea | Paraguay | 595 |
 | Peru | Peru | 51 |
 | Philippines | Philippines | 63 |
 | Poland | Poland | 48 |
 | Portugal | Portugal | 351 |
-| Puerto Rico | Puerto Rico | 1787
+| Puerto Rico | Puerto Rico | 1787 |
 | Qatar | Qatar | 974 |
-| Réunion Island | Réunion, France | 262
+| Réunion Island | Réunion Island | 262 |
 | Romania | Romania | 40 |
 | Russia / Kazakhstan | Russia / Kazakhstan | 7 |
-| Rwanda | Rwanda | 250
-| São Tomé and Principe | S. Tomé & Principe | 239 |
-| Saint Helena | Saint Helena | 290 | British Virgin Islands
+| Rwanda | Rwanda | 250 |
+| S. Tomé & Principe | S. Tomé & Principe | 239 |
+| British Saint Helena | Saint Helena | 290 |
 | Samoa | Samoa | 685 |
-| San Marino | San Marino | 378
+| San Marino | San Marino | 378 |
 | Saudi Arabia | Saudi Arabia | 966 |
-| Senegal | Senegal | 221 | Senegal
+| Senegal | Senegal | 221 |
 | Serbia | Serbia | 381 |
-| Seychelles | Seychelles | 248
-| Sierra Leone | Sierra Leone | 232
+| Seychelles | Seychelles | 248 |
+| Sierra Leone | Sierra Leone | 232 |
 | Singapore | Singapore | 65 |
 | Slovakia | Slovakia | 421 |
 | Slovenia | Slovenia | 386 |
-| Solomon Islands | Solomon Islands | 677 | Solomon Islands
+| Solomon Islands | Solomon Islands | 677 |
 | Somalia | Somalia | 252 |
 | South Africa | South Africa | 27 |
-| Republic of South Sudan | South Sudan | 211
+| South Sudan | South Sudan | 211 |
 | Spain | Spain | 34 |
 | Sri Lanka | Sri Lanka | 94 |
 | St. Kitts and Nevis | St. Kitts and Nevis | 1869 |
 | St. Lucia | St. Lucia | 1758 |
-| St. Pierre & Miquelon, France | St. Pierre & Miquelon | 508
+| St. Pierre & Miquelon | St. Pierre & Miquelon | 508 |
 | St. Vincent and the Grenadines | St. Vincent and the Grenadines | 1784 |
 | Sudan | Sudan | 249 |
 | Suriname | Suriname | 597 |
-| Swaziland | Swaziland | 268
+| Swaziland | Swaziland | 268 |
 | Sweden | Sweden | 46 |
 | Switzerland | Switzerland | 41 |
 | Syria | Syria | 963 |
-| Taiwan | Taiwan | 886
+| Taiwan | Taiwan | 886 |
 | Tajikistan | Tajikistan | 992 |
-| Tanzania | Tanzania | 255
+| Tanzania | Tanzania | 255 |
 | Thailand | Thailand | 66 |
-| East Timor | Timor-Leste | 670
+| Timor-Leste | Timor-Leste | 670 |
 | Togo | Togo | 228 |
 | Tonga | Tonga | 676 |
-| Trinidad & Tobago | Trinidad & Tobago Rep. | 1868 |
-| Tunisia | Tunisia | 216
-| Turkiye | Turkey | 90 |
-| Turkmenistan | Turkmenistan | 993 | Turkmenistan
-| British Kirks & Caicos Islands | Turks & Caicos Is. | 1649 |
+| Trinidad & Tobago Rep. | Trinidad & Tobago Rep. | 1868 |
+| Tunisia | Tunisia | 216 |
+| Turkey | Turkey | 90 |
+| Turkmenistan | Turkmenistan | 993 |
+| Turks & Caicos Is. | Turks & Caicos Is. | 1649 |
 | Uganda | Uganda | 256 |
-| Ukraine | Ukraine | 380
-| United Arab Emirates | United Arab Emirates | 971 | United Arab Emirates
+| Ukraine | Ukraine | 380 |
+| United Arab Emirates | United Arab Emirates | 971 |
 | United Kingdom | United Kingdom | 44 |
 | United States / Canada | United States / Canada | 1 |
-| Uruguay | Uruguay | 598
-| Uzbekistan | Uzbekistan | 998 | Uzbekistan
-| Vanuatu | Vanuatu | 678
+| Uruguay | Uruguay | 598 |
+| Uzbekistan | Uzbekistan | 998 |
+| Vanuatu | Vanuatu | 678 |
 | Venezuela | Venezuela | 58 |
 | Vietnam | Vietnam | 84 |
-| U.S. Virgin Islands | Virgin Islands (US) | 1284 |
-| French Polynesia | Wallis and Futuna | 681 | 681 | French Polynesia
+| Virgin Islands (US) | Virgin Islands (US) | 1284 |
+| French Wallis and Futuna Islands | Wallis and Futuna | 681 |
 | Yemen | Yemen | 967 |
-| Zambia | Zambia | 260
-| Zimbabwe | Zimbabwe | 263
+| Zambia | Zambia | 260 |
+| Zimbabwe | Zimbabwe | 263 |
