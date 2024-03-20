@@ -8,7 +8,7 @@
 + 고객이 설정한 발신 번호는 수신 단말기에 노출을 보장할 수 없으며, 국제 SMS 메시지를 정상적으로 발송하기 위해 임의의 숫자나 문자, NHNcorp 등으로 변경되어 발송될 수 있습니다.
 
 ## 발송 정책
-+ 국가별 상세 정책은 [[국가별 SMS 발송 상세 가이드](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)] 참고 부탁드립니다.
++ 국가별 상세 정책은 [[국가별 SMS 발송 상세 가이드](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)]를 참고하십시오.
 + 중국, 베트남과 같이 국제 SMS 메시지 정책이 엄격한 국가의 경우, 메시지 발송 내용이 인증 번호(OTP)인 경우에 대해서만 정상적으로 발송될 수 있습니다.
 + 메시지를 정상적으로 발송하기 위해 인증 번호(OTP) 발송 내용을 예시와 같이 입력할 것을 권장합니다. (예시: Your verification code is 00000)
 + 마케팅 메시지 발송을 희망할 경우 사전에 [[고객 센터](https://www.nhncloud.com/kr/support/inquiry)]로 문의 바랍니다.
