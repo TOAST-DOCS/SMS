@@ -4301,7 +4301,7 @@ curl -X GET \
 | statisticsType | String       | -     | Required | Statistics tpye<br/>NORMAL: Normal, MINUTELY: Minutely, HOURLY: Hourly, DAILY: Daily, BY_DAY: By day |
 | from           | String       | -     | Required | Start date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                | 
 | to             | String       | -     | Required | End date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                |
-| statsIds       | List<String> | -     | Option | Statistics ID 목록                                                           |
+| statsIds       | List<String> | -     | Option | Statistics ID list                                                           |
 | messageType    | String       | -     | Option | Message type<br/>SMS, LMS, MMS, AUTH                                     |
 | isAd           | Boolean      | -     | Option | Advertise or not<br/>true/false                                               |
 | templateIds    | List<String> | -     | Option | Template ID list                                                         |
@@ -4352,7 +4352,7 @@ curl -X GET \
 
 | Value                 | Type      | Description                         |
 |-------------------|---------|----------------------------|
-| eventDateTime     | String  | Displayed name<br/>Minutely, Hourly, Daily, Monthly |
+| eventDateTime     | String  | Display name<br/>Minutely, Hourly, Daily, Monthly |
 | events            | Object  | Statistics value object                    |
 | events.requested  | Integer | Number of requests                      |
 | events.sent       | Integer | Number of sent items             |
@@ -4444,7 +4444,7 @@ curl -X GET \
 #### Statistical Event Objects
 | Value                 | Type      | Description                         |
 |-------------------|---------|----------------------------|
-| eventDateTime     | String  | Display<br/>Minutely, Hourly, Daily, Monthly |
+| eventDateTime     | String  | Display name<br/>Minutely, Hourly, Daily, Monthly |
 | events            | Object  | Statistics value object                    |
 | events.requested  | Integer | Number of requests                    |
 | events.sent       | Integer | Number of sent items             |
