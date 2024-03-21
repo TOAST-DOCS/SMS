@@ -4279,13 +4279,13 @@ curl -X GET \
 
 [URL]
 
-| Http method | 	URI                              |
-|-------------|-----------------------------------|
-| GET         | 	/sms/v2.4/appKeys/{appKey}/stats |
+| Http method | URI                              |
+|-------------|----------------------------------|
+| GET         | /sms/v3.0/appKeys/{appKey}/stats |
 
 [Path parameter]
 
-| Value  | 	Type   | 	Description     |
+| Value  | Type   | Description     |
 |--------|---------|------------------|
 | appKey | 	String | 	Original appkey |
 
@@ -4296,24 +4296,16 @@ curl -X GET \
   "X-Secret-Key": "{secret-key}"
 }
 ```
-
-| Value        | Type    | Description          |
-|--------------|---------|----------------------|
-| X-Secret-Key | 	String | 	Original secret key |
-
-[Query parameter]
-
-| Value          | 	Type        | 	Maximum Length | Required                                                                                                                                                                                                            | Description                                                                                                          |
-|----------------|--------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| statisticsType | String       | -               | Required                                                                                                                                                                                                            | Type of statistics<br/>NORMAL:Default, MINUTELY:By the minute, HOURLY: By the hour, DAILY: By the day, BY_DAY:By day |
-| from           | String       | -               | Required                                                                                                                                                                                                            | Start Date of Statistics Search<br/>yyyy-MM-dd HH:mm:ss                                                              | 
-| to             | String       | -               | Required                                                                                                                                                                                                            | End Date of Statistics Search <br/>yyyy-MM-dd HH:mm:ss                                                               |
-| statsIds       | List<String> | -               | Optional                                                                                                                                                                                                            | Statistics ID List                                                                                                   |
-| messageType    | String       | -               | Optional                                                                                                                                                                                                            | Message Type <br/>SMS, LMS, MMS, AUTH                                                                                |
-| isAd           | Boolean      | -               | Optional                                                                                                                                                                                                            | Ad or Not <br/>true/false                                                                                            |
-| templateIds    | List<String> | -               | Optional                                                                                                                                                                                                            | Template ID List                                                                                                     |
-| requestIds     | List<String> | 5               | Optional                                                                                                                                                                                                            | Request ID List                                                                                                      |
-| statsCriteria  | List<String> | Option          | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
+| Value              | Type           | Maximum length | Required | Description                                                                 |
+|----------------|--------------|-------|----|--------------------------------------------------------------------|
+| statisticsType | String       | -     | Required | Statistics tpye<br/>NORMAL: Normal, MINUTELY: Minutely, HOURLY: Hourly, DAILY: Daily, BY_DAY: By day |
+| from           | String       | -     | Required | Start date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                | 
+| to             | String       | -     | Required | End date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                |
+| statsIds       | List<String> | -     | Option | Statistics ID 목록                                                           |
+| messageType    | String       | -     | Option | Message type<br/>SMS, LMS, MMS, AUTH                                     |
+| isAd           | Boolean      | -     | Option | Advertise or not<br/>true/false                                               |
+| templateIds    | List<String> | -     | Option | Template ID list                                                         |
+| requestIds     | List<String> | 5     | Option | Request ID list                                                           |
 
 #### cURL
 
@@ -4338,10 +4330,10 @@ curl -X GET \
       {
         "eventDateTime": "",
         "events": {
-          "{statsCriteriaValue}.requested": 10,
-          "{statsCriteriaValue}.sent": 10,
-          "{statsCriteriaValue}.sentFailed": 0,
-          "{statsCriteriaValue}.received": 0
+          "requested": 10,
+          "sent": 10,
+          "sentFailed" : 0,
+          "received": 0
         }
       }
     ]
@@ -4349,17 +4341,23 @@ curl -X GET \
 }
 ```
 
-| Value                                              | Type     | Description                                                                                                                                                  |
-|----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                                | 	Boolean | 	Successful or not                                                                                                                                           |
-| header.resultCode                                  | 	Integer | 	Failure code                                                                                                                                                |
-| header.resultMessage                               | 	String  | 	Failure message                                                                                                                                             |
-| body.data.eventDateTime                            | 	String  | 	Display name<br/> Minutely, Hourly, Daily, Monthly                                                                                                          |
-| body.data.events[].{statsCriteriaValue}            | List     | Value for statsCriteria<br/>This can be message type/ad type/calling number value<br/>If statsCriteria is set to EVENT only, {statsCriteriaValue} is omitted |
-| body.data.events[].{statsCriteriaValue}.requested  | 	Integer | 	Number of requests                                                                                                                                          |
-| body.data.events[].{statsCriteriaValue}.sent       | 	Integer | 	Number of sent items                                                                                                                                        |
-| body.data.events[].{statsCriteriaValue}.sentFailed | 	Integer | 	Number of failures                                                                                                                                          |
-| body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	Number of successes                                                                                                                                         |
+| Value                    | Type      | Description            |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | Successful or not         |
+| header.resultCode    | Integer | Failure code       |
+| header.resultMessage | String  | Failure message        |
+| body.data            | List    | Statistical event objects |
+
+#### Statistical Event Objects
+
+| Value                 | Type      | Description                         |
+|-------------------|---------|----------------------------|
+| eventDateTime     | String  | Displayed name<br/>Minutely, Hourly, Daily, Monthly |
+| events            | Object  | Statistics value object                    |
+| events.requested  | Integer | Number of requests                      |
+| events.sent       | Integer | Number of sent items             |
+| events.sentFailed | Integer | Number of failures                    |
+| events.received   | Integer | Number of successes                      |
 
 ### Statistics Search - Based on Request Time
 
@@ -4374,9 +4372,9 @@ curl -X GET \
 
 [URL]
 
-| Http method | 	URI                                     |
+| Http method | URI                                     |
 |-------------|------------------------------------------|
-| GET         | 	/sms/v3.0/appKeys/{appKey}/stats/legacy |
+| GET         | /sms/v3.0/appKeys/{appKey}/stats/legacy |
 
 [Path parameter]
 
@@ -4424,11 +4422,11 @@ curl -X GET \
       {
         "eventDateTime": "",
         "events": {
-          "{statsCriteriaValue}.requested": 10,
-          "{statsCriteriaValue}.sent": 10,
-          "{statsCriteriaValue}.sentFailed": 0,
-          "{statsCriteriaValue}.received": 0,
-          "{statsCriteriaValue}.pending": 0
+           "requested": 10,
+          "sent": 10,
+          "sentFailed": 0,
+          "received": 0,
+          "pending": 0
         }
       }
     ]
@@ -4436,19 +4434,163 @@ curl -X GET \
 }
 ```
 
-| Value                                              | Type     | Description                                                                                                                                                  |
-|----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                                | 	Boolean | 	Successful or not                                                                                                                                           |
-| header.resultCode                                  | 	Integer | 	Failure code                                                                                                                                                |
-| header.resultMessage                               | 	String  | 	Failure message                                                                                                                                             |
-| body.data.eventDateTime                            | 	String  | 	Display name <br/>Minutely,Hourly, Daily, and Monthly                                                                                                       |
-| body.data.events[].{statsCriteriaValue}            | List     | Value for statsCriteria<br/>This can be message type/ad type/calling number value<br/>If statsCriteria is set to EVENT only, {statsCriteriaValue} is omitted |
-| body.data.events[].{statsCriteriaValue}.requested  | 	Integer | 	Number of requests                                                                                                                                          |
-| body.data.events[].{statsCriteriaValue}.sent       | 	Integer | 	Number of sent items                                                                                                                                        |
-| body.data.events[].{statsCriteriaValue}.sentFailed | 	Integer | 	Number of failures                                                                                                                                          |
-| body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	Number of successes                                                                                                                                         |
+| Value                    | Type      | Description            |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | Successful or not        |
+| header.resultCode    | Integer | Failure code         |
+| header.resultMessage | String  | Failure message        |
+| body.data            | List    | Statistical event objects |
 
-|body.data.events[].{statsCriteriaValue}.pending | Integer| Number of pending items|
+#### Statistical Event Objects
+| Value                 | Type      | Description                         |
+|-------------------|---------|----------------------------|
+| eventDateTime     | String  | Display<br/>Minutely, Hourly, Daily, Monthly |
+| events            | Object  | Statistics value object                    |
+| events.requested  | Integer | Number of requests                    |
+| events.sent       | Integer | Number of sent items             |
+| events.sentFailed | Integer | Number of failures           |
+| events.received   | Integer | Number of successes             |
+| events.pending    | Integer | Number of pending items             |
+
+### Statistic Search - International Send
+
+* The statistics collected based on event occurrence time.
+* The statistical data is collected based on the following time.
+    * Number of requests (requested): When requested to send
+    * Number of sent items (sent): When requested to send to carrier (vendor)
+    * Number of successes (concat): When messages sent via single or concatenated message features was received
+    * Number of failures (sentFailed): When a failed response occurred
+
+#### Request
+
+[URL]
+
+| Http method | URI                                            |
+|-------------|------------------------------------------------|
+| GET         | /sms/v3.0/appKeys/{appKey}/stats/international |
+
+[Path parameter]
+
+| Value      | Type     | Description     |
+|--------|--------|--------|
+| appKey | String | Unique appkey |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| Value            | Type     | Description        |
+|--------------|--------|-----------|
+| X-Secret-Key | String | Unique secret key |
+
+[Query parameter]
+
+| Value              | 	Type          | Maximum length | Required | Description                                                                                                  |
+|----------------|--------------|--------|----|-----------------------------------------------------------------------------------------------------|
+| statisticsType | String       | -      | Required | Statistics Type<br/>NORMAL: Normal, MINUTELY: Minutely, HOURLY: Hourly, DAILY: Daily, BY_DAY: By day                             |
+| from           | String       | -      | Required | Start date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                                                 | 
+| to             | String       | -      | Required | End date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                                                 |
+| statsIds       | List<String> | -      | Option | Statistics ID list                                                                                            |
+| countryCode    | String       | -      | Option | Country code                                                                                               |
+| templateIds    | List<String> | -      | Option | Template ID list                                                                                           |
+| requestIds     | List<String> | 5      | Option | Request ID list                                                                                            |
+| statsCriteria  | List<String> | -      | Option | Statistics criteria<br/>- EVENT: Event (Default Value)<br/>- TEMPLATE_ID,EVENT: Template, Event<br/>- COUNTRY_CODE,EVENT: Country code, event |
+
+#### Response (Statistics criteria: Default Value)
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "data": [
+      {
+        "eventDateTime": "",
+        "events": {
+          "REQUESTED": 10,
+          "SENT": 10,
+          "SENT_FAILED": 0,
+          "CONCAT": 20
+        }
+      }
+    ]
+  }
+}
+```
+
+| Value                    | Type      | Description            |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | Successful or not         |
+| header.resultCode    | Integer | Failure code         |
+| header.resultMessage | String  | Failure message        |
+| body.data            | List    | Statistical event objects |
+
+#### Statistical Event Objects (Statistics criteria: Default value)
+| Value                  | Type      | Description                                                      |
+|--------------------|---------|---------------------------------------------------------|
+| eventDateTime      | String  | Display name<br/>Minutely, Hourly, Daily, Monthly                              |
+| events             | Object  | When statsCriteria is set only as EVENT {statsCriteriaValue} is omitted |
+| events.REQUESTED   | Integer | Number of requests                                                   |
+| events.SENT        | Integer | Number of sent items                                               |
+| events.SENT_FAILED | Integer | Number of failures                                        |
+| events.CONCAT      | Integer | Number of successes                                          |
+
+#### Response (Statistics criteria added)
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "data": [
+      {
+        "eventDateTime": "",
+        "events": {
+          "{statsCriteriaValue}": {
+            "REQUESTED": 10,
+            "SENT": 10,
+            "SENT_FAILED": 0,
+            "CONCAT": 10
+          },
+          "{statsCriteriaValue}": {
+            "REQUESTED": 10,
+            "SENT": 10,
+            "SENT_FAILED": 0,
+            "CONCAT": 20
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+| Value                    | Type      | Description            |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | Successful or not         |
+| header.resultCode    | Integer | Failure code         |
+| header.resultMessage | String  | Failure message        |
+| body.data            | List    | Statistical event objects |
+
+#### Statistical Event Objects (Statistics criteria added)
+| Value                                       | Type      | Description                                         |
+|-----------------------------------------|---------|--------------------------------------------|
+| eventDateTime                           | String  | Display name<br/>Minutely, Hourly, Daily, Monthly                 |
+| events.{statsCriteriaValue}             | Object  | Value for statsCriteria<br/>Can be country code |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | Number of requests                                      |
+| events.{statsCriteriaValue}.SENT        | Integer | Number of sent items                  |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | Number of failures                           |
+| events.{statsCriteriaValue}.CONCAT      | Integer | Number of successes                             |
 
 ### (Old)Query Integrated Statistics
 

@@ -1,5 +1,14 @@
 ## Notification > SMS > Release Notes
 
+### March 26, 2024
+#### Added Features
+* [API] Added International Send Statistics API
+    * Added the International Send Statistics API.
+    * For more information, see [[Statistics Search - International Send](./api-guide/#_105)].
+#### Feature Updates
+* [Console] Message Send Type Segmentation
+    * Segmented message send types to SMS, LMS, and MMS when sending or registering a template.
+
 ### February 27, 2024
 #### Added Features
 * [Console] Role segmentation
