@@ -290,7 +290,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13          | Optional  | Sender number                                                                                                          |
 | recipientNo          | 	String  | 20          | Optional  | Recipient number                                                                                                       |
 | templateId           | 	String  | 50          | Optional  | Template number                                                                                                        |
-| msgStatus            | 	String  | 1           | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+| msgStatus            | 	String  | 1           | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery, 6: Failed (Ad restricted), 7: Waiting for Resending (Ad restricted)) |
 | resultCode           | 	String  | 10          | Optional  | Result code of receiving [[Table on Query Codes](./error-code/#_2)]                                                    |
 | subResultCode        | 	String  | 10          | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
@@ -737,7 +737,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13         | Optional  | Sender number                                                                                                          |
 | recipientNo          | 	String  | 20         | Optional  | Recipient numbe                                                                                                        |
 | templateId           | 	String  | 50         | Optional  | Template number                                                                                                        |
-| msgStatus            | 	String  | 1          | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+| msgStatus            | 	String  | 1          | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery, 6: Failed (Ad restricted), 7: Waiting for Resending (Ad restricted)) |
 | resultCode           | 	String  | 10         | Optional  | Result code of receiving [[Table on Query Codes](./error-code/#_2)]                                                    |
 | subResultCode        | 	String  | 10         | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100        | Optional  | Sender's group key                                                                                                     |
@@ -1188,7 +1188,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13          | Optional  | Sender number                                                                                                          |
 | recipientNo          | 	String  | 20          | Optional  | Recipient number                                                                                                       |
 | templateId           | 	String  | 50          | Optional  | Template number                                                                                                        |
-| msgStatus            | 	String  | 1           | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+| msgStatus            | 	String  | 1           | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery, 6: Failed (Ad restricted), 7: Waiting for Resending (Ad restricted)) |
 | resultCode           | 	String  | 10          | Optional  | Result code of receiving [[Table on Query Codes](./error-code/#_2)]                                                    |
 | subResultCode        | 	String  | 10          | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
@@ -1387,13 +1387,23 @@ Content-Type: application/json;charset=UTF-8
 Same as Send SMS in the above.
 [[See Request Body](./api-guide/#sms_2)]
 
-<span style="color:red"> However, following messages must be included in the body. </span>
-080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console. 
+<span style="color:red"> However, required statements for ads must be included in the body. </span>
 
+080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console.
+
+Required statements for ads are as follows.
+- Opening statement: `(Ads)`
+- Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
+
+Example
+```
+(Ads)
+[Deny for free]080XXXXXXX
+```
 ```
 (Ad)
 
-[Unsubscribe for free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 
 ### Send MMS for Advertisement
@@ -1415,13 +1425,23 @@ Content-Type: application/json;charset=UTF-8
 Same as Send MMS in the above.
 [[See Request Body](./api-guide/#mms_1)]
 
-<span style="color:red"> However, following messages must be included in the body. </span>
-080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console. 
+<span style="color:red">  However, required statements for ads must be included in the body.</span>
 
+080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console.
+
+Required statements for ads are as follows.
+- Opening statement: `(Ads)`
+- Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
+
+Example
+```
+(Ads)
+[Deny for free]080XXXXXXX
+```
 ```
 (Ad)
 
-[Unsubscribe for free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 
 ## Query Messages by Result Updates
@@ -3231,7 +3251,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo           | 	String  | 13          | Optional  | Sender number                                                                                                                                                                            |
 | recipientNo      | 	String  | 20          | Optional  | Recipient number                                                                                                                                                                         |
 | templateId       | 	String  | 50          | Optional  | Template number                                                                                                                                                                          |
-| messageStatus    | 	String  | 10          | Optional  | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED: Sending completed, FAILED: Sending failed, CANCEL: Canceled, and DUPLICATED: Duplicate delivery) |
+| messageStatus    | 	String  | 10          | Optional  | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                                                                                                                                                 |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                                                                                          |
 
@@ -3296,7 +3316,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].templateName      | 	String       | Template name                                                                                                                                                                         |
 | body.data[].title             | 	String       | Title                                                                                                                                                                                 |
 | body.data[].body              | 	String       | Body message                                                                                                                                                                          |
-| body.data[].messageStatus     | 	String       | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery) |
+| body.data[].messageStatus     | 	String       | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
 | body.data[].createUser        | 	String       | Registered user                                                                                                                                                                       |
 | body.data[].createDate        | 	String       | Date of registration                                                                                                                                                                  |
 | body.data[].updateDate        | 	String       | Date of modification                                                                                                                                                                  |
@@ -3383,7 +3403,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data.templateName              | 	String       | Template name                                                                                                                                                                          |
 | body.data.title                     | 	String       | Title                                                                                                                                                                                  |
 | body.data.body                      | 	String       | Body message                                                                                                                                                                           |
-| body.data.messageStatus             | 	String       | Message status <br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Sending completed, FAILED:Sending failed, CANCEL: Canceled, and DUPLICATED: Duplicate delivery) |
+| body.data.messageStatus             | 	String       | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
 | body.data.createUser                | 	String       | Registered user                                                                                                                                                                        |
 | body.data.createDate                | 	String       | Date of registration                                                                                                                                                                   |
 | body.data.attachFileList[].fileId   | 	Integer      | File ID                                                                                                                                                                                |
@@ -3512,7 +3532,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo                | 	String | 13          | Optional                       | Sender number                                                                                                          |
 | recipientNo           | 	String | 20          | Optional                       | Receiving number                                                                                                       |
 | templateId            | 	String | 50          | Optional                       | Template number                                                                                                        |
-| msgStatus             | 	String | 1           | Optional                       | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+| msgStatus             | 	String | 1           | Optional                       | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery, 6: Failed (Ad restricted), 7: Waiting for Resending (Ad restricted)) |
 | resultCode            | 	String | 10          | Optional                       | Result code of receiving [[Table on Query Codes](./error-code/#_2)]                                                    |
 | subResultCode         | 	String | 10          | Optional                       | Detail code of receiving [[Table on Query Codes](./error-code/#_3)]                                                    |
 | senderGroupingKey     | 	String | 100         | Optional                       | Sender's group key                                                                                                     |

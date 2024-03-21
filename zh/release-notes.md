@@ -1,5 +1,79 @@
 ## Notification > SMS > Release Notes
 
+### February 27, 2024
+#### Added Features
+* [Console] Role segmentation
+    * Added the feature to grant separate SMS menu access and feature control permissions based on role.
+    ([Link](https://docs.nhncloud.com/ko/nhncloud/ko/console-guide/#_24))
+#### Feature Updates
+* [Console/API] Eased advertising copy restrictions
+    * Modified to allow ads to be sent even if they contain other characters on either end of the free unsubscribe or free opt-out text that must be included when sending the ads.
+#### Bug Fixes
+* [Console] Fixed bugs that occurred when requesting mass delivery, tagged delivery file download
+    * Fixed a bug where you cannot download the lists filtered by search criteria from Query by Recipient for mass delivery or tagged delivery when requesting a file download.
+
+### January 23, 2024
+#### Added Features
+* [Console/API] Added DLR result retrieval for international SMS delivery
+    * Added the feature to query DLR results when sending international SMS.
+        * Added the dlr field to the v3.0 detailed list API.
+        * Added the DLR status, DLR network code, and DLR error code to the detailed list API.
+    * For more information, see [International SMS sending policy](./international-sending-policy).
+    * For DLR status and error code, see [DLR Result Code](./error-code/#dlr).
+
+#### Feature Updates
+* [Console] Separated sender number pre-registration from identity verification
+    * Separated the sender number pre-registration tab from the identity verification tab.
+
+### November 28, 2023
+#### Feature Updates
+* [Console] Monthly limit threshold notifications for International SMS
+    * Added the feature to send a notification email to all project members when the auto blocking monthly limit is reached.
+    * You can set whether to enable the notification on the Sending Settings tab.
+* [Console/API] Changed the body for validation when sending ads.
+    * The phrase **Deny to receive for free**, which is required to be included in the body when sending ads, has been relaxed to **Deny for free**.
+* [API] Improved the detailed search for tagged delivery recipient API v3.0
+    * Improved the detailed search for tagged delivery recipient API v3.0 to include identification code.
+
+### October 31, 2023.
+#### Feature Updates
+* [Console] Improved international SMS sending settings
+    * Split the sending settings menu into two tabs: General SMS and International SMS.
+    * Modified to allow you to set ‘Monthly Auto Ban Limit’.
+    * Added a feature to manage countries allowed to send.
+* [Console] Improved character limit for SMS messages
+    * Eased the 255-character maximum limit for domestic SMS sending to align with international SMS standard.
+    * Changed the maximum number of characters that can be entered according to the encoding (UCS-2: 335 characters, GSM-7bit: 765 characters).
+* [Console/API] Improved bulk and tagged delivery
+    * Applied the identification code to mass and tag delivery according to the revised KISA .
+
+#### Bug Fixes
+* [Console/API] Fixed a bug that displayed as ETC when sending LMS/MMS to KT mobile devices
+    * Fixed a bug that intermittently displayed as ETC when sending LMS/MMS to KT mobile devices.
+
+### September 26, 2023
+#### Feature Updates
+* [Console] Improved to identify the reason behind denied personal authentication
+    * Improved to identify why you were denied authentication in your authentication history.
+* [Console] Improved international sending statistics
+    * Improved to view request, sending, sending failed, receiving, and message count event in international sending statistics.
+
+### August 29, 2023
+#### Feature Updates
+* [API] Improved template deletion
+    * Improved to allow reregistration with deleted template ID.
+* [API] Improved the createUser, updateUser response fields
+    * Improved to send user email addresses to the createUser and updateUser fields when querying.
+* [Console/API] Improved the mass delivery cancellation feature
+    * During mass delivery, cancellation request is viewed as "Canceling" until all recipients have been canceled, and "Canceled" after all recipients have been canceled.
+    * For more information on status codes, see [List Mass Delivery](./api-guide/#_30).
+* [API] Added the delivered message count field to the v3.0 list query and detailed query APIs
+    * Added the delivered message count (messageCount) to the v3.0 list query and detailed query APIs.
+    * If a long message is divided into several messages and sent using the international concat function, you can check the number of messages sent based on the number of characters.
+    * For information on the character count, refer to [](./international-sending-policy/#_3)Pricing Policy[](./international-sending-policy/#_3).
+* [Console] Added the delivered message count column to the retrieved list
+    * You can check the number of messages sent in the delivery lists of Query by SMS Request, Query Mass SMS Delivery, Query Tagged SMS Delivery.
+
 ### August 1, 2023
 #### Added Features
 * [Console] Added split sending feature
@@ -163,7 +237,7 @@
         * The following two lists are available for download if invalid recipients are included in the uploaded recipient file.
             * Download the list of valid recipient numbers
             * Download the list of invalid recipient numbers
-        * If you want to send SMS to valid recipients only, you can do so by clicking the **Send Text Messages to Valid Recipients Only**    button.
+        * If you want to send SMS to valid recipients only, you can do so by clicking the **Send Text Messages to Valid Recipients Only**  button.
 * [Console] Statistics feature improved/changed
     * Improved to enable viewing the stats by any one of the following: template ID, message type, presence of ad, and calling number.
 * [Console/API] Disallowed use of some special characters for template ID
@@ -299,7 +373,7 @@
 #### Feature Updates
 * [Console] Changed Mailing Period for Guide on Failed Mass/Tag Message Delivery
     * In case mass/tag messages are not actually delivered even after [Confirm and Send] is selected without time scheduled, they are 'Processed as Failure' one day after registered, and guiding mail is sent to users.
-    * If    a message is not actually delivered after [Confirm and Send] is selected with time scheduled, it is 'Processed as Failure' one day after scheduled time and guiding mail is sent to user.
+    * If  a message is not actually delivered after [Confirm and Send] is selected with time scheduled, it is 'Processed as Failure' one day after scheduled time and guiding mail is sent to user.
 * [Console] Updated to show byte counts for title or body on the deliver page
 * [Console] Updated to query by the 'Sender Registrant' on the General/Mass/Tag delivery page
 
@@ -337,7 +411,7 @@
 
 ### August 27, 2019
 #### Feature Updates
-* [Console] Allowed more length for a business name,    for the setting of Rejection of Receiving 080 Numbers
+* [Console] Allowed more length for a business name,  for the setting of Rejection of Receiving 080 Numbers
     * Updated to save up to 100 characters for a business name
 * [Console] Added a column on an excel sheet when downloading files on the list of each request
 
@@ -647,7 +721,7 @@
 
 ### April 20, 2017
 #### Added Features
-* [API]    Rejection of Receiving 080 Numbers added
+* [API]  Rejection of Receiving 080 Numbers added
     * You may join the rejection service of receiving 080 numbers to send ad messages. [[API Guide](./api-guide/#sms_11)]
     * See [[Rejection of Receiving 080 Numbers](./console-guide/#080)] for more details on subscription.
 
@@ -692,7 +766,7 @@
 #### Bug Fixes
 * [API] Fixed the bug in which server error occurred for the sending of MMS attachment when the file was unavailable attached file
     * AS-IS: Responded with server error when sent by unavailable attached file ID
-    * TO-BE: Provide error messages for causes of failure, when there is unavailable attached file for MMS attachment delivery     M
+    * TO-BE: Provide error messages for causes of failure, when there is unavailable attached file for MMS attachment delivery   M
 * [Console] Fixed the bug of space in CSV template files for mass delivery.
     * AS-IS: Error in parsing when there is space between fields in CSV template files
     * TO-BE: Normal operations for spaces by , between fields in CSV template files
@@ -707,7 +781,7 @@
     * TO-BE: When all is selected for the cause of result, the selection windows for the cause of result is not available.
 * [Console] For sender number registration, validation has been enforced.
     * AS-IS: Check duplicate checks only
-    * TO-BE: Duplicate checks + Check sender number registration format      [[Format of Sender Number Registration](./console-guide/#_16)]
+    * TO-BE: Duplicate checks + Check sender number registration format    [[Format of Sender Number Registration](./console-guide/#_16)]
 
 
 #### Bug Fixes

@@ -30,17 +30,17 @@ Content of Business: Send SMS in lieu of customers
 ## Filter Messages from Spoofed Numbers
 The 'Filter Messages from Spoofed Numbers' service protects user's own phone number from potentially spoofed for criminal acts or spamming.
 
-### Please Check
-+ As a free service provided by each telecommunication provider (e.g. SKT, KT, LGU+, or MVNO providers), it only requires your agreement to get registered.
+### Guide to Usage
++ As a free service provided by each telecommunication provider (e.g. SKT, KT, LG U+, or MVNO providers), it only requires your agreement to get registered.
 + If your text delivery is confirmed as 'Failure' on the website, even after it is sent to an appropriate number, see if your 'Filter Messages from Spoofed Numbers' service is enabled.
 + Disable 'Filter Messages from Spoofed Numbers' first, and then try sending your message.
 + It takes about 7 days to get disabled after it is applied.
 
-### Disabling Filter Messages from Spoofed Numbers for Each Provider
+### Guide to Cancelation
 + On Website
     + For SKT: [[Go to Disable Service](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
     + For KT: [[Go to Disable Service](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
-    + For U+: [[Go to Disable Service](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=50501&prodCdKey=LRZ0002297)]
+    + For LG U+: [[Go to Disable Service](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0002297)]
 + Via Customer Center
     + Press 114 on mobile phone + Call
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
@@ -50,17 +50,17 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + The service is provided by each telecommunication provider to automatically block annoying spams.
 + Texts considered as spams, by each provider's criteria, are sent to Spam Inbox, instead of Message Inbox.
 
-### Please Check
+### Guide to Usage
 + If your delivery result is confirmed as successful but message is still not received, see if your Filter Spams service is enabled.
 + In accordance with the comprehensive measures set by the Anti-Spam Center of Korea Internet & Security Agency, each telecommunication provider provides 'Spam-Filtering' service.
 + If your message is saved at Spam Inbox, instead of Messages Inbox, disable the spam-filtering service first.
 + Due to policy to protect personal information, no one else but you must enable or disable the service.
 
-### Disabling Filter Spams for Each Provider
+### Guide to Cancelation
 + On Website
     + For SKT: [[Go to Disable Service](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
     + For KT: [[Go to Disable Service](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
-    + For U+: [[Go to Disable Service](http://www.uplus.co.kr/css/pord/cosv/cosv/RetrievePsMbSDmsgInfo.hpi?catgCd=51436&prodCdKey=LRZ0000277&mid=315)]
+    + For LG U+: [[Go to Disable Service](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0000277)]
 + Via Customer Center
     + Press 114 on mobile phone + Call
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
@@ -69,22 +69,34 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 ### Unsubscribing 080 Numbers
 + With Unsubscribe 080 Numbers, recipients can reject receiving ad messages.
 + Ads must be sent along with how to unsubscribe for free, so that recipients can reject or withdraw consent to receiving ads, without a charge.
-### Please Check
+
+### Guide to Usage
 + Charges for Unsubscribe 080 Numbers are not based on the delivery time, but upon the public release of each number (monthly fixed charges).
 + It takes about 3 to 4 days to get a new number for unsubscription, so one-off or repetitive service cancellation or application is not recommended.
 + Please note that a service opening cannot be cancelled while registration is reserved.
 + If you want to use the registered 080 call rejection number in other projects, you can use the **Share the blocked 080 phone numbers** feature.
 + 080 numbers that are cancelled from unsubscription or applied externally, delivery shall fail.
 
-## Guide for Sending Speed Depending on the Size of MMS Attachments
+### Guide to Sending Advertising Messages
+In accordance with Article 50 of the Act on Promotion of Information and Communications Network Utilization and Information Protection etc.
+You must obtain the recipient's express prior consent and comply with the sending marking obligations.<br/>
+[[Korea Internet & Security Agency (KISA) Guide to the Information and Communication Network Act to Prevent Illegal Spam](https://static.toastoven.net/prod_sms/eng/kisa_spam_guide.pdf)]
++ The sending number must be a valid number that can be directly contacted by the actual sender.
++ Insert (advertising) text at the beginning of the content
++ Include the sender's business name or service name
++ Provide a free opt-out method
++ Prohibition of sending advertising information at night: Requires individual prior consent of the recipient when sending at night (PM 09 ~ AM 08)
++ Notify the recipient of the result of the opt-out request: name of the sender, the fact and date of the expression of intent, and the result of the processing.
+
+## Guide to Sending Speed Depending on the Size of MMS Attachments
 + When sending MMS, there may be a difference in the sending speed depending on the size of the attachments.
 + The larger the size of uploaded attachments is, the slower the sending speed and the update of reception result may become due to carrier's sending speed restrictions.
 + If you want faster delivery, we recommend that you make a request by reducing the size of attachments.
 
-## Guide for sending contents according to character set
+## Guide to sending contents according to character set
 + When received, messages included in EUC-KR normally appear the same as the contents sent.
 + When characters not included in EUC-KR are included in the title/body, the contents may appear as broken characters such as '?'.
-     + Depending on the type of receiving device and carrier, the contents of the message may appear differently.
+    + Depending on the type of receiving device and carrier, the contents of the message may appear differently.
 
 ## Timeout Policy for Message Receiving Result
 + Depending on the device and communication status, there may be a delay in updating message receiving results.

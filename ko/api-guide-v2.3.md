@@ -294,7 +294,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13     | 	옵션 | 	발신 번호                                                 |
 | recipientNo          | 	String  | 20     | 	옵션 | 	수신 번호                                                 |
 | templateId           | 	String  | 50     | 	옵션 | 	템플릿 번호                                                |
-| msgStatus            | 	String  | 1      | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
+| msgStatus            | 	String  | 1      | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패, 6 :실패(광고 제한), 7:재발송 대기(광고 제한)) |
 | resultCode           | 	String  | 10     | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                 |
 | subResultCode        | 	String  | 10     | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
 | senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹키                                               |
@@ -779,7 +779,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13    | 	옵션 | 	발신 번호                                                 |
 | recipientNo          | 	String  | 20    | 	옵션 | 	수신 번호                                                 |
 | templateId           | 	String  | 50    | 	옵션 | 	템플릿 번호                                                |
-| msgStatus            | 	String  | 1     | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
+| msgStatus            | 	String  | 1     | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패, 6 :실패(광고 제한), 7:재발송 대기(광고 제한)) |
 | resultCode           | 	String  | 10    | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                 |
 | subResultCode        | 	String  | 10    | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
 | senderGroupingKey    | 	String  | 100   | 	옵션 | 	발송자 그룹키                                               |
@@ -1236,7 +1236,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13     | 	옵션 | 	발신 번호                                                 |
 | recipientNo          | 	String  | 20     | 	옵션 | 	수신 번호                                                 |
 | templateId           | 	String  | 50     | 	옵션 | 	템플릿 번호                                                |
-| msgStatus            | 	String  | 1      | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
+| msgStatus            | 	String  | 1      | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패, 6 :실패(광고 제한), 7:재발송 대기(광고 제한)) |
 | resultCode           | 	String  | 10     | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                 |
 | subResultCode        | 	String  | 10     | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
 | senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹키                                               |
@@ -3715,7 +3715,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo           | 	String  | 13     | 옵션  | 	발신 번호                                                                                                  |
 | recipientNo      | 	String  | 20     | 	옵션 | 	수신 번호                                                                                                  |
 | templateId       | 	String  | 50     | 	옵션 | 	템플릿 번호                                                                                                 |
-| messageStatus    | 	String  | 10     | 	옵션 | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패,CANCEL:취소,DUPLICATED:중복 발송) |
+| messageStatus    | 	String  | 10     | 	옵션 | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한)) |
 | pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                                                                        |
 | pageSize         | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                                                                         |
 
@@ -3788,7 +3788,7 @@ curl -X GET \
 | body.data[].templateName      | 	String       | 	템플릿명                                                                                                |
 | body.data[].title             | 	String       | 	제목                                                                                                  |
 | body.data[].body              | 	String       | 	본문 내용                                                                                               |
-| body.data[].messageStatus     | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기,SENDING:발송 중,COMPLETED:발송 완료,FAILED:발송 실패,CANCEL:취소,DUPLICATED:중복 발송) |
+| body.data[].messageStatus     | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한)) |
 | body.data[].createUser        | 	String       | 	등록한 사용자                                                                                             |
 | body.data[].createDate        | 	String       | 	등록 날짜                                                                                               |
 | body.data[].updateDate        | 	String       | 	수정 날짜                                                                                               |
@@ -3885,7 +3885,7 @@ curl -X GET \
 | body.data.templateName                    | 	String       | 	템플릿명                                                                                                |
 | body.data.title                           | 	String       | 	제목                                                                                                  |
 | body.data.body                            | 	String       | 	본문 내용                                                                                               |
-| body.data.messageStatus                   | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기,SENDING:발송 중,COMPLETED:발송 완료,FAILED:발송 실패,CANCEL:취소,DUPLICATED:중복 발송) |
+| body.data.messageStatus                   | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한)) |
 | body.data.createUser                      | 	String       | 	등록한 사용자                                                                                             |
 | body.data.createDate                      | 	String       | 	등록 날짜                                                                                               |
 | body.data[].attachFileList[].fileId       | 	Integer      | 	파일 ID                                                                                               |
@@ -4224,7 +4224,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo                | 	String | 13     | 	옵션 | 	발신 번호                                                 |
 | recipientNo           | 	String | 20     | 	옵션 | 	수신 번호                                                 |
 | templateId            | 	String | 50     | 	옵션 | 	템플릿 번호                                                |
-| msgStatus             | 	String | 1      | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패) |
+| msgStatus             | 	String | 1      | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패, 6 :실패(광고 제한), 7:재발송 대기(광고 제한)) |
 | resultCode            | 	String | 10     | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                 |
 | subResultCode         | 	String | 10     | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
 | senderGroupingKey     | 	String | 100    | 	옵션 | 	발송자 그룹 키                                              |
@@ -5016,82 +5016,3 @@ curl -X DELETE \
 | header.isSuccessful  | 	Boolean | 	성공 여부  |
 | header.resultCode    | 	Integer | 	실패 코드  |
 | header.resultMessage | 	String  | 	실패 메시지 |
-
-## 웹훅
-
-SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 URL로 POST 요청을 생성합니다.<br>
-생성된 POST 요청에 대한 API 문서입니다.
-
-### 웹훅 발송
-
-[URL]
-
-| Http method | 	URI              |
-|-------------|-------------------|
-| POST        | 웹훅 설정에 정의한 대상 URL |
-
-[Header]
-
-| 값                         | 	타입     | 	설명             |
-|---------------------------|---------|-----------------|
-| X-Toast-Webhook-Signature | 	String | 	웹훅 설정 시 입력한 서명 |
-
-[Request body]
-
-```json
-{
-  "hooksId": "202007271010101010sadasdavas",
-  "webhookConfigId": "String",
-  "productName": "SMS",
-  "appKey": "akb3dukdmdjsdSvgk",
-  "event": "UNSUBSCRIBE",
-  "hooks": [
-    {
-      "hookId": "202007271010101010sadasdavas",
-      "recipientNo": "01012341234",
-      "unsubscribeNo": "08012341234",
-      "enterpriseName": "NHN Cloud",
-      "createdDateTime": "2020-09-09T11:25:10.000+09:00"
-    }
-  ]
-}
-```
-
-| 값                       | 	타입     | 	설명                                           |
-|-------------------------|---------|-----------------------------------------------|
-| hooksId                 | 	String | 	웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID  |
-| webhookConfigId         | 	String | 웹훅 설정 ID                                      |
-| productName             | 	String | 	웹훅 이벤트가 발생한 서비스명                             |
-| appKey                  | 	String | 웹훅 이벤트가 발생한 서비스 앱키                            |
-| event                   | 	String | 	웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록     |
-| hooks[].hookId          | 	String | 서비스에서 이벤트 발생 시 생성되는 고유 ID                     |
-| hooks[].recipientNo     | 	String | 	수신 거부된 휴대폰 번호                                |
-| hooks[].unsubscribeNo   | 	String | 	수신 거부 서비스에 등록된 080 번호                        |
-| hooks[].enterpriseName  | 	String | 	수신 거부 서비스에 등록된 업체명                           |
-| hooks[].createdDateTime | 	String | 수신 거부 요청 일시<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX |
-
-#### cURL
-
-```
-curl -X POST \
-    '{TargetUrl}' \
-    -H 'Content-Type: application/json;charset=UTF-8' \
-    -H 'X-Toast-Webhook-Signature: application/json;charset=UTF-8' \
-    -d '{
-        "hooksId":"202007271010101010sadasdavas",
-        "webhookConfigId":"String",
-        "productName":"Sms",
-        "appKey":"akb3dukdmdjsdSvgk",
-        "event":"UNSUBSCRIBE",
-        "hooks":[
-            {
-                "hookId":"202007271010101010sadasdavas",
-                "recipientNo":"01012341234",
-                "unsubscribeNo":"08012341234",
-                "enterpriseName":"NHN Cloud",
-                "createdDateTime":"2020-09-09T11:25:10.000+09:00"
-            }
-        ]
-    }
-'
-```

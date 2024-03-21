@@ -324,7 +324,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13          | Optional  | Sender number                                                                                                          |
 | recipientNo          | 	String  | 20          | Optional  | Recipient number                                                                                                       |
 | templateId           | 	String  | 50          | Optional  | Template number                                                                                                        |
-| msgStatus            | 	String  | 1           | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+| msgStatus            | 	String  | 1           | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery, 6: Failed (Ad restricted), 7: Waiting for Resending (Ad restricted)) |
 | resultCode           | 	String  | 10          | Optional  | Result code of receiving [[Table on Query Codes](./error-code/#_2)]                                                    |
 | subResultCode        | 	String  | 10          | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
@@ -505,7 +505,12 @@ curl -X GET \
       "originCode": "123456789",
       "resultMessage": "",
       "senderGroupingKey": "SenderGroupingKey",
-      "recipientGroupingKey": "RecipientGroupingKey"
+      "recipientGroupingKey": "RecipientGroupingKey",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -536,13 +541,16 @@ curl -X GET \
 | body.data.recipientSeq         | 	Integer | Detail delivery ID (required to query details)                                                                                                                                     |
 | body.data.sendType             | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
 | body.data.messageType          | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
-| body.data.messageCount         | 	Integer | 	Number of messages sent                                                                                                                                                           |
+| body.data.messageCount         | 	Integer | 	Number of messages sent (international sending)                                                                                                                                   |
 | body.data.userId               | 	String  | Delivery request ID                                                                                                                                                                |
 | body.data.adYn                 | 	String  | Ad or not                                                                                                                                                                          |
 | body.data.originCode           | String   | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
 | body.data.resultMessage        | 	String  | 	Result message                                                                                                                                                                    |
 | body.data.senderGroupingKey    | 	String  | Sender's group key                                                                                                                                                                 |
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                                                                                                              |
+| body.data.dlr.dlrStatus        | 	String  | 	DLR status code                                                      |
+| body.data.dlr.networkCode      | 	String  | 	DLR network code                                                     |
+| body.data.dlr.errorCode        | 	String  | 	DLR error code                                                       |
 
 ## Long MMS
 
@@ -863,7 +871,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13         | Optional  | Sender number                                                                                                          |
 | recipientNo          | 	String  | 20         | Optional  | Recipient number                                                                                                       |
 | templateId           | 	String  | 50         | Optional  | Template number                                                                                                        |
-| msgStatus            | 	String  | 1          | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+| msgStatus            | 	String  | 1          | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery, 6: Failed (Ad restricted), 7: Waiting for Resending (Ad restricted)) |
 | resultCode           | 	String  | 10         | Optional  | Result code of receiving [[Table on Query Codes](./error-code/#_2)]                                                    |
 | subResultCode        | 	String  | 10         | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100        | Optional  | Sender's group key                                                                                                     |
@@ -1371,7 +1379,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13          | Optional  | Sender number                                                                                                          |
 | recipientNo          | 	String  | 20          | Optional  | Recipient number                                                                                                       |
 | templateId           | 	String  | 50          | Optional  | Template number                                                                                                        |
-| msgStatus            | 	String  | 1           | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+| msgStatus            | 	String  | 1           | Optional  | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery, 6: Failed (Ad restricted), 7: Waiting for Resending (Ad restricted)) |
 | resultCode           | 	String  | 10          | Optional  | Result code of receiving [[Table on Query Codes](./error-code/#_2)]                                                    |
 | subResultCode        | 	String  | 10          | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
@@ -1552,7 +1560,12 @@ curl -X GET \
       "originCode": "123456789",
       "resultMessage": "",
       "senderGroupingKey": "SenderGroupingKey",
-      "recipientGroupingKey": "RecipientGroupingKey"
+      "recipientGroupingKey": "RecipientGroupingKey",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -1590,6 +1603,9 @@ curl -X GET \
 | body.data.resultMessage        | 	String  | Result message                                                                                                                                                                     |
 | body.data.senderGroupingKey    | 	String  | Sender's group key                                                                                                                                                                 |
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                                                                                                              |
+| body.data.dlr.dlrStatus        | String   | DLR status code                                                                                                                                                                    |
+| body.data.dlr.networkCode      | String   | DLR network code                                                                                                                                                                   |
+| body.data.dlr.errorCode        | String   | DLR error code                                                                                                                                                                     |
 
 ## Ad Messages
 
@@ -1626,13 +1642,23 @@ Content-Type: application/json;charset=UTF-8
 Same as Send SMS in the above.
 [[See Request Body](./api-guide/#sms_2)]
 
-<span style="color:red"> However, following messages must be included in the body. </span>
-080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console. 
+<span style="color:red">  However, required statements for ads must be included in the body.</span>
 
+080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console.
+
+Required statements for ads are as follows.
+- Opening statement: `(Ads)`
+- Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
+
+Example
+```
+(Ads)
+[Deny for free]080XXXXXXX
+```
 ```
 (Ad)
 
-[Unsubscribe for free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 
 #### cURL
@@ -1678,13 +1704,23 @@ Content-Type: application/json;charset=UTF-8
 Same as Send MMS in the above.
 [[See Request Body](./api-guide/#mms_1)]
 
-<span style="color:red"> However, following messages must be included in the body. </span>
-080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console. 
+<span style="color:red">  However, required statements for ads must be included in the body.</span>
 
+080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console.
+
+Required statements for ads are as follows.
+- Opening statement: `(Ads)`
+- Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
+
+Example
+```
+(Ads)
+[Deny for free]080XXXXXXX
+```
 ```
 (Ad)
 
-[Unsubscribe for free]080XXXXXXX
+[Deny for free]080XXXXXXX
 ```
 
 #### cURL
@@ -2060,7 +2096,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/receive/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -2094,7 +2130,12 @@ curl -X GET \
       "resultCode": null,
       "receiveDate": null,
       "createDate": null,
-      "attachFileList": []
+      "attachFileList": [],
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -2130,6 +2171,9 @@ curl -X GET \
 | body.data.attachFileList[].fileSequence | Integer  | Attached file - file sequence                                                         |
 | body.data.attachFileList[].createDate   | String   | Attached file - date and time of creation                                             |
 | body.data.attachFileList[].updateDate   | String   | Attached file - date of modification                                                  |
+| body.data.dlr.dlrStatus                 |	String   | DLR status code                                                                       |
+| body.data.dlr.networkCode               | String   | DLR network code                                                                      |
+| body.data.dlr.errorCode                 | String   | DLR error code                                                                        |
 
 ## Tag Delivery
 
@@ -2665,7 +2709,13 @@ curl -X GET \
       "messageCount": 0,
       "resultCode": "3015",
       "receiveDate": "2018-08-13 02:20:48.0",
-      "attachFileList": []
+      "attachFileList": [],
+      "originCode": "123456789",
+      "dlr": {
+        "dlrStatus": "DELIVERED",
+        "networkCode": "12345",
+        "errorCode": "0"
+      }
     }
   }
 }
@@ -2698,7 +2748,10 @@ curl -X GET \
 | body.data.attachFileList[].fileSequence | Integer  | Attached file - file sequence                                                         |
 | body.data.attachFileList[].createDate   | String   | Attached file - date of creation                                                      |
 | body.data.attachFileList[].updateDate   | String   | Attached file - date of modification                                                  |
-
+| body.data.originCode                    | String   | Identification code (For special value-added telecommunication business operators, must use the 9 digit registration number listed on certificates excluding symbols, letters, and spaces.) |
+| body.data.dlr.dlrStatus                 | String   | DLR status code                                                                       |
+| body.data.dlr.networkCode               | String   | DLR network code                                                                      |
+| body.data.dlr.errorCode                 | String   | DLR error code                                                                        |
 <span id="binaryUpload"></span>
 
 ## Attached Files
@@ -4523,7 +4576,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo           | 	String  | 13          | Optional  | Sender number                                                                                                                                                                            |
 | recipientNo      | 	String  | 20          | Optional  | Recipient number                                                                                                                                                                         |
 | templateId       | 	String  | 50          | Optional  | Template number                                                                                                                                                                          |
-| messageStatus    | 	String  | 10          | Optional  | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED: Sending completed, FAILED: Sending failed, CANCEL: Canceled, and DUPLICATED: Duplicate delivery) |
+| messageStatus    | 	String  | 10          | Optional  | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                                                                                                                                                 |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                                                                                          |
 
@@ -4597,7 +4650,7 @@ curl -X GET \
 | body.data[].templateName      | 	String       | Template name                                                                                                                                                                         |
 | body.data[].title             | 	String       | Title                                                                                                                                                                                 |
 | body.data[].body              | 	String       | Body message                                                                                                                                                                          |
-| body.data[].messageStatus     | 	String       | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery) |
+| body.data[].messageStatus     | 	String       | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
 | body.data[].createUser        | 	String       | Registered user                                                                                                                                                                       |
 | body.data[].createDate        | 	String       | Date of registration                                                                                                                                                                  |
 | body.data[].updateDate        | 	String       | Date of modification                                                                                                                                                                  |
@@ -4707,7 +4760,7 @@ curl -X GET \
 | body.data.templateName                    | 	String       | Template name                                                                                                                                                                          |
 | body.data.title                           | 	String       | Title                                                                                                                                                                                  |
 | body.data.body                            | 	String       | Body message                                                                                                                                                                           |
-| body.data.messageStatus                   | 	String       | Message status <br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Sending completed, FAILED:Sending failed, CANCEL: Canceled, and DUPLICATED: Duplicate delivery) |
+| body.data.messageStatus                   | 	String       | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
 | body.data.createUser                      | 	String       | Registered user                                                                                                                                                                        |
 | body.data.createDate                      | 	String       | Date of registration                                                                                                                                                                   |
 | body.data[].attachFileList[].fileId       | 	Integer      | File ID                                                                                                                                                                                |
@@ -5098,7 +5151,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo                | 	String | 13          | Optional                       | Sender number                                                                                                          |
 | recipientNo           | 	String | 20          | Optional                       | Receiving number                                                                                                       |
 | templateId            | 	String | 50          | Optional                       | Template number                                                                                                        |
-| msgStatus             | 	String | 1           | Optional                       | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery) |
+| msgStatus             | 	String | 1           | Optional                       | Message status code (0:Failed, 1: requesting, 2: processing, 3:successful, 4:Delivery Cancelled, 5:Duplicate Delivery, 6: Failed (Ad restricted), 7: Waiting for Resending (Ad restricted)) |
 | resultCode            | 	String | 10          | Optional                       | Result code of receiving [[Table on Query Codes](./error-code/#_2)]                                                    |
 | subResultCode         | 	String | 10          | Optional                       | Detail code of receiving [[Table on Query Codes](./error-code/#_3)]                                                    |
 | senderGroupingKey     | 	String | 100         | Optional                       | Sender's group key                                                                                                     |
@@ -6049,82 +6102,3 @@ curl -X DELETE \
 | header.isSuccessful  | 	Boolean | 	Successful or not |
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
-
-## Webhook
-
-When a specific event occurs in the SMS service, a Post request is created to the URL defined in the webhook settings.<br>This is a document for the API for the
-created POST request.
-
-### Webhook Delivery
-
-[URL]
-
-| Http method | 	URI                                       |
-|-------------|--------------------------------------------|
-| POST        | Target URL defined in the webhook settings |
-
-[Header]
-
-| Value                     | 	Type   | 	Description                            |
-|---------------------------|---------|-----------------------------------------|
-| X-Toast-Webhook-Signature | 	String | 	Signature entered when setting webhook |
-
-[Request body]
-
-```json
-{
-  "hooksId": "202007271010101010sadasdavas",
-  "webhookConfigId": "String",
-  "productName": "SMS",
-  "appKey": "akb3dukdmdjsdSvgk",
-  "event": "UNSUBSCRIBE",
-  "hooks": [
-    {
-      "hookId": "202007271010101010sadasdavas",
-      "recipientNo": "01012341234",
-      "unsubscribeNo": "08012341234",
-      "enterpriseName": "NHN Cloud",
-      "createdDateTime": "2020-09-09T11:25:10.000+09:00"
-    }
-  ]
-}
-```
-
-| Value                   | 	Type   | 	Description                                                                                  |
-|-------------------------|---------|-----------------------------------------------------------------------------------------------|
-| hooksId                 | 	String | 	Unique ID created whenever a POST request is made to the URL defined in the webhook settings |
-| webhookConfigId         | 	String | Webhook configuration ID                                                                      |
-| productName             | 	String | 	Service name to which webhook events occur                                                   |
-| appKey                  | 	String | Service appkey to which webhook events occur                                                  |
-| event                   | 	String | 	Webhook event name<br>* UNSUBSCRIBE: Registration of recipient number for ad messages        |
-| hooks[].hookId          | 	String | Unique ID created when an event occurs in the service                                         |
-| hooks[].recipientNo     | 	String | 	Unsubscribed mobile phone number                                                             |
-| hooks[].unsubscribeNo   | 	String | 	080 numbers registered in unsubscription service                                             |
-| hooks[].enterpriseName  | 	String | 	Enterprise names registered in unsubscription service                                        |
-| hooks[].createdDateTime | 	String | Date and time of unsubscription request<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX                     |
-
-#### cURL
-
-```
-curl -X POST \
-    '{TargetUrl}' \
-    -H 'Content-Type: application/json;charset=UTF-8' \
-    -H 'X-Toast-Webhook-Signature: application/json;charset=UTF-8' \
-    -d '{
-        "hooksId": "202007271010101010sadasdavas",
-        "webhookConfigId": "String",
-        "productName": "Sms",
-        "appKey": "akb3dukdmdjsdSvgk",
-        "event": "UNSUBSCRIBE",
-        "hooks": [
-            {
-                "hookId": "202007271010101010sadasdavas",
-                "recipientNo": "01012341234",
-                "unsubscribeNo": "08012341234",
-                "enterpriseName": "NHN Cloud",
-                "createdDateTime": "2020-09-09T11:25:10.000+09:00"
-            }
-        ]
-    }
-'
-```

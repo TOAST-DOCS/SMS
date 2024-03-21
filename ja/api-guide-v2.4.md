@@ -294,7 +294,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13   | 	オプション | 	発信番号                                                    |
 | recipientNo          | 	String  | 20   | 	オプション | 	受信番号                                                    |
 | templateId           | 	String  | 50   | 	オプション | 	テンプレート番号                                                |
-| msgStatus            | 	String  | 1    | 	オプション | 	メッセージステータスコード(0：失敗、1：リクエスト、2：処理中、3：成功、4：予約キャンセル、5:重複送信) |
+| msgStatus            | 	String  | 1    | 	オプション | 	メッセージステータスコード(0：失敗、 1：リクエスト、 2：処理中、 3：成功、 4：予約キャンセル、 5：重複失敗、 6:失敗(広告制限)、 再送信待機(広告制限)) |
 | resultCode           | 	String  | 10   | 	オプション | 	受信結果コード[[照会コード表](./error-code/#_2)]                     |
 | subResultCode        | 	String  | 10   | 	オプション | 	受信結果詳細コード[[照会コード表](./error-code/#_3)]                   |
 | senderGroupingKey    | 	String  | 100  | 	オプション | 	送信者グループキー                                               |
@@ -779,7 +779,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13   | 	オプション | 	発信番号                                                    |
 | recipientNo          | 	String  | 20   | 	オプション | 	受信番号                                                    |
 | templateId           | 	String  | 50   | 	オプション | 	テンプレート番号                                                |
-| msgStatus            | 	String  | 1    | 	オプション | 	メッセージステータスコード(0：失敗、1：リクエスト、2：処理中、3：成功、4：予約キャンセル、5:重複送信) |
+| msgStatus            | 	String  | 1    | 	オプション | 	メッセージステータスコード(0：失敗、 1：リクエスト、 2：処理中、 3：成功、 4：予約キャンセル、 5：重複失敗、 6:失敗(広告制限)、 再送信待機(広告制限)) |
 | resultCode           | 	String  | 10   | 	オプション | 	受信結果コード[[照会コード表](./error-code/#_2)]                     |
 | subResultCode        | 	String  | 10   | 	オプション | 	受信結果詳細コード[[照会コード表](./error-code/#_3)]                   |
 | senderGroupingKey    | 	String  | 100  | 	オプション | 	送信者グループキー                                               |
@@ -1237,7 +1237,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo               | 	String  | 13   | 	オプション | 	発信番号                                                 |
 | recipientNo          | 	String  | 20   | 	オプション | 	受信番号                                                 |
 | templateId           | 	String  | 50   | 	オプション | 	テンプレート番号                                             |
-| msgStatus            | 	String  | 1    | 	オプション | 	メッセージステータスコード(0：失敗、1：リクエスト、2：処理中、3：成功、4：送信取消、5:重複送信) |
+| msgStatus            | 	String  | 1    | 	オプション | 	メッセージステータスコード(0：失敗、 1：リクエスト、 2：処理中、 3：成功、 4：予約キャンセル、 5：重複失敗、 6:失敗(広告制限)、 再送信待機(広告制限)) |
 | resultCode           | 	String  | 10   | 	オプション | 	受信結果コード[[照会コード表](./error-code/#_2)]                  |
 | subResultCode        | 	String  | 10   | 	オプション | 	受信結果詳細コード[[照会コード表](./error-code/#_3)]                |
 | senderGroupingKey    | 	String  | 100  | 	オプション | 	送信者グループキー                                            |
@@ -3707,7 +3707,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo           | 	String  | 13   | オプション  | 	発信番号                                                                                                  |
 | recipientNo      | 	String  | 20   | 	オプション | 	受信番号                                                                                                  |
 | templateId       | 	String  | 50   | 	オプション | 	テンプレート番号                                                                                              |
-| messageStatus    | 	String  | 10   | 	オプション | 	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信) |
+| messageStatus    | 	String  | 10   | 	オプション | 	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信、FAILED_AD:失敗(広告制限)、再送信待機(広告制限)) |
 | pageNum          | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                                                                       |
 | pageSize         | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                                                                        |
 
@@ -3780,7 +3780,7 @@ curl -X GET \
 | body.data[].templateName      | 	String       | 	テンプレート名                                                                                               |
 | body.data[].title             | 	String       | 	タイトル                                                                                                  |
 | body.data[].body              | 	String       | 	本文内容                                                                                                  |
-| body.data[].messageStatus     | 	String       | 	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信) |
+| body.data[].messageStatus     | 	String       | 	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信、FAILED_AD:失敗(広告制限)、再送信待機(広告制限)) |
 | body.data[].createUser        | 	String       | 	登録したユーザー                                                                                              |
 | body.data[].createDate        | 	String       | 	登録日                                                                                                   |
 | body.data[].updateDate        | 	String       | 	修正日                                                                                                   |
@@ -3877,7 +3877,7 @@ curl -X GET \
 | body.data.templateName                    | 	String       | 	テンプレート名                                                                                               |
 | body.data.title                           | 	String       | 	タイトル                                                                                                  |
 | body.data.body                            | 	String       | 	本文内容                                                                                                  |
-| body.data.messageStatus                   | 	String       | 	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信) |
+| body.data.messageStatus                   | 	String       | 	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信、FAILED_AD:失敗(広告制限)、再送信待機(広告制限)) |
 | body.data.createUser                      | 	String       | 	登録したユーザー                                                                                              |
 | body.data.createDate                      | 	String       | 	登録日                                                                                                   |
 | body.data[].attachFileList[].fileId       | 	Integer      | 	ファイルID                                                                                                |
@@ -4214,7 +4214,7 @@ Content-Type: application/json;charset=UTF-8
 | sendNo                | 	String | 13    | 	オプション    | 	発信番号                                                   |
 | recipientNo           | 	String | 20    | 	オプション    | 	受信番号                                                   |
 | templateId            | 	String | 50    | 	オプション    | 	テンプレート番号                                               |
-| msgStatus             | 	String | 1     | 	オプション    | メッセージステータスコード(0：失敗、1：リクエスト、2：処理中、3：成功、4：予約キャンセル、5:重複送信) |
+| msgStatus             | 	String | 1     | 	オプション    | メッセージステータスコード(0：失敗、 1：リクエスト、 2：処理中、 3：成功、 4：予約キャンセル、 5：重複失敗、 6:失敗(広告制限)、 再送信待機(広告制限)) |
 | resultCode            | 	String | 10    | 	オプション    | 	受信結果コード[[照会コード表](./error-code/#_2)]                    |
 | subResultCode         | 	String | 10    | 	オプション    | 	受信結果詳細コード[[照会コード表](./error-code/#_3)]                  |
 | senderGroupingKey     | 	String | 100   | 	オプション    | 	送信者グループキー                                              |
@@ -4998,82 +4998,3 @@ curl -X DELETE \
 | header.isSuccessful  | 	Boolean | 	成否      |
 | header.resultCode    | 	Integer | 	失敗コード   |
 | header.resultMessage | 	String  | 	失敗メッセージ |
-
-## Webフック
-
-SMSサービス内で特定イベントが発生すると、Webフック設定に定義されたURLへPOSTリクエストを作成します。<br>
-作成されたPOSTリクエストについてのAPI文書です。
-
-### Webフック送信
-
-[URL]
-
-| Http method | 	URI               |
-|-------------|--------------------|
-| POST        | Webフック設定に定義した対象URL |
-
-[Header]
-
-| 値                         | 	タイプ    | 	説明               |
-|---------------------------|---------|-------------------|
-| X-Toast-Webhook-Signature | 	String | 	Webフック設定時に入力した署名 |
-
-[Request body]
-
-```json
-{
-  "hooksId": "202007271010101010sadasdavas",
-  "webhookConfigId": "String",
-  "productName": "SMS",
-  "appKey": "akb3dukdmdjsdSvgk",
-  "event": "UNSUBSCRIBE",
-  "hooks": [
-    {
-      "hookId": "202007271010101010sadasdavas",
-      "recipientNo": "01012341234",
-      "unsubscribeNo": "08012341234",
-      "enterpriseName": "NHN Cloud",
-      "createdDateTime": "2020-09-09T11:25:10.000+09:00"
-    }
-  ]
-}
-```
-
-|値| タイプ| 説明|
-|---|---|---|---|
-|hooksId| String| Webフック設定に定義されたURLへPOSTリクエストを行うたびに作成される固有のID|
-|webhookConfigId| String|Webフック設定ID|
-|productName| String| Webフックイベントが発生したサービス名 |
-|appKey| String| Webフックイベントが発生したサービスアプリケーションキー|
-|event| String| Webフックイベント名<br>* UNSUBSCRIBE：広告文字受信番号登録|
-|hooks[].hookId| String| サービスでイベント発生時に作成される固有のID |
-|hooks[].recipientNo| String| 受信拒否された携帯電話番号 |
-|hooks[].unsubscribeNo| String| 受信拒否サービスに登録された080番号 |
-|hooks[].enterpriseName| String| 受信拒否サービスに登録された業者名 |
-|hooks[].createdDateTime| String| 受信拒否リクエスト日時<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX|
-
-#### cURL
-
-```
-curl -X POST \
-    '{TargetUrl}' \
-    -H 'Content-Type: application/json;charset=UTF-8' \
-    -H 'X-Toast-Webhook-Signature: application/json;charset=UTF-8' \
-    -d '{
-        "hooksId":"202007271010101010sadasdavas",
-        "webhookConfigId":"String",
-        "productName":"Sms",
-        "appKey":"akb3dukdmdjsdSvgk",
-        "event":"UNSUBSCRIBE",
-        "hooks":[
-            {
-                "hookId":"202007271010101010sadasdavas",
-                "recipientNo":"01012341234",
-                "unsubscribeNo":"08012341234",
-                "enterpriseName":"NHN Cloud",
-                "createdDateTime":"2020-09-09T11:25:10.000+09:00"
-            }
-        ]
-    }
-
-```

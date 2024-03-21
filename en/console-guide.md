@@ -26,7 +26,7 @@
 * The name and phone number you enter when you sign up must match the information you enter when you verify your identity to be approved.
 * NHN Cloud members invited to an organization/project created by a business member or IAM members invited to an organization created by a business member must authenticate themselves to use the service.
 * Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>
-Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
+  Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
 
 ### Required Documentation by Member Type
 <table class="custom-table" style="text-align: center">
@@ -68,7 +68,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 3. Confirm and agree to the Consent to collection and usage of personal information.
 4. Proceed to verify your identity with mobile verification or a quick identity verification.
 5. Attach and register any required documents if necessary.
-6. Wait for the operator review and approval process. 
+6. Wait for the operator review and approval process.
 7. Once the identity verification process is complete, the approval result will be sent to the email registered to your account.
 
 ### Description of identity verification status
@@ -124,7 +124,32 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 * Documents confirming the relationship between the business and the third party can be consignment agreements, proof of headquarters and branch offices, etc.
 * There are no masked (hidden) parts of the communication service use certificate, and only documents issued within the last 3 months are accepted.
 * Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>
-Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
+  Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
+
+### How to Issue Documents for Each Mobile Carrier
+* You can download the service usage certificate from your carrier's website.
+* Depending on the carrier, the service usage certificate may differ such as "subscription confirmation," "proof of subscription," or "proof of contract registration".
+
+* SKT [[Visit]](https://www.tworld.co.kr/web/home)
+    * How to issue: Sign in > My Account > Get Certificate of Use
+    * Mobile service customer center: 114, 080-011-6000, 1599-0011
+    * Wireline service customer center: 080-816-2000, 1600-2000
+
+* KT [Visit](https://www.kt.com/)
+    * How to issue: Sign in > Membership Information > View/Change > Print Proof of Membership
+    * Mobile service customer center: 114, 1588-0010
+    * Wireline service customer center: 100
+
+* LGU+ [[Visit]](https://www.lguplus.com/)
+    * How to issue: Log in > Product Signup > Get Confirmation of Signup
+    * Mobile service customer center: 114, 1544-0010
+    * Wireline service customer center: 101
+
+* Budget carriers and others
+    * SK Broadband Customer Center: 106
+    * Sejong Telecom Customer Center: 1688-1000, 080-889-1000
+    * KCT Korea Cable Telecom Customer Center: 070-8188-0114
+    * Hello Mobile Customer Center: 1855-1144 (LGU+), 1855-1144 (KT), 1855-2114 (SKT)
 
 ### Registration Format for Sender Numbers
 
@@ -151,7 +176,7 @@ Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 di
 4. Select the type of sender number required for registration (personal number, representative number, employee number, etc.).
 5. Enter the sender number to register.
 6. Attach and register documents suitable for the number to be registered.
-7. Wait for the operator review and approval process. 
+7. Wait for the operator review and approval process.
 8. Once the sender number verification process is complete, the approval result will be sent to the email registered to your account.
 
 ### Description for Sender Number Registration Status
@@ -165,7 +190,7 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 
 ## Sending SMS
 * The maximum character count is based on storage. To avoid character truncation, write to a standard size, not a maximum character count.
-* Content standard: Domestic SMS 90 bytes (45 Korean characters, 90 English characters) / Domestic MMS 2,000 bytes (1,000 Korean characters, 2,000 English characters) / International SMS UCS-2 335 characters / International SMS GSM-7bit 765 characters   
+* Content standard: Domestic SMS 90 bytes (45 Korean characters, 90 English characters) / Domestic MMS 2,000 bytes (1,000 Korean characters, 2,000 English characters) / International SMS UCS-2 335 characters / International SMS GSM-7bit 765 characters
 * For international SMS, it is concatenated based on encoding and character count.
     * Concatenated message is a service that makes a message appear to be connected as one long text on the device, like an LMS in Korea, to overcome the limitation of the number of characters that can be sent in international SMS sending.
     * The Concatenated message feature is available depending on the number of characters in the body, encoding, and support from international mobile carriers. If concatenated message is not supported, the device may receive multiple short messages.
@@ -186,7 +211,7 @@ Following is the guide to send Short Message Service (SMS).
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Fill in the **Body** of message.
 5. **Recipient Information** provides all numbers including domestic numbers or country code.
-	- e.g.) 01012345678, 821012345678
+    - e.g.) 01012345678, 821012345678
 6. Click the **Send** button.
 
 ### Send General LMS
@@ -201,7 +226,7 @@ Following is the guide to send general Long Message Service (LMS).
 4. Enter the title. (To prevent character truncation, write based on 40 bytes (20 Korean characters, 40 English characters).)
 5. Fill in the **Body** of message.
 6. **Recipient Information** provides all numbers including domestic numbers or country code.
-	- e.g.) 01012345678, 821012345678
+    - e.g.) 01012345678, 821012345678
 7. Click the **Send** button.
 
 ### Send MMS (Send Attachment)
@@ -217,7 +242,7 @@ Multimedia Messaging Service (MMS) can be sent as below:
 5. Enter the title. (To prevent character truncation, write based on 40 bytes (20 Korean characters, 40 English characters).)
 6. Fill in the **Body** of message.
 7. **Recipient Information** provides all numbers including domestic numbers or country code.
-	- e.g.) 01012345678, 821012345678
+    - e.g.) 01012345678, 821012345678
 8. Click the **Send** button.
 
 ### Send Templates
@@ -226,12 +251,12 @@ You can send messages on user-created templates.
 
 ![sms_07_20230818](https://static.toastoven.net/prod_sms/eng/SMS_07_20230818.png)
 
-1. Select **Use** from **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.) 
+1. Select **Use** from **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.)
 2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
 3. To choose time of delivery, specify it **Scheduled Delivery**.
 4. Fill in the **Body** of message.
 5. **Recipient Information** provides all numbers including domestic numbers or country code.
-	- e.g.) 01012345678, 821012345678
+    - e.g.) 01012345678, 821012345678
 6. Click the **Send** button.
 
 ### Mass Delivery
@@ -378,14 +403,16 @@ You can search for mass delivery by sending type.
 
 #### Delivery Status of Mass SMS
 
-- Waiting: Template file data are yet to be read.
-- Preparing: Loading template file data.
-- Ready: All template file data are loaded and SMS delivery is ready. Select a schedule (column on the list) and you can find recipient numbers and delivery information.
+- Waiting: Recipient file data are yet to be read.
+- Preparing to send: The recipient file is being read.
+- Converting file: The recipient file is being converted.
+- Ready: All recipient file data are loaded and SMS delivery is ready. Select a schedule (column on the list) and you can find recipient numbers and delivery information.
 - Waiting for Delivery: SMS delivery is yet to be processed.
 - Delivering: SMS delivery is currently underway. Select a schedule (column on the list) to check the delivery progress rate.
 - Delivery Completed: Request for SMS delivery has been properly completed.
+- Canceling: The delivery is in the process of being canceled.
+- Canceled: The delivery has been canceled.
 - Delivery Failed: Error occurred during delivery.
-- Delivery Canceled: User has canceled delivery.
 
 #### Query SMS Delivery per Recipient
 
@@ -504,7 +531,7 @@ Registered webhooks can be checked in the **webhook registration list**.
 * If you do not want to use the international SMS sending feature, you can prevent accidents due to abusing by setting it to unused.
 * Only the specified major countries are enabled for sending during the initial setup. You can manage whether to ship to each country through the [Select countries to allow] button.
 * The sending limit is 1,000 per month by default, and can be adjusted up to 10,000. If you need to adjust the limit over 10,000, please contact us via the [Request to exceed 10,000] button.
-* * If 'Monthly limit threshold notifications' is set to 'Enabled', a notification email will be sent to all project members when 70% and 100% of the value set by 'Auto Blocking Monthly Limit' is reached.
+* If 'Monthly limit threshold notifications' is set to 'Enabled', a notification email will be sent to all project members when 70% and 100% of the value set by 'Auto Blocking Monthly Limit' is reached.
 * The 'Auto Blocking Monthly Limit' is an subsidiary feature and the time of blocking may not be accurate. NHN Cloud is not responsible for any errors in the subsidiary features.
 
 > [Caution]
@@ -531,7 +558,7 @@ NHN Cloud is not responsible for any international SMS sent due to abuse.
 * Failure/re-delivery is possible depending on how the undelivered message is set up.
 
 ### Backup Settings
-* Depending on the message retention period policy, you can back up sending history data that is older than 180 days. 
+* Depending on the message retention period policy, you can back up sending history data that is older than 180 days.
 * If you enter information about whether to back up messages, the file extension, and the storage to upload the file to, a file containing the backup date will be created in that storage.
 
 
@@ -601,7 +628,7 @@ This feature allows you to send a text message by selecting a tag instead of the
 1. Register statistical event keys in the **statistical event key management** tab. If sending using the API, you must obtain the statistics ID (statsId) from this screen.
 2. When sending a message from the console or to the API, you must also send the statistics event key.
 
-    2-1. When sending from console 
+    2-1. When sending from console
     - When sending a text message in the **Deliver SMS** tab, select the statistical event key.
     - After entering all message information, click the **Send** button.
     - You can check statistical information after a certain period of time in the **Statistics** tab.
