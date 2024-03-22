@@ -4483,7 +4483,6 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 | to             | String       | -      | 必須 | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss                                                                 |
 | statsIds       | List<String> | -      | オプション | 統計IDリスト                                                                                           |
 | countryCode    | String       | -      | オプション | 国コード                                                                                              |
-| templateIds    | List<String> | -      | オプション | テンプレートIDリスト                                                                                          |
 | requestIds     | List<String> | 5      | オプション | リクエストIDリスト                                                                                           |
 | statsCriteria  | List<String> | -      | オプション | 統計基準<br/>- EVENT:イベント(デフォルト値)<br/>- TEMPLATE_ID,EVENT:テンプレート、イベント<br/>- COUNTRY_CODE,EVENT:国コード、イベント |
 
@@ -4505,20 +4504,6 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
           "SENT": 10,
           "SENT_FAILED": 0,
           "CONCAT": 20
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
       }
     ]

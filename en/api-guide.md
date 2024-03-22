@@ -4496,7 +4496,6 @@ curl -X GET \
 | to             | String       | -      | Required | End date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                                                 |
 | statsIds       | List<String> | -      | Option | Statistics ID list                                                                                            |
 | countryCode    | String       | -      | Option | Country code                                                                                               |
-| templateIds    | List<String> | -      | Option | Template ID list                                                                                           |
 | requestIds     | List<String> | 5      | Option | Request ID list                                                                                            |
 | statsCriteria  | List<String> | -      | Option | Statistics criteria<br/>- EVENT: Event (Default Value)<br/>- TEMPLATE_ID,EVENT: Template, Event<br/>- COUNTRY_CODE,EVENT: Country code, event |
 

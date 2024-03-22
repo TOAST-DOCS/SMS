@@ -4501,7 +4501,6 @@ curl -X GET \
 | to             | String       | -      | 필수 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss                                                                 |
 | statsIds       | List<String> | -      | 옵션 | 통계 ID 목록                                                                                            |
 | countryCode    | String       | -      | 옵션 | 국가 코드                                                                                               |
-| templateIds    | List<String> | -      | 옵션 | 템플릿 ID 목록                                                                                           |
 | requestIds     | List<String> | 5      | 옵션 | 요청 ID 목록                                                                                            |
 | statsCriteria  | List<String> | -      | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- TEMPLATE_ID,EVENT: 템플릿, 이벤트<br/>- COUNTRY_CODE,EVENT: 국가 코드, 이벤트 |
 
