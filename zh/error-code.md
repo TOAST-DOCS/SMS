@@ -84,6 +84,7 @@
 | Statistics | false | -2701 | Invalid statistics search parameter | Invalid statistics search parameter. |
 | Statistics | false | -2703 | Invalid detail range of statistics | Invalid duration time. |
 | Statistics | false | -2704 | Invalid statistics parameter | Invalid stats parameter. |
+| Statistics | false | -2706 | Internal statistics error (failed to call API) | Failed read stats. |
 | 080 Call Rejection | false | -6000 | Call rejection is not used | Block service is not joined. |
 | 080 Call Rejection | false | -6001 | Refused recipient number | Recipient Number is refused. |
 | 080 Call Rejection | false | -6003 | Body does not include guide message on call rejection | The body must contain block guide ment. |

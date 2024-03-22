@@ -80,6 +80,7 @@
 | 統計 | false | -2701 | 有効ではない統計検索パラメータ | Invalid statistics search parameter. | 
 | 統計 | false | -2703 | 有効ではない統計詳細範囲 | Invalid duration time. |
 | 統計 | false | -2704 | 有効ではない統計パラメータ | Invalid stats parameter. |
+| 統計 | false | -2706 | 統計内部エラー(API呼び出し失敗) | Failed read stats. |
 | 080受信拒否 | false | -6000 | 受信拒否機能を使用していない | Block service is not joined. |
 | 080受信拒否 | false | -6001 | 受信拒否された番号 | Recipient Number is refused. |
 | 080受信拒否 | false | -6003 | 本文に受信拒否案内メッセージがない | The body must contain block guide ment. |

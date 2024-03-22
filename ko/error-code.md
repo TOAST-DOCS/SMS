@@ -3,9 +3,9 @@
 ## API 결과 코드
 
 | 서비스 | 성공 여부 | 결과 코드 | 결과 코드 메시지 | API 응답 메시지 | 
-| - | - | - | - | - |
-| 공통 | true | 0 | 성공 | SUCCESS |
-| 공통 | false | 4 | 파라미터 유효성 검증 실패 | | 
+| - | - |-------| - | - |
+| 공통 | true | 0     | 성공 | SUCCESS |
+| 공통 | false | 4     | 파라미터 유효성 검증 실패 | | 
 | 공통 | false | -1000 | 유효하지 않은 앱키 | Invalid appKey. |
 | 공통 | false | -1001 | 존재하지 않는 앱키 | Service is not exist. |
 | 공통 | false | -1002 | 사용 종료된 앱키 | Service is disabled. |
@@ -80,6 +80,7 @@
 | 통계 | false | -2701 | 유효하지 않는 통계 검색 파라미터 | Invalid statistics search parameter. | 
 | 통계 | false | -2703 | 유효하지 않는 통계 세부 범위 | Invalid duration time. |
 | 통계 | false | -2704 | 유효하지 않는 통계 파라미터 | Invalid stats parameter. |
+| 통계 | false | -2706 | 통계 내부 오류(API 호출 실패) | Failed read stats. |
 | 080 수신거부 | false | -6000 | 수신 거부 기능을 사용하고 있지 않음 | Block service is not joined. |
 | 080 수신거부 | false | -6001 | 수신 거부된 번호 | Recipient Number is refused. |
 | 080 수신거부 | false | -6003 | 본문에 수신 거부 안내 메시지가 없음 | The body must contain block guide ment. |
