@@ -4476,15 +4476,15 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 
 [Query parameter]
 
-| 値             | 	タイプ         | 	最大長さ | 必須 | 説明                                                                                                 |
-|----------------|--------------|--------|----|-----------------------------------------------------------------------------------------------------|
-| statisticsType | String       | -      | 必須 | 統計区分<br/>NORMAL:基本、 MINUTELY:分別, HOURLY:時間別、 DAILY:日別、 BY_DAY:曜日別                                 |
-| from           | String       | -      | 必須 | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss                                                                 | 
-| to             | String       | -      | 必須 | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss                                                                 |
-| statsIds       | List<String> | -      | オプション | 統計IDリスト                                                                                           |
-| countryCode    | String       | -      | オプション | 国コード                                                                                              |
-| requestIds     | List<String> | 5      | オプション | リクエストIDリスト                                                                                           |
-| statsCriteria  | List<String> | -      | オプション | 統計基準<br/>- EVENT:イベント(デフォルト値)<br/>- TEMPLATE_ID,EVENT:テンプレート、イベント<br/>- COUNTRY_CODE,EVENT:国コード、イベント |
+| 値              | 	タイプ         | 	最大長さ | 必須    | 説明                                                                |
+|----------------|--------------|-------|-------|-------------------------------------------------------------------|
+| statisticsType | String       | -     | 必須    | 統計区分<br/>NORMAL:基本、 MINUTELY:分別, HOURLY:時間別、 DAILY:日別、 BY_DAY:曜日別 |
+| from           | String       | -     | 必須    | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss                                   | 
+| to             | String       | -     | 必須    | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss                                   |
+| statsIds       | List<String> | -     | オプション | 統計IDリスト                                                           |
+| countryCode    | String       | -     | オプション | 国コード                                                              |
+| requestIds     | List<String> | 5     | オプション | リクエストIDリスト                                                        |
+| statsCriteria  | List<String> | -     | オプション | 統計基準<br/>- EVENT:イベント(デフォルト値)<br/>- COUNTRY_CODE,EVENT:国コード、イベント  |
 
 #### レスポンス(統計基準:デフォルト値)
 

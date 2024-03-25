@@ -4489,15 +4489,15 @@ curl -X GET \
 
 [Query parameter]
 
-| Value              | 	Type          | Maximum length | Required | Description                                                                                                  |
-|----------------|--------------|--------|----|-----------------------------------------------------------------------------------------------------|
-| statisticsType | String       | -      | Required | Statistics Type<br/>NORMAL: Normal, MINUTELY: Minutely, HOURLY: Hourly, DAILY: Daily, BY_DAY: By day                             |
-| from           | String       | -      | Required | Start date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                                                 | 
-| to             | String       | -      | Required | End date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                                                 |
-| statsIds       | List<String> | -      | Option | Statistics ID list                                                                                            |
-| countryCode    | String       | -      | Option | Country code                                                                                               |
-| requestIds     | List<String> | 5      | Option | Request ID list                                                                                            |
-| statsCriteria  | List<String> | -      | Option | Statistics criteria<br/>- EVENT: Event (Default Value)<br/>- TEMPLATE_ID,EVENT: Template, Event<br/>- COUNTRY_CODE,EVENT: Country code, event |
+| Value          | Type         | Maximum length | Required | Description                                                                                          |
+|----------------|--------------|----------------|----------|------------------------------------------------------------------------------------------------------|
+| statisticsType | String       | -              | Required | Statistics Type<br/>NORMAL: Normal, MINUTELY: Minutely, HOURLY: Hourly, DAILY: Daily, BY_DAY: By day |
+| from           | String       | -              | Required | Start date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                              | 
+| to             | String       | -              | Required | End date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                                |
+| statsIds       | List<String> | -              | Option   | Statistics ID list                                                                                   |
+| countryCode    | String       | -              | Option   | Country code                                                                                         |
+| requestIds     | List<String> | 5              | Option   | Request ID list                                                                                      |
+| statsCriteria  | List<String> | -              | Option   | Statistics criteria<br/>- EVENT: Event (Default Value)<br/>- COUNTRY_CODE,EVENT: Country code, event |
 
 #### Response (Statistics criteria: Default Value)
 
