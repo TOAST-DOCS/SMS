@@ -127,9 +127,9 @@
 | Telecom Provider | 3014 | Failure | Others |
 | Telecom Provider | 3015 | Failure | No transfer route available |
 | Telecom Provider | 3016 | Failure | Size restriction failed for attached file |
-| Telecom Provider | 3017 | Failure | Number format error due to sender number (=reply number) falsification prevention service |
-| Telecom Provider | 3018 | Failure | Personal mobile phone number subscribed to sender number (=reply number) falsification prevention service  |
-| Telecom Provider | 3019 | Failure | Numbers not registered at sender number(=reply number) InfoBank via pre-registration of numbers |
+| Telecom Provider | 3017 | Failure | Number format error based on sender number tampering prevention service |
+| Telecom Provider | 3018 | Failure | Individual subscriber phone number subscribed to the sender number tampering prevention service  |
+| Telecom Provider | 3019 | Failure | Sender numbers that KISA or the Ministry of Science and ICT has blocked for all customers. |
 | ETC | E911 | Failure | No attached file extension available |
 | ETC | E913 | Failure | Attached file size is 0 |
 | ETC | E915 | Failure | Duplicate messages |
