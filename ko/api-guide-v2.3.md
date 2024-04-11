@@ -76,7 +76,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                                 | 	X  | 	발송 템플릿 ID                                                                 |
 | body                                      | 	String | 표준: 90바이트, 최대: 255자 (EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O  | 	본문 내용                                                                     |
 | sendNo                                    | 	String | 13                                                                 | 	O  | 	발신 번호                                                                     |
-| requestDate                               | String  | -                                                                  | X   | 예약 일시(yyyy-MM-dd HH:mm)                                                    |
+| requestDate                               | String  | -                                                                  | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                   |
 | senderGroupingKey                         | String  | 100                                                                | X   | 발신자 그룹키                                                                    |
 | recipientList[].recipientNo               | String  | 20                                                                 | 	O  | 	수신 번호<br/>countryCode와 조합하여 사용 가능<br/>최대 1,000명                           |
 | recipientList[].countryCode               | 	String | 8                                                                  | 	X  | 	국가 번호 [기본값: 82(한국)]                                                       |
@@ -541,7 +541,7 @@ Content-Type: application/json;charset=UTF-8
 | title                                     | 	String | 120   | 	O  | 	제목                                                                        |
 | body                                      | 	String | 4000  | 	O  | 	본문                                                                        |
 | sendNo                                    | 	String | 13    | 	O  | 	발신 번호                                                                     |
-| requestDate                               | String  | -     | X   | 예약 일시(yyyy-MM-dd HH:mm)                                                    |
+| requestDate                               | String  | -     | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                   |
 | senderGroupingKey                         | String  | 100   | X   | 발신자 그룹키                                                                    |
 | recipientList[].recipientNo               | String  | 20    | 	O  | 	수신 번호<br/>countryCode와 조합하여 사용 가능                                         |
 | recipientList[].countryCode               | String  | 8     | 	X  | 	국가 번호 [기본값: 82(한국)]<br/>MMS는 해외 발송 불가                                     |
@@ -1068,7 +1068,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                                 | 	X  | 	발송 템플릿 ID                                                              |
 | body                                      | 	String | 표준: 90바이트, 최대: 255자 (EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O  | 	본문 내용 [[주의사항](./api-guide/#precautions-authword)]                      |
 | sendNo                                    | 	String | 13                                                                 | 	O  | 	발신 번호                                                                  |
-| requestDate                               | String  | -                                                                  | X   | 예약 일시(yyyy-MM-dd HH:mm)                                                 |
+| requestDate                               | String  | -                                                                  | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                |
 | senderGroupingKey                         | String  | 100                                                                | X   | 발신자 그룹키                                                                 |
 | recipientList[].recipientNo               | 	String | 20                                                                 | 	O  | 	수신 번호<br/>countryCode와 조합하여 사용 가능                                      |
 | recipientList[].countryCode               | 	String | 8                                                                  | 	X  | 	국가 번호 [기본값: 82(한국)]                                                    |
@@ -1692,7 +1692,7 @@ Content-Type: application/json;charset=UTF-8
 |-------------------|---------------------|--------------------------------------------------------------------|----|--------------------------------------|
 | body              | 	String             | 표준: 90바이트, 최대: 255자 (EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O | 	본문 내용                               |
 | sendNo            | String              | 13                                                                 | O  | 발신 번호                                |
-| requestDate       | String              | -                                                                  | X  | 예약 일시(yyyy-MM-dd HH:mm)              |
+| requestDate       | String              | -                                                                  | X  | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능             |
 | templateId        | String              | 50                                                                 | X  | 템플릿 ID                               |
 | templateParameter | Map<String, String> | -                                                                  | X  | 템플릿 파라미터                             |
 | tagExpression     | List<String>        | -                                                                  | O  | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
@@ -1797,7 +1797,7 @@ Content-Type: application/json;charset=UTF-8
 | title             | String              | 120    | O  | 문자 제목                                |
 | body              | String              | 4000   | O  | 문자 내용                                |
 | sendNo            | String              | 13     | O  | 발신 번호                                |
-| requestDate       | String              | -      | X  | 예약 일시(yyyy-MM-dd HH:mm)              |
+| requestDate       | String              | -      | X  | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능             |
 | templateId        | String              | 50     | X  | 템플릿 ID                               |
 | templateParameter | Map<String, String> | -      | X  | 템플릿 파라미터                             |
 | tagExpression     | List<String>        | -      | O  | 태그 표현식<br/>ex) ["tagA","AND","tabB"] |
