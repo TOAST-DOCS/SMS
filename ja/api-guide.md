@@ -3399,7 +3399,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
   "useYn": "Y",
   "attachFileIdList": [
     123123,
-456456
+    456456
   ]
 }
 ```
