@@ -657,7 +657,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-0
+  0
   ],
   "recipientList": [
     {
@@ -1644,7 +1644,7 @@ Content-Type: application/json;charset=UTF-8
   "attachFileIdList": [
     1,
     2,
-3
+    3
   ],
   "tagExpression": [
     "tag1",
@@ -2394,7 +2394,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-1
+    1
   ]
 }
 ```
@@ -2445,7 +2445,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "Y",
   "attachFileIdList": [
     123123,
-456456
+    456456
   ]
 }
 ```
@@ -2866,7 +2866,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-1
+    1
   ]
 }
 ```
