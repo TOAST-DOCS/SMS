@@ -76,7 +76,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                             | 	X  | 	送信テンプレートID                                                        |
 | body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O  | 	本文内容                                                              |
 | sendNo                                    | 	String | 13                                                             | 	O  | 	発信番号                                                              |
-| requestDate                               | String  | -                                                              | X   | 予約日時(yyyy-MM-dd HH:mm)                                             |
+| requestDate                               | String  | -                                                                  | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                  |
 | senderGroupingKey                         | String  | 100                                                            | X   | 発信者グループキー                                                          |
 | recipientList[].recipientNo               | String  | 20                                                             | 	O  | 	受信番号<br/>countryCodeと組み合わせて使用可能<br/>最大1,000人                      |
 | recipientList[].countryCode               | 	String | 8                                                              | 	X  | 	国番号[デフォルト値：82(韓国)]                                                |
@@ -540,7 +540,7 @@ Content-Type: application/json;charset=UTF-8
 | title                                     | 	String | 40バイト(EUC-KR基準)   | 	O  | 	タイトル                                                              |
 | body                                      | 	String | 2000バイト(EUC-KR基準) | 	O  | 	本文                                                                |
 | sendNo                                    | 	String | 13                | 	O  | 	発信番号                                                              |
-| requestDate                               | String  | -                 | X   | 予約日時(yyyy-MM-dd HH:mm)                                             |
+| requestDate                               | String  | -     | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                  |
 | senderGroupingKey                         | String  | 100               | X   | 発信者グループキー                                                          |
 | recipientList[].recipientNo               | String  | 20                | 	O  | 	受信番号<br/>countryCodeと組み合わせて使用可能                                   |
 | recipientList[].countryCode               | String  | 8                 | 	X  | 	国番号[デフォルト値：82(韓国)]                                                |
@@ -693,7 +693,7 @@ curl -X POST \
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-    0
+  0
   ],
   "recipientList": [
     {
@@ -1066,7 +1066,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                             | 	X  | 	送信テンプレートID                                                    |
 | body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O  | 	本文内容[[注意事項](./api-guide/#precautions-authword)]               |
 | sendNo                                    | 	String | 13                                                             | 	O  | 	発信番号                                                          |
-| requestDate                               | String  | -                                                              | X   | 予約日時(yyyy-MM-dd HH:mm)                                         |
+| requestDate                               | String  | -                                                                  | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                               |
 | senderGroupingKey                         | String  | 100                                                            | X   | 発信者グループキー                                                      |
 | recipientList[].recipientNo               | 	String | 20                                                             | 	O  | 	受信番号<br/>countryCodeと組み合わせて使用可能                               |
 | recipientList[].countryCode               | 	String | 8                                                              | 	X  | 	国番号[デフォルト値：82(韓国)]                                            |
@@ -1683,7 +1683,7 @@ Content-Type: application/json;charset=UTF-8
 |-------------------|---------------------|----------------------------------------------------------------|----|-------------------------------------|
 | body              | 	String             | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O | 	本文内容                               |
 | sendNo            | String              | 13                                                             | O  | 発信番号                                |
-| requestDate       | String              | -                                                              | X  | 予約日時(yyyy-MM-dd HH:mm)              |
+| requestDate       | String              | -                                                                  | X  | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可            |
 | templateId        | String              | 50                                                             | X  | テンプレートID                            |
 | templateParameter | Map<String, String> | -                                                              | X  | テンプレートパラメータ                         |
 | tagExpression     | List<String>        | -                                                              | O  | タグ表現式<br/>ex) ["tagA","AND","tabB"] |
@@ -1788,7 +1788,7 @@ Content-Type: application/json;charset=UTF-8
 | title             | String              | 40バイト(EUC-KR基準)   | O  | タイトル                                |
 | body              | String              | 2000バイト(EUC-KR基準) | O  | 内容                                  |
 | sendNo            | String              | 13                | O  | 発信番号                                |
-| requestDate       | String              | -                 | X  | 予約日時(yyyy-MM-dd HH:mm)              |
+| requestDate       | String              | -      | X  | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可            |
 | templateId        | String              | 50                | X  | テンプレートID                            |
 | templateParameter | Map<String, String> | -                 | X  | テンプレートパラメータ                         |
 | tagExpression     | List<String>        | -                 | O  | タグ表現式<br/>ex) ["tagA","AND","tabB"] |
