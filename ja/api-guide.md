@@ -94,7 +94,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                             | 	X  | 	送信テンプレートID                                                          |
 | body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O  | 	本文内容                                                                |
 | sendNo                                    | 	String | 13                                                             | 	O  | 	発信番号                                                                |
-| requestDate                               | String  | -                                                              | X   | 予約日時(yyyy-MM-dd HH:mm)                                               |
+| requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                                                                                  |
 | senderGroupingKey                         | String  | 100                                                            | X   | 発信者グループキー                                                            |
 | recipientList[].recipientNo               | String  | 20                                                             | 	O  | 	受信番号<br/>countryCodeと組み合わせて使用可能<br/>最大1,000人                        |
 | recipientList[].countryCode               | 	String | 8                                                              | 	X  | 	国番号[デフォルト値：82(韓国)]                                                  |
@@ -621,7 +621,7 @@ Content-Type: application/json;charset=UTF-8
 | title                                     | 	String | 120  | 	O  | 	タイトル                                                                                                                   |
 | body                                      | 	String | 4000 | 	O  | 	本文                                                                                                                     |
 | sendNo                                    | 	String | 13   | 	O  | 	発信番号                                                                                                                   |
-| requestDate                               | String  | -    | X   | 予約日時(yyyy-MM-dd HH:mm)                                                                                                  |
+| requestDate                               | String  | -     | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                                                                                 |
 | senderGroupingKey                         | String  | 100  | X   | 発信者グループキー                                                                                                               |
 | recipientList[].recipientNo               | String  | 20   | 	O  | 	受信番号<br/>countryCodeと組み合わせて使用可能                                                                                        |
 | recipientList[].countryCode               | String  | 8    | 	X  | 	国番号[デフォルト値：82(韓国)]<br/>MMSは海外送信不可                                                                                      |
@@ -777,7 +777,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-    0
+  0
   ],
   "recipientList": [
     {
@@ -1197,7 +1197,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                             | 	X  | 	送信テンプレートID                                                                                                             |
 | body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O  | 	本文内容[[注意事項](./api-guide/#precautions-authword)]                                                                        |
 | sendNo                                    | 	String | 13                                                             | 	O  | 	発信番号                                                                                                                   |
-| requestDate                               | String  | -                                                              | X   | 予約日時(yyyy-MM-dd HH:mm)                                                                                                  |
+| requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                                                                                 |
 | senderGroupingKey                         | String  | 100                                                            | X   | 発信者グループキー                                                                                                               |
 | recipientList[].recipientNo               | 	String | 20                                                             | 	O  | 	受信番号<br/>countryCodeと組み合わせて使用可能                                                                                        |
 | recipientList[].countryCode               | 	String | 8                                                              | 	X  | 	国番号[デフォルト値：82(韓国)]                                                                                                     |
@@ -2222,7 +2222,7 @@ Content-Type: application/json;charset=UTF-8
 |-------------------|---------------------|----------------------------------------------------------------|----|-------------------------------------|
 | body              | 	String             | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O | 	本文内容                               |
 | sendNo            | String              | 13                                                             | O  | 発信番号                                |
-| requestDate       | String              | -                                                              | X  | 予約日時(yyyy-MM-dd HH:mm)              |
+| requestDate       | String              | -                                                                 | X  | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可            |
 | templateId        | String              | 50                                                             | X  | テンプレートID                            |
 | templateParameter | Map<String, String> | -                                                              | X  | テンプレートパラメータ                         |
 | tagExpression     | List<String>        | -                                                              | O  | タグ表現式<br/>ex) ["tagA","AND","tabB"] |
@@ -2342,7 +2342,7 @@ Content-Type: application/json;charset=UTF-8
 | title             | String              | 120   | O  | メッセージタイトル                           |
 | body              | String              | 4000  | O  | メッセージ内容                             |
 | sendNo            | String              | 13    | O  | 発信番号                                |
-| requestDate       | String              | -     | X  | 予約日時(yyyy-MM-dd HH:mm)              |
+| requestDate       | String              | -      | X  | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可            |
 | templateId        | String              | 50    | X  | テンプレートID                            |
 | templateParameter | Map<String, String> | -     | X  | テンプレートパラメータ                         |
 | tagExpression     | List<String>        | -     | O  | タグ表現式<br/>ex) ["tagA","AND","tabB"] |
@@ -4261,41 +4261,40 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 
 [URL]
 
-| Http method | 	URI                              |
-|-------------|-----------------------------------|
-| GET         | 	/sms/v3.0/appKeys/{appKey}/stats |
+| Http method | URI                              |
+|-------------|----------------------------------|
+| GET         | /sms/v3.0/appKeys/{appKey}/stats |
 
 [Path parameter]
 
-| 値      | 	タイプ    | 	説明            |
-|--------|---------|----------------|
-| appKey | 	String | 	固有のアプリケーションキー |
+| 値     | タイプ    | 説明    |
+|--------|--------|--------|
+| appKey | String | 固有のアプリケーションキー |
 
 [Header]
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
-| 値            | 	タイプ    | 	説明          |
-|--------------|---------|--------------|
-| X-Secret-Key | 	String | 	固有のシークレットキー |
+| 値           | タイプ    | 説明       |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 固有のシークレットキー |
 
 [Query parameter]
 
-| 値              | 	タイプ         | 	最大長さ | 必須                                                                                                                                                             | 説明                                                             |
-|----------------|--------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| statisticsType | String       | -     | 必須                                                                                                                                                             | 統計区分<br/>NORMAL：基本、 MINUTELY：分別、HOURLY：時間別、DAILY：日別、BY_DAY：曜日別 |
-| from           | String       | -     | 必須                                                                                                                                                             | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss                                | 
-| to             | String       | -     | 必須                                                                                                                                                             | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss                                |
-| statsIds       | List<String> | -     | オプション                                                                                                                                                          | 統計IDリスト                                                        |
-| messageType    | String       | -     | オプション                                                                                                                                                          | メッセージタイプ<br/>SMS、LMS、MMS、AUTH                                  |
-| isAd           | Boolean      | -     | オプション                                                                                                                                                          | 広告かどうか<br/>true/false                                          |
-| templateIds    | List<String> | -     | オプション                                                                                                                                                          | テンプレートIDリスト                                                    |
-| requestIds     | List<String> | 5     | オプション                                                                                                                                                          | リクエストIDリスト                                                     |
-| statsCriteria  | List<String> | オプション | 統計基準<br/>- EVENT：イベント(基本値)<br/>- TEMPLATE_ID、EVENT：テンプレート、イベント<br/>- EXTRA_1、EVENT：メッセージタイプ、イベント<br/>- EXTRA_2、EVENT：広告かどうか、イベント<br/>- EXTRA_3、EVENT：発信番号、イベント |
+| 値             | タイプ          | 最大長さ | 必須 | 説明                                                                |
+|----------------|--------------|-------|----|--------------------------------------------------------------------|
+| statisticsType | String       | -     | 必須 | 統計区分<br/>NORMAL:基本、 MINUTELY:分別, HOURLY:時間別、 DAILY:日別、 BY_DAY:曜日別 |
+| from           | String       | -     | 必須 | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss                                | 
+| to             | String       | -     | 必須 | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss                                |
+| statsIds       | List<String> | -     | オプション | 統計IDリスト                                                          |
+| messageType    | String       | -     | オプション | メッセージタイプ<br/>SMS, LMS, MMS, AUTH                                     |
+| isAd           | Boolean      | -     | オプション | 広告かどうか<br/>true/false                                               |
+| templateIds    | List<String> | -     | オプション | テンプレートIDリスト                                                         |
+| requestIds     | List<String> | 5     | オプション | リクエストIDリスト                                                          |
 
 #### cURL
 
@@ -4320,10 +4319,10 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
       {
         "eventDateTime": "",
         "events": {
-          "{statsCriteriaValue}.requested": 10,
-          "{statsCriteriaValue}.sent": 10,
-          "{statsCriteriaValue}.sentFailed": 0,
-          "{statsCriteriaValue}.received": 0
+          "requested": 10,
+          "sent": 10,
+          "sentFailed" : 0,
+          "received": 0
         }
       }
     ]
@@ -4331,17 +4330,22 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                                                  | 	タイプ     | 	説明                                                                                                             |
-|----------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                                | 	Boolean | 	成否                                                                                                             |
-| header.resultCode                                  | 	Integer | 	失敗コード                                                                                                          |
-| header.resultMessage                               | 	String  | 	失敗メッセージ                                                                                                        |
-| body.data.eventDateTime                            | 	String  | 	表示名<br/>分別、時間別、曜日別、月別                                                                                          |
-| body.data.events[].{statsCriteriaValue}            | List     | statsCriteriaに該当する値<br/>メッセージタイプ/広告タイプ/発信番号値が来る場合がある<br/>statsCriteriaをEVENTにのみ設定した場合{statsCriteriaValue}は省略される |
-| body.data.events[].{statsCriteriaValue}.requested  | 	Integer | 	リクエスト数                                                                                                         |
-| body.data.events[].{statsCriteriaValue}.sent       | 	Integer | 	送信数                                                                                                            |
-| body.data.events[].{statsCriteriaValue}.sentFailed | 	Integer | 	失敗数                                                                                                            |
-| body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	成功数                                                                                                            |
+| 値                   | タイプ     | 説明           |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | 成否        |
+| header.resultCode    | Integer | 失敗コード        |
+| header.resultMessage | String  | 失敗メッセージ       |
+| body.data            | List    | 統計イベントオブジェクトリスト |
+
+#### 統計イベントオブジェクト
+| 値                | タイプ     | 説明                        |
+|-------------------|---------|----------------------------|
+| eventDateTime     | String  | 表示名<br/>分別、時間別、曜日別、月別 |
+| events            | Object  | 統計値オブジェクト                   |
+| events.requested  | Integer | リクエスト数                     |
+| events.sent       | Integer | 送信数                     |
+| events.sentFailed | Integer | 失敗数                     |
+| events.received   | Integer | 成功数                     |
 
 ### 統計検索 - リクエスト時間ベース
 
@@ -4356,27 +4360,27 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 
 [URL]
 
-| Http method | 	URI                                     |
-|-------------|------------------------------------------|
-| GET         | 	/sms/v3.0/appKeys/{appKey}/stats/legacy |
+| Http method | URI                                     |
+|-------------|-----------------------------------------|
+| GET         | /sms/v3.0/appKeys/{appKey}/stats/legacy |
 
 [Path parameter]
 
-| 値      | 	タイプ    | 	説明            |
-|--------|---------|----------------|
-| appKey | 	String | 	固有のアプリケーションキー |
+| 値     | タイプ    | 説明    |
+|--------|--------|--------|
+| appKey | String | 固有のアプリケーションキー |
 
 [Header]
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
-| 値            | 	タイプ    | 	説明          |
-|--------------|---------|--------------|
-| X-Secret-Key | 	String | 	固有のシークレットキー |
+| 値           | タイプ    | 説明       |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 固有のシークレットキー |
 
 [Query parameter]
 
@@ -4390,7 +4394,6 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 | isAd           | Boolean      | -     | オプション                                                                                                                                                          | 広告かどうか<br/>true/false                                          |
 | templateIds    | List<String> | -     | オプション                                                                                                                                                          | テンプレートIDリスト                                                    |
 | requestIds     | List<String> | 5     | オプション                                                                                                                                                          | リクエストIDリスト                                                     |
-| statsCriteria  | List<String> | オプション | 統計基準<br/>- EVENT：イベント(基本値)<br/>- TEMPLATE_ID、EVENT：テンプレート、イベント<br/>- EXTRA_1、EVENT：メッセージタイプ、イベント<br/>- EXTRA_2、EVENT：広告かどうか、イベント<br/>- EXTRA_3、EVENT：発信番号、イベント |
 
 #### レスポンス
 
@@ -4406,11 +4409,101 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
       {
         "eventDateTime": "",
         "events": {
-          "{statsCriteriaValue}.requested": 10,
-          "{statsCriteriaValue}.sent": 10,
-          "{statsCriteriaValue}.sentFailed": 0,
-          "{statsCriteriaValue}.received": 0,
-          "{statsCriteriaValue}.pending": 0
+          "requested": 10,
+          "sent": 10,
+          "sentFailed": 0,
+          "received": 0,
+          "pending": 0
+        }
+      }
+    ]
+  }
+}
+```
+
+| 値                   | タイプ     | 説明           |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | 成否        |
+| header.resultCode    | Integer | 失敗コード        |
+| header.resultMessage | String  | 失敗メッセージ       |
+| body.data            | List    | 統計イベントオブジェクトリスト |
+
+#### 統計イベントオブジェクト
+| 値                | タイプ     | 説明                        |
+|-------------------|---------|----------------------------|
+| eventDateTime     | String  | 表示名<br/>分別、時間別、曜日別、月別 |
+| events            | Object  | 統計値オブジェクト                   |
+| events.requested  | Integer | リクエスト数                     |
+| events.sent       | Integer | 送信数                     |
+| events.sentFailed | Integer | 失敗数                     |
+| events.received   | Integer | 成功数                     |
+| events.pending    | Integer | 送信中の数                   |
+
+### 統計検索 - 国際送信
+
+* イベント発生時間基準で収集された統計です。
+* 次の時間基準で統計が収集されます。
+    * リクエスト数(requested):送信リクエスト時間
+    * 送信数(sent):通信事業者(ベンダー)に送信リクエストした時間
+    * 成功数(concat):単件またはConcatenated message(接続)機能を介して送信されたメッセージの受信時間
+    * 失敗数(sentFailed):失敗レスポンスが発生した時間
+
+#### リクエスト
+
+[URL]
+
+| Http method | URI                                            |
+|-------------|------------------------------------------------|
+| GET         | /sms/v3.0/appKeys/{appKey}/stats/international |
+
+[Path parameter]
+
+| 値     | タイプ    | 説明    |
+|--------|--------|--------|
+| appKey | String | 固有のアプリケーションキー |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 値           | タイプ    | 説明       |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 固有のシークレットキー |
+
+[Query parameter]
+
+| 値              | 	タイプ         | 	最大長さ | 必須    | 説明                                                                |
+|----------------|--------------|-------|-------|-------------------------------------------------------------------|
+| statisticsType | String       | -     | 必須    | 統計区分<br/>NORMAL:基本、 MINUTELY:分別, HOURLY:時間別、 DAILY:日別、 BY_DAY:曜日別 |
+| from           | String       | -     | 必須    | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss                                   | 
+| to             | String       | -     | 必須    | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss                                   |
+| statsIds       | List<String> | -     | オプション | 統計IDリスト                                                           |
+| countryCode    | String       | -     | オプション | 国コード                                                              |
+| requestIds     | List<String> | 5     | オプション | リクエストIDリスト                                                        |
+| statsCriteria  | List<String> | -     | オプション | 統計基準<br/>- EVENT:イベント(デフォルト値)<br/>- COUNTRY_CODE,EVENT:国コード、イベント  |
+
+#### レスポンス(統計基準:デフォルト値)
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "data": [
+      {
+        "eventDateTime": "",
+        "events": {
+          "REQUESTED": 10,
+          "SENT": 10,
+          "SENT_FAILED": 0,
+          "CONCAT": 20
         }
       }
     ]

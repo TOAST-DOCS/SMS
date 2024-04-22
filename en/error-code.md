@@ -84,6 +84,7 @@
 | Statistics | false | -2701 | Invalid statistics search parameter | Invalid statistics search parameter. |
 | Statistics | false | -2703 | Invalid detail range of statistics | Invalid duration time. |
 | Statistics | false | -2704 | Invalid statistics parameter | Invalid stats parameter. |
+| Statistics | false | -2706 | Internal statistics error (failed to call API) | Failed read stats. |
 | 080 Call Rejection | false | -6000 | Call rejection is not used | Block service is not joined. |
 | 080 Call Rejection | false | -6001 | Refused recipient number | Recipient Number is refused. |
 | 080 Call Rejection | false | -6003 | Body does not include guide message on call rejection | The body must contain block guide ment. |
@@ -126,9 +127,9 @@
 | Telecom Provider | 3014 | Failure | Others |
 | Telecom Provider | 3015 | Failure | No transfer route available |
 | Telecom Provider | 3016 | Failure | Size restriction failed for attached file |
-| Telecom Provider | 3017 | Failure | Number format error due to sender number (=reply number) falsification prevention service |
-| Telecom Provider | 3018 | Failure | Personal mobile phone number subscribed to sender number (=reply number) falsification prevention service  |
-| Telecom Provider | 3019 | Failure | Numbers not registered at sender number(=reply number) InfoBank via pre-registration of numbers |
+| Telecom Provider | 3017 | Failure | Number format error based on sender number tampering prevention service |
+| Telecom Provider | 3018 | Failure | Individual subscriber phone number subscribed to the sender number tampering prevention service  |
+| Telecom Provider | 3019 | Failure | Sender numbers that KISA or the Ministry of Science and ICT has blocked for all customers. |
 | ETC | E911 | Failure | No attached file extension available |
 | ETC | E913 | Failure | Attached file size is 0 |
 | ETC | E915 | Failure | Duplicate messages |
