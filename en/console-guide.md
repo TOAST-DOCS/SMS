@@ -190,7 +190,12 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 
 ## Sending SMS
 * The maximum character count is based on storage. To avoid character truncation, write to a standard size, not a maximum character count.
-* Content standard: Domestic SMS 90 bytes (45 Korean characters, 90 English characters) / Domestic MMS 2,000 bytes (1,000 Korean characters, 2,000 English characters) / International SMS UCS-2 335 characters / International SMS GSM-7bit 765 characters
+* Content standards
+  * Domestic SMS 90 bytes (45 Korean characters, 90 English characters), Domestic LMS 2,000 bytes (1,000 Korean characters, 2,000 English characters), Domestic MMS 2,000 bytes (1,000 Korean characters, 2,000 English characters including images) 
+  * International SMS UCS-2 335 characters, International SMS GSM-7bit 765 characters
+* For MMS, images must be uploaded as files that meet the image attachment specifications.
+  * MMS maximum size: Only files 1000\*1000 or smaller can be attached
+  * MMS supported specifications: 300 KB or less per image, 800 KB total for 3 images or less/ Only .jpg, .jpeg files can be attached
 * For international SMS, it is concatenated based on encoding and character count.
     * Concatenated message is a service that makes a message appear to be connected as one long text on the device, like an LMS in Korea, to overcome the limitation of the number of characters that can be sent in international SMS sending.
     * The Concatenated message feature is available depending on the number of characters in the body, encoding, and support from international mobile carriers. If concatenated message is not supported, the device may receive multiple short messages.
@@ -200,64 +205,32 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 * If the sending is successful but you do not receive the text, please check ‘Mobile Carrier Spam Blocking Service’. [Shortcut to guide](./sending-policy/#spam-number)
 * The sending date and time for scheduled delivery can be set up to 60 days from now.
 
-### Send General SMS
 
-Following is the guide to send Short Message Service (SMS).
 
-![sms_04_20230818](https://static.toastoven.net/prod_sms/eng/SMS_04_20230818.png)
+### General Delivery
 
-1. Select SMS for **Text Type**.
-2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
-3. To choose time of delivery, specify it **Scheduled Delivery**.
-4. Fill in the **Body** of message.
-5. **Recipient Information** provides all numbers including domestic numbers or country code.
-    - e.g.) 01012345678, 821012345678
-6. Click the **Send** button.
-
-### Send General LMS
-
-Following is the guide to send general Long Message Service (LMS).
-
-![sms_05_20230818](https://static.toastoven.net/prod_sms/eng/SMS_05_20230818.png)
-
-1. Select MMS for **Text Type**.
-2. Select **Sender Number** (numbers can be added on **Sender Number Management**.)
-3. To choose time of delivery, specify it **Scheduled Delivery**.
-4. Enter the title. (To prevent character truncation, write based on 40 bytes (20 Korean characters, 40 English characters).)
-5. Fill in the **Body** of message.
-6. **Recipient Information** provides all numbers including domestic numbers or country code.
-    - e.g.) 01012345678, 821012345678
-7. Click the **Send** button.
-
-### Send MMS (Send Attachment)
-
-Multimedia Messaging Service (MMS) can be sent as below:
-
-![sms_06_20230818](https://static.toastoven.net/prod_sms/eng/SMS_06_20230818.png)
-
-1. Select MMS for **Text Type**.
-2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
-3. To choose time of delivery, specify it **Scheduled Delivery**.
-4. Click **Upload Attachment** and upload attached files.
-5. Enter the title. (To prevent character truncation, write based on 40 bytes (20 Korean characters, 40 English characters).)
-6. Fill in the **Body** of message.
-7. **Recipient Information** provides all numbers including domestic numbers or country code.
-    - e.g.) 01012345678, 821012345678
-8. Click the **Send** button.
-
-### Send Templates
-
-You can send messages on user-created templates.
-
-![sms_07_20230818](https://static.toastoven.net/prod_sms/eng/SMS_07_20230818.png)
-
-1. Select **Use** from **Use Templates** and select a template from **Select Templates**. (Template can be registered in the Template Management tab.)
-2. Select **Sender Number** (numbers can be added on **Pre-register Sender Numbers** > **Register Sender Number and Verify Owner**.)
-3. To choose time of delivery, specify it **Scheduled Delivery**.
-4. Fill in the **Body** of message.
-5. **Recipient Information** provides all numbers including domestic numbers or country code.
-    - e.g.) 01012345678, 821012345678
-6. Click the **Send** button.
+1. Enable Template: You can send messages on user-created templates.
+   * If you have pre-created templates, select **Use** from **Use Templates** and select a template from **Select Templates**.
+   * Templates can be registered in the **Manage Templates** tab.
+2. Send type: Set the message to send.
+   * Type: Select from **SMS/LMS/MMS** 
+3. Content to send: Set what to send.
+   * Type: Select **General/Advertising** 
+   * When sending for advertising purposes, the Information and Communications Network Act (Article 50) applies and the 080 Do Not Call service must be registered. Also, sending to numbers that have been opted out will automatically fail.
+   * You can see how to register for a 080 Deny-to-receive number in **Settings for 080 Deny-to-receive number**.
+4. Sender number: Select the number to which the message will be sent.
+   * If you don't have a registered sender number, click **+ Register Sender Number** to register a sender number.
+5.  Statistics event key: When a specific event occurs in the Email service, create POST request with the URL specified by the webhook settings.
+    * If you don't have a registered statistical event key, click **Manage Statistics Event Keys** to register an event key.
+6. Scheduled Delivery: Messages are sent on the send date you set.
+7. Attachments: Only visible if **MMS**is selected, click the **Upload attachment**to add attachments.
+8. Subject: Only visible if LMS or MMS is selected, enter a subject for the message.
+   * The title can be up to 40 bytes long.
+   * To avoid character truncation, use 40 bytes (20 Korean characters and 40 English characters).
+9. Content: Enter the content of the message.
+10. Recipient information: Enter the number to receive the message.
+    * Provides all numbers including domestic numbers or country code.<br/> Example: 01012345678, 821012345678
+11. Send: Click **Send** for delivery.
 
 ### Mass Delivery
 
@@ -579,10 +552,32 @@ When the data collection period ends, it becomes inactive and no longer collects
 
 ### Query Statistics
 
-![sms_37_20230818](https://static.toastoven.net/prod_sms/eng/SMS_37_20230818.png)
-
-* You can view statistics by delivery request duration, template, delivery type, and delivery content.
+* You can view statistics by delivery request duration, statistics event keys, template, and delivery type.
 * You can view delivery requests, successes, and failures in graphs and tables.
+
+
+#### Categorize Statistics
+* Messages (request time): Statistics collected by request time to send.
+* Statistics are collected as of the following times
+  * Request: Send request time
+  * Send: As a send request time, increases when the send request is made to the carrier (vendor)
+  * Send Failure:  As a send request time, increases when the failure response occurs
+  * Receive:  As a send request time, increases when the request is actual received by the terminal
+  * Waiting for result: Increases upon sending, and decreases when received
+* Message (event time): Statistics collected based on the time the event occurred.
+* Statistics are collected as of the following times
+  * Request: Send request time
+  * Send: Time requested to send to a carrier (vendor)
+  * Send Failure: Time when the failed response occurred
+  * Receive: Actual terminal reception time
+  * Waiting for result: Increases upon sending, and decreases when received
+* International Delivery: Statistics collected based on the time of event occurrence.
+* Statistics are collected as of the following times
+  * Request: Send request time
+  * Send: Time requested to send to a carrier (vendor)
+  * Send Failure: Time when the failed response occurred
+  * Receive: Time for messages to be received  through the single or concatenated message feature.
+  * Waiting for result: Increases upon sending, and decreases when received
 
 
 ## [Note]
