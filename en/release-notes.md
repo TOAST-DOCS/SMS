@@ -1,5 +1,10 @@
 ## Notification > SMS > Release Notes
 
+### April 23, 2024
+#### Feature Updates
+* [Console] Changed the maximum time period for scheduled delivery
+    * Made modifications so that the sending date for scheduled delivery can be set up to 60 days from now.
+
 ### March 26, 2024
 #### Added Features
 * [API] Added International Send Statistics API
@@ -33,6 +38,12 @@
 #### Feature Updates
 * [Console] Separated sender number pre-registration from identity verification
     * Separated the sender number pre-registration tab from the identity verification tab.
+
+### December 15, 2023
+### Feature Updates
+* [Console/API] Changed the Terms and Conditions for individual members
+   * To provide stable service, the SMS service for individual members was ended.
+   * If you are an individual member, you can no longer use the service with  restricted identity verification.
 
 ### November 28, 2023
 #### Feature Updates
