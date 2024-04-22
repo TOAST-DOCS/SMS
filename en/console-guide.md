@@ -198,7 +198,7 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 
 * If you fail to send a text due to blocking the sender number, please check the 'Stolen Number Text Blocking Service'. [Go to the user guide](./sending-policy/#fraud-number)
 * If the sending is successful but you do not receive the text, please check ‘Mobile Carrier Spam Blocking Service’. [Shortcut to guide](./sending-policy/#spam-number)
-
+* The sending date and time for scheduled delivery can be set up to 60 days from now.
 
 ### Send General SMS
 
