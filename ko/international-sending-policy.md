@@ -144,6 +144,7 @@
 | 요르단 | Jordan | 962 |
 | 케냐 | Kenya | 254 |
 | 키리바시 | Kiribati | 686 |
+| 코소보 공화국 | Kosovo | 383 |
 | 쿠웨이트 | Kuwait | 965 |
 | 키르기스스탄 | Kyrgyzstan | 996 |
 | 라오스 | Laos | 856 |
