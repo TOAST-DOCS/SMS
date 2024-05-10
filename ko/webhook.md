@@ -99,9 +99,9 @@ curl -X POST \
 | hooks[].receiveDate     | String | 수신 일시<br>* yyyy-MM-dd'T'HH:mm:ss |
 | hooks[].sendNo          | String | 발신 번호 |
 | hooks[].recipientNo     | String | 수신 번호 |
-| hooks[].messageStatus   | String | 메시지 상태 <br>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소, DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한)) |
+| hooks[].messageStatus   | String | 메시지 상태 <br>(RESERVED: 예약 대기, SENDING: 발송 중, COMPLETED: 발송 완료, FAILED: 발송 실패, CANCEL: 취소, DUPLICATED: 중복 발송, FAILED_AD: 실패(광고 제한), RESEND_AD: 재발송 대기(광고제한)) |
 | hooks[].recipientGroupingKey | String | 수신자 그룹 키 |
-| hooks[].senderGroupingKey | String | 발신자 그룹키 |
+| hooks[].senderGroupingKey | String | 발신자 그룹 키 |
 | hooks[].resultCode      | String | 결과 코드 |
 | hooks[]._links.self.href | String | 메시지 단일 검색 API 링크 | 
 
