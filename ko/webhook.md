@@ -94,7 +94,7 @@ curl -X POST \
 | hooks[].hookId          | String | 서비스에서 이벤트 발생 시 생성되는 고유 ID                     |
 | hooks[].senderType      | String | 발송 타입                                 |
 | hooks[].requestId       | String | 요청 ID                         |
-| hooks[].recipientSeq    | String | 발송 상세 ID(상세 검색 시 필수)  |
+| hooks[].recipientSeq    | Integer | 발송 상세 ID(상세 검색 시 필수)  |
 | hooks[].requestDate     | String | 발신 일시<br>* yyyy-MM-dd'T'HH:mm:ss |
 | hooks[].receiveDate     | String | 수신 일시<br>* yyyy-MM-dd'T'HH:mm:ss |
 | hooks[].sendNo          | String | 발신 번호 |

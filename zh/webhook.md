@@ -94,7 +94,7 @@ Hook data per event type when generating a POST request to the URL defined in th
 | hooks[].hookId          | String | A unique ID generated when an event occurs in the service                     |
 | hooks[].senderType      | String | Send type                                 |
 | hooks[].requestId       | String | Request ID                         |
-| hooks[].recipientSeq    | String | Sending Detail ID (required for detailed search)  |
+| hooks[].recipientSeq    | Integer | Sending Detail ID (required for detailed search)  |
 | hooks[].requestDate     | String | Date and time of sending<br>\* yyyy-MM-dd'T'HH:mm:ss |
 | hooks[].receiveDate     | String | Date and time of receiving<br>\* yyyy-MM-dd'T'HH:mm:ss |
 | hooks[].sendNo          | String | Sender number |
