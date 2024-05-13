@@ -4,7 +4,7 @@
 #### Feature Updates
 * [API] Added a message status field to the message result update webhook
     * Added the messageStatus field to the message result update webhook to indicate the status of the message.
-    * For more information, see [[Webhook Guide](./webhook/#hooks)].
+    * For more information, see [Webhook Guide](./webhook/#hooks).
 #### Bug Fixes
 * [API] Fixed bugs in the message result update webhook
     * Fixed a bug where, when sending fails, the result code was missing in the message result update webhook
