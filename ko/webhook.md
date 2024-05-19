@@ -34,14 +34,14 @@ SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
 }
 ```
 
-| 값               | 타입        | 설명                                                                          |
-|-----------------|-----------|-----------------------------------------------------------------------------|
-| hooksId         | String    | 웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID                                 |
-| webhookConfigId | String    | 웹훅 설정 ID                                                                    |
-| productName     | String    | 웹훅 이벤트가 발생한 서비스명                                                            |
-| appKey          | String    | 웹훅 이벤트가 발생한 서비스 앱키                                                          |
-| event           | String    | 웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록                                    |
-| hooks           | List<Map> | 웹훅 이벤트 발생 시 데이터<br>* 상세한 내용은 [이벤트 유형별 hooks 정의](./webhook/#hooks)를 참고해 주세요. |
+| 값               | 타입        | 설명                                                                                                                             |
+|-----------------|-----------|--------------------------------------------------------------------------------------------------------------------------------|
+| hooksId         | String    | 웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID                                                                                    |
+| webhookConfigId | String    | 웹훅 설정 ID                                                                                                                       |
+| productName     | String    | 웹훅 이벤트가 발생한 서비스명                                                                                                               |
+| appKey          | String    | 웹훅 이벤트가 발생한 서비스 앱키                                                                                                             |
+| event           | String    | 웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록<br>* MESSAGE_RESULT_UPDATE: 메시지 발송 결과 코드 업데이트<br>* CONVERSION_BLOCK: 전환율에 의한 차단 국가 발생 |
+| hooks           | List<Map> | 웹훅 이벤트 발생 시 데이터<br>* 상세한 내용은 [이벤트 유형별 hooks 정의](./webhook/#hooks)를 참고해 주세요.                                                    |
 
 #### cURL
 
@@ -125,6 +125,23 @@ curl -X POST \
         "href": "https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms/20240429205802y0Tl7Gbz0e0?recipientSeq=1"
       }
     },
+  }
+]
+```
+
+### 전환율에 의한 차단 국가 발생
+| 값                       | 타입     | 설명                                            |
+|-------------------------|--------|-----------------------------------------------|
+| hooks[].hookId          | String | 서비스에서 이벤트 발생 시 생성되는 고유 ID                     |
+| hooks[].countryCode     | String | 국가 코드                                         |
+| hooks[].blockedDateTime | String | 차단 국가 발생 일시<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX |
+
+```json
+"hooks": [
+  {
+    "hookId": "20240429205809GcSUXthVA00",
+    "countryCode": "NORMAL_SMS",
+    "createdDateTime": "2024-05-28T09:00:00.000+09:00"
   }
 ]
 ```
