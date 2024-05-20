@@ -104,7 +104,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 	100                                                              | X   | 발송 구분자 ex)admin,system                                                                                                                     |
 | statsId                                   | String  | 10                                                                | X   | 통계 ID(발신 검색 조건에는 포함되지 않습니다)                                                                                                                |
 | originCode                                | String  | 9                                                                 | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록 번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
-| useConversion                             | Boolean | -                                                                 | X   | 전환율 수집 요청 (default: false)                                                                                                                 |
+| useConversion                             | Boolean | -                                                                 | X   | 전환율 수집 요청 (default: false)<br/>예약 일시가 설정된 경우 사용할 수 없음                                                                                      |
 
 #### cURL
 
@@ -558,6 +558,7 @@ curl -X GET \
 
 * 전환 API는 단문 SMS 국제 발송 시 전환율 수집을 요청한 발송건에 대해 정상적으로 전환이 되었음을 응답하는 API입니다.
 * 해당 API를 통해 정상적으로 발송된 메시지에 대한 전환율을 관리할 수 있습니다.
+* 발송 시 useConversion 필드를 통해 전환율 수집 요청을 하지 않았거나 발송이 완료되지 않은 경우 해당 API는 실패로 응답합니다.
 
 #### 요청
 
@@ -1288,7 +1289,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 100                                                               | 	X  | 발송 구분자 ex)admin,system                                                                                                                    |
 | statsId                                   | String  | 10                                                                | X   | 통계 ID(발신 검색 조건에는 포함되지 않습니다)                                                                                                               |
 | originCode                                | String  | 9                                                                 | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
-| useConversion                             | Boolean | -                                                                 | X   | 전환율 수집 요청 (default: false)                                                                                                                 |
+| useConversion                             | Boolean | -                                                                 | X   | 전환율 수집 요청 (default: false)<br/>예약 일시가 설정된 경우 사용할 수 없음                                                                                                                  |
 
 #### cURL
 
@@ -1692,6 +1693,7 @@ curl -X GET \
 
 * 전환 API는 인증 SMS 국제 발송 시 전환율 수집을 요청한 발송건에 대해 정상적으로 전환이 되었음을 응답하는 API입니다.
 * 해당 API를 통해 정상적으로 발송된 메시지에 대한 전환율을 관리할 수 있습니다.
+* 발송 시 useConversion 필드를 통해 전환율 수집 요청을 하지 않았거나 발송이 완료되지 않은 경우 해당 API는 실패로 응답합니다. 
 
 #### 요청
 
@@ -1738,7 +1740,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/do-convert \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' \
 -d '{
