@@ -635,7 +635,7 @@ curl -X GET \
 
 ### 장문 MMS 발송(첨부 파일 미포함)
 
-※ LMS/MMS는 해외 발송이 불가능합니다.
+※ LMS/MMS는 해외 발송이 불가합니다. 하지만 국제SMS 한정으로 SMS의 Concatenated Message(연결) 기능을 통해 긴 메시지를 발송할 수 있습니다. [[국제SMS 발송 정책](./international-sending-policy/#_3)]
 
 #### 요청
 
@@ -1842,7 +1842,7 @@ curl -X POST \
 
 ### 광고성 MMS 발송
 
-※ LMS/MMS는 해외 발송이 불가능합니다.
+※ LMS/MMS는 해외 발송이 불가합니다. 하지만 국제SMS 한정으로 SMS의 Concatenated Message(연결) 기능을 통해 긴 메시지를 발송할 수 있습니다. [[국제SMS 발송 정책](./international-sending-policy/#_3)]
 
 #### 요청
 
@@ -2528,7 +2528,7 @@ curl -X POST \
 
 ### 태그 LMS 발송
 
-※ LMS/MMS는 해외 발송이 불가능합니다.
+※ LMS/MMS는 해외 발송이 불가합니다. 하지만 국제SMS 한정으로 SMS의 Concatenated Message(연결) 기능을 통해 긴 메시지를 발송할 수 있습니다. [[국제SMS 발송 정책](./international-sending-policy/#_3)]
 
 #### 요청
 
