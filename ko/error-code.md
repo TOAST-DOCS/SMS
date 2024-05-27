@@ -47,6 +47,8 @@
 | 발송/조회 | false | -2046 | 차단한 국가에 발송한 경우 | Blocked country by service. |
 | 발송/조회 | false | -2047 | 차단 제한 건수가 넘은 경우 | Blocked by total indicator. |
 | 발송/조회 | false | -2048 | 국제 발송 본문이 초과된 경우 | International message body exceed maximum length. |
+| 발송/조회 | false | -2050 | 국제 발송 전환에 실패한 경우(전환 가능한 상태가 아님) | Conversion status is not ready. |
+| 발송/조회 | false | -2051 | 전환율에 의한 차단으로 인해 발송에 실패한 경우 | Conversion rate is lower than threshold. |
 | 발송/조회 | false | -4000 | 조회 범위가 한달이 넘어간 경우 | Search is possible within one month. |
 | 발송/조회 | false | -8000 | 인증 발송에 인증 문구가 포함되지 않은 경우 | The body must contain auth guide ment. |
 | 템플릿 | false | -2100 | 템플릿 ID가 비어 있는 경우 | The templateId can not be empty. |

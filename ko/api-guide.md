@@ -82,7 +82,8 @@ Content-Type: application/json;charset=UTF-8
   ],
   "userId": "UserId",
   "statsId": "statsId",
-  "originCode": "123456789"
+  "originCode": "123456789",
+  "useConversion": true
 }
 ```
 
@@ -91,7 +92,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                                | 	X  | 	발송 템플릿 ID                                                                                                                                 |
 | body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O  | 	본문 내용                                                                                                                                     |
 | sendNo                                    | 	String | 13                                                                | 	O  | 	발신 번호                                                                                                                                     |
-| requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                                                                                   |
+| requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                                                        |
 | senderGroupingKey                         | String  | 100                                                               | X   | 발신자 그룹 키                                                                                                                                   |
 | recipientList[].recipientNo               | String  | 20                                                                | 	O  | 	수신 번호<br/>countryCode와 조합하여 사용 가능<br/>최대 1,000명                                                                                           |
 | recipientList[].countryCode               | 	String | 8                                                                 | 	X  | 	국가 번호 [기본값: 82(한국)]                                                                                                                       |
@@ -103,6 +104,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 	100                                                              | X   | 발송 구분자 ex)admin,system                                                                                                                     |
 | statsId                                   | String  | 10                                                                | X   | 통계 ID(발신 검색 조건에는 포함되지 않습니다)                                                                                                                |
 | originCode                                | String  | 9                                                                 | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록 번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+| useConversion                             | Boolean | -                                                                 | X   | 전환율 수집 요청(기본값: false)<br/>예약 일시가 설정된 경우 사용할 수 없음                                                                                            |
 
 #### cURL
 
@@ -552,11 +554,89 @@ curl -X GET \
 | body.data.dlr.networkCode      | 	String  | 	DLR 네트워크 코드                                                     |
 | body.data.dlr.errorCode        | 	String  | 	DLR 에러 코드                                                       |
 
+### 단문 SMS 국제 발송 전환
+
+* 전환 API는 단문 SMS 국제 발송 시 전환율 수집을 요청한 발송건에 대해 정상적으로 전환이 되었음을 응답하는 API입니다.
+* 해당 API를 통해 정상적으로 발송된 메시지에 대한 전환율을 관리할 수 있습니다.
+* 발송 시 useConversion 필드를 통해 전환율 수집 요청을 하지 않았거나 발송이 완료되지 않은 경우 해당 API는 실패로 응답합니다.
+
+#### 요청
+
+[URL]
+
+```
+POST  /sms/v3.0/appKeys/{appKey}/sender/sms/do-convert
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 값      | 타입     | 설명     |
+|--------|--------|--------|
+| appKey | String | 고유의 앱키 |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 값            | 타입     | 설명        |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 고유의 시크릿 키 |
+
+[Request body]
+
+```json
+{
+  "requestId": "requestId",
+  "recipientSeq": 1
+}
+```
+
+| 값            | 타입      | 최대 길이 | 필수 | 설명      |
+|--------------|---------|-------|----|---------|
+| requestId    | String  | 25    | O  | 요청 ID   |
+| recipientSeq | Integer | -     | O  | 수신자 시퀀스 |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' \
+-d '{
+    "requestId": "requestId",
+    "recipientSeq": 1
+}'
+```
+
+#### 응답
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+| 값                    | 타입      | 설명     |
+|----------------------|---------|--------|
+| header.isSuccessful  | Boolean | 성공 여부  |
+| header.resultCode    | Integer | 실패 코드  |
+| header.resultMessage | String  | 실패 메시지 |
+
 ## 장문 MMS
 
 ### 장문 MMS 발송(첨부 파일 미포함)
 
-※ LMS/MMS는 해외 발송이 불가능합니다.
+※ LMS/MMS는 해외 발송이 불가합니다. 하지만 국제 SMS 한정으로 SMS의 Concatenated Message(연결) 기능을 통해 긴 메시지를 발송할 수 있습니다. [[국제 SMS 발송 정책](./international-sending-policy/#_3)]
 
 #### 요청
 
@@ -1187,27 +1267,29 @@ Content-Type: application/json;charset=UTF-8
   ],
   "userId": "UserId",
   "statsId": "statsId",
-  "originCode": "123456789"
+  "originCode": "123456789",
+  "useConversion": true
 }
 ```
 
-| 값                                         | 	타입     | 최대 길이                                                             | 	필수 | 	설명                                                                                                                                       |
-|-------------------------------------------|---------|-------------------------------------------------------------------|-----|-------------------------------------------------------------------------------------------------------------------------------------------|
-| templateId                                | 	String | 50                                                                | 	X  | 	발송 템플릿 ID                                                                                                                                |
-| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O  | 	본문 내용 [[주의사항](./api-guide/#precautions-authword)]                                                                                        |
-| sendNo                                    | 	String | 13                                                                | 	O  | 	발신 번호                                                                                                                                    |
-| requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                                                                                  |
-| senderGroupingKey                         | String  | 100                                                               | X   | 발신자 그룹 키                                                                                                                                  |
-| recipientList[].recipientNo               | 	String | 20                                                                | 	O  | 	수신 번호<br/>countryCode와 조합하여 사용 가능                                                                                                        |
-| recipientList[].countryCode               | 	String | 8                                                                 | 	X  | 	국가 번호 [기본값: 82(한국)]                                                                                                                      |
-| recipientList[].internationalRecipientNo  | String  | 20                                                                | X   | 국가 번호가 포함된 수신 번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시<br/>                                                                   |
-| recipientList[].templateParameter         | 	Object | -                                                                 | 	X  | 	템플릿 파라미터(템플릿 ID 입력 시)                                                                                                                    |
-| recipientList[].templateParameter.{key}   | String  | -                                                                 | 	X  | 	치환 키(##key##)                                                                                                                            |
-| recipientList[].templateParameter.{value} | Object  | -                                                                 | 	X  | 	치환 키에 매핑되는 Value값                                                                                                                        |
-| recipientList[].recipientGroupingKey      | String  | 100                                                               | X   | 수신자 그룹 키                                                                                                                                  |
-| userId                                    | 	String | 100                                                               | 	X  | 발송 구분자 ex)admin,system                                                                                                                    |
-| statsId                                   | String  | 10                                                                | X   | 통계 ID(발신 검색 조건에는 포함되지 않습니다)                                                                                                               |
+| 값                                         | 	타입     | 최대 길이                                                             | 	필수 | 	설명                                                                                                                                      |
+|-------------------------------------------|---------|-------------------------------------------------------------------|-----|------------------------------------------------------------------------------------------------------------------------------------------|
+| templateId                                | 	String | 50                                                                | 	X  | 	발송 템플릿 ID                                                                                                                               |
+| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O  | 	본문 내용 [[주의사항](./api-guide/#precautions-authword)]                                                                                       |
+| sendNo                                    | 	String | 13                                                                | 	O  | 	발신 번호                                                                                                                                   |
+| requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                                                      |
+| senderGroupingKey                         | String  | 100                                                               | X   | 발신자 그룹 키                                                                                                                                 |
+| recipientList[].recipientNo               | 	String | 20                                                                | 	O  | 	수신 번호<br/>countryCode와 조합하여 사용 가능                                                                                                       |
+| recipientList[].countryCode               | 	String | 8                                                                 | 	X  | 	국가 번호 [기본값: 82(한국)]                                                                                                                     |
+| recipientList[].internationalRecipientNo  | String  | 20                                                                | X   | 국가 번호가 포함된 수신 번호<br/>예)821012345678<br/>recipientNo가 있을 경우 이 값은 무시<br/>                                                                  |
+| recipientList[].templateParameter         | 	Object | -                                                                 | 	X  | 	템플릿 파라미터(템플릿 ID 입력 시)                                                                                                                   |
+| recipientList[].templateParameter.{key}   | String  | -                                                                 | 	X  | 	치환 키(##key##)                                                                                                                           |
+| recipientList[].templateParameter.{value} | Object  | -                                                                 | 	X  | 	치환 키에 매핑되는 Value값                                                                                                                       |
+| recipientList[].recipientGroupingKey      | String  | 100                                                               | X   | 수신자 그룹 키                                                                                                                                 |
+| userId                                    | 	String | 100                                                               | 	X  | 발송 구분자 ex)admin,system                                                                                                                   |
+| statsId                                   | String  | 10                                                                | X   | 통계 ID(발신 검색 조건에는 포함되지 않습니다)                                                                                                              |
 | originCode                                | String  | 9                                                                 | X   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)<br/>특수한 유형의 부가통신사업자가 아닌 경우 사용하지 않습니다. 기본적으로 NHN Cloud의 식별 코드가 삽입됩니다.<br/> |
+| useConversion                             | Boolean | -                                                                 | X   | 전환율 수집 요청(기본값: false)<br/>예약 일시가 설정된 경우 사용할 수 없음                                                                                         |
 
 #### cURL
 
@@ -1370,7 +1452,7 @@ Content-Type: application/json;charset=UTF-8
 | 값                    | 	타입      | 	최대 길이 | 필수  | 	설명                                                    |
 |----------------------|----------|--------|-----|--------------------------------------------------------|
 | requestId            | 	String  | 25     | 	필수 | 	요청 ID                                                 |
-| startRequestDate     | 	String  | -      | 	필수 | 	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
+| startRequestDate     | 	String  | -      | 	필수 | 	발송 날짜 시작값<br/>yyyy-MM-dd HH:mm:ss)                        |
 | endRequestDate       | 	String  | -      | 	필수 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
 | startCreateDate      | 	String  | -      | 	필수 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
 | endCreateDate        | 	String  | -      | 	필수 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
@@ -1607,6 +1689,84 @@ curl -X GET \
 | body.data.dlr.networkCode      | String   | DLR 네트워크 코드                                                      |
 | body.data.dlr.errorCode        | String   | DLR 에러 코드                                                         |
 
+### 인증 SMS 국제 발송 전환
+
+* 전환 API는 인증 SMS 국제 발송 시 전환율 수집을 요청한 발송건에 대해 정상적으로 전환이 되었음을 응답하는 API입니다.
+* 해당 API를 통해 정상적으로 발송된 메시지에 대한 전환율을 관리할 수 있습니다.
+* 발송 시 useConversion 필드를 통해 전환율 수집 요청을 하지 않았거나 발송이 완료되지 않은 경우 해당 API는 실패로 응답합니다. 
+
+#### 요청
+
+[URL]
+
+```
+POST  /sms/v3.0/appKeys/{appKey}/sender/auth/sms/do-convert
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 값      | 타입     | 설명     |
+|--------|--------|--------|
+| appKey | String | 고유의 앱키 |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 값            | 타입     | 설명        |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 고유의 시크릿 키 |
+
+[Request body]
+
+```json
+{
+  "requestId": "requestId",
+  "recipientSeq": 1
+}
+```
+
+| 값            | 타입      | 최대 길이 | 필수 | 설명      |
+|--------------|---------|-------|----|---------|
+| requestId    | String  | 25    | O  | 요청 ID   |
+| recipientSeq | Integer | -     | O  | 수신자 시퀀스 |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/do-convert \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' \
+-d '{
+    "requestId": "requestId",
+    "recipientSeq": 1
+}'
+```
+
+#### 응답
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+| 값                    | 타입      | 설명     |
+|----------------------|---------|--------|
+| header.isSuccessful  | Boolean | 성공 여부  |
+| header.resultCode    | Integer | 실패 코드  |
+| header.resultMessage | String  | 실패 메시지 |
+
 ## 광고 문자
 
 ### 광고성 SMS 발송
@@ -1684,7 +1844,7 @@ curl -X POST \
 
 ### 광고성 MMS 발송
 
-※ LMS/MMS는 해외 발송이 불가능합니다.
+※ LMS/MMS는 해외 발송이 불가합니다. 하지만 국제 SMS 한정으로 SMS의 Concatenated Message(연결) 기능을 통해 긴 메시지를 발송할 수 있습니다. [[국제 SMS 발송 정책](./international-sending-policy/#_3)]
 
 #### 요청
 
@@ -1745,6 +1905,83 @@ curl -X POST \
     "userId": ""
 }'
 ```
+
+### 광고 SMS 국제 발송 전환
+
+* 전환 API는 광고 SMS 국제 발송 시 전환율 수집을 요청한 발송건에 대해 정상적으로 전환이 되었음을 응답하는 API입니다.
+* 해당 API를 통해 정상적으로 발송된 메시지에 대한 전환율을 관리할 수 있습니다.
+
+#### 요청
+
+[URL]
+
+```
+POST  /sms/v3.0/appKeys/{appKey}/sender/sms/do-convert
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 값      | 타입     | 설명     |
+|--------|--------|--------|
+| appKey | String | 고유의 앱키 |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 값            | 타입     | 설명        |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 고유의 시크릿 키 |
+
+[Request body]
+
+```json
+{
+  "requestId": "requestId",
+  "recipientSeq": 1
+}
+```
+
+| 값            | 타입      | 최대 길이 | 필수 | 설명      |
+|--------------|---------|-------|----|---------|
+| requestId    | String  | 25    | O  | 요청 ID   |
+| recipientSeq | Integer | -     | O  | 수신자 시퀀스 |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' \
+-d '{
+    "requestId": {requestId},
+    "recipientSeq": 1
+}'
+```
+
+#### 응답
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+| 값                    | 타입      | 설명     |
+|----------------------|---------|--------|
+| header.isSuccessful  | Boolean | 성공 여부  |
+| header.resultCode    | Integer | 실패 코드  |
+| header.resultMessage | String  | 실패 메시지 |
 
 ## 결과 업데이트 기준 메시지 검색
 
@@ -2293,7 +2530,7 @@ curl -X POST \
 
 ### 태그 LMS 발송
 
-※ LMS/MMS는 해외 발송이 불가능합니다.
+※ LMS/MMS는 해외 발송이 불가합니다. 하지만 국제 SMS 한정으로 SMS의 Concatenated Message(연결) 기능을 통해 긴 메시지를 발송할 수 있습니다. [[국제 SMS 발송 정책](./international-sending-policy/#_3)]
 
 #### 요청
 
@@ -3598,12 +3835,12 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-| 값          | 	타입      | 	필수 | 	설명              |
-|------------|----------|-----|------------------|
-| categoryId | 	Integer | 	옵션 | 	카테고리 ID         |
-| useYn      | 	String  | 	옵션 | 	사용 여부(Y/N)      |
-| pageNum    | 	Integer | 옵션  | 	페이지 번호(기본값 : 1) |
-| pageSize   | 	Integer | 옵션  | 	검색 수(기본값 : 15)  |
+| 값          | 	타입      | 	필수 | 	설명            |
+|------------|----------|-----|----------------|
+| categoryId | 	Integer | 	옵션 | 	카테고리 ID       |
+| useYn      | 	String  | 	옵션 | 	사용 여부(Y/N)    |
+| pageNum    | 	Integer | 옵션  | 	페이지 번호(기본값: 1) |
+| pageSize   | 	Integer | 옵션  | 	검색 수(기본값: 15) |
 
 #### cURL
 
@@ -5160,13 +5397,13 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-| 값                      | 	타입      | 	최대 길이 | 필수  | 	설명                                  |
-|------------------------|----------|--------|-----|--------------------------------------|
-| startRequestedDateTime | String   | -      | 옵션  | 예약 취소 요청 시작 시간(yyyy-MM-dd HH:mm:ss)  |
+| 값                      | 	타입      | 	최대 길이 | 필수  | 	설명                                |
+|------------------------|----------|--------|-----|------------------------------------|
+| startRequestedDateTime | String   | -      | 옵션  | 예약 취소 요청 시작 시간(yyyy-MM-dd HH:mm:ss) |
 | endRequestedDateTime   | 	String  | -      | 	옵션 | 	예약 취소 요청 종료 시간(yyyy-MM-dd HH:mm:ss) |
-| reservationCancelId    | 	String  | 25     | 	옵션 | 예약 취소 ID                             |
-| pageNum                | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                     |
-| pageSize               | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                      |
+| reservationCancelId    | 	String  | 25     | 	옵션 | 예약 취소 ID                           |
+| pageNum                | 	Integer | -      | 	옵션 | 	페이지 번호(기본값: 1)                    |
+| pageSize               | 	Integer | 1000   | 	옵션 | 	검색 수(기본값: 15)                     |
 
 #### cURL
 
@@ -5806,12 +6043,12 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-| 값         | 	타입           | 최대 길이 | 	필수 | 	설명                                                                                            |
-|-----------|---------------|-------|-----|------------------------------------------------------------------------------------------------|
+| 값         | 	타입           | 최대 길이 | 	필수 | 	설명                                                                                        |
+|-----------|---------------|-------|-----|--------------------------------------------------------------------------------------------|
 | wheres    | 	List<String> | 	-    | 옵션  | 검색 조건.<br/>알파뱃, 숫자, 괄호로 이루어진 문자열 배열.<br/>괄호는 1개, AND/OR은 3개까지 사용 가능<br/>(예시) tagId1,AND,tagId2 |
-| offsetUid | 	String       | 	-    | 옵션  | 검색을 시작할 uid                                                                                    |
-| offset    | Integer       | -     | 옵션  | offset 0(기본값)                                                                                  |
-| limit     | Integer       | 1000  | 옵션  | 검색 건수 15(기본값)                                                                                  |
+| offsetUid | 	String       | 	-    | 옵션  | 검색을 시작할 uid                                                                                |
+| offset    | Integer       | -     | 옵션  | offset(기본값: 0)                                                                             |
+| limit     | Integer       | 1000  | 옵션  | 검색 건수(기본값: 15)                                                                             |
 
 #### cURL
 
