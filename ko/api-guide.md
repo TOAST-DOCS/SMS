@@ -604,7 +604,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 
 ```
-curl -X GET \
+curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' \
@@ -1739,7 +1739,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 
 ```
-curl -X GET \
+curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/do-convert \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' \
@@ -1955,7 +1955,7 @@ Content-Type: application/json;charset=UTF-8
 #### cURL
 
 ```
-curl -X GET \
+curl -X POST \
 'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' \
