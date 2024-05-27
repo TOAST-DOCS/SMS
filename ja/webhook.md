@@ -99,7 +99,7 @@ Webフック設定で定義されたURLでPOSTリクエストを作成する時�
 | hooks[].receiveDate     | String | 受信日時<br>* yyyy-MM-dd'T'HH:mm:ss |
 | hooks[].sendNo          | String | 発信番号 |
 | hooks[].recipientNo     | String | 受信番号 |
-| hooks[].messageStatus   | String | メッセージ状態 <br>(RESERVED:予約待機、 SENDING:送信中、 COMPLETED:送信完了、 FAILED:送信失敗、 CANCEL:キャンセル、 DUPLICATED:重複送信、 FAILED_AD:失敗(広告制限), RESEND_AD:再送信待機(広告制限)) |
+| hooks[].messageStatus   | String | メッセージ状態 <br>(COMPLETED:送信完了、 FAILED:送信失敗、 CANCEL:キャンセル、 DUPLICATED:重複送信、 FAILED_AD:失敗(広告制限)) |
 | hooks[].recipientGroupingKey | String | 受信者グループキー |
 | hooks[].senderGroupingKey | String | 送信者グループキー |
 | hooks[].resultCode      | String | 結果コード |

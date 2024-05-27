@@ -99,7 +99,7 @@ Hook data per event type when generating a POST request to the URL defined in th
 | hooks[].receiveDate     | String | Date and time of receiving<br>\* yyyy-MM-dd'T'HH:mm:ss |
 | hooks[].sendNo          | String | Sender number |
 | hooks[].recipientNo     | String | Recipient number |
-| hooks[].messageStatus   | String | Message status <br>(RESERVED: Reserved, SENDING: Sending, COMPLETED: Completed, FAILED: Failed, CANCEL: Canceled, DUPLICATED: Duplicated, FAILED_AD: Failed (ad restrictions), RESEND_AD: Waiting to be resent (ad restrictions)) |
+| hooks[].messageStatus   | String | Message status <br>(COMPLETED: Completed, FAILED: Failed, CANCEL: Canceled, DUPLICATED: Duplicated, FAILED_AD: Failed (ad restrictions)) |
 | hooks[].recipientGroupingKey | String | Recipient group key |
 | hooks[].senderGroupingKey | String | Sender group key |
 | hooks[].resultCode      | String | Result code |
