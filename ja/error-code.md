@@ -47,6 +47,8 @@
 | 送信/照会 | false | -2046 | ブロックした国に送信した場合 | Blocked country by service. |
 | 送信/照会 | false | -2047 | ブロック制限件数を超えた場合 | Blocked by total indicator. |
 | 送信/照会 | false | -2048 | 国際送信の本文が最大文字数を超えた場合 | International message body exceed maximum length. |
+| 送信/照会 | false | -2050 | 国際発送のコンバージョンに失敗した場合(コンバージョン可能な状態ではありません) | Conversion status is not ready. |
+| 送信/照会 | false | -2051 | コンバージョン率によるブロックにより送信に失敗した場合 | Conversion rate is lower than threshold. |
 | 送信/照会 | false | -4000 | 照会範囲が1か月を超える場合 | Search is possible within one month. |
 | 送信/照会 | false | -8000 | 認証送信に認証文言が含まれていない場合 | The body must contain auth guide ment. |
 | テンプレート | false | -2100 | テンプレートIDが空白の場合 | The templateId can not be empty. |

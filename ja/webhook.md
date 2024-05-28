@@ -34,14 +34,14 @@ SMSサービス内で特定イベントが発生すると、Webフック設定�
 }
 ```
 
-| 値               | タイプ       | 説明                                                                      |
-|-----------------|-----------|-------------------------------------------------------------------------|
-| hooksId         | String    | Webフック設定に定義されているURLにPOSTリクエストを行うたびに作成される固有のID                           |
-| webhookConfigId | String    | Webフック設定ID                                                              |
-| productName     | String    | Webフックイベントが発生したサービス名                                                    |
-| appKey          | String    | Webフックイベントが発生したサービスアプリケーションキー                                           |
-| event           | String    | Webフックイベント名<br>* UNSUBSCRIBE：広告メッセージ受信番号登録                              |
-| hooks           | List<Map> | Webフックイベント発生時のデータ<br>* 詳細は[イベントタイプ別hooks定義](./webhook/#hooks)を参照してください。 |
+| 値             | タイプ      | 説明                                                                                                                           |
+|-----------------|-----------|--------------------------------------------------------------------------------------------------------------------------------|
+| hooksId         | String    | Webフック設定に定義されているURLにPOSTリクエストを行うたびに作成される固有のID                                                                                    |
+| webhookConfigId | String    | Webフック設定ID                                                                                                                       |
+| productName     | String    | Webフックイベントが発生したサービス名                                                                                                              |
+| appKey          | String    | Webフックイベントが発生したサービスアプリキー                                                                                                           |
+| event           | String    | Webフックイベント名<br>* UNSUBSCRIBE:広告文字受信番号登録<br>* MESSAGE_RESULT_UPDATE:メッセージ送信結果コードアップデート<br>* CONVERSION_BLOCK:コンバージョン率によるブロック国発生 |
+| hooks           | List<Map> | Webフックイベント発生時のデータ<br>* 詳細は[イベントタイプ別hooks定義](./webhook/#hooks)を参照してください。                                                    |
 
 #### cURL
 
@@ -125,6 +125,23 @@ Webフック設定で定義されたURLでPOSTリクエストを作成する時�
         "href": "https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms/20240429205802y0Tl7Gbz0e0?recipientSeq=1"
       }
     },
+  }
+]
+```
+
+### コンバージョン率によるブロック国発生
+| 値                     | タイプ   | 説明                                          |
+|-------------------------|--------|-----------------------------------------------|
+| hooks[].hookId          | String | サービスでイベント発生時に作成される固有ID                     |
+| hooks[].countryCode     | String | 国コード                                       |
+| hooks[].blockedDateTime | String | 遮断国家発生日時<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX |
+
+```json
+hooks: [
+  {
+    "hookId": "20240429205809GcSUXthVA00",
+    "countryCode": "NORMAL_SMS",
+    "createdDateTime": "2024-05-28T09:00:00.000+09:00"
   }
 ]
 ```
