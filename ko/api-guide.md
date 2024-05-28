@@ -1449,25 +1449,25 @@ Content-Type: application/json;charset=UTF-8
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
 * 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
 
-| 값                    | 	타입      | 	최대 길이 | 필수  | 	설명                                                    |
-|----------------------|----------|--------|-----|--------------------------------------------------------|
-| requestId            | 	String  | 25     | 	필수 | 	요청 ID                                                 |
-| startRequestDate     | 	String  | -      | 	필수 | 	발송 날짜 시작값<br/>yyyy-MM-dd HH:mm:ss)                        |
-| endRequestDate       | 	String  | -      | 	필수 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| startCreateDate      | 	String  | -      | 	필수 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endCreateDate        | 	String  | -      | 	필수 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| startResultDate      | 	String  | -      | 	옵션 | 	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endResultDate        | 	String  | -      | 	옵션 | 	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| sendNo               | 	String  | 13     | 	옵션 | 	발신 번호                                                 |
-| recipientNo          | 	String  | 20     | 	옵션 | 	수신 번호                                                 |
-| templateId           | 	String  | 50     | 	옵션 | 	템플릿 번호                                                |
-| msgStatus            | 	String  | 1      | 	옵션 |  메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패, 6 :실패(광고 제한), 7:재발송 대기(광고 제한)) |
-| resultCode           | 	String  | 10     | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                 |
-| subResultCode        | 	String  | 10     | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
-| senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹 키                                              |
-| recipientGroupingKey | 	String  | 100    | 	옵션 | 	수신자 그룹 키                                              |
-| pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                       |
-| pageSize             | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                        |
+| 값                    | 타입      | 최대 길이 | 필수 | 설명                                                                                    |
+|----------------------|---------|-------|----|---------------------------------------------------------------------------------------|
+| requestId            | String  | 25    | 필수 | 요청 ID                                                                                 |
+| startRequestDate     | String  | -     | 필수 | 발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                                                        |
+| endRequestDate       | String  | -     | 필수 | 발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                                                        |
+| startCreateDate      | String  | -     | 필수 | 록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                                                         |
+| endCreateDate        | String  | -     | 필수 | 등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                                                        |
+| startResultDate      | String  | -     | 옵션 | 수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)                                                        |
+| endResultDate        | String  | -     | 옵션 | 수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)                                                        |
+| sendNo               | String  | 13    | 옵션 | 발신 번호                                                                                 |
+| recipientNo          | String  | 20    | 옵션 | 수신 번호                                                                                 |
+| templateId           | String  | 50    | 옵션 | 템플릿 번호                                                                                |
+| msgStatus            | String  | 1     | 옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패, 6 :실패(광고 제한), 7:재발송 대기(광고 제한)) |
+| resultCode           | String  | 10    | 옵션 | 수신 결과 코드 [[검색 코드표](./error-code/#_2)]                                                 |
+| subResultCode        | String  | 10    | 옵션 | 수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]                                              |
+| senderGroupingKey    | String  | 100   | 옵션 | 발송자 그룹 키                                                                              |
+| recipientGroupingKey | String  | 100   | 옵션 | 수신자 그룹 키                                                                              |
+| pageNum              | Integer | -     | 옵션 | 페이지 번호(기본값 : 1)                                                                       |
+| pageSize             | Integer | 1000  | 옵션 | 검색 수(기본값 : 15)                                                                        |
 
 #### cURL
 
