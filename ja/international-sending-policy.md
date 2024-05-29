@@ -96,7 +96,7 @@
 | デンマーク | Denmark | 45 |
 | ジブチ | Djibouti | 253 |
 | ドミニカ共和国 | Dominica | 1767 |
-| ドミニカ共和国1 | Dominican Republic1 | 1809 |
+| ドミニカ共和国 | Dominican Republic | 1809, 1829, 1849 |
 | エクアドル | Ecuador | 593 |
 | エジプト | Egypt | 20 |
 | エルサルバドル | El Salvador | 503 |
@@ -202,6 +202,7 @@
 | ポルトガル | Portugal | 351 |
 | プエルトリコ | Puerto Rico | 1787 |
 | カタール | Qatar | 974 |
+| コソボ共和国 | Republic of Kosovo | 383 |
 | フランス領レユニオン | Réunion Island | 262 |
 | ルーマニア | Romania | 40 |
 | ロシア/カザフスタン | Russia / Kazakhstan | 7 |

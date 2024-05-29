@@ -97,7 +97,7 @@
 | Denmark | Denmark | 45 |
 | Djibouti | Djibouti | 253 |
 | Dominica | Dominica | 1767 |
-| Dominican Republic | Dominican Republic | 1809 |
+| Dominican Republic | Dominican Republic | 1809, 1829, 1849 |
 | Ecuador | Ecuador | 593 |
 | Egypt | Egypt | 20 |
 | El Salvador | El Salvador | 503 |
@@ -203,6 +203,7 @@
 | Portugal | Portugal | 351 |
 | Puerto Rico | Puerto Rico | 1787 |
 | Qatar | Qatar | 974 |
+| Republic of Kosovo | Republic of Kosovo | 383 |
 | Réunion Island | Réunion Island | 262 |
 | Romania | Romania | 40 |
 | Russia / Kazakhstan | Russia / Kazakhstan | 7 |
@@ -258,7 +259,7 @@
 | Venezuela | Venezuela | 58 |
 | Vietnam | Vietnam | 84 |
 | Virgin Islands (US) | Virgin Islands (US) | 1284 |
-| French Wallis and Futuna Islands | Wallis and Futuna | 681 |
+| Wallis and Futuna | Wallis and Futuna | 681 |
 | Yemen | Yemen | 967 |
 | Zambia | Zambia | 260 |
 | Zimbabwe | Zimbabwe | 263 |
