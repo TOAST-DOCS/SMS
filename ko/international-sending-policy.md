@@ -123,7 +123,7 @@
 | 덴마크 | Denmark | 45 |
 | 지부티 | Djibouti | 253 |
 | 도미니카 연방 | Dominica | 1767 |
-| 도미니카 공화국 | Dominican Republic | 1809 |
+| 도미니카 공화국 | Dominican Republic | 1809, 1829, 1849 |
 | 에콰도르 | Ecuador | 593 |
 | 이집트 | Egypt | 20 |
 | 엘살바도르 | El Salvador | 503 |
@@ -229,6 +229,7 @@
 | 포르투갈 | Portugal | 351 |
 | 푸에르토리코 | Puerto Rico | 1787 |
 | 카타르 | Qatar | 974 |
+| 코소보 공화국 | Republic of Kosovo | 383 |
 | 프랑스령 레위니옹 | Réunion Island | 262 |
 | 루마니아 | Romania | 40 |
 | 러시아 / 카자흐스탄 | Russia / Kazakhstan | 7 |
