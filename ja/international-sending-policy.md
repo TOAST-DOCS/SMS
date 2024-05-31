@@ -95,7 +95,7 @@
 | コンゴ民主共和国 | Democratic Republic of the Congo | 243 |
 | デンマーク | Denmark | 45 |
 | ジブチ | Djibouti | 253 |
-| ドミニカ共和国 | Dominica | 1767 |
+| ドミニカ国 | Dominica | 1767 |
 | ドミニカ共和国 | Dominican Republic | 1809, 1829, 1849 |
 | エクアドル | Ecuador | 593 |
 | エジプト | Egypt | 20 |
