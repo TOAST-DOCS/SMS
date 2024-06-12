@@ -33,12 +33,40 @@
 | UCS-2<br>(Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
 
-## International SMS Traffic Pumping
 
-+ SMS traffic pumping refers to exploiting input fields, such as a request to verify a membership number, to send large volumes of SMS  for sending OTP messages. Some international mobile network operators (MNOs) artificially drive message sending to increase revenue.
-+ When SMS traffic pumping occurs, there is a spike in messages sent to similar number ranges (e.g. +1111111110, +1111111111, +1111111112, +1111111113, etc.) and if you send a one-time password (OTP) SMS, there is a high chance that authentication will not complete.
-+ To prevent SMS traffic pumping, if you block sending to country codes where there is no intent to send messages reduces the probability of SMS traffic pumping. Additionally, if you limit the allowed number of OTP verification requests to similar or identical numbers or limit the speed of message delivery per second, you can reduce the magnitude of the damage.
-* When SMS traffic pumping occurs, NHN Cloud may block the sending of some or all volumes of international SMS without prior notice to the relevant AppKey. NHN Cloud is not responsible for any cases of abusing and any cases blocked due to abusing.
+## International SMS Traffic pumping
++ Some international mobile network operators (MNOs) may artificially trigger the sending of messages to increase revenues.
++ A bot or abuser makes a bulk request to send a message on a page, such as a request for a signup verification number.
++ Most bots or abusers don't actually authenticate after requesting authentication. When abusing occurs, requests for authentication number increases, but the percentage that authenticate and convert decreases.
++ Precautions
+    + In the event of international SMS volume pumping, we may block some or all international SMS volumes without prior notice to the project. 
+    + NHN Cloud is not responsible for any damage caused by abusing or blocking, so please be careful about leaking confidential information and abusing.
++ Recommended actions
+    + Restrict sending to countries you don't intend to send messages to via the **manage countries to allow**.
+    + Limit the number of sendings you can send per month to an appropriate level.
+    + The **Set blocking countries by conversion rate** setting allows you to block sending to countries with low conversion rates.
+    + Limit the maximum number of authentication requests allowed for the same IP band or similar incoming numbers, or the rate at which they are sent per second, as appropriate.
+    + Prevent messages that are being sent to similar number ranges (e.g., +1111111110, +1111111111, +1111111112, +1111111113, etc.) from being ingested consecutively.
+
+## Blocking by international SMS conversion rate
++ In general, you consider a conversion to have occurred when a recipient takes an action after receiving your message, such as clicking a URL or entering a verification number.
++ The Block by international SMS conversion rate feature allows you to check whether recipients convert after receiving a message, increasing the reliability of your international SMS sending and strengthening your protection against abusive behavior.
+
+### Collection of international SMS conversions
++ Set whether or not to collect conversion rates in the request to collect conversion rates field when making the international SMS sending API request.
+    + For more information, see the [API v3.0 guide](./api-guide/#sms_1).
++ When you determine that a shipment that you set up to collect conversion rates has converted, you can notify NHN Cloud of the conversion through a conversion API call.
+    + You should only call the conversion API for messages that have been sent, otherwise the call to the conversion API will fail.
+    + For more information, see [API v3.0 Guide](./api-guide/#sms_6).
++ Calculates the percentage of sent messaged that are converted from the messages set for collection of conversion rates, you can block messages from being sent to certain countries.
+    + If you have more than 50 messages sent to a country that is set for blocking by conversion rate in a 24-hour period and your conversion rate is 50% or less, sending to that country is automatically blocked.
+
+### Set blocking countries by conversion rate
++ In **Delivery Settings > International SMS** from the console, you must change the Block by conversion rate setting to Enable.
++ After enabling the feature, you must set which countries to block based on conversion rate.
++ If you unblock a country that was blocked by conversion rate, then blocking by conversion rate might occur again.
++ For more information, see the[console user guide](./console-guide/#sms_8).
+
 
 ## Available countries
 | Country name (in Korean) | Country name (in English) | Country code |

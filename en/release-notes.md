@@ -1,5 +1,22 @@
 ## Notification > SMS > Release Notes
 
+### May 28, 2024
+### Added Features
+* [Console/API] Added the feature to convert to international SMS delivery 
+    * Changed the Send API
+        * Added the useConversion field to indicate a request to collect conversion rates when sending v3.0 short SMS, v3.0 verification SMS, and v3.0 advertising SMS.
+        * Conversion rate collection requests using this field are only valid for international delivery requests.
+    * Added the Conversion API
+        * Added API to attempt conversions for conversion rate collection requests.
+    * Added the blocking and notification settings by conversion rate on the Service Settings > International SMS sending settings tab 
+        * Added the blocking and notifications by conversion rate feature to the international SMS sending settings screen.
+        * Added the feature to set countries to allow blocking by conversion rate.
+    * For more information, see [International SMS sending policy > Blocking by international SMS conversion rate](./international-sending-policy/#sms_2).
+* [Console] Added a webhook for blocking by conversion rate
+    * You can receive a webhook when a block by conversion rate occurs.
+    * Webhook occurs when sending to a specific country is blocked by conversion rate
+    * For more information, see [Webhook Guide](./webhook/#hooks).
+
 ### May 14, 2024
 #### Feature Updates
 * [API] Added a message status field to the message result update webhook

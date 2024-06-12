@@ -47,6 +47,8 @@
 | Send/Query | false | -2046 | Sent to blocked country | Blocked country by service. |
 | Send/Query | false | -2047 | Exceeded the block limit | Blocked by total indicator. |
 | Send/Query | false | -2048 | Exceeded the international message body limit | International message body exceed maximum length. |
+| Send/Query | false | -2050 | Failed to convert to international delivery(Unable to convert) | Conversion status is not ready. |
+| Send/Query | false | -2051 | Failed to send due to blocking by conversion rate | Conversion rate is lower than threshold. |
 | Send/Query | false | -4000 | Query range is more than a month | Search is possible within one month. |
 | Send/Query | false | -8000 | If authentication doesn't include a authentication statement | The body must contain auth guide ment. |
 | Template | false | -2100 | Template ID is missing | The templateId can not be empty. |
