@@ -1976,9 +1976,9 @@ curl -X POST \
 
 |  Value      | Type     | Description     |
 |----------------------|---------|--------|
-| header.isSuccessful  | Boolean | 성공 여부  |
-| header.resultCode    | Integer | 실패 코드  |
-| header.resultMessage | String  | 실패 메시지 |
+| header.isSuccessful  | Boolean | Successful or not  |
+| header.resultCode    | Integer | Failure core  |
+| header.resultMessage | String  | Failure message |
 
 ## Search Messages based on result update
 
