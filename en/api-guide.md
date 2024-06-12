@@ -1288,7 +1288,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 100                                                                                              | 	X       | Delivery delimiter e.g.) admin,system                                                                                                                                              |
 | statsId                                   | String  | 10                                                                                               | X        | Statistics ID (not included in the delivery search conditions)                                                                                                                     |
 | originCode                                | String  | 9                                                                                                | X        | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
-| useConversion                             | Boolean | -                                                                 | X   | 전환율 수집 요청(기본값: false)<br/>예약 일시가 설정된 경우 사용할 수 없음                                                                                         |
+| useConversion                             | Boolean | -                                                                 | X   | Request to call converion rate (Default: false)<br/>Cannot use when the date and time of schedule is set                                                                                         |
 
 #### cURL
 
