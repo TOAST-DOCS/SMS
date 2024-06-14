@@ -85,7 +85,8 @@ Content-Type: application/json;charset=UTF-8
   ],
   "userId": "UserId",
   "statsId": "statsId",
-  "originCode": "123456789"
+  "originCode": "123456789",
+  "useConversion": true
 }
 ```
 
@@ -94,7 +95,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                             | 	X  | 	送信テンプレートID                                                          |
 | body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O  | 	本文内容                                                                |
 | sendNo                                    | 	String | 13                                                             | 	O  | 	発信番号                                                                |
-| requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                                                                                  |
+| requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                                                      |
 | senderGroupingKey                         | String  | 100                                                            | X   | 発信者グループキー                                                            |
 | recipientList[].recipientNo               | String  | 20                                                             | 	O  | 	受信番号<br/>countryCodeと組み合わせて使用可能<br/>最大1,000人                        |
 | recipientList[].countryCode               | 	String | 8                                                              | 	X  | 	国番号[デフォルト値：82(韓国)]                                                  |
@@ -106,6 +107,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 	100                                                           | X   | 送信セパレータex)admin,system                                               |
 | statsId                                   | String  | 10                                                             | X   | 統計ID(発信検索条件には含まれません)                                                 |
 | originCode                                | String  | 9                                                              | X   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)               |
+| useConversion                             | Boolean | -                                                                 | X   | コンバージョン率収集リクエスト(デフォルト値: false)<br/>予約日時が設定された場合は使用不可                                                                                           |
 
 #### cURL
 
@@ -555,11 +557,89 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
 | body.data.dlr.networkCode      | 	String  | 	DLRネットワークコード                                                    |
 | body.data.dlr.errorCode        | 	String  | 	DLRエラーコード                                                      |
 
+### 短文SMS国際送信コンバージョン
+
+* コンバージョンAPIは、短文SMS国際送信時にコンバージョン率収集をリクエストした送信件に対して、正常にコンバージョンされたことをレスポンスするAPIです。
+* このAPIを使用すると、正常に送信されたメッセージのコンバージョン率を管理できます。
+* 送信時にuseConversionフィールドでコンバージョン率の収集をリクエストしていない場合、または送信が完了していない場合、このAPIは失敗としてレスポンスします。
+
+#### リクエスト
+
+[URL]
+
+```
+POST  /sms/v3.0/appKeys/{appKey}/sender/sms/do-convert
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値    | タイプ   | 説明   |
+|--------|--------|--------|
+| appKey | String | 固有のアプリキー |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 値          | タイプ   | 説明      |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 固有のシークレットキー |
+
+[Request body]
+
+```json
+{
+  "requestId": "requestId",
+  "recipientSeq": 1
+}
+```
+
+| 値          | タイプ    | 最大長さ | 必須 | 説明    |
+|--------------|---------|-------|----|---------|
+| requestId    | String  | 25    | O  | リクエストID   |
+| recipientSeq | Integer | -     | O  | 受信者シーケンス |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' \
+-d '{
+    "requestId": "requestId",
+    "recipientSeq": 1
+}'
+```
+
+#### レスポンス
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+| 値                  | タイプ    | 説明   |
+|----------------------|---------|--------|
+| header.isSuccessful  | Boolean | 成否 |
+| header.resultCode    | Integer | 失敗コード |
+| header.resultMessage | String  | 失敗メッセージ |
+
 ## 長文MMS
 
 ### 長文MMS送信(添付ファイル含まず)
 
-※ LMS/MMSは海外送信ができません。
+※ LMS/MMSは海外送信ができません。しかし、国際SMS限定でSMSのConcatenated Message(接続)機能を使って長いメッセージを送信できます。 [[国際SMS送信ポリシー](./international-sending-policy/#_3)]
 
 #### リクエスト
 
@@ -1188,27 +1268,29 @@ Content-Type: application/json;charset=UTF-8
   ],
   "userId": "UserId",
   "statsId": "statsId",
-  "originCode": "123456789"
+  "originCode": "123456789",
+  "useConversion": true
 }
 ```
 
-| 値                                         | 	タイプ    | 最大長さ                                                           | 	必須 | 	説明                                                                                                                     |
-|-------------------------------------------|---------|----------------------------------------------------------------|-----|-------------------------------------------------------------------------------------------------------------------------|
-| templateId                                | 	String | 50                                                             | 	X  | 	送信テンプレートID                                                                                                             |
-| body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O  | 	本文内容[[注意事項](./api-guide/#precautions-authword)]                                                                        |
-| sendNo                                    | 	String | 13                                                             | 	O  | 	発信番号                                                                                                                   |
-| requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                                                                                 |
-| senderGroupingKey                         | String  | 100                                                            | X   | 発信者グループキー                                                                                                               |
-| recipientList[].recipientNo               | 	String | 20                                                             | 	O  | 	受信番号<br/>countryCodeと組み合わせて使用可能                                                                                        |
-| recipientList[].countryCode               | 	String | 8                                                              | 	X  | 	国番号[デフォルト値：82(韓国)]                                                                                                     |
-| recipientList[].internationalRecipientNo  | String  | 20                                                             | X   | 国番号が含まれる受信番号<br/>例)821012345678<br/>recipientNoがある場合、この値は無視<br/>                                                        |
-| recipientList[].templateParameter         | 	Object | -                                                              | 	X  | 	テンプレートパラメータ(テンプレートID入力時)                                                                                               |
-| recipientList[].templateParameter.{key}   | String  | -                                                              | 	X  | 	置換キー(##key##)                                                                                                          |
-| recipientList[].templateParameter.{value} | Object  | -                                                              | 	X  | 	置換キーにマッピングされるValue値                                                                                                    |
-| recipientList[].recipientGroupingKey      | String  | 100                                                            | X   | 受信者グループキー                                                                                                               |
-| userId                                    | 	String | 100                                                            | 	X  | 送信セパレータex)admin,system                                                                                                  |
-| statsId                                   | String  | 10                                                             | X   | 統計ID(発信検索条件には含まれません)                                                                                                    |
+| 値                                       | 	タイプ   | 最大長さ                                                           | 	必須 | 	説明                                                                                                                                    |
+|-------------------------------------------|---------|-------------------------------------------------------------------|-----|------------------------------------------------------------------------------------------------------------------------------------------|
+| templateId                                | 	String | 50                                                                | 	X  | 	送信テンプレートID                                                                                                                               |
+| body                                      | 	String | 標準: 90バイト、最大: 255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O  | 	本文内容[[注意事項](./api-guide/#precautions-authword)]                                                                                       |
+| sendNo                                    | 	String | 13                                                                | 	O  | 	発信番号                                                                                                                                 |
+| requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可能                                                                                    |
+| senderGroupingKey                         | String  | 100                                                               | X   | 発信者グループキー                                                                                                                               |
+| recipientList[].recipientNo               | 	String | 20                                                                | 	O  | 	受信番号<br/>countryCodeと組み合わせて使用可能                                                                                                     |
+| recipientList[].countryCode               | 	String | 8                                                                 | 	X  | 	国家番号[デフォルト値: 82(韓国)]                                                                                                                     |
+| recipientList[].internationalRecipientNo  | String  | 20                                                                | X   | 国番号を含む受信番号<br/>例)821012345678<br/>recipientNoがある場合、この値は無視<br/>                                                                  |
+| recipientList[].templateParameter         | 	Object | -                                                                 | 	X  | 	テンプレートパラメータ(テンプレートID入力時)                                                                                                                   |
+| recipientList[].templateParameter.{key}   | String  | -                                                                 | 	X  | 	置換キー(##key##)                                                                                                                           |
+| recipientList[].templateParameter.{value} | Object  | -                                                                 | 	X  | 	置換キーにマッピングされるValue値                                                                                                                     |
+| recipientList[].recipientGroupingKey      | String  | 100                                                               | X   | 受信者グループキー                                                                                                                               |
+| userId                                    | 	String | 100                                                               | 	X  | 送信セパレータex)admin,system                                                                                                                   |
+| statsId                                   | String  | 10                                                                | X   | 統計ID(発信検索条件には含まれません)                                                                                                              |
 | originCode                                | String  | 9                                                              | X   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字)<br/>特殊なタイプの付加通信事業者ではない場合は使用しません。基本的にNHN Cloudの識別コードが挿入されます。<br/> |
+| useConversion                             | Boolean | -                                                                 | X   | コンバージョン率収集リクエスト(デフォルト値: false)<br/>予約日時が設定されている場合は使用不可                                                                                        |
 
 #### cURL
 
@@ -1606,6 +1688,84 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
 | body.data.dlr.networkCode      | String   | DLRネットワークコード                                                     |
 | body.data.dlr.errorCode        | String   | DLRエラーコード                                                        |
 
+### 認証SMS国際送信コンバージョン
+
+* コンバージョンAPIは認証SMS国際送信時にコンバージョン率収集をリクエストした送信件に対して、正常にコンバージョンされたことをレスポンスするAPIです。
+* このAPIを使用すると、正常に送信されたメッセージのコンバージョン率を管理できます。
+* 送信時にuseConversionフィールドでコンバージョン率収集をリクエストしていない場合、または送信が完了していない場合、このAPIは失敗としてレスポンスします。
+
+#### リクエスト
+
+[URL]
+
+```
+POST  /sms/v3.0/appKeys/{appKey}/sender/auth/sms/do-convert
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値    | タイプ   | 説明   |
+|--------|--------|--------|
+| appKey | String | 固有のアプリキー |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 値          | タイプ   | 説明      |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 固有のシークレットキー |
+
+[Request body]
+
+```json
+{
+  "requestId": "requestId",
+  "recipientSeq": 1
+}
+```
+
+| 値          | タイプ    | 最大長さ | 必須 | 説明    |
+|--------------|---------|-------|----|---------|
+| requestId    | String  | 25    | O  | リクエストID   |
+| recipientSeq | Integer | -     | O  | 受信者シーケンス |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/do-convert \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' \
+-d '{
+    "requestId": "requestId",
+    "recipientSeq": 1
+}'
+```
+
+#### レスポンス
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+| 値                  | タイプ    | 説明   |
+|----------------------|---------|--------|
+| header.isSuccessful  | Boolean | 成否 |
+| header.resultCode    | Integer | 失敗コード |
+| header.resultMessage | String  | 失敗メッセージ |
+
 ## 広告文字
 
 ### 広告性SMS送信
@@ -1681,7 +1841,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
 
 ### 広告性MMS送信
 
-※ LMS/MMSは海外送信ができません。
+※ LMS/MMSは海外送信ができません。しかし、国際SMS限定でSMSのConcatenated Message(接続)機能を使って長いメッセージを送信できます。 [[国際SMS送信ポリシー](./international-sending-policy/#_3)]
 
 #### リクエスト
 
@@ -1731,6 +1891,83 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
     "userId": ""
 }'
 ```
+
+### 広告SMS国際送信コンバージョン
+
+* コンバージョンAPIは広告SMS国際送信時にコンバージョン率収集をリクエストした送信件に対して、正常にコンバージョンされたことをレスポンスするAPIです。
+* このAPIを使用すると、正常に送信されたメッセージのコンバージョン率を管理できます。
+
+#### リクエスト
+
+[URL]
+
+```
+POST  /sms/v3.0/appKeys/{appKey}/sender/sms/do-convert
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値    | タイプ   | 説明   |
+|--------|--------|--------|
+| appKey | String | 固有のアプリキー |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 値          | タイプ   | 説明      |
+|--------------|--------|-----------|
+| X-Secret-Key | String | 固有のシークレットキー |
+
+[Request body]
+
+```json
+{
+  "requestId": "requestId",
+  "recipientSeq": 1
+}
+```
+
+| 値          | タイプ    | 最大長さ | 必須 | 説明    |
+|--------------|---------|-------|----|---------|
+| requestId    | String  | 25    | O  | リクエストID   |
+| recipientSeq | Integer | -     | O  | 受信者シーケンス |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' \
+-d '{
+    "requestId": {requestId},
+    "recipientSeq": 1
+}'
+```
+
+#### レスポンス
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+| 値                  | タイプ    | 説明   |
+|----------------------|---------|--------|
+| header.isSuccessful  | Boolean | 成否 |
+| header.resultCode    | Integer | 失敗コード |
+| header.resultMessage | String  | 失敗メッセージ |
 
 ## 結果アップデート基準メッセージ検索
 
@@ -2279,7 +2516,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/sms' 
 
 ### タグLMS送信
 
-※ LMS/MMSは海外送信ができません。
+※ LMS/MMSは海外送信ができません。しかし、国際SMS限定でSMSのConcatenated Message(接続)機能を使って長いメッセージを送信できます。 [[国際SMS送信ポリシー](./international-sending-policy/#_3)]
 
 #### リクエスト
 
@@ -3583,12 +3820,12 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-| 値          | 	タイプ     | 	必須    | 	説明              |
-|------------|----------|--------|------------------|
-| categoryId | 	Integer | 	オプション | 	カテゴリーID         |
-| useYn      | 	String  | 	オプション | 	使用するかどうか(Y/N)   |
-| pageNum    | 	Integer | オプション  | 	ページ番号(デフォルト値：1) |
-| pageSize   | 	Integer | オプション  | 	検索数(デフォルト値：15)  |
+| 値        | 	タイプ   | 	必須  | 	説明          |
+|------------|----------|-----|----------------|
+| categoryId | 	Integer | 	オプション | 	カテゴリーID       |
+| useYn      | 	String  | 	オプション | 	使用するかどうか(Y/N)    |
+| pageNum    | 	Integer | オプション | 	ページ番号(デフォルト値：1) |
+| pageSize   | 	Integer | オプション | 	検索数(デフォルト値：15) |
 
 #### cURL
 
@@ -5092,7 +5329,7 @@ Content-Type: application/json;charset=UTF-8
 [Query parameter]
 
 | 値                      | 	タイプ     | 	最大長さ | 必須     | 	説明                                    |
-|------------------------|----------|-------|--------|----------------------------------------|
+|------------------------|----------|-------|--------|--------------------------------------|
 | startRequestedDateTime | String   | -     | オプション  | 予約キャンセルリクエスト開始時間(yyyy-MM-dd HH:mm:ss)  |
 | endRequestedDateTime   | 	String  | -     | 	オプション | 	予約キャンセルリクエスト終了時間(yyyy-MM-dd HH:mm:ss) |
 | reservationCancelId    | 	String  | 25    | 	オプション | 予約キャンセルID                              |
@@ -5738,11 +5975,11 @@ Content-Type: application/json;charset=UTF-8
 [Query parameter]
 
 | 値         | 	タイプ          | 最大長さ | 	必須   | 	説明                                                                                 |
-|-----------|---------------|------|-------|-------------------------------------------------------------------------------------|
+|-----------|---------------|------|-------|----------------------------------------------------------------------------------|
 | wheres    | 	List<String> | 	-   | オプション | 検索条件。<br/>英字、数字、括弧で校正された文字列配列。<br/>括弧は1個、 AND/ORは3個まで使用可能<br/>(例) tagId1、AND、tagId2 |
-| offsetUid | 	String       | 	-   | オプション | 検索を始めるuid                                                                           |
-| offset    | Integer       | -    | オプション | offset 0(デフォルト値)                                                                    |
-| limit     | Integer       | 1000 | オプション | 検索件数15(デフォルト値)                                                                      |
+| offsetUid | 	String       | 	-   | オプション | 検索を始めるuid                                                                                |
+| offset    | Integer       | -     | オプション | offset(デフォルト値：0)                                                                             |
+| limit     | Integer       | 1000  | オプション | 検索件数(デフォルト値：15)                                                                             |
 
 #### cURL
 
