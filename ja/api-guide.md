@@ -1453,7 +1453,7 @@ Content-Type: application/json;charset=UTF-8
 | 値                    | 	タイプ     | 	最大長さ | 必須     | 	説明                                                          |
 |----------------------|----------|-------|--------|--------------------------------------------------------------|
 | requestId            | 	String  | 25    | 	必須    | 	リクエストID                                                     |
-| startRequestDate     | 	String  | -     | 	必須    | 	送信日開始値<br/>yyyy-MM-dd HH:mm:ss                                 |
+| startRequestDate     | 	String  | -     | 	必須    | 	送信日開始値(yyyy-MM-dd HH:mm:ss)                                 |
 | endRequestDate       | 	String  | -     | 	必須    | 	送信日終了値(yyyy-MM-dd HH:mm:ss)                                 |
 | startCreateDate      | 	String  | -     | 	必須    | 	登録日開始値(yyyy-MM-dd HH:mm:ss)                                 |
 | endCreateDate        | 	String  | -     | 	必須    | 	登録日終了値(yyyy-MM-dd HH:mm:ss)                                 |
@@ -3824,7 +3824,7 @@ Content-Type: application/json;charset=UTF-8
 |------------|----------|-----|----------------|
 | categoryId | 	Integer | 	オプション | 	カテゴリーID       |
 | useYn      | 	String  | 	オプション | 	使用するかどうか(Y/N)    |
-| pageNum    | 	Integer | オプション | 	ページ番号(デフォルト値：) |
+| pageNum    | 	Integer | オプション | 	ページ番号(デフォルト値：1) |
 | pageSize   | 	Integer | オプション | 	検索数(デフォルト値：15) |
 
 #### cURL

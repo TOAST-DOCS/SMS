@@ -137,7 +137,7 @@ Webフック設定で定義されたURLでPOSTリクエストを作成する時�
 | hooks[].blockedDateTime | String | 遮断国家発生日時<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX |
 
 ```json
-hooks: [
+"hooks": [
   {
     "hookId": "20240429205809GcSUXthVA00",
     "countryCode": "NORMAL_SMS",
