@@ -140,8 +140,8 @@ Hook data per event type when generating a POST request to the URL defined in th
 "hooks": [
   {
     "hookId": "20240429205809GcSUXthVA00",
-    "countryCode": "NORMAL_SMS",
-    "createdDateTime": "2024-05-28T09:00:00.000+09:00"
+    "countryCode": "1",
+    "blockedDateTime": "2024-05-28T09:00:00.000+09:00"
   }
 ]
 ```

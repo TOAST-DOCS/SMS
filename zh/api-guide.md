@@ -82,7 +82,8 @@ Content-Type: application/json;charset=UTF-8
   ],
   "userId": "UserId",
   "statsId": "statsId",
-  "originCode": "123456789"
+  "originCode": "123456789",
+  "useConversion": true
 }
 ```
 
@@ -91,7 +92,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                                                               | 	X       | Delivery template ID                                                                                                                                                                                                                                                                                                                 |
 | body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] | 	O       | 	Body                                                                                                                                                                                                                                                                                                                                |
 | sendNo                                    | 	String | 13                                                                                               | 	O       | Sender number                                                                                                                                                                                                                                                                                                                        |
-| requestDate                               | String  | -                                                                                                | X        | Request date and time (yyyy-MM-dd HH:mm)                                                                                                                                                                                                                                                                                             |
+| requestDate                               | String  | -                                                                                                | X        | Request date and time (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                                                                                                                                                                                                                                                                                             |
 | senderGroupingKey                         | String  | 100                                                                                              | X        | Sender's group key                                                                                                                                                                                                                                                                                                                   |
 | recipientList[].recipientNo               | String  | 20                                                                                               | 	O       | Recipient number <br/>Available in combination with country code <br/>Up to 1,000                                                                                                                                                                                                                                                    |
 | recipientList[].countryCode               | 	String | 8                                                                                                | 	X       | 	Country code [Default: 82 (Korea)]                                                                                                                                                                                                                                                                                                  |
@@ -552,11 +553,89 @@ curl -X GET \
 | body.data.dlr.networkCode      | 	String  | 	DLR network code                                                     |
 | body.data.dlr.errorCode        | 	String  | 	DLR error code                                                       |
 
+### Convert Internation Delivery of Short SMS
+
+* The Conversion API is an API that responds to requests to collect conversion rates for short SMS international sends that have been successfully converted.
+* You can use this API to manage conversion rates for messages that were successfully sent.
+* If a request to collect conversion rate was not made via the useConversion field at the time of delivery, or if the delivery was not completed, the API responds with a failure.
+
+#### Request
+
+[URL]
+
+```
+POST  /sms/v3.0/appKeys/{appKey}/sender/sms/do-convert
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| Value      | Type     | Description     |
+|--------|--------|--------|
+| appKey | String | Orignital AppKey |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| Value      | Type     | Description     |
+|--------------|--------|-----------|
+| X-Secret-Key | String | Origianl SecretKey |
+
+[Request body]
+
+```json
+{
+  "requestId": "requestId",
+  "recipientSeq": 1
+}
+```
+
+| Value            | Type      | Maximum length | Required | Description      |
+|--------------|---------|-------|----|---------|
+| requestId    | String  | 25    | O  | Request ID   |
+| recipientSeq | Integer | -     | O  | Recipient sequence |
+
+#### cURL
+
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' \
+-d '{
+    "requestId": "requestId",
+    "recipientSeq": 1
+}'
+```
+
+#### Response
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+| Value                    | Type      | Description     |
+|----------------------|---------|--------|
+| header.isSuccessful  | Boolean | Successful or not  |
+| header.resultCode    | Integer | Failure code  |
+| header.resultMessage | String  | Failure message |
+
 ## Long MMS
 
-### Send Long MMS (attached file excluded)
+### Send Long MMS (attachments not included)
 
-※ LMS/MMS are not available for overseas delivery.
+※ * If a request to collect conversion rate was not made via the useConversion field at the time of dispatch, or if the dispatch was not completed, the API responds with a failure.[[International SMS Sending Policy](./international-sending-policy/#_3)]
 
 #### Request
 
@@ -618,7 +697,7 @@ Content-Type: application/json;charset=UTF-8
 | title                                     | 	String | 40 bytes (in EUC-KR)   | 	O       | Title                                                                                                                                                                                                                                                                                                                                |
 | body                                      | 	String | 2000 bytes (in EUC-KR) | 	O       | 	Body                                                                                                                                                                                                                                                                                                                                |
 | sendNo                                    | 	String | 13                     | 	O       | Sender number                                                                                                                                                                                                                                                                                                                        |
-| requestDate                               | String  | -                      | X        | Request date and time(yyyy-MM-dd HH:mm)                                                                                                                                                                                                                                                                                              |
+| requestDate                               | String  | -                      | X        | Request date and time(yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                                                                                                                                                                                                                                                                                              |
 | senderGroupingKey                         | String  | 100                    | X        | Sender's group key                                                                                                                                                                                                                                                                                                                   |
 | recipientList[].recipientNo               | String  | 20                     | 	O       | Recipient number<br/>Available in combination of countryCode                                                                                                                                                                                                                                                                         |
 | recipientList[].countryCode               | String  | 8                      | 	X       | 	Country code [Default: 82 (Korea)]                                                                                                                                                                                                                                                                                                  |
@@ -1187,7 +1266,8 @@ Content-Type: application/json;charset=UTF-8
   ],
   "userId": "UserId",
   "statsId": "statsId",
-  "originCode": "123456789"
+  "originCode": "123456789",
+  "useConversion": true
 }
 ```
 
@@ -1196,7 +1276,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId                                | 	String | 50                                                                                               | 	X       | Delivery template ID                                                                                                                                                               |
 | body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] | 	O       | 	Body [[Precautions](./api-guide/#precautions-authword)]                                                                                                                           |
 | sendNo                                    | 	String | 13                                                                                               | 	O       | Sender number                                                                                                                                                                      |
-| requestDate                               | String  | -                                                                                                | X        | Date and time of schedule (yyyy-MM-dd HH:mm)                                                                                                                                       |
+| requestDate                               | String  | -                                                                                                | X        | Date and time of schedule (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                                                                                                                                       |
 | senderGroupingKey                         | String  | 100                                                                                              | X        | Sender's group key                                                                                                                                                                 |
 | recipientList[].recipientNo               | 	String | 20                                                                                               | 	O       | Recipient number<br/>Available in combination of the country code                                                                                                                  |
 | recipientList[].countryCode               | 	String | 8                                                                                                | 	X       | 	Country code [default: 82 (Korea)]                                                                                                                                                |
@@ -1208,6 +1288,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 100                                                                                              | 	X       | Delivery delimiter e.g.) admin,system                                                                                                                                              |
 | statsId                                   | String  | 10                                                                                               | X        | Statistics ID (not included in the delivery search conditions)                                                                                                                     |
 | originCode                                | String  | 9                                                                                                | X        | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+| useConversion                             | Boolean | -                                                                 | X   | Request to call converion rate (Default: false)<br/>Cannot use when the date and time of schedule is set                                                                                         |
 
 #### cURL
 
@@ -1607,9 +1688,87 @@ curl -X GET \
 | body.data.dlr.networkCode      | String   | DLR network code                                                                                                                                                                   |
 | body.data.dlr.errorCode        | String   | DLR error code                                                                                                                                                                     |
 
-## Ad Messages
+### Convert Authentication SMS Internaional Delivery
 
-### Send SMS for Advertisement
+* The Conversion API is an API that responds that a successful conversion has occurred for an international sending of a verified SMS that requests conversion rate collection.
+* You can use this API to manage conversion rates for messages that are successfully sent.
+* If you did not request to collect conversion rates via the useConversion field when sending, or if the sending did not complete, the API responds with a failure.
+
+#### Request
+
+[URL]
+
+```
+POST  /sms/v3.0/appKeys/{appKey}/sender/auth/sms/do-convert
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| Value      | Type     | Description     |
+|--------|--------|--------|
+| appKey | String | Original AppKey |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| Value      | Type     | Description     |
+|--------------|--------|-----------|
+| X-Secret-Key | String | Original SecretKey |
+
+[Request body]
+
+```json
+{
+  "requestId": "requestId",
+  "recipientSeq": 1
+}
+```
+
+| Value            | Type      | Maximum Length | Required | Description      |
+|--------------|---------|-------|----|---------|
+| requestId    | String  | 25    | O  | Request ID   |
+| recipientSeq | Integer | -     | O  | Recipient sequence |
+
+#### cURL
+
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/do-convert \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' \
+-d '{
+    "requestId": "requestId",
+    "recipientSeq": 1
+}'
+```
+
+#### Response
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+| Value                    | Type      | Description     |
+|----------------------|---------|--------|
+| header.isSuccessful  | Boolean | Successful or not  |
+| header.resultCode    | Integer | Failure code  |
+| header.resultMessage | String  | Failure message |
+
+## Advertising message
+
+### Send Advertising SMS
 
 #### Request
 
@@ -1683,7 +1842,7 @@ curl -X POST \
 
 ### Send MMS for Advertisement
 
-※ LMS/MMS are not available for overseas delivery.
+※ LMS/MMS cannot be sent internationally. However, for international SMS only, you can send long messages using the Concatenated Message feature of SMS. [[International SMS sending policy](./international-sending-policy/#_3)].
 
 #### Request
 
@@ -1744,12 +1903,89 @@ curl -X POST \
 }'
 ```
 
-## Query Messages by Result Updates
+### Convert Advertising SMS Internaional Delivery
 
-* The API is queried as of the update time of message delivery result.
-* Please apply this API to import delivery results on device from service.
+* The Conversion API is an API that responds to requests to collect conversion rates for international sends of advertising SMS that have successfully converted.
+* You can use the API to manage conversion rates for messages that were successfully sent.
 
-### Query Messages
+#### Request
+
+[URL]
+
+```
+POST  /sms/v3.0/appKeys/{appKey}/sender/sms/do-convert
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| Value      | Type     | Description     |
+|--------|--------|--------|
+| appKey | String | Original AppKey |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+|  Value      | Type     | Description     |
+|--------------|--------|-----------|
+| X-Secret-Key | String | Original SecretKey |
+
+[Request body]
+
+```json
+{
+  "requestId": "requestId",
+  "recipientSeq": 1
+}
+```
+
+| Value            | Type      | Maximum Length| Required | Description      |
+|--------------|---------|-------|----|---------|
+| requestId    | String  | 25    | O  | Request ID   |
+| recipientSeq | Integer | -     | O  | Recipient Sequence |
+
+#### cURL
+
+```
+curl -X POST \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' \
+-d '{
+    "requestId": {requestId},
+    "recipientSeq": 1
+}'
+```
+
+#### Reponse
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+|  Value      | Type     | Description     |
+|----------------------|---------|--------|
+| header.isSuccessful  | Boolean | Successful or not  |
+| header.resultCode    | Integer | Failure core  |
+| header.resultMessage | String  | Failure message |
+
+## Search Messages based on result update
+
+* The APIs are searched by the time of the message delivery result update.
+* Use this API if you want to get device delivery results from your service.
+
+### Search Messages
 
 #### Request
 
@@ -2234,7 +2470,7 @@ Content-Type: application/json;charset=UTF-8
 |-------------------|---------------------|--------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------|
 | body              | 	String             | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] | 	O       | 	Body                                                          |
 | sendNo            | String              | 13                                                                                               | O        | Sender number                                                  |
-| requestDate       | String              | -                                                                                                | X        | Date and time of schedule (yyyy-MM-dd HH:mm)                   |
+| requestDate       | String              | -                                                                                                | X        | Date and time of schedule (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                   |
 | templateId        | String              | 50                                                                                               | X        | Template ID                                                    |
 | templateParameter | Map<String, String> | -                                                                                                | X        | Template parameter                                             |
 | tagExpression     | List<String>        | -                                                                                                | O        | Tag expression <br/>ex) ["tagA","AND","tabB"]                  |
@@ -2354,7 +2590,7 @@ Content-Type: application/json;charset=UTF-8
 | title             | String              | 40 bytes (in EUC-KR)   | O        | Title of text                                                  |
 | body              | String              | 2000 bytes (in EUC-KR) | O        | Body message                                                   |
 | sendNo            | String              | 13                     | O        | Sender number                                                  |
-| requestDate       | String              | -                      | X        | Date and time of schedule (yyyy-MM-dd HH:mm)                   |
+| requestDate       | String              | -                      | X        | Date and time of schedule (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                   |
 | templateId        | String              | 50                     | X        | Template ID                                                    |
 | templateParameter | Map<String, String> | -                      | X        | Template parameter                                             |
 | tagExpression     | List<String>        | -                      | O        | Tax expression<br/>ex) ["tagA","AND","tabB"]                   |
@@ -4422,7 +4658,7 @@ curl -X GET \
       {
         "eventDateTime": "",
         "events": {
-           "requested": 10,
+          "requested": 10,
           "sent": 10,
           "sentFailed": 0,
           "received": 0,

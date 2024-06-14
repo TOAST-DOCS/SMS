@@ -128,3 +128,20 @@ Hook data per event type when generating a POST request to the URL defined in th
   }
 ]
 ```
+
+### Blocked Countries by Conversion Rate
+| Value                       | Type     | Description                                            |
+|-------------------------|--------|-----------------------------------------------|
+| hooks[].hookId          | String | Original ID created when an event occurs to the service                     |
+| hooks[].countryCode     | String | Country code                                         |
+| hooks[].blockedDateTime | String | When the country is blocked<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX |
+
+```json
+"hooks": [
+{
+"hookId": "20240429205809GcSUXthVA00",
+"countryCode": "1",
+"blockedDateTime": "2024-05-28T09:00:00.000+09:00"
+}
+]
+```
