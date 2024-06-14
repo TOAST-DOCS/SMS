@@ -499,13 +499,19 @@ You can receive a webhook event by specifying a URL when a specified event occur
 Registered webhooks can be checked in the **webhook registration list**.
 
 ## Sending Settings
-### International SMS Sending Settings
-* Before using the international SMS sending feature, see [International SMS Sending Policy](./international-sending-policy).
-* If you do not want to use the international SMS sending feature, you can prevent accidents due to abusing by setting it to unused.
-* Only the specified major countries are enabled for sending during the initial setup. You can manage whether to ship to each country through the [Select countries to allow] button.
-* The sending limit is 1,000 per month by default, and can be adjusted up to 10,000. If you need to adjust the limit over 10,000, please contact us via the [Request to exceed 10,000] button.
-* If 'Monthly limit threshold notifications' is set to 'Enabled', a notification email will be sent to all project members when 70% and 100% of the value set by 'Auto Blocking Monthly Limit' is reached.
-* The 'Auto Blocking Monthly Limit' is an subsidiary feature and the time of blocking may not be accurate. NHN Cloud is not responsible for any errors in the subsidiary features.
+* Before using the international SMS sending feature, see [International Sending Policy](./international-sending-policy).
+* If you do not want to use the international SMS sending feature, you can prevent accidents due to international SMS volume pumping by setting it to unused.
+* Manage countries allowed to send
+    * Only the specified major countries are enabled for sending during the initial setup. You can manage whether to ship to each country through the **Manage Country Allowed to Send > Select Country to Allow**.
+* Auto-block monthly limit and threshold notifications
+    * The **Auto-Block Monthly Limit** is 1,000 per month by default, with a maximum of 10,000.
+    * If you need an adjustment that exceeds the 10,000 **Auto-Block Monthly Limit**, please contact us via the **Request Exceed 10,000** button.
+    * The **Auto-Block Monthly Limit** is an auxiliary function, and detection is not reflected in real time. NHN Cloud is not responsible for any errors in the auxiliary function, so please use it with caution.
+    * If you **enable** **monthly limit threshold notifications**, notifications will be sent to all project members when 70% and 100% of the value you set for the **Auto-Block Monthly Limit** is reached.
+* Set blocking countries by conversion rate and notifications
+    * If you **enable** the **Block and Notification by Conversion Rate**, the block feature is enabled and notifications are sent to all project members when a block occurs.
+    * Country-specific blocking by conversion rate only applies to the countries that you set via the **Set Block Country by Conversion Rate > Select Country to Allow**.
+    * If a country is blocked by Conversion Rate, then a **Blocked** button is exposed next to the blocked country. Click that button to unblock it. 
 
 > [Caution]
 Cases of international SMS abuse are increasing globally.
