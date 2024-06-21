@@ -48,7 +48,7 @@
     + Limit the maximum number of authentication requests allowed for the same IP band or similar incoming numbers, or the rate at which they are sent per second, as appropriate.
     + Prevent messages that are being sent to similar number ranges (e.g., +1111111110, +1111111111, +1111111112, +1111111113, etc.) from being ingested consecutively.
 
-## Blocking by international SMS conversion rate
+## Sending Blocking based on international SMS conversion rate
 + In general, you consider a conversion to have occurred when a recipient takes an action after receiving your message, such as clicking a URL or entering a verification number.
 + The Block by international SMS conversion rate feature allows you to check whether recipients convert after receiving a message, increasing the reliability of your international SMS sending and strengthening your protection against abusive behavior.
 
@@ -59,7 +59,7 @@
     + You should only call the conversion API for messages that have been sent, otherwise the call to the conversion API will fail.
     + For more information, see [API v3.0 Guide](./api-guide/#sms_6).
 + Calculates the percentage of sent messaged that are converted from the messages set for collection of conversion rates, you can block messages from being sent to certain countries.
-    + If you have more than 50 messages sent to a country that is set for blocking by conversion rate in a 24-hour period and your conversion rate is 50% or less, sending to that country is automatically blocked.
+    + If you have more than 50 messages sent to a country with **Conversion Rate Based Sending Blocking and Notifications** enabled in a 24-hour period, and your conversion rate is 50% or less, sending to that country is automatically blocked.
 
 ### Set blocking countries by conversion rate
 + In **Delivery Settings > International SMS** from the console, you must change the Block by conversion rate setting to Enable.
