@@ -10,7 +10,7 @@
         * Added API to attempt conversions for conversion rate collection requests.
     * Added the blocking and notification settings by conversion rate on the Service Settings > International SMS sending settings tab 
         * Added the conversion rate-based send blocking and notifications feature to the international SMS sending settings screen.
-        *Added the feature to set blocking countries to apply conversion rate-based sending blocking.
+        * Added the feature to set blocking countries to apply conversion rate-based sending blocking.
     * For more information, see [International SMS sending policy > Blocking Sending based on international SMS conversion rate](./international-sending-policy/#sms_2).
 * [Console] Added a webhook for blocking sending based on conversion rate
     * You can receive a webhook when blocking sending based on conversion rate occurs.
