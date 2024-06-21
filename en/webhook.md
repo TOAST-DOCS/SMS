@@ -129,7 +129,7 @@ Hook data per event type when generating a POST request to the URL defined in th
 ]
 ```
 
-### Blocked Countries by Conversion Rate
+### Conversion Rate Based Send Block Countries
 | Value                       | Type     | Description                                            |
 |-------------------------|--------|-----------------------------------------------|
 | hooks[].hookId          | String | Original ID created when an event occurs to the service                     |
