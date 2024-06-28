@@ -191,7 +191,7 @@
 | フランス領マルティニーク | Martinique | 596 |
 | モーリタニア | Mauritania | 222 |
 | モーリシャス | Mauritius | 230 |
-| マヨット | Mayotte | 269 |
+| マヨート/コモロ | Mayotte/Comoros | 269 |
 | メキシコ | Mexico | 52 |
 | ミクロネシア | Micronesia | 691 |
 | モルドバ | Moldova | 373 |
@@ -204,7 +204,7 @@
 | ミャンマー | Myanmar | 95 |
 | ナミビア | Namibia | 264 |
 | ナウル | Nauru | 674 |
-| オランダ領アンティル | Nederlandse Antillen | 599 |
+| オランダ領アンティレス/キュラソー | Nederlandse Antillen/Curaçao | 599 |
 | ネパール | Nepal | 977 |
 | オランダ | Netherlands | 31 |
 | ニューカレドニア | New Caledonia | 687 |
@@ -226,7 +226,7 @@
 | フィリピン | Philippines | 63 |
 | ポーランド | Poland | 48 |
 | ポルトガル | Portugal | 351 |
-| プエルトリコ | Puerto Rico | 1787 |
+| プエルトリコ | Puerto Rico | 1787, 1939 |
 | カタール | Qatar | 974 |
 | コソボ共和国 | Republic of Kosovo | 383 |
 | フランス領レユニオン | Réunion Island | 262 |
