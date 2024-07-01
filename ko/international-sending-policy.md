@@ -192,7 +192,7 @@
 | 프랑스령 마르티니크 | Martinique | 596 |
 | 모리타니 | Mauritania | 222 |
 | 모리셔스 | Mauritius | 230 |
-| 마요트 | Mayotte | 269 |
+| 마요트/코모로 | Mayotte/Comoros | 269 |
 | 멕시코 | Mexico | 52 |
 | 미크로네시아 | Micronesia | 691 |
 | 몰도바 | Moldova | 373 |
@@ -205,7 +205,7 @@
 | 미얀마 | Myanmar | 95 |
 | 나미비아 | Namibia | 264 |
 | 나우루 | Nauru | 674 |
-| 네덜란드령 안틸레스 | Nederlandse Antillen | 599 |
+| 네덜란드령 안틸레스/퀴라소 | Nederlandse Antillen/Curaçao | 599 |
 | 네팔 | Nepal | 977 |
 | 네덜란드 | Netherlands | 31 |
 | 뉴칼레도니아 | New Caledonia | 687 |
@@ -227,7 +227,7 @@
 | 필리핀 | Philippines | 63 |
 | 폴란드 | Poland | 48 |
 | 포르투갈 | Portugal | 351 |
-| 푸에르토리코 | Puerto Rico | 1787 |
+| 푸에르토리코 | Puerto Rico | 1787, 1939 |
 | 카타르 | Qatar | 974 |
 | 코소보 공화국 | Republic of Kosovo | 383 |
 | 프랑스령 레위니옹 | Réunion Island | 262 |

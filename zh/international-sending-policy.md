@@ -194,7 +194,7 @@
 | Martinique | Martinique | 596 |
 | Mauritania | Mauritania | 222 |
 | Mauritius | Mauritius | 230 |
-| Mayotte | Mayotte | 269 |
+| Mayotte/Comoros | Mayotte/Comoros | 269 |
 | Mexico | Mexico | 52 |
 | Micronesia | Micronesia | 691 |
 | Moldova | Moldova | 373 |
@@ -207,7 +207,7 @@
 | Myanmar | Myanmar | 95 |
 | Namibia | Namibia | 264 |
 | Nauru | Nauru | 674 |
-| Nederlandse Antillen | Nederlandse Antillen | 599 |
+| Nederlandse Antillen/Curaçao | Nederlandse Antillen/Curaçao | 599 |
 | Nepal | Nepal | 977 |
 | Netherlands | Netherlands | 31 |
 | New Caledonia | New Caledonia | 687 |
@@ -229,7 +229,7 @@
 | Philippines | Philippines | 63 |
 | Poland | Poland | 48 |
 | Portugal | Portugal | 351 |
-| Puerto Rico | Puerto Rico | 1787 |
+| Puerto Rico | Puerto Rico | 1787, 1939 |
 | Qatar | Qatar | 974 |
 | Republic of Kosovo | Republic of Kosovo | 383 |
 | Réunion Island | Réunion Island | 262 |
