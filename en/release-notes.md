@@ -5,7 +5,7 @@
 * [ETC] Made changes to international sending policy
     * Added Puerto Rico's country code '1939' to the list of available countries.
     * Changed Mayotte to 'Mayotte/Comoros'.
-    * Changed Nederlandse Antillen to'Nederlandse Antillen/Curaçao'.
+    * Changed Nederlandse Antillen to 'Nederlandse Antillen/Curaçao'.
 
 ### May 28, 2024
 ### Added Features
