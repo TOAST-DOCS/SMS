@@ -4758,7 +4758,9 @@ curl -X GET \
           "REQUESTED": 10,
           "SENT": 10,
           "SENT_FAILED": 0,
-          "CONCAT": 20
+          "CONCAT": 20,
+          "READY": 5,
+          "CONVERTED": 3
         }
       }
     ]
@@ -4782,6 +4784,8 @@ curl -X GET \
 | events.SENT        | Integer | 발송 개수                                                   |
 | events.SENT_FAILED | Integer | 실패 개수                                                   |
 | events.CONCAT      | Integer | 성공 개수                                                   |
+| events.READY       | Integer | 전환율 수집 요청 발송 성공 개수                                      |
+| events.CONVERTED   | Integer | 전환 개수                                                   |
 
 #### 응답(통계 기준 추가)
 
@@ -4801,13 +4805,17 @@ curl -X GET \
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
-            "CONCAT": 10
+            "CONCAT": 10,
+            "READY": 5,
+            "CONVERTED": 3
           },
           "{statsCriteriaValue}": {
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
-            "CONCAT": 20
+            "CONCAT": 20,
+            "READY": 5,
+            "CONVERTED": 3
           }
         }
       }
@@ -4824,14 +4832,16 @@ curl -X GET \
 | body.data            | List    | 통계 이벤트 객체 리스트 |
 
 #### 통계 이벤트 객체(통계 기준 추가)
-| 값                                       | 타입      | 설명                                         |
-|-----------------------------------------|---------|--------------------------------------------|
-| eventDateTime                           | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                 |
+| 값                                       | 타입      | 설명                                        |
+|-----------------------------------------|---------|-------------------------------------------|
+| eventDateTime                           | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                |
 | events.{statsCriteriaValue}             | Object  | statsCriteria에 해당하는 값<br/>국가 코드 값이 올 수 있음 |
-| events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                      |
-| events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                      |
-| events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                      |
-| events.{statsCriteriaValue}.CONCAT      | Integer | 성공 개수                                      |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                     |
+| events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                     |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                     |
+| events.{statsCriteriaValue}.CONCAT      | Integer | 성공 개수                                     |
+| events.{statsCriteriaValue}.READY       | Integer | 전환율 수집 요청 발송 성공 개수                        |
+| events.{statsCriteriaValue}.CONVERTED   | Integer | 전환 개수                                     |
 
 ### (구)통합 통계 검색
 
