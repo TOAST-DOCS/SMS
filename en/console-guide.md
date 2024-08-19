@@ -511,8 +511,18 @@ Registered webhooks can be checked in the **webhook registration list**.
 * Block Sending by conversion rate and notifications
     * If you **enable** the **Block Sending and Notification by Conversion Rate**, the block feature is enabled and notifications are sent to all project members when a block occurs.
     * Country-specific blocking by conversion rate only applies to the countries that you set via the **Set Block Country from Sending by Conversion Rate > Select Country to Block**.
-    * If a country is blocked by Conversion Rate, then a **Blocked** button is exposed next to the blocked country. Click that button to unblock it. 
-
+    * The **Blocked** button is exposed next to the blocked country if a country is blocked by Conversion Rate. Click that button to unblock it. 
+    * Blocking Rules by Conversion Rate
+        * **Conversion Rate** is the threshold setting above which conversion rate-based blocking occurs.
+            - Blocked if the calculated conversion rate is below the conversion rate threshold.
+            - You can specify a conversion rate from 1% to 100%.
+        * **Minimum Count** is a threshold setting for the number of conversion rate collection requests sent for conversion rate-based blocking to occur.
+            - You must send a minimum number of conversion rate collection requests for conversion rate-based blocking to occur. 
+            - You can specify a minimum number of cases from 1 to 10,000.
+        * **Time Range** is the time range setting for calculating the conversion rate. 
+            - The conversion rate is calculated based on the number of collection requests sent, the number of conversions, and the conversion rate within that time range from the time of the request to send. 
+            - You can specify a time range from 1 hour to 168 hours (7 days).
+            
 > [Caution]
 Cases of international SMS abuse are increasing globally.
 It is recommended to set the monthly limit and the country of origin only as much as necessary.
