@@ -64,7 +64,9 @@
 ### Set blocking countries by conversion rate
 + In **Delivery Settings > International SMS** from the console, you must change the Block by conversion rate setting to Enable.
 + After enabling the feature, you must set which countries to block based on conversion rate.
-+ If you unblock a country that was blocked by conversion rate, then blocking by conversion rate might occur again.
+    + Conversion rate is calculated and blocking applies for each country based on the conversion rate-based blocking rule settings. 
++ Countries that are blocked based on conversion rate-based blocking rule settings are visible in the console and can be unblocked by selecting Block.
+     + If you unblock a conversion rate between the time range of the blocking rule you set, the conversion rate is calculated from the time you unblocked it to avoid reblocking.
 + For more information, see the[console user guide](./console-guide/#sms_8).
 
 

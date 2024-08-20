@@ -1,5 +1,19 @@
 ## Notification > SMS > Release Notes
 
+### August 27, 2024
+#### Added Features
+* [Console/API] Added statistical events to International Delivery in Categorize Statistics 
+    * Added READY and CONVERTED statistical events to International Delivery in Categorize Statistics
+    * For more information, see [API Guide > Statistic Search - International Send](./api-guide/#-_2).
+* [Console] Added the feature to set Blocking Rules by Conversion Rate for international SMS send
+    * Added the feature to set Blocking Rules by Conversion Rate for international SMS sending.
+        * You can set the conversion rate blocking threshold, minimum number of blocks, and conversion rate calculation time.
+    * For more information, see[[Console user guide > International SMS Sending Settings](./console-guide/#sms_8)].
+#### Feature Updates
+* [ETC] Changed conversion rate calculation rules when unblocking based on international SMS sending conversion rate
+    * Changed conversion rate calculation rules to prevent reblocking when sending conversions after unblocking a conversion rate-based blocking country.
+    * For more information, see[[International SMS Sending Policy > Sending Blocking based on international SMS conversion rate](./international-sending-policy/#sms_2)]. 
+
 ### July 1, 2024
 #### Feature Updates
 * [ETC] Made changes to international sending policy

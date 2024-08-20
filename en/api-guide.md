@@ -4752,7 +4752,9 @@ curl -X GET \
           "REQUESTED": 10,
           "SENT": 10,
           "SENT_FAILED": 0,
-          "CONCAT": 20
+          "CONCAT": 20,
+          "READY": 5,
+          "CONVERTED": 3
         }
       }
     ]
@@ -4776,6 +4778,8 @@ curl -X GET \
 | events.SENT        | Integer | Number of sent items                                               |
 | events.SENT_FAILED | Integer | Number of failures                                        |
 | events.CONCAT      | Integer | Number of successes                                          |
+| events.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
+| events.CONVERTED   | Integer | Number of converted items                                                   |
 
 #### Response (Statistics criteria added)
 
@@ -4795,13 +4799,19 @@ curl -X GET \
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
-            "CONCAT": 10
+            "CONCAT": 10,
+        
+            "READY": 5,
+            "CONVERTED": 3
           },
           "{statsCriteriaValue}": {
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
             "CONCAT": 20
+            
+            "READY": 5,
+            "CONVERTED": 3
           }
         }
       }
@@ -4826,6 +4836,8 @@ curl -X GET \
 | events.{statsCriteriaValue}.SENT        | Integer | Number of sent items                  |
 | events.{statsCriteriaValue}.SENT_FAILED | Integer | Number of failures                           |
 | events.{statsCriteriaValue}.CONCAT      | Integer | Number of successes                             |
+| events.{statsCriteriaValue}.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
+| events.{statsCriteriaValue}.CONVERTED   | Integer | Number of converted items                                                   |
 
 ### (Old)Query Integrated Statistics
 
