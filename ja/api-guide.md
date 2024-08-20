@@ -2974,10 +2974,10 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 | body.data.attachFileList[].createDate   | String   | 添付ファイル - 作成日時                              |
 | body.data.attachFileList[].updateDate   | String   | 添付ファイル - 修正日                               |
 | body.data.originCode                    | String   | 識別コード（特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除く登録番号9桁の数字) |
-<span id="binaryUpload"></span>
 | body.data.dlr.dlrStatus                 | String   | 	DLRステータスコード                                     |
 | body.data.dlr.networkCode               | String   | 	DLRネットワークコード                                  |
 | body.data.dlr.errorCode                 | String   | 	DLRエラーコード                                     |
+<span id="binaryUpload"></span>
 
 ## 添付ファイル
 
@@ -3018,11 +3018,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-| 値          | 	タイプ    | 最大長さ | 	必須 | 	説明                                         |
-|------------|---------|------|-----|---------------------------------------------|
-| fileName   | 	String | 	45  | 必須  | 	ファイル名(拡張子はjpg, jpeg(小文字)のみ可能)              |
-| fileBody   | 	Byte[] | 300K | 	必須 | ファイルbyte[]をBase64でエンコードした値。<br/>* またはバイト配列値 |
-| createUser | 	String | 	100 | 必須  | 	ファイルアップロードユーザー情報                           |
+| 値          | タイプ    | 最大長さ | 必須 | 説明                                          |
+|------------|--------|------|----|---------------------------------------------|
+| fileName   | String | 45   | 必須 | ファイル名(拡張子はjpg, jpegのみ可能)                    |
+| fileBody   | Byte[] | 300K | 必須 | ファイルbyte[]をBase64でエンコードした値。<br/>* またはバイト配列値 |
+| createUser | String | 100  | 必須 | ファイルアップロードユーザー情報                            |
 
 #### cURL
 

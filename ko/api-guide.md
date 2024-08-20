@@ -52,7 +52,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -301,7 +301,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -447,7 +447,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -657,7 +657,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -926,7 +926,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -1088,7 +1088,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -1237,7 +1237,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -1436,7 +1436,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -1582,7 +1582,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -1790,7 +1790,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -2112,7 +2112,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -2220,7 +2220,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -2323,7 +2323,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -2437,7 +2437,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -2551,7 +2551,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -2669,7 +2669,7 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -2790,7 +2790,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -2897,7 +2897,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -3014,7 +3014,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -3033,11 +3033,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-| 값          | 	타입     | 최대 길이 | 	필수 | 	설명                                          |
-|------------|---------|-------|-----|----------------------------------------------|
-| fileName   | 	String | 	45   | 필수  | 	파일 이름(확장자는 jpg, jpeg(소문자)만 가능)              |
-| fileBody   | 	Byte[] | 300K  | 	필수 | 파일 byte[]를 Base64로 인코딩한 값.<br/>* 또는 바이트 배열 값 |
-| createUser | 	String | 	100  | 필수  | 	파일 업로드 사용자 정보                               |
+| 값          | 타입     | 최대 길이 | 필수 | 설명                                           |
+|------------|--------|-------|----|----------------------------------------------|
+| fileName   | String | 45    | 필수 | 파일 이름(확장자는 jpg, jpeg만 가능)                    |
+| fileBody   | Byte[] | 300K  | 필수 | 파일 byte[]를 Base64로 인코딩한 값.<br/>* 또는 바이트 배열 값 |
+| createUser | String | 100   | 필수 | 파일 업로드 사용자 정보                                |
 
 #### cURL
 
@@ -3139,7 +3139,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -3246,7 +3246,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -3344,7 +3344,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -3429,7 +3429,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -3505,7 +3505,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -3557,7 +3557,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -3825,7 +3825,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -3957,7 +3957,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -4074,7 +4074,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -4154,7 +4154,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -4206,7 +4206,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -4280,7 +4280,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -4353,7 +4353,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -4413,7 +4413,7 @@ curl -X DELETE \
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -4863,7 +4863,7 @@ curl -X GET \
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -4948,7 +4948,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5071,7 +5071,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5179,7 +5179,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5275,7 +5275,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5397,7 +5397,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5492,7 +5492,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5614,7 +5614,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5710,7 +5710,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5756,7 +5756,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5837,7 +5837,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5913,7 +5913,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -5984,7 +5984,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -6043,7 +6043,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -6143,7 +6143,7 @@ GET /sms/v3.0/appKeys/{appKey}/uids/{uid}
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -6225,7 +6225,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -6328,7 +6328,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -6384,7 +6384,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 
@@ -6456,7 +6456,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```json
 {
-"X-Secret-Key": "{secret-key}"
+  "X-Secret-Key": "{secret-key}"
 }
 ```
 

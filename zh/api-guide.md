@@ -3031,11 +3031,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-| Value      | Type    | Max Length | Required | Description                                                               |
-|------------|---------|------------|----------|---------------------------------------------------------------------------|
-| fileName   | 	String | 	45        | Required | File name (extensions available only in jpg or jpeg (small-case letters)) |
-| fileBody   | 	Byte[] | 300K       | Required | File byte[] value encoded in Base64.<br/>* or byte arrangement value      |
-| createUser | 	String | 	100       | Required | File uploading user information                                           |
+| Value      | Type   | Max Length | Required | Description                                                               |
+|------------|--------|----------|----------|---------------------------------------------------------------------------|
+| fileName   | String | 45       | Required | File name (extensions available only in jpg or jpeg) |
+| fileBody   | Byte[] | 300K     | Required | File byte[] value encoded in Base64.<br/>* or byte arrangement value      |
+| createUser | String | 100      | Required | File uploading user information                                           |
 
 #### cURL
 
