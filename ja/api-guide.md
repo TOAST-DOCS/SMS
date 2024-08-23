@@ -857,7 +857,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-  0
+0
   ],
   "recipientList": [
     {
@@ -2559,7 +2559,7 @@ Content-Type: application/json;charset=UTF-8
   "attachFileIdList": [
     1,
     2,
-    3
+3
   ],
   "tagExpression": [
     "tag1",
@@ -3565,7 +3565,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -3636,7 +3636,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
   "useYn": "Y",
   "attachFileIdList": [
     123123,
-    456456
+456456
   ]
 }
 ```
@@ -4080,7 +4080,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -4740,7 +4740,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
           "REQUESTED": 10,
           "SENT": 10,
           "SENT_FAILED": 0,
-          "CONCAT": 20
+          "CONCAT": 20,
+          "READY": 5,
+          "CONVERTED": 3
         }
       }
     ]
@@ -4748,18 +4750,80 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                                                  | 	タイプ     | 	説明                                                                                                             |
-|----------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                                | 	Boolean | 	成否                                                                                                             |
-| header.resultCode                                  | 	Integer | 	失敗コード                                                                                                          |
-| header.resultMessage                               | 	String  | 	失敗メッセージ                                                                                                        |
-| body.data.eventDateTime                            | 	String  | 	表示名<br/>分別、時間別、曜日別、月別                                                                                          |
-| body.data.events[].{statsCriteriaValue}            | List     | statsCriteriaに該当する値<br/>メッセージタイプ/広告タイプ/発信番号値が来る場合がある<br/>statsCriteriaをEVENTにのみ設定した場合{statsCriteriaValue}は省略される |
-| body.data.events[].{statsCriteriaValue}.requested  | 	Integer | 	リクエスト数                                                                                                         |
-| body.data.events[].{statsCriteriaValue}.sent       | 	Integer | 	送信数                                                                                                            |
-| body.data.events[].{statsCriteriaValue}.sentFailed | 	Integer | 	失敗数                                                                                                            |
-| body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	成功数                                                                                                            |
-| body.data.events[].{statsCriteriaValue}.pending    | 	Integer | 	送信中数                                                                                                           |
+| 値                  | タイプ    | 説明          |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | 成否       |
+| header.resultCode    | Integer | 失敗コード       |
+| header.resultMessage | String  | 失敗メッセージ      |
+| body.data            | List    | 統計イベントオブジェクトリスト |
+
+#### 統計イベントオブジェクト(統計基準：デフォルト値)
+| 値                | タイプ    | 説明                                                    |
+|--------------------|---------|---------------------------------------------------------|
+| eventDateTime      | String  | 表示名<br/>分別、時間別、曜日別、月別                            |
+| events             | Object  | statsCriteriaをEVENTにのみ設定した場合、{statsCriteriaValue}は省略されます |
+| events.REQUESTED   | Integer | リクエスト数                                                 |
+| events.SENT        | Integer | 送信数                                                 |
+| events.SENT_FAILED | Integer | 失敗数                                                 |
+| events.CONCAT      | Integer | 成功数                                                 |
+| events.READY       | Integer | コンバージョン率収集リクエストの送信成功数                                    |
+| events.CONVERTED   | Integer | コンバージョン数                                                 |
+
+#### レスポンス(統計基準追加)
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "data": [
+      {
+        "eventDateTime": "",
+        "events": {
+          "{statsCriteriaValue}": {
+            "REQUESTED": 10,
+            "SENT": 10,
+            "SENT_FAILED": 0,
+            "CONCAT": 10,
+            "READY": 5,
+            "CONVERTED": 3
+          },
+          "{statsCriteriaValue}": {
+            "REQUESTED": 10,
+            "SENT": 10,
+            "SENT_FAILED": 0,
+            "CONCAT": 20,
+            "READY": 5,
+            "CONVERTED": 3
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+| 値                  | タイプ    | 説明          |
+|----------------------|---------|---------------|
+| header.isSuccessful  | Boolean | 成否       |
+| header.resultCode    | Integer | 失敗コード       |
+| header.resultMessage | String  | 失敗メッセージ      |
+| body.data            | List    | 統計イベントオブジェクトリスト |
+
+#### 統計イベントオブジェクト(統計基準追加)
+| 値                                     | タイプ    | 説明                                      |
+|-----------------------------------------|---------|-------------------------------------------|
+| eventDateTime                           | String  | 表示名前<br/>分別、時間別、曜日別、月別              |
+| events.{statsCriteriaValue}             | Object  | statsCriteriaに該当する値<br/>国コード値が入ることがある |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | リクエスト数                                   |
+| events.{statsCriteriaValue}.SENT        | Integer | 送信数                                   |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | 失敗数                                   |
+| events.{statsCriteriaValue}.CONCAT      | Integer | 成功数                                   |
+| events.{statsCriteriaValue}.READY       | Integer | コンバージョン率収集リクエストの送信成功数                      |
+| events.{statsCriteriaValue}.CONVERTED   | Integer | コンバージョン数                                   |
 
 ### (旧)統合統計検索
 
