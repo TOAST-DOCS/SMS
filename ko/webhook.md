@@ -34,14 +34,14 @@ SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
 }
 ```
 
-| 값               | 타입        | 설명                                                                                                                             |
-|-----------------|-----------|--------------------------------------------------------------------------------------------------------------------------------|
-| hooksId         | String    | 웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID                                                                                    |
-| webhookConfigId | String    | 웹훅 설정 ID                                                                                                                       |
-| productName     | String    | 웹훅 이벤트가 발생한 서비스명                                                                                                               |
-| appKey          | String    | 웹훅 이벤트가 발생한 서비스 앱키                                                                                                             |
-| event           | String    | 웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록<br>* MESSAGE_RESULT_UPDATE: 메시지 발송 결과 코드 업데이트<br>* CONVERSION_BLOCK: 전환율에 의한 차단 국가 발생 |
-| hooks           | List<Map> | 웹훅 이벤트 발생 시 데이터<br>* 상세한 내용은 [이벤트 유형별 hooks 정의](./webhook/#hooks)를 참고하세요.                                                      |
+| 값               | 타입        | 설명                                                                                                                                                                                |
+|-----------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| hooksId         | String    | 웹훅 설정에 정의된 URL로 POST 요청을 할 때마다 고유하게 생성되는 ID                                                                                                                                       |
+| webhookConfigId | String    | 웹훅 설정 ID                                                                                                                                                                          |
+| productName     | String    | 웹훅 이벤트가 발생한 서비스명                                                                                                                                                                  |
+| appKey          | String    | 웹훅 이벤트가 발생한 서비스 앱키                                                                                                                                                                |
+| event           | String    | 웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록<br>* MESSAGE_RESULT_UPDATE: 메시지 발송 결과 코드 업데이트<br>* CONVERSION_BLOCK: 전환율에 의한 차단 국가 발생<br>* INTERNATIONAL_DELIVERY_RECEIPT: 국제발송 DLR 업데이트 |
+| hooks           | List<Map> | 웹훅 이벤트 발생 시 데이터<br>* 상세한 내용은 [이벤트 유형별 hooks 정의](./webhook/#hooks)를 참고하세요.                                                                                                         |
 
 #### cURL
 
@@ -89,21 +89,22 @@ curl -X POST \
 ```
 
 ### 메시지 발송 결과 코드 업데이트
-| 값                       | 타입     | 설명                                            |
-|-------------------------|--------|-----------------------------------------------|
-| hooks[].hookId          | String | 서비스에서 이벤트 발생 시 생성되는 고유 ID                     |
-| hooks[].senderType      | String | 발송 타입                                 |
-| hooks[].requestId       | String | 요청 ID                         |
-| hooks[].recipientSeq    | Integer | 발송 상세 ID(상세 검색 시 필수)  |
-| hooks[].requestDate     | String | 발신 일시<br>* yyyy-MM-dd'T'HH:mm:ss |
-| hooks[].receiveDate     | String | 수신 일시<br>* yyyy-MM-dd'T'HH:mm:ss |
-| hooks[].sendNo          | String | 발신 번호 |
-| hooks[].recipientNo     | String | 수신 번호 |
-| hooks[].messageStatus   | String | 메시지 상태 <br>(COMPLETED: 발송 완료, FAILED: 발송 실패, CANCEL: 취소, DUPLICATED: 중복 발송, FAILED_AD: 실패(광고 제한)) |
-| hooks[].recipientGroupingKey | String | 수신자 그룹 키 |
-| hooks[].senderGroupingKey | String | 발신자 그룹 키 |
-| hooks[].resultCode      | String | 결과 코드 |
-| hooks[]._links.self.href | String | 메시지 단일 검색 API 링크 | 
+| 값                            | 타입      | 설명                                                                                                |
+|------------------------------|---------|---------------------------------------------------------------------------------------------------|
+| hooks[].hookId               | String  | 서비스에서 이벤트 발생 시 생성되는 고유 ID                                                                         |
+| hooks[].senderType           | String  | 발송 타입                                                                                             |
+| hooks[].requestId            | String  | 요청 ID                                                                                             |
+| hooks[].recipientSeq         | Integer | 발송 상세 ID(상세 검색 시 필수)                                                                              |
+| hooks[].requestDate          | String  | 발신 일시<br>* yyyy-MM-dd'T'HH:mm:ss                                                                  |
+| hooks[].receiveDate          | String  | 수신 일시<br>* yyyy-MM-dd'T'HH:mm:ss                                                                  |
+| hooks[].sendNo               | String  | 발신 번호                                                                                             |
+| hooks[].recipientNo          | String  | 수신 번호                                                                                             |
+| hooks[].messageStatus        | String  | 메시지 상태 <br>(COMPLETED: 발송 완료, FAILED: 발송 실패, CANCEL: 취소, DUPLICATED: 중복 발송, FAILED_AD: 실패(광고 제한)) |
+| hooks[].recipientGroupingKey | String  | 수신자 그룹 키                                                                                          |
+| hooks[].senderGroupingKey    | String  | 발신자 그룹 키                                                                                          |
+| hooks[].resultCode           | String  | 결과 코드                                                                                             |
+| hooks[].messageCount         | Integer | 발송된 메시지 건수                                                                                        |
+| hooks[]._links.self.href     | String  | 메시지 단일 검색 API 링크                                                                                  | 
 
 ```json
 "hooks": [
@@ -120,6 +121,7 @@ curl -X POST \
     "recipientGropuingKey": "RecipientGroupingKey",
     "senderGroupingKey": "SenderGroupingKey",
     "resultCode": "1000",
+    "messageCount": 1,
     "_link": {
       "self": {
         "href": "https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms/20240429205802y0Tl7Gbz0e0?recipientSeq=1"
@@ -142,6 +144,29 @@ curl -X POST \
     "hookId": "20240429205809GcSUXthVA00",
     "countryCode": "1",
     "blockedDateTime": "2024-05-28T09:00:00.000+09:00"
+  }
+]
+```
+
+### 국제 발송 DLR 업데이트
+| 값                    | 타입      | 설명                                                                            |
+|----------------------|---------|-------------------------------------------------------------------------------|
+| hooks[].hookId       | String  | 서비스에서 이벤트 발생 시 생성되는 고유 ID                                                     |
+| hooks[].requestId    | String  | 요청 ID                                                                         |
+| hooks[].recipientSeq | Integer | 발송 상세 ID(상세 검색 시 필수)                                                          |
+| hooks[].dlrStatus    | String  | DLR 상태<br>(ACCEPTED, DELIVERED, BUFFERED, EXPIRED, FAILED, REJECTED, UNKNOWN) |
+| hooks[].networkCode  | String  | DLR 네트워크 코드                                                                   |
+| hooks[].errorCode    | String  | DLR 에러 코드                                                                     |
+
+```json
+"hooks": [
+  {
+    "hookId": "202409251600118GSDDYTwzX0",
+    "requestId": "20240925160005UvxdDrJ4g20",
+    "recipientSeq": 1,
+    "dlrStatus": "ACCEPTED",
+    "networkCode": "US-VIRTUAL-BANDWIDTH",
+    "errorCode": "0"
   }
 ]
 ```
