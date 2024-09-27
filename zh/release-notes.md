@@ -1,5 +1,20 @@
 ## Notification > SMS > Release Notes
 
+### 2024. 10. 07.
+#### 기능 추가
+* [API] 메시지 발송 결과 업데이트 웹훅에 메시지 건수 필드 추가
+  * 메시지 결과 업데이트 웹훅에 발송된 메시지 건수를 나타내는 messageCount 필드가 추가되었습니다.
+  * 자세한 사항은 [[웹훅 가이드 > 이벤트 유형별 hooks 정의 > 메시지 발송 결과 코드 업데이트](./webhook/#_4)]를 참고하시기 바랍니다.
+* [API] 국제 발송 DLR 업데이트 웹훅 추가
+  * 국제 발송 DLR 업데이트 웹훅이 추가되었습니다.
+  * 자세한 사항은 [[웹훅 가이드 > 이벤트 유형별 hooks 정의 > 국제 발송 DLR 업데이트](./webhook/#dlr)]를 참고하시기 바랍니다.
+
+### 2024. 09. 10.
+#### 기능 추가
+* [Console/API] 조직별 월별 발송량 제한 기능이 추가
+    * 조직별 월별 발송량 제한 기능이 추가되었습니다.
+    * 자세한 사항은 [[SMS > 서비스 정책 > 발송 정책 > '월별 발송량 제한'](./sending-policy/#_11)]을 참고하시기 바랍니다.
+
 ### August 27, 2024
 #### Added Features
 * [Console/API] Added statistical events to International Delivery in Categorize Statistics 
