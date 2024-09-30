@@ -155,7 +155,7 @@ Hook data per event type when generating a POST request to the URL defined in th
 | hooks[].recipientSeq | Integer | 발송 상세 ID(상세 검색 시 필수)                                                          |
 | hooks[].dlrStatus    | String  | DLR 상태<br>(ACCEPTED, DELIVERED, BUFFERED, EXPIRED, FAILED, REJECTED, UNKNOWN) |
 | hooks[].networkCode  | String  | DLR 네트워크 코드                                                                   |
-| hooks[].errorCode    | String  | DLR 에러 코드                                                                     |
+| hooks[].errorCode    | String  | DLR 오류 코드                                                                     |
 
 ```json
 "hooks": [
