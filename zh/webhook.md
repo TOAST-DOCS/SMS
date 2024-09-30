@@ -103,6 +103,7 @@ Hook data per event type when generating a POST request to the URL defined in th
 | hooks[].recipientGroupingKey | String | Recipient group key |
 | hooks[].senderGroupingKey | String | Sender group key |
 | hooks[].resultCode      | String | Result code |
+| hooks[].messageCount         | Integer | 발송된 메시지 건수                                                                                        |
 | hooks[]._links.self.href | String | Message Single Search API link | 
 
 ```json
@@ -142,6 +143,29 @@ Hook data per event type when generating a POST request to the URL defined in th
     "hookId": "20240429205809GcSUXthVA00",
     "countryCode": "1",
     "blockedDateTime": "2024-05-28T09:00:00.000+09:00"
+  }
+]
+```
+
+### 국제 발송 DLR 업데이트
+| 값                    | 타입      | 설명                                                                            |
+|----------------------|---------|-------------------------------------------------------------------------------|
+| hooks[].hookId       | String  | 서비스에서 이벤트 발생 시 생성되는 고유 ID                                                     |
+| hooks[].requestId    | String  | 요청 ID                                                                         |
+| hooks[].recipientSeq | Integer | 발송 상세 ID(상세 검색 시 필수)                                                          |
+| hooks[].dlrStatus    | String  | DLR 상태<br>(ACCEPTED, DELIVERED, BUFFERED, EXPIRED, FAILED, REJECTED, UNKNOWN) |
+| hooks[].networkCode  | String  | DLR 네트워크 코드                                                                   |
+| hooks[].errorCode    | String  | DLR 오류 코드                                                                     |
+
+```json
+"hooks": [
+  {
+    "hookId": "202409251600118GSDDYTwzX0",
+    "requestId": "20240925160005UvxdDrJ4g20",
+    "recipientSeq": 1,
+    "dlrStatus": "ACCEPTED",
+    "networkCode": "US-VIRTUAL-BANDWIDTH",
+    "errorCode": "0"
   }
 ]
 ```
