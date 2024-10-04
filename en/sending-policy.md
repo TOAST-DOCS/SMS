@@ -88,6 +88,19 @@ You must obtain the recipient's express prior consent and comply with the sendin
 + Prohibition of sending advertising information at night: Requires individual prior consent of the recipient when sending at night (PM 09 ~ AM 08)
 + Notify the recipient of the result of the opt-out request: name of the sender, the fact and date of the expression of intent, and the result of the processing.
 
+## Monthly Sending Volume Limit
+* The SMS service has a monthly sending limit.
+* SMS sending volume is initially limited to 5,000 messages per month per organization. If you need to adjust your sending volume, contact [Customer Center](https://www.nhncloud.com/kr/support/inquiry).
+    * Restriction Targets
+    
+    1) If SMS is first enabled in a project within an organization after September 10, 2024, the sending volume limit applies to that organization.
+    2) If SMS was enabled in a project within an organization before September 10, 2024, that organization is excluded from the sending volume limit.
+
+
+* The sending limit is the total number of messages sent, regardless of SMS/LMS/MMS/International SMS type.
+* Monthly sending quotas and usage can be viewed in the [Console > Organization > Project > Quota Management] menu. Go to [(https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/#sms)Resource Provision Policy Guide](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/#sms).
+* Because the sending count is based on successful deliveries, successful deliveries are counted even if the device fails to receive them.
+
 ## Guide to Sending Speed Depending on the Size of MMS Attachments
 + When sending MMS, there may be a difference in the sending speed depending on the size of the attachments.
 + The larger the size of uploaded attachments is, the slower the sending speed and the update of reception result may become due to carrier's sending speed restrictions.

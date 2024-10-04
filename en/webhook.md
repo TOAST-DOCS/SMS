@@ -145,3 +145,27 @@ Hook data per event type when generating a POST request to the URL defined in th
   }
 ]
 ```
+
+
+### International SMS DLR Update
+| Value                    | Type      | Description                                                                        |
+|----------------------|---------|-------------------------------------------------------------------------------|
+| hooks[].hookId       | String  | A unique ID generated when an event occurs in the service                                                     |
+| hooks[].requestId    | String  | Request ID                                                                         |
+| hooks[].recipientSeq | Integer | ID of sending details (Required for advanced search)                                                          |
+| hooks[].dlrStatus    | String  | DLR status<br>(ACCEPTED, DELIVERED, BUFFERED, EXPIRED, FAILED, REJECTED, UNKNOWN) |
+| hooks[].networkCode  | String  | DLR network code                                                                   |
+| hooks[].errorCode    | String  | DLR error code                                                                    |
+
+```json
+"hooks": [
+  {
+    "hookId": "202409251600118GSDDYTwzX0",
+    "requestId": "20240925160005UvxdDrJ4g20",
+    "recipientSeq": 1,
+    "dlrStatus": "ACCEPTED",
+    "networkCode": "US-VIRTUAL-BANDWIDTH",
+    "errorCode": "0"
+  }
+]
+```
