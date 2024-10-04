@@ -98,7 +98,7 @@ You must obtain the recipient's express prior consent and comply with the sendin
 
 
 * The sending limit is the total number of messages sent, regardless of SMS/LMS/MMS/International SMS type.
-* Monthly sending quotas and usage can be viewed in the [Console > Organization > Project > Quota Management] menu. Go to [(https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/#sms)Resource Provision Policy Guide](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/#sms).
+* Monthly sending quotas and usage can be viewed in the [Console > Organization > Project > Quota Management] menu. Go to [(https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/#sms)Resource Provision Policy Guide](https://docs.nhncloud.com/en/nhncloud/en/resource-policy/#sms).
 * Because the sending count is based on successful deliveries, successful deliveries are counted even if the device fails to receive them.
 
 ## Guide to Sending Speed Depending on the Size of MMS Attachments
