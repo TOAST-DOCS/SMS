@@ -103,6 +103,7 @@ Webフック設定で定義されたURLでPOSTリクエストを作成する時�
 | hooks[].recipientGroupingKey | String | 受信者グループキー |
 | hooks[].senderGroupingKey | String | 送信者グループキー |
 | hooks[].resultCode      | String | 結果コード |
+| hooks[].messageCount         | Integer | 送信されたメッセージ件数                                                                                      |
 | hooks[]._links.self.href | String | メッセージ単一検索APIリンク | 
 
 ```json
@@ -142,6 +143,29 @@ Webフック設定で定義されたURLでPOSTリクエストを作成する時�
     "hookId": "20240429205809GcSUXthVA00",
     "countryCode": "1",
     "blockedDateTime": "2024-05-28T09:00:00.000+09:00"
+  }
+]
+```
+
+### 国際送信DLRアップデート
+| 値                  | タイプ    | 説明                                                                          |
+|----------------------|---------|-------------------------------------------------------------------------------|
+| hooks[].hookId       | String  | サービスでイベント発生時に作成される固有ID                                                     |
+| hooks[].requestId    | String  | リクエストID                                                                         |
+| hooks[].recipientSeq | Integer | 送信詳細ID(詳細検索時は必須)                                                          |
+| hooks[].dlrStatus    | String  | DLR状態<br>(ACCEPTED, DELIVERED, BUFFERED, EXPIRED, FAILED, REJECTED, UNKNOWN) |
+| hooks[].networkCode  | String  | DLRネットワークコード                                                                 |
+| hooks[].errorCode    | String  | DLRエラーコード                                                                   |
+
+```json
+"hooks": [
+  {
+    "hookId": "202409251600118GSDDYTwzX0",
+    "requestId": "20240925160005UvxdDrJ4g20",
+    "recipientSeq": 1,
+    "dlrStatus": "ACCEPTED",
+    "networkCode": "US-VIRTUAL-BANDWIDTH",
+    "errorCode": "0"
   }
 ]
 ```
