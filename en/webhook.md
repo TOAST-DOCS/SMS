@@ -103,6 +103,7 @@ Hook data per event type when generating a POST request to the URL defined in th
 | hooks[].recipientGroupingKey | String | Recipient group key |
 | hooks[].senderGroupingKey | String | Sender group key |
 | hooks[].resultCode      | String | Result code |
+| hooks[].messageCount         | Integer | Number of messages sent      |          
 | hooks[]._links.self.href | String | Message Single Search API link | 
 
 ```json
