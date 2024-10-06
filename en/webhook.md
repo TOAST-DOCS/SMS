@@ -103,6 +103,7 @@ Hook data per event type when generating a POST request to the URL defined in th
 | hooks[].recipientGroupingKey | String | Recipient group key |
 | hooks[].senderGroupingKey | String | Sender group key |
 | hooks[].resultCode      | String | Result code |
+| hooks[].messageCount         | Integer | Number of messages sent      |          
 | hooks[]._links.self.href | String | Message Single Search API link | 
 
 ```json
@@ -142,6 +143,30 @@ Hook data per event type when generating a POST request to the URL defined in th
     "hookId": "20240429205809GcSUXthVA00",
     "countryCode": "1",
     "blockedDateTime": "2024-05-28T09:00:00.000+09:00"
+  }
+]
+```
+
+
+### International SMS DLR Update
+| Value                    | Type      | Description                                                                        |
+|----------------------|---------|-------------------------------------------------------------------------------|
+| hooks[].hookId       | String  | A unique ID generated when an event occurs in the service                                                     |
+| hooks[].requestId    | String  | Request ID                                                                         |
+| hooks[].recipientSeq | Integer | ID of sending details (Required for advanced search)                                                          |
+| hooks[].dlrStatus    | String  | DLR status<br>(ACCEPTED, DELIVERED, BUFFERED, EXPIRED, FAILED, REJECTED, UNKNOWN) |
+| hooks[].networkCode  | String  | DLR network code                                                                   |
+| hooks[].errorCode    | String  | DLR error code                                                                    |
+
+```json
+"hooks": [
+  {
+    "hookId": "202409251600118GSDDYTwzX0",
+    "requestId": "20240925160005UvxdDrJ4g20",
+    "recipientSeq": 1,
+    "dlrStatus": "ACCEPTED",
+    "networkCode": "US-VIRTUAL-BANDWIDTH",
+    "errorCode": "0"
   }
 ]
 ```

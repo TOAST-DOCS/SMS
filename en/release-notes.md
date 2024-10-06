@@ -1,5 +1,20 @@
 ## Notification > SMS > Release Notes
 
+### October 7, 2024.
+#### Added Features
+* [API] Added message count field to the message sending results update webhook
+  * Added the messageCount field to the message sending result update webhook to indicate the number of messages sent.
+  * For more information, see [Webhook Guide > Hook Definitions by Event Type > Update the Message Sending Result Code](./webhook/#_4).
+* [API] Added international SMS DLR update webhook
+  * Added international SMS DLR update webhook.
+  * For more information, see [Webhook Guide > Hook Definitions by Event Type > International SMS DLR Update](./webhook/#dlr).
+
+### September 10, 2024
+#### Added Features
+* [Console/API] Added the feature to limit monthly sending volume per organization
+    * Added the feature to limit monthly sending volume per organization.
+    * For more information, see [SMS > Service Policy > Sending Policy > 'Monthly Sending Volume Limit'](./sending-policy/#_11).
+
 ### August 27, 2024
 #### Added Features
 * [Console/API] Added statistical events to International Delivery in Categorize Statistics 
