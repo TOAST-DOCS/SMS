@@ -1,23 +1,23 @@
 ## Notification > SMS > Release Notes
 
-### 2024. 10. 07.
-#### 기능 추가
-* [API] 메시지 발송 결과 업데이트 웹훅에 메시지 건수 필드 추가
-  * 메시지 결과 업데이트 웹훅에 발송된 메시지 건수를 나타내는 messageCount 필드가 추가되었습니다.
-  * 자세한 사항은 [[웹훅 가이드 > 이벤트 유형별 hooks 정의 > 메시지 발송 결과 코드 업데이트](./webhook/#_4)]를 참고하시기 바랍니다.
-* [API] 국제 발송 DLR 업데이트 웹훅 추가
-  * 국제 발송 DLR 업데이트 웹훅이 추가되었습니다.
-  * 자세한 사항은 [[웹훅 가이드 > 이벤트 유형별 hooks 정의 > 국제 발송 DLR 업데이트](./webhook/#dlr)]를 참고하시기 바랍니다.
+### October 7, 2024.
+#### Added Features
+* [API] Added message count field to the message sending results update webhook
+    * Added the messageCount field to the message sending result update webhook to indicate the number of messages sent.
+    * For more information, see [Webhook Guide > Hook Definitions by Event Type > Update the Message Sending Result Code](./webhook/#_4).
+* [API] Added international SMS DLR update webhook
+    * Added international SMS DLR update webhook.
+    * For more information, see [Webhook Guide > Hook Definitions by Event Type > International SMS DLR Update](./webhook/#dlr).
 
-### 2024. 09. 10.
-#### 기능 추가
-* [Console/API] 조직별 월별 발송량 제한 기능 추가
-    * 조직별 월별 발송량 제한 기능이 추가되었습니다.
-    * 자세한 사항은 [[SMS > 서비스 정책 > 발송 정책 > 월별 발송량 제한](./sending-policy/#_11)]을 참고하시기 바랍니다.
+### September 10, 2024
+#### Added Features
+* [Console/API] Added the feature to limit monthly sending volume per organization
+    * Added the feature to limit monthly sending volume per organization.
+    * For more information, see [SMS > Service Policy > Sending Policy > 'Monthly Sending Volume Limit'](./sending-policy/#_11).
 
 ### August 27, 2024
 #### Added Features
-* [Console/API] Added statistical events to International Delivery in Categorize Statistics 
+* [Console/API] Added statistical events to International Delivery in Categorize Statistics
     * Added READY and CONVERTED statistical events to International Delivery in Categorize Statistics
     * For more information, see [API Guide > Statistic Search - International Send](./api-guide/#-_2).
 * [Console] Added the feature to set Blocking Rules by Conversion Rate for international SMS send
@@ -27,7 +27,7 @@
 #### Feature Updates
 * [ETC] Changed conversion rate calculation rules when unblocking based on international SMS sending conversion rate
     * Changed conversion rate calculation rules to prevent reblocking when sending conversions after unblocking a conversion rate-based blocking country.
-    * For more information, see[[International SMS Sending Policy > Sending Blocking based on international SMS conversion rate](./international-sending-policy/#sms_2)]. 
+    * For more information, see[[International SMS Sending Policy > Sending Blocking based on international SMS conversion rate](./international-sending-policy/#sms_2)].
 
 ### July 1, 2024
 #### Feature Updates
@@ -38,13 +38,13 @@
 
 ### May 28, 2024
 ### Added Features
-* [Console/API] Added the feature to convert to international SMS delivery 
+* [Console/API] Added the feature to convert to international SMS delivery
     * Changed the Send API
         * Added the useConversion field to indicate a request to collect conversion rates when sending v3.0 short SMS, v3.0 verification SMS, and v3.0 advertising SMS.
         * Conversion rate collection requests using this field are only valid for international delivery requests.
     * Added the Conversion API
         * Added API to attempt conversions for conversion rate collection requests.
-    * Added the blocking and notification settings by conversion rate on the Service Settings > International SMS sending settings tab 
+    * Added the blocking and notification settings by conversion rate on the Service Settings > International SMS sending settings tab
         * Added the conversion rate-based send blocking and notifications feature to the international SMS sending settings screen.
         * Added the feature to set blocking countries to apply conversion rate-based sending blocking.
     * For more information, see [International SMS sending policy > Blocking Sending based on international SMS conversion rate](./international-sending-policy/#sms_2).
@@ -81,7 +81,7 @@
 #### Added Features
 * [Console] Role segmentation
     * Added the feature to grant separate SMS menu access and feature control permissions based on role.
-    ([Link](https://docs.nhncloud.com/ko/nhncloud/ko/console-guide/#_24))
+      ([Link](https://docs.nhncloud.com/ko/nhncloud/ko/console-guide/#_24))
 #### Feature Updates
 * [Console/API] Eased advertising copy restrictions
     * Modified to allow ads to be sent even if they contain other characters on either end of the free unsubscribe or free opt-out text that must be included when sending the ads.
@@ -105,8 +105,8 @@
 ### December 15, 2023
 ### Feature Updates
 * [Console/API] Changed the Terms and Conditions for individual members
-   * To provide stable service, the SMS service for individual members was ended.
-   * If you are an individual member, you can no longer use the service with  restricted identity verification.
+    * To provide stable service, the SMS service for individual members was ended.
+    * If you are an individual member, you can no longer use the service with restricted identity verification.
 
 ### November 28, 2023
 #### Feature Updates
@@ -320,7 +320,7 @@
         * The following two lists are available for download if invalid recipients are included in the uploaded recipient file.
             * Download the list of valid recipient numbers
             * Download the list of invalid recipient numbers
-        * If you want to send SMS to valid recipients only, you can do so by clicking the **Send Text Messages to Valid Recipients Only**  button.
+        * If you want to send SMS to valid recipients only, you can do so by clicking the **Send Text Messages to Valid Recipients Only** button.
 * [Console] Statistics feature improved/changed
     * Improved to enable viewing the stats by any one of the following: template ID, message type, presence of ad, and calling number.
 * [Console/API] Disallowed use of some special characters for template ID
@@ -456,7 +456,7 @@
 #### Feature Updates
 * [Console] Changed Mailing Period for Guide on Failed Mass/Tag Message Delivery
     * In case mass/tag messages are not actually delivered even after [Confirm and Send] is selected without time scheduled, they are 'Processed as Failure' one day after registered, and guiding mail is sent to users.
-    * If  a message is not actually delivered after [Confirm and Send] is selected with time scheduled, it is 'Processed as Failure' one day after scheduled time and guiding mail is sent to user.
+    * If a message is not actually delivered after [Confirm and Send] is selected with time scheduled, it is 'Processed as Failure' one day after scheduled time and guiding mail is sent to user.
 * [Console] Updated to show byte counts for title or body on the deliver page
 * [Console] Updated to query by the 'Sender Registrant' on the General/Mass/Tag delivery page
 
@@ -494,7 +494,7 @@
 
 ### August 27, 2019
 #### Feature Updates
-* [Console] Allowed more length for a business name,  for the setting of Rejection of Receiving 080 Numbers
+* [Console] Allowed more length for a business name, for the setting of Rejection of Receiving 080 Numbers
     * Updated to save up to 100 characters for a business name
 * [Console] Added a column on an excel sheet when downloading files on the list of each request
 
@@ -804,7 +804,7 @@
 
 ### April 20, 2017
 #### Added Features
-* [API]  Rejection of Receiving 080 Numbers added
+* [API] Rejection of Receiving 080 Numbers added
     * You may join the rejection service of receiving 080 numbers to send ad messages. [[API Guide](./api-guide/#sms_11)]
     * See [[Rejection of Receiving 080 Numbers](./console-guide/#080)] for more details on subscription.
 
@@ -844,12 +844,10 @@
     * AS-IS: Charged on the basis of request time of text delivery
     * TO-BE: Charged by the response time for delivery result
 
-
-
 #### Bug Fixes
 * [API] Fixed the bug in which server error occurred for the sending of MMS attachment when the file was unavailable attached file
     * AS-IS: Responded with server error when sent by unavailable attached file ID
-    * TO-BE: Provide error messages for causes of failure, when there is unavailable attached file for MMS attachment delivery   M
+    * TO-BE: Provide error messages for causes of failure, when there is unavailable attached file for MMS attachment delivery
 * [Console] Fixed the bug of space in CSV template files for mass delivery.
     * AS-IS: Error in parsing when there is space between fields in CSV template files
     * TO-BE: Normal operations for spaces by , between fields in CSV template files
@@ -864,8 +862,7 @@
     * TO-BE: When all is selected for the cause of result, the selection windows for the cause of result is not available.
 * [Console] For sender number registration, validation has been enforced.
     * AS-IS: Check duplicate checks only
-    * TO-BE: Duplicate checks + Check sender number registration format    [[Format of Sender Number Registration](./console-guide/#_16)]
-
+    * TO-BE: Duplicate checks + Check sender number registration format [[Format of Sender Number Registration](./console-guide/#_16)]
 
 #### Bug Fixes
 * [Console] Fixed the bug by which MMS template was registered even without title.

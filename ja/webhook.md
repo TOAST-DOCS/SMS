@@ -121,6 +121,7 @@ Webフック設定で定義されたURLでPOSTリクエストを作成する時�
     "recipientGropuingKey": "RecipientGroupingKey",
     "senderGroupingKey": "SenderGroupingKey",
     "resultCode": "1000",
+    "messageCount": 1,
     "_link": {
       "self": {
         "href": "https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms/20240429205802y0Tl7Gbz0e0?recipientSeq=1"

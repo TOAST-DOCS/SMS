@@ -103,7 +103,7 @@ Hook data per event type when generating a POST request to the URL defined in th
 | hooks[].recipientGroupingKey | String | Recipient group key |
 | hooks[].senderGroupingKey | String | Sender group key |
 | hooks[].resultCode      | String | Result code |
-| hooks[].messageCount         | Integer | 발송된 메시지 건수                                                                                        |
+| hooks[].messageCount         | Integer | Number of messages sent      |          
 | hooks[]._links.self.href | String | Message Single Search API link | 
 
 ```json
@@ -121,6 +121,7 @@ Hook data per event type when generating a POST request to the URL defined in th
     "recipientGropuingKey": "RecipientGroupingKey",
     "senderGroupingKey": "SenderGroupingKey",
     "resultCode": "1000",
+    "messageCount": 1,
     "_link": {
       "self": {
         "href": "https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms/20240429205802y0Tl7Gbz0e0?recipientSeq=1"
@@ -147,15 +148,16 @@ Hook data per event type when generating a POST request to the URL defined in th
 ]
 ```
 
-### 국제 발송 DLR 업데이트
-| 값                    | 타입      | 설명                                                                            |
+
+### International SMS DLR Update
+| Value                    | Type      | Description                                                                        |
 |----------------------|---------|-------------------------------------------------------------------------------|
-| hooks[].hookId       | String  | 서비스에서 이벤트 발생 시 생성되는 고유 ID                                                     |
-| hooks[].requestId    | String  | 요청 ID                                                                         |
-| hooks[].recipientSeq | Integer | 발송 상세 ID(상세 검색 시 필수)                                                          |
-| hooks[].dlrStatus    | String  | DLR 상태<br>(ACCEPTED, DELIVERED, BUFFERED, EXPIRED, FAILED, REJECTED, UNKNOWN) |
-| hooks[].networkCode  | String  | DLR 네트워크 코드                                                                   |
-| hooks[].errorCode    | String  | DLR 오류 코드                                                                     |
+| hooks[].hookId       | String  | A unique ID generated when an event occurs in the service                                                     |
+| hooks[].requestId    | String  | Request ID                                                                         |
+| hooks[].recipientSeq | Integer | ID of sending details (Required for advanced search)                                                          |
+| hooks[].dlrStatus    | String  | DLR status<br>(ACCEPTED, DELIVERED, BUFFERED, EXPIRED, FAILED, REJECTED, UNKNOWN) |
+| hooks[].networkCode  | String  | DLR network code                                                                   |
+| hooks[].errorCode    | String  | DLR error code                                                                    |
 
 ```json
 "hooks": [
