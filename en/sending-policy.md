@@ -1,18 +1,5 @@
 ## Notification > SMS > Service Policy > Sending Policy
 
-<span id="private-policy"></span>
-## Guide for Notice of Personal Information Assignor
-
-When the Customer uses NHN Cloud > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act.
-
-Accordingly, the Company may provide guidelines as below for the Customer, to abide by relevant regulations in the use of NHN Cloud SMS Service and not to be adversely affected for not disclosing his assignment status:
-
-(Example)
-[Notice of Personal Information Assignor]
-To use NHN Cloud SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
-Assignor: NHN Cloud
-Content of Business: Send SMS in lieu of customers
-
 <span id='fabrication-number'></span>
 ## Prevention of Caller Number Fabrication
 + To enable SMS, your own (or corporate-owned) caller number must be registered first.
@@ -121,3 +108,17 @@ You must obtain the recipient's express prior consent and comply with the sendin
 | SMS | 25 hour | Do not retry. Update of receive failure result (Result code: 2000) |
 | LMS | 80 hour | Do not retry. Update of receive failure result (Result code: 2000) |
 | MMS | 80 hour | Do not retry. Update of receive failure result (Result code: 2000) |
+
+
+<span id="private-policy"></span>
+## Guide for Notice of Personal Information Assignor
+
+When the Customer uses NHN Cloud > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act.
+
+Accordingly, the Company may provide guidelines as below for the Customer, to abide by relevant regulations in the use of NHN Cloud SMS Service and not to be adversely affected for not disclosing his assignment status:
+
+(Example)
+[Notice of Personal Information Assignor]
+To use NHN Cloud SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
+Assignor: NHN Cloud
+Content of Business: Send SMS in lieu of customers

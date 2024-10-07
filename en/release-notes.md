@@ -13,7 +13,7 @@
 #### Added Features
 * [Console/API] Added the feature to limit monthly sending volume per organization
     * Added the feature to limit monthly sending volume per organization.
-    * For more information, see [SMS > Service Policy > Sending Policy > 'Monthly Sending Volume Limit'](./sending-policy/#_11).
+    * For more information, see [SMS > Service Policy > Sending Policy > 'Monthly Sending Volume Limit'](./sending-policy/#_10).
 
 ### August 27, 2024
 #### Added Features
