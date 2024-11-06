@@ -122,3 +122,10 @@
 SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침' > 위탁 현황에 다음의 내용을 표기해주세요.
 수탁사 : 엔에이치엔 클라우드
 업무의 내용 : 문자 발송 대행
+
+<span id="certification"></span>
+## 대량문자 전송자격인증제
+대량 문자전송 사업을 하는 문자 재판매 사업자는 전송 자격 인증을 받은 후 문자전송 서비스를 운영할 수 있습니다. [[공지사항 바로가기](https://www.nhncloud.com/kr/support/notice/detail/6041)]
+아래 인증마크를 클릭하시면 NHN Cloud 인증서를 확인할 수 있습니다.
+
+<img src="https://yeorcqadlpopsmgaoudu.supabase.co/storage/v1/object/public/certification/mark/c9954679-c145-4b9b-9a54-2c31a2592f95/fc56629c-aa65-4615-8c47-db4cc2db65ba-2024-10-23T07:10:24.950Z" style="cursor: pointer; width: 152px; height: 152px;margin: 0;" onclick="(function(){window.open('https://cleanspam.or.kr/ci/83','_blank','width=800, height=1151, toolbar=no, menubar=no, scrollbars=no, resizable=no')})()" />
