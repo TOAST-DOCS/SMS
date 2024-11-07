@@ -2,8 +2,8 @@
 
 <span id='fabrication-number'></span>
 ## 발신 번호 변작(변조) 금지
-+ SMS 서비스를 이용할 때 반드시 본인(또는 자사) 소유의 발신번호를 등록한 후 사용해야 합니다.
-+ 타인(또는 타사) 발신번호를 사용하는 경우 [[(미래창조과학부고시 제2015-32호) 거짓으로 표시된 전화번호로 인한 이용자의 피해 예방 등에 관한 고시](https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891)] 및 
++ SMS 서비스를 이용할 때 반드시 본인(또는 자사) 소유의 발신 번호를 등록한 후 사용해야 합니다.
++ 타인(또는 타사) 발신 번호를 사용하는 경우 [[(미래창조과학부고시 제2015-32호) 거짓으로 표시된 전화번호로 인한 이용자의 피해 예방 등에 관한 고시](https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891)] 및 
 [[NHN Cloud 이용 약관](https://www.nhncloud.com/kr/terms/terms-service)], [[Notification 이용 약관](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)]에 따라 아래와 같이 조치할 수 있으니 주의하시기 바랍니다. 
 
 ```
@@ -119,13 +119,13 @@
 
 (예시)
 [개인 정보 수탁사 고지 안내]
-SMS 상품 이용 시 고객사에서 운영하시는 '개인 정보처리방침' > 위탁 현황에 다음의 내용을 표기해주세요.
-수탁사 : 엔에이치엔 클라우드
-업무의 내용 : 문자 발송 대행
+SMS 상품 이용 시 고객사에서 운영하는 '개인 정보처리방침' > 위탁 현황에 다음의 내용을 표기하세요.
+수탁사: 엔에이치엔 클라우드
+업무의 내용: 문자 발송 대행
 
 <span id="certification"></span>
 ## 대량문자 전송자격인증제
-대량 문자전송 사업을 하는 문자 재판매 사업자는 전송 자격 인증을 받은 후 문자전송 서비스를 운영할 수 있습니다. [[공지사항 바로가기](https://www.nhncloud.com/kr/support/notice/detail/6041)]
-아래 인증마크를 클릭하시면 NHN Cloud 인증서를 확인할 수 있습니다.
+대량 문자 전송 사업을 하는 문자 재판매 사업자는 전송 자격 인증을 받은 후 문자 전송 서비스를 운영할 수 있습니다. [[공지 사항 바로 가기](https://www.nhncloud.com/kr/support/notice/detail/6041)]
+아래 인증 마크를 클릭하여 NHN Cloud 인증서를 확인할 수 있습니다.
 
 <img src="https://yeorcqadlpopsmgaoudu.supabase.co/storage/v1/object/public/certification/mark/c9954679-c145-4b9b-9a54-2c31a2592f95/fc56629c-aa65-4615-8c47-db4cc2db65ba-2024-10-23T07:10:24.950Z" style="cursor: pointer; width: 152px; height: 152px;margin: 0;" onclick="(function(){window.open('https://cleanspam.or.kr/ci/83','_blank','width=800, height=1151, toolbar=no, menubar=no, scrollbars=no, resizable=no')})()" />
