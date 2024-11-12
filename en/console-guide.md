@@ -586,14 +586,14 @@ When the data collection period ends, it becomes inactive and no longer collects
     * Send: Time requested to send to a carrier (vendor)
     * Send Failure: Time when the failed response occurred
     * Receive: Actual terminal reception time
-    * Waiting for result: Increases upon sending, and decreases when received
 * International Delivery: Statistics collected based on the time of event occurrence.
 * Statistics are collected as of the following times
     * Request: Send request time
     * Send: Time requested to send to a carrier (vendor)
     * Send Failure: Time when the failed response occurred
-    * Receive: Time for messages to be received  through the single or concatenated message feature.
-    * Waiting for result: Increases upon sending, and decreases when received
+    * Number of Sends: Time when a message is received via the single or concatenated message feature
+    * Waiting for Conversion: Time when a message is received from a conversion rate collection request
+    * Conversion Completed: Time when a conversion rate collection request is sent and converted
 
 
 ## [Note]
