@@ -3,7 +3,7 @@
 <span id='fabrication-number'></span>
 ## Prevention of Caller Number Fabrication
 + To enable SMS, your own (or corporate-owned) caller number must be registered first.
-+ If you use other's (or other company's) caller number, in accordance with [[Public notice on preventing damage on users due to falsified phone numbers in Notice 2015-32 by the Ministry of Science, ICT and Future Planning](https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891)] and [[NHN Cloud Terms of Services](https://www.nhncloud.com/kr/terms/terms-service)], [[Notification Terms of Services](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)], the following measures may be taken.
++ If you use other's (or other company's) caller number, in accordance with [[Public notice on preventing damage on users due to falsified phone numbers in Notice 2015-32 by the Ministry of Science, ICT and Future Planning](https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891)] and [[Notification Terms of Services](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)], the following measures may be taken.
 
 ```
 ㆍIf a message is sent from falsified sender number, such circuit or service of the user shall be suspended until investigation on the corresponding issue is completed.

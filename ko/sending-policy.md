@@ -4,7 +4,7 @@
 ## 발신 번호 변작(변조) 금지
 + SMS 서비스를 이용할 때 반드시 본인(또는 자사) 소유의 발신 번호를 등록한 후 사용해야 합니다.
 + 타인(또는 타사) 발신 번호를 사용하는 경우 [[(미래창조과학부고시 제2015-32호) 거짓으로 표시된 전화번호로 인한 이용자의 피해 예방 등에 관한 고시](https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891)] 및 
-[[NHN Cloud 이용 약관](https://www.nhncloud.com/kr/terms/terms-service)], [[Notification 이용 약관](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)]에 따라 아래와 같이 조치할 수 있으니 주의하시기 바랍니다. 
+[[Notification 이용 약관](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)]에 따라 아래와 같이 조치할 수 있으니 주의하시기 바랍니다. 
 
 ```
 ㆍ발신번호를 거짓으로 표시하여 송신하는 경우, 해당 문제에 대한 조사가 완료될 때까지 이용자의 회선 또는 서비스 중지
