@@ -4,8 +4,8 @@
 <span id='fabrication-number'></span>
 ## 発信番号の改ざん禁止
 + SMSサービスを利用する時は、必ず本人(または自社)所有の発信番号を登録してから使用する必要があります。
-+ 他人(または他社)の発信番号を使用した場合は、<a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">(韓国未来創造科学部公示第2015-32号)虚偽表示された電話番号による利用者の被害予防などに関する公示]</a> および <a href="https://www.toast.com/terms/terms-service
-" target="_blank">[NHN Cloud利用約款]</a>に従い、下記の措置をとることがありますのでご注意ください。 
++ 他人(または他社)の発信番号を使用した場合は、[[(韓国未来創造科学部公示第2015-32号)虚偽表示された電話番号によるユーザーの被害予防などに関する公示](https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891)]および 
+[[NHN Cloud利用規約](https://www.nhncloud.com/kr/terms/terms-service)], [[Notification利用規約](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)]に従い、下記の措置をとることがありますのでご注意してください。 
 
 ```
 ㆍ虚偽の発信番号を表示して送信した場合、該当の問題に対する調査が完了するまで、利用者の回線またはサービスを中止
@@ -109,5 +109,12 @@
 (例)
 [個人情報受託会社の告知案内]
 SMSサービスを利用する時、顧客の会社で定めている'個人情報処理方針' > 委託状況に次の内容を表記してください。
-受託会社：NHN Cloud
+受託社：NHNクラウド
 業務の内容：メッセージの送信代行
+
+<span id="certification"></span>
+## 大量メッセージの送信資格認証制
+大量メッセージ送信事業を行うメッセージ再販売事業者は、送信資格認証を受けた後、メッセージ送信サービスを運営することができます。[[お知らせを確認する](https://www.nhncloud.com/kr/support/notice/detail/6041)]
+次の認証マークをクリックしてNHN Cloud証明書を確認できます。
+
+<img src="https://yeorcqadlpopsmgaoudu.supabase.co/storage/v1/object/public/certification/mark/c9954679-c145-4b9b-9a54-2c31a2592f95/fc56629c-aa65-4615-8c47-db4cc2db65ba-2024-10-23T07:10:24.950Z" style="cursor: pointer; width: 152px; height: 152px;margin: 0;" onclick="(function(){window.open('https://cleanspam.or.kr/ci/83','_blank','width=800, height=1151, toolbar=no, menubar=no, scrollbars=no, resizable=no')})()" />
