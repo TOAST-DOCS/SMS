@@ -77,12 +77,6 @@ You must obtain the recipient's express prior consent and comply with the sendin
 ## Monthly Sending Volume Limit
 * The SMS service has a monthly sending limit.
 * SMS sending volume is initially limited to 5,000 messages per month per organization. If you need to adjust your sending volume, contact [Customer Center](https://www.nhncloud.com/kr/support/inquiry).
-    * Restriction Targets
-    
-    1) If SMS is first enabled in a project within an organization after September 10, 2024, the sending volume limit applies to that organization.
-    2) If SMS was enabled in a project within an organization before September 10, 2024, that organization is excluded from the sending volume limit.
-
-
 * The sending limit is the total number of messages sent, regardless of SMS/LMS/MMS/International SMS type.
 * Monthly sending quotas and usage can be viewed in the [Console > Organization > Project > Quota Management] menu. Go to [(https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/#sms)Resource Provision Policy Guide](https://docs.nhncloud.com/en/nhncloud/en/resource-policy/#sms).
 * Because the sending count is based on successful deliveries, successful deliveries are counted even if the device fails to receive them.
