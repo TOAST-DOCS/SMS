@@ -4700,8 +4700,11 @@ curl -X GET \
 * 다음 시간 기준으로 통계가 수집됩니다.
     * 요청 개수(requested): 발송 요청 시간
     * 발송 개수(sent): 통신 사업자(벤더)로 발송 요청한 시간
-    * 성공 개수(concat): 단건 혹은 Concatenated message(연결) 기능을 통해 발송된 메시지의 수신 시간
-    * 실패 개수(sentFailed): 실패 응답이 발생한 시간
+    * 발송 실패 개수(sentFailed): 실패 응답이 발생한 시간
+    * 수신 개수(received): 발송된 메시지의 수신 시간
+    * 발송 건수 개수(concat): 단건 혹은 Concatenated message(연결) 기능을 통해 발송된 메시지의 수신 시간
+    * 전환 대기 개수(ready): 전환율 수집 요청 발송 건의 메시지 수신 시간
+    * 전환 완료 개수(converted): 전환율 수집 요청 발송 건이 전환 완료된 시간
 
 #### 요청
 
@@ -4758,6 +4761,7 @@ curl -X GET \
           "REQUESTED": 10,
           "SENT": 10,
           "SENT_FAILED": 0,
+          "RECEIVED": 10,
           "CONCAT": 20,
           "READY": 5,
           "CONVERTED": 3
@@ -4783,7 +4787,8 @@ curl -X GET \
 | events.REQUESTED   | Integer | 요청 개수                                                   |
 | events.SENT        | Integer | 발송 개수                                                   |
 | events.SENT_FAILED | Integer | 실패 개수                                                   |
-| events.CONCAT      | Integer | 성공 개수                                                   |
+| events.RECEIVED    | Integer | 수신 개수                                                   |
+| events.CONCAT      | Integer | 실 수신 성공 개수                                              |
 | events.READY       | Integer | 전환율 수집 요청 발송 성공 개수                                      |
 | events.CONVERTED   | Integer | 전환 개수                                                   |
 
@@ -4805,6 +4810,7 @@ curl -X GET \
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
+            "RECEIVED": 10,
             "CONCAT": 10,
             "READY": 5,
             "CONVERTED": 3
@@ -4813,6 +4819,7 @@ curl -X GET \
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
+            "RECEIVED": 10,
             "CONCAT": 20,
             "READY": 5,
             "CONVERTED": 3
@@ -4839,7 +4846,8 @@ curl -X GET \
 | events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                     |
 | events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                     |
 | events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                     |
-| events.{statsCriteriaValue}.CONCAT      | Integer | 성공 개수                                     |
+| events.{statsCriteriaValue}.RECEIVED    | Integer | 수신 개수                                     |
+| events.{statsCriteriaValue}.CONCAT      | Integer | 실 수신 성공 개수                                |
 | events.{statsCriteriaValue}.READY       | Integer | 전환율 수집 요청 발송 성공 개수                        |
 | events.{statsCriteriaValue}.CONVERTED   | Integer | 전환 개수                                     |
 
