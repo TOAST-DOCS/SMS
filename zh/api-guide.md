@@ -330,6 +330,8 @@ Content-Type: application/json;charset=UTF-8
 | subResultCode        | 	String  | 10          | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
+| receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                        |
 
@@ -955,6 +957,8 @@ Content-Type: application/json;charset=UTF-8
 | subResultCode        | 	String  | 10         | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100        | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100        | Optional  | Recipient's group key                                                                                                  |
+| receiverRegion       | 	String  | -          | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode          | 	String  | -          | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -          | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000       | Optional  | Number of queries (default: 15)                                                                                        |
 
@@ -1465,6 +1469,8 @@ Content-Type: application/json;charset=UTF-8
 | subResultCode        | 	String  | 10          | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
+| receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (Default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (Default: 15)                                                                                        |
 
@@ -1692,7 +1698,7 @@ curl -X GET \
 
 * The Conversion API is an API that responds that a successful conversion has occurred for an international sending of a verified SMS that requests conversion rate collection.
 * You can use this API to manage conversion rates for messages that are successfully sent.
-* If you did not request to collect conversion rates via the useConversion field when sending, or if the sending did not complete, the API responds with a failure.
+* If you did not request to collect conversion rates via the useConversion field when sending, or if the sending did not complete, the API responds with a failure. 
 
 #### Request
 
@@ -2238,6 +2244,8 @@ Content-Type: application/json;charset=UTF-8
 | endResultDate    | String  | -          | X        | End date of receiving                                                                                                                                            |
 | msgStatusName    | String  | 10         | X        | Message status code<br/> - READY:Ready<br/> - SENDING: Requesting for delivery<br/> - COMPLETED : Request for delivery completed<br/> - FAILED : Delivery failed |
 | resultCode       | String  | 10         | X        | Result code of receiving                                                                                                                                         |
+| receiverRegion   | String  | -          | X        | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum          | Integer | -          | X        | Page number                                                                                                                                                      |
 | pageSize         | Integer | 1000       | X        | Number of queries                                                                                                                                                |
 
@@ -2808,6 +2816,8 @@ Content-Type: application/json;charset=UTF-8
 | endResultDate    | String  | -          | X        | End date of receiving                                                                                                                                              |
 | msgStatusName    | String  | 10         | X        | Message status code<br/> - READY: Ready<br/> - SENDING: Requesting for delivery <br/> - COMPLETED : Request for delivery completed<br/> - FAILED : Delivery failed |
 | resultCode       | String  | 10         | X        | Result code of receiving                                                                                                                                           |
+| receiverRegion   | String  | -          | X        | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum          | Integer | -          | X        | Page number                                                                                                                                                        |
 | pageSize         | Integer | 1000       | X        | Number of queries                                                                                                                                                  |
 
@@ -3031,11 +3041,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-| Value      | Type   | Max Length | Required | Description                                                               |
-|------------|--------|----------|----------|---------------------------------------------------------------------------|
-| fileName   | String | 45       | Required | File name (extensions available only in jpg or jpeg) |
-| fileBody   | Byte[] | 300K     | Required | File byte[] value encoded in Base64.<br/>* or byte arrangement value      |
-| createUser | String | 100      | Required | File uploading user information                                           |
+| Value      | Type   | Max Length | Required | Description                                                          |
+|------------|--------|------------|----------|----------------------------------------------------------------------|
+| fileName   | String | 45         | Required | File name (extensions available only in jpg or jpeg)                 |
+| fileBody   | Byte[] | 300K       | Required | File byte[] value encoded in Base64.<br/>* or byte arrangement value |
+| createUser | String | 100        | Required | File uploading user information                                      |
 
 #### cURL
 
@@ -4658,7 +4668,7 @@ curl -X GET \
       {
         "eventDateTime": "",
         "events": {
-          "requested": 10,
+           "requested": 10,
           "sent": 10,
           "sentFailed": 0,
           "received": 0,
@@ -4752,7 +4762,9 @@ curl -X GET \
           "REQUESTED": 10,
           "SENT": 10,
           "SENT_FAILED": 0,
-          "CONCAT": 20
+          "CONCAT": 20,
+          "READY": 5,
+          "CONVERTED": 3
         }
       }
     ]
@@ -4776,6 +4788,8 @@ curl -X GET \
 | events.SENT        | Integer | Number of sent items                                               |
 | events.SENT_FAILED | Integer | Number of failures                                        |
 | events.CONCAT      | Integer | Number of successes                                          |
+| events.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
+| events.CONVERTED   | Integer | Number of converted items                                                   |
 
 #### Response (Statistics criteria added)
 
@@ -4795,13 +4809,19 @@ curl -X GET \
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
-            "CONCAT": 10
+            "CONCAT": 10,
+        
+            "READY": 5,
+            "CONVERTED": 3
           },
           "{statsCriteriaValue}": {
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
             "CONCAT": 20
+            
+            "READY": 5,
+            "CONVERTED": 3
           }
         }
       }
@@ -4826,6 +4846,8 @@ curl -X GET \
 | events.{statsCriteriaValue}.SENT        | Integer | Number of sent items                  |
 | events.{statsCriteriaValue}.SENT_FAILED | Integer | Number of failures                           |
 | events.{statsCriteriaValue}.CONCAT      | Integer | Number of successes                             |
+| events.{statsCriteriaValue}.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
+| events.{statsCriteriaValue}.CONVERTED   | Integer | Number of converted items                                                   |
 
 ### (Old)Query Integrated Statistics
 
@@ -4954,6 +4976,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientNo      | 	String  | 20          | Optional  | Recipient number                                                                                                                                                                         |
 | templateId       | 	String  | 50          | Optional  | Template number                                                                                                                                                                          |
 | messageStatus    | 	String  | 10          | Optional  | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
+| receiverRegion   | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode      | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                                                                                                                                                 |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                                                                                          |
 
