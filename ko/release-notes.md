@@ -18,8 +18,8 @@
 #### 기능 추가
 * [Console/API] 발송 목록 조회 시 국내/국제 구분 필터, 국가 코드 필터 추가
   * SMS 요청별 조회, 대량 SMS 발송 조회, 태그 SMS 발송 조회 콘솔 화면에 국내/국제 구분 필터, 국가 코드 필터가 추가되었습니다.
-  * v3.0 단문 SMS 발송목록 검색, v3.0 인증용 SMS 발송목록 검색, v3.0 대량 발송 목록 검색, v3.0 태그 발송 목록 검색 API의 Query Parameter에 receiverRegion, countryCode 필드가 추가되었습니다.
-  * 자세한 사항은 [[API v3.0 가이드](./api-guide)]를 참고하시기 바랍니다.
+  * 모든 버전의 단문 SMS 발송목록 검색, 장문 MMS 발송 목록 검색, 예약 발송 목록 검색, 인증용 SMS 발송 목록 검색, 대량 발송 수신자 목록 검색, 태그 발송 수신자 목록 검색 API의 Query Parameter에 receiverRegion, countryCode 필드가 추가되었습니다.
+  * 자세한 사항은 [[API v3.0 가이드](./api-guide)], [[API v2.4 가이드](./api-guide-v2.4)], [[API v2.4 가이드](./api-guide-v2.3)], [[API v2.4 가이드](./api-guide-v2.2)]를 참고하시기 바랍니다.
 
 #### 버그 수정
 * [API] 국제 발송 통계 API 버그 수정
