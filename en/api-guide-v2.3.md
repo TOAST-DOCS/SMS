@@ -299,6 +299,8 @@ Content-Type: application/json;charset=UTF-8
 | subResultCode        | 	String  | 10          | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
+| receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                        |
 
@@ -778,6 +780,8 @@ Content-Type: application/json;charset=UTF-8
 | subResultCode        | 	String  | 10         | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100        | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100        | Optional  | Recipient's group key                                                                                                  |
+| receiverRegion       | 	String  | -          | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode          | 	String  | -          | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -          | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000       | Optional  | Number of queries (default: 15)                                                                                        |
 
@@ -1235,6 +1239,8 @@ Content-Type: application/json;charset=UTF-8
 | subResultCode        | 	String  | 10          | Optional  | Detail result code of receiving [[Table on Query Codes](./error-code/#_3)]                                             |
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
+| receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (Default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (Default: 15)                                                                                        |
 
@@ -1974,6 +1980,8 @@ Content-Type: application/json;charset=UTF-8
 | endResultDate    | String  | -          | X        | End date of receiving                                                                                                                                              |
 | msgStatusName    | String  | 10         | X        | Message status code<br/> - READY: Ready<br/> - SENDING: Requesting for delivery <br/> - COMPLETED : Request for delivery completed<br/> - FAILED : Delivery failed |
 | resultCode       | String  | 10         | X        | Result code of receiving                                                                                                                                           |
+| receiverRegion   | String  | -          | X        | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum          | Integer | -          | X        | Page number                                                                                                                                                        |
 | pageSize         | Integer | 1000       | X        | Number of queries                                                                                                                                                  |
 
@@ -3705,6 +3713,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientNo      | 	String  | 20          | Optional  | Recipient number                                                                                                                                                                         |
 | templateId       | 	String  | 50          | Optional  | Template number                                                                                                                                                                          |
 | messageStatus    | 	String  | 10          | Optional  | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
+| receiverRegion   | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
+| countryCode      | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                                                                                                                                                 |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                                                                                          |
 

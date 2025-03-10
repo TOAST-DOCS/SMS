@@ -331,6 +331,8 @@ Content-Type: application/json;charset=UTF-8
 | subResultCode        | 	String  | 10     | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
 | senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹 키                                              |
 | recipientGroupingKey | 	String  | 100    | 	옵션 | 	수신자 그룹 키                                              |
+| receiverRegion       | 	String  | -      | 	옵션 | 	국내/국제 (DOMESTIC: 국내, INTERNATIONAL: 국제)       |
+| countryCode          | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                       |
 | pageSize             | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                        |
 
@@ -956,6 +958,8 @@ Content-Type: application/json;charset=UTF-8
 | subResultCode        | 	String  | 10    | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
 | senderGroupingKey    | 	String  | 100   | 	옵션 | 	발송자 그룹 키                                              |
 | recipientGroupingKey | 	String  | 100   | 	옵션 | 	수신자 그룹 키                                              |
+| receiverRegion       | 	String  | -     | 	옵션 | 	국내/국제 (DOMESTIC: 국내, INTERNATIONAL: 국제)       |
+| countryCode          | 	String  | -     | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -     | 	옵션 | 	페이지 번호(기본값 : 1)                                       |
 | pageSize             | 	Integer | 1000  | 	옵션 | 	검색 수(기본값 : 15)                                        |
 
@@ -1466,6 +1470,8 @@ Content-Type: application/json;charset=UTF-8
 | subResultCode        | String  | 10    | 옵션 | 수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]                                              |
 | senderGroupingKey    | String  | 100   | 옵션 | 발송자 그룹 키                                                                              |
 | recipientGroupingKey | String  | 100   | 옵션 | 수신자 그룹 키                                                                              |
+| receiverRegion       | String  | -     | 옵션 | 	국내/국제 (DOMESTIC: 국내, INTERNATIONAL: 국제)       |
+| countryCode          | String  | -     | 옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
 | pageNum              | Integer | -     | 옵션 | 페이지 번호(기본값 : 1)                                                                       |
 | pageSize             | Integer | 1000  | 옵션 | 검색 수(기본값 : 15)                                                                        |
 
@@ -2241,6 +2247,8 @@ Content-Type: application/json;charset=UTF-8
 | endResultDate    | String  | -     | X   | 수신 종료 날짜                                                                                          |
 | msgStatusName    | String  | 10    | X   | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송요청 완료<br/> - FAILED : 발송 실패 |
 | resultCode       | String  | 10    | X   | 수신 결과 코드                                                                                          |
+| receiverRegion   | String  | -     | X   | 국내/국제 (DOMESTIC: 국내, INTERNATIONAL: 국제)       |
+| countryCode      | String  | -     | X   | 국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
 | pageNum          | Integer | -     | X   | 페이지 번호                                                                                            |
 | pageSize         | Integer | 1000  | X   | 검색 수                                                                                              |
 
@@ -2811,6 +2819,8 @@ Content-Type: application/json;charset=UTF-8
 | endResultDate    | String  | -     | X   | 수신 종료 날짜                                                                                          |
 | msgStatusName    | String  | 10    | X   | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송요청 완료<br/> - FAILED : 발송 실패 |
 | resultCode       | String  | 10    | X   | 수신 결과 코드                                                                                          |
+| receiverRegion   | String  | -     | X   | 국내/국제 (DOMESTIC: 국내, INTERNATIONAL: 국제)       |
+| countryCode      | String  | -     | X   | 국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
 | pageNum          | Integer | -     | X   | 페이지 번호                                                                                            |
 | pageSize         | Integer | 1000  | X   | 검색 수                                                                                              |
 
@@ -4700,8 +4710,11 @@ curl -X GET \
 * 다음 시간 기준으로 통계가 수집됩니다.
     * 요청 개수(requested): 발송 요청 시간
     * 발송 개수(sent): 통신 사업자(벤더)로 발송 요청한 시간
-    * 성공 개수(concat): 단건 혹은 Concatenated message(연결) 기능을 통해 발송된 메시지의 수신 시간
-    * 실패 개수(sentFailed): 실패 응답이 발생한 시간
+    * 발송 실패 개수(sentFailed): 실패 응답이 발생한 시간
+    * 수신 개수(received): 발송된 메시지의 수신 시간
+    * 발송 건수 개수(concat): 단건 혹은 Concatenated message(연결) 기능을 통해 발송된 메시지의 수신 시간
+    * 전환 대기 개수(ready): 전환율 수집 요청 발송 건의 메시지 수신 시간
+    * 전환 완료 개수(converted): 전환율 수집 요청 발송 건이 전환 완료된 시간
 
 #### 요청
 
@@ -4758,6 +4771,7 @@ curl -X GET \
           "REQUESTED": 10,
           "SENT": 10,
           "SENT_FAILED": 0,
+          "RECEIVED": 10,
           "CONCAT": 20,
           "READY": 5,
           "CONVERTED": 3
@@ -4783,7 +4797,8 @@ curl -X GET \
 | events.REQUESTED   | Integer | 요청 개수                                                   |
 | events.SENT        | Integer | 발송 개수                                                   |
 | events.SENT_FAILED | Integer | 실패 개수                                                   |
-| events.CONCAT      | Integer | 성공 개수                                                   |
+| events.RECEIVED    | Integer | 수신 개수                                                   |
+| events.CONCAT      | Integer | 실 수신 성공 개수                                              |
 | events.READY       | Integer | 전환율 수집 요청 발송 성공 개수                                      |
 | events.CONVERTED   | Integer | 전환 개수                                                   |
 
@@ -4805,6 +4820,7 @@ curl -X GET \
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
+            "RECEIVED": 10,
             "CONCAT": 10,
             "READY": 5,
             "CONVERTED": 3
@@ -4813,6 +4829,7 @@ curl -X GET \
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
+            "RECEIVED": 10,
             "CONCAT": 20,
             "READY": 5,
             "CONVERTED": 3
@@ -4839,7 +4856,8 @@ curl -X GET \
 | events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                     |
 | events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                     |
 | events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                     |
-| events.{statsCriteriaValue}.CONCAT      | Integer | 성공 개수                                     |
+| events.{statsCriteriaValue}.RECEIVED    | Integer | 수신 개수                                     |
+| events.{statsCriteriaValue}.CONCAT      | Integer | 실 수신 성공 개수                                |
 | events.{statsCriteriaValue}.READY       | Integer | 전환율 수집 요청 발송 성공 개수                        |
 | events.{statsCriteriaValue}.CONVERTED   | Integer | 전환 개수                                     |
 
@@ -4970,6 +4988,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientNo      | 	String  | 20     | 	옵션 | 	수신 번호                                                                                                  |
 | templateId       | 	String  | 50     | 	옵션 | 	템플릿 번호                                                                                                 |
 | messageStatus    | 	String  | 10     | 	옵션 | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한)) |
+| receiverRegion   | 	String  | -      | 	옵션 | 	국내/국제 (DOMESTIC: 국내, INTERNATIONAL: 국제)                                                                |
+| countryCode      | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)]                                                                                 |
 | pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                                                                        |
 | pageSize         | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                                                                         |
 
