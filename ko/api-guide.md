@@ -4744,15 +4744,16 @@ curl -X GET \
 
 [Query parameter]
 
-| 값              | 	타입          | 	최대 길이 | 필수 | 설명                                                                 |
-|----------------|--------------|--------|----|--------------------------------------------------------------------|
-| statisticsType | String       | -      | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:요일별 |
-| from           | String       | -      | 필수 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss                                | 
-| to             | String       | -      | 필수 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss                                |
-| statsIds       | List<String> | -      | 옵션 | 통계 ID 목록                                                           |
-| countryCode    | String       | -      | 옵션 | 국가 코드                                                              |
-| requestIds     | List<String> | 5      | 옵션 | 요청 ID 목록                                                           |
-| statsCriteria  | List<String> | -      | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- COUNTRY_CODE,EVENT: 국가 코드, 이벤트  |
+| 값              | 	타입          | 	최대 길이 | 필수 | 설명                                                                                                      |
+|----------------|--------------|--------|----|---------------------------------------------------------------------------------------------------------|
+| statisticsType | String       | -      | 필수 | 통계 구분<br/>NORMAL:기본, MINUTELY:분별, HOURLY:시간별, DAILY:일별, BY_DAY:요일별                                      |
+| from           | String       | -      | 필수 | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm:ss                                                                     | 
+| to             | String       | -      | 필수 | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm:ss                                                                     |
+| statsIds       | List<String> | -      | 옵션 | 통계 ID 목록                                                                                                |
+| messageType    | String       | -      | 옵션 | 메시지 타입<br/>SMS, LMS, MMS, AUTH                                                                          |
+| countryCode    | String       | -      | 옵션 | 국가 코드                                                                                                   |
+| requestIds     | List<String> | 5      | 옵션 | 요청 ID 목록                                                                                                |
+| statsCriteria  | List<String> | -      | 옵션 | 통계 기준<br/>- EVENT: 이벤트(기본 값)<br/>- MESSAGE_TYPE,EVENT: 메시지 타입, 이벤트<br/>- COUNTRY_CODE,EVENT: 국가 코드, 이벤트 |
 
 #### 응답(통계 기준: 기본 값)
 
