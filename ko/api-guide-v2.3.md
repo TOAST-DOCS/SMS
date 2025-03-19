@@ -282,25 +282,27 @@ Content-Type: application/json;charset=UTF-8
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
 * 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
 
-| 값                    | 	타입      | 	최대 길이 | 필수  | 	설명                                                    |
-|----------------------|----------|--------|-----|--------------------------------------------------------|
-| requestId            | 	String  | 25     | 	필수 | 	요청 ID                                                 |
-| startRequestDate     | 	String  | -      | 	필수 | 	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endRequestDate       | 	String  | -      | 	필수 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| startCreateDate      | 	String  | -      | 	필수 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endCreateDate        | 	String  | -      | 	필수 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| startResultDate      | 	String  | -      | 	옵션 | 	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endResultDate        | 	String  | -      | 	옵션 | 	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| sendNo               | 	String  | 13     | 	옵션 | 	발신 번호                                                 |
-| recipientNo          | 	String  | 20     | 	옵션 | 	수신 번호                                                 |
-| templateId           | 	String  | 50     | 	옵션 | 	템플릿 번호                                                |
+| 값                    | 	타입      | 	최대 길이 | 필수  | 	설명                                                   |
+|----------------------|----------|--------|-----|-------------------------------------------------------|
+| requestId            | 	String  | 25     | 	필수 | 	요청 ID                                                |
+| startRequestDate     | 	String  | -      | 	필수 | 	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                       |
+| endRequestDate       | 	String  | -      | 	필수 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                       |
+| startCreateDate      | 	String  | -      | 	필수 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                       |
+| endCreateDate        | 	String  | -      | 	필수 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                       |
+| startResultDate      | 	String  | -      | 	옵션 | 	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)                       |
+| endResultDate        | 	String  | -      | 	옵션 | 	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)                       |
+| sendNo               | 	String  | 13     | 	옵션 | 	발신 번호                                                |
+| recipientNo          | 	String  | 20     | 	옵션 | 	수신 번호                                                |
+| templateId           | 	String  | 50     | 	옵션 | 	템플릿 번호                                               |
 | msgStatus            | 	String  | 1      | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패, 6 :실패(광고 제한), 7:재발송 대기(광고 제한)) |
-| resultCode           | 	String  | 10     | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                 |
-| subResultCode        | 	String  | 10     | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
-| senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹키                                               |
-| recipientGroupingKey | 	String  | 100    | 	옵션 | 	수신자 그룹키                                               |
-| pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                       |
-| pageSize             | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                        |
+| resultCode           | 	String  | 10     | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                |
+| subResultCode        | 	String  | 10     | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]             |
+| senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹키                                              |
+| recipientGroupingKey | 	String  | 100    | 	옵션 | 	수신자 그룹키                                              |
+| receiverRegion       | 	String  | -      | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)       |
+| countryCode          | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
+| pageSize             | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                       |
 
 #### cURL
 
@@ -767,25 +769,27 @@ Content-Type: application/json;charset=UTF-8
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
 * 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
 
-| 값                    | 	타입      | 최대 길이 | 	필수 | 	설명                                                    |
-|----------------------|----------|-------|-----|--------------------------------------------------------|
-| requestId            | 	String  | 25    | 	필수 | 	요청 ID                                                 |
-| startRequestDate     | 	String  | -     | 	필수 | 	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endRequestDate       | 	String  | -     | 	필수 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| startCreateDate      | 	String  | -     | 	필수 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endCreateDate        | 	String  | -     | 	필수 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| startResultDate      | 	String  | -     | 	옵션 | 	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endResultDate        | 	String  | -     | 	옵션 | 	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| sendNo               | 	String  | 13    | 	옵션 | 	발신 번호                                                 |
-| recipientNo          | 	String  | 20    | 	옵션 | 	수신 번호                                                 |
-| templateId           | 	String  | 50    | 	옵션 | 	템플릿 번호                                                |
+| 값                    | 	타입      | 최대 길이 | 	필수 | 	설명                                                   |
+|----------------------|----------|-------|-----|-------------------------------------------------------|
+| requestId            | 	String  | 25    | 	필수 | 	요청 ID                                                |
+| startRequestDate     | 	String  | -     | 	필수 | 	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                       |
+| endRequestDate       | 	String  | -     | 	필수 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                       |
+| startCreateDate      | 	String  | -     | 	필수 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                       |
+| endCreateDate        | 	String  | -     | 	필수 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                       |
+| startResultDate      | 	String  | -     | 	옵션 | 	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)                       |
+| endResultDate        | 	String  | -     | 	옵션 | 	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)                       |
+| sendNo               | 	String  | 13    | 	옵션 | 	발신 번호                                                |
+| recipientNo          | 	String  | 20    | 	옵션 | 	수신 번호                                                |
+| templateId           | 	String  | 50    | 	옵션 | 	템플릿 번호                                               |
 | msgStatus            | 	String  | 1     | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패, 6 :실패(광고 제한), 7:재발송 대기(광고 제한)) |
-| resultCode           | 	String  | 10    | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                 |
-| subResultCode        | 	String  | 10    | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
-| senderGroupingKey    | 	String  | 100   | 	옵션 | 	발송자 그룹키                                               |
-| recipientGroupingKey | 	String  | 100   | 	옵션 | 	수신자 그룹키                                               |
-| pageNum              | 	Integer | -     | 	옵션 | 	페이지 번호(기본값 : 1)                                       |
-| pageSize             | 	Integer | 1000  | 	옵션 | 	검색 수(기본값 : 15)                                        |
+| resultCode           | 	String  | 10    | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                |
+| subResultCode        | 	String  | 10    | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]             |
+| senderGroupingKey    | 	String  | 100   | 	옵션 | 	발송자 그룹키                                              |
+| recipientGroupingKey | 	String  | 100   | 	옵션 | 	수신자 그룹키                                              |
+| receiverRegion       | 	String  | -     | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)       |
+| countryCode          | 	String  | -     | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| pageNum              | 	Integer | -     | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
+| pageSize             | 	Integer | 1000  | 	옵션 | 	검색 수(기본값 : 15)                                       |
 
 #### cURL
 
@@ -1224,25 +1228,27 @@ Content-Type: application/json;charset=UTF-8
 * requestId 또는 startRequestDate + endRequestDate 또는 startCreateDate + endCreateDate는 필수입니다.
 * 등록 날짜/발송 날짜를 동시에 검색하는 경우, 발송 날짜는 무시됩니다.
 
-| 값                    | 	타입      | 	최대 길이 | 필수  | 	설명                                                    |
-|----------------------|----------|--------|-----|--------------------------------------------------------|
-| requestId            | 	String  | 25     | 	필수 | 	요청 ID                                                 |
-| startRequestDate     | 	String  | -      | 	필수 | 	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endRequestDate       | 	String  | -      | 	필수 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| startCreateDate      | 	String  | -      | 	필수 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endCreateDate        | 	String  | -      | 	필수 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| startResultDate      | 	String  | -      | 	옵션 | 	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)                        |
-| endResultDate        | 	String  | -      | 	옵션 | 	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)                        |
-| sendNo               | 	String  | 13     | 	옵션 | 	발신 번호                                                 |
-| recipientNo          | 	String  | 20     | 	옵션 | 	수신 번호                                                 |
-| templateId           | 	String  | 50     | 	옵션 | 	템플릿 번호                                                |
+| 값                    | 	타입      | 	최대 길이 | 필수  | 	설명                                                   |
+|----------------------|----------|--------|-----|-------------------------------------------------------|
+| requestId            | 	String  | 25     | 	필수 | 	요청 ID                                                |
+| startRequestDate     | 	String  | -      | 	필수 | 	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                       |
+| endRequestDate       | 	String  | -      | 	필수 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                       |
+| startCreateDate      | 	String  | -      | 	필수 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                       |
+| endCreateDate        | 	String  | -      | 	필수 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                       |
+| startResultDate      | 	String  | -      | 	옵션 | 	수신 날짜 시작값(yyyy-MM-dd HH:mm:ss)                       |
+| endResultDate        | 	String  | -      | 	옵션 | 	수신 날짜 종료값(yyyy-MM-dd HH:mm:ss)                       |
+| sendNo               | 	String  | 13     | 	옵션 | 	발신 번호                                                |
+| recipientNo          | 	String  | 20     | 	옵션 | 	수신 번호                                                |
+| templateId           | 	String  | 50     | 	옵션 | 	템플릿 번호                                               |
 | msgStatus            | 	String  | 1      | 	옵션 | 메시지 상태 코드(0: 실패, 1: 요청, 2: 처리 중, 3:성공, 4:예약취소, 5:중복실패, 6 :실패(광고 제한), 7:재발송 대기(광고 제한)) |
-| resultCode           | 	String  | 10     | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                 |
-| subResultCode        | 	String  | 10     | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]              |
-| senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹키                                               |
-| recipientGroupingKey | 	String  | 100    | 	옵션 | 	수신자 그룹키                                               |
-| pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                       |
-| pageSize             | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                        |
+| resultCode           | 	String  | 10     | 	옵션 | 	수신 결과 코드 [[검색 코드표](./error-code/#_2)]                |
+| subResultCode        | 	String  | 10     | 	옵션 | 	수신 결과 상세 코드 [[검색 코드표](./error-code/#_3)]             |
+| senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹키                                              |
+| recipientGroupingKey | 	String  | 100    | 	옵션 | 	수신자 그룹키                                              |
+| receiverRegion       | 	String  | -      | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)       |
+| countryCode          | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
+| pageSize             | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                       |
 
 #### cURL
 
@@ -1979,17 +1985,19 @@ Content-Type: application/json;charset=UTF-8
 
 * requestId 또는 startRequestDate + endRequestDate는 필수입니다.
 
-| 값                | 	타입     | 최대 길이 | 	필수 | 	설명                                                                                               |
-|------------------|---------|-------|-----|---------------------------------------------------------------------------------------------------|
-| recipientNum     | String  | 20    | X   | 수신자 번호                                                                                            |
-| startRequestDate | String  | -     | O   | 발송 요청 시작 날짜                                                                                       |
-| endRequestDate   | String  | -     | O   | 발송 요청 종료 날짜                                                                                       |
-| startResultDate  | String  | -     | X   | 수신 시작 날짜                                                                                          |
-| endResultDate    | String  | -     | X   | 수신 종료 날짜                                                                                          |
-| msgStatusName    | String  | 10    | X   | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송요청 완료<br/> - FAILED : 발송 실패 |
-| resultCode       | String  | 10    | X   | 수신 결과 코드                                                                                          |
-| pageNum          | Integer | -     | X   | 페이지 번호                                                                                            |
-| pageSize         | Integer | 1000  | X   | 검색 수                                                                                              |
+| 값                | 	타입     | 최대 길이 | 	필수 | 	설명                                                                                                |
+|------------------|---------|-------|-----|----------------------------------------------------------------------------------------------------|
+| recipientNum     | String  | 20    | X   | 수신자 번호                                                                                             |
+| startRequestDate | String  | -     | O   | 발송 요청 시작 날짜                                                                                        |
+| endRequestDate   | String  | -     | O   | 발송 요청 종료 날짜                                                                                        |
+| startResultDate  | String  | -     | X   | 수신 시작 날짜                                                                                           |
+| endResultDate    | String  | -     | X   | 수신 종료 날짜                                                                                           |
+| msgStatusName    | String  | 10    | X   | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송 요청 완료<br/> - FAILED : 발송 실패 |
+| resultCode       | String  | 10    | X   | 수신 결과 코드                                                                                           |
+| receiverRegion   | String  | -     | X   | 국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)                                                             |
+| countryCode      | String  | -     | X   | 국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)]                                             |
+| pageNum          | Integer | -     | X   | 페이지 번호                                                                                             |
+| pageSize         | Integer | 1000  | X   | 검색 수                                                                                               |
 
 #### cURL
 
@@ -3704,20 +3712,22 @@ Content-Type: application/json;charset=UTF-8
 
 [Query parameter]
 
-| 값                | 	타입      | 	최대 길이 | 필수  | 	설명                                                                                                     |
-|------------------|----------|--------|-----|---------------------------------------------------------------------------------------------------------|
-| sendType         | String   | 1      | 옵션  | 발송 유형<br/>(0:SMS, 1:LMS/MMS, 2:AUTH)                                                                    |
-| requestId        | 	String  | 25     | 	옵션 | 	요청 ID                                                                                                  |
-| startRequestDate | 	String  | -      | 	옵션 | 	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                                                                         |
-| endRequestDate   | 	String  | -      | 	옵션 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                                                                         |
-| startCreateDate  | 	String  | -      | 	옵션 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                                                                         |
-| endCreateDate    | 	String  | -      | 	옵션 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                                                                         |
-| sendNo           | 	String  | 13     | 옵션  | 	발신 번호                                                                                                  |
-| recipientNo      | 	String  | 20     | 	옵션 | 	수신 번호                                                                                                  |
-| templateId       | 	String  | 50     | 	옵션 | 	템플릿 번호                                                                                                 |
-| messageStatus    | 	String  | 10     | 	옵션 | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한)) |
-| pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                                                                        |
-| pageSize         | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                                                                         |
+| 값                | 	타입      | 	최대 길이 | 필수  | 	설명                                                                                                                                                  |
+|------------------|----------|--------|-----|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| sendType         | String   | 1      | 옵션  | 발송 유형<br/>(0:SMS, 1:LMS/MMS, 2:AUTH)                                                                                                                 |
+| requestId        | 	String  | 25     | 	옵션 | 	요청 ID                                                                                                                                               |
+| startRequestDate | 	String  | -      | 	옵션 | 	발송 날짜 시작값(yyyy-MM-dd HH:mm:ss)                                                                                                                      |
+| endRequestDate   | 	String  | -      | 	옵션 | 	발송 날짜 종료값(yyyy-MM-dd HH:mm:ss)                                                                                                                      |
+| startCreateDate  | 	String  | -      | 	옵션 | 	등록 날짜 시작값(yyyy-MM-dd HH:mm:ss)                                                                                                                      |
+| endCreateDate    | 	String  | -      | 	옵션 | 	등록 날짜 종료값(yyyy-MM-dd HH:mm:ss)                                                                                                                      |
+| sendNo           | 	String  | 13     | 옵션  | 	발신 번호                                                                                                                                               |
+| recipientNo      | 	String  | 20     | 	옵션 | 	수신 번호                                                                                                                                               |
+| templateId       | 	String  | 50     | 	옵션 | 	템플릿 번호                                                                                                                                              |
+| messageStatus    | 	String  | 10     | 	옵션 | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소, DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고 제한)) |
+| receiverRegion   | 	String  | -      | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)                                                                                                              |
+| countryCode      | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)]                                                                                              |
+| pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                                                                                                                     |
+| pageSize         | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                                                                                                                      |
 
 #### cURL
 
@@ -3766,32 +3776,32 @@ curl -X GET \
 }
 ```
 
-| 값                             | 	타입           | 	설명                                                                                                  |
-|-------------------------------|---------------|------------------------------------------------------------------------------------------------------|
-| header.isSuccessful           | 	Boolean      | 	성공 여부                                                                                               |
-| header.resultCode             | 	Integer      | 	실패 코드                                                                                               |
-| header.resultMessage          | 	String       | 	실패 메시지                                                                                              |
-| body.pageNum                  | 	Integer      | 	현재 페이지 번호                                                                                           |
-| body.pageSize                 | 	Integer      | 	검색된 데이터 수                                                                                           |
-| body.totalCount               | 	Integer      | 	총 데이터 수                                                                                             |
-| body.data[].requestId         | 	String       | 	요청 ID                                                                                               |
-| body.data[].recipientSeq      | 	Integer      | 	수신자 시퀀스                                                                                             |
-| body.data[].requestDate       | 	String       | 	발신 일시                                                                                               |
-| body.data[].sendNo            | 	String       | 	발신 번호                                                                                               |
-| body.data[].recipientNo       | 	String       | 	수신 번호                                                                                               |
-| body.data[].countryCode       | 	String       | 	국가 번호                                                                                               |
-| body.data[].sendType          | 	String       | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                     |
-| body.data[].messageType       | 	String       | 	메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                        |
-| body.data[].adYn              | 	String       | 	광고 여부                                                                                               |
-| body.data[].templateId        | 	String       | 	템플릿 ID                                                                                              |
-| body.data[].templateParameter | 	String(json) | 	템플릿 파라미터                                                                                            |
-| body.data[].templateName      | 	String       | 	템플릿명                                                                                                |
-| body.data[].title             | 	String       | 	제목                                                                                                  |
-| body.data[].body              | 	String       | 	본문 내용                                                                                               |
-| body.data[].messageStatus     | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한)) |
-| body.data[].createUser        | 	String       | 	등록한 사용자                                                                                             |
-| body.data[].createDate        | 	String       | 	등록 날짜                                                                                               |
-| body.data[].updateDate        | 	String       | 	수정 날짜                                                                                               |
+| 값                             | 	타입           | 	설명                                                                                                                                                  |
+|-------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful           | 	Boolean      | 	성공 여부                                                                                                                                               |
+| header.resultCode             | 	Integer      | 	실패 코드                                                                                                                                               |
+| header.resultMessage          | 	String       | 	실패 메시지                                                                                                                                              |
+| body.pageNum                  | 	Integer      | 	현재 페이지 번호                                                                                                                                           |
+| body.pageSize                 | 	Integer      | 	검색된 데이터 수                                                                                                                                           |
+| body.totalCount               | 	Integer      | 	총 데이터 수                                                                                                                                             |
+| body.data[].requestId         | 	String       | 	요청 ID                                                                                                                                               |
+| body.data[].recipientSeq      | 	Integer      | 	수신자 시퀀스                                                                                                                                             |
+| body.data[].requestDate       | 	String       | 	발신 일시                                                                                                                                               |
+| body.data[].sendNo            | 	String       | 	발신 번호                                                                                                                                               |
+| body.data[].recipientNo       | 	String       | 	수신 번호                                                                                                                                               |
+| body.data[].countryCode       | 	String       | 	국가 번호                                                                                                                                               |
+| body.data[].sendType          | 	String       | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                     |
+| body.data[].messageType       | 	String       | 	메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                                                                        |
+| body.data[].adYn              | 	String       | 	광고 여부                                                                                                                                               |
+| body.data[].templateId        | 	String       | 	템플릿 ID                                                                                                                                              |
+| body.data[].templateParameter | 	String(json) | 	템플릿 파라미터                                                                                                                                            |
+| body.data[].templateName      | 	String       | 	템플릿명                                                                                                                                                |
+| body.data[].title             | 	String       | 	제목                                                                                                                                                  |
+| body.data[].body              | 	String       | 	본문 내용                                                                                                                                               |
+| body.data[].messageStatus     | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소, DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고 제한)) |
+| body.data[].createUser        | 	String       | 	등록한 사용자                                                                                                                                             |
+| body.data[].createDate        | 	String       | 	등록 날짜                                                                                                                                               |
+| body.data[].updateDate        | 	String       | 	수정 날짜                                                                                                                                               |
 
 ### 예약 발송 상세 검색
 
