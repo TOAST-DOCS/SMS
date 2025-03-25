@@ -2635,7 +2635,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-1
+    1
   ]
 }
 ```
