@@ -282,7 +282,7 @@ Content-Type: application/json;charset=UTF-8
 * 登録日時と発信日時を同時に照会する場合、発信日時は無視されます。
 
 | 値                    | 	タイプ     | 	最大  | 必須     | 	説明                                                      |
-|----------------------|----------|------|--------|----------------------------------------------------------|
+|----------------------|----------|------|--------|---------------------------------------------------------|
 | requestId            | 	String  | 25   | 	必須    | 	リクエストID                                                 |
 | startRequestDate     | 	String  | -    | 	必須    | 	送信日の開始値(yyyy-MM-dd HH:mm:ss)                            |
 | endRequestDate       | 	String  | -    | 	必須    | 	送信日の終了値(yyyy-MM-dd HH:mm:ss)                            |
@@ -695,7 +695,7 @@ curl -X POST \
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-  0
+0
   ],
   "recipientList": [
     {
@@ -820,14 +820,14 @@ curl -X GET \
         "categoryId": null,
         "categoryName": null,
         "title": "Title",
-        "body": "본문",
+        "body": "本文",
         "sendNo": "15771234",
         "countryCode": "82",
         "recipientNo": "01012341234",
         "msgStatus": "3",
-        "msgStatusName": "성공",
+        "msgStatusName": "成功",
         "resultCode": "1000",
-        "resultCodeName": "성공",
+        "resultCodeName": "成功",
         "telecomCode": 10003,
         "telecomCodeName": "LGU",
         "mtPr": "1",
@@ -941,14 +941,14 @@ curl -X GET \
       "categoryId": null,
       "categoryName": null,
       "title": "Title",
-      "body": "본문",
+      "body": "本文",
       "sendNo": "15771234",
       "countryCode": "82",
       "recipientNo": "01012341234",
       "msgStatus": "3",
-      "msgStatusName": "성공",
+      "msgStatusName": "成功",
       "resultCode": "1000",
-      "resultCodeName": "성공",
+      "resultCodeName": "成功",
       "telecomCode": 10003,
       "telecomCodeName": "LGU",
       "mtPr": "1",
@@ -1611,7 +1611,7 @@ curl -X GET \
         "requestId": "20230914101505oAJTbxHkIB0",
         "recipientSeq": 1,
         "resultCode": "1000",
-        "resultCodeName": "성공",
+        "resultCodeName": "成功",
         "requestDate": "2023-09-14 10:15:05.0",
         "resultDate": "2023-09-14 10:15:08.0",
         "updateDate": "2023-09-14 10:15:12.0",
@@ -1775,7 +1775,7 @@ Content-Type: application/json;charset=UTF-8
   "attachFileIdList": [
     1,
     2,
-    3
+3
   ],
   "tagExpression": [
     "tag1",
@@ -2640,7 +2640,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -2710,7 +2710,7 @@ curl -X POST \
   "useYn": "Y",
   "attachFileIdList": [
     123123,
-    456456
+456456
   ]
 }
 ```
@@ -2923,7 +2923,7 @@ curl -X GET \
         "priority": "S",
         "sendNo": "12341234",
         "sendType": "0",
-        "sendTypeName": "SMS 발송",
+        "sendTypeName": "SMS送信",
         "title": "title",
         "body": "body",
         "attachFileYn": "Y",
@@ -3029,7 +3029,7 @@ curl -X GET \
       "priority": "S",
       "sendNo": "12341234",
       "sendType": "0",
-      "sendTypeName": "SMS 발송",
+      "sendTypeName": "SMS送信",
       "title": "title",
       "body": "body",
       "attachFileYn": "Y",
@@ -3116,7 +3116,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```

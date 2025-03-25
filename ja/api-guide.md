@@ -859,7 +859,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-  0
+0
   ],
   "recipientList": [
     {
@@ -997,14 +997,14 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?start
         "categoryId": null,
         "categoryName": null,
         "title": "Title",
-        "body": "본문",
+        "body": "本文",
         "sendNo": "15771234",
         "countryCode": "82",
         "recipientNo": "01012341234",
         "msgStatus": "3",
-        "msgStatusName": "성공",
+        "msgStatusName": "成功",
         "resultCode": "1000",
-        "resultCodeName": "성공",
+        "resultCodeName": "成功",
         "telecomCode": 10003,
         "telecomCodeName": "LGU",
         "mtPr": "1",
@@ -1135,14 +1135,14 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${R
       "categoryId": null,
       "categoryName": null,
       "title": "Title",
-      "body": "본문",
+      "body": "本文",
       "sendNo": "15771234",
       "countryCode": "82",
       "recipientNo": "01012341234",
       "msgStatus": "3",
-      "msgStatusName": "성공",
+      "msgStatusName": "成功",
       "resultCode": "1000",
-      "resultCodeName": "성공",
+      "resultCodeName": "成功",
       "telecomCode": 10003,
       "telecomCodeName": "LGU",
       "mtPr": "1",
@@ -1218,7 +1218,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${R
 
 | 区分         | 認証文言                                       |
 |------------|--------------------------------------------| 
-| 認証用SMS(緊急) | auth、 password、 verif、 にんしょう、 認証、 비밀번호、 인증 |
+| 認証用SMS(緊急) | auth、password、verif、にんしょう、認証、パスワード、認証 |
 
 - 例1-1)認証用SMS(緊急) API送信リクエスト時に全文(テンプレート日本語識別子含む)に認証文言が含まれていない場合は送信に失敗します。
 - 例1-2)認証文言が英字の場合、大文字/小文字を区別せずに有効性チェックが行われます。
@@ -2049,7 +2049,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/message-results?
         "requestId": "20230914101505oAJTbxHkIB0",
         "recipientSeq": 1,
         "resultCode": "1000",
-        "resultCodeName": "성공",
+        "resultCodeName": "成功",
         "requestDate": "2023-09-14 10:15:05.0",
         "resultDate": "2023-09-14 10:15:08.0",
         "updateDate": "2023-09-14 10:15:12.0",
@@ -2567,7 +2567,7 @@ Content-Type: application/json;charset=UTF-8
   "attachFileIdList": [
     1,
     2,
-    3
+3
   ],
   "tagExpression": [
     "tag1",
@@ -3575,7 +3575,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -3646,7 +3646,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
   "useYn": "Y",
   "attachFileIdList": [
     123123,
-    456456
+456456
   ]
 }
 ```
@@ -3872,7 +3872,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
         "priority": "S",
         "sendNo": "12341234",
         "sendType": "0",
-        "sendTypeName": "SMS 발송",
+        "sendTypeName": "SMS送信",
         "title": "title",
         "body": "body",
         "attachFileYn": "Y",
@@ -3991,7 +3991,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
       "priority": "S",
       "sendNo": "12341234",
       "sendType": "0",
-      "sendTypeName": "SMS 발송",
+      "sendTypeName": "SMS送信",
       "title": "title",
       "body": "body",
       "attachFileYn": "Y",
@@ -4090,7 +4090,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -4692,8 +4692,11 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 * 次の時間基準で統計が収集されます。
     * リクエスト数(requested):送信リクエスト時間
     * 送信数(sent):通信事業者(ベンダー)に送信リクエストした時間
-    * 成功数(concat):単件またはConcatenated message(接続)機能を介して送信されたメッセージの受信時間
-    * 失敗数(sentFailed):失敗レスポンスが発生した時間
+    * 送信失敗数(sentFailed):失敗レスポンスが発生した時間
+    * 受信数(received):送信されたメッセージの受信時間
+    * 送信数(concat):単件またはConcatenated message(接続)機能により送信されたメッセージの受信時間
+    * コンバージョン待機数(ready):コンバージョン率収集リクエスト送信件のメッセージ受信時間
+    * コンバージョン完了数(converted):コンバージョン率収集リクエスト送信件がコンバージョン完了した時間
 
 #### リクエスト
 
@@ -4723,15 +4726,16 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 
 [Query parameter]
 
-| 値              | 	タイプ         | 	最大長さ | 必須    | 説明                                                                |
-|----------------|--------------|-------|-------|-------------------------------------------------------------------|
-| statisticsType | String       | -     | 必須    | 統計区分<br/>NORMAL:基本、 MINUTELY:分別, HOURLY:時間別、 DAILY:日別、 BY_DAY:曜日別 |
-| from           | String       | -     | 必須    | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss                                   | 
-| to             | String       | -     | 必須    | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss                                   |
-| statsIds       | List<String> | -     | オプション | 統計IDリスト                                                           |
-| countryCode    | String       | -     | オプション | 国コード                                                              |
-| requestIds     | List<String> | 5     | オプション | リクエストIDリスト                                                        |
-| statsCriteria  | List<String> | -     | オプション | 統計基準<br/>- EVENT:イベント(デフォルト値)<br/>- COUNTRY_CODE,EVENT:国コード、イベント  |
+| 値            | 	タイプ        | 	最大長さ | 必須 | 説明                                                                                                    |
+|----------------|--------------|--------|----|---------------------------------------------------------------------------------------------------------|
+| statisticsType | String       | -      | 必須 | 統計区分<br/>NORMAL:基本、MINUTELY:分別、HOURLY:時間別、DAILY:日別、BY_DAY:曜日別                                    |
+| from           | String       | -      | 必須 | 統計検索開始日<br/>yyyy-MM-dd HH:mm:ss                                                                     | 
+| to             | String       | -      | 必須 | 統計検索終了日<br/>yyyy-MM-dd HH:mm:ss                                                                     |
+| statsIds       | List<String> | -      | オプション | 統計IDリスト                                                                                              |
+| messageType    | String       | -      | オプション | メッセージタイプ<br/>SMS, LMS, MMS, AUTH                                                                          |
+| countryCode    | String       | -      | オプション | 国コード                                                                                                 |
+| requestIds     | List<String> | 5      | オプション | リクエストIDリスト                                                                                              |
+| statsCriteria  | List<String> | -      | オプション | 統計基準<br/>- EVENT:イベント(デフォルト値)<br/>- MESSAGE_TYPE,EVENT:メッセージタイプ、イベント<br/>- COUNTRY_CODE,EVENT:国コード、イベント |
 
 #### レスポンス(統計基準:デフォルト値)
 
@@ -4750,6 +4754,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
           "REQUESTED": 10,
           "SENT": 10,
           "SENT_FAILED": 0,
+          "RECEIVED": 10,
           "CONCAT": 20,
           "READY": 5,
           "CONVERTED": 3
@@ -4775,7 +4780,8 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 | events.REQUESTED   | Integer | リクエスト数                                                 |
 | events.SENT        | Integer | 送信数                                                 |
 | events.SENT_FAILED | Integer | 失敗数                                                 |
-| events.CONCAT      | Integer | 成功数                                                 |
+| events.RECEIVED    | Integer | 受信数                                                 |
+| events.CONCAT      | Integer | 実受信成功数                                            |
 | events.READY       | Integer | コンバージョン率収集リクエストの送信成功数                                    |
 | events.CONVERTED   | Integer | コンバージョン数                                                 |
 
@@ -4797,6 +4803,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
+            "RECEIVED": 10,
             "CONCAT": 10,
             "READY": 5,
             "CONVERTED": 3
@@ -4805,6 +4812,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
+            "RECEIVED": 10,
             "CONCAT": 20,
             "READY": 5,
             "CONVERTED": 3
@@ -4831,7 +4839,8 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 | events.{statsCriteriaValue}.REQUESTED   | Integer | リクエスト数                                   |
 | events.{statsCriteriaValue}.SENT        | Integer | 送信数                                   |
 | events.{statsCriteriaValue}.SENT_FAILED | Integer | 失敗数                                   |
-| events.{statsCriteriaValue}.CONCAT      | Integer | 成功数                                   |
+| events.{statsCriteriaValue}.RECEIVED    | Integer | 受信数                                   |
+| events.{statsCriteriaValue}.CONCAT      | Integer | 実受信成功数                              |
 | events.{statsCriteriaValue}.READY       | Integer | コンバージョン率収集リクエストの送信成功数                      |
 | events.{statsCriteriaValue}.CONVERTED   | Integer | コンバージョン数                                   |
 
@@ -4951,7 +4960,7 @@ Content-Type: application/json;charset=UTF-8
 [Query parameter]
 
 | 値                | 	タイプ     | 	最大長さ | 必須     | 	説明                                                                                                   |
-|------------------|----------|-------|--------|-------------------------------------------------------------------------------------------------------|
+|------------------|----------|--------|-----|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | sendType         | String   | 1     | オプション  | 送信タイプ<br/>(0：SMS、1：LMS/MMS、2：AUTH)                                                                    |
 | requestId        | 	String  | 25    | 	オプション | 	リクエストID                                                                                              |
 | startRequestDate | 	String  | -     | 	オプション | 	送信日開始値(yyyy-MM-dd HH:mm:ss)                                                                          |
@@ -5016,7 +5025,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations' \
 ```
 
 | 値                             | 	タイプ          | 	説明                                                                                                |
-|-------------------------------|---------------|----------------------------------------------------------------------------------------------------|
+|-------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | header.isSuccessful           | 	Boolean      | 	成否                                                                                                |
 | header.resultCode             | 	Integer      | 	失敗コード                                                                                             |
 | header.resultMessage          | 	String       | 	失敗メッセージ                                                                                           |

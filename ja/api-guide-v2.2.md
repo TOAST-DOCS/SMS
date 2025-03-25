@@ -278,7 +278,7 @@ Content-Type: application/json;charset=UTF-8
 * 登録日時と発信日時を同時に照会する場合、発信日時は無視されます。
 
 | 値                    | 	タイプ     | 	最大  | 必須     | 	説明                                                      |
-|----------------------|----------|------|--------|----------------------------------------------------------|
+|----------------------|----------|------|--------|---------------------------------------------------------|
 | requestId            | 	String  | 25   | 	必須    | 	リクエストID                                                 |
 | startRequestDate     | 	String  | -    | 	必須    | 	送信日の開始値(yyyy-MM-dd HH:mm:ss)                            |
 | endRequestDate       | 	String  | -    | 	必須    | 	送信日の終了値(yyyy-MM-dd HH:mm:ss)                            |
@@ -290,7 +290,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientNo          | 	String  | 20   | 	オプション | 	受信番号                                                    |
 | templateId           | 	String  | 50   | 	オプション | 	テンプレート番号                                                |
 | msgStatus            | 	String  | 1    | 	オプション | 	メッセージステータスコード(0：失敗、 1：リクエスト、 2：処理中、 3：成功、 4：予約キャンセル、 5：重複失敗、 6:失敗(広告制限)、 再送信待機(広告制限)) |
-| resultCode           | 	String  | 10   | 	オプション | 	受信結果コード[[照会コード表](./error-code/#_2)]                     |
+| resultCode           | 	String  | 10     | 	オプション | 	受信結果コード[[照会コード表](./error-code/#_2)]                |
 | subResultCode        | 	String  | 10   | 	オプション | 	受信結果詳細コード[[照会コード表](./error-code/#_3)]                   |
 | senderGroupingKey    | 	String  | 100  | 	オプション | 	送信者グループキー                                               |
 | recipientGroupingKey | 	String  | 100  | 	オプション | 	受信者グループキー                                               |
@@ -659,7 +659,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-  0
+0
   ],
   "recipientList": [
     {
@@ -731,7 +731,7 @@ Content-Type: application/json;charset=UTF-8
 * 登録日時と発信日時を同時に照会する場合、発信日時は無視されます。
 
 | 値                    | 	タイプ     | 最大   | 	必須    | 	説明                                                      |
-|----------------------|----------|------|--------|----------------------------------------------------------|
+|----------------------|----------|------|--------|---------------------------------------------------------|
 | requestId            | 	String  | 25   | 	必須    | 	リクエストID                                                 |
 | startRequestDate     | 	String  | -    | 	必須    | 	送信日の開始値(yyyy-MM-dd HH:mm:ss)                            |
 | endRequestDate       | 	String  | -    | 	必須    | 	送信日の終了値(yyyy-MM-dd HH:mm:ss)                            |
@@ -775,12 +775,12 @@ Content-Type: application/json;charset=UTF-8
         "categoryId": null,
         "categoryName": null,
         "title": "Title",
-        "body": "본문",
+        "body": "本文",
         "sendNo": "15771234",
         "countryCode": "82",
         "recipientNo": "01012341234",
         "msgStatus": "3",
-        "msgStatusName": "성공",
+        "msgStatusName": "成功",
         "resultCode": null,
         "resultCodeName": null,
         "telecomCode": null,
@@ -906,14 +906,14 @@ Content-Type: application/json;charset=UTF-8
       "categoryId": null,
       "categoryName": null,
       "title": "Title",
-      "body": "본문",
+      "body": "本文",
       "sendNo": "15771234",
       "countryCode": "82",
       "recipientNo": "01012341234",
       "msgStatus": "3",
-      "msgStatusName": "성공",
+      "msgStatusName": "成功",
       "resultCode": "1000",
-      "resultCodeName": "성공",
+      "resultCodeName": "成功",
       "telecomCode": 10003,
       "telecomCodeName": "LGU",
       "mtPr": "1",
@@ -1184,7 +1184,7 @@ Content-Type: application/json;charset=UTF-8
 * 登録日時と発信日時を同時に照会する場合、発信日時は無視されます。
 
 | 値                    | 	タイプ     | 	最大  | 必須     | 	説明                                                   |
-|----------------------|----------|------|--------|-------------------------------------------------------|
+|----------------------|----------|------|--------|------------------------------------------------------|
 | requestId            | 	String  | 25   | 	必須    | 	リクエストID                                              |
 | startRequestDate     | 	String  | -    | 	必須    | 	送信日の開始値(yyyy-MM-dd HH:mm:ss)                         |
 | endRequestDate       | 	String  | -    | 	必須    | 	送信日の終了値(yyyy-MM-dd HH:mm:ss)                         |
@@ -1508,7 +1508,7 @@ Content-Type: application/json;charset=UTF-8
         "requestId": "20230914101505oAJTbxHkIB0",
         "recipientSeq": 1,
         "resultCode": "1000",
-        "resultCodeName": "성공",
+        "resultCodeName": "成功",
         "requestDate": "2023-09-14 10:15:05.0",
         "resultDate": "2023-09-14 10:15:08.0",
         "updateDate": "2023-09-14 10:15:12.0",
@@ -1650,7 +1650,7 @@ Content-Type: application/json;charset=UTF-8
   "attachFileIdList": [
     1,
     2,
-    3
+3
   ],
   "tagExpression": [
     "tag1",
@@ -2402,7 +2402,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -2453,7 +2453,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "Y",
   "attachFileIdList": [
     123123,
-    456456
+456456
   ]
 }
 ```
@@ -2658,7 +2658,7 @@ Content-Type: application/json;charset=UTF-8
         "priority": "S",
         "sendNo": "15771234",
         "sendType": "0",
-        "sendTypeName": "SMS 발송",
+        "sendTypeName": "SMS送信",
         "title": "title",
         "body": "body",
         "attachFileYn": "Y",
@@ -2774,7 +2774,7 @@ Content-Type: application/json;charset=UTF-8
       "priority": "S",
       "sendNo": "15771234",
       "sendType": "0",
-      "sendTypeName": "SMS 발송",
+      "sendTypeName": "SMS送信",
       "title": "title",
       "body": "body",
       "attachFileYn": "Y",
@@ -2874,7 +2874,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -3253,7 +3253,7 @@ Content-Type: application/json;charset=UTF-8
 [Query parameter]
 
 | 値                | 	タイプ     | 	最大  | 必須     | 	説明                                                                                                    |
-|------------------|----------|------|--------|--------------------------------------------------------------------------------------------------------|
+|------------------|----------|--------|-----|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | sendType         | String   | 1    | オプション  | 送信タイプ<br/>(0：SMS、1：LMS/MMS、2：AUTH)                                                                     |
 | requestId        | 	String  | 25   | 	オプション | 	リクエストID                                                                                               |
 | startRequestDate | 	String  | -    | 	オプション | 	送信日の開始値(yyyy-MM-dd HH:mm:ss)                                                                          |
@@ -3309,7 +3309,7 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 | 値                             | 	タイプ          | 	説明                                                                                                    |
-|-------------------------------|---------------|--------------------------------------------------------------------------------------------------------|
+|-------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | header.isSuccessful           | 	Boolean      | 	成否                                                                                                    |
 | header.resultCode             | 	Integer      | 	失敗コード                                                                                                 |
 | header.resultMessage          | 	String       | 	失敗メッセージ                                                                                               |
