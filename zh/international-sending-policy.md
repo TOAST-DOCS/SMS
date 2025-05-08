@@ -9,7 +9,7 @@
 
 ## Sending Policy
 * For detailed country-specific policies, see the [Detailed guide to SMS sending by country](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board).
-+ In countries with strict international SMS message policies such as China and Vietnam, messages can be sent normally only if the content of the sending message is a verification number (OTP).
++ In countries with strict international SMS message policies such as Vietnam, messages can be sent normally only if the content of the sending message is a verification number (OTP).
 + To send messages properly, it is recommended to enter the verification number (OTP) as follows. (Example: Your verification code is 00000)
 + If you wish to send marketing messages, please contact the [Customer Center](https://www.nhncloud.com/kr/support/inquiry) in advance.
 + To send international SMS messages normally, phrases of up to 12 characters may be added to messages according to country-specific policies, and the phrases are included in the number of charged characters.
