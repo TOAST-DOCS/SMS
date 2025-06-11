@@ -3,7 +3,7 @@
 ### November 26, 2024
 #### Added Features
 * [ETC] Added CloudTrail logs when block is enabled based on conversion rate
-  * If blocking by conversion rate for international SMS sending occurs, you can view the history in CloudTrail.
+    * If blocking by conversion rate for international SMS sending occurs, you can view the history in CloudTrail.
 
 ### October 7, 2024.
 #### Added Features
