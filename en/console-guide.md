@@ -591,7 +591,8 @@ When the data collection period ends, it becomes inactive and no longer collects
     * Request: Send request time
     * Send: Time requested to send to a carrier (vendor)
     * Send Failure: Time when the failed response occurred
-    * Number of Sends: Time when a message is received via the single or concatenated message feature
+    * Received: Time when a sent message is received
+    * Number of Sends: Time when a message is sent via the single or concatenated message feature
     * Waiting for Conversion: Time when a message is received from a conversion rate collection request
     * Conversion Completed: Time when a conversion rate collection request is sent and converted
 
