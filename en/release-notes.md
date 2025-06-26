@@ -1,5 +1,37 @@
 ## Notification > SMS > Release Notes
 
+### June 24, 2025
+#### Feature Updates
+* [Console/API] Improved the international sending statistics
+    * The basis for collecting the message count event in International Sending Statistics has been changed to the send success time.
+* [ETC] Added metric queries to Cloud Monitoring
+    * Metric queries for send failures, receive successes, and receive failures have been added to the Cloud Monitoring service.
+
+### March 4, 2025
+#### Feature Updates
+* [Console/API] Improved receive result in international sending to reflect DLR status
+    * A receive success indicates that the DLR status is DELIVERED.
+    * A receive failure indicates that the DLR status is EXPIRED, FAILED, REJECTED, or UNKNOWN.
+    * If the receive result in international sending is a receive failure, please refer to the following document for the result code of receiving.
+        * [[Result code of receiving](./error-code/#_1)]
+* [Console] Improved the international sending statistics
+    * Added a message type query filter to International Sending in Categorize Statistics.
+    * Added receive events to International Sending in Categorize Statistics.
+    * For more information on the statistics event, see [[Statistics > Query Statistics](./console-guide/#query-statistics)].
+* [API] Improved the international sending statistics API
+    * Added receive events to the international sending statistics API.
+    * For more information, see [[Statistic Search - International Send](./api-guide/#statistic-search-international-send)].
+
+#### Added Features
+* [Console/API] Added domestic/international and country code filters for querying delivery lists
+    * These filters are available in the Query by SMS Request, Query Mass SMS Delivery, and Query Tagged SMS Delivery functions.
+    * The receiverRegion and countryCode query parameters have been added to the APIs for all versions of List SMS Deliveries, List MMS Deliveries, List Scheduled Deliveries, List Verification SMS Deliveries, List Recipients of Mass Delivery, and List Recipients of Tagged Delivery.
+    * For more information, see [[API v3.0 Guide](./api-guide)], [[API v2.4 Guide](./api-guide-v2.4)], [[API v2.3 Guide](./api-guide-v2.3)], [[API v2.2 Guide](./api-guide-v2.2)].
+
+#### Bug Fixes
+* [API] Fixed a bug in the API for international sending statistics
+  * Fixed an issue where the number of successful conversion rate collection requests and the number of conversion events were not displayed in the international sending statistics API.
+
 ### November 26, 2024
 #### Added Features
 * [ETC] Added CloudTrail logs when block is enabled based on conversion rate

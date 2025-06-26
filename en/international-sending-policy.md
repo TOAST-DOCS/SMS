@@ -15,6 +15,7 @@
 + To send international SMS messages normally, phrases of up to 12 characters may be added to messages according to country-specific policies, and the phrases are included in the number of charged characters.
 + International SMS is sent to international carriers and returns a DLR.
 + Each DLR provides a message status and result code, which allows you to know the delivery status of a particular SMS, but accuracy cannot be absolutely guaranteed, and the message status and result code can be NULL depending on the carrier and handset circumstances.
++ The time of receipt of international SMS (time of arrival at handset) refers to the time of reply from international carriers and may differ from the actual time of receipt at the handset.
 + International carriers generally only keep sending logs within 7 days, so depending on the time of inquiry, it is difficult to confirm the exact cause of non-receipt and may take some time.
 + Transmission quality by country is affected by the network and infrastructure environment in that country and may differ from the domestic environment.
 
