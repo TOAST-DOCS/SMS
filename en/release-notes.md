@@ -30,7 +30,7 @@
 
 #### Bug Fixes
 * [API] Fixed a bug in the API for international sending statistics
-  * Fixed an issue where the number of successful conversion rate collection requests and the number of conversion events were not displayed in the international sending statistics API.
+    * Fixed an issue where the number of successful conversion rate collection requests and the number of conversion events were not displayed in the international sending statistics API.
 
 ### November 26, 2024
 #### Added Features
@@ -900,7 +900,6 @@
 * [Console] For sender number registration, validation has been enforced.
     * AS-IS: Check duplicate checks only
     * TO-BE: Duplicate checks + Check sender number registration format [[Format of Sender Number Registration](./console-guide/#_16)]
-
 
 #### Bug Fixes
 * [Console] Fixed the bug by which MMS template was registered even without title.

@@ -132,6 +132,17 @@
 | Telecom Provider | 3017 | Failure | Number format error based on sender number tampering prevention service |
 | Telecom Provider | 3018 | Failure | Individual subscriber phone number subscribed to the sender number tampering prevention service  |
 | Telecom Provider | 3019 | Failure | Sender numbers that KISA or the Ministry of Science and ICT has blocked for all customers. |
+| International Sending | 4001 | Failure | Signature format error |
+| International Sending | 4002 | Failure | Error in sender number  |
+| International Sending | 4003 | Failure | Error in recipient number  |
+| International Sending | 4004 | Failure | Temporary device issue |
+| International Sending | 4005 | Failure | No subscriber available |
+| International Sending | 4006 | Failure | Failure due to receiver error |
+| International Sending | 4007 | Failure | Failure due to telecom provider |
+| International Sending | 4008 | Failure | Spam |
+| International Sending | 4009 | Failure | Temporary network error |
+| International Sending | 4010 | Failure | Failure due to abnormal transfer pattern |
+| ETC | E900 | Failure | Other sending errors |
 | ETC | E911 | Failure | No attached file extension available |
 | ETC | E913 | Failure | Attached file size is 0 |
 | ETC | E915 | Failure | Duplicate messages |
