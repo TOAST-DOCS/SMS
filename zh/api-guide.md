@@ -1698,7 +1698,7 @@ curl -X GET \
 
 * The Conversion API is an API that responds that a successful conversion has occurred for an international sending of a verified SMS that requests conversion rate collection.
 * You can use this API to manage conversion rates for messages that are successfully sent.
-* If you did not request to collect conversion rates via the useConversion field when sending, or if the sending did not complete, the API responds with a failure. 
+* If you did not request to collect conversion rates via the useConversion field when sending, or if the sending did not complete, the API responds with a failure.
 
 #### Request
 
@@ -4668,7 +4668,7 @@ curl -X GET \
       {
         "eventDateTime": "",
         "events": {
-           "requested": 10,
+          "requested": 10,
           "sent": 10,
           "sentFailed": 0,
           "received": 0,
@@ -4704,8 +4704,11 @@ curl -X GET \
 * The statistical data is collected based on the following time.
     * Number of requests (requested): When requested to send
     * Number of sent items (sent): When requested to send to carrier (vendor)
-    * Number of successes (concat): When messages sent via single or concatenated message features was received
     * Number of failures (sentFailed): When a failed response occurred
+    * Number of receptions (received): When received a sent message
+    * Number of successes (concat): When messages sent via single or concatenated message features was received
+    * Number of conversions pending (ready): When the message for a conversion rate collection request is received
+    * Number of conversions completed (converted): When the conversion rate collection request has been successfully completed.
 
 #### Request
 
@@ -4741,6 +4744,7 @@ curl -X GET \
 | from           | String       | -              | Required | Start date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                              | 
 | to             | String       | -              | Required | End date of statistics search<br/>yyyy-MM-dd HH:mm:ss                                                |
 | statsIds       | List<String> | -              | Option   | Statistics ID list                                                                                   |
+| messageType    | String       | -              | Option   | Message type<br/>SMS, LMS, MMS, AUTH  
 | countryCode    | String       | -              | Option   | Country code                                                                                         |
 | requestIds     | List<String> | 5              | Option   | Request ID list                                                                                      |
 | statsCriteria  | List<String> | -              | Option   | Statistics criteria<br/>- EVENT: Event (Default Value)<br/>- COUNTRY_CODE,EVENT: Country code, event |
@@ -4762,6 +4766,7 @@ curl -X GET \
           "REQUESTED": 10,
           "SENT": 10,
           "SENT_FAILED": 0,
+          "RECEIVED": 10,
           "CONCAT": 20,
           "READY": 5,
           "CONVERTED": 3
@@ -4787,6 +4792,7 @@ curl -X GET \
 | events.REQUESTED   | Integer | Number of requests                                                   |
 | events.SENT        | Integer | Number of sent items                                               |
 | events.SENT_FAILED | Integer | Number of failures                                        |
+| events.RECEIVED    | Integer | Number of receptions                                                   |
 | events.CONCAT      | Integer | Number of successes                                          |
 | events.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
 | events.CONVERTED   | Integer | Number of converted items                                                   |
@@ -4809,6 +4815,7 @@ curl -X GET \
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
+            "RECEIVED": 10,
             "CONCAT": 10,
         
             "READY": 5,
@@ -4818,6 +4825,7 @@ curl -X GET \
             "REQUESTED": 10,
             "SENT": 10,
             "SENT_FAILED": 0,
+            "RECEIVED": 10,
             "CONCAT": 20
             
             "READY": 5,
@@ -4845,6 +4853,7 @@ curl -X GET \
 | events.{statsCriteriaValue}.REQUESTED   | Integer | Number of requests                                      |
 | events.{statsCriteriaValue}.SENT        | Integer | Number of sent items                  |
 | events.{statsCriteriaValue}.SENT_FAILED | Integer | Number of failures                           |
+| events.{statsCriteriaValue}.RECEIVED    | Integer | Number of receptions                                      |
 | events.{statsCriteriaValue}.CONCAT      | Integer | Number of successes                             |
 | events.{statsCriteriaValue}.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
 | events.{statsCriteriaValue}.CONVERTED   | Integer | Number of converted items                                                   |

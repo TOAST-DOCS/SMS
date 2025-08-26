@@ -3,8 +3,7 @@
 <span id='fabrication-number'></span>
 ## Prevention of Caller Number Fabrication
 + To enable SMS, your own (or corporate-owned) caller number must be registered first.
-+ If you use other's (or other company's) caller number, in accordance with <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">(Notice 2015-32 by the Ministry of Science, ICT and Future Planning) Public notice on preventing damage on users due to falsified phone numbers]</a> and <a href="https://www.toast.com/terms/terms-service" target="_blank">[NHN Cloud Terms of Services]</a>, take note that following measures may be taken.
-
++ If you use other's (or other company's) caller number, in accordance with [[Public notice on preventing damage on users due to falsified phone numbers in Notice 2015-32 by the Ministry of Science, ICT and Future Planning](https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891)] and [[Notification Terms of Services](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)], the following measures may be taken.
 
 ```
 ㆍIf a message is sent from falsified sender number, such circuit or service of the user shall be suspended until investigation on the corresponding issue is completed.
@@ -116,3 +115,10 @@ Accordingly, the Company may provide guidelines as below for the Customer, to ab
 To use NHN Cloud SMS Service, make sure the following is displayed for 'Personal Information Handling Policy' > Assignment Status of the Customer.
 Assignor: NHN Cloud
 Content of Business: Send SMS in lieu of customers
+
+<span id="certification"></span>
+## Certified Bulk Message Sender
+Text resellers in the bulk texting business can operate messaging services after being certified as a bulk message sender.[[Go to Notice](https://www.nhncloud.com/kr/support/notice/detail/6041)]
+You can verify the certification issued by NHN Cloud by clicking the certification mark below.
+
+<img src="https://yeorcqadlpopsmgaoudu.supabase.co/storage/v1/object/public/certification/mark/c9954679-c145-4b9b-9a54-2c31a2592f95/fc56629c-aa65-4615-8c47-db4cc2db65ba-2024-10-23T07:10:24.950Z" style="cursor: pointer; width: 152px; height: 152px;margin: 0;" onclick="(function(){window.open('https://cleanspam.or.kr/ci/83','_blank','width=800, height=1151, toolbar=no, menubar=no, scrollbars=no, resizable=no')})()" />

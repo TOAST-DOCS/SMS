@@ -502,16 +502,26 @@ Registered webhooks can be checked in the **webhook registration list**.
 * Before using the international SMS sending feature, see [International Sending Policy](./international-sending-policy).
 * If you do not want to use the international SMS sending feature, you can prevent accidents due to international SMS volume pumping by setting it to unused.
 * Manage countries allowed to send
-    * Only the specified major countries are enabled for sending during the initial setup. You can manage whether to ship to each country through the **Manage Country Allowed to Send > Select Country to Allow**.
+    * Only the specified major countries are enabled for sending during the initial setup. You can manage whether to ship to each country through the **Set Country Allowed to Send > Select Country to Allow**.
 * Auto-block monthly limit and threshold notifications
     * The **Auto-Block Monthly Limit** is 1,000 per month by default, with a maximum of 10,000.
     * If you need an adjustment that exceeds the 10,000 **Auto-Block Monthly Limit**, please contact us via the **Request Exceed 10,000** button.
     * The **Auto-Block Monthly Limit** is an auxiliary function, and detection is not reflected in real time. NHN Cloud is not responsible for any errors in the auxiliary function, so please use it with caution.
     * If you **enable** **monthly limit threshold notifications**, notifications will be sent to all project members when 70% and 100% of the value you set for the **Auto-Block Monthly Limit** is reached.
-* Set blocking countries by conversion rate and notifications
-    * If you **enable** the **Block and Notification by Conversion Rate**, the block feature is enabled and notifications are sent to all project members when a block occurs.
-    * Country-specific blocking by conversion rate only applies to the countries that you set via the **Set Block Country by Conversion Rate > Select Country to Allow**.
-    * If a country is blocked by Conversion Rate, then a **Blocked** button is exposed next to the blocked country. Click that button to unblock it.
+* Block Sending by conversion rate and notifications
+    * If you **enable** the **Block Sending and Notification by Conversion Rate**, the block feature is enabled and notifications are sent to all project members when a block occurs.
+    * Country-specific blocking by conversion rate only applies to the countries that you set via the **Set Block Country from Sending by Conversion Rate > Select Country to Block**.
+    * The **Blocked** button is exposed next to the blocked country if a country is blocked by Conversion Rate. Click that button to unblock it.
+    * Blocking Rules by Conversion Rate
+        * **Conversion Rate** is the threshold setting above which conversion rate-based blocking occurs.
+            - Blocked if the calculated conversion rate is below the conversion rate threshold.
+            - You can specify a conversion rate from 1% to 100%.
+        * **Minimum Count** is a threshold setting for the number of conversion rate collection requests sent for conversion rate-based blocking to occur.
+            - You must send a minimum number of conversion rate collection requests for conversion rate-based blocking to occur.
+            - You can specify a minimum number of cases from 1 to 10,000.
+        * **Time Range** is the time range setting for calculating the conversion rate.
+            - The conversion rate is calculated based on the number of collection requests sent, the number of conversions, and the conversion rate within that time range from the time of the request to send.
+            - You can specify a time range from 1 hour to 168 hours (7 days).
 
 > [Caution]
 Cases of international SMS abuse are increasing globally.
@@ -576,14 +586,15 @@ When the data collection period ends, it becomes inactive and no longer collects
     * Send: Time requested to send to a carrier (vendor)
     * Send Failure: Time when the failed response occurred
     * Receive: Actual terminal reception time
-    * Waiting for result: Increases upon sending, and decreases when received
 * International Delivery: Statistics collected based on the time of event occurrence.
 * Statistics are collected as of the following times
     * Request: Send request time
     * Send: Time requested to send to a carrier (vendor)
     * Send Failure: Time when the failed response occurred
-    * Receive: Time for messages to be received  through the single or concatenated message feature.
-    * Waiting for result: Increases upon sending, and decreases when received
+    * Received: Time when a sent message is received
+    * Number of Sends: Time when a message is sent via the single or concatenated message feature
+    * Waiting for Conversion: Time when a message is received from a conversion rate collection request
+    * Conversion Completed: Time when a conversion rate collection request is sent and converted
 
 
 ## [Note]

@@ -10,9 +10,9 @@ RESTful API is provided for easy integration.
 - Support Mass Delivery
   - Enter the list of recipients in excel and send SMS in mass.
 - Schedule Delivery
-  -	Text messages at a time of choice.
+  - Text messages at a time of choice.
 - Provide Replacement Tags
-  -	Send personalized SMS for each recipient by using replacement tags.
+  - Send personalized SMS for each recipient by using replacement tags.
 - Support Templates
   - Register frequently-used SMS as templates.
 
