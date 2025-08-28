@@ -4284,7 +4284,7 @@ Content-Type: application/json;charset=UTF-8
 
 | 値                | 	タイプ     | 	最大長さ | 必須     | 	説明                                |
 |------------------|----------|-------|--------|------------------------------------|
-| unsubscribeNo    | 	String  | 25    | 	必須    | 	080受信拒否番号                         |
+| unsubscribeNo    | 	String  | 25    | 	オプション | 	080受信拒否番号                         |
 | recipientNo      | String   | 25    | オプション  | 受信拒否対象者番号                          |
 | startRequestDate | 	String  | -     | 	オプション | 	受信拒否リクエスト開始値(yyyy-MM-dd HH:mm:ss) |
 | endRequestDate   | 	String  | -     | 	オプション | 	受信拒否リクエスト終了値(yyyy-MM-dd HH:mm:ss) |
