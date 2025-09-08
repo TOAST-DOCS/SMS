@@ -2063,23 +2063,22 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/message-results?
 }
 ```
 
-| 値                                                 | 	タイプ     | 	説明                               |
-|---------------------------------------------------|----------|-----------------------------------|
-| header.isSuccessful                               | 	Boolean | 	成否                               |
-| header.resultCode                                 | 	Integer | 	失敗コード                            |
-| header.resultMessage                              | 	String  | 	失敗メッセージ                          |
-| body.data.resultUpdateList[].messageType          | String   | メッセージタイプ(SMS/LMS/MMS/AUTH)        |
-| body.data.resultUpdateList[].requestId            | String   | リクエストID                           |
-| body.data.resultUpdateList[].recipientSeq         | Integer  | 受信者シーケンス                          |
-| body.data.resultUpdateList[].resultCode           | String   | 結果コード                             |
-| body.data.resultUpdateList[].resultCodeName       | String   | 結果コード名                            |
-| body.data.resultUpdateList[].requestDate          | String   | リクエスト日時(yyyy-MM-dd HH:mm:ss.S)    |
-| body.data.resultUpdateList[].resultDate           | String   | 受信日時(yyyy-MM-dd HH:mm:ss.S)       |
-| body.data.resultUpdateList[].updateDate           | String   | 結果アップデート日時(yyyy-MM-dd HH:mm:ss.S) |
-| body.data.resultUpdateList[].telecomCode          | String   | サービスプロバイダーコード                     |
-| body.data.resultUpdateList[].telecomCodeName      | String   | サービスプロバイダーコード名                    |
-| body.data.resultUpdateList[].senderGroupingKey    | String   | 発信者グループキー                         |
-| body.data.resultUpdateList[].recipientGroupingKey | String   | 受信者グループキー                         |
+| 値                                                 | タイプ    | Not Null  | 説明                             |----------------------------------------------------|---------|-----------|----------------------------------|
+| header.isSuccessful                                | Boolean | O        | 成否                              |
+| header.resultCode                                  | Integer | O        | 失敗コード                          |
+| header.resultMessage                               | String  | O        | 失敗メッセージ                       |
+| body.data.resultUpdateList[].messageType           | String  | O        | メッセージタイプ(SMS/LMS/MMS/AUTH)    |
+| body.data.resultUpdateList[].requestId             | String  | O        | リクエストID                        |
+| body.data.resultUpdateList[].recipientSeq          | Integer | O        | 受信者シーケンス                      |
+| body.data.resultUpdateList[].resultCode            | String  | X        | 結果コード                          |
+| body.data.resultUpdateList[].resultCodeName        | String  | X        | 結果コード名                         |
+| body.data.resultUpdateList[].requestDate           | String  | O        | リクエスト日時(yyyy-MM-dd HH:mm:ss.S) |
+| body.data.resultUpdateList[].resultDate            | String  | X        | 受信日時(yyyy-MM-dd HH:mm:ss.S)     |
+| body.data.resultUpdateList[].updateDate            | String  | X        | 結果アップデート日時(yyyy-MM-dd HH:mm:ss.S) |
+| body.data.resultUpdateList[].telecomCode           | String  | X        | サービスプロバイダーコード            |
+| body.data.resultUpdateList[].telecomCodeName       | String  | X        | サービスプロバイダーコード名          |
+| body.data.resultUpdateList[].senderGroupingKey     | String  | X        | 発信者グループキー                    |
+| body.data.resultUpdateList[].recipientGroupingKey  | String  | X        | 受信者グループキー                    |
 
 ## 大量送信
 

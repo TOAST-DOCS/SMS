@@ -2075,23 +2075,23 @@ curl -X GET \
 }
 ```
 
-| 값                                                 | 	타입      | 	설명                               |
-|---------------------------------------------------|----------|-----------------------------------|
-| header.isSuccessful                               | 	Boolean | 	성공 여부                            |
-| header.resultCode                                 | 	Integer | 	실패 코드                            |
-| header.resultMessage                              | 	String  | 	실패 메시지                           |
-| body.data.resultUpdateList[].messageType          | String   | 메시지 타입(SMS/LMS/MMS/AUTH)          |
-| body.data.resultUpdateList[].requestId            | String   | 요청 ID                             |
-| body.data.resultUpdateList[].recipientSeq         | Integer  | 수신자 시퀀스                           |
-| body.data.resultUpdateList[].resultCode           | String   | 결과 코드                             |
-| body.data.resultUpdateList[].resultCodeName       | String   | 결과 코드명                            |
-| body.data.resultUpdateList[].requestDate          | String   | 요청 일시(yyyy-MM-dd HH:mm:ss.S)      |
-| body.data.resultUpdateList[].resultDate           | String   | 수신 일시(yyyy-MM-dd HH:mm:ss.S)      |
-| body.data.resultUpdateList[].updateDate           | String   | 결과 업데이트 일시(yyyy-MM-dd HH:mm:ss.S) |
-| body.data.resultUpdateList[].telecomCode          | String   | 통신사 코드                            |
-| body.data.resultUpdateList[].telecomCodeName      | String   | 통신사 코드명                           |
-| body.data.resultUpdateList[].senderGroupingKey    | String   | 발신자 그룹 키                          |
-| body.data.resultUpdateList[].recipientGroupingKey | String   | 수신자 그룹 키                          |
+| 값                                                 | 타입       | Not Null | 설명                                  |
+|----------------------------------------------------|----------|----------|---------------------------------------|
+| header.isSuccessful                                | Boolean  | O        | 성공 여부                             |
+| header.resultCode                                  | Integer  | O        | 실패 코드                             |
+| header.resultMessage                               | String   | O        | 실패 메시지                           |
+| body.data.resultUpdateList[].messageType           | String   | O        | 메시지 타입(SMS/LMS/MMS/AUTH)         |
+| body.data.resultUpdateList[].requestId             | String   | O        | 요청 ID                               |
+| body.data.resultUpdateList[].recipientSeq          | Integer  | O        | 수신자 시퀀스                         |
+| body.data.resultUpdateList[].resultCode            | String   | X        | 결과 코드                             |
+| body.data.resultUpdateList[].resultCodeName        | String   | X        | 결과 코드명                           |
+| body.data.resultUpdateList[].requestDate           | String   | O        | 요청 일시(yyyy-MM-dd HH:mm:ss.S)      |
+| body.data.resultUpdateList[].resultDate            | String   | X        | 수신 일시(yyyy-MM-dd HH:mm:ss.S)      |
+| body.data.resultUpdateList[].updateDate            | String   | X        | 결과 업데이트 일시(yyyy-MM-dd HH:mm:ss.S) |
+| body.data.resultUpdateList[].telecomCode           | String   | X        | 통신사 코드                           |
+| body.data.resultUpdateList[].telecomCodeName       | String   | X        | 통신사 코드명                         |
+| body.data.resultUpdateList[].senderGroupingKey     | String   | X        | 발신자 그룹 키                        |
+| body.data.resultUpdateList[].recipientGroupingKey  | String   | X        | 수신자 그룹 키                        |
 
 ## 대량 발송
 

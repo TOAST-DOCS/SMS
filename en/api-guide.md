@@ -2072,23 +2072,23 @@ curl -X GET \
 }
 ```
 
-| Value                                             | Type     | Description                                             |
-|---------------------------------------------------|----------|---------------------------------------------------------|
-| header.isSuccessful                               | 	Boolean | Successful or not                                       |
-| header.resultCode                                 | 	Integer | Failure code                                            |
-| header.resultMessage                              | 	String  | Failure message                                         |
-| body.data.resultUpdateList[].messageType          | String   | Message type (SMS/LMS/MMS/AUTH)                         |
-| body.data.resultUpdateList[].requestId            | String   | Request ID                                              |
-| body.data.resultUpdateList[].recipientSeq         | Integer  | Recipient sequence                                      |
-| body.data.resultUpdateList[].resultCode           | String   | Result code                                             |
-| body.data.resultUpdateList[].resultCodeName       | String   | Name of result code                                     |
-| body.data.resultUpdateList[].requestDate          | String   | Date and time of request (yyyy-MM-dd HH:mm:ss.S)        |
-| body.data.resultUpdateList[].resultDate           | String   | Date and time of receiving (yyyy-MM-dd HH:mm:ss.S)      |
-| body.data.resultUpdateList[].updateDate           | String   | Date and time of result updates (yyyy-MM-dd HH:mm:ss.S) |
-| body.data.resultUpdateList[].telecomCode          | String   | Code of telecom provider                                |
-| body.data.resultUpdateList[].telecomCodeName      | String   | Name of telecom provider                                |
-| body.data.resultUpdateList[].senderGroupingKey    | String   | Sender's group key                                      |
-| body.data.resultUpdateList[].recipientGroupingKey | String   | Recipient's group key                                   |
+| Value                                             | Type    | Not Null | Description                                             |
+|---------------------------------------------------|---------|----------|----------------------------------------------------------|
+| header.isSuccessful                               | Boolean | O        | Successful or not                                       |
+| header.resultCode                                 | Integer | O        | Failure code                                            |
+| header.resultMessage                              | String  | O        | Failure message                                         |
+| body.data.resultUpdateList[].messageType          | String  | O        | Message type (SMS/LMS/MMS/AUTH)                         |
+| body.data.resultUpdateList[].requestId            | String  | O        | Request ID                                              |
+| body.data.resultUpdateList[].recipientSeq         | Integer | O        | Recipient sequence                                      |
+| body.data.resultUpdateList[].resultCode           | String  | X        | Result code                                             |
+| body.data.resultUpdateList[].resultCodeName       | String  | X        | Name of result code                                     |
+| body.data.resultUpdateList[].requestDate          | String  | O        | Date and time of request (yyyy-MM-dd HH:mm:ss.S)        |
+| body.data.resultUpdateList[].resultDate           | String  | X        | Date and time of receiving (yyyy-MM-dd HH:mm:ss.S)      |
+| body.data.resultUpdateList[].updateDate           | String  | X        | Date and time of result updates (yyyy-MM-dd HH:mm:ss.S) |
+| body.data.resultUpdateList[].telecomCode          | String  | X        | Code of telecom provider                                |
+| body.data.resultUpdateList[].telecomCodeName      | String  | X        | Name of telecom provider                                |
+| body.data.resultUpdateList[].senderGroupingKey    | String  | X        | Sender's group key                                      |
+| body.data.resultUpdateList[].recipientGroupingKey | String  | X        | Recipient's group key                                   |
 
 ## Mass Delivery
 
