@@ -2746,29 +2746,29 @@ curl -X GET \
 }
 ```
 
-| Value                       | Type         | Description                   |
-|-----------------------------|--------------|-------------------------------|
-| header.isSuccessful         | 	Boolean     | Successful or not             |
-| header.resultCode           | 	Integer     | Failure code                  |
-| header.resultMessage        | 	String      | Failure message               |
-| body.data[].requestId       | String       | Request ID                    |
-| body.data[].requestIp       | String       | Request IP                    |
-| body.data[].requestDate     | String       | Request time                  |
-| body.data[].tagSendStatus   | String       | Tag delivery status           |
-| body.data[].tagExpression[] | List<String> | Tag expression                |
-| body.data[].templateId      | String       | Template ID                   |
-| body.data[].templateName    | String       | Template name                 |
-| body.data[].senderName      | String       | Sender's name                 |
-| body.data[].senderMail      | String       | Sender's address              |
-| body.data[].title           | String       | Title                         |
-| body.data[].body            | String       | Body                          |
-| body.data[].adYn            | String       | Ad or not                     |
-| body.data[].autoSendYn      | String       | Auto delivery or not          |
-| body.data[].sendErrorCount  | Integer      | Error counts in recipients    |
-| body.data[].createUser      | String       | Creator                       |
-| body.data[].createDate      | String       | Date and time of creation     |
-| body.data[].updateUser      | String       | Modifier                      |
-| body.data[].updateDate      | String       | Date and time of modification |
+| Value                       | Type         | Not Null | Description                   |
+|-----------------------------|--------------|----------|-------------------------------|
+| header.isSuccessful         | Boolean      | O        | Successful or not             |
+| header.resultCode           | Integer      | O        | Failure code                  |
+| header.resultMessage        | String       | O        | Failure message               |
+| body.data[].requestId       | String       | O        | Request ID                    |
+| body.data[].requestIp       | String       | X        | Request IP                    |
+| body.data[].requestDate     | String       | O        | Request time                  |
+| body.data[].tagSendStatus   | String       | X        | Tag delivery status           |
+| body.data[].tagExpression[] | List<String> | O        | Tag expression                |
+| body.data[].templateId      | String       | X        | Template ID                   |
+| body.data[].templateName    | String       | X        | Template name                 |
+| body.data[].senderName      | String       | X        | Sender's name                 |
+| body.data[].senderMail      | String       | X        | Sender's address              |
+| body.data[].title           | String       | X        | Title                         |
+| body.data[].body            | String       | O        | Body                          |
+| body.data[].adYn            | String       | X        | Ad or not                     |
+| body.data[].autoSendYn      | String       | O        | Auto delivery or not          |
+| body.data[].sendErrorCount  | Integer      | O        | Error counts in recipients    |
+| body.data[].createUser      | String       | X        | Creator                       |
+| body.data[].createDate      | String       | O        | Date and time of creation     |
+| body.data[].updateUser      | String       | X        | Modifier                      |
+| body.data[].updateDate      | String       | X        | Date and time of modification |
 
 ### List Recipients of Tag Delivery
 

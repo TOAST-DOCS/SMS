@@ -2749,29 +2749,29 @@ curl -X GET \
 }
 ```
 
-| 값                           | 	타입          | 	설명       |
-|-----------------------------|--------------|-----------|
-| header.isSuccessful         | 	Boolean     | 	성공 여부    |
-| header.resultCode           | 	Integer     | 	실패 코드    |
-| header.resultMessage        | 	String      | 	실패 메시지   |
-| body.data[].requestId       | String       | 요청 ID     |
-| body.data[].requestIp       | String       | 요청 IP     |
-| body.data[].requestDate     | String       | 요청 시간     |
-| body.data[].tagSendStatus   | String       | 태그 발송 상태  |
-| body.data[].tagExpression[] | List<String> | 태그 표현식    |
-| body.data[].templateId      | String       | 템플릿 ID    |
-| body.data[].templateName    | String       | 템플릿명      |
-| body.data[].senderName      | String       | 발신자명      |
-| body.data[].senderMail      | String       | 발신자 주소    |
-| body.data[].title           | String       | 제목        |
-| body.data[].body            | String       | 내용        |
-| body.data[].adYn            | String       | 광고 여부     |
-| body.data[].autoSendYn      | String       | 자동 발송 여부  |
-| body.data[].sendErrorCount  | Integer      | 에러 수신자 건수 |
-| body.data[].createUser      | String       | 생성자       |
-| body.data[].createDate      | String       | 생성 일시     |
-| body.data[].updateUser      | String       | 수정한 사용자   |
-| body.data[].updateDate      | String       | 수정 날짜     |
+| 값                           | 타입         | Not Null | 설명           |
+|------------------------------|--------------|----------|----------------|
+| header.isSuccessful          | Boolean      | O        | 성공 여부       |
+| header.resultCode            | Integer      | O        | 실패 코드       |
+| header.resultMessage         | String       | O        | 실패 메시지     |
+| body.data[].requestId        | String       | O        | 요청 ID        |
+| body.data[].requestIp        | String       | X        | 요청 IP        |
+| body.data[].requestDate      | String       | O        | 요청 시간       |
+| body.data[].tagSendStatus    | String       | X        | 태그 발송 상태  |
+| body.data[].tagExpression[]  | List<String> | O        | 태그 표현식     |
+| body.data[].templateId       | String       | X        | 템플릿 ID      |
+| body.data[].templateName     | String       | X        | 템플릿명       |
+| body.data[].senderName       | String       | X        | 발신자명       |
+| body.data[].senderMail       | String       | X        | 발신자 주소     |
+| body.data[].title            | String       | X        | 제목          |
+| body.data[].body             | String       | O        | 내용          |
+| body.data[].adYn             | String       | X        | 광고 여부       |
+| body.data[].autoSendYn       | String       | O        | 자동 발송 여부  |
+| body.data[].sendErrorCount   | Integer      | O        | 에러 수신자 건수 |
+| body.data[].createUser       | String       | X        | 생성자         |
+| body.data[].createDate       | String       | O        | 생성 일시      |
+| body.data[].updateUser       | String       | X        | 수정한 사용자   |
+| body.data[].updateDate       | String       | X        | 수정 날짜      |
 
 ### 태그 발송 수신자 목록 검색
 
