@@ -5512,21 +5512,21 @@ curl -X GET \
 }
 ```
 
-| 값                                   | 	타입                  | 	설명                                                                                                         |
-|-------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                 | 	Boolean             | 	성공 여부                                                                                                      |
-| header.resultCode                   | 	Integer             | 	실패 코드                                                                                                      |
-| header.resultMessage                | 	String              | 	실패 메시지                                                                                                     |
-| body.data[].reservationCancelId     | 	String              | 	 예약 취소 ID                                                                                                  |
-| body.data[].searchParameter         | 	Map<String, Object> | 예약 취소 요청 파라미터                                                                                               |
-| body.data[].requestedDateTime       | 	String              | 	예약 취소 요청 시간                                                                                                |
-| body.data[].completedDateTime       | 	String              | 	예약 취소 완료 시간                                                                                                |
-| body.data[].reservationCancelStatus | 	String              | 	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
-| body.data[].totalCount              | 	Integer             | 예약 취소 대상 건수                                                                                                 |
-| body.data[].successCount            | 	Integer             | 예약 취소 성공 건수                                                                                                 |
-| body.data[].createUser              | 	String              | 예약 취소 요청자	                                                                                                  |
-| body.data[].createdDateTime         | 	String              | 	예약 취소 요청 생성 시간                                                                                             |
-| body.data[].updatedDateTime         | 	String              | 	예약 취소 수정 시간                                                                                                |
+| 값                                   | 타입                 | Not Null | 설명                                                                                                         |
+|-------------------------------------|---------------------|----------|-------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful                 | Boolean             | O        | 성공 여부                                                                                                    |
+| header.resultCode                   | Integer             | O        | 실패 코드                                                                                                    |
+| header.resultMessage                | String              | O        | 실패 메시지                                                                                                   |
+| body.data[].reservationCancelId     | String              | O        | 예약 취소 ID                                                                                                 |
+| body.data[].searchParameter         | Map<String, Object> | O        | 예약 취소 요청 파라미터                                                                                         |
+| body.data[].requestedDateTime       | String              | O        | 예약 취소 요청 시간                                                                                            |
+| body.data[].completedDateTime       | String              | X        | 예약 취소 완료 시간                                                                                            |
+| body.data[].reservationCancelStatus | String              | X        | 예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+| body.data[].totalCount              | Integer             | X        | 예약 취소 대상 건수                                                                                           |
+| body.data[].successCount            | Integer             | X        | 예약 취소 성공 건수                                                                                           |
+| body.data[].createUser              | String              | X        | 예약 취소 요청자                                                                                              |
+| body.data[].createdDateTime         | String              | X        | 예약 취소 요청 생성 시간                                                                                        |
+| body.data[].updatedDateTime         | String              | X        | 예약 취소 수정 시간                                                                                           |
 
 ## 발송 결과 파일 다운로드
 

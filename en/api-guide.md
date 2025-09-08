@@ -5513,21 +5513,21 @@ curl -X GET \
 }
 ```
 
-| Value                               | Type                 | Description                                                                                                                                                                                                   |
-|-------------------------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                 | 	Boolean             | 	Successful or not                                                                                                                                                                                            |
-| header.resultCode                   | 	Integer             | 	Failure code                                                                                                                                                                                                 |
-| header.resultMessage                | 	String              | 	Failure message                                                                                                                                                                                              |
-| body.data[].reservationCancelId     | 	String              | 	 Schedule Cancellation ID                                                                                                                                                                                    |
-| body.data[].searchParameter         | 	Map<String, Object> | Request Parameter for Schedule Cancellation                                                                                                                                                                   |
-| body.data[].requestedDateTime       | 	String              | 	Request Time for Schedule Cancellation                                                                                                                                                                       |
-| body.data[].completedDateTime       | 	String              | 	Request End Time for Schedule Cancellation                                                                                                                                                                   |
-| body.data[].reservationCancelStatus | 	String              | 	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
-| body.data[].totalCount              | 	Integer             | Number of Scheduled Cancellation Targets                                                                                                                                                                      |
-| body.data[].successCount            | 	Integer             | Number of Successful Schedule Cancellation                                                                                                                                                                    |
-| body.data[].createUser              | 	String              | Requester of Scheduled Cancellation	                                                                                                                                                                          |
-| body.data[].createdDateTime         | 	String              | 	Request Creation Time for Schedule Cancellation                                                                                                                                                              |
-| body.data[].updatedDateTime         | 	String              | 	Modified Time for Scheduled Cancellation                                                                                                                                                                     |
+| Value                               | Type                 | Not Null | Description                                                             |
+|-------------------------------------|----------------------|----------|-------------------------------------------------------------------------|
+| header.isSuccessful                 | Boolean              | O        | Successful or not                                                       |
+| header.resultCode                   | Integer              | O        | Failure code                                                            |
+| header.resultMessage                | String               | O        | Failure message                                                         |
+| body.data[].reservationCancelId     | String               | O        | Schedule Cancellation ID                                                |
+| body.data[].searchParameter         | Map<String, Object>  | O        | Request Parameter for Schedule Cancellation                             |
+| body.data[].requestedDateTime       | String               | O        | Request Time for Schedule Cancellation                                  |
+| body.data[].completedDateTime       | String               | X        | Request End Time for Schedule Cancellation                              |
+| body.data[].reservationCancelStatus | String               | X        | Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
+| body.data[].totalCount              | Integer              | X        | Number of Scheduled Cancellation Targets                                |
+| body.data[].successCount            | Integer              | X        | Number of Successful Schedule Cancellation                              |
+| body.data[].createUser              | String               | X        | Requester of Scheduled Cancellation                                     |
+| body.data[].createdDateTime         | String               | X        | Request Creation Time for Schedule Cancellation                         |
+| body.data[].updatedDateTime         | String               | X        | Modified Time for Scheduled Cancellation                                |
 
 ## Download Delivery Result Files
 
