@@ -3077,14 +3077,14 @@ curl -X POST \
 }
 ```
 
-| Value                | Type     | Description                                                                       |
-|----------------------|----------|-----------------------------------------------------------------------------------|
-| header.isSuccessful  | 	Boolean | Successful or not                                                                 |
-| header.resultCode    | 	Integer | Failure code                                                                      |
-| header.resultMessage | 	String  | Failure message                                                                   |
-| body.data.fileId     | 	Integer | File ID                                                                           |
-| body.data.fileName   | 	String  | File name                                                                         |
-| body.data.filePath   | 	String  | Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
+| body.data.fileId     | Integer | O        | File ID           |
+| body.data.fileName   | String  | X        | File name         |
+| body.data.filePath   | String  | X        | Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
 
 #### Example of Uploading Attached Files
 

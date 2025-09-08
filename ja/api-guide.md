@@ -3064,14 +3064,14 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/attachfile/binar
 }
 ```
 
-| 値                    | 	タイプ     | 	説明                                                            |
-|----------------------|----------|----------------------------------------------------------------|
-| header.isSuccessful  | 	Boolean | 	成否                                                            |
-| header.resultCode    | 	Integer | 	失敗コード                                                         |
-| header.resultMessage | 	String  | 	失敗メッセージ                                                       |
-| body.data.fileId     | 	Integer | 	ファイルID                                                        |
-| body.data.fileName   | 	String  | 	ファイル名                                                         |
-| body.data.filePath   | 	String  | 	添付ファイル基本パス <br/>(https://domain/attachFile/filePath/fileName) |
+| 値                    | タイプ    | Not Null | 説明                                                              |
+|----------------------|---------|----------|-------------------------------------------------------------------|
+| header.isSuccessful  | Boolean | O        | 成否                                                              |
+| header.resultCode    | Integer | O        | 失敗コード                                                         |
+| header.resultMessage | String  | O        | 失敗メッセージ                                                       |
+| body.data.fileId     | Integer | O        | ファイルID                                                        |
+| body.data.fileName   | String  | X        | ファイル名                                                         |
+| body.data.filePath   | String  | X        | 添付ファイル基本パス <br/>(https://domain/attachFile/filePath/fileName) |
 
 #### 添付ファイルアップロード例
 
