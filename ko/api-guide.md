@@ -5080,32 +5080,32 @@ curl -X GET \
 }
 ```
 
-| 값                             | 	타입           | 	설명                                                                                                                                                  |
-|-------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful           | 	Boolean      | 	성공 여부                                                                                                                                               |
-| header.resultCode             | 	Integer      | 	실패 코드                                                                                                                                               |
-| header.resultMessage          | 	String       | 	실패 메시지                                                                                                                                              |
-| body.pageNum                  | 	Integer      | 	현재 페이지 번호                                                                                                                                           |
-| body.pageSize                 | 	Integer      | 	검색된 데이터 수                                                                                                                                           |
-| body.totalCount               | 	Integer      | 	총 데이터 수                                                                                                                                             |
-| body.data[].requestId         | 	String       | 	요청 ID                                                                                                                                               |
-| body.data[].recipientSeq      | 	Integer      | 	수신자 시퀀스                                                                                                                                             |
-| body.data[].requestDate       | 	String       | 	발신 일시                                                                                                                                               |
-| body.data[].sendNo            | 	String       | 	발신 번호                                                                                                                                               |
-| body.data[].recipientNo       | 	String       | 	수신 번호                                                                                                                                               |
-| body.data[].countryCode       | 	String       | 	국가 번호                                                                                                                                               |
-| body.data[].sendType          | 	String       | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                     |
-| body.data[].messageType       | 	String       | 	메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                                                                        |
-| body.data[].adYn              | 	String       | 	광고 여부                                                                                                                                               |
-| body.data[].templateId        | 	String       | 	템플릿 ID                                                                                                                                              |
-| body.data[].templateParameter | 	String(json) | 	템플릿 파라미터                                                                                                                                            |
-| body.data[].templateName      | 	String       | 	템플릿명                                                                                                                                                |
-| body.data[].title             | 	String       | 	제목                                                                                                                                                  |
-| body.data[].body              | 	String       | 	본문 내용                                                                                                                                               |
-| body.data[].messageStatus     | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소, DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고 제한)) |
-| body.data[].createUser        | 	String       | 	등록한 사용자                                                                                                                                             |
-| body.data[].createDate        | 	String       | 	등록 날짜                                                                                                                                               |
-| body.data[].updateDate        | 	String       | 	수정 날짜                                                                                                                                               |
+| 값                             | 타입            | Not Null | 설명                                                                                                                                                  |
+|--------------------------------|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful            | Boolean       | O        | 성공 여부                                                                                                                                               |
+| header.resultCode              | Integer       | O        | 실패 코드                                                                                                                                               |
+| header.resultMessage           | String        | O        | 실패 메시지                                                                                                                                              |
+| body.pageNum                   | Integer       | O        | 현재 페이지 번호                                                                                                                                           |
+| body.pageSize                  | Integer       | O        | 검색된 데이터 수                                                                                                                                           |
+| body.totalCount                | Integer       | O        | 총 데이터 수                                                                                                                                             |
+| body.data[].requestId          | String        | O        | 요청 ID                                                                                                                                               |
+| body.data[].recipientSeq       | Integer       | O        | 수신자 시퀀스                                                                                                                                             |
+| body.data[].requestDate        | String        | O        | 발신 일시                                                                                                                                               |
+| body.data[].sendNo             | String        | O        | 발신 번호                                                                                                                                               |
+| body.data[].recipientNo        | String        | O        | 수신 번호                                                                                                                                               |
+| body.data[].countryCode        | String        | O        | 국가 번호                                                                                                                                               |
+| body.data[].sendType           | String        | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                     |
+| body.data[].messageType        | String        | O        | 메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                                                                        |
+| body.data[].adYn               | String        | O        | 광고 여부                                                                                                                                               |
+| body.data[].templateId         | String        | X        | 템플릿 ID                                                                                                                                              |
+| body.data[].templateParameter  | String(json)  | X        | 템플릿 파라미터                                                                                                                                            |
+| body.data[].templateName       | String        | X        | 템플릿명                                                                                                                                                |
+| body.data[].title              | String        | X        | 제목                                                                                                                                                  |
+| body.data[].body               | String        | O        | 본문 내용                                                                                                                                               |
+| body.data[].messageStatus      | String        | O        | 메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소, DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고 제한)) |
+| body.data[].createUser         | String        | X        | 등록한 사용자                                                                                                                                             |
+| body.data[].createDate         | String        | O        | 등록 날짜                                                                                                                                               |
+| body.data[].updateDate         | String        | X        | 수정 날짜                                                                                                                                               |
 
 ### 예약 발송 상세 검색
 

@@ -5063,32 +5063,32 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations' \
 }
 ```
 
-| 値                             | 	タイプ          | 	説明                                                                                                |
-|-------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful           | 	Boolean      | 	成否                                                                                                |
-| header.resultCode             | 	Integer      | 	失敗コード                                                                                             |
-| header.resultMessage          | 	String       | 	失敗メッセージ                                                                                           |
-| body.pageNum                  | 	Integer      | 	現在のページ番号                                                                                          |
-| body.pageSize                 | 	Integer      | 	検索されたデータ数                                                                                         |
-| body.totalCount               | 	Integer      | 	データの総数                                                                                            |
-| body.data[].requestId         | 	String       | 	リクエストID                                                                                           |
-| body.data[].recipientSeq      | 	Integer      | 	受信者シーケンス                                                                                          |
-| body.data[].requestDate       | 	String       | 	発信日時                                                                                              |
-| body.data[].sendNo            | 	String       | 	発信番号                                                                                              |
-| body.data[].recipientNo       | 	String       | 	受信番号                                                                                              |
-| body.data[].countryCode       | 	String       | 	国番号                                                                                               |
-| body.data[].sendType          | 	String       | 	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)                                                                   |
-| body.data[].messageType       | 	String       | 	メッセージタイプ<br/>(SMS,LMS,MMS,AUTH)                                                                   |
-| body.data[].adYn              | 	String       | 	広告かどうか                                                                                            |
-| body.data[].templateId        | 	String       | 	テンプレートID                                                                                          |
-| body.data[].templateParameter | 	String(json) | 	テンプレートパラメータ                                                                                       |
-| body.data[].templateName      | 	String       | 	テンプレート名                                                                                           |
-| body.data[].title             | 	String       | 	タイトル                                                                                              |
-| body.data[].body              | 	String       | 	本文内容                                                                                              |
-| body.data[].messageStatus     | 	String       | 	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信、FAILED_AD:失敗(広告制限)、再送信待機(広告制限)) |
-| body.data[].createUser        | 	String       | 	登録したユーザー                                                                                          |
-| body.data[].createDate        | 	String       | 	登録日                                                                                               |
-| body.data[].updateDate        | 	String       | 	修正日                                                                                               |
+| 値                             | タイプ         | Not Null | 説明                                                                                                |
+|-------------------------------|---------------|----------|-----------------------------------------------------------------------------------------------------|
+| header.isSuccessful           | Boolean       | O        | 成否                                                                                                |
+| header.resultCode             | Integer       | O        | 失敗コード                                                                                             |
+| header.resultMessage          | String        | O        | 失敗メッセージ                                                                                           |
+| body.pageNum                  | Integer       | O        | 現在のページ番号                                                                                          |
+| body.pageSize                 | Integer       | O        | 検索されたデータ数                                                                                         |
+| body.totalCount               | Integer       | O        | データの総数                                                                                            |
+| body.data[].requestId         | String        | O        | リクエストID                                                                                           |
+| body.data[].recipientSeq      | Integer       | O        | 受信者シーケンス                                                                                          |
+| body.data[].requestDate       | String        | O        | 発信日時                                                                                              |
+| body.data[].sendNo            | String        | O        | 発信番号                                                                                              |
+| body.data[].recipientNo       | String        | O        | 受信番号                                                                                              |
+| body.data[].countryCode       | String        | O        | 国番号                                                                                               |
+| body.data[].sendType          | String        | O        | 送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)                                                                   |
+| body.data[].messageType       | String        | O        | メッセージタイプ<br/>(SMS,LMS,MMS,AUTH)                                                                   |
+| body.data[].adYn              | String        | O        | 広告かどうか                                                                                            |
+| body.data[].templateId        | String        | X        | テンプレートID                                                                                          |
+| body.data[].templateParameter | String(json)  | X        | テンプレートパラメータ                                                                                       |
+| body.data[].templateName      | String        | X        | テンプレート名                                                                                           |
+| body.data[].title             | String        | X        | タイトル                                                                                              |
+| body.data[].body              | String        | O        | 本文内容                                                                                              |
+| body.data[].messageStatus     | String        | O        | メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信、FAILED_AD:失敗(広告制限)、再送信待機(広告制限)) |
+| body.data[].createUser        | String        | X        | 登録したユーザー                                                                                          |
+| body.data[].createDate        | String        | O        | 登録日                                                                                               |
+| body.data[].updateDate        | String        | X        | 修正日                                                                                               |
 
 ### 予約送信詳細検索
 
