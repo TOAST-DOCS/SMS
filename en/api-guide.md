@@ -151,19 +151,19 @@ curl -X POST \
 }
 ```
 
-| Value                                           | Type     | Description                                                               |
-|-------------------------------------------------|----------|---------------------------------------------------------------------------|
-| header.isSuccessful                             | 	Boolean | Successful or not                                                         |
-| header.resultCode                               | 	Integer | Failure code                                                              |
-| header.resultMessage                            | 	String  | Failure message                                                           |
-| body.data.requestId                             | 	String  | Request ID                                                                |
-| body.data.statusCode                            | 	String  | Request status code (1:Requesting, 2:Request completed, 3:Request failed) |
-| body.data.senderGroupingKey                     | 	String  | Sender group key                                                          |
-| body.data.sendResultList[].recipientNo          | String   | Recipient number                                                          |
-| body.data.sendResultList[].resultCode           | Integer  | Result code                                                               |
-| body.data.sendResultList[].resultMessage        | String   | Result message                                                            |
-| body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                 |
-| body.data.sendResultList[].recipientGroupingKey | String   | Recipient group key                                                       |
+| Value                                           | Type    | Not Null | Description                                                               |
+|-------------------------------------------------|---------|----------|---------------------------------------------------------------------------|
+| header.isSuccessful                             | Boolean | O        | Successful or not                                                         |
+| header.resultCode                               | Integer | O        | Failure code                                                              |
+| header.resultMessage                            | String  | O        | Failure message                                                           |
+| body.data.requestId                             | String  | O        | Request ID                                                                |
+| body.data.statusCode                            | String  | O        | Request status code (1:Requesting, 2:Request completed, 3:Request failed) |
+| body.data.senderGroupingKey                     | String  | X        | Sender group key                                                          |
+| body.data.sendResultList[].recipientNo          | String  | O        | Recipient number                                                          |
+| body.data.sendResultList[].resultCode           | Integer | X        | Result code                                                               |
+| body.data.sendResultList[].resultMessage        | String  | X        | Result message                                                            |
+| body.data.sendResultList[].recipientSeq         | Integer | O        | Recipient sequence (mtPr)                                                 |
+| body.data.sendResultList[].recipientGroupingKey | String  | X        | Recipient group key                                                       |
 
 #### Example of Sending Short SMS (general domestic recipient numbers)
 
