@@ -2513,12 +2513,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/sms' 
 }
 ```
 
-| 値                    | 	タイプ     | 	説明      |
-|----------------------|----------|----------|
-| header.isSuccessful  | 	Boolean | 	成否      |
-| header.resultCode    | 	Integer | 	失敗コード   |
-| header.resultMessage | 	String  | 	失敗メッセージ |
-| body.data.requestId  | 	String  | 	リクエストID |
+| 値                    | タイプ    | Not Null  | 説明        |
+|----------------------|---------|------------|-------------|
+| header.isSuccessful  | Boolean | O          | 成否        |
+| header.resultCode    | Integer | O          | 失敗コード  |
+| header.resultMessage | String  | O          | 失敗メッセージ |
+| body.data.requestId  | String  | O          | リクエストID |
 
 ### タグLMS送信
 
