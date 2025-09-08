@@ -1341,19 +1341,19 @@ curl -X POST \
 }
 ```
 
-| 값                                               | 	타입      | 	설명                                 |
-|-------------------------------------------------|----------|-------------------------------------|
-| header.isSuccessful                             | 	Boolean | 	성공 여부                              |
-| header.resultCode                               | 	Integer | 	실패 코드                              |
-| header.resultMessage                            | 	String  | 	실패 메시지                             |
-| body.data.requestId                             | 	String  | 	요청 ID                              |
-| body.data.statusCode                            | 	String  | 	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패) |
-| body.data.senderGroupingKey                     | 	String  | 	발신자 그룹 키                           |
-| body.data.sendResultList[].recipientNo          | String   | 수신 번호                               |
-| body.data.sendResultList[].resultCode           | Integer  | 결과 코드                               |
-| body.data.sendResultList[].resultMessage        | String   | 결과 메시지                              |
-| body.data.sendResultList[].recipientSeq         | Integer  | 수신자 시퀀스(mtPr)                       |
-| body.data.sendResultList[].recipientGroupingKey | String   | 수신자 그룹 키                            |
+| 값                                               | 타입      | Not Null | 설명                                      |
+|-------------------------------------------------|-----------|----------|-------------------------------------------|
+| header.isSuccessful                             | Boolean   | O        | 성공 여부                                 |
+| header.resultCode                               | Integer   | O        | 실패 코드                                 |
+| header.resultMessage                            | String    | O        | 실패 메시지                               |
+| body.data.requestId                             | String    | O        | 요청 ID                                   |
+| body.data.statusCode                            | String    | O        | 요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패) |
+| body.data.senderGroupingKey                     | String    | X        | 발신자 그룹 키                            |
+| body.data.sendResultList[].recipientNo          | String    | O        | 수신 번호                                 |
+| body.data.sendResultList[].resultCode           | Integer   | X        | 결과 코드                                 |
+| body.data.sendResultList[].resultMessage        | String    | X        | 결과 메시지                               |
+| body.data.sendResultList[].recipientSeq         | Integer   | O        | 수신자 시퀀스(mtPr)                       |
+| body.data.sendResultList[].recipientGroupingKey | String    | X        | 수신자 그룹 키                            |
 
 #### 예제
 
