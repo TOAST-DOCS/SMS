@@ -1658,40 +1658,41 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
 }
 ```
 
-| 値                              | 	タイプ     | 	説明                                                    |
-|--------------------------------|----------|--------------------------------------------------------|
-| header.isSuccessful            | 	Boolean | 	成否                                                    |
-| header.resultCode              | 	Integer | 	失敗コード                                                 |
-| header.resultMessage           | 	String  | 	失敗メッセージ                                               |
-| body.data.requestId            | 	String  | 	リクエストID                                               |
-| body.data.requestDate          | 	String  | 	発信日時                                                  |
-| body.data.resultDate           | 	String  | 	受信日時                                                  |
-| body.data.templateId           | 	String  | 	テンプレートID                                              |
-| body.data.templateName         | 	String  | 	テンプレート名                                               |
-| body.data.categoryId           | 	Integer | 	カテゴリーID                                               |
-| body.data.categoryName         | 	String  | 	カテゴリー名                                                |
-| body.data.body                 | 	String  | 	本文内容                                                  |
-| body.data.sendNo               | 	String  | 	発信番号                                                  |
-| body.data.countryCode          | 	String  | 	国番号                                                   |
-| body.data.recipientNo          | 	String  | 	受信番号                                                  |
-| body.data.msgStatus            | 	String  | 	メッセージステータスコード                                         |
-| body.data.msgStatusName        | 	String  | 	メッセージステータスコード名                                        |
-| body.data.resultCode           | 	String  | 	受信結果コード[[受信結果コード表](./error-code/#emma-v3)]            |
-| body.data.resultCodeName       | 	String  | 	受信結果コード名                                              |
-| body.data.telecomCode          | 	Integer | 	サービスプロバイダーコード                                         |
-| body.data.telecomCodeName      | 	String  | 	サービスプロバイダー名                                           |
-| body.data.recipientSeq         | 	Integer | 	送信詳細ID(詳細検索時は必須)(旧mtPr)                               |
-| body.data.sendType             | 	String  | 	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)                       |
-| body.data.messageType          | 	String  | 	メッセージタイプ(SMS/LMS/MMS/AUTH)                            |
-| body.data.messageCount         | Integer  | 送信されたメッセージの件数                                          |
-| body.data.userId               | 	String  | 	送信リクエストID                                             |
-| body.data.adYn                 | 	String  | 	広告かどうか                                                |
-| body.data.originCode           | String   | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
-| body.data.senderGroupingKey    | 	String  | 	発信者グループキー                                             |
-| body.data.recipientGroupingKey | 	String  | 	受信者グループキー                                             |
-| body.data.dlr.dlrStatus        | String   | DLRステータスコード                                                        |
-| body.data.dlr.networkCode      | String   | DLRネットワークコード                                                     |
-| body.data.dlr.errorCode        | String   | DLRエラーコード                                                        |
+| 値                              | タイプ    | Not Null | 説明                                                                              |
+|--------------------------------|---------|----------|-----------------------------------------------------------------------------------|
+| header.isSuccessful            | Boolean | O        | 成否                                                                              |
+| header.resultCode              | Integer | O        | 失敗コード                                                                         |
+| header.resultMessage           | String  | O        | 失敗メッセージ                                                                      |
+| body.data.requestId            | String  | O        | リクエストID                                                                       |
+| body.data.requestDate          | String  | O        | 発信日時                                                                          |
+| body.data.resultDate           | String  | X        | 受信日時                                                                          |
+| body.data.templateId           | String  | X        | テンプレートID                                                                    |
+| body.data.templateName         | String  | X        | テンプレート名                                                                     |
+| body.data.categoryId           | Integer | X        | カテゴリーID                                                                      |
+| body.data.categoryName         | String  | X        | カテゴリー名                                                                      |
+| body.data.body                 | String  | O        | 本文内容                                                                          |
+| body.data.sendNo               | String  | O        | 発信番号                                                                          |
+| body.data.countryCode          | String  | O        | 国番号                                                                           |
+| body.data.recipientNo          | String  | O        | 受信番号                                                                          |
+| body.data.msgStatus            | String  | X        | メッセージステータスコード                                                           |
+| body.data.msgStatusName        | String  | O        | メッセージステータスコード名                                                        |
+| body.data.resultCode           | String  | X        | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)]                           |
+| body.data.resultCodeName       | String  | X        | 受信結果コード名                                                                   |
+| body.data.telecomCode          | Integer | X        | サービスプロバイダーコード                                                          |
+| body.data.telecomCodeName      | String  | X        | サービスプロバイダー名                                                             |
+| body.data.recipientSeq         | Integer | O        | 送信詳細ID(詳細検索時は必須)(旧mtPr)                                                 |
+| body.data.sendType             | String  | O        | 送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)                                               |
+| body.data.messageType          | String  | O        | メッセージタイプ(SMS/LMS/MMS/AUTH)                                                 |
+| body.data.messageCount         | Integer | X        | 送信されたメッセージの件数                                                          |
+| body.data.userId               | String  | X        | 送信リクエストID                                                                   |
+| body.data.adYn                 | String  | O        | 広告かどうか                                                                      |
+| body.data.originCode           | String  | X        | 識別コード(特殊なタイプの付加通信事業者登録証に記載されている記号、文字、空白を除外した登録番号9桁の数字) |
+| body.data.resultMessage        | String  | X        | 結果メッセージ                                                                     |
+| body.data.senderGroupingKey    | String  | X        | 発信者グループキー                                                                |
+| body.data.recipientGroupingKey | String  | X        | 受信者グループキー                                                                |
+| body.data.dlr.dlrStatus        | String  | X        | DLRステータスコード                                                               |
+| body.data.dlr.networkCode      | String  | X        | DLRネットワークコード                                                             |
+| body.data.dlr.errorCode        | String  | X        | DLRエラーコード                                                                   |
 
 ### 認証SMS国際送信コンバージョン
 
