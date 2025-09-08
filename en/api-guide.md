@@ -3395,22 +3395,22 @@ curl -X GET \
 }
 ```
 
-| Value                        | Type     | Description               |
-|------------------------------|----------|---------------------------|
-| header.isSuccessful          | 	Boolean | Successful or not         |
-| header.resultCode            | 	Integer | Failure code              |
-| header.resultMessage         | 	String  | Failure message           |
-| body.data[].categoryId       | 	Integer | Category ID               |
-| body.data[].categoryParentId | 	Integer | Parent category ID        |
-| body.data[].depth            | 	Integer | Depth of category         |
-| body.data[].sort             | 	Integer | Sorting order of category |
-| body.data[].categoryName     | 	String  | Category name             |
-| body.data[].categoryDesc     | 	String  | Category description      |
-| body.data[].useYn            | 	String  | Use or not                |
-| body.data[].createDate       | 	String  | Date of registration      |
-| body.data[].createUser       | 	String  | Registered user           |
-| body.data[].updateDate       | 	String  | Date of modification      |
-| body.data[].updateUser       | 	String  | Modified user             |
+| Value                        | Type    | Not Null | Description               |
+|------------------------------|---------|----------|---------------------------|
+| header.isSuccessful          | Boolean | O        | Successful or not         |
+| header.resultCode            | Integer | O        | Failure code              |
+| header.resultMessage         | String  | O        | Failure message           |
+| body.data[].categoryId       | Integer | O        | Category ID               |
+| body.data[].categoryParentId | Integer | X        | Parent category ID        |
+| body.data[].depth            | Integer | X        | Depth of category         |
+| body.data[].sort             | Integer | X        | Sorting order of category |
+| body.data[].categoryName     | String  | X        | Category name             |
+| body.data[].categoryDesc     | String  | X        | Category description      |
+| body.data[].useYn            | String  | O        | Use or not                |
+| body.data[].createDate       | String  | X        | Date of registration      |
+| body.data[].createUser       | String  | X        | Registered user           |
+| body.data[].updateDate       | String  | X        | Date of modification      |
+| body.data[].updateUser       | String  | X        | Modified user             |
 
 ### Modify Category
 

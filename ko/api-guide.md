@@ -3396,22 +3396,22 @@ curl -X GET \
 }
 ```
 
-| 값                            | 	타입      | 	설명         |
-|------------------------------|----------|-------------|
-| header.isSuccessful          | 	Boolean | 	성공 여부      |
-| header.resultCode            | 	Integer | 	실패 코드      |
-| header.resultMessage         | 	String  | 	실패 메시지     |
-| body.data[].categoryId       | 	Integer | 	카테고리 ID    |
-| body.data[].categoryParentId | 	Integer | 	부모 카테고리 ID |
-| body.data[].depth            | 	Integer | 	카테고리 깊이    |
-| body.data[].sort             | 	Integer | 	카테고리 정렬 순서 |
-| body.data[].categoryName     | 	String  | 	카테고리명      |
-| body.data[].categoryDesc     | 	String  | 	카테고리 설명    |
-| body.data[].useYn            | 	String  | 	사용 여부      |
-| body.data[].createDate       | 	String  | 	등록 날짜      |
-| body.data[].createUser       | 	String  | 	등록한 사용자    |
-| body.data[].updateDate       | 	String  | 	수정 날짜      |
-| body.data[].updateUser       | 	String  | 	수정한 사용자    |
+| 값                            | 타입     | Not Null | 설명           |
+|------------------------------|---------|----------|----------------|
+| header.isSuccessful          | Boolean | O        | 성공 여부      |
+| header.resultCode            | Integer | O        | 실패 코드      |
+| header.resultMessage         | String  | O        | 실패 메시지    |
+| body.data[].categoryId       | Integer | O        | 카테고리 ID    |
+| body.data[].categoryParentId | Integer | X        | 부모 카테고리 ID |
+| body.data[].depth            | Integer | X        | 카테고리 깊이  |
+| body.data[].sort             | Integer | X        | 카테고리 정렬 순서 |
+| body.data[].categoryName     | String  | X        | 카테고리명     |
+| body.data[].categoryDesc     | String  | X        | 카테고리 설명  |
+| body.data[].useYn            | String  | O        | 사용 여부      |
+| body.data[].createDate       | String  | X        | 등록 날짜      |
+| body.data[].createUser       | String  | X        | 등록한 사용자  |
+| body.data[].updateDate       | String  | X        | 수정 날짜      |
+| body.data[].updateUser       | String  | X        | 수정한 사용자  |
 
 ### 카테고리 수정
 

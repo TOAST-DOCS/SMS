@@ -3382,22 +3382,22 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C
 }
 ```
 
-| 値                                   | 	タイプ     | 	説明         |
-|-------------------------------------|----------|-------------|
-| header.isSuccessful                 | 	Boolean | 	成否         |
-| header.resultCode                   | 	Integer | 	失敗コード      |
-| header.resultMessage                | 	String  | 	失敗メッセージ    |
-| body.data[].categoryId              | 	Integer | 	カテゴリーID    |
-| body.data[].categoryParentId        | 	Integer | 	親カテゴリーID   |
-| body.data[].depth                   | 	Integer | 	カテゴリーの深さ   |
-| body.data[].sort                    | 	Integer | 	カテゴリーソート順序 |
-| body.data[].categoryName            | 	String  | 	カテゴリー名     |
-| body.data[].categorycategoryDescame | 	String  | 	カテゴリー説明    |
-| body.data[].useYn                   | 	String  | 	使用するかどうか   |
-| body.data[].createDate              | 	String  | 	登録日        |
-| body.data[].createUser              | 	String  | 	登録したユーザー   |
-| body.data[].updateDate              | 	String  | 	修正日        |
-| body.data[].updateUser              | 	String  | 	修正したユーザー   |
+| 値                                   | タイプ    | Not Null | 説明               |
+|-------------------------------------|---------|----------|-------------------|
+| header.isSuccessful                 | Boolean | O        | 成否               |
+| header.resultCode                   | Integer | O        | 失敗コード          |
+| header.resultMessage                | String  | O        | 失敗メッセージ       |
+| body.data[].categoryId              | Integer | O        | カテゴリーID        |
+| body.data[].categoryParentId        | Integer | X        | 親カテゴリーID       |
+| body.data[].depth                   | Integer | X        | カテゴリーの深さ     |
+| body.data[].sort                    | Integer | X        | カテゴリーソート順序  |
+| body.data[].categoryName            | String  | X        | カテゴリー名         |
+| body.data[].categorycategoryDescame | String  | X        | カテゴリー説明       |
+| body.data[].useYn                   | String  | O        | 使用するかどうか     |
+| body.data[].createDate              | String  | X        | 登録日             |
+| body.data[].createUser              | String  | X        | 登録したユーザー     |
+| body.data[].updateDate              | String  | X        | 修正日             |
+| body.data[].updateUser              | String  | X        | 修正したユーザー     |
 
 ### カテゴリー修正
 
