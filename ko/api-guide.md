@@ -4633,22 +4633,22 @@ curl -X GET \
 }
 ```
 
-| 값                    | 타입      | 설명            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 성공 여부         |
-| header.resultCode    | Integer | 실패 코드         |
-| header.resultMessage | String  | 실패 메시지        |
-| body.data            | List    | 통계 이벤트 객체 리스트 |
+| 값                    | 타입     | Not Null | 설명              |
+|----------------------|---------|----------|------------------|
+| header.isSuccessful  | Boolean | O        | 성공 여부           |
+| header.resultCode    | Integer | O        | 실패 코드           |
+| header.resultMessage | String  | O        | 실패 메시지          |
+| body.data            | List    | O        | 통계 이벤트 객체 리스트 |
 
 #### 통계 이벤트 객체
-| 값                 | 타입      | 설명                         |
-|-------------------|---------|----------------------------|
-| eventDateTime     | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
-| events            | Object  | 통계 값 객체                    |
-| events.requested  | Integer | 요청 개수                      |
-| events.sent       | Integer | 발송 개수                      |
-| events.sentFailed | Integer | 실패 개수                      |
-| events.received   | Integer | 성공 개수                      |
+| 값                | 타입      | Not Null | 설명                           |
+|-------------------|---------|----------|--------------------------------|
+| eventDateTime     | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
+| events            | Object  | O        | 통계 값 객체                      |
+| events.requested  | Integer | X        | 요청 개수                        |
+| events.sent       | Integer | X        | 발송 개수                        |
+| events.sentFailed | Integer | X        | 실패 개수                        |
+| events.received   | Integer | X        | 성공 개수                        |
 
 ### 통계 검색 - 요청 시간 기반
 

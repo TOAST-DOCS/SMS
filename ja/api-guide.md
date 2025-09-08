@@ -4616,22 +4616,22 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                   | タイプ     | 説明           |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 成否        |
-| header.resultCode    | Integer | 失敗コード        |
-| header.resultMessage | String  | 失敗メッセージ       |
-| body.data            | List    | 統計イベントオブジェクトリスト |
+| 値                   | タイプ    | Not Null | 説明                      |
+|----------------------|---------|----------|---------------------------|
+| header.isSuccessful  | Boolean | O        | 成否                      |
+| header.resultCode    | Integer | O        | 失敗コード                |
+| header.resultMessage | String  | O        | 失敗メッセージ            |
+| body.data            | List    | O        | 統計イベントオブジェクトリスト |
 
 #### 統計イベントオブジェクト
-| 値                | タイプ     | 説明                        |
-|-------------------|---------|----------------------------|
-| eventDateTime     | String  | 表示名<br/>分別、時間別、曜日別、月別 |
-| events            | Object  | 統計値オブジェクト                   |
-| events.requested  | Integer | リクエスト数                     |
-| events.sent       | Integer | 送信数                     |
-| events.sentFailed | Integer | 失敗数                     |
-| events.received   | Integer | 成功数                     |
+| 値                | タイプ    | Not Null | 説明                              |
+|-------------------|---------|----------|-----------------------------------|
+| eventDateTime     | String  | O        | 表示名<br/>分別、時間別、曜日別、月別 |
+| events            | Object  | O        | 統計値オブジェクト                |
+| events.requested  | Integer | X        | リクエスト数                      |
+| events.sent       | Integer | X        | 送信数                            |
+| events.sentFailed | Integer | X        | 失敗数                            |
+| events.received   | Integer | X        | 成功数                            |
 
 ### 統計検索 - リクエスト時間ベース
 

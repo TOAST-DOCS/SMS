@@ -4626,23 +4626,23 @@ curl -X GET \
 }
 ```
 
-| Value                    | Type      | Description            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | Successful or not         |
-| header.resultCode    | Integer | Failure code       |
-| header.resultMessage | String  | Failure message        |
-| body.data            | List    | Statistical event objects |
+| Value                    | Type    | Not Null | Description               |
+|--------------------------|---------|----------|---------------------------|
+| header.isSuccessful      | Boolean | O        | Successful or not         |
+| header.resultCode        | Integer | O        | Failure code              |
+| header.resultMessage     | String  | O        | Failure message           |
+| body.data                | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects
 
-| Value                 | Type      | Description                         |
-|-------------------|---------|----------------------------|
-| eventDateTime     | String  | Display name<br/>Minutely, Hourly, Daily, Monthly |
-| events            | Object  | Statistics value object                    |
-| events.requested  | Integer | Number of requests                      |
-| events.sent       | Integer | Number of sent items             |
-| events.sentFailed | Integer | Number of failures                    |
-| events.received   | Integer | Number of successes                      |
+| Value                 | Type    | Not Null | Description                                        |
+|-----------------------|---------|----------|----------------------------------------------------|
+| eventDateTime         | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly |
+| events                | Object  | O        | Statistics value object                            |
+| events.requested      | Integer | X        | Number of requests                                 |
+| events.sent           | Integer | X        | Number of sent items                               |
+| events.sentFailed     | Integer | X        | Number of failures                                 |
+| events.received       | Integer | X        | Number of successes                                |
 
 ### Statistics Search - Based on Request Time
 
