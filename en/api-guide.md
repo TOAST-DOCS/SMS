@@ -6418,11 +6418,11 @@ curl -X DELETE \
 }
 ```
 
-| Value                | 	Type    | 	Description       |
-|----------------------|----------|--------------------|
-| header.isSuccessful  | 	Boolean | 	Successful or not |
-| header.resultCode    | 	Integer | 	Failure code      |
-| header.resultMessage | 	String  | 	Failure message   |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
 
 ### Register Phone Number
 
