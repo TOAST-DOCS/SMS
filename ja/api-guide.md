@@ -2170,24 +2170,24 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender?requ
 }
 ```
 
-| 値                            | 	タイプ     | 	説明          |
-|------------------------------|----------|--------------|
-| header.isSuccessful          | 	Boolean | 	成否          |
-| header.resultCode            | 	Integer | 	失敗コード       |
-| header.resultMessage         | 	String  | 	失敗メッセージ     |
-| body.data[].requestId        | String   | リクエストID      |
-| body.data[].requestDate      | String   | リクエスト時間      |
-| body.data[].masterStatusCode | String   | 大量送信ステータスコード |
-| body.data[].masterStatus     | String   | 大量送信ステータス    |
-| body.data[].templateId       | String   | テンプレートID     |
-| body.data[].sendNo           | String   | 発信者番号        |
-| body.data[].title            | String   | タイトル         |
-| body.data[].body             | String   | 内容           |
-| body.data[].adYn             | String   | 広告かどうか       |
-| body.data[].autoSendYn       | String   | 自動送信を行うかどうか  |
-| body.data[].sendErrorCount   | Integer  | エラー受信者件数     |
-| body.data[].createUser       | String   | 作成者          |
-| body.data[].createDate       | String   | 作成日時         |
+| 値                            | タイプ     | Not Null  | 説明               |
+|------------------------------|----------|------------|-------------------|
+| header.isSuccessful          | Boolean  | O          | 成否               |
+| header.resultCode            | Integer  | O          | 失敗コード           |
+| header.resultMessage         | String   | O          | 失敗メッセージ        |
+| body.data[].requestId        | String   | O          | リクエストID         |
+| body.data[].requestDate      | String   | O          | リクエスト時間        |
+| body.data[].masterStatusCode | String   | O          | 大量送信ステータスコード |
+| body.data[].masterStatus     | String   | X          | 大量送信ステータス     |
+| body.data[].templateId       | String   | X          | テンプレートID       |
+| body.data[].sendNo           | String   | O          | 発信者番号          |
+| body.data[].title            | String   | X          | タイトル           |
+| body.data[].body             | String   | O          | 内容              |
+| body.data[].adYn             | String   | X          | 広告かどうか         |
+| body.data[].autoSendYn       | String   | O          | 自動送信を行うかどうか  |
+| body.data[].sendErrorCount   | Integer  | X          | エラー受信者件数      |
+| body.data[].createUser       | String   | X          | 作成者            |
+| body.data[].createDate       | String   | O          | 作成日時           |
 
 ### 大量送信受信者リスト検索
 

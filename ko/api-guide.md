@@ -2183,24 +2183,24 @@ curl -X GET \
 }
 ```
 
-| 값                            | 	타입      | 	설명         |
-|------------------------------|----------|-------------|
-| header.isSuccessful          | 	Boolean | 	성공 여부      |
-| header.resultCode            | 	Integer | 	실패 코드      |
-| header.resultMessage         | 	String  | 	실패 메시지     |
-| body.data[].requestId        | String   | 요청 ID       |
-| body.data[].requestDate      | String   | 요청 시간       |
-| body.data[].masterStatusCode | String   | 대량 발송 상태 코드 |
-| body.data[].masterStatus     | String   | 대량 발송 상태    |
-| body.data[].templateId       | String   | 템플릿 ID      |
-| body.data[].sendNo           | String   | 발신자 번호      |
-| body.data[].title            | String   | 제목          |
-| body.data[].body             | String   | 내용          |
-| body.data[].adYn             | String   | 광고 여부       |
-| body.data[].autoSendYn       | String   | 자동 발송 여부    |
-| body.data[].sendErrorCount   | Integer  | 에러 수신자 건수   |
-| body.data[].createUser       | String   | 생성자         |
-| body.data[].createDate       | String   | 생성 일시       |
+| 값                            | 타입      | Not Null | 설명            |
+|------------------------------|----------|----------|----------------|
+| header.isSuccessful          | Boolean  | O        | 성공 여부          |
+| header.resultCode            | Integer  | O        | 실패 코드          |
+| header.resultMessage         | String   | O        | 실패 메시지         |
+| body.data[].requestId        | String   | O        | 요청 ID          |
+| body.data[].requestDate      | String   | O        | 요청 시간          |
+| body.data[].masterStatusCode | String   | O        | 대량 발송 상태 코드    |
+| body.data[].masterStatus     | String   | X        | 대량 발송 상태       |
+| body.data[].templateId       | String   | X        | 템플릿 ID         |
+| body.data[].sendNo           | String   | O        | 발신자 번호         |
+| body.data[].title            | String   | X        | 제목             |
+| body.data[].body             | String   | O        | 내용             |
+| body.data[].adYn             | String   | X        | 광고 여부          |
+| body.data[].autoSendYn       | String   | O        | 자동 발송 여부       |
+| body.data[].sendErrorCount   | Integer  | X        | 에러 수신자 건수      |
+| body.data[].createUser       | String   | X        | 생성자            |
+| body.data[].createDate       | String   | O        | 생성 일시          |
 
 ### 대량 발송 수신자 목록 검색
 

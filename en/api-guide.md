@@ -2180,24 +2180,24 @@ curl -X GET \
 }
 ```
 
-| Value                        | 	Type    | 	Description               |
-|------------------------------|----------|----------------------------|
-| header.isSuccessful          | 	Boolean | Successful or not          |
-| header.resultCode            | 	Integer | 	Failure code              |
-| header.resultMessage         | 	String  | 	Failure message           |
-| body.data[].requestId        | String   | Request ID                 |
-| body.data[].requestDate      | String   | Request time               |
-| body.data[].masterStatusCode | String   | Mass delivery status code  |
-| body.data[].masterStatus     | String   | Mass delivery status       |
-| body.data[].templateId       | String   | Template ID                |
-| body.data[].sendNo           | String   | Sender number              |
-| body.data[].title            | String   | Title                      |
-| body.data[].body             | String   | Body                       |
-| body.data[].adYn             | String   | Ad or Not                  |
-| body.data[].autoSendYn       | String   | Auto delivery or not       |
-| body.data[].sendErrorCount   | Integer  | Error counts in recipients |
-| body.data[].createUser       | String   | Creator                    |
-| body.data[].createDate       | String   | Date and time of creation  |
+| Value                        | Type    | Not Null | Description               |
+|------------------------------|---------|----------|---------------------------|
+| header.isSuccessful          | Boolean | O        | Successful or not         |
+| header.resultCode            | Integer | O        | Failure code              |
+| header.resultMessage         | String  | O        | Failure message           |
+| body.data[].requestId        | String  | O        | Request ID                |
+| body.data[].requestDate      | String  | O        | Request time              |
+| body.data[].masterStatusCode | String  | O        | Mass delivery status code |
+| body.data[].masterStatus     | String  | X        | Mass delivery status      |
+| body.data[].templateId       | String  | X        | Template ID               |
+| body.data[].sendNo           | String  | O        | Sender number             |
+| body.data[].title            | String  | X        | Title                     |
+| body.data[].body             | String  | O        | Body                      |
+| body.data[].adYn             | String  | X        | Ad or Not                 |
+| body.data[].autoSendYn       | String  | O        | Auto delivery or not      |
+| body.data[].sendErrorCount   | Integer | X        | Error counts in recipients|
+| body.data[].createUser       | String  | X        | Creator                   |
+| body.data[].createDate       | String  | O        | Date and time of creation |
 
 ### List Recipients of Mass Delivery
 
