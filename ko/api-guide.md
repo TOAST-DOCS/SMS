@@ -4043,39 +4043,39 @@ curl -X GET \
 }
 ```
 
-| 값                                         | 	타입      | 	설명                              |
-|-------------------------------------------|----------|----------------------------------|
-| header.isSuccessful                       | 	Boolean | 	성공 여부                           |
-| header.resultCode                         | 	Integer | 	실패 코드                           |
-| header.resultMessage                      | 	String  | 	실패 메시지                          |
-| body.pageNum                              | 	Integer | 	현재 페이지 번호                       |
-| body.pageSize                             | 	Integer | 	검색된 데이터 수                       |
-| body.totalCount                           | 	Integer | 	총 데이터 수                         |
-| body.data.templateId                      | 	String  | 	템플릿 ID                          |
-| body.data.serviceId                       | 	Integer | 	서비스 ID(내부용, 미사용값)               |
-| body.data.categoryId                      | 	Integer | 	카테고리 ID                         |
-| body.data.categoryName                    | 	String  | 	카테고리명                           |
-| body.data.sort                            | 	Integer | 	정렬값                             |
-| body.data.templateName                    | 	String  | 	템플릿명                            |
-| body.data.templateDesc                    | 	String  | 	템플릿 설명                          |
-| body.data.useYn                           | 	String  | 	사용 여부                           |
-| body.data.priority                        | 	String  | 	우선순위값(미사용값)                     |
-| body.data.sendNo                          | 	String  | 	발신 번호                           |
-| body.data.sendType                        | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
-| body.data.sendTypeName                    | 	String  | 	발송 유형명                          |
-| body.data.title                           | 	String  | 	제목                              |
-| body.data.body                            | 	String  | 	본문 내용                           |
-| body.data.attachFileYn                    | 	String  | 	첨부 파일 여부(Y/N)                   |
-| body.data.delYn                           | 	String  | 	삭제여부(Y/N), 현재 상태 표기용으로만 사용      |
-| body.data.createDate                      | 	String  | 	등록 날짜                           |
-| body.data.createUser                      | 	String  | 	등록한 사용자                         |
-| body.data.updateDate                      | 	String  | 	수정 날짜                           |
-| body.data.updateUser                      | 	String  | 	수정한 사용자                         |
-| body.data[].attachFileList[].fileId       | 	Integer | 	파일 ID                           |
-| body.data[].attachFileList[].filePath     | 	String  | 	파일 저장경로(내부용)                    |
-| body.data[].attachFileList[].filename     | 	String  | 	파일명                             |
-| body.data[].attachFileList[].saveFileName | 	String  | 	저장된 첨부파일명                       |
-| body.data[].attachFileList[].uploadType   | 	String  | 	업로드 타입                          |
+| 값                                         | 타입     | Not Null | 설명                                |
+|-------------------------------------------|---------|----------|-------------------------------------|
+| header.isSuccessful                       | Boolean | O        | 성공 여부                             |
+| header.resultCode                         | Integer | O        | 실패 코드                             |
+| header.resultMessage                      | String  | O        | 실패 메시지                            |
+| body.pageNum                              | Integer | O        | 현재 페이지 번호                         |
+| body.pageSize                             | Integer | O        | 검색된 데이터 수                         |
+| body.totalCount                           | Integer | O        | 총 데이터 수                           |
+| body.data.templateId                      | String  | O        | 템플릿 ID                            |
+| body.data.serviceId                       | Integer | O        | 서비스 ID(내부용, 미사용값)                 |
+| body.data.categoryId                      | Integer | X        | 카테고리 ID                           |
+| body.data.categoryName                    | String  | X        | 카테고리명                             |
+| body.data.sort                            | Integer | X        | 정렬값                               |
+| body.data.templateName                    | String  | X        | 템플릿명                              |
+| body.data.templateDesc                    | String  | X        | 템플릿 설명                            |
+| body.data.useYn                           | String  | X        | 사용 여부                             |
+| body.data.priority                        | String  | X        | 우선순위값(미사용값)                       |
+| body.data.sendNo                          | String  | X        | 발신 번호                             |
+| body.data.sendType                        | String  | X        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)   |
+| body.data.sendTypeName                    | String  | X        | 발송 유형명                            |
+| body.data.title                           | String  | X        | 제목                                |
+| body.data.body                            | String  | X        | 본문 내용                             |
+| body.data.attachFileYn                    | String  | X        | 첨부 파일 여부(Y/N)                     |
+| body.data.delYn                           | String  | X        | 삭제여부(Y/N), 현재 상태 표기용으로만 사용        |
+| body.data.createDate                      | String  | X        | 등록 날짜                             |
+| body.data.createUser                      | String  | X        | 등록한 사용자                           |
+| body.data.updateDate                      | String  | X        | 수정 날짜                             |
+| body.data.updateUser                      | String  | X        | 수정한 사용자                           |
+| body.data[].attachFileList[].fileId       | Integer | O        | 파일 ID                             |
+| body.data[].attachFileList[].filePath     | String  | X        | 파일 저장경로(내부용)                      |
+| body.data[].attachFileList[].filename     | String  | X        | 파일명                               |
+| body.data[].attachFileList[].saveFileName | String  | X        | 저장된 첨부파일명                         |
+| body.data[].attachFileList[].uploadType   | String  | X        | 업로드 타입                            |
 
 ### 템플릿 수정
 

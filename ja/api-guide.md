@@ -4029,39 +4029,39 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
 }
 ```
 
-| 値                                         | 	タイプ     | 	説明                              |
-|-------------------------------------------|----------|----------------------------------|
-| header.isSuccessful                       | 	Boolean | 	成否                              |
-| header.resultCode                         | 	Integer | 	失敗コード                           |
-| header.resultMessage                      | 	String  | 	失敗メッセージ                         |
-| body.pageNum                              | 	Integer | 	現在のページ番号                        |
-| body.pageSize                             | 	Integer | 	検索されたデータ数                       |
-| body.totalCount                           | 	Integer | 	データの総数                          |
-| body.data.templateId                      | 	String  | 	テンプレートID                        |
-| body.data.serviceId                       | 	Integer | 	サービスID(内部用、未使用値)                |
-| body.data.categoryId                      | 	Integer | 	カテゴリーID                         |
-| body.data.categoryName                    | 	String  | 	カテゴリー名                          |
-| body.data.sort                            | 	Integer | 	ソート値                            |
-| body.data.templateName                    | 	String  | 	テンプレート名                         |
-| body.data.templateDesc                    | 	String  | 	テンプレート説明                        |
-| body.data.useYn                           | 	String  | 	使用するかどうか                        |
-| body.data.priority                        | 	String  | 	優先順位値(未使用値)                     |
-| body.data.sendNo                          | 	String  | 	発信番号                            |
-| body.data.sendType                        | 	String  | 	送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth) |
-| body.data.sendTypeName                    | 	String  | 	送信タイプ名                          |
-| body.data.title                           | 	String  | 	タイトル                            |
-| body.data.body                            | 	String  | 	本文内容                            |
-| body.data.attachFileYn                    | 	String  | 	添付ファイルかどうか(Y/N)                 |
-| body.data.delYn                           | 	String  | 	削除Y/N、現在態表記用でのみ使用               |
-| body.data.createDate                      | 	String  | 	登録日                             |
-| body.data.createUser                      | 	String  | 	登録したユーザー                        |
-| body.data.updateDate                      | 	String  | 	修正日                             |
-| body.data.updateUser                      | 	String  | 	修正したユーザー                        |
-| body.data[].attachFileList[].fileId       | 	Integer | 	ファイルID                          |
-| body.data[].attachFileList[].filePath     | 	String  | 	ファイル保存パス(内部用)                   |
-| body.data[].attachFileList[].filename     | 	String  | 	ファイル名                           |
-| body.data[].attachFileList[].saveFileName | 	String  | 	保存された添付ファイル名                    |
-| body.data[].attachFileList[].uploadType   | 	String  | 	アップロードタイプ                       |
+| 値                                         | タイプ     | Not Null | 説明                              |
+|-------------------------------------------|----------|----------|----------------------------------|
+| header.isSuccessful                       | Boolean  | O        | 成否                              |
+| header.resultCode                         | Integer  | O        | 失敗コード                           |
+| header.resultMessage                      | String   | O        | 失敗メッセージ                         |
+| body.pageNum                              | Integer  | O        | 現在のページ番号                        |
+| body.pageSize                             | Integer  | O        | 検索されたデータ数                       |
+| body.totalCount                           | Integer  | O        | データの総数                          |
+| body.data.templateId                      | String   | O        | テンプレートID                        |
+| body.data.serviceId                       | Integer  | O        | サービスID(内部用、未使用値)                |
+| body.data.categoryId                      | Integer  | X        | カテゴリーID                         |
+| body.data.categoryName                    | String   | X        | カテゴリー名                          |
+| body.data.sort                            | Integer  | X        | ソート値                            |
+| body.data.templateName                    | String   | X        | テンプレート名                         |
+| body.data.templateDesc                    | String   | X        | テンプレート説明                        |
+| body.data.useYn                           | String   | X        | 使用するかどうか                        |
+| body.data.priority                        | String   | X        | 優先順位値(未使用値)                     |
+| body.data.sendNo                          | String   | X        | 発信番号                            |
+| body.data.sendType                        | String   | X        | 送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth) |
+| body.data.sendTypeName                    | String   | X        | 送信タイプ名                          |
+| body.data.title                           | String   | X        | タイトル                            |
+| body.data.body                            | String   | X        | 本文内容                            |
+| body.data.attachFileYn                    | String   | X        | 添付ファイルかどうか(Y/N)                 |
+| body.data.delYn                           | String   | X        | 削除Y/N、現在態表記用でのみ使用               |
+| body.data.createDate                      | String   | X        | 登録日                             |
+| body.data.createUser                      | String   | X        | 登録したユーザー                        |
+| body.data.updateDate                      | String   | X        | 修正日                             |
+| body.data.updateUser                      | String   | X        | 修正したユーザー                        |
+| body.data[].attachFileList[].fileId       | Integer  | O        | ファイルID                          |
+| body.data[].attachFileList[].filePath     | String   | X        | ファイル保存パス(内部用)                   |
+| body.data[].attachFileList[].filename     | String   | X        | ファイル名                           |
+| body.data[].attachFileList[].saveFileName | String   | X        | 保存された添付ファイル名                    |
+| body.data[].attachFileList[].uploadType   | String   | X        | アップロードタイプ                       |
 
 ### テンプレート修正
 
