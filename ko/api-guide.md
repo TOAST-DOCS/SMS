@@ -5641,16 +5641,16 @@ curl -X POST \
 }
 ```
 
-| 값                            | 	타입      | 	설명                                                                                                                  |
-|------------------------------|----------|----------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful          | 	Boolean | 	성공 여부                                                                                                               |
-| header.resultCode            | 	Integer | 	실패 코드                                                                                                               |
-| header.resultMessage         | 	String  | 	실패 메시지                                                                                                              |
-| body.data.downloadId         | 	String  | 	다운로드 ID                                                                                                             |
-| body.data.downloadType       | 	String  | 	다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                                    |
-| body.data.fileType           | 	String  | 	파일 타입(현재 csv만 지원)                                                                                                   |
-| body.data.downloadStatusCode | 	String  | 	파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
-| body.data.expiredDate        | 	String  | 	다운로드 기간 만료 일시                                                                                                       |
+| 값                            | 타입     | Not Null | 설명                                                                                                                        |
+|-------------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful           | Boolean  | O        | 성공 여부                                                                                                               |
+| header.resultCode             | Integer  | O        | 실패 코드                                                                                                               |
+| header.resultMessage          | String   | O        | 실패 메시지                                                                                                              |
+| body.data.downloadId          | String   | O        | 다운로드 ID                                                                                                             |
+| body.data.downloadType        | String   | O        | 다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                                    |
+| body.data.fileType            | String   | X        | 파일 타입(현재 csv만 지원)                                                                                                   |
+| body.data.downloadStatusCode  | String   | O        | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
+| body.data.expiredDate         | String   | X        | 다운로드 기간 만료 일시                                                                                                       |
 
 ### 발송 결과 파일 생성 요청 내역 검색
 

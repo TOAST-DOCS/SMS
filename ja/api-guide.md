@@ -5627,16 +5627,16 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-
 }
 ```
 
-| 値                            | 	タイプ     | 	説明                                                                                                         |
-|------------------------------|----------|-------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful          | 	Boolean | 	成否                                                                                                         |
-| header.resultCode            | 	Integer | 	失敗コード                                                                                                      |
-| header.resultMessage         | 	String  | 	失敗メッセージ                                                                                                    |
-| body.data.downloadId         | 	String  | 	ダウンロードID                                                                                                   |
-| body.data.downloadType       | 	String  | 	ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信                                |
-| body.data.fileType           | 	String  | 	ファイルタイプ(現在csvのみサポート)                                                                                       |
-| body.data.downloadStatusCode | 	String  | 	ファイル作成状態<br/>- READY：作成準備<br/>- MAKING：作成中<br/>- COMPLETED：作成完了<br/>- FAILED：作成失敗<br/>- EXPIRED：ダウンロード期間終了 |
-| body.data.expiredDate        | 	String  | 	ダウンロード期間終了日時                                                                                               |
+| 値                            | タイプ    | Not Null | 説明                                                                                                          |
+|------------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful          | Boolean | O        | 成否                                                                                                          |
+| header.resultCode            | Integer | O        | 失敗コード                                                                                                       |
+| header.resultMessage         | String  | O        | 失敗メッセージ                                                                                                     |
+| body.data.downloadId         | String  | O        | ダウンロードID                                                                                                    |
+| body.data.downloadType       | String  | O        | ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信                                 |
+| body.data.fileType           | String  | X        | ファイルタイプ(現在csvのみサポート)                                                                                        |
+| body.data.downloadStatusCode | String  | O        | ファイル作成状態<br/>- READY：作成準備<br/>- MAKING：作成中<br/>- COMPLETED：作成完了<br/>- FAILED：作成失敗<br/>- EXPIRED：ダウンロード期間終了 |
+| body.data.expiredDate        | String  | X        | ダウンロード期間終了日時                                                                                                |
 
 ### 送信結果ファイル作成リクエスト内訳検索
 

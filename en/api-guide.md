@@ -5642,16 +5642,16 @@ curl -X POST \
 }
 ```
 
-| Value                        | Type     | Description                                                                                                                                                                              |
-|------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful          | 	Boolean | Successful or not                                                                                                                                                                        |
-| header.resultCode            | 	Integer | Failure code                                                                                                                                                                             |
-| header.resultMessage         | 	String  | Failure message                                                                                                                                                                          |
-| body.data.downloadId         | 	String  | Download ID                                                                                                                                                                              |
-| body.data.downloadType       | 	String  | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery                                                              |
-| body.data.fileType           | 	String  | File type (currently supports csv only)                                                                                                                                                  |
-| body.data.downloadStatusCode | 	String  | Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
-| body.data.expiredDate        | 	String  | 	Date and time of expiration for download period                                                                                                                                         |
+| Value                        | Type    | Not Null | Description                                                                                                                                                                              |
+|------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful          | Boolean | O        | Successful or not                                                                                                                                                                        |
+| header.resultCode            | Integer | O        | Failure code                                                                                                                                                                             |
+| header.resultMessage         | String  | O        | Failure message                                                                                                                                                                          |
+| body.data.downloadId         | String  | O        | Download ID                                                                                                                                                                              |
+| body.data.downloadType       | String  | O        | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery                                                              |
+| body.data.fileType           | String  | X        | File type (currently supports csv only)                                                                                                                                                  |
+| body.data.downloadStatusCode | String  | O        | Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
+| body.data.expiredDate        | String  | X        | Date and time of expiration for download period                                                                                                                                          |
 
 ### Query Request History for Delivery Result of File Creation
 
