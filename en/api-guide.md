@@ -6252,19 +6252,19 @@ curl -X GET \
 }
 ```
 
-| Value                            | 	Type    | 	Description                      |
-|----------------------------------|----------|-----------------------------------|
-| header.isSuccessful              | 	Boolean | 	Successful or not                |
-| header.resultCode                | 	Integer | 	Failure code                     |
-| header.resultMessage             | 	String  | 	Failure message                  |
-| body.data.uid                    | String   | UID                               |
-| body.data.tags[].tagId           | String   | Tag ID                            |
-| body.data.tags[].tagName         | String   | Tag name                          |
-| body.data.tags[].createdDate     | String   | Date and time of tag creation     |
-| body.data.tags[].updatedDate     | String   | Date and time of tag modification |
-| body.data.contacts[].contactType | String   | Contact type                      |
-| body.data.contacts[].contact     | String   | Contact(phone number)             |
-| body.data.contacts[].createdDate | String   | Date and time of contact creation |
+| Value                            | Type     | Not Null | Description                      |
+|----------------------------------|----------|----------|-----------------------------------|
+| header.isSuccessful              | Boolean  | O        | Successful or not                |
+| header.resultCode                | Integer  | O        | Failure code                     |
+| header.resultMessage             | String   | O        | Failure message                  |
+| body.data.uid                    | String   | O        | UID                               |
+| body.data.tags[].tagId           | String   | O        | Tag ID                            |
+| body.data.tags[].tagName         | String   | X        | Tag name                          |
+| body.data.tags[].createdDate     | String   | O        | Date and time of tag creation     |
+| body.data.tags[].updatedDate     | String   | O        | Date and time of tag modification |
+| body.data.contacts[].contactType | String   | O        | Contact type                      |
+| body.data.contacts[].contact     | String   | O        | Contact(phone number)             |
+| body.data.contacts[].createdDate | String   | O        | Date and time of contact creation |
 
 ### Register UIDs
 
