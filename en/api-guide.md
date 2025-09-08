@@ -3926,39 +3926,39 @@ curl -X GET \
 }
 ```
 
-| Value                                     | Type     | Description                                       |
-|-------------------------------------------|----------|---------------------------------------------------|
-| header.isSuccessful                       | 	Boolean | Successful or not                                 |
-| header.resultCode                         | 	Integer | Failure code                                      |
-| header.resultMessage                      | 	String  | Faliure message                                   |
-| body.pageNum                              | 	Integer | Current page number                               |
-| body.pageSize                             | 	Integer | Queried data count                                |
-| body.totalCount                           | 	Integer | Total data count                                  |
-| body.data[].templateId                    | 	String  | Template ID                                       |
-| body.data[].serviceId                     | 	Integer | Service ID (unused, for internal purpose)         |
-| body.data[].categoryId                    | 	Integer | Category ID                                       |
-| body.data[].categoryName                  | 	String  | Category name                                     |
-| body.data[].sort                          | 	Integer | Sorted value                                      |
-| body.data[].templateName                  | 	String  | Template name                                     |
-| body.data[].templateDesc                  | 	String  | Template description                              |
-| body.data[].useYn                         | 	String  | Use or not                                        |
-| body.data[].priority                      | 	String  | Priority value (unused)                           |
-| body.data[].sendNo                        | 	String  | Sender number                                     |
-| body.data[].sendType                      | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)          |
-| body.data[].sendTypeName                  | 	String  | Name of delivery type                             |
-| body.data[].title                         | 	String  | Title                                             |
-| body.data[].body                          | 	String  | Body message                                      |
-| body.data[].attachFileYn                  | 	String  | Attached or not (Y/N)                             |
-| body.data[].delYn                         | 	String  | Deleted or not (Y/N): only to show current status |
-| body.data[].createDate                    | 	String  | Date of registration                              |
-| body.data[].createUser                    | 	String  | Registered user                                   |
-| body.data[].updateDate                    | 	String  | Date of modification                              |
-| body.data[].updateUser                    | 	String  | Modifier                                          |
-| body.data[].attachFileList[].fileId       | 	Integer | File ID                                           |
-| body.data[].attachFileList[].filePath     | 	String  | Path of file saving (for internal purpose)        |
-| body.data[].attachFileList[].fileName     | 	String  | File name                                         |
-| body.data[].attachFileList[].saveFileName | 	String  | 	Name of saved file                               |
-| body.data[].attachFileList[].uploadType   | 	String  | 	Type of uploaded                                 |
+| Value                                     | Type    | Not Null | Description                                       |
+|-------------------------------------------|---------|----------|---------------------------------------------------|
+| header.isSuccessful                       | Boolean | O        | Successful or not                                 |
+| header.resultCode                         | Integer | O        | Failure code                                      |
+| header.resultMessage                      | String  | O        | Faliure message                                   |
+| body.pageNum                              | Integer | O        | Current page number                               |
+| body.pageSize                             | Integer | O        | Queried data count                                |
+| body.totalCount                           | Integer | O        | Total data count                                  |
+| body.data[].templateId                    | String  | O        | Template ID                                       |
+| body.data[].serviceId                     | Integer | O        | Service ID (unused, for internal purpose)         |
+| body.data[].categoryId                    | Integer | X        | Category ID                                       |
+| body.data[].categoryName                  | String  | X        | Category name                                     |
+| body.data[].sort                          | Integer | X        | Sorted value                                      |
+| body.data[].templateName                  | String  | X        | Template name                                     |
+| body.data[].templateDesc                  | String  | X        | Template description                              |
+| body.data[].useYn                         | String  | X        | Use or not                                        |
+| body.data[].priority                      | String  | X        | Priority value (unused)                           |
+| body.data[].sendNo                        | String  | X        | Sender number                                     |
+| body.data[].sendType                      | String  | X        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)          |
+| body.data[].sendTypeName                  | String  | X        | Name of delivery type                             |
+| body.data[].title                         | String  | X        | Title                                             |
+| body.data[].body                          | String  | X        | Body message                                      |
+| body.data[].attachFileYn                  | String  | X        | Attached or not (Y/N)                             |
+| body.data[].delYn                         | String  | X        | Deleted or not (Y/N): only to show current status |
+| body.data[].createDate                    | String  | X        | Date of registration                              |
+| body.data[].createUser                    | String  | X        | Registered user                                   |
+| body.data[].updateDate                    | String  | X        | Date of modification                              |
+| body.data[].updateUser                    | String  | X        | Modifier                                          |
+| body.data[].attachFileList[].fileId       | Integer | O        | File ID                                           |
+| body.data[].attachFileList[].filePath     | String  | X        | Path of file saving (for internal purpose)        |
+| body.data[].attachFileList[].fileName     | String  | X        | File name                                         |
+| body.data[].attachFileList[].saveFileName | String  | X        | Name of saved file                                |
+| body.data[].attachFileList[].uploadType   | String  | X        | Type of uploaded                                  |
 
 ### Query Single Template
 
