@@ -5864,18 +5864,18 @@ curl -X GET \
 }
 ```
 
-| 값                       | 	타입      | 	설명        |
-|-------------------------|----------|------------|
-| header.isSuccessful     | 	Boolean | 	성공 여부     |
-| header.resultCode       | 	Integer | 	실패 코드     |
-| header.resultMessage    | 	String  | 	실패 메시지    |
-| body.pageNum            | 	Integer | 	현재 페이지 번호 |
-| body.pageSize           | 	Integer | 	검색된 데이터 수 |
-| body.totalCount         | 	Integer | 	총 데이터 수   |
-| body.data[].tagId       | String   | 태그 ID      |
-| body.data[].tagName     | String   | 태그 이름      |
-| body.data[].createdDate | String   | 생성 일시      |
-| body.data[].tagId       | String   | 수정 일시      |
+| 값                        | 타입     | Not Null | 설명         |
+|--------------------------|---------|----------|--------------|
+| header.isSuccessful      | Boolean | O        | 성공 여부    |
+| header.resultCode        | Integer | O        | 실패 코드    |
+| header.resultMessage     | String  | O        | 실패 메시지  |
+| body.pageNum             | Integer | O        | 현재 페이지 번호 |
+| body.pageSize            | Integer | O        | 검색된 데이터 수 |
+| body.totalCount          | Integer | O        | 총 데이터 수 |
+| body.data[].tagId        | String  | O        | 태그 ID     |
+| body.data[].tagName      | String  | X        | 태그 이름   |
+| body.data[].createdDate  | String  | O        | 생성 일시   |
+| body.data[].updatedDate  | String  | O        | 수정 일시   |
 
 ### 태그 등록
 

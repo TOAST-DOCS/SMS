@@ -5850,18 +5850,18 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 }
 ```
 
-| 値                       | 	タイプ     | 	説明        |
-|-------------------------|----------|------------|
-| header.isSuccessful     | 	Boolean | 	成否        |
-| header.resultCode       | 	Integer | 	失敗コード     |
-| header.resultMessage    | 	String  | 	失敗メッセージ   |
-| body.pageNum            | 	Integer | 	現在のページ番号  |
-| body.pageSize           | 	Integer | 	検索されたデータ数 |
-| body.totalCount         | 	Integer | 	データの総数    |
-| body.data[].tagId       | String   | タグID       |
-| body.data[].tagName     | String   | タグ名        |
-| body.data[].createdDate | String   | 作成日時       |
-| body.data[].tagId       | String   | 修正日時       |
+| 値                       | タイプ    | Not Null | 説明           |
+|-------------------------|---------|----------|----------------|
+| header.isSuccessful     | Boolean | O        | 成否           |
+| header.resultCode       | Integer | O        | 失敗コード     |
+| header.resultMessage    | String  | O        | 失敗メッセージ |
+| body.pageNum            | Integer | O        | 現在のページ番号 |
+| body.pageSize           | Integer | O        | 検索されたデータ数 |
+| body.totalCount         | Integer | O        | データの総数   |
+| body.data[].tagId       | String  | O        | タグID         |
+| body.data[].tagName     | String  | X        | タグ名         |
+| body.data[].createdDate | String  | O        | 作成日時       |
+| body.data[].updatedDate | String  | O        | 修正日時       |
 
 ### タグ登録
 

@@ -5865,18 +5865,18 @@ curl -X GET \
 }
 ```
 
-| Value                   | 	Type    | 	Description                  |
-|-------------------------|----------|-------------------------------|
-| header.isSuccessful     | 	Boolean | 	Successful or not            |
-| header.resultCode       | 	Integer | 	Failure code                 |
-| header.resultMessage    | 	String  | 	Failure message              |
-| body.pageNum            | 	Integer | 	Page number                  |
-| body.pageSize           | 	Integer | 	Number of queries            |
-| body.totalCount         | 	Integer | 	Total data count             |
-| body.data[].tagId       | String   | Tag ID                        |
-| body.data[].tagName     | String   | Tag name                      |
-| body.data[].createdDate | String   | Date and time of creation     |
-| body.data[].tagId       | String   | Date and time of modification |
+| Value                   | Type    | Not Null | 	Description                  | 
+|-------------------------|---------|----------|-------------------------------|
+| header.isSuccessful     | Boolean | O        | 	Successful or not            |
+| header.resultCode       | Integer | O        | 	Failure code                 |
+| header.resultMessage    | String  | O        | 	Failure message              |
+| body.pageNum            | Integer | O        | 	Page number                  |
+| body.pageSize           | Integer | O        | 	Number of queries            |
+| body.totalCount         | Integer | O        | 	Total data count             |
+| body.data[].tagId       | String  | O        | Tag ID                        |
+| body.data[].tagName     | String  | X        | Tag name                      |
+| body.data[].createdDate | String  | O        | Date and time of creation     |
+| body.data[].tagId       | String  | O        | Date and time of modification |
 
 ### Register Tags
 
