@@ -4804,25 +4804,25 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                  | タイプ    | 説明          |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 成否       |
-| header.resultCode    | Integer | 失敗コード       |
-| header.resultMessage | String  | 失敗メッセージ      |
-| body.data            | List    | 統計イベントオブジェクトリスト |
+| 値                  | タイプ    | Not Null | 説明                    |
+|----------------------|---------|----------|-------------------------|
+| header.isSuccessful  | Boolean | O        | 成否                    |
+| header.resultCode    | Integer | O        | 失敗コード              |
+| header.resultMessage | String  | O        | 失敗メッセージ          |
+| body.data            | List    | O        | 統計イベントオブジェクトリスト |
 
 #### 統計イベントオブジェクト(統計基準：デフォルト値)
-| 値                | タイプ    | 説明                                                    |
-|--------------------|---------|---------------------------------------------------------|
-| eventDateTime      | String  | 表示名<br/>分別、時間別、曜日別、月別                            |
-| events             | Object  | statsCriteriaをEVENTにのみ設定した場合、{statsCriteriaValue}は省略されます |
-| events.REQUESTED   | Integer | リクエスト数                                                 |
-| events.SENT        | Integer | 送信数                                                 |
-| events.SENT_FAILED | Integer | 失敗数                                                 |
-| events.RECEIVED    | Integer | 受信数                                                 |
-| events.CONCAT      | Integer | 実受信成功数                                            |
-| events.READY       | Integer | コンバージョン率収集リクエストの送信成功数                                    |
-| events.CONVERTED   | Integer | コンバージョン数                                                 |
+| 値                | タイプ    | Not Null | 説明                                                           |
+|-------------------|---------|----------|----------------------------------------------------------------|
+| eventDateTime      | String  | O        | 表示名<br/>分別、時間別、曜日別、月別                            |
+| events             | Object  | O        | statsCriteriaをEVENTにのみ設定した場合、{statsCriteriaValue}は省略されます |
+| events.REQUESTED   | Integer | X        | リクエスト数                                                   |
+| events.SENT        | Integer | X        | 送信数                                                         |
+| events.SENT_FAILED | Integer | X        | 失敗数                                                         |
+| events.RECEIVED    | Integer | X        | 受信数                                                         |
+| events.CONCAT      | Integer | X        | 実受信成功数                                                   |
+| events.READY       | Integer | X        | コンバージョン率収集リクエストの送信成功数                     |
+| events.CONVERTED   | Integer | X        | コンバージョン数                                               |
 
 #### レスポンス(統計基準追加)
 
@@ -4863,25 +4863,25 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                  | タイプ    | 説明          |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 成否       |
-| header.resultCode    | Integer | 失敗コード       |
-| header.resultMessage | String  | 失敗メッセージ      |
-| body.data            | List    | 統計イベントオブジェクトリスト |
+| 値                  | タイプ    | Not Null | 説明                    |
+|----------------------|---------|----------|-------------------------|
+| header.isSuccessful  | Boolean | O        | 成否                    |
+| header.resultCode    | Integer | O        | 失敗コード              |
+| header.resultMessage | String  | O        | 失敗メッセージ          |
+| body.data            | List    | O        | 統計イベントオブジェクトリスト |
 
 #### 統計イベントオブジェクト(統計基準追加)
-| 値                                     | タイプ    | 説明                                      |
-|-----------------------------------------|---------|-------------------------------------------|
-| eventDateTime                           | String  | 表示名前<br/>分別、時間別、曜日別、月別              |
-| events.{statsCriteriaValue}             | Object  | statsCriteriaに該当する値<br/>国コード値が入ることがある |
-| events.{statsCriteriaValue}.REQUESTED   | Integer | リクエスト数                                   |
-| events.{statsCriteriaValue}.SENT        | Integer | 送信数                                   |
-| events.{statsCriteriaValue}.SENT_FAILED | Integer | 失敗数                                   |
-| events.{statsCriteriaValue}.RECEIVED    | Integer | 受信数                                   |
-| events.{statsCriteriaValue}.CONCAT      | Integer | 実受信成功数                              |
-| events.{statsCriteriaValue}.READY       | Integer | コンバージョン率収集リクエストの送信成功数                      |
-| events.{statsCriteriaValue}.CONVERTED   | Integer | コンバージョン数                                   |
+| 値                                     | タイプ    | Not Null | 説明                                                |
+|----------------------------------------|---------|----------|-----------------------------------------------------|
+| eventDateTime                           | String  | O        | 表示名前<br/>分別、時間別、曜日別、月別              |
+| events.{statsCriteriaValue}             | Object  | X        | statsCriteriaに該当する値<br/>国コード値が入ることがある |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | X        | リクエスト数                                        |
+| events.{statsCriteriaValue}.SENT        | Integer | X        | 送信数                                              |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | X        | 失敗数                                              |
+| events.{statsCriteriaValue}.RECEIVED    | Integer | X        | 受信数                                              |
+| events.{statsCriteriaValue}.CONCAT      | Integer | X        | 実受信成功数                                        |
+| events.{statsCriteriaValue}.READY       | Integer | X        | コンバージョン率収集リクエストの送信成功数           |
+| events.{statsCriteriaValue}.CONVERTED   | Integer | X        | コンバージョン数                                    |
 
 ### (旧)統合統計検索
 

@@ -4821,25 +4821,25 @@ curl -X GET \
 }
 ```
 
-| 값                    | 타입      | 설명            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 성공 여부         |
-| header.resultCode    | Integer | 실패 코드         |
-| header.resultMessage | String  | 실패 메시지        |
-| body.data            | List    | 통계 이벤트 객체 리스트 |
+| 값                    | 타입      | Not Null | 설명                |
+|----------------------|---------|----------|---------------------|
+| header.isSuccessful  | Boolean | O        | 성공 여부             |
+| header.resultCode    | Integer | O        | 실패 코드             |
+| header.resultMessage | String  | O        | 실패 메시지            |
+| body.data            | List    | O        | 통계 이벤트 객체 리스트   |
 
 #### 통계 이벤트 객체(통계 기준: 기본 값)
-| 값                  | 타입      | 설명                                                      |
-|--------------------|---------|---------------------------------------------------------|
-| eventDateTime      | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                              |
-| events             | Object  | statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
-| events.REQUESTED   | Integer | 요청 개수                                                   |
-| events.SENT        | Integer | 발송 개수                                                   |
-| events.SENT_FAILED | Integer | 실패 개수                                                   |
-| events.RECEIVED    | Integer | 수신 개수                                                   |
-| events.CONCAT      | Integer | 실 수신 성공 개수                                              |
-| events.READY       | Integer | 전환율 수집 요청 발송 성공 개수                                      |
-| events.CONVERTED   | Integer | 전환 개수                                                   |
+| 값                  | 타입     | Not Null | 설명                                                        |
+|--------------------|---------|----------|-----------------------------------------------------------|
+| eventDateTime      | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별                            |
+| events             | Object  | O        | statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
+| events.REQUESTED   | Integer | X        | 요청 개수                                                     |
+| events.SENT        | Integer | X        | 발송 개수                                                     |
+| events.SENT_FAILED | Integer | X        | 실패 개수                                                     |
+| events.RECEIVED    | Integer | X        | 수신 개수                                                     |
+| events.CONCAT      | Integer | X        | 실 수신 성공 개수                                              |
+| events.READY       | Integer | X        | 전환율 수집 요청 발송 성공 개수                                    |
+| events.CONVERTED   | Integer | X        | 전환 개수                                                     |
 
 #### 응답(통계 기준 추가)
 
@@ -4880,25 +4880,25 @@ curl -X GET \
 }
 ```
 
-| 값                    | 타입      | 설명            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 성공 여부         |
-| header.resultCode    | Integer | 실패 코드         |
-| header.resultMessage | String  | 실패 메시지        |
-| body.data            | List    | 통계 이벤트 객체 리스트 |
+| 값                    | 타입      | Not Null | 설명               |
+|----------------------|---------|----------|-------------------|
+| header.isSuccessful  | Boolean | O        | 성공 여부           |
+| header.resultCode    | Integer | O        | 실패 코드           |
+| header.resultMessage | String  | O        | 실패 메시지          |
+| body.data            | List    | O        | 통계 이벤트 객체 리스트 |
 
 #### 통계 이벤트 객체(통계 기준 추가)
-| 값                                       | 타입      | 설명                                        |
-|-----------------------------------------|---------|-------------------------------------------|
-| eventDateTime                           | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                |
-| events.{statsCriteriaValue}             | Object  | statsCriteria에 해당하는 값<br/>국가 코드 값이 올 수 있음 |
-| events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                     |
-| events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                     |
-| events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                     |
-| events.{statsCriteriaValue}.RECEIVED    | Integer | 수신 개수                                     |
-| events.{statsCriteriaValue}.CONCAT      | Integer | 실 수신 성공 개수                                |
-| events.{statsCriteriaValue}.READY       | Integer | 전환율 수집 요청 발송 성공 개수                        |
-| events.{statsCriteriaValue}.CONVERTED   | Integer | 전환 개수                                     |
+| 값                                       | 타입      | Not Null | 설명                                        |
+|-----------------------------------------|---------|----------|-------------------------------------------|
+| eventDateTime                           | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별                |
+| events.{statsCriteriaValue}             | Object  | X        | statsCriteria에 해당하는 값<br/>국가 코드 값이 올 수 있음 |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | X        | 요청 개수                                     |
+| events.{statsCriteriaValue}.SENT        | Integer | X        | 발송 개수                                     |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | X        | 실패 개수                                     |
+| events.{statsCriteriaValue}.RECEIVED    | Integer | X        | 수신 개수                                     |
+| events.{statsCriteriaValue}.CONCAT      | Integer | X        | 실 수신 성공 개수                                |
+| events.{statsCriteriaValue}.READY       | Integer | X        | 전환율 수집 요청 발송 성공 개수                        |
+| events.{statsCriteriaValue}.CONVERTED   | Integer | X        | 전환 개수                                     |
 
 ### (구)통합 통계 검색
 

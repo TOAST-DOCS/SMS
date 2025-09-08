@@ -4816,25 +4816,25 @@ curl -X GET \
 }
 ```
 
-| Value                    | Type      | Description            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | Successful or not         |
-| header.resultCode    | Integer | Failure code         |
-| header.resultMessage | String  | Failure message        |
-| body.data            | List    | Statistical event objects |
+| Value                    | Type      | Not Null | Description            |
+|----------------------|---------|----------|---------------|
+| header.isSuccessful  | Boolean | O        | Successful or not         |
+| header.resultCode    | Integer | O        | Failure code         |
+| header.resultMessage | String  | O        | Failure message        |
+| body.data            | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects (Statistics criteria: Default value)
-| Value                  | Type      | Description                                                      |
-|--------------------|---------|---------------------------------------------------------|
-| eventDateTime      | String  | Display name<br/>Minutely, Hourly, Daily, Monthly                              |
-| events             | Object  | When statsCriteria is set only as EVENT {statsCriteriaValue} is omitted |
-| events.REQUESTED   | Integer | Number of requests                                                   |
-| events.SENT        | Integer | Number of sent items                                               |
-| events.SENT_FAILED | Integer | Number of failures                                        |
-| events.RECEIVED    | Integer | Number of receptions                                                   |
-| events.CONCAT      | Integer | Number of successes                                          |
-| events.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
-| events.CONVERTED   | Integer | Number of converted items                                                   |
+| Value                  | Type    | Not Null | Description                                                                     |
+|------------------------|---------|----------|---------------------------------------------------------------------------------|
+| eventDateTime          | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly                              |
+| events                 | Object  | O        | When statsCriteria is set only as EVENT {statsCriteriaValue} is omitted        |
+| events.REQUESTED       | Integer | X        | Number of requests                                                              |
+| events.SENT            | Integer | X        | Number of sent items                                                            |
+| events.SENT_FAILED     | Integer | X        | Number of failures                                                              |
+| events.RECEIVED        | Integer | X        | Number of receptions                                                            |
+| events.CONCAT          | Integer | X        | Number of successes                                                             |
+| events.READY           | Integer | X        | Number of conversion rate collection requests successfuly sent                  |
+| events.CONVERTED       | Integer | X        | Number of converted items                                                       |
 
 #### Response (Statistics criteria added)
 
@@ -4877,25 +4877,25 @@ curl -X GET \
 }
 ```
 
-| Value                    | Type      | Description            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | Successful or not         |
-| header.resultCode    | Integer | Failure code         |
-| header.resultMessage | String  | Failure message        |
-| body.data            | List    | Statistical event objects |
+| Value                    | Type      | Not Null | Description            |
+|----------------------|---------|----------|---------------|
+| header.isSuccessful  | Boolean | O        | Successful or not         |
+| header.resultCode    | Integer | O        | Failure code         |
+| header.resultMessage | String  | O        | Failure message        |
+| body.data            | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects (Statistics criteria added)
-| Value                                       | Type      | Description                                         |
-|-----------------------------------------|---------|--------------------------------------------|
-| eventDateTime                           | String  | Display name<br/>Minutely, Hourly, Daily, Monthly                 |
-| events.{statsCriteriaValue}             | Object  | Value for statsCriteria<br/>Can be country code |
-| events.{statsCriteriaValue}.REQUESTED   | Integer | Number of requests                                      |
-| events.{statsCriteriaValue}.SENT        | Integer | Number of sent items                  |
-| events.{statsCriteriaValue}.SENT_FAILED | Integer | Number of failures                           |
-| events.{statsCriteriaValue}.RECEIVED    | Integer | Number of receptions                                      |
-| events.{statsCriteriaValue}.CONCAT      | Integer | Number of successes                             |
-| events.{statsCriteriaValue}.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
-| events.{statsCriteriaValue}.CONVERTED   | Integer | Number of converted items                                                   |
+| Value                                       | Type    | Not Null | Description                                                        |
+|---------------------------------------------|---------|----------|------------------------------------------------------------------|
+| eventDateTime                               | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly               |
+| events.{statsCriteriaValue}                 | Object  | X        | Value for statsCriteria<br/>Can be country code                 |
+| events.{statsCriteriaValue}.REQUESTED       | Integer | X        | Number of requests                                               |
+| events.{statsCriteriaValue}.SENT            | Integer | X        | Number of sent items                                             |
+| events.{statsCriteriaValue}.SENT_FAILED     | Integer | X        | Number of failures                                               |
+| events.{statsCriteriaValue}.RECEIVED        | Integer | X        | Number of receptions                                             |
+| events.{statsCriteriaValue}.CONCAT          | Integer | X        | Number of successes                                              |
+| events.{statsCriteriaValue}.READY           | Integer | X        | Number of conversion rate collection requests successfuly sent   |
+| events.{statsCriteriaValue}.CONVERTED       | Integer | X        | Number of converted items                                        |
 
 ### (Old)Query Integrated Statistics
 
