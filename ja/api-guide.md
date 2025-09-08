@@ -5412,14 +5412,14 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/sea
 }
 ```
 
-| 値                                 | 	タイプ     | 	説明                                                                                                        |
-|-----------------------------------|----------|------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful               | 	Boolean | 	成否                                                                                                        |
-| header.resultCode                 | 	Integer | 	失敗コード                                                                                                     |
-| header.resultMessage              | 	String  | 	失敗メッセージ                                                                                                   |
-| body.data.reservationCancelId     | 	Integer | 	予約キャンセルID                                                                                                 |
-| body.data.requestedDateTime       | 	String  | 	予約キャンセル時間(yyyy-MM-dd HH:mm:ss)                                                                            |
-| body.data.reservationCancelStatus | 	String  | 	予約キャンセル状態<br/>- READY ：予約準備<br/>- PROCESSING ：予約キャンセル中<br/>- COMPLETED ：予約キャンセル完了<br/>- FAILED ：予約キャンセル失敗 |
+| 値                                 | タイプ    | Not Null | 説明                                                                                                         |
+|------------------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful               | Boolean | O        | 成否                                                                                                         |
+| header.resultCode                 | Integer | O        | 失敗コード                                                                                                      |
+| header.resultMessage              | String  | O        | 失敗メッセージ                                                                                                    |
+| body.data.reservationCancelId     | Integer | O        | 予約キャンセルID                                                                                                  |
+| body.data.requestedDateTime       | String  | O        | 予約キャンセル時間(yyyy-MM-dd HH:mm:ss)                                                                             |
+| body.data.reservationCancelStatus | String  | X        | 予約キャンセル状態<br/>- READY ：予約準備<br/>- PROCESSING ：予約キャンセル中<br/>- COMPLETED ：予約キャンセル完了<br/>- FAILED ：予約キャンセル失敗 |
 
 ### 予約送信キャンセルリクエストリスト検索 - 多重フィルタ
 

@@ -5426,14 +5426,14 @@ curl -X PUT \
 }
 ```
 
-| 값                                 | 	타입      | 	설명                                                                                                         |
-|-----------------------------------|----------|-------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful               | 	Boolean | 	성공 여부                                                                                                      |
-| header.resultCode                 | 	Integer | 	실패 코드                                                                                                      |
-| header.resultMessage              | 	String  | 	실패 메시지                                                                                                     |
-| body.data.reservationCancelId     | 	Integer | 	예약 취소 ID                                                                                                   |
-| body.data.requestedDateTime       | 	String  | 	예약 취소 시간(yyyy-MM-dd HH:mm:ss)                                                                              |
-| body.data.reservationCancelStatus | 	String  | 	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+| 값                                 | 타입      | Not Null | 설명                                                                                                          |
+|------------------------------------|---------|----------|---------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful               | Boolean | O        | 성공 여부                                                                                                     |
+| header.resultCode                 | Integer | O        | 실패 코드                                                                                                     |
+| header.resultMessage              | String  | O        | 실패 메시지                                                                                                   |
+| body.data.reservationCancelId     | Integer | O        | 예약 취소 ID                                                                                                  |
+| body.data.requestedDateTime       | String  | O        | 예약 취소 시간(yyyy-MM-dd HH:mm:ss)                                                                             |
+| body.data.reservationCancelStatus | String  | X        | 예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
 
 ### 예약 발송 취소 요청 목록 검색 - 다중 필터
 

@@ -5427,14 +5427,14 @@ curl -X PUT \
 }
 ```
 
-| Value                             | Type     | Description                                                                                                                                                                                                    |
-|-----------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful               | 	Boolean | 	Successful or not                                                                                                                                                                                             |
-| header.resultCode                 | 	Integer | 	Failure code                                                                                                                                                                                                  |
-| header.resultMessage              | 	String  | 	Failure message                                                                                                                                                                                               |
-| body.data.reservationCancelId     | 	Integer | 	Schedule Cancellation ID                                                                                                                                                                                      |
-| body.data.requestedDateTime       | 	String  | 	Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss)                                                                                                                                                           |
-| body.data.reservationCancelStatus | 	String  | 	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
+| Value                             | Type    | Not Null | Description                                                                                                                                                                                                    |
+|-----------------------------------|---------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful               | Boolean | O        | Successful or not                                                                                                                                                                                              |
+| header.resultCode                 | Integer | O        | Failure code                                                                                                                                                                                                   |
+| header.resultMessage              | String  | O        | Failure message                                                                                                                                                                                                |
+| body.data.reservationCancelId     | Integer | O        | Schedule Cancellation ID                                                                                                                                                                                       |
+| body.data.requestedDateTime       | String  | O        | Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss)                                                                                                                                                           |
+| body.data.reservationCancelStatus | String  | X        | Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
 
 ### List Request of Scheduled Delivery Cancellation - Multiple Filter
 
