@@ -5729,23 +5729,23 @@ curl -X GET \
 }
 ```
 
-| 값                              | 	타입      | 	설명                                                                                                                 |
-|--------------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful            | 	Boolean | 	성공 여부                                                                                                              |
-| header.resultCode              | 	Integer | 	실패 코드                                                                                                              |
-| header.resultMessage           | 	String  | 	실패 메시지                                                                                                             |
-| body.totalCount                | Integer  | 전체 건수                                                                                                               |
-| body.data[].downloadId         | String   | 다운로드 ID                                                                                                             |
-| body.data[].downloadType       | String   | 다운로드 유형<br/>- BLOCK: 수신 거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                                   |
-| body.data[].fileType           | String   | 파일 타입                                                                                                               |
-| body.data[].parameter          | String   | 요청 파라미터                                                                                                             |
-| body.data[].size               | Integer  | 검색 데이터 크기                                                                                                           |
-| body.data[].downloadStatusCode | String   | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
-| body.data[].resultMessage      | String   | 결과 메시지(실패 시 응답)                                                                                                     |
-| body.data[].expiredDate        | String   | 파일 만료 일시                                                                                                            |
-| body.data[].createUser         | String   | 파일 생성 요청자                                                                                                           |
-| body.data[].createDate         | String   | 파일 생성 요청 일시                                                                                                         |
-| body.data[].updateDate         | String   | 파일 생성 완료, 실패 일시                                                                                                     |
+| 값                              | 타입     | Not Null | 설명                                                                                                                    |
+|--------------------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful            | Boolean | O        | 성공 여부                                                                                                               |
+| header.resultCode              | Integer | O        | 실패 코드                                                                                                               |
+| header.resultMessage           | String  | O        | 실패 메시지                                                                                                              |
+| body.totalCount                | Integer | O        | 전체 건수                                                                                                               |
+| body.data[].downloadId         | String  | O        | 다운로드 ID                                                                                                             |
+| body.data[].downloadType       | String  | O        | 다운로드 유형<br/>- BLOCK: 수신 거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                                   |
+| body.data[].fileType           | String  | X        | 파일 타입                                                                                                               |
+| body.data[].parameter          | String  | X        | 요청 파라미터                                                                                                             |
+| body.data[].size               | Integer | X        | 검색 데이터 크기                                                                                                           |
+| body.data[].downloadStatusCode | String  | O        | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
+| body.data[].resultMessage      | String  | X        | 결과 메시지(실패 시 응답)                                                                                                     |
+| body.data[].expiredDate        | String  | X        | 파일 만료 일시                                                                                                            |
+| body.data[].createUser         | String  | O        | 파일 생성 요청자                                                                                                           |
+| body.data[].createDate         | String  | O        | 파일 생성 요청 일시                                                                                                         |
+| body.data[].updateDate         | String  | X        | 파일 생성 완료, 실패 일시                                                                                                     |
 
 ### 발송 결과 파일 다운로드 요청
 

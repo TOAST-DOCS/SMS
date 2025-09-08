@@ -5715,23 +5715,23 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reserva
 }
 ```
 
-| 値                              | 	タイプ     | 	説明                                                                                                        |
-|--------------------------------|----------|------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful            | 	Boolean | 	成否                                                                                                        |
-| header.resultCode              | 	Integer | 	失敗コード                                                                                                     |
-| header.resultMessage           | 	String  | 	失敗メッセージ                                                                                                   |
-| body.totalCount                | Integer  | 全体件数                                                                                                       |
-| body.data[].downloadId         | String   | ダウンロードID                                                                                                   |
-| body.data[].downloadType       | String   | ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信                                |
-| body.data[].fileType           | String   | ファイルタイプ                                                                                                    |
-| body.data[].parameter          | String   | リクエストパラメータ                                                                                                 |
-| body.data[].size               | Integer  | 検索データサイズ                                                                                                   |
-| body.data[].downloadStatusCode | String   | ファイル作成状態<br/>- READY：作成準備<br/>- MAKING：作成中<br/>- COMPLETED：作成完了<br/>- FAILED：作成失敗<br/>- EXPIRED：ダウンロード期間終了 |
-| body.data[].resultMessage      | String   | 結果メッセージ(失敗時レスポンス)                                                                                          |
-| body.data[].expiredDate        | String   | ファイル終了日時                                                                                                   |
-| body.data[].createUser         | String   | ファイル作成リクエスト者                                                                                               |
-| body.data[].createDate         | String   | ファイル作成リクエスト日時                                                                                              |
-| body.data[].updateDate         | String   | ファイル作成完了、失敗日時                                                                                              |
+| 値                              | タイプ    | Not Null | 説明                                                                                                        |
+|--------------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
+| header.isSuccessful            | Boolean | O        | 成否                                                                                                        |
+| header.resultCode              | Integer | O        | 失敗コード                                                                                                     |
+| header.resultMessage           | String  | O        | 失敗メッセージ                                                                                                   |
+| body.totalCount                | Integer | O        | 全体件数                                                                                                       |
+| body.data[].downloadId         | String  | O        | ダウンロードID                                                                                                   |
+| body.data[].downloadType       | String  | O        | ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信                                |
+| body.data[].fileType           | String  | X        | ファイルタイプ                                                                                                    |
+| body.data[].parameter          | String  | X        | リクエストパラメータ                                                                                                 |
+| body.data[].size               | Integer | X        | 検索データサイズ                                                                                                   |
+| body.data[].downloadStatusCode | String  | O        | ファイル作成状態<br/>- READY：作成準備<br/>- MAKING：作成中<br/>- COMPLETED：作成完了<br/>- FAILED：作成失敗<br/>- EXPIRED：ダウンロード期間終了 |
+| body.data[].resultMessage      | String  | X        | 結果メッセージ(失敗時レスポンス)                                                                                          |
+| body.data[].expiredDate        | String  | X        | ファイル終了日時                                                                                                   |
+| body.data[].createUser         | String  | O        | ファイル作成リクエスト者                                                                                               |
+| body.data[].createDate         | String  | O        | ファイル作成リクエスト日時                                                                                              |
+| body.data[].updateDate         | String  | X        | ファイル作成完了、失敗日時                                                                                              |
 
 ### 送信結果ファイルダウンロードリクエスト
 
