@@ -6152,20 +6152,20 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids' \
 }
 ```
 
-| 値                                       | 	タイプ     | 	説明         |
-|-----------------------------------------|----------|-------------|
-| header.isSuccessful                     | 	Boolean | 	成否         |
-| header.resultCode                       | 	Integer | 	失敗コード      |
-| header.resultMessage                    | 	String  | 	失敗メッセージ    |
-| body.data.uids[].uid                    | String   | UID         |
-| body.data.uids[].tags[].tagId           | String   | タグID        |
-| body.data.uids[].tags[].tagName         | String   | タグ名         |
-| body.data.uids[].tags[].createdDate     | String   | タグ作成日時      |
-| body.data.uids[].tags[].updatedDate     | String   | タグ修正日時      |
-| body.data.uids[].contacts[].contactType | String   | 連絡先タイプ      |
-| body.data.uids[].contacts[].contact     | String   | 連絡先(携帯電話番号) |
-| body.data.uids[].contacts[].createdDate | String   | 連絡先作成日時     |
-| body.data.uids[].last                   | Boolean  | 最後のリストかどうか  |
+| 値                                       | タイプ     | Not Null | 説明           |
+|-----------------------------------------|----------|----------|----------------|
+| header.isSuccessful                     | Boolean  | O        | 成否           |
+| header.resultCode                       | Integer  | O        | 失敗コード       |
+| header.resultMessage                    | String   | O        | 失敗メッセージ     |
+| body.data.uids[].uid                    | String   | O        | UID            |
+| body.data.uids[].tags[].tagId           | String   | O        | タグID          |
+| body.data.uids[].tags[].tagName         | String   | X        | タグ名          |
+| body.data.uids[].tags[].createdDate     | String   | O        | タグ作成日時      |
+| body.data.uids[].tags[].updatedDate     | String   | O        | タグ修正日時      |
+| body.data.uids[].contacts[].contactType | String   | O        | 連絡先タイプ      |
+| body.data.uids[].contacts[].contact     | String   | O        | 連絡先(携帯電話番号) |
+| body.data.uids[].contacts[].createdDate | String   | O        | 連絡先作成日時     |
+| body.data.uids[].last                   | Boolean  | X        | 最後のリストかどうか  |
 
 ### UID単件検索
 

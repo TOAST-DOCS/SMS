@@ -6166,20 +6166,20 @@ curl -X GET \
 }
 ```
 
-| 값                                       | 	타입      | 	설명         |
-|-----------------------------------------|----------|-------------|
-| header.isSuccessful                     | 	Boolean | 	성공 여부      |
-| header.resultCode                       | 	Integer | 	실패 코드      |
-| header.resultMessage                    | 	String  | 	실패 메시지     |
-| body.data.uids[].uid                    | String   | UID         |
-| body.data.uids[].tags[].tagId           | String   | 태그 ID       |
-| body.data.uids[].tags[].tagName         | String   | 태그 이름       |
-| body.data.uids[].tags[].createdDate     | String   | 태그 생성 일시    |
-| body.data.uids[].tags[].updatedDate     | String   | 태그 수정 일시    |
-| body.data.uids[].contacts[].contactType | String   | 연락처 타입      |
-| body.data.uids[].contacts[].contact     | String   | 연락처(휴대폰 번호) |
-| body.data.uids[].contacts[].createdDate | String   | 연락처 생성 일시   |
-| body.data.uids[].last                   | Boolean  | 마지막 목록 여부   |
+| 값                                       | 타입     | Not Null | 설명            |
+|-----------------------------------------|---------|----------|-----------------|
+| header.isSuccessful                     | Boolean | O        | 성공 여부       |
+| header.resultCode                       | Integer | O        | 실패 코드       |
+| header.resultMessage                    | String  | O        | 실패 메시지     |
+| body.data.uids[].uid                    | String  | O        | UID             |
+| body.data.uids[].tags[].tagId           | String  | O        | 태그 ID         |
+| body.data.uids[].tags[].tagName         | String  | X        | 태그 이름       |
+| body.data.uids[].tags[].createdDate     | String  | O        | 태그 생성 일시  |
+| body.data.uids[].tags[].updatedDate     | String  | O        | 태그 수정 일시  |
+| body.data.uids[].contacts[].contactType | String  | O        | 연락처 타입     |
+| body.data.uids[].contacts[].contact     | String  | O        | 연락처(휴대폰 번호) |
+| body.data.uids[].contacts[].createdDate | String  | O        | 연락처 생성 일시 |
+| body.data.uids[].last                   | Boolean | X        | 마지막 목록 여부 |
 
 ### UID 단건 검색
 
