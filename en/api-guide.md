@@ -2287,21 +2287,21 @@ curl -X GET \
 }
 ```
 
-| Value                     | 	Type    | 	Description                                                                          |
-|---------------------------|----------|---------------------------------------------------------------------------------------|
-| header.isSuccessful       | 	Boolean | 	Successful or not                                                                    |
-| header.resultCode         | 	Integer | Failure code                                                                          |
-| header.resultMessage      | 	String  | 	Failure message                                                                      |
-| body.data[].requestId     | String   | Request ID                                                                            |
-| body.data[].recipientSeq  | Integer  | Recipient sequence                                                                    |
-| body.data[].countryCode   | String   | Recipient's country code                                                              |
-| body.data[].recipientNo   | String   | Recipient number                                                                      |
-| body.data[].requestDate   | String   | Date and time of request                                                              |
-| body.data[].msgStatus     | String   | Message status code                                                                   |
-| body.data[].msgStatusName | String   | Name of message status code                                                           |
-| body.data[].messageCount  | Integer  | Number of messages sent                                                               |
-| body.data[].resultCode    | String   | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
-| body.data[].receiveDate   | String   | Date and time of receiving                                                            |
+| Value                     | Type    | Not Null | Description                                                                           |
+|---------------------------|---------|----------|-----------------------------------------------------------------------------------| 
+| header.isSuccessful       | Boolean | O        | Successful or not                                                                 |
+| header.resultCode         | Integer | O        | Failure code                                                                      |
+| header.resultMessage      | String  | O        | Failure message                                                                   |
+| body.data[].requestId     | String  | O        | Request ID                                                                        |
+| body.data[].recipientSeq  | Integer | O        | Recipient sequence                                                                |
+| body.data[].countryCode   | String  | O        | Recipient's country code                                                          |
+| body.data[].recipientNo   | String  | O        | Recipient number                                                                  |
+| body.data[].requestDate   | String  | O        | Date and time of request                                                          |
+| body.data[].msgStatus     | String  | X        | Message status code                                                               |
+| body.data[].msgStatusName | String  | O        | Name of message status code                                                       |
+| body.data[].messageCount  | Integer | X        | Number of messages sent                                                           |
+| body.data[].resultCode    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+| body.data[].receiveDate   | String  | X        | Date and time of receiving                                                        |
 
 ### List Recipient Details of Mass Delivery
 
