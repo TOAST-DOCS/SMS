@@ -3216,19 +3216,19 @@ curl -X POST \
 }
 ```
 
-| Value                        | Type     | Description               |
-|------------------------------|----------|---------------------------|
-| header.isSuccessful          | 	Boolean | Successful or not         |
-| header.resultCode            | 	Integer | Failure code              |
-| header.resultMessage         | 	String  | Failure message           |
-| body.data[].categoryId       | 	Integer | Category ID               |
-| body.data[].categoryParentId | 	Integer | Parent category ID        |
-| body.data[].depth            | 	Integer | Depth of category         |
-| body.data[].sort             | 	Integer | Sorting order of category |
-| body.data[].categoryName     | 	String  | Category name             |
-| body.data[].categoryDesc     | 	String  | Category description      |
-| body.data[].useYn            | 	String  | Use or not                |
-| body.data[].createUser       | 	String  | Registered user           |
+| Value                        | Type    | Not Null | Description               |
+|------------------------------|---------|----------|---------------------------|
+| header.isSuccessful          | Boolean | O        | Successful or not         |
+| header.resultCode            | Integer | O        | Failure code              |
+| header.resultMessage         | String  | O        | Failure message           |
+| body.data[].categoryId       | Integer | O        | Category ID               |
+| body.data[].categoryParentId | Integer | X        | Parent category ID        |
+| body.data[].depth            | Integer | X        | Depth of category         |
+| body.data[].sort             | Integer | X        | Sorting order of category |
+| body.data[].categoryName     | String  | X        | Category name             |
+| body.data[].categoryDesc     | String  | X        | Category description      |
+| body.data[].useYn            | String  | O        | Use or not                |
+| body.data[].createUser       | String  | X        | Registered user           |
 
 ### List Category
 
