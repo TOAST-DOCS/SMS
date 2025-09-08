@@ -2964,37 +2964,37 @@ curl -X GET \
 }
 ```
 
-| Value                                   | Type     | Description                                                                           |
-|-----------------------------------------|----------|---------------------------------------------------------------------------------------|
-| header                                  | 	Object  | Header area                                                                           |
-| header.isSuccessful                     | 	Boolean | Successful or not                                                                     |
-| header.resultCode                       | 	Integer | Failure code                                                                          |
-| header.resultMessage                    | 	String  | Failure message                                                                       |
-| body.data.requestId                     | String   | Request ID                                                                            |
-| body.data.recipientSeq                  | Integer  | Recipient sequence                                                                    |
-| body.data.sendType                      | String   | Delivery type                                                                         |
-| body.data.messageType                   | String   | Message type                                                                          |
-| body.data.templateId                    | String   | Template ID                                                                           |
-| body.data.templateName                  | String   | Template name                                                                         |
-| body.data.sendNo                        | String   | Sender number                                                                         |
-| body.data.title                         | String   | Title                                                                                 |
-| body.data.body                          | String   | Body                                                                                  |
-| body.data.recipientNum                  | String   | Recipient number                                                                      |
-| body.data.requestDate                   | String   | Date and time of request                                                              |
-| body.data.msgStatusName                 | String   | Message status name                                                                   |
-| body.data.messageCount                  | Integer  | Number of messages sent                                                               |
-| body.data.resultCode                    | String   | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
-| body.data.receiveDate                   | String   | Date and time of receiving                                                            |
-| body.data.attachFileList[].filePath     | String   | Attached file- path                                                                   |
-| body.data.attachFileList[].fileName     | String   | Attached file - file name                                                             |
-| body.data.attachFileList[].fileSize     | Long     | Attached file - size                                                                  |
-| body.data.attachFileList[].fileSequence | Integer  | Attached file - file sequence                                                         |
-| body.data.attachFileList[].createDate   | String   | Attached file - date of creation                                                      |
-| body.data.attachFileList[].updateDate   | String   | Attached file - date of modification                                                  |
-| body.data.originCode                    | String   | Identification code (For special value-added telecommunication business operators, must use the 9 digit registration number listed on certificates excluding symbols, letters, and spaces.) |
-| body.data.dlr.dlrStatus                 | String   | DLR status code                                                                       |
-| body.data.dlr.networkCode               | String   | DLR network code                                                                      |
-| body.data.dlr.errorCode                 | String   | DLR error code                                                                        |
+| Value                                   | Type    | Not Null | Description                                                                           |
+|-----------------------------------------|---------|----------|-------------------------------------------------------------------------------------  |
+| header                                  | Object  | X        | Header area                                                                           |
+| header.isSuccessful                     | Boolean | O        | Successful or not                                                                     |
+| header.resultCode                       | Integer | O        | Failure code                                                                          |
+| header.resultMessage                    | String  | O        | Failure message                                                                       |
+| body.data.requestId                     | String  | O        | Request ID                                                                            |
+| body.data.recipientSeq                  | Integer | O        | Recipient sequence                                                                    |
+| body.data.sendType                      | String  | O        | Delivery type                                                                         |
+| body.data.messageType                   | String  | O        | Message type                                                                          |
+| body.data.templateId                    | String  | X        | Template ID                                                                           |
+| body.data.templateName                  | String  | X        | Template name                                                                         |
+| body.data.sendNo                        | String  | O        | Sender number                                                                         |
+| body.data.title                         | String  | X        | Title                                                                                 |
+| body.data.body                          | String  | O        | Body                                                                                  |
+| body.data.recipientNum                  | String  | O        | Recipient number                                                                      |
+| body.data.requestDate                   | String  | O        | Date and time of request                                                              |
+| body.data.msgStatusName                 | String  | O        | Message status name                                                                   |
+| body.data.messageCount                  | Integer | X        | Number of messages sent                                                               |
+| body.data.resultCode                    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+| body.data.receiveDate                   | String  | X        | Date and time of receiving                                                            |
+| body.data.attachFileList[].filePath     | String  | X        | Attached file- path                                                                   |
+| body.data.attachFileList[].fileName     | String  | X        | Attached file - file name                                                             |
+| body.data.attachFileList[].fileSize     | Long    | X        | Attached file - size                                                                  |
+| body.data.attachFileList[].fileSequence | Integer | X        | Attached file - file sequence                                                         |
+| body.data.attachFileList[].createDate   | String  | X        | Attached file - date of creation                                                      |
+| body.data.attachFileList[].updateDate   | String  | X        | Attached file - date of modification                                                  |
+| body.data.originCode                    | String  | X        | Identification code (For special value-added telecommunication business operators, must use the 9 digit registration number listed on certificates excluding symbols, letters, and spaces.) |
+| body.data.dlr.dlrStatus                 | String  | X        | DLR status code                                                                       |
+| body.data.dlr.networkCode               | String  | X        | DLR network code                                                                      |
+| body.data.dlr.errorCode                 | String  | X        | DLR error code                                                                        |
 <span id="binaryUpload"></span>
 
 ## Attached Files

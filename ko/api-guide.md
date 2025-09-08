@@ -2967,37 +2967,36 @@ curl -X GET \
 }
 ```
 
-| 값                                       | 	타입      | 	설명                                          |
-|-----------------------------------------|----------|----------------------------------------------|
-| header                                  | 	Object  | 	헤더 영역                                       |
-| header.isSuccessful                     | 	Boolean | 	성공 여부                                       |
-| header.resultCode                       | 	Integer | 	실패 코드                                       |
-| header.resultMessage                    | 	String  | 	실패 메시지                                      |
-| body.data.requestId                     | String   | 요청 ID                                        |
-| body.data.recipientSeq                  | Integer  | 수신자 시퀀스                                      |
-| body.data.sendType                      | String   | 발송 유형                                        |
-| body.data.messageType                   | String   | 메시지 타입                                       |
-| body.data.templateId                    | String   | 템플릿 ID                                       |
-| body.data.templateName                  | String   | 템플릿명                                         |
-| body.data.sendNo                        | String   | 발신 번호                                        |
-| body.data.title                         | String   | 제목                                           |
-| body.data.body                          | String   | 내용                                           |
-| body.data.recipientNum                  | String   | 수신자 번호                                       |
-| body.data.requestDate                   | String   | 요청 일시                                        |
-| body.data.msgStatusName                 | String   | 메시지 상태 이름                                    |
-| body.data.messageCount                  | Integer  | 발송된 메시지 건수                                   |
-| body.data.resultCode                    | String   | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-| body.data.receiveDate                   | String   | 수신 일시                                        |
-| body.data.attachFileList[].filePath     | String   | 첨부 파일 - 경로                                   |
-| body.data.attachFileList[].fileName     | String   | 첨부 파일 - 파일명                                  |
-| body.data.attachFileList[].fileSize     | Long     | 첨부 파일 - 사이즈                                  |
-| body.data.attachFileList[].fileSequence | Integer  | 첨부 파일 - 파일 번호                                |
-| body.data.attachFileList[].createDate   | String   | 첨부 파일 - 생성 일시                                |
-| body.data.attachFileList[].updateDate   | String   | 첨부 파일 - 수정 날짜                                |
-| body.data.originCode                    | String   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
-| body.data.dlr.dlrStatus                 | String   | 	DLR 상태 코드                                      |
-| body.data.dlr.networkCode               | String   | 	DLR 네트워크 코드                                   |
-| body.data.dlr.errorCode                 | String   | 	DLR 에러 코드                                      |
+| 값                                       | 타입     | Not Null | 설명                                                                                         |
+|-----------------------------------------|---------|----------|----------------------------------------------------------------------------------------------|
+| header.isSuccessful                     | Boolean | O        | 성공 여부                                                                                    |
+| header.resultCode                       | Integer | O        | 실패 코드                                                                                    |
+| header.resultMessage                    | String  | O        | 실패 메시지                                                                                  |
+| body.data.requestId                     | String  | O        | 요청 ID                                                                                      |
+| body.data.recipientSeq                  | Integer | O        | 수신자 시퀀스                                                                                |
+| body.data.sendType                      | String  | O        | 발송 유형                                                                                    |
+| body.data.messageType                   | String  | O        | 메시지 타입                                                                                  |
+| body.data.templateId                    | String  | X        | 템플릿 ID                                                                                    |
+| body.data.templateName                  | String  | X        | 템플릿명                                                                                     |
+| body.data.sendNo                        | String  | O        | 발신 번호                                                                                    |
+| body.data.title                         | String  | X        | 제목                                                                                         |
+| body.data.body                          | String  | O        | 내용                                                                                         |
+| body.data.recipientNum                  | String  | O        | 수신자 번호                                                                                  |
+| body.data.requestDate                   | String  | O        | 요청 일시                                                                                    |
+| body.data.msgStatusName                 | String  | O        | 메시지 상태 이름                                                                             |
+| body.data.messageCount                  | Integer | X        | 발송된 메시지 건수                                                                           |
+| body.data.resultCode                    | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)]                                    |
+| body.data.receiveDate                   | String  | X        | 수신 일시                                                                                    |
+| body.data.attachFileList[].filePath     | String  | X        | 첨부 파일 - 경로                                                                             |
+| body.data.attachFileList[].fileName     | String  | X        | 첨부 파일 - 파일명                                                                           |
+| body.data.attachFileList[].fileSize     | Long    | X        | 첨부 파일 - 사이즈                                                                           |
+| body.data.attachFileList[].fileSequence | Integer | X        | 첨부 파일 - 파일 번호                                                                        |
+| body.data.attachFileList[].createDate   | String  | X        | 첨부 파일 - 생성 일시                                                                        |
+| body.data.attachFileList[].updateDate   | String  | X        | 첨부 파일 - 수정 날짜                                                                        |
+| body.data.originCode                    | String  | X        | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+| body.data.dlr.dlrStatus                 | String  | X        | DLR 상태 코드                                                                                |
+| body.data.dlr.networkCode               | String  | X        | DLR 네트워크 코드                                                                            |
+| body.data.dlr.errorCode                 | String  | X        | DLR 에러 코드                                                                                |
 <span id="binaryUpload"></span>
 
 ## 첨부 파일
