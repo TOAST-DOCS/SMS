@@ -5945,12 +5945,12 @@ curl -X POST \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
-| body.data.tagId      | String   | 태그 ID   |
+| 값                    | 타입     | Not Null | 설명      |
+|----------------------|---------|----------|-----------|
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지|
+| body.data.tagId      | String  | O        | 태그 ID   |
 
 ### 태그 수정
 

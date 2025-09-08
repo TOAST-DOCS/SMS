@@ -5931,12 +5931,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 }
 ```
 
-| 値                    | 	タイプ     | 	説明      |
-|----------------------|----------|----------|
-| header.isSuccessful  | 	Boolean | 	成否      |
-| header.resultCode    | 	Integer | 	失敗コード   |
-| header.resultMessage | 	String  | 	失敗メッセージ |
-| body.data.tagId      | String   | タグID     |
+| 値                    | タイプ    | Not Null | 説明       |
+|----------------------|---------|----------|------------|
+| header.isSuccessful  | Boolean | O        | 成否       |
+| header.resultCode    | Integer | O        | 失敗コード |
+| header.resultMessage | String  | O        | 失敗メッセージ |
+| body.data.tagId      | String  | O        | タグID     |
 
 ### タグ修正
 
