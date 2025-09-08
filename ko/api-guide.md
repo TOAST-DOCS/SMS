@@ -4531,23 +4531,23 @@ curl -X GET \
 }
 ```
 
-| 값                       | 	타입      | 	설명        |
-|-------------------------|----------|------------|
-| header.isSuccessful     | 	Boolean | 	성공 여부     |
-| header.resultCode       | 	Integer | 	실패 코드     |
-| header.resultMessage    | 	String  | 	실패 메시지    |
-| body.pageNum            | 	Integer | 	페이지 번호    |
-| body.pageSize           | 	Integer | 	검색된 데이터 수 |
-| body.totalCount         | 	Integer | 	총 데이터 수   |
-| body.data[].serviceId   | Integer  | 서비스 ID     |
-| body.data[].sendNo      | String   | 발신 번호      |
-| body.data[].useYn       | String   | 사용 여부      |
-| body.data[].blockYn     | String   | 차단여부       |
-| body.data[].blockReason | String   | 차단 사유      |
-| body.data[].createDate  | String   | 생성 일시      |
-| body.data[].createUser  | String   | 생성자        |
-| body.data[].updateDate  | String   | 수정 날짜      |
-| body.data[].updateUser  | String   | 수정한 사용자    |
+| 값                       | 타입     | Not Null | 설명           |
+|--------------------------|---------|----------|----------------|
+| header.isSuccessful      | Boolean | O        | 성공 여부      |
+| header.resultCode        | Integer | O        | 실패 코드      |
+| header.resultMessage     | String  | O        | 실패 메시지    |
+| body.pageNum             | Integer | O        | 페이지 번호    |
+| body.pageSize            | Integer | O        | 검색된 데이터 수 |
+| body.totalCount          | Integer | O        | 총 데이터 수   |
+| body.data[].serviceId    | Integer | O        | 서비스 ID      |
+| body.data[].sendNo       | String  | O        | 발신 번호      |
+| body.data[].useYn        | String  | X        | 사용 여부      |
+| body.data[].blockYn      | String  | X        | 차단여부       |
+| body.data[].blockReason  | String  | X        | 차단 사유      |
+| body.data[].createDate   | String  | X        | 생성 일시      |
+| body.data[].createUser   | String  | X        | 생성자         |
+| body.data[].updateDate   | String  | X        | 수정 날짜      |
+| body.data[].updateUser   | String  | X        | 수정한 사용자  |
 
 ## 통계
 

@@ -4531,23 +4531,23 @@ curl -X GET \
 }
 ```
 
-| Value                   | Type     | Description               |
-|-------------------------|----------|---------------------------|
-| header.isSuccessful     | 	Boolean | Successful or not         |
-| header.resultCode       | 	Integer | Failure code              |
-| header.resultMessage    | 	String  | Failure message           |
-| body.pageNum            | 	Integer | Page number               |
-| body.pageSize           | 	Integer | Queried data count        |
-| body.totalCount         | 	Integer | Total data count          |
-| body.data[].serviceId   | Integer  | Service ID                |
-| body.data[].sendNo      | String   | Sender number             |
-| body.data[].useYn       | String   | Use or not                |
-| body.data[].blockYn     | String   | Block or not              |
-| body.data[].blockReason | String   | Cause of blockage         |
-| body.data[].createDate  | String   | Date and time of creation |
-| body.data[].createUser  | String   | Creator                   |
-| body.data[].updateDate  | String   | Date of modification      |
-| body.data[].updateUser  | String   | Modified user             |
+| Value                   | Type    | Not Null | Description               |
+|-------------------------|---------|----------|---------------------------|
+| header.isSuccessful     | Boolean | O        | Successful or not         |
+| header.resultCode       | Integer | O        | Failure code              |
+| header.resultMessage    | String  | O        | Failure message           |
+| body.pageNum            | Integer | O        | Page number               |
+| body.pageSize           | Integer | O        | Queried data count        |
+| body.totalCount         | Integer | O        | Total data count          |
+| body.data[].serviceId   | Integer | O        | Service ID                |
+| body.data[].sendNo      | String  | O        | Sender number             |
+| body.data[].useYn       | String  | X        | Use or not                |
+| body.data[].blockYn     | String  | X        | Block or not              |
+| body.data[].blockReason | String  | X        | Cause of blockage         |
+| body.data[].createDate  | String  | X        | Date and time of creation |
+| body.data[].createUser  | String  | X        | Creator                   |
+| body.data[].updateDate  | String  | X        | Date of modification      |
+| body.data[].updateUser  | String  | X        | Modified user             |
 
 ## Query Statistics
 

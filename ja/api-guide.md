@@ -4514,23 +4514,23 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 }
 ```
 
-| 値                       | 	タイプ     | 	説明        |
-|-------------------------|----------|------------|
-| header.isSuccessful     | 	Boolean | 	成否        |
-| header.resultCode       | 	Integer | 	失敗コード     |
-| header.resultMessage    | 	String  | 	失敗メッセージ   |
-| body.pageNum            | 	Integer | 	ページ番号     |
-| body.pageSize           | 	Integer | 	検索されたデータ数 |
-| body.totalCount         | 	Integer | 	データの総数    |
-| body.data[].serviceId   | Integer  | サービスID     |
-| body.data[].sendNo      | String   | 発信番号       |
-| body.data[].useYn       | String   | 使用するかどうか   |
-| body.data[].blockYn     | String   | ブロックするかどうか |
-| body.data[].blockReason | String   | ブロック理由     |
-| body.data[].createDate  | String   | 作成日時       |
-| body.data[].createUser  | String   | 作成者        |
-| body.data[].updateDate  | String   | 修正日        |
-| body.data[].updateUser  | String   | 修正したユーザー   |
+| 値                       | タイプ     | Not Null | 説明            |
+|-------------------------|----------|----------|----------------|
+| header.isSuccessful     | Boolean  | O        | 成否            |
+| header.resultCode       | Integer  | O        | 失敗コード        |
+| header.resultMessage    | String   | O        | 失敗メッセージ      |
+| body.pageNum            | Integer  | O        | ページ番号        |
+| body.pageSize           | Integer  | O        | 検索されたデータ数    |
+| body.totalCount         | Integer  | O        | データの総数       |
+| body.data[].serviceId   | Integer  | O        | サービスID        |
+| body.data[].sendNo      | String   | O        | 発信番号         |
+| body.data[].useYn       | String   | X        | 使用するかどうか     |
+| body.data[].blockYn     | String   | X        | ブロックするかどうか   |
+| body.data[].blockReason | String   | X        | ブロック理由       |
+| body.data[].createDate  | String   | X        | 作成日時         |
+| body.data[].createUser  | String   | X        | 作成者          |
+| body.data[].updateDate  | String   | X        | 修正日          |
+| body.data[].updateUser  | String   | X        | 修正したユーザー     |
 
 ## 統計
 
