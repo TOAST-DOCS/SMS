@@ -4950,20 +4950,20 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                          | タイプ      | 説明              |
-|----------------------------|----------|-----------------|
-| header.isSuccessful        | 	Boolean | 	成否             |
-| header.resultCode          | 	Integer | 	失敗コード          |
-| header.resultMessage       | 	String  | 	失敗メッセージ        |
-| body.data[].divisionName   | String   | 表示名<br/>日、時間、曜日 |
-| body.data[].statisticsView | Object   |                 |
-| body.data[].requestedCount | Integer  | リクエスト数          |
-| body.data[].succeedCount   | Integer  | 成功数             |
-| body.data[].failedCount    | Integer  | 失敗数             |
-| body.data[].pendingCount   | Integer  | 送信中の数           |
-| body.data[].succeedRate    | String   | 成功比率            |
-| body.data[].failedRate     | String   | 失敗比率            |
-| body.data[].pendingRate    | String   | 送信中の比率          |
+| 値                          | タイプ    | Not Null | 説明                |
+|----------------------------|---------|----------|-------------------|
+| header.isSuccessful        | Boolean | O        | 成否                |
+| header.resultCode          | Integer | O        | 失敗コード            |
+| header.resultMessage       | String  | O        | 失敗メッセージ         |
+| body.data[].divisionName   | String  | X        | 表示名<br/>日、時間、曜日 |
+| body.data[].statisticsView | Object  | X        |                   |
+| body.data[].requestedCount | Integer | X        | リクエスト数           |
+| body.data[].succeedCount   | Integer | X        | 成功数              |
+| body.data[].failedCount    | Integer | X        | 失敗数              |
+| body.data[].pendingCount   | Integer | X        | 送信中の数            |
+| body.data[].succeedRate    | String  | X        | 成功比率             |
+| body.data[].failedRate     | String  | X        | 失敗比率             |
+| body.data[].pendingRate    | String  | X        | 送信中の比率           |
 
 ## 予約送信
 

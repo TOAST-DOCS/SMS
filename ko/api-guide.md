@@ -4967,20 +4967,20 @@ curl -X GET \
 }
 ```
 
-| 값                          | 타입       | 설명                  |
-|----------------------------|----------|---------------------|
-| header.isSuccessful        | 	Boolean | 	성공 여부              |
-| header.resultCode          | 	Integer | 	실패 코드              |
-| header.resultMessage       | 	String  | 	실패 메시지             |
-| body.data[].divisionName   | String   | 표시이름<br/>날짜, 시간, 요일 |
-| body.data[].statisticsView | Object   |                     |
-| body.data[].requestedCount | Integer  | 요청 개수               |
-| body.data[].succeedCount   | Integer  | 성공 개수               |
-| body.data[].failedCount    | Integer  | 실패 개수               |
-| body.data[].pendingCount   | Integer  | 발송 중 개수             |
-| body.data[].succeedRate    | String   | 성공 비율               |
-| body.data[].failedRate     | String   | 실패 비율               |
-| body.data[].pendingRate    | String   | 발송 중 비율             |
+| 값                          | 타입     | Not Null | 설명                      |
+|-----------------------------|---------|----------|---------------------------|
+| header.isSuccessful         | Boolean | O        | 성공 여부                 |
+| header.resultCode           | Integer | O        | 실패 코드                 |
+| header.resultMessage        | String  | O        | 실패 메시지               |
+| body.data[].divisionName    | String  | X        | 표시이름<br/>날짜, 시간, 요일 |
+| body.data[].statisticsView  | Object  | X        |                           |
+| body.data[].requestedCount  | Integer | X        | 요청 개수                 |
+| body.data[].succeedCount    | Integer | X        | 성공 개수                 |
+| body.data[].failedCount     | Integer | X        | 실패 개수                 |
+| body.data[].pendingCount    | Integer | X        | 발송 중 개수              |
+| body.data[].succeedRate     | String  | X        | 성공 비율                 |
+| body.data[].failedRate      | String  | X        | 실패 비율                 |
+| body.data[].pendingRate     | String  | X        | 발송 중 비율              |
 
 ## 예약 발송
 

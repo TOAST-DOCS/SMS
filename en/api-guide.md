@@ -4964,20 +4964,20 @@ curl -X GET \
 }
 ```
 
-| Value                      | Type     | Description                      |
-|----------------------------|----------|----------------------------------|
-| header.isSuccessful        | 	Boolean | Successful or not                |
-| header.resultCode          | 	Integer | Failure code                     |
-| header.resultMessage       | 	String  | Failure message                  |
-| body.data[].divisionName   | String   | Display name<br/>Date, time, Day |
-| body.data[].statisticsView | Object   |                                  |
-| body.data[].requestedCount | Integer  | Number of requests               |
-| body.data[].succeedCount   | Integer  | Success count                    |
-| body.data[].failedCount    | Integer  | Failure count                    |
-| body.data[].pendingCount   | Integer  | Delivery count                   |
-| body.data[].succeedRate    | String   | Success rate                     |
-| body.data[].failedRate     | String   | Failure rate                     |
-| body.data[].pendingRate    | String   | Delivery rate                    |
+| Value                      | Type    | Not Null | Description                      |
+|----------------------------|---------|----------|----------------------------------|
+| header.isSuccessful        | Boolean | O        | Successful or not                |
+| header.resultCode          | Integer | O        | Failure code                     |
+| header.resultMessage       | String  | O        | Failure message                  |
+| body.data[].divisionName   | String  | X        | Display name<br/>Date, time, Day |
+| body.data[].statisticsView | Object  | X        |                                  |
+| body.data[].requestedCount | Integer | X        | Number of requests               |
+| body.data[].succeedCount   | Integer | X        | Success count                    |
+| body.data[].failedCount    | Integer | X        | Failure count                    |
+| body.data[].pendingCount   | Integer | X        | Delivery count                   |
+| body.data[].succeedRate    | String  | X        | Success rate                     |
+| body.data[].failedRate     | String  | X        | Failure rate                     |
+| body.data[].pendingRate    | String  | X        | Delivery rate                    |
 
 ## Scheduled Delivery
 
