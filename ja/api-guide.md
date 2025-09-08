@@ -765,19 +765,19 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 }
 ```
 
-| 値                                               | 	タイプ     | 	説明                                            |
-|-------------------------------------------------|----------|------------------------------------------------|
-| header.isSuccessful                             | 	Boolean | 	成否                                            |
-| header.resultCode                               | 	Integer | 	失敗コード                                         |
-| header.resultMessage                            | 	String  | 	失敗メッセージ                                       |
-| body.data.requestId                             | 	String  | 	リクエストID                                       |
-| body.data.statusCode                            | 	String  | 	リクエストステータスコード(1：リクエスト中、 2：リクエスト完了、 3：リクエスト失敗) |
-| body.data.senderGroupingKey                     | 	String  | 	発信者グループキー                                     |
-| body.data.sendResultList[].recipientNo          | String   | 受信番号                                           |
-| body.data.sendResultList[].resultCode           | Integer  | 結果コード                                          |
-| body.data.sendResultList[].resultMessage        | String   | 結果メッセージ                                        |
-| body.data.sendResultList[].recipientSeq         | Integer  | 受信者シーケンス(mtPr)                                 |
-| body.data.sendResultList[].recipientGroupingKey | String   | 受信者グループキー                                      |
+| 値                                               | タイプ    | Not Null | 説明                                             |
+|-------------------------------------------------|---------|----------|--------------------------------------------------|
+| header.isSuccessful                             | Boolean | O        | 成否                                             |
+| header.resultCode                               | Integer | O        | 失敗コード                                          |
+| header.resultMessage                            | String  | O        | 失敗メッセージ                                        |
+| body.data.requestId                             | String  | O        | リクエストID                                        |
+| body.data.statusCode                            | String  | O        | リクエストステータスコード(1：リクエスト中、 2：リクエスト完了、 3：リクエスト失敗) |
+| body.data.senderGroupingKey                     | String  | X        | 発信者グループキー                                      |
+| body.data.sendResultList[].recipientNo          | String  | O        | 受信番号                                            |
+| body.data.sendResultList[].resultCode           | Integer | X        | 結果コード                                           |
+| body.data.sendResultList[].resultMessage        | String  | X        | 結果メッセージ                                         |
+| body.data.sendResultList[].recipientSeq         | Integer | O        | 受信者シーケンス(mtPr)                                  |
+| body.data.sendResultList[].recipientGroupingKey | String  | X        | 受信者グループキー                                       |
 
 #### 長文MMS送信例
 

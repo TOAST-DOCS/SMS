@@ -762,19 +762,19 @@ curl -X POST \
 }
 ```
 
-| Value                                           | Type     | Description                                                                 |
-|-------------------------------------------------|----------|-----------------------------------------------------------------------------|
-| header.isSuccessful                             | 	Boolean | Successful or not                                                           |
-| header.resultCode                               | 	Integer | Failure code                                                                |
-| header.resultMessage                            | 	String  | Failure message                                                             |
-| body.data.requestId                             | 	String  | Request ID                                                                  |
-| body.data.statusCode                            | 	String  | Request status code (1: requesting, 2:request completed, 3: request failed) |
-| body.data.senderGroupingKey                     | 	String  | Sender's group key                                                          |
-| body.data.sendResultList[].recipientNo          | String   | Recipient number                                                            |
-| body.data.sendResultList[].resultCode           | Integer  | Result code                                                                 |
-| body.data.sendResultList[].resultMessage        | String   | Result message                                                              |
-| body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                   |
-| body.data.sendResultList[].recipientGroupingKey | String   | Recipient's group key                                                       |
+| Value                                           | Type    | Not Null | Description                                                                 |
+|-------------------------------------------------|---------|----------|-----------------------------------------------------------------------------|
+| header.isSuccessful                             | Boolean | O        | Successful or not                                                           |
+| header.resultCode                               | Integer | O        | Failure code                                                                |
+| header.resultMessage                            | String  | O        | Failure message                                                             |
+| body.data.requestId                             | String  | O        | Request ID                                                                  |
+| body.data.statusCode                            | String  | O        | Request status code (1: requesting, 2:request completed, 3: request failed) |
+| body.data.senderGroupingKey                     | String  | X        | Sender's group key                                                          |
+| body.data.sendResultList[].recipientNo          | String  | O        | Recipient number                                                            |
+| body.data.sendResultList[].resultCode           | Integer | X        | Result code                                                                 |
+| body.data.sendResultList[].resultMessage        | String  | X        | Result message                                                              |
+| body.data.sendResultList[].recipientSeq         | Integer | O        | Recipient sequence (mtPr)                                                   |
+| body.data.sendResultList[].recipientGroupingKey | String  | X        | Recipient's group key                                                       |
 
 #### Example of Sending Long MMS
 
