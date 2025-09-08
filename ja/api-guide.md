@@ -5288,13 +5288,13 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/can
 }
 ```
 
-| 値                        | 	タイプ     | 	説明           |
-|--------------------------|----------|---------------|
-| header.isSuccessful      | 	Boolean | 	成否           |
-| header.resultCode        | 	Integer | 	失敗コード        |
-| header.resultMessage     | 	String  | 	失敗メッセージ      |
-| body.data.requestedCount | 	Integer | 	キャンセルリクエスト件数 |
-| body.data.canceledCount  | 	Integer | 	キャンセル成功件数    |
+| 値                        | タイプ    | Not Null | 説明                    |
+|--------------------------|---------|----------|-------------------------|
+| header.isSuccessful      | Boolean | O        | 成否                    |
+| header.resultCode        | Integer | O        | 失敗コード              |
+| header.resultMessage     | String  | O        | 失敗メッセージ          |
+| body.data.requestedCount | Integer | O        | キャンセルリクエスト件数 |
+| body.data.canceledCount  | Integer | O        | キャンセル成功件数      |
 
 ### 予約送信キャンセル - 多重フィルタ
 

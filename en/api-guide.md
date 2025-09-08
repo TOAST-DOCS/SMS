@@ -5303,13 +5303,13 @@ curl -X PUT \
 }
 ```
 
-| Value                    | Type     | Description                       |
-|--------------------------|----------|-----------------------------------|
-| header.isSuccessful      | 	Boolean | Successful or not                 |
-| header.resultCode        | 	Integer | Failure code                      |
-| header.resultMessage     | 	String  | Failure message                   |
-| body.data.requestedCount | 	Integer | Number of failed requests         |
-| body.data.canceledCount  | 	Integer | Number of successful cancellation |
+| Value                    | Type    | Not Null | Description                       |
+|--------------------------|---------|----------|-----------------------------------|
+| header.isSuccessful      | Boolean | O        | Successful or not                 |
+| header.resultCode        | Integer | O        | Failure code                      |
+| header.resultMessage     | String  | O        | Failure message                   |
+| body.data.requestedCount | Integer | O        | Number of failed requests         |
+| body.data.canceledCount  | Integer | O        | Number of successful cancellation |
 
 ### Cancel Scheduled Delivery - Multiple Filter
 
