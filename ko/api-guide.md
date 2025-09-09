@@ -4156,6 +4156,12 @@ curl -X GET \
 }
 ```
 
+| 값                   | 타입    | Not Null | 설명    |
+|----------------------|---------|----------|---------|
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
+
 ### 템플릿 삭제
 
 #### 요청
