@@ -3532,6 +3532,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C
 }
 ```
 
+| 値                    | タイプ     | Not Null | 説明         |
+|----------------------|----------|----------|--------------|
+| header.isSuccessful  | Boolean  | O        | 成否         |
+| header.resultCode    | Integer  | O        | 失敗コード   |
+| header.resultMessage | String   | O        | 失敗メッセージ |
+
 ## テンプレート
 
 ### テンプレート登録
