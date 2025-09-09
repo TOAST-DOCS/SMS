@@ -4295,6 +4295,12 @@ curl -X POST \
 }
 ```
 
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
+
 ### Query Target of Rejection
 
 #### Request
