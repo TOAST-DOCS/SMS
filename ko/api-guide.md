@@ -4213,6 +4213,12 @@ curl -X DELETE \
 }
 ```
 
+| 값                   | 타입    | Not Null | 설명    |
+|----------------------|---------|----------|---------|
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
+
 ## 080 수신 거부 서비스
 
 ### 수신 거부 대상자 등록

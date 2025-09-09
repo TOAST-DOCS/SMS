@@ -4199,6 +4199,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
 }
 ```
 
+| 値                    | タイプ     | Not Null | 説明         |
+|----------------------|----------|----------|--------------|
+| header.isSuccessful  | Boolean  | O        | 成否         |
+| header.resultCode    | Integer  | O        | 失敗コード   |
+| header.resultMessage | String   | O        | 失敗メッセージ |
+
 ## 080受信拒否サービス
 
 ### 受信拒否対象者の登録
