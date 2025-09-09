@@ -3488,6 +3488,12 @@ curl -X PUT \
 }
 ```
 
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
+
 ### Delete Category
 
 #### Request
