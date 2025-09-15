@@ -2993,7 +2993,7 @@ Content-Type: application/json;charset=UTF-8
 
 | 값                | 	타입      | 	최대 길이 | 필수  | 	설명                                |
 |------------------|----------|--------|-----|------------------------------------|
-| unsubscribeNo    | 	String  | 25     | 	필수 | 	080 수신 거부 번호                      |
+| unsubscribeNo    | 	String  | 25     | 	옵션 | 	080 수신 거부 번호                      |
 | recipientNo      | String   | 25     | 옵션  | 수신 거부 대상자 번호                       |
 | startRequestDate | 	String  | -      | 	옵션 | 	수신 거부 요청 시작값(yyyy-MM-dd HH:mm:ss) |
 | endRequestDate   | 	String  | -      | 	옵션 | 	수신 거부 요청 종료값(yyyy-MM-dd HH:mm:ss) |
