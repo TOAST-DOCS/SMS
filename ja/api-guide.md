@@ -2373,39 +2373,38 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/rece
 }
 ```
 
-| 値                                       | 	タイプ     | 	説明                                        |
-|-----------------------------------------|----------|--------------------------------------------|
-| header                                  | 	Object  | 	ヘッダ領域                                     |
-| header.isSuccessful                     | 	Boolean | 	成否                                        |
-| header.resultCode                       | 	Integer | 	失敗コード                                     |
-| header.resultMessage                    | 	String  | 	失敗メッセージ                                   |
-| body.data.requestId                     | String   | リクエストID                                    |
-| body.data.recipientSeq                  | Integer  | 受信者シーケンス                                   |
-| body.data.sendType                      | String   | 送信タイプ                                      |
-| body.data.messageType                   | String   | メッセージタイプ                                   |
-| body.data.templateId                    | String   | テンプレートID                                   |
-| body.data.templateName                  | String   | テンプレート名                                    |
-| body.data.sendNo                        | String   | 発信番号                                       |
-| body.data.title                         | String   | タイトル                                       |
-| body.data.body                          | String   | 内容                                         |
-| body.data.recipientNo                   | String   | 受信者番号                                      |
-| body.data.countryCode                   | String   | 受信者国コード                                    |
-| body.data.requestDate                   | String   | リクエスト日時                                    |
-| body.data.msgStatus                     | String   | メッセージ状態                                    |
-| body.data.msgStatusName                 | String   | メッセージ状態名                                   |
-| body.data.messageCount                  | Integer  | 送信されたメッセージの件数                              |
-| body.data.resultCode                    | String   | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
-| body.data.receiveDate                   | String   | 受信日時                                       |
-| body.data.createDate                    | String   | 登録日時                                       |
-| body.data.attachFileList[].filePath     | String   | 添付ファイル - パス                                |
-| body.data.attachFileList[].fileName     | String   | 添付ファイル - ファイル名                             |
-| body.data.attachFileList[].fileSize     | Long     | 添付ファイル - サイズ                               |
-| body.data.attachFileList[].fileSequence | Integer  | 添付ファイル - ファイル番号                            |
-| body.data.attachFileList[].createDate   | String   | 添付ファイル - 作成日時                              |
-| body.data.attachFileList[].updateDate   | String   | 添付ファイル - 修正日                               |
-| body.data.dlr.dlrStatus                 |	String   | DLRステータスコード                                                                       |
-| body.data.dlr.networkCode               | String   | DLRネットワークコード                                                                      |
-| body.data.dlr.errorCode                 | String   | DLRエラーコード                                                                        |
+| 値                                       | タイプ    | Not Null  | 説明                                              |
+|-----------------------------------------|---------|------------|---------------------------------------------------|
+| header.isSuccessful                     | Boolean | O          | 成否                                              |
+| header.resultCode                       | Integer | O          | 失敗コード                                        |
+| header.resultMessage                    | String  | O          | 失敗メッセージ                                    |
+| body.data.requestId                     | String  | O          | リクエストID                                      |
+| body.data.recipientSeq                  | Integer | O          | 受信者シーケンス                                  |
+| body.data.sendType                      | String  | O          | 送信タイプ                                        |
+| body.data.messageType                   | String  | O          | メッセージタイプ                                  |
+| body.data.templateId                    | String  | X          | テンプレートID                                    |
+| body.data.templateName                  | String  | X          | テンプレート名                                    |
+| body.data.sendNo                        | String  | O          | 発信番号                                          |
+| body.data.title                         | String  | X          | タイトル                                          |
+| body.data.body                          | String  | O          | 内容                                              |
+| body.data.recipientNo                   | String  | O          | 受信者番号                                        |
+| body.data.countryCode                   | String  | O          | 受信者国コード                                    |
+| body.data.requestDate                   | String  | O          | リクエスト日時                                    |
+| body.data.msgStatus                     | String  | X          | メッセージ状態                                    |
+| body.data.msgStatusName                 | String  | O          | メッセージ状態名                                  |
+| body.data.messageCount                  | Integer | X          | 送信されたメッセージの件数                        |
+| body.data.resultCode                    | String  | X          | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
+| body.data.receiveDate                   | String  | X          | 受信日時                                          |
+| body.data.createDate                    | String  | X          | 登録日時                                          |
+| body.data.attachFileList[].filePath     | String  | X          | 添付ファイル - パス                               |
+| body.data.attachFileList[].fileName     | String  | X          | 添付ファイル - ファイル名                         |
+| body.data.attachFileList[].fileSize     | Long    | X          | 添付ファイル - サイズ                             |
+| body.data.attachFileList[].fileSequence | Integer | X          | 添付ファイル - ファイル番号                       |
+| body.data.attachFileList[].createDate   | String  | X          | 添付ファイル - 作成日時                           |
+| body.data.attachFileList[].updateDate   | String  | X          | 添付ファイル - 修正日                             |
+| body.data.dlr.dlrStatus                 | String  | X          | DLRステータスコード                               |
+| body.data.dlr.networkCode               | String  | X          | DLRネットワークコード                             |
+| body.data.dlr.errorCode                 | String  | X          | DLRエラーコード                                   |
 
 ## タグ送信
 
