@@ -1028,45 +1028,44 @@ curl -X GET \
 }
 ```
 
-| Value                                     | Type     | Description                                                                           |
-|-------------------------------------------|----------|---------------------------------------------------------------------------------------|
-| header.isSuccessful                       | 	Boolean | Successful or not                                                                     |
-| header.resultCode                         | 	Integer | Failure code                                                                          |
-| header.resultMessage                      | 	String  | Failure message                                                                       |
-| body                                      | 	Object  | Body area                                                                             |
-| body.pageNum                              | 	Integer | Current page number                                                                   |
-| body.pageSize                             | 	Integer | Queried data count                                                                    |
-| body.totalCount                           | 	Integer | Total data count                                                                      |
-| body.data[].requestId                     | 	String  | Request ID                                                                            |
-| body.data[].requestDate                   | 	String  | Date and time of request                                                              |
-| body.data[].resultDate                    | 	String  | Date and time of receiving                                                            |
-| body.data[].templateId                    | 	String  | Template ID                                                                           |
-| body.data[].templateName                  | 	String  | Template name                                                                         |
-| body.data[].categoryId                    | 	Integer | Category ID                                                                           |
-| body.data[].categoryName                  | 	String  | Category name                                                                         |
-| body.data[].body                          | 	String  | Body message                                                                          |
-| body.data[].sendNo                        | 	String  | Sender number                                                                         |
-| body.data[].countryCode                   | 	String  | Country code                                                                          |
-| body.data[].recipientNo                   | 	String  | Recipient number                                                                      |
-| body.data[].msgStatus                     | 	String  | Message status code                                                                   |
-| body.data[].msgStatusName                 | 	String  | Name of message status code                                                           |
-| body.data[].resultCode                    | 	String  | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
-| body.data[].resultCodeName                | 	String  | Result code name of receiving                                                         |
-| body.data[].telecomCode                   | 	Integer | Code of telecom provider                                                              |
-| body.data[].telecomCodeName               | 	String  | Name of telecom provider                                                              |
-| body.data[].recipientSeq                  | 	Integer | Detail delivery ID (required to query details)                                        |
-| body.data[].sendType                      | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
-| body.data[].messageType                   | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                       |
-| body.data[].messageCount                  | Integer  | Number of messages sent                                                               |
-| body.data[].userId                        | 	String  | Delivery request ID                                                                   |
-| body.data[].adYn                          | 	String  | Ad or not                                                                             |
-| body.data[].attachFileList[].fileId       | 	Integer | File ID                                                                               |
-| body.data[].attachFileList[].filePath     | 	String  | Path of file saving (for internal purpose)                                            |
-| body.data[].attachFileList[].fileName     | 	String  | File name                                                                             |
-| body.data[].attachFileList[].saveFileName | 	String  | 	Name of saved file                                                                   |
-| body.data[].attachFileList[].uploadType   | 	String  | 	Type of uploaded                                                                     |
-| body.data[].senderGroupingKey             | 	String  | Sender's group key                                                                    |
-| body.data[].recipientGroupingKey          | 	String  | Recipient's group key                                                                 |
+| Value                                     | Type    | Not Null | Description                                                                           |
+|-------------------------------------------|---------|----------|------------------------------------------------------------------------------------------------|
+| header.isSuccessful                       | Boolean | O        | Successful or not                                                                     |
+| header.resultCode                         | Integer | O        | Failure code                                                                          |
+| header.resultMessage                      | String  | O        | Failure message                                                                       |
+| body.pageNum                              | Integer | O        | Current page number                                                                   |
+| body.pageSize                             | Integer | O        | Queried data count                                                                    |
+| body.totalCount                           | Integer | O        | Total data count                                                                      |
+| body.data[].requestId                     | String  | O        | Request ID                                                                            |
+| body.data[].requestDate                   | String  | O        | Date and time of request                                                              |
+| body.data[].resultDate                    | String  | X        | Date and time of receiving                                                            |
+| body.data[].templateId                    | String  | X        | Template ID                                                                           |
+| body.data[].templateName                  | String  | X        | Template name                                                                         |
+| body.data[].categoryId                    | Integer | X        | Category ID                                                                           |
+| body.data[].categoryName                  | String  | X        | Category name                                                                         |
+| body.data[].body                          | String  | O        | Body message                                                                          |
+| body.data[].sendNo                        | String  | O        | Sender number                                                                         |
+| body.data[].countryCode                   | String  | O        | Country code                                                                          |
+| body.data[].recipientNo                   | String  | O        | Recipient number                                                                      |
+| body.data[].msgStatus                     | String  | X        | Message status code                                                                   |
+| body.data[].msgStatusName                 | String  | O        | Name of message status code                                                           |
+| body.data[].resultCode                    | String  | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
+| body.data[].resultCodeName                | String  | X        | Result code name of receiving                                                         |
+| body.data[].telecomCode                   | Integer | X        | Code of telecom provider                                                              |
+| body.data[].telecomCodeName               | String  | X        | Name of telecom provider                                                              |
+| body.data[].recipientSeq                  | Integer | O        | Detail delivery ID (required to query details)                                        |
+| body.data[].sendType                      | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
+| body.data[].messageType                   | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                       |
+| body.data[].messageCount                  | Integer | X        | Number of messages sent                                                               |
+| body.data[].userId                        | String  | X        | Delivery request ID                                                                   |
+| body.data[].adYn                          | String  | O        | Ad or not                                                                             |
+| body.data[].attachFileList[].fileId       | Integer | O        | File ID                                                                               |
+| body.data[].attachFileList[].filePath     | String  | X        | Path of file saving (for internal purpose)                                            |
+| body.data[].attachFileList[].fileName     | String  | X        | File name                                                                             |
+| body.data[].attachFileList[].saveFileName | String  | X        | Name of saved file                                                                    |
+| body.data[].attachFileList[].uploadType   | String  | X        | Type of uploaded                                                                      |
+| body.data[].senderGroupingKey             | String  | X        | Sender's group key                                                                    |
+| body.data[].recipientGroupingKey          | String  | X        | Recipient's group key                                                                 |
 
 ### Query Single Delivery of Long MMS
 
