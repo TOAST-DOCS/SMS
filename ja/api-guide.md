@@ -2850,23 +2850,23 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 }
 ```
 
-| 値                         | 	タイプ     | 	説明                                        |
-|---------------------------|----------|--------------------------------------------|
-| header.isSuccessful       | 	Boolean | 	成否                                        |
-| header.resultCode         | 	Integer | 	失敗コード                                     |
-| header.resultMessage      | 	String  | 	失敗メッセージ                                   |
-| body.data[].requestId     | String   | リクエストID                                    |
-| body.data[].recipientSeq  | Integer  | 受信者シーケンス                                   |
-| body.data[].countryCode   | String   | 受信者国家コード                                   |
-| body.data[].recipientNo   | String   | 受信者番号                                      |
-| body.data[].requestDate   | String   | リクエスト日時                                    |
-| body.data[].msgStatus     | String   | メッセージステータスコード                              |
-| body.data[].msgStatusName | String   | メッセージステータスコード名                             |
-| body.data[].messageCount  | Integer  | 送信されたメッセージ件数                               |
-| body.data[].resultCode    | String   | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
-| body.data[].receiveDate   | String   | 受信日時                                       |
-| body.data[].createDate    | String   | 登録日時                                       |
-| body.data[].updateDate    | String   | 修正日付                                       |
+| 値                         | タイプ    | Not Null | 説明                                           |
+|----------------------------|---------|----------|-----------------------------------------------|
+| header.isSuccessful        | Boolean | O        | 成否                                          |
+| header.resultCode          | Integer | O        | 失敗コード                                     |
+| header.resultMessage       | String  | O        | 失敗メッセージ                                 |
+| body.data[].requestId      | String  | O        | リクエストID                                  |
+| body.data[].recipientSeq   | Integer | O        | 受信者シーケンス                               |
+| body.data[].countryCode    | String  | O        | 受信者国家コード                               |
+| body.data[].recipientNo    | String  | O        | 受信者番号                                     |
+| body.data[].requestDate    | String  | O        | リクエスト日時                                 |
+| body.data[].msgStatus      | String  | X        | メッセージステータスコード                      |
+| body.data[].msgStatusName  | String  | O        | メッセージステータスコード名                    |
+| body.data[].messageCount   | Integer | X        | 送信されたメッセージ件数                        |
+| body.data[].resultCode     | String  | X        | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
+| body.data[].receiveDate    | String  | X        | 受信日時                                       |
+| body.data[].createDate     | String  | X        | 登録日時                                       |
+| body.data[].updateDate     | String  | X        | 修正日付                                       |
 
 ### タグ送信受信者詳細検索
 

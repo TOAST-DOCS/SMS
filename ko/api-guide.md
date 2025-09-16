@@ -2863,23 +2863,23 @@ curl -X GET \
 }
 ```
 
-| 값                         | 	타입      | 	설명                                          |
-|---------------------------|----------|----------------------------------------------|
-| header.isSuccessful       | 	Boolean | 	성공 여부                                       |
-| header.resultCode         | 	Integer | 	실패 코드                                       |
-| header.resultMessage      | 	String  | 	실패 메시지                                      |
-| body.data[].requestId     | String   | 요청 ID                                        |
-| body.data[].recipientSeq  | Integer  | 수신자 시퀀스                                      |
-| body.data[].countryCode   | String   | 수신자 국가코드                                     |
-| body.data[].recipientNo   | String   | 수신자 번호                                       |
-| body.data[].requestDate   | String   | 요청 일시                                        |
-| body.data[].msgStatus     | String   | 메시지 상태 코드                                    |
-| body.data[].msgStatusName | String   | 메시지 상태 코드명                                   |
-| body.data[].messageCount  | Integer  | 발송된 메시지 건수                                   |
-| body.data[].resultCode    | String   | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-| body.data[].receiveDate   | String   | 수신 일시                                        |
-| body.data[].createDate    | String   | 등록 일시                                        |
-| body.data[].updateDate    | String   | 수정 날짜                                        |
+| 값                         | 타입     | Not Null | 설명                                           |
+|----------------------------|---------|----------|-----------------------------------------------|
+| header.isSuccessful        | Boolean | O        | 성공 여부                                      |
+| header.resultCode          | Integer | O        | 실패 코드                                      |
+| header.resultMessage       | String  | O        | 실패 메시지                                     |
+| body.data[].requestId      | String  | O        | 요청 ID                                        |
+| body.data[].recipientSeq   | Integer | O        | 수신자 시퀀스                                   |
+| body.data[].countryCode    | String  | O        | 수신자 국가코드                                 |
+| body.data[].recipientNo    | String  | O        | 수신자 번호                                     |
+| body.data[].requestDate    | String  | O        | 요청 일시                                      |
+| body.data[].msgStatus      | String  | X        | 메시지 상태 코드                                |
+| body.data[].msgStatusName  | String  | O        | 메시지 상태 코드명                              |
+| body.data[].messageCount   | Integer | X        | 발송된 메시지 건수                              |
+| body.data[].resultCode     | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
+| body.data[].receiveDate    | String  | X        | 수신 일시                                      |
+| body.data[].createDate     | String  | X        | 등록 일시                                      |
+| body.data[].updateDate     | String  | X        | 수정 날짜                                      |
 
 ### 태그 발송 수신자 상세 검색
 
