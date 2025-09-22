@@ -2997,7 +2997,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Value            | Type     | 	Max Length | Required  | Description                                                       |
 |------------------|----------|-------------|-----------|-------------------------------------------------------------------|
-| unsubscribeNo    | 	String  | 25          | 	Required | 	080 numbers to reject receiving                                  |
+| unsubscribeNo    | 	String  | 25          | 	Optional | 	080 numbers to reject receiving                                  |
 | recipientNo      | String   | 25          | Optional  | Contact number of unsubscribers                                   |
 | startRequestDate | 	String  | -           | 	Optional | Start value of request for reject receiving (yyyy-MM-dd HH:mm:ss) |
 | endRequestDate   | 	String  | -           | 	Optional | End value of request for reject receiving (yyyy-MM-dd HH:mm:ss)   |
