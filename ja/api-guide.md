@@ -157,6 +157,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
 
 | 値                                               | タイプ    | Not Null | 説明                                            |
 |-------------------------------------------------|---------|----------|------------------------------------------------|
+| header                                          | Object  | O        | ヘッダ領域                                        |
 | header.isSuccessful                             | Boolean | O        | 成否                                            |
 | header.resultCode                               | Integer | O        | 失敗コード                                         |
 | header.resultMessage                            | String  | O        | 失敗メッセージ                                       |
@@ -397,6 +398,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?start
 
 | 値                                | タイプ    | Not Null | 説明                                         |
 |----------------------------------|---------|----------|---------------------------------------------|
+| header                           | Object  | O        | ヘッダ領域                                     |
 | header.isSuccessful              | Boolean | O        | 成否                                         |
 | header.resultCode                | Integer | O        | 失敗コード                                      |
 | header.resultMessage             | String  | O        | 失敗メッセージ                                    |
@@ -525,6 +527,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
 
 | 値                              | タイプ    | Not Null | 説明                                                           |
 |--------------------------------|---------|----------|----------------------------------------------------------------|
+| header                         | Object  | O        | ヘッダ領域                                                       |
 | header.isSuccessful            | Boolean | O        | 成否                                                           |
 | header.resultCode              | Integer | O        | 失敗コード                                                      |
 | header.resultMessage           | String  | O        | 失敗メッセージ                                                  |
@@ -633,6 +636,7 @@ curl -X GET \
 
 | 値                  | タイプ    | Not Null | 説明         |
 |---------------------|---------|----------|--------------|
+| header              | Object  | O        | ヘッダ領域     |
 | header.isSuccessful | Boolean | O        | 成否         |
 | header.resultCode   | Integer | O        | 失敗コード    |
 | header.resultMessage| String  | O        | 失敗メッセージ |
@@ -767,6 +771,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 
 | 値                                               | タイプ    | Not Null | 説明                                             |
 |-------------------------------------------------|---------|----------|--------------------------------------------------|
+| header                                          | Object  | O        | ヘッダ領域                                         |
 | header.isSuccessful                             | Boolean | O        | 成否                                             |
 | header.resultCode                               | Integer | O        | 失敗コード                                          |
 | header.resultMessage                            | String  | O        | 失敗メッセージ                                        |
@@ -1033,6 +1038,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?start
 
 | 値                                         | タイプ    | Not Null | 説明                                         |
 |-------------------------------------------|---------|----------|---------------------------------------------|
+| header                                    | Object  | O        | ヘッダ領域                                     |
 | header.isSuccessful                       | Boolean | O        | 成否                                         |
 | header.resultCode                         | Integer | O        | 失敗コード                                      |
 | header.resultMessage                      | String  | O        | 失敗メッセージ                                    |
@@ -1169,6 +1175,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${R
 
 | 値                                       | タイプ     | Not Null | 説明                                                           |
 |-----------------------------------------|----------|----------|----------------------------------------------------------------|
+| header                                  | Object   | O        | ヘッダ領域                                                       |
 | header.isSuccessful                     | Boolean  | O        | 成否                                                           |
 | header.resultCode                       | Integer  | O        | 失敗コード                                                        |
 | header.resultMessage                    | String   | O        | 失敗メッセージ                                                      |
@@ -1345,6 +1352,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms'
 
 | 値                                               | タイプ    | Not Null | 説明                                                     |
 |-------------------------------------------------|---------|----------|----------------------------------------------------------|
+| header                                          | Object  | O        | ヘッダ領域                                               |
 | header.isSuccessful                             | Boolean | O        | 成否                                                     |
 | header.resultCode                               | Integer | O        | 失敗コード                                               |
 | header.resultMessage                            | String  | O        | 失敗メッセージ                                           |
@@ -1533,6 +1541,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?
 
 | 値                                | タイプ    | Not Null | 説明                                         |
 |----------------------------------|---------|----------|---------------------------------------------|
+| header                           | Object  | O        | ヘッダ領域                                     |
 | header.isSuccessful              | Boolean | O        | 成否                                         |
 | header.resultCode                | Integer | O        | 失敗コード                                      |
 | header.resultMessage             | String  | O        | 失敗メッセージ                                    |
@@ -1660,6 +1669,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
 
 | 値                              | タイプ    | Not Null | 説明                                                                              |
 |--------------------------------|---------|----------|-----------------------------------------------------------------------------------|
+| header                         | Object  | O        | ヘッダ領域                                                                         |
 | header.isSuccessful            | Boolean | O        | 成否                                                                              |
 | header.resultCode              | Integer | O        | 失敗コード                                                                         |
 | header.resultMessage           | String  | O        | 失敗メッセージ                                                                      |
@@ -1768,9 +1778,10 @@ curl -X GET \
 
 | 値                   | タイプ    | Not Null | 説明        |
 |---------------------|---------|----------|-------------|
+| header              | Object  | O        | ヘッダ領域    |
 | header.isSuccessful | Boolean | O        | 成否        |
-| header.resultCode   | Integer | O        | 失敗コード  |
-| header.resultMessage| String  | O        | 失敗メッセージ|
+| header.resultCode   | Integer | O        | 失敗コード    |
+| header.resultMessage| String  | O        | 失敗メッセージ |
 
 ## 広告文字
 
@@ -1971,6 +1982,7 @@ curl -X GET \
 
 | 値                   | タイプ    | Not Null | 説明       |
 |----------------------|---------|----------|------------|
+| header               | Object  | O        | ヘッダ領域    |
 | header.isSuccessful  | Boolean | O        | 成否       |
 | header.resultCode    | Integer | O        | 失敗コード |
 | header.resultMessage | String  | O        | 失敗メッセージ |
@@ -2063,7 +2075,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/message-results?
 }
 ```
 
-| 値                                                 | タイプ    | Not Null  | 説明                             |----------------------------------------------------|---------|-----------|----------------------------------|
+| 値                                                 | タイプ    | Not Null | 説明                             |
+|----------------------------------------------------|---------|----------|----------------------------------|
+| header                                             | Object  | O        | ヘッダ領域                          |
 | header.isSuccessful                                | Boolean | O        | 成否                              |
 | header.resultCode                                  | Integer | O        | 失敗コード                          |
 | header.resultMessage                               | String  | O        | 失敗メッセージ                       |
@@ -2172,6 +2186,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender?requ
 
 | 値                            | タイプ     | Not Null  | 説明               |
 |------------------------------|----------|------------|-------------------|
+| header                       | Object   | O          | ヘッダ領域           |
 | header.isSuccessful          | Boolean  | O          | 成否               |
 | header.resultCode            | Integer  | O          | 失敗コード           |
 | header.resultMessage         | String   | O          | 失敗メッセージ        |
@@ -2279,6 +2294,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requ
 
 | 値                         | タイプ    | Not Null  | 説明                                                |
 |----------------------------|---------|-----------|-----------------------------------------------------|
+| header                     | Object  | O         | ヘッダ領域                                            |
 | header.isSuccessful        | Boolean | O         | 成否                                                |
 | header.resultCode          | Integer | O         | 失敗コード                                           |
 | header.resultMessage       | String  | O         | 失敗メッセージ                                       |
@@ -2375,6 +2391,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/rece
 
 | 値                                       | タイプ    | Not Null  | 説明                                              |
 |-----------------------------------------|---------|------------|---------------------------------------------------|
+| header                                  | Object  | O          | ヘッダ領域                                         |
 | header.isSuccessful                     | Boolean | O          | 成否                                              |
 | header.resultCode                       | Integer | O          | 失敗コード                                        |
 | header.resultMessage                    | String  | O          | 失敗メッセージ                                    |
@@ -2515,6 +2532,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/sms' 
 
 | 値                    | タイプ    | Not Null  | 説明        |
 |----------------------|---------|------------|-------------|
+| header               | Object  | O          | ヘッダ領域    |
 | header.isSuccessful  | Boolean | O          | 成否        |
 | header.resultCode    | Integer | O          | 失敗コード  |
 | header.resultMessage | String  | O          | 失敗メッセージ |
@@ -2636,6 +2654,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/mms' 
 
 | 値                    | タイプ    | Not Null | 説明         |
 |----------------------|---------|----------|--------------|
+| header               | Object  | O        | ヘッダ領域    |
 | header.isSuccessful  | Boolean | O        | 成否         |
 | header.resultCode    | Integer | O        | 失敗コード    |
 | header.resultMessage | String  | O        | 失敗メッセージ |
@@ -2738,6 +2757,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender?reque
 
 | 値                           | タイプ         | Not Null | 説明                |
 |-----------------------------|--------------|----------|---------------------|
+| header                      | Object       | O        | ヘッダ領域            |
 | header.isSuccessful         | Boolean      | O        | 成否                |
 | header.resultCode           | Integer      | O        | 失敗コード          |
 | header.resultMessage        | String       | O        | 失敗メッセージ      |
@@ -2852,6 +2872,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 
 | 値                         | タイプ    | Not Null | 説明                                           |
 |----------------------------|---------|----------|-----------------------------------------------|
+| header                     | Object  | O        | ヘッダ領域                                     |
 | header.isSuccessful        | Boolean | O        | 成否                                          |
 | header.resultCode          | Integer | O        | 失敗コード                                     |
 | header.resultMessage       | String  | O        | 失敗メッセージ                                 |
@@ -2956,6 +2977,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 
 | 値                                       | タイプ    | Not Null | 説明                                                                   |
 |-----------------------------------------|---------|----------|------------------------------------------------------------------------|
+| header                                  | Object  | O        | ヘッダ領域                                                                |
 | header.isSuccessful                     | Boolean | O        | 成否                                                                   |
 | header.resultCode                       | Integer | O        | 失敗コード                                                              |
 | header.resultMessage                    | String  | O        | 失敗メッセージ                                                          |
@@ -3066,6 +3088,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/attachfile/binar
 
 | 値                    | タイプ    | Not Null | 説明                                                              |
 |----------------------|---------|----------|-------------------------------------------------------------------|
+| header               | Object  | O        | ヘッダ領域                                                          |
 | header.isSuccessful  | Boolean | O        | 成否                                                              |
 | header.resultCode    | Integer | O        | 失敗コード                                                         |
 | header.resultMessage | String  | O        | 失敗メッセージ                                                       |
@@ -3205,6 +3228,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 
 | 値                                   | タイプ     | Not Null | 説明             |
 |-------------------------------------|----------|----------|------------------|
+| header                              | Object   | O        | ヘッダ領域         |
 | header.isSuccessful                 | Boolean  | O        | 成否             |
 | header.resultCode                   | Integer  | O        | 失敗コード       |
 | header.resultMessage                | String   | O        | 失敗メッセージ   |
@@ -3296,6 +3320,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 
 | 値                                   | タイプ    | Not Null | 説明           |
 |-------------------------------------|---------|----------|---------------|
+| header                              | Object  | O        | ヘッダ領域       |
 | header.isSuccessful                 | Boolean | O        | 成否           |
 | header.resultCode                   | Integer | O        | 失敗コード       |
 | header.resultMessage                | String  | O        | 失敗メッセージ     |
@@ -3382,13 +3407,14 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C
 }
 ```
 
-| 値                                   | タイプ    | Not Null | 説明               |
-|-------------------------------------|---------|----------|-------------------|
-| header.isSuccessful                 | Boolean | O        | 成否               |
+| 値                                   | タイプ    | Not Null | 説明             |
+|-------------------------------------|---------|----------|------------------|
+| header                              | Object  | O        | ヘッダ領域          |
+| header.isSuccessful                 | Boolean | O        | 成否              |
 | header.resultCode                   | Integer | O        | 失敗コード          |
 | header.resultMessage                | String  | O        | 失敗メッセージ       |
 | body.data[].categoryId              | Integer | O        | カテゴリーID        |
-| body.data[].categoryParentId        | Integer | X        | 親カテゴリーID       |
+| body.data[].categoryParentId        | Integer | X        | 親カテゴリーID      |
 | body.data[].depth                   | Integer | X        | カテゴリーの深さ     |
 | body.data[].sort                    | Integer | X        | カテゴリーソート順序  |
 | body.data[].categoryName            | String  | X        | カテゴリー名         |
@@ -3477,6 +3503,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -3534,6 +3561,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -3636,6 +3664,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -3913,6 +3942,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 
 | 値                                         | タイプ    | Not Null | 説明                              |
 |--------------------------------------------|---------|----------|-----------------------------------|
+| header                                     | Object  | O        | ヘッダ領域                          |
 | header.isSuccessful                        | Boolean | O        | 成否                              |
 | header.resultCode                          | Integer | O        | 失敗コード                           |
 | header.resultMessage                       | String  | O        | 失敗メッセージ                         |
@@ -4031,6 +4061,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
 
 | 値                                         | タイプ     | Not Null | 説明                              |
 |-------------------------------------------|----------|----------|----------------------------------|
+| header                                    | Object   | O        | ヘッダ領域                          |
 | header.isSuccessful                       | Boolean  | O        | 成否                              |
 | header.resultCode                         | Integer  | O        | 失敗コード                           |
 | header.resultMessage                      | String   | O        | 失敗メッセージ                         |
@@ -4144,6 +4175,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -4201,6 +4233,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -4280,6 +4313,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/rec
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -4418,6 +4452,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/rec
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -4516,6 +4551,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 
 | 値                       | タイプ     | Not Null | 説明            |
 |-------------------------|----------|----------|----------------|
+| header                  | Object   | O        | ヘッダ領域        |
 | header.isSuccessful     | Boolean  | O        | 成否            |
 | header.resultCode       | Integer  | O        | 失敗コード        |
 | header.resultMessage    | String   | O        | 失敗メッセージ      |
@@ -4618,6 +4654,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 
 | 値                   | タイプ    | Not Null | 説明                      |
 |----------------------|---------|----------|---------------------------|
+| header               | Object  | O        | ヘッダ領域                 |
 | header.isSuccessful  | Boolean | O        | 成否                      |
 | header.resultCode    | Integer | O        | 失敗コード                |
 | header.resultMessage | String  | O        | 失敗メッセージ            |
@@ -4709,6 +4746,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 
 | 値                   | タイプ    | Not Null | 説明                      |
 |----------------------|---------|----------|---------------------------|
+| header               | Object  | O        | ヘッダ領域                 |
 | header.isSuccessful  | Boolean | O        | 成否                      |
 | header.resultCode    | Integer | O        | 失敗コード                |
 | header.resultMessage | String  | O        | 失敗メッセージ            |
@@ -4804,8 +4842,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                  | タイプ    | Not Null | 説明                    |
+| 値                    | タイプ    | Not Null | 説明                    |
 |----------------------|---------|----------|-------------------------|
+| header               | Object  | O        | ヘッダ領域                 |
 | header.isSuccessful  | Boolean | O        | 成否                    |
 | header.resultCode    | Integer | O        | 失敗コード              |
 | header.resultMessage | String  | O        | 失敗メッセージ          |
@@ -4863,8 +4902,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                  | タイプ    | Not Null | 説明                    |
+| 値                    | タイプ    | Not Null | 説明                    |
 |----------------------|---------|----------|-------------------------|
+| header               | Object  | O        | ヘッダ領域                 |
 | header.isSuccessful  | Boolean | O        | 成否                    |
 | header.resultCode    | Integer | O        | 失敗コード              |
 | header.resultMessage | String  | O        | 失敗メッセージ          |
@@ -4950,8 +4990,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                          | タイプ    | Not Null | 説明                |
+| 値                          | タイプ    | Not Null | 説明              |
 |----------------------------|---------|----------|-------------------|
+| header                     | Object  | O        | ヘッダ領域           |
 | header.isSuccessful        | Boolean | O        | 成否                |
 | header.resultCode          | Integer | O        | 失敗コード            |
 | header.resultMessage       | String  | O        | 失敗メッセージ         |
@@ -5065,6 +5106,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations' \
 
 | 値                             | タイプ         | Not Null | 説明                                                                                                |
 |-------------------------------|---------------|----------|-----------------------------------------------------------------------------------------------------|
+| header                        | Object        | O        | ヘッダ領域                                                                                            |
 | header.isSuccessful           | Boolean       | O        | 成否                                                                                                |
 | header.resultCode             | Integer       | O        | 失敗コード                                                                                             |
 | header.resultMessage          | String        | O        | 失敗メッセージ                                                                                           |
@@ -5175,6 +5217,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/'"$
 
 | 値                                         | タイプ        | Not Null | 説明                                                                                                    |
 |-------------------------------------------|-------------|----------|-------------------------------------------------------------------------------------------------------|
+| header                                    | Object      | O        | ヘッダ領域                                                                                               |
 | header.isSuccessful                       | Boolean     | O        | 成否                                                                                                    |
 | header.resultCode                         | Integer     | O        | 失敗コード                                                                                               |
 | header.resultMessage                      | String      | O        | 失敗メッセージ                                                                                             |
@@ -5288,11 +5331,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/can
 }
 ```
 
-| 値                        | タイプ    | Not Null | 説明                    |
-|--------------------------|---------|----------|-------------------------|
-| header.isSuccessful      | Boolean | O        | 成否                    |
-| header.resultCode        | Integer | O        | 失敗コード              |
-| header.resultMessage     | String  | O        | 失敗メッセージ          |
+| 値                        | タイプ    | Not Null | 説明               |
+|--------------------------|---------|----------|--------------------|
+| header                   | Object  | O        | ヘッダ領域           |
+| header.isSuccessful      | Boolean | O        | 成否                |
+| header.resultCode        | Integer | O        | 失敗コード            |
+| header.resultMessage     | String  | O        | 失敗メッセージ         |
 | body.data.requestedCount | Integer | O        | キャンセルリクエスト件数 |
 | body.data.canceledCount  | Integer | O        | キャンセル成功件数      |
 
@@ -5413,7 +5457,8 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/sea
 ```
 
 | 値                                 | タイプ    | Not Null | 説明                                                                                                         |
-|------------------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
+|------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------|
+| header                            | Object  | O        | ヘッダ領域                                                                                                     |
 | header.isSuccessful               | Boolean | O        | 成否                                                                                                         |
 | header.resultCode                 | Integer | O        | 失敗コード                                                                                                      |
 | header.resultMessage              | String  | O        | 失敗メッセージ                                                                                                    |
@@ -5500,6 +5545,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/sea
 
 | 値                                   | タイプ                | Not Null | 説明                                                                                                        |
 |-------------------------------------|---------------------|----------|-------------------------------------------------------------------------------------------------------------|
+| header                              | Object              | O        | ヘッダ領域                                                                                                     |
 | header.isSuccessful                 | Boolean             | O        | 成否                                                                                                        |
 | header.resultCode                   | Integer             | O        | 失敗コード                                                                                                     |
 | header.resultMessage                | String              | O        | 失敗メッセージ                                                                                                   |
@@ -5627,8 +5673,9 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-
 }
 ```
 
-| 値                            | タイプ    | Not Null | 説明                                                                                                          |
+| 値                            | タイプ    | Not Null | 説明                                                                                                        |
 |------------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
+| header                       | Object  | O        | ヘッダ領域                                                                                                     |
 | header.isSuccessful          | Boolean | O        | 成否                                                                                                          |
 | header.resultCode            | Integer | O        | 失敗コード                                                                                                       |
 | header.resultMessage         | String  | O        | 失敗メッセージ                                                                                                     |
@@ -5717,6 +5764,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reserva
 
 | 値                              | タイプ    | Not Null | 説明                                                                                                        |
 |--------------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
+| header                         | Object  | O        | ヘッダ領域                                                                                                     |
 | header.isSuccessful            | Boolean | O        | 成否                                                                                                        |
 | header.resultCode              | Integer | O        | 失敗コード                                                                                                     |
 | header.resultMessage           | String  | O        | 失敗メッセージ                                                                                                   |
@@ -5852,6 +5900,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 
 | 値                       | タイプ    | Not Null | 説明           |
 |-------------------------|---------|----------|----------------|
+| header                  | Object  | O        | ヘッダ領域       |
 | header.isSuccessful     | Boolean | O        | 成否           |
 | header.resultCode       | Integer | O        | 失敗コード     |
 | header.resultMessage    | String  | O        | 失敗メッセージ |
@@ -5933,6 +5982,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 
 | 値                    | タイプ    | Not Null | 説明       |
 |----------------------|---------|----------|------------|
+| header               | Object  | O        | ヘッダ領域    |
 | header.isSuccessful  | Boolean | O        | 成否       |
 | header.resultCode    | Integer | O        | 失敗コード |
 | header.resultMessage | String  | O        | 失敗メッセージ |
@@ -6005,6 +6055,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -6061,6 +6112,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -6154,6 +6206,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids' \
 
 | 値                                       | タイプ     | Not Null | 説明           |
 |-----------------------------------------|----------|----------|----------------|
+| header                                  | Object   | O        | ヘッダ領域       |
 | header.isSuccessful                     | Boolean  | O        | 成否           |
 | header.resultCode                       | Integer  | O        | 失敗コード       |
 | header.resultMessage                    | String   | O        | 失敗メッセージ     |
@@ -6239,9 +6292,10 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID
 
 | 値                                | タイプ    | Not Null | 説明             |
 |----------------------------------|---------|----------|------------------|
+| header                           | Object  | O        | ヘッダ領域         |
 | header.isSuccessful              | Boolean | O        | 成否             |
-| header.resultCode                | Integer | O        | 失敗コード       |
-| header.resultMessage             | String  | O        | 失敗メッセージ   |
+| header.resultCode                | Integer | O        | 失敗コード         |
+| header.resultMessage             | String  | O        | 失敗メッセージ      |
 | body.data.uid                    | String  | O        | UID              |
 | body.data.tags[].tagId           | String  | O        | タグID           |
 | body.data.tags[].tagName         | String  | X        | タグ名           |
@@ -6349,6 +6403,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/' \
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -6405,6 +6460,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -6476,6 +6532,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
@@ -6533,6 +6590,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID
 
 | 値                    | タイプ     | Not Null | 説明         |
 |----------------------|----------|----------|--------------|
+| header               | Object   | O        | ヘッダ領域     |
 | header.isSuccessful  | Boolean  | O        | 成否         |
 | header.resultCode    | Integer  | O        | 失敗コード   |
 | header.resultMessage | String   | O        | 失敗メッセージ |
