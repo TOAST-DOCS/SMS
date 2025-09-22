@@ -154,6 +154,7 @@ curl -X POST \
 
 | 값                                               | 타입      | Not Null | 설명                                        |
 |-------------------------------------------------|----------|----------|---------------------------------------------|
+| header                                          | Object   | O        | 헤더 영역                                   |
 | header.isSuccessful                             | Boolean  | O        | 성공 여부                                   |
 | header.resultCode                               | Integer  | O        | 실패 코드                                   |
 | header.resultMessage                            | String   | O        | 실패 메시지                                 |
@@ -394,6 +395,7 @@ curl -X GET \
 
 | 값                                | 타입     | Not Null | 설명                                            |
 |----------------------------------|---------|----------|------------------------------------------------|
+| header                           | Object  | O        | 헤더 영역                                        |
 | header.isSuccessful              | Boolean | O        | 성공 여부                                         |
 | header.resultCode                | Integer | O        | 실패 코드                                         |
 | header.resultMessage             | String  | O        | 실패 메시지                                        |
@@ -520,8 +522,9 @@ curl -X GET \
 }
 ```
 
-| 값                              | 타입      | Not Null | 설명                                                                  |
+| 값                              | 타입        | Not Null | 설명                                                                  |
 |---------------------------------|-----------|----------|-----------------------------------------------------------------------|
+| header                          | Object    | O        | 헤더 영역                                                              |
 | header.isSuccessful             | Boolean   | O        | 성공 여부                                                             |
 | header.resultCode               | Integer   | O        | 실패 코드                                                             |
 | header.resultMessage            | String    | O        | 실패 메시지                                                           |
@@ -628,8 +631,9 @@ curl -X POST \
 }
 ```
 
-| 값                    | 타입      | Not Null | 설명      |
+| 값                    | 타입        | Not Null | 설명      |
 |-----------------------|-----------|----------|-----------|
+| header                | Object    | O        | 헤더 영역 |
 | header.isSuccessful   | Boolean   | O        | 성공 여부 |
 | header.resultCode     | Integer   | O        | 실패 코드 |
 | header.resultMessage  | String    | O        | 실패 메시지|
@@ -763,8 +767,9 @@ curl -X POST \
 }
 ```
 
-| 값                                               | 타입      | Not Null | 설명                                      |
+| 값                                               | 타입       | Not Null | 설명                                      |
 |-------------------------------------------------|-----------|----------|-------------------------------------------|
+| header                                          | Object    | O        | 헤더 영역                                 |
 | header.isSuccessful                             | Boolean   | O        | 성공 여부                                 |
 | header.resultCode                               | Integer   | O        | 실패 코드                                 |
 | header.resultMessage                            | String    | O        | 실패 메시지                               |
@@ -1029,8 +1034,9 @@ curl -X GET \
 }
 ```
 
-| 값                                         | 타입      | Not Null | 설명                                            |
+| 값                                         | 타입        | Not Null | 설명                                            |
 |--------------------------------------------|-----------|----------|------------------------------------------------|
+| header                                     | Object    | O        | 헤더 영역                                      |
 | header.isSuccessful                        | Boolean   | O        | 성공 여부                                      |
 | header.resultCode                          | Integer   | O        | 실패 코드                                      |
 | header.resultMessage                       | String    | O        | 실패 메시지                                    |
@@ -1167,6 +1173,7 @@ curl -X GET \
 
 | 값                                       | 타입      | Not Null | 설명                                                               |
 |-----------------------------------------|----------|----------|--------------------------------------------------------------------|
+| header                                  | Object   | O        | 헤더 영역                                                           |
 | header.isSuccessful                     | Boolean  | O        | 성공 여부                                                          |
 | header.resultCode                       | Integer  | O        | 실패 코드                                                          |
 | header.resultMessage                    | String   | O        | 실패 메시지                                                        |
@@ -1343,6 +1350,7 @@ curl -X POST \
 
 | 값                                               | 타입      | Not Null | 설명                                      |
 |-------------------------------------------------|-----------|----------|-------------------------------------------|
+| header                                          | Object    | O        | 헤더 영역                                 |
 | header.isSuccessful                             | Boolean   | O        | 성공 여부                                 |
 | header.resultCode                               | Integer   | O        | 실패 코드                                 |
 | header.resultMessage                            | String    | O        | 실패 메시지                               |
@@ -1529,8 +1537,9 @@ curl -X GET \
 }
 ```
 
-| 값                                | 타입      | Not Null | 설명                                              |
+| 값                                | 타입       | Not Null | 설명                                              |
 |----------------------------------|-----------|----------|---------------------------------------------------|
+| header                           | Object    | O        | 헤더 영역                                          |
 | header.isSuccessful              | Boolean   | O        | 성공 여부                                         |
 | header.resultCode                | Integer   | O        | 실패 코드                                         |
 | header.resultMessage             | String    | O        | 실패 메시지                                        |
@@ -1659,6 +1668,7 @@ curl -X GET \
 
 | 값                              | 타입     | Not Null | 설명                                                                                   |
 |--------------------------------|---------|----------|----------------------------------------------------------------------------------------|
+| header                         | Object  | O        | 헤더 영역                                                                               |
 | header.isSuccessful            | Boolean | O        | 성공 여부                                                                              |
 | header.resultCode              | Integer | O        | 실패 코드                                                                              |
 | header.resultMessage           | String  | O        | 실패 메시지                                                                             |
@@ -1767,9 +1777,10 @@ curl -X POST \
 
 | 값                   | 타입     | Not Null | 설명      |
 |---------------------|---------|----------|-----------|
-| header.isSuccessful | Boolean | O        | 성공 여부 |
-| header.resultCode   | Integer | O        | 실패 코드 |
-| header.resultMessage| String  | O        | 실패 메시지|
+| header              | Object  | O        | 헤더 영역  |
+| header.isSuccessful | Boolean | O        | 성공 여부  |
+| header.resultCode   | Integer | O        | 실패 코드  |
+| header.resultMessage| String  | O        | 실패 메시지 |
 
 ## 광고 문자
 
@@ -1981,8 +1992,9 @@ curl -X POST \
 }
 ```
 
-| 값                   | 타입    | Not Null | 설명    |
+| 값                   | 타입      | Not Null | 설명    |
 |----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -2077,6 +2089,7 @@ curl -X GET \
 
 | 값                                                 | 타입       | Not Null | 설명                                  |
 |----------------------------------------------------|----------|----------|---------------------------------------|
+| header                                             | Object   | O        | 헤더 영역                             |
 | header.isSuccessful                                | Boolean  | O        | 성공 여부                             |
 | header.resultCode                                  | Integer  | O        | 실패 코드                             |
 | header.resultMessage                               | String   | O        | 실패 메시지                           |
@@ -2185,6 +2198,7 @@ curl -X GET \
 
 | 값                            | 타입      | Not Null | 설명            |
 |------------------------------|----------|----------|----------------|
+| header                       | Object   | O        | 헤더 영역         |
 | header.isSuccessful          | Boolean  | O        | 성공 여부          |
 | header.resultCode            | Integer  | O        | 실패 코드          |
 | header.resultMessage         | String   | O        | 실패 메시지         |
@@ -2290,8 +2304,9 @@ curl -X GET \
 }
 ```
 
-| 값                         | 타입     | Not Null | 설명                                            |
+| 값                         | 타입      | Not Null | 설명                                            |
 |----------------------------|---------|----------|-----------------------------------------------|
+| header                     | Object  | O        | 헤더 영역                                       |
 | header.isSuccessful        | Boolean | O        | 성공 여부                                       |
 | header.resultCode          | Integer | O        | 실패 코드                                       |
 | header.resultMessage       | String  | O        | 실패 메시지                                      |
@@ -2388,6 +2403,7 @@ curl -X GET \
 
 | 값                                       | 타입     | Not Null | 설명                                            |
 |-----------------------------------------|---------|----------|-----------------------------------------------|
+| header                                  | Object  | O        | 헤더 영역                                       |
 | header.isSuccessful                     | Boolean | O        | 성공 여부                                       |
 | header.resultCode                       | Integer | O        | 실패 코드                                       |
 | header.resultMessage                    | String  | O        | 실패 메시지                                      |
@@ -2528,6 +2544,7 @@ curl -X POST \
 
 | 값                    | 타입     | Not Null | 설명      |
 |----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
 | header.isSuccessful  | Boolean | O        | 성공 여부  |
 | header.resultCode    | Integer | O        | 실패 코드  |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -2649,6 +2666,7 @@ curl -X POST \
 
 | 값                    | 타입     | Not Null | 설명     |
 |----------------------|---------|----------|----------|
+| header               | Object  | O        | 헤더 영역 |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -2749,8 +2767,9 @@ curl -X GET \
 }
 ```
 
-| 값                           | 타입         | Not Null | 설명           |
+| 값                           | 타입           | Not Null | 설명           |
 |------------------------------|--------------|----------|----------------|
+| header                       | Object       | O        | 헤더 영역       |
 | header.isSuccessful          | Boolean      | O        | 성공 여부       |
 | header.resultCode            | Integer      | O        | 실패 코드       |
 | header.resultMessage         | String       | O        | 실패 메시지     |
@@ -2865,6 +2884,7 @@ curl -X GET \
 
 | 값                         | 타입     | Not Null | 설명                                           |
 |----------------------------|---------|----------|-----------------------------------------------|
+| header                     | Object  | O        | 헤더 영역                                      |
 | header.isSuccessful        | Boolean | O        | 성공 여부                                      |
 | header.resultCode          | Integer | O        | 실패 코드                                      |
 | header.resultMessage       | String  | O        | 실패 메시지                                     |
@@ -2969,6 +2989,7 @@ curl -X GET \
 
 | 값                                       | 타입     | Not Null | 설명                                                                                         |
 |-----------------------------------------|---------|----------|----------------------------------------------------------------------------------------------|
+| header                                  | Object  | O        | 헤더 영역                                                                                    |
 | header.isSuccessful                     | Boolean | O        | 성공 여부                                                                                    |
 | header.resultCode                       | Integer | O        | 실패 코드                                                                                    |
 | header.resultMessage                    | String  | O        | 실패 메시지                                                                                  |
@@ -3080,6 +3101,7 @@ curl -X POST \
 
 | 값                    | 타입     | Not Null | 설명                                                               |
 |----------------------|---------|----------|-------------------------------------------------------------------|
+| header               | Object  | O        | 헤더 영역                                                          |
 | header.isSuccessful  | Boolean | O        | 성공 여부                                                          |
 | header.resultCode    | Integer | O        | 실패 코드                                                          |
 | header.resultMessage | String  | O        | 실패 메시지                                                         |
@@ -3219,6 +3241,7 @@ curl -X POST \
 
 | 값                            | 타입     | Not Null | 설명           |
 |------------------------------|---------|----------|----------------|
+| header                       | Object  | O        | 헤더 영역       |
 | header.isSuccessful          | Boolean | O        | 성공 여부       |
 | header.resultCode            | Integer | O        | 실패 코드       |
 | header.resultMessage         | String  | O        | 실패 메시지     |
@@ -3310,6 +3333,7 @@ curl -X GET \
 
 | 값                            | 타입     | Not Null | 설명            |
 |------------------------------|---------|----------|----------------|
+| header                       | Object  | O        | 헤더 영역       |
 | header.isSuccessful          | Boolean | O        | 성공 여부       |
 | header.resultCode            | Integer | O        | 실패 코드       |
 | header.resultMessage         | String  | O        | 실패 메시지      |
@@ -3398,6 +3422,7 @@ curl -X GET \
 
 | 값                            | 타입     | Not Null | 설명           |
 |------------------------------|---------|----------|----------------|
+| header                       | Object  | O        | 헤더 영역       |
 | header.isSuccessful          | Boolean | O        | 성공 여부      |
 | header.resultCode            | Integer | O        | 실패 코드      |
 | header.resultMessage         | String  | O        | 실패 메시지    |
@@ -3489,8 +3514,9 @@ curl -X PUT \
 }
 ```
 
-| 값                   | 타입    | Not Null | 설명    |
+| 값                   | 타입      | Not Null | 설명    |
 |----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -3546,8 +3572,9 @@ curl -X DELETE \
 }
 ```
 
-| 값                   | 타입    | Not Null | 설명    |
+| 값                   | 타입      | Not Null | 설명    |
 |----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -3648,8 +3675,9 @@ curl -X POST \
 }
 ```
 
-| 값                   | 타입    | Not Null | 설명    |
+| 값                   | 타입      | Not Null | 설명     |
 |----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -3927,6 +3955,7 @@ curl -X GET \
 
 | 값                                         | 타입     | Not Null | 설명                                |
 |-------------------------------------------|---------|----------|-------------------------------------|
+| header                                    | Object  | O        | 헤더 영역                           |
 | header.isSuccessful                       | Boolean | O        | 성공 여부                           |
 | header.resultCode                         | Integer | O        | 실패 코드                           |
 | header.resultMessage                      | String  | O        | 실패 메시지                          |
@@ -4045,6 +4074,7 @@ curl -X GET \
 
 | 값                                         | 타입     | Not Null | 설명                                |
 |-------------------------------------------|---------|----------|-------------------------------------|
+| header                                    | Object  | O        | 헤더 영역                             |
 | header.isSuccessful                       | Boolean | O        | 성공 여부                             |
 | header.resultCode                         | Integer | O        | 실패 코드                             |
 | header.resultMessage                      | String  | O        | 실패 메시지                            |
@@ -4156,8 +4186,9 @@ curl -X GET \
 }
 ```
 
-| 값                   | 타입    | Not Null | 설명    |
+| 값                   | 타입      | Not Null | 설명    |
 |----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -4213,8 +4244,9 @@ curl -X DELETE \
 }
 ```
 
-| 값                   | 타입    | Not Null | 설명    |
+| 값                   | 타입      | Not Null | 설명     |
 |----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -4295,8 +4327,9 @@ curl -X POST \
 }
 ```
 
-| 값                   | 타입    | Not Null | 설명    |
+| 값                   | 타입      | Not Null | 설명     |
 |----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -4433,8 +4466,9 @@ curl -X DELETE \
 }
 ```
 
-| 값                   | 타입    | Not Null | 설명    |
+| 값                   | 타입      | Not Null | 설명    |
 |----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -4531,8 +4565,9 @@ curl -X GET \
 }
 ```
 
-| 값                       | 타입     | Not Null | 설명           |
+| 값                        | 타입     | Not Null | 설명           |
 |--------------------------|---------|----------|----------------|
+| header                   | Object  | O        | 헤더 영역      |
 | header.isSuccessful      | Boolean | O        | 성공 여부      |
 | header.resultCode        | Integer | O        | 실패 코드      |
 | header.resultMessage     | String  | O        | 실패 메시지    |
@@ -4635,6 +4670,7 @@ curl -X GET \
 
 | 값                    | 타입     | Not Null | 설명              |
 |----------------------|---------|----------|------------------|
+| header               | Object  | O        | 헤더 영역          |
 | header.isSuccessful  | Boolean | O        | 성공 여부           |
 | header.resultCode    | Integer | O        | 실패 코드           |
 | header.resultMessage | String  | O        | 실패 메시지          |
@@ -4726,6 +4762,7 @@ curl -X GET \
 
 | 값                    | 타입     | Not Null | 설명              |
 |----------------------|---------|----------|------------------|
+| header               | Object  | O        | 헤더 영역          |
 | header.isSuccessful  | Boolean | O        | 성공 여부           |
 | header.resultCode    | Integer | O        | 실패 코드           |
 | header.resultMessage | String  | O        | 실패 메시지          |
@@ -4823,6 +4860,7 @@ curl -X GET \
 
 | 값                    | 타입      | Not Null | 설명                |
 |----------------------|---------|----------|---------------------|
+| header               | Object  | O        | 헤더 영역             |
 | header.isSuccessful  | Boolean | O        | 성공 여부             |
 | header.resultCode    | Integer | O        | 실패 코드             |
 | header.resultMessage | String  | O        | 실패 메시지            |
@@ -4880,8 +4918,9 @@ curl -X GET \
 }
 ```
 
-| 값                    | 타입      | Not Null | 설명               |
+| 값                    | 타입     | Not Null | 설명               |
 |----------------------|---------|----------|-------------------|
+| header               | Object  | O        | 헤더 영역           |
 | header.isSuccessful  | Boolean | O        | 성공 여부           |
 | header.resultCode    | Integer | O        | 실패 코드           |
 | header.resultMessage | String  | O        | 실패 메시지          |
@@ -4968,7 +5007,8 @@ curl -X GET \
 ```
 
 | 값                          | 타입     | Not Null | 설명                      |
-|-----------------------------|---------|----------|---------------------------|
+|-----------------------------|---------|----------|-------------------------|
+| header                      | Object  | O        | 헤더 영역                 |
 | header.isSuccessful         | Boolean | O        | 성공 여부                 |
 | header.resultCode           | Integer | O        | 실패 코드                 |
 | header.resultMessage        | String  | O        | 실패 메시지               |
@@ -5082,6 +5122,7 @@ curl -X GET \
 
 | 값                             | 타입            | Not Null | 설명                                                                                                                                                  |
 |--------------------------------|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                         | Object        | O        | 헤더 영역                                                                                                                                               |
 | header.isSuccessful            | Boolean       | O        | 성공 여부                                                                                                                                               |
 | header.resultCode              | Integer       | O        | 실패 코드                                                                                                                                               |
 | header.resultMessage           | String        | O        | 실패 메시지                                                                                                                                              |
@@ -5188,34 +5229,35 @@ curl -X GET \
 }
 ```
 
-| 값                                   | 타입          | Not Null | 설명                                                                                                                                                                                     |
-|-------------------------------------|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                 | Boolean       | O        | 성공 여부                                                                                                                                                                                |
-| header.resultCode                   | Integer       | O        | 실패 코드                                                                                                                                                                                |
-| header.resultMessage                | String        | O        | 실패 메시지                                                                                                                                                                               |
-| body.pageNum                        | Integer       | O        | 현재 페이지 번호                                                                                                                                                                          |
-| body.pageSize                       | Integer       | O        | 검색된 데이터 수                                                                                                                                                                          |
-| body.totalCount                     | Integer       | O        | 총 데이터 수                                                                                                                                                                             |
-| body.data.requestId                 | String        | O        | 요청 ID                                                                                                                                                                                  |
-| body.data.recipientSeq              | Integer       | O        | 수신자 시퀀스                                                                                                                                                                             |
-| body.data.requestDate               | String        | O        | 발신 일시                                                                                                                                                                                |
-| body.data.sendNo                    | String        | O        | 발신 번호                                                                                                                                                                                |
-| body.data.recipientNo               | String        | O        | 수신 번호                                                                                                                                                                                |
-| body.data.countryCode               | String        | O        | 국가 번호                                                                                                                                                                                |
-| body.data.sendType                  | String        | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                                     |
-| body.data.messageType               | String        | O        | 메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                                                                                                        |
-| body.data.adYn                      | String        | O        | 광고 여부                                                                                                                                                                                |
-| body.data.templateId                | String        | X        | 템플릿 ID                                                                                                                                                                               |
-| body.data.templateParameter         | String(json)  | X        | 템플릿 파라미터                                                                                                                                                                           |
-| body.data.templateName              | String        | X        | 템플릿명                                                                                                                                                                                 |
-| body.data.title                     | String        | X        | 제목                                                                                                                                                                                   |
-| body.data.body                      | String        | O        | 본문 내용                                                                                                                                                                                |
-| body.data.messageStatus             | String        | O        | 메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한)) |
-| body.data.createUser                | String        | X        | 등록한 사용자                                                                                                                                                                             |
-| body.data.createDate                | String        | X        | 등록 날짜                                                                                                                                                                                |
-| body.data.attachFileList[].fileId   | Integer       | O        | 파일 ID                                                                                                                                                                                 |
-| body.data.attachFileList[].filePath | String        | X        | 파일경로(내부용)                                                                                                                                                                          |
-| body.data.attachFileList[].fileName | String        | X        | 파일명                                                                                                                                                                                  |
+| 값                                   | 타입           | Not Null | 설명                                                                                                                                                                          |
+|-------------------------------------|---------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                              | Object        | O        | 헤더 영역                                                                                                                                                                     |
+| header.isSuccessful                 | Boolean       | O        | 성공 여부                                                                                                                                                                     |
+| header.resultCode                   | Integer       | O        | 실패 코드                                                                                                                                                                     |
+| header.resultMessage                | String        | O        | 실패 메시지                                                                                                                                                                    |
+| body.pageNum                        | Integer       | O        | 현재 페이지 번호                                                                                                                                                               |
+| body.pageSize                       | Integer       | O        | 검색된 데이터 수                                                                                                                                                               |
+| body.totalCount                     | Integer       | O        | 총 데이터 수                                                                                                                                                                  |
+| body.data.requestId                 | String        | O        | 요청 ID                                                                                                                                                                       |
+| body.data.recipientSeq              | Integer       | O        | 수신자 시퀀스                                                                                                                                                                  |
+| body.data.requestDate               | String        | O        | 발신 일시                                                                                                                                                                     |
+| body.data.sendNo                    | String        | O        | 발신 번호                                                                                                                                                                     |
+| body.data.recipientNo               | String        | O        | 수신 번호                                                                                                                                                                     |
+| body.data.countryCode               | String        | O        | 국가 번호                                                                                                                                                                     |
+| body.data.sendType                  | String        | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                          |
+| body.data.messageType               | String        | O        | 메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                                                                                             |
+| body.data.adYn                      | String        | O        | 광고 여부                                                                                                                                                                     |
+| body.data.templateId                | String        | X        | 템플릿 ID                                                                                                                                                                    |
+| body.data.templateParameter         | String(json)  | X        | 템플릿 파라미터                                                                                                                                                                |
+| body.data.templateName              | String        | X        | 템플릿명                                                                                                                                                                      |
+| body.data.title                     | String        | X        | 제목                                                                                                                                                                        |
+| body.data.body                      | String        | O        | 본문 내용                                                                                                                                                                     |
+| body.data.messageStatus             | String        | O        | 메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한))       |
+| body.data.createUser                | String        | X        | 등록한 사용자                                                                                                                                                                 |
+| body.data.createDate                | String        | X        | 등록 날짜                                                                                                                                                                    |
+| body.data.attachFileList[].fileId   | Integer       | O        | 파일 ID                                                                                                                                                                     |
+| body.data.attachFileList[].filePath | String        | X        | 파일경로(내부용)                                                                                                                                                              |
+| body.data.attachFileList[].fileName | String        | X        | 파일명                                                                                                                                                                      |
 
 ### 예약 발송 취소
 
@@ -5304,6 +5346,7 @@ curl -X PUT \
 
 | 값                        | 타입     | Not Null | 설명        |
 |---------------------------|---------|----------|-------------|
+| header                    | Object  | O        | 헤더 영역    |
 | header.isSuccessful       | Boolean | O        | 성공 여부   |
 | header.resultCode         | Integer | O        | 실패 코드   |
 | header.resultMessage      | String  | O        | 실패 메시지 |
@@ -5428,6 +5471,7 @@ curl -X PUT \
 
 | 값                                 | 타입      | Not Null | 설명                                                                                                          |
 |------------------------------------|---------|----------|---------------------------------------------------------------------------------------------------------------|
+| header                            | Object  | O        | 헤더 영역                                                                                                          |
 | header.isSuccessful               | Boolean | O        | 성공 여부                                                                                                     |
 | header.resultCode                 | Integer | O        | 실패 코드                                                                                                     |
 | header.resultMessage              | String  | O        | 실패 메시지                                                                                                   |
@@ -5514,6 +5558,7 @@ curl -X GET \
 
 | 값                                   | 타입                 | Not Null | 설명                                                                                                         |
 |-------------------------------------|---------------------|----------|-------------------------------------------------------------------------------------------------------------|
+| header                              | Object              | O        | 헤더 영역                                                                                                    |
 | header.isSuccessful                 | Boolean             | O        | 성공 여부                                                                                                    |
 | header.resultCode                   | Integer             | O        | 실패 코드                                                                                                    |
 | header.resultMessage                | String              | O        | 실패 메시지                                                                                                   |
@@ -5641,14 +5686,15 @@ curl -X POST \
 }
 ```
 
-| 값                            | 타입     | Not Null | 설명                                                                                                                        |
+| 값                            | 타입       | Not Null | 설명                                                                                                                 |
 |-------------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful           | Boolean  | O        | 성공 여부                                                                                                               |
-| header.resultCode             | Integer  | O        | 실패 코드                                                                                                               |
-| header.resultMessage          | String   | O        | 실패 메시지                                                                                                              |
-| body.data.downloadId          | String   | O        | 다운로드 ID                                                                                                             |
-| body.data.downloadType        | String   | O        | 다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                                    |
-| body.data.fileType            | String   | X        | 파일 타입(현재 csv만 지원)                                                                                                   |
+| header                        | Object   | O        | 헤더 영역                                                                                                             |
+| header.isSuccessful           | Boolean  | O        | 성공 여부                                                                                                              |
+| header.resultCode             | Integer  | O        | 실패 코드                                                                                                              |
+| header.resultMessage          | String   | O        | 실패 메시지                                                                                                            |
+| body.data.downloadId          | String   | O        | 다운로드 ID                                                                                                            |
+| body.data.downloadType        | String   | O        | 다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                           |
+| body.data.fileType            | String   | X        | 파일 타입(현재 csv만 지원)                                                                                               |
 | body.data.downloadStatusCode  | String   | O        | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
 | body.data.expiredDate         | String   | X        | 다운로드 기간 만료 일시                                                                                                       |
 
@@ -5731,12 +5777,13 @@ curl -X GET \
 
 | 값                              | 타입     | Not Null | 설명                                                                                                                    |
 |--------------------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------|
+| header                         | Object  | O        | 헤더 영역                                                                                                               |
 | header.isSuccessful            | Boolean | O        | 성공 여부                                                                                                               |
 | header.resultCode              | Integer | O        | 실패 코드                                                                                                               |
 | header.resultMessage           | String  | O        | 실패 메시지                                                                                                              |
 | body.totalCount                | Integer | O        | 전체 건수                                                                                                               |
 | body.data[].downloadId         | String  | O        | 다운로드 ID                                                                                                             |
-| body.data[].downloadType       | String  | O        | 다운로드 유형<br/>- BLOCK: 수신 거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                                   |
+| body.data[].downloadType       | String  | O        | 다운로드 유형<br/>- BLOCK: 수신 거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                           |
 | body.data[].fileType           | String  | X        | 파일 타입                                                                                                               |
 | body.data[].parameter          | String  | X        | 요청 파라미터                                                                                                             |
 | body.data[].size               | Integer | X        | 검색 데이터 크기                                                                                                           |
@@ -5866,6 +5913,7 @@ curl -X GET \
 
 | 값                        | 타입     | Not Null | 설명         |
 |--------------------------|---------|----------|--------------|
+| header                   | Object  | O        | 헤더 영역    |
 | header.isSuccessful      | Boolean | O        | 성공 여부    |
 | header.resultCode        | Integer | O        | 실패 코드    |
 | header.resultMessage     | String  | O        | 실패 메시지  |
@@ -5947,6 +5995,7 @@ curl -X POST \
 
 | 값                    | 타입     | Not Null | 설명      |
 |----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역   |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지|
@@ -6019,6 +6068,7 @@ curl -X PUT \
 
 | 값                    | 타입     | Not Null | 설명      |
 |----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역   |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -6075,6 +6125,7 @@ curl -X DELETE \
 
 | 값                    | 타입     | Not Null | 설명      |
 |----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역   |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -6168,6 +6219,7 @@ curl -X GET \
 
 | 값                                       | 타입     | Not Null | 설명            |
 |-----------------------------------------|---------|----------|-----------------|
+| header                                  | Object  | O        | 헤더 영역       |
 | header.isSuccessful                     | Boolean | O        | 성공 여부       |
 | header.resultCode                       | Integer | O        | 실패 코드       |
 | header.resultMessage                    | String  | O        | 실패 메시지     |
@@ -6251,8 +6303,9 @@ curl -X GET \
 }
 ```
 
-| 값                                | 타입     | Not Null | 설명             |
+| 값                                | 타입       | Not Null | 설명             |
 |-----------------------------------|----------|----------|------------------|
+| header                            | Object   | O        | 헤더 영역         |
 | header.isSuccessful               | Boolean  | O        | 성공 여부        |
 | header.resultCode                 | Integer  | O        | 실패 코드        |
 | header.resultMessage              | String   | O        | 실패 메시지      |
@@ -6363,6 +6416,7 @@ curl -X POST \
 
 | 값                    | 타입     | Not Null | 설명      |
 |----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
 | header.isSuccessful  | Boolean | O        | 성공 여부  |
 | header.resultCode    | Integer | O        | 실패 코드  |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -6419,6 +6473,7 @@ curl -X DELETE \
 
 | 값                    | 타입     | Not Null | 설명      |
 |----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지 |
@@ -6490,6 +6545,7 @@ curl -X POST \
 
 | 값                    | 타입     | Not Null | 설명      |
 |----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지|
@@ -6547,6 +6603,7 @@ curl -X DELETE \
 
 | 값                    | 타입     | Not Null | 설명      |
 |----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
 | header.isSuccessful  | Boolean | O        | 성공 여부 |
 | header.resultCode    | Integer | O        | 실패 코드 |
 | header.resultMessage | String  | O        | 실패 메시지|
