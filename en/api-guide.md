@@ -153,6 +153,7 @@ curl -X POST \
 
 | Value                                           | Type    | Not Null | Description                                                               |
 |-------------------------------------------------|---------|----------|---------------------------------------------------------------------------|
+| header                                          | Object  | O        | Header area                                                               |
 | header.isSuccessful                             | Boolean | O        | Successful or not                                                         |
 | header.resultCode                               | Integer | O        | Failure code                                                              |
 | header.resultMessage                            | String  | O        | Failure message                                                           |
@@ -392,7 +393,8 @@ curl -X GET \
 ```
 
 | Value                            | Type    | Not Null | Description                                                                           |
-|----------------------------------|---------|----------|---|
+|----------------------------------|---------|----------|---------------------------------------------------------------------------------------|
+| header                           | Object  | O        | Header area                                                                           |
 | header.isSuccessful              | Boolean | O        | Successful or not                                                                     |
 | header.resultCode                | Integer | O        | Failure code                                                                          |
 | header.resultMessage             | String  | O        | Failure message                                                                       |
@@ -521,6 +523,7 @@ curl -X GET \
 
 | Value                          | Type    | Not Null | Description                                                                                                                                                                        |
 |--------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| header                         | Object  | O        | Header area                                                                                                                                                                        |
 | header.isSuccessful            | Boolean | O        | Successful or not                                                                                                                                                                  |
 | header.resultCode              | Integer | O        | Failure code                                                                                                                                                                       |
 | header.resultMessage           | String  | O        | Failure message                                                                                                                                                                    |
@@ -629,6 +632,7 @@ curl -X POST \
 
 | Value                    | Type    | Not Null | Description       |
 |--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
 | header.isSuccessful      | Boolean | O        | Successful or not |
 | header.resultCode        | Integer | O        | Failure code      |
 | header.resultMessage     | String  | O        | Failure message   |
@@ -764,6 +768,7 @@ curl -X POST \
 
 | Value                                           | Type    | Not Null | Description                                                                 |
 |-------------------------------------------------|---------|----------|-----------------------------------------------------------------------------|
+| header                                          | Object  | O        | Header area                                                                 |
 | header.isSuccessful                             | Boolean | O        | Successful or not                                                           |
 | header.resultCode                               | Integer | O        | Failure code                                                                |
 | header.resultMessage                            | String  | O        | Failure message                                                             |
@@ -1029,7 +1034,8 @@ curl -X GET \
 ```
 
 | Value                                     | Type    | Not Null | Description                                                                           |
-|-------------------------------------------|---------|----------|------------------------------------------------------------------------------------------------|
+|-------------------------------------------|---------|----------|---------------------------------------------------------------------------------------|
+| header                                    | Object  | O        | Header area                                                                           |
 | header.isSuccessful                       | Boolean | O        | Successful or not                                                                     |
 | header.resultCode                         | Integer | O        | Failure code                                                                          |
 | header.resultMessage                      | String  | O        | Failure message                                                                       |
@@ -1164,7 +1170,8 @@ curl -X GET \
 ```
 
 | Value                                   | Type    | Not Null | Description                                                                                                                                                                        |
-|-----------------------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                                  | Object  | O        | Header area                                                                                                                                                                        |
 | header.isSuccessful                     | Boolean | O        | Successful or not                                                                                                                                                                  |
 | header.resultCode                       | Integer | O        | Failure code                                                                                                                                                                       |
 | header.resultMessage                    | String  | O        | Failure message                                                                                                                                                                    |
@@ -1342,6 +1349,7 @@ curl -X POST \
 
 | Value                                           | Type     | Not Null | Description                                                                  |
 |-------------------------------------------------|----------|----------|------------------------------------------------------------------------------|
+| header                                          | Object   | O        | Header area                                                                  |
 | header.isSuccessful                             | Boolean  | O        | Successful or not                                                            |
 | header.resultCode                               | Integer  | O        | Failure code                                                                 |
 | header.resultMessage                            | String   | O        | Failure message                                                              |
@@ -1528,8 +1536,9 @@ curl -X GET \
 }
 ```
 
-| Value                            | Type     | Not Null | Description                                                                           |
+| Value                            | Type     | Not Null | Description                                                                               |
 |----------------------------------|----------|----------|-------------------------------------------------------------------------------------------|
+| header                           | Object   | O        | Header area                                                                               |
 | header.isSuccessful              | Boolean  | O        | Successful or not                                                                         |
 | header.resultCode                | Integer  | O        | Failure code                                                                              |
 | header.resultMessage             | String   | O        | Failure message                                                                           |
@@ -1658,6 +1667,7 @@ curl -X GET \
 
 | Value                          | Type    | Not Null | Description                                                                                                                                                                        |
 |--------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| header                         | Object  | O        | Header area                                                                                                                                                                        |
 | header.isSuccessful            | Boolean | O        | Successful or not                                                                                                                                                                  |
 | header.resultCode              | Integer | O        | Failure code                                                                                                                                                                       |
 | header.resultMessage           | String  | O        | Failure message                                                                                                                                                                    |
@@ -1766,6 +1776,7 @@ curl -X POST \
 
 | Value                | Type    | Not Null | Description       |
 |----------------------|---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -1980,6 +1991,7 @@ curl -X POST \
 
 | Value                | Type    | Not Null | Description       |
 |----------------------|---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure core      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -2073,7 +2085,8 @@ curl -X GET \
 ```
 
 | Value                                             | Type    | Not Null | Description                                             |
-|---------------------------------------------------|---------|----------|----------------------------------------------------------|
+|---------------------------------------------------|---------|----------|---------------------------------------------------------|
+| header                                            | Object  | O        | Header area                                             |
 | header.isSuccessful                               | Boolean | O        | Successful or not                                       |
 | header.resultCode                                 | Integer | O        | Failure code                                            |
 | header.resultMessage                              | String  | O        | Failure message                                         |
@@ -2182,6 +2195,7 @@ curl -X GET \
 
 | Value                        | Type    | Not Null | Description               |
 |------------------------------|---------|----------|---------------------------|
+| header                       | Object  | O        | Header area               |
 | header.isSuccessful          | Boolean | O        | Successful or not         |
 | header.resultCode            | Integer | O        | Failure code              |
 | header.resultMessage         | String  | O        | Failure message           |
@@ -2287,8 +2301,9 @@ curl -X GET \
 }
 ```
 
-| Value                     | Type    | Not Null | Description                                                                           |
+| Value                     | Type    | Not Null | Description                                                                       |
 |---------------------------|---------|----------|-----------------------------------------------------------------------------------| 
+| header                    | Object  | O        | Header area                                                                       |
 | header.isSuccessful       | Boolean | O        | Successful or not                                                                 |
 | header.resultCode         | Integer | O        | Failure code                                                                      |
 | header.resultMessage      | String  | O        | Failure message                                                                   |
@@ -2385,6 +2400,7 @@ curl -X GET \
 
 | Value                                   | Type    | Not Null | Description                                                                           |
 |-----------------------------------------|---------|----------|---------------------------------------------------------------------------------------|
+| header                                  | Object  | O        | Header area                                                                           |
 | header.isSuccessful                     | Boolean | O        | Successful or not                                                                     |
 | header.resultCode                       | Integer | O        | Failure code                                                                          |
 | header.resultMessage                    | String  | O        | Failure message                                                                       |
@@ -2525,6 +2541,7 @@ curl -X POST \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -2646,6 +2663,7 @@ curl -X POST \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -2748,6 +2766,7 @@ curl -X GET \
 
 | Value                       | Type         | Not Null | Description                   |
 |-----------------------------|--------------|----------|-------------------------------|
+| header                      | Object       | O        | Header area                   |
 | header.isSuccessful         | Boolean      | O        | Successful or not             |
 | header.resultCode           | Integer      | O        | Failure code                  |
 | header.resultMessage        | String       | O        | Failure message               |
@@ -2861,7 +2880,8 @@ curl -X GET \
 ```
 
 | Value                     | Type    | Not Null | Description                                                                           |
-|---------------------------|---------|----------|-------------------------------------------------------------------------------------| 
+|---------------------------|---------|----------|---------------------------------------------------------------------------------------| 
+| header                    | Object  | O        | Header area                                                                           |
 | header.isSuccessful       | Boolean | O        | Successful or not                                                                     |
 | header.resultCode         | Integer | O        | Failure code                                                                          |
 | header.resultMessage      | String  | O        | Failure message                                                                       |
@@ -3079,6 +3099,7 @@ curl -X POST \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -3218,6 +3239,7 @@ curl -X POST \
 
 | Value                        | Type    | Not Null | Description               |
 |------------------------------|---------|----------|---------------------------|
+| header                       | Object  | O        | Header area               |
 | header.isSuccessful          | Boolean | O        | Successful or not         |
 | header.resultCode            | Integer | O        | Failure code              |
 | header.resultMessage         | String  | O        | Failure message           |
@@ -3309,6 +3331,7 @@ curl -X GET \
 
 | Value                        | Type    | Not Null | Description               |
 |------------------------------|---------|----------|---------------------------|
+| header                       | Object  | O        | Header area               |
 | header.isSuccessful          | Boolean | O        | Successful or not         |
 | header.resultCode            | Integer | O        | Failure code              |
 | header.resultMessage         | String  | O        | Failure messagae          |
@@ -3397,6 +3420,7 @@ curl -X GET \
 
 | Value                        | Type    | Not Null | Description               |
 |------------------------------|---------|----------|---------------------------|
+| header                       | Object  | O        | Header area               |
 | header.isSuccessful          | Boolean | O        | Successful or not         |
 | header.resultCode            | Integer | O        | Failure code              |
 | header.resultMessage         | String  | O        | Failure message           |
@@ -3490,6 +3514,7 @@ curl -X PUT \
 
 | Value                    | Type    | Not Null | Description       |
 |--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
 | header.isSuccessful      | Boolean | O        | Successful or not |
 | header.resultCode        | Integer | O        | Failure code      |
 | header.resultMessage     | String  | O        | Failure message   |
@@ -3547,6 +3572,7 @@ curl -X DELETE \
 
 | Value                    | Type    | Not Null | Description       |
 |--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
 | header.isSuccessful      | Boolean | O        | Successful or not |
 | header.resultCode        | Integer | O        | Failure code      |
 | header.resultMessage     | String  | O        | Failure message   |
@@ -3649,6 +3675,7 @@ curl -X POST \
 
 | Value                    | Type    | Not Null | Description       |
 |--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
 | header.isSuccessful      | Boolean | O        | Successful or not |
 | header.resultCode        | Integer | O        | Failure code      |
 | header.resultMessage     | String  | O        | Failure message   |
@@ -3928,6 +3955,7 @@ curl -X GET \
 
 | Value                                     | Type    | Not Null | Description                                       |
 |-------------------------------------------|---------|----------|---------------------------------------------------|
+| header                                    | Object  | O        | Header area                                       |
 | header.isSuccessful                       | Boolean | O        | Successful or not                                 |
 | header.resultCode                         | Integer | O        | Failure code                                      |
 | header.resultMessage                      | String  | O        | Faliure message                                   |
@@ -4046,6 +4074,7 @@ curl -X GET \
 
 | Value                                     | Type    | Not Null | Description                                       |
 |-------------------------------------------|---------|----------|---------------------------------------------------|
+| header                                    | Object  | O        | Header area                                       |
 | header.isSuccessful                       | Boolean | O        | Successful or not                                 |
 | header.resultCode                         | Integer | O        | Failure code                                      |
 | header.resultMessage                      | String  | O        | Failure message                                   |
@@ -4158,6 +4187,7 @@ curl -X GET \
 
 | Value                    | Type    | Not Null | Description       |
 |--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
 | header.isSuccessful      | Boolean | O        | Successful or not |
 | header.resultCode        | Integer | O        | Failure code      |
 | header.resultMessage     | String  | O        | Failure message   |
@@ -4215,6 +4245,7 @@ curl -X DELETE \
 
 | Value                    | Type    | Not Null | Description       |
 |--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
 | header.isSuccessful      | Boolean | O        | Successful or not |
 | header.resultCode        | Integer | O        | Failure code      |
 | header.resultMessage     | String  | O        | Failure message   |
@@ -4297,6 +4328,7 @@ curl -X POST \
 
 | Value                    | Type    | Not Null | Description       |
 |--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
 | header.isSuccessful      | Boolean | O        | Successful or not |
 | header.resultCode        | Integer | O        | Failure code      |
 | header.resultMessage     | String  | O        | Failure message   |
@@ -4435,6 +4467,7 @@ curl -X DELETE \
 
 | Value                    | Type    | Not Null | Description       |
 |--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
 | header.isSuccessful      | Boolean | O        | Successful or not |
 | header.resultCode        | Integer | O        | Failure code      |
 | header.resultMessage     | String  | O        | Failure message   |
@@ -4533,6 +4566,7 @@ curl -X GET \
 
 | Value                   | Type    | Not Null | Description               |
 |-------------------------|---------|----------|---------------------------|
+| header                  | Object  | O        | Header area               |
 | header.isSuccessful     | Boolean | O        | Successful or not         |
 | header.resultCode       | Integer | O        | Failure code              |
 | header.resultMessage    | String  | O        | Failure message           |
@@ -4628,6 +4662,7 @@ curl -X GET \
 
 | Value                    | Type    | Not Null | Description               |
 |--------------------------|---------|----------|---------------------------|
+| header                   | Object  | O        | Header area               |
 | header.isSuccessful      | Boolean | O        | Successful or not         |
 | header.resultCode        | Integer | O        | Failure code              |
 | header.resultMessage     | String  | O        | Failure message           |
@@ -4721,6 +4756,7 @@ curl -X GET \
 
 | Value                    | Type    | Not Null | Description               |
 |--------------------------|---------|----------|---------------------------|
+| header                   | Object  | O        | Header area               |
 | header.isSuccessful      | Boolean | O        | Successful or not         |
 | header.resultCode        | Integer | O        | Failure code              |
 | header.resultMessage     | String  | O        | Failure message           |
@@ -4816,18 +4852,19 @@ curl -X GET \
 }
 ```
 
-| Value                    | Type      | Not Null | Description            |
-|----------------------|---------|----------|---------------|
+| Value                | Type    | Not Null | Description               |
+|----------------------|---------|----------|---------------------------|
+| header               | Object  | O        | Header area               |
 | header.isSuccessful  | Boolean | O        | Successful or not         |
-| header.resultCode    | Integer | O        | Failure code         |
-| header.resultMessage | String  | O        | Failure message        |
+| header.resultCode    | Integer | O        | Failure code              |
+| header.resultMessage | String  | O        | Failure message           |
 | body.data            | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects (Statistics criteria: Default value)
 | Value                  | Type    | Not Null | Description                                                                     |
 |------------------------|---------|----------|---------------------------------------------------------------------------------|
-| eventDateTime          | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly                              |
-| events                 | Object  | O        | When statsCriteria is set only as EVENT {statsCriteriaValue} is omitted        |
+| eventDateTime          | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly                               |
+| events                 | Object  | O        | When statsCriteria is set only as EVENT {statsCriteriaValue} is omitted         |
 | events.REQUESTED       | Integer | X        | Number of requests                                                              |
 | events.SENT            | Integer | X        | Number of sent items                                                            |
 | events.SENT_FAILED     | Integer | X        | Number of failures                                                              |
@@ -4877,11 +4914,12 @@ curl -X GET \
 }
 ```
 
-| Value                    | Type      | Not Null | Description            |
-|----------------------|---------|----------|---------------|
+| Value                | Type    | Not Null | Description               |
+|----------------------|---------|----------|---------------------------|
+| header               | Object  | O        | Header area               |
 | header.isSuccessful  | Boolean | O        | Successful or not         |
-| header.resultCode    | Integer | O        | Failure code         |
-| header.resultMessage | String  | O        | Failure message        |
+| header.resultCode    | Integer | O        | Failure code              |
+| header.resultMessage | String  | O        | Failure message           |
 | body.data            | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects (Statistics criteria added)
@@ -4966,6 +5004,7 @@ curl -X GET \
 
 | Value                      | Type    | Not Null | Description                      |
 |----------------------------|---------|----------|----------------------------------|
+| header                     | Object  | O        | Header area                      |
 | header.isSuccessful        | Boolean | O        | Successful or not                |
 | header.resultCode          | Integer | O        | Failure code                     |
 | header.resultMessage       | String  | O        | Failure message                  |
@@ -5079,6 +5118,7 @@ curl -X GET \
 
 | Value                         | Type          | Not Null | Description                                                                                                                                                                           |
 |-------------------------------|---------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                        | Object        | O        | Header area                                                                                                                                                                           |
 | header.isSuccessful           | Boolean       | O        | Successful or not                                                                                                                                                                     |
 | header.resultCode             | Integer       | O        | Failure code                                                                                                                                                                          |
 | header.resultMessage          | String        | O        | Failure message                                                                                                                                                                       |
@@ -5189,6 +5229,7 @@ curl -X GET \
 
 | Value                                     | Type          | Not Null | Description                                                                                                                                                                            |
 |-------------------------------------------|---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                                    | Object        | O        | Header area                                                                                                                                                                            |
 | header.isSuccessful                       | Boolean       | O        | Successful or not                                                                                                                                                                      |
 | header.resultCode                         | Integer       | O        | Failure code                                                                                                                                                                           |
 | header.resultMessage                      | String        | O        | Failure message                                                                                                                                                                        |
@@ -5305,6 +5346,7 @@ curl -X PUT \
 
 | Value                    | Type    | Not Null | Description                       |
 |--------------------------|---------|----------|-----------------------------------|
+| header                   | Object  | O        | Header area                       |
 | header.isSuccessful      | Boolean | O        | Successful or not                 |
 | header.resultCode        | Integer | O        | Failure code                      |
 | header.resultMessage     | String  | O        | Failure message                   |
@@ -5429,6 +5471,7 @@ curl -X PUT \
 
 | Value                             | Type    | Not Null | Description                                                                                                                                                                                                    |
 |-----------------------------------|---------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                            | Object  | O        | Header area                                                                                                                                                                                                    |
 | header.isSuccessful               | Boolean | O        | Successful or not                                                                                                                                                                                              |
 | header.resultCode                 | Integer | O        | Failure code                                                                                                                                                                                                   |
 | header.resultMessage              | String  | O        | Failure message                                                                                                                                                                                                |
@@ -5515,6 +5558,7 @@ curl -X GET \
 
 | Value                               | Type                 | Not Null | Description                                                             |
 |-------------------------------------|----------------------|----------|-------------------------------------------------------------------------|
+| header                              | Object               | O        | Header area                                                             |
 | header.isSuccessful                 | Boolean              | O        | Successful or not                                                       |
 | header.resultCode                   | Integer              | O        | Failure code                                                            |
 | header.resultMessage                | String               | O        | Failure message                                                         |
@@ -5644,6 +5688,7 @@ curl -X POST \
 
 | Value                        | Type    | Not Null | Description                                                                                                                                                                              |
 |------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                       | Object  | O        | Header area                                                                                                                                                                              |
 | header.isSuccessful          | Boolean | O        | Successful or not                                                                                                                                                                        |
 | header.resultCode            | Integer | O        | Failure code                                                                                                                                                                             |
 | header.resultMessage         | String  | O        | Failure message                                                                                                                                                                          |
@@ -5732,6 +5777,7 @@ curl -X GET \
 
 | Value                          | Type    | Not Null | Description                                                                                                                                                                              |
 |--------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                         | Object  | O        | Header area                                                                                                                                                                              |
 | header.isSuccessful            | Boolean | O        | Successful or not                                                                                                                                                                        |
 | header.resultCode              | Integer | O        | Failure code                                                                                                                                                                             |
 | header.resultMessage           | String  | O        | Failure message                                                                                                                                                                          |
@@ -5867,6 +5913,7 @@ curl -X GET \
 
 | Value                   | Type    | Not Null | 	Description                  | 
 |-------------------------|---------|----------|-------------------------------|
+| header                  | Object  | O        | Header area                   |
 | header.isSuccessful     | Boolean | O        | 	Successful or not            |
 | header.resultCode       | Integer | O        | 	Failure code                 |
 | header.resultMessage    | String  | O        | 	Failure message              |
@@ -5948,6 +5995,7 @@ curl -X POST \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -6020,6 +6068,7 @@ curl -X PUT \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -6076,6 +6125,7 @@ curl -X DELETE \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -6167,11 +6217,12 @@ curl -X GET \
 }
 ```
 
-| Value                                   | Type     | Not Null | Description                      |
+| Value                                   | Type     | Not Null | Description                       |
 |-----------------------------------------|----------|----------|-----------------------------------|
-| header.isSuccessful                     | Boolean  | O        | Successful or not                |
-| header.resultCode                       | Integer  | O        | Failure code                     |
-| header.resultMessage                    | String   | O        | Failure message                  |
+| header                                  | Object   | O        | Header area                       |
+| header.isSuccessful                     | Boolean  | O        | Successful or not                 |
+| header.resultCode                       | Integer  | O        | Failure code                      |
+| header.resultMessage                    | String   | O        | Failure message                   |
 | body.data.uids[].uid                    | String   | O        | UID                               |
 | body.data.uids[].tags[].tagId           | String   | O        | Tag ID                            |
 | body.data.uids[].tags[].tagName         | String   | X        | Tag name                          |
@@ -6252,11 +6303,12 @@ curl -X GET \
 }
 ```
 
-| Value                            | Type     | Not Null | Description                      |
+| Value                            | Type     | Not Null | Description                       |
 |----------------------------------|----------|----------|-----------------------------------|
-| header.isSuccessful              | Boolean  | O        | Successful or not                |
-| header.resultCode                | Integer  | O        | Failure code                     |
-| header.resultMessage             | String   | O        | Failure message                  |
+| header                           | Object   | O        | Header area                       |
+| header.isSuccessful              | Boolean  | O        | Successful or not                 |
+| header.resultCode                | Integer  | O        | Failure code                      |
+| header.resultMessage             | String   | O        | Failure message                   |
 | body.data.uid                    | String   | O        | UID                               |
 | body.data.tags[].tagId           | String   | O        | Tag ID                            |
 | body.data.tags[].tagName         | String   | X        | Tag name                          |
@@ -6364,6 +6416,7 @@ curl -X POST \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -6420,6 +6473,7 @@ curl -X DELETE \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -6491,6 +6545,7 @@ curl -X POST \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
@@ -6548,6 +6603,7 @@ curl -X DELETE \
 
 | Value                | Type    | Not Null | Description       |
 |--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
