@@ -424,7 +424,7 @@ curl -X GET \
 | body.data[].recipientSeq         | Integer | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)                  |
 | body.data[].sendType             | String  | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)               |
 | body.data[].messageType          | String  | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                      |
-| body.data[].messageCount         | Integer | X        | 발송된 메시지 건수                                     |
+| body.data[].messageCount         | Integer | O        | 발송된 메시지 건수                                     |
 | body.data[].userId               | String  | X        | 발송 요청 ID                                      |
 | body.data[].adYn                 | String  | O        | 광고 여부                                         |
 | body.data[].resultMessage        | String  | X        | 결과 메시지                                        |
@@ -551,7 +551,7 @@ curl -X GET \
 | body.data.recipientSeq          | Integer   | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)                                |
 | body.data.sendType              | String    | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                   |
 | body.data.messageType           | String    | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                                          |
-| body.data.messageCount          | Integer   | X        | 발송된 메시지 건수                                                     |
+| body.data.messageCount          | Integer   | O        | 발송된 메시지 건수                                                     |
 | body.data.userId                | String    | X        | 발송 요청 ID                                                          |
 | body.data.adYn                  | String    | O        | 광고 여부                                                             |
 | body.data.originCode            | String    | X        | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
@@ -1068,7 +1068,7 @@ curl -X GET \
 | body.data[].recipientSeq                   | Integer   | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)       |
 | body.data[].sendType                       | String    | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)           |
 | body.data[].messageType                    | String    | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                  |
-| body.data[].messageCount                   | Integer   | X        | 발송된 메시지 건수                             |
+| body.data[].messageCount                   | Integer   | O        | 발송된 메시지 건수                             |
 | body.data[].userId                         | String    | X        | 발송 요청 ID                                   |
 | body.data[].adYn                           | String    | O        | 광고 여부                                      |
 | body.data[].attachFileList[].fileId        | Integer   | O        | 파일 ID                                        |
@@ -1574,7 +1574,7 @@ curl -X GET \
 | body.data[].recipientSeq         | Integer   | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)           |
 | body.data[].sendType             | String    | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)               |
 | body.data[].messageType          | String    | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                      |
-| body.data[].messageCount         | Integer   | X        | 발송된 메시지 건수                                 |
+| body.data[].messageCount         | Integer   | O        | 발송된 메시지 건수                                 |
 | body.data[].userId               | String    | X        | 발송 요청 ID                                      |
 | body.data[].adYn                 | String    | O        | 광고 여부                                         |
 | body.data[].resultMessage        | String    | X        | 결과 메시지                                        |
@@ -1701,7 +1701,7 @@ curl -X GET \
 | body.data.recipientSeq         | Integer | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)                                                       |
 | body.data.sendType             | String  | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                    |
 | body.data.messageType          | String  | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                                                           |
-| body.data.messageCount         | Integer | X        | 발송된 메시지 건수                                                                          |
+| body.data.messageCount         | Integer | O        | 발송된 메시지 건수                                                                          |
 | body.data.userId               | String  | X        | 발송 요청 ID                                                                           |
 | body.data.adYn                 | String  | O        | 광고 여부                                                                              |
 | body.data.originCode           | String  | X        | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
@@ -2329,7 +2329,7 @@ curl -X GET \
 | body.data[].requestDate    | String  | O        | 요청 일시                                        |
 | body.data[].msgStatus      | String  | O        | 메시지 상태 코드                                    |
 | body.data[].msgStatusName  | String  | O        | 메시지 상태 코드명                                   |
-| body.data[].messageCount   | Integer | X        | 발송된 메시지 건수                                   |
+| body.data[].messageCount   | Integer | O        | 발송된 메시지 건수                                   |
 | body.data[].resultCode     | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
 | body.data[].receiveDate    | String  | X        | 수신 일시                                        |
 
@@ -2434,7 +2434,7 @@ curl -X GET \
 | body.data.requestDate                   | String  | O        | 요청 일시                                       |
 | body.data.msgStatus                     | String  | O        | 메시지 상태                                      |
 | body.data.msgStatusName                 | String  | O        | 메시지 상태 이름                                 |
-| body.data.messageCount                  | Integer | X        | 발송된 메시지 건수                               |
+| body.data.messageCount                  | Integer | O        | 발송된 메시지 건수                               |
 | body.data.resultCode                    | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
 | body.data.receiveDate                   | String  | X        | 수신 일시                                       |
 | body.data.createDate                    | String  | X        | 등록 일시                                       |
@@ -2912,7 +2912,7 @@ curl -X GET \
 | body.data[].requestDate    | String  | O        | 요청 일시                                      |
 | body.data[].msgStatus      | String  | O        | 메시지 상태 코드                                |
 | body.data[].msgStatusName  | String  | O        | 메시지 상태 코드명                              |
-| body.data[].messageCount   | Integer | X        | 발송된 메시지 건수                              |
+| body.data[].messageCount   | Integer | O        | 발송된 메시지 건수                              |
 | body.data[].resultCode     | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
 | body.data[].receiveDate    | String  | X        | 수신 일시                                      |
 | body.data[].createDate     | String  | X        | 등록 일시                                      |
@@ -3023,7 +3023,7 @@ curl -X GET \
 | body.data.recipientNum                  | String  | O        | 수신자 번호                                                                              |
 | body.data.requestDate                   | String  | O        | 요청 일시                                                                               |
 | body.data.msgStatusName                 | String  | O        | 메시지 상태 이름                                                                         |
-| body.data.messageCount                  | Integer | X        | 발송된 메시지 건수                                                                       |
+| body.data.messageCount                  | Integer | O        | 발송된 메시지 건수                                                                       |
 | body.data.resultCode                    | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)]                                   |
 | body.data.receiveDate                   | String  | X        | 수신 일시                                                                              |
 | body.data.attachFileList[].filePath     | String  | X        | 첨부 파일 - 경로                                                                        |

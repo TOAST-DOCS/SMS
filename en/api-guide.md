@@ -423,7 +423,7 @@ curl -X GET \
 | body.data[].recipientSeq         | Integer | O        | Detail delivery ID (required to query details)                                        |
 | body.data[].sendType             | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
 | body.data[].messageType          | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                       |
-| body.data[].messageCount         | Integer | X        | Number of messages sent                                                               |
+| body.data[].messageCount         | Integer | O        | Number of messages sent                                                               |
 | body.data[].userId               | String  | X        | Delivery request ID                                                                   |
 | body.data[].adYn                 | String  | O        | Ad or not                                                                             |
 | body.data[].resultMessage        | String  | X        | Result message                                                                        |
@@ -550,7 +550,7 @@ curl -X GET \
 | body.data.recipientSeq         | Integer | O        | Detail delivery ID (required to query details)                                                                                                                                     |
 | body.data.sendType             | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
 | body.data.messageType          | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
-| body.data.messageCount         | Integer | X        | Number of messages sent (international sending)                                                                                                                                    |
+| body.data.messageCount         | Integer | O        | Number of messages sent (international sending)                                                                                                                                    |
 | body.data.userId               | String  | X        | Delivery request ID                                                                                                                                                                |
 | body.data.adYn                 | String  | O        | Ad or not                                                                                                                                                                          |
 | body.data.originCode           | String  | X        | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
@@ -1067,7 +1067,7 @@ curl -X GET \
 | body.data[].recipientSeq                  | Integer | O        | Detail delivery ID (required to query details)                                        |
 | body.data[].sendType                      | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
 | body.data[].messageType                   | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                       |
-| body.data[].messageCount                  | Integer | X        | Number of messages sent                                                               |
+| body.data[].messageCount                  | Integer | O        | Number of messages sent                                                               |
 | body.data[].userId                        | String  | X        | Delivery request ID                                                                   |
 | body.data[].adYn                          | String  | O        | Ad or not                                                                             |
 | body.data[].attachFileList[].fileId       | Integer | O        | File ID                                                                               |
@@ -1573,7 +1573,7 @@ curl -X GET \
 | body.data[].recipientSeq         | Integer  | O        | Detail delivery ID (required to query details)                                            |
 | body.data[].sendType             | String   | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                  |
 | body.data[].messageType          | String   | O        | Message type (SMS/LMS/MMS/AUTH)                                                           |
-| body.data[].messageCount         | Integer  | X        | Number of messages sent                                                                   |
+| body.data[].messageCount         | Integer  | O        | Number of messages sent                                                                   |
 | body.data[].userId               | String   | X        | Request ID for sending                                                                    |
 | body.data[].adYn                 | String   | O        | Ad or not                                                                                 |
 | body.data[].resultMessage        | String   | X        | Result message                                                                            |
@@ -1700,7 +1700,7 @@ curl -X GET \
 | body.data.recipientSeq         | Integer | O        | Detail delivery ID (required to query details)                                                                                                                                     |
 | body.data.sendType             | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
 | body.data.messageType          | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
-| body.data.messageCount         | Integer | X        | Number of messages sent                                                                                                                                                            |
+| body.data.messageCount         | Integer | O        | Number of messages sent                                                                                                                                                            |
 | body.data.userId               | String  | X        | Request ID for sending                                                                                                                                                             |
 | body.data.adYn                 | String  | O        | Ad or not                                                                                                                                                                          |
 | body.data.originCode           | String  | X        | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
@@ -2326,7 +2326,7 @@ curl -X GET \
 | body.data[].requestDate   | String  | O        | Date and time of request                                                          |
 | body.data[].msgStatus     | String  | O        | Message status code                                                               |
 | body.data[].msgStatusName | String  | O        | Name of message status code                                                       |
-| body.data[].messageCount  | Integer | X        | Number of messages sent                                                           |
+| body.data[].messageCount  | Integer | O        | Number of messages sent                                                           |
 | body.data[].resultCode    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 | body.data[].receiveDate   | String  | X        | Date and time of receiving                                                        |
 
@@ -2431,7 +2431,7 @@ curl -X GET \
 | body.data.requestDate                   | String  | O        | Date and time of request                                                              |
 | body.data.msgStatus                     | String  | O        | Message status                                                                        |
 | body.data.msgStatusName                 | String  | O        | Message status name                                                                   |
-| body.data.messageCount                  | Integer | X        | Number of messages sent                                                               |
+| body.data.messageCount                  | Integer | O        | Number of messages sent                                                               |
 | body.data.resultCode                    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 | body.data.receiveDate                   | String  | X        | Data and time of receiving                                                            |
 | body.data.createDate                    | String  | X        | Date and time of registration                                                         |
@@ -2909,7 +2909,7 @@ curl -X GET \
 | body.data[].requestDate   | String  | O        | Date and time of request                                                              |
 | body.data[].msgStatus     | String  | O        | Message status code                                                                   |
 | body.data[].msgStatusName | String  | O        | Name of message status code                                                           |
-| body.data[].messageCount  | Integer | X        | Number of messages sent                                                               |
+| body.data[].messageCount  | Integer | O        | Number of messages sent                                                               |
 | body.data[].resultCode    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 | body.data[].receiveDate   | String  | X        | Date and time of receiving                                                            |
 | body.data[].createDate    | String  | X        | Date and time of registration                                                         |
@@ -3020,7 +3020,7 @@ curl -X GET \
 | body.data.recipientNum                  | String  | O        | Recipient number                                                                      |
 | body.data.requestDate                   | String  | O        | Date and time of request                                                              |
 | body.data.msgStatusName                 | String  | O        | Message status name                                                                   |
-| body.data.messageCount                  | Integer | X        | Number of messages sent                                                               |
+| body.data.messageCount                  | Integer | O        | Number of messages sent                                                               |
 | body.data.resultCode                    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
 | body.data.receiveDate                   | String  | X        | Date and time of receiving                                                            |
 | body.data.attachFileList[].filePath     | String  | X        | Attached file- path                                                                   |
