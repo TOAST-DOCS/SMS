@@ -157,6 +157,7 @@ curl -X POST \
 | header.isSuccessful                             | Boolean | O        | Successful or not                                                         |
 | header.resultCode                               | Integer | O        | Failure code                                                              |
 | header.resultMessage                            | String  | O        | Failure message                                                           |
+| body                                            |	Object  | X        | Body area                                                                 |
 | body.data.requestId                             | String  | O        | Request ID                                                                |
 | body.data.statusCode                            | String  | O        | Request status code (1:Requesting, 2:Request completed, 3:Request failed) |
 | body.data.senderGroupingKey                     | String  | X        | Sender group key                                                          |
@@ -398,6 +399,7 @@ curl -X GET \
 | header.isSuccessful              | Boolean | O        | Successful or not                                                                     |
 | header.resultCode                | Integer | O        | Failure code                                                                          |
 | header.resultMessage             | String  | O        | Failure message                                                                       |
+| body                             | Object  | X        | Body area                                                                             |
 | body.pageNum                     | Integer | O        | Current page number                                                                   |
 | body.pageSize                    | Integer | O        | Number of queried data                                                                |
 | body.totalCount                  | Integer | O        | Number of total data                                                                  |
@@ -527,6 +529,7 @@ curl -X GET \
 | header.isSuccessful            | Boolean | O        | Successful or not                                                                                                                                                                  |
 | header.resultCode              | Integer | O        | Failure code                                                                                                                                                                       |
 | header.resultMessage           | String  | O        | Failure message                                                                                                                                                                    |
+| body                           | Object  | X        | Body area                                                                                                                                                                          |
 | body.data.requestId            | String  | O        | Request ID                                                                                                                                                                         |
 | body.data.requestDate          | String  | O        | Date and time of sending                                                                                                                                                           |
 | body.data.resultDate           | String  | X        | Date and time of receiving                                                                                                                                                         |
@@ -772,6 +775,7 @@ curl -X POST \
 | header.isSuccessful                             | Boolean | O        | Successful or not                                                           |
 | header.resultCode                               | Integer | O        | Failure code                                                                |
 | header.resultMessage                            | String  | O        | Failure message                                                             |
+| body                                            | Object  | X        | Body area                                                                   |
 | body.data.requestId                             | String  | O        | Request ID                                                                  |
 | body.data.statusCode                            | String  | O        | Request status code (1: requesting, 2:request completed, 3: request failed) |
 | body.data.senderGroupingKey                     | String  | X        | Sender's group key                                                          |
@@ -1039,6 +1043,7 @@ curl -X GET \
 | header.isSuccessful                       | Boolean | O        | Successful or not                                                                     |
 | header.resultCode                         | Integer | O        | Failure code                                                                          |
 | header.resultMessage                      | String  | O        | Failure message                                                                       |
+| body                                      | Object  | X        | Body area                                                                             |
 | body.pageNum                              | Integer | O        | Current page number                                                                   |
 | body.pageSize                             | Integer | O        | Queried data count                                                                    |
 | body.totalCount                           | Integer | O        | Total data count                                                                      |
@@ -1175,6 +1180,7 @@ curl -X GET \
 | header.isSuccessful                     | Boolean | O        | Successful or not                                                                                                                                                                  |
 | header.resultCode                       | Integer | O        | Failure code                                                                                                                                                                       |
 | header.resultMessage                    | String  | O        | Failure message                                                                                                                                                                    |
+| body                                    | Object  | X        | Body area                                                                                                                                                                          |
 | body.pageNum                            | Integer | O        | Current page number                                                                                                                                                                |
 | body.pageSize                           | Integer | O        | Queried data count                                                                                                                                                                 |
 | body.totalCount                         | Integer | O        | Total data count                                                                                                                                                                   |
@@ -1353,6 +1359,7 @@ curl -X POST \
 | header.isSuccessful                             | Boolean  | O        | Successful or not                                                            |
 | header.resultCode                               | Integer  | O        | Failure code                                                                 |
 | header.resultMessage                            | String   | O        | Failure message                                                              |
+| body                                            | Object   | X        | Body area                                                                    |
 | body.data.requestId                             | String   | O        | Request ID                                                                   |
 | body.data.statusCode                            | String   | O        | Request status code (1: Requesting, 2: Request completed, 3: Request failed) |
 | body.data.senderGroupingKey                     | String   | X        | Sender's group key                                                           |
@@ -1542,6 +1549,7 @@ curl -X GET \
 | header.isSuccessful              | Boolean  | O        | Successful or not                                                                         |
 | header.resultCode                | Integer  | O        | Failure code                                                                              |
 | header.resultMessage             | String   | O        | Failure message                                                                           |
+| body                             | Object   | X        | Body area                                                                                 |
 | body.pageNum                     | Integer  | O        | Current page number                                                                       |
 | body.pageSize                    | Integer  | O        | Queried data count                                                                        |
 | body.totalCount                  | Integer  | O        | Total data count                                                                          |
@@ -1558,12 +1566,12 @@ curl -X GET \
 | body.data[].recipientNo          | String   | O        | Recipient number                                                                          |
 | body.data[].msgStatus            | String   | X        | Message status code                                                                       |
 | body.data[].msgStatusName        | String   | O        | Name of message status code                                                               |
-| body.data[].resultCode           | String   | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]    |
+| body.data[].resultCode           | String   | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]     |
 | body.data[].resultCodeName       | String   | X        | Result code name of receiving                                                             |
 | body.data[].telecomCode          | Integer  | X        | Code of telecom provider                                                                  |
 | body.data[].telecomCodeName      | String   | X        | Name of telecom provider                                                                  |
-| body.data[].recipientSeq         | Integer  | O        | Detail delivery ID (required to query details)                                           |
-| body.data[].sendType             | String   | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                 |
+| body.data[].recipientSeq         | Integer  | O        | Detail delivery ID (required to query details)                                            |
+| body.data[].sendType             | String   | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                  |
 | body.data[].messageType          | String   | O        | Message type (SMS/LMS/MMS/AUTH)                                                           |
 | body.data[].messageCount         | Integer  | X        | Number of messages sent                                                                   |
 | body.data[].userId               | String   | X        | Request ID for sending                                                                    |
@@ -1671,6 +1679,7 @@ curl -X GET \
 | header.isSuccessful            | Boolean | O        | Successful or not                                                                                                                                                                  |
 | header.resultCode              | Integer | O        | Failure code                                                                                                                                                                       |
 | header.resultMessage           | String  | O        | Failure message                                                                                                                                                                    |
+| body                           | Object  | X        | Body area                                                                                                                                                                          |
 | body.data.requestId            | String  | O        | Requst ID                                                                                                                                                                          |
 | body.data.requestDate          | String  | O        | Date and time of sending                                                                                                                                                           |
 | body.data.resultDate           | String  | X        | Date and time of receiving                                                                                                                                                         |
@@ -2090,6 +2099,7 @@ curl -X GET \
 | header.isSuccessful                               | Boolean | O        | Successful or not                                       |
 | header.resultCode                                 | Integer | O        | Failure code                                            |
 | header.resultMessage                              | String  | O        | Failure message                                         |
+| body                                              | Object  | X        | Body area                                               |
 | body.data.resultUpdateList[].messageType          | String  | O        | Message type (SMS/LMS/MMS/AUTH)                         |
 | body.data.resultUpdateList[].requestId            | String  | O        | Request ID                                              |
 | body.data.resultUpdateList[].recipientSeq         | Integer | O        | Recipient sequence                                      |
@@ -2199,6 +2209,7 @@ curl -X GET \
 | header.isSuccessful          | Boolean | O        | Successful or not         |
 | header.resultCode            | Integer | O        | Failure code              |
 | header.resultMessage         | String  | O        | Failure message           |
+| body                         | Object  | X        | Body area                 |
 | body.data[].requestId        | String  | O        | Request ID                |
 | body.data[].requestDate      | String  | O        | Request time              |
 | body.data[].masterStatusCode | String  | O        | Mass delivery status code |
@@ -2307,6 +2318,7 @@ curl -X GET \
 | header.isSuccessful       | Boolean | O        | Successful or not                                                                 |
 | header.resultCode         | Integer | O        | Failure code                                                                      |
 | header.resultMessage      | String  | O        | Failure message                                                                   |
+| body                      | Object  | X        | Body area                                                                         |
 | body.data[].requestId     | String  | O        | Request ID                                                                        |
 | body.data[].recipientSeq  | Integer | O        | Recipient sequence                                                                |
 | body.data[].countryCode   | String  | O        | Recipient's country code                                                          |
@@ -2404,6 +2416,7 @@ curl -X GET \
 | header.isSuccessful                     | Boolean | O        | Successful or not                                                                     |
 | header.resultCode                       | Integer | O        | Failure code                                                                          |
 | header.resultMessage                    | String  | O        | Failure message                                                                       |
+| body                                    | Object  | X        | Body area                                                                             |
 | body.data.requestId                     | String  | O        | Request ID                                                                            |
 | body.data.recipientSeq                  | Integer | O        | Recipient sequence                                                                    |
 | body.data.sendType                      | String  | O        | Delivery type                                                                         |
@@ -2545,6 +2558,7 @@ curl -X POST \
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
+| body                 | Object  | X        | Body area         |
 | body.data.requestId  | String  | O        | Request ID        |
 
 ### Send Tagged LMS
@@ -2667,6 +2681,7 @@ curl -X POST \
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
+| body                 | Object  | X        | Body area         |
 | body.data.requestId  | String  | O        | Request ID        |
 
 ### List Tag Delivery
@@ -2770,6 +2785,7 @@ curl -X GET \
 | header.isSuccessful         | Boolean      | O        | Successful or not             |
 | header.resultCode           | Integer      | O        | Failure code                  |
 | header.resultMessage        | String       | O        | Failure message               |
+| body                        | Object       | X        | Body area                     |
 | body.data[].requestId       | String       | O        | Request ID                    |
 | body.data[].requestIp       | String       | X        | Request IP                    |
 | body.data[].requestDate     | String       | O        | Request time                  |
@@ -2885,6 +2901,7 @@ curl -X GET \
 | header.isSuccessful       | Boolean | O        | Successful or not                                                                     |
 | header.resultCode         | Integer | O        | Failure code                                                                          |
 | header.resultMessage      | String  | O        | Failure message                                                                       |
+| body                      | Object  | X        | Body area                                                                             |
 | body.data[].requestId     | String  | O        | Request ID                                                                            |
 | body.data[].recipientSeq  | Integer | O        | Recipient sequence                                                                    |
 | body.data[].countryCode   | String  | O        | Recipient's country code                                                              |
@@ -2985,11 +3002,12 @@ curl -X GET \
 ```
 
 | Value                                   | Type    | Not Null | Description                                                                           |
-|-----------------------------------------|---------|----------|-------------------------------------------------------------------------------------  |
+|-----------------------------------------|---------|----------|---------------------------------------------------------------------------------------|
 | header                                  | Object  | X        | Header area                                                                           |
 | header.isSuccessful                     | Boolean | O        | Successful or not                                                                     |
 | header.resultCode                       | Integer | O        | Failure code                                                                          |
 | header.resultMessage                    | String  | O        | Failure message                                                                       |
+| body                                    | Object  | X        | Body area                                                                             |
 | body.data.requestId                     | String  | O        | Request ID                                                                            |
 | body.data.recipientSeq                  | Integer | O        | Recipient sequence                                                                    |
 | body.data.sendType                      | String  | O        | Delivery type                                                                         |
@@ -3103,6 +3121,7 @@ curl -X POST \
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
+| body                 | Object  | X        | Body area         |
 | body.data.fileId     | Integer | O        | File ID           |
 | body.data.fileName   | String  | X        | File name         |
 | body.data.filePath   | String  | X        | Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
@@ -3243,6 +3262,7 @@ curl -X POST \
 | header.isSuccessful          | Boolean | O        | Successful or not         |
 | header.resultCode            | Integer | O        | Failure code              |
 | header.resultMessage         | String  | O        | Failure message           |
+| body                         | Object  | X        | Body area                 |
 | body.data[].categoryId       | Integer | O        | Category ID               |
 | body.data[].categoryParentId | Integer | X        | Parent category ID        |
 | body.data[].depth            | Integer | X        | Depth of category         |
@@ -3335,6 +3355,7 @@ curl -X GET \
 | header.isSuccessful          | Boolean | O        | Successful or not         |
 | header.resultCode            | Integer | O        | Failure code              |
 | header.resultMessage         | String  | O        | Failure messagae          |
+| body                         | Object  | X        | Body area                 |
 | body.pageNum                 | Integer | O        | Current page number       |
 | body.pageSize                | Integer | O        | Queried data count        |
 | body.totalCount              | Integer | O        | Total data count          |
@@ -3424,6 +3445,7 @@ curl -X GET \
 | header.isSuccessful          | Boolean | O        | Successful or not         |
 | header.resultCode            | Integer | O        | Failure code              |
 | header.resultMessage         | String  | O        | Failure message           |
+| body                         | Object  | X        | Body area                 |
 | body.data[].categoryId       | Integer | O        | Category ID               |
 | body.data[].categoryParentId | Integer | X        | Parent category ID        |
 | body.data[].depth            | Integer | X        | Depth of category         |
@@ -3959,6 +3981,7 @@ curl -X GET \
 | header.isSuccessful                       | Boolean | O        | Successful or not                                 |
 | header.resultCode                         | Integer | O        | Failure code                                      |
 | header.resultMessage                      | String  | O        | Faliure message                                   |
+| body                                      | Object  | X        | Body area                                         |
 | body.pageNum                              | Integer | O        | Current page number                               |
 | body.pageSize                             | Integer | O        | Queried data count                                |
 | body.totalCount                           | Integer | O        | Total data count                                  |
@@ -4078,6 +4101,7 @@ curl -X GET \
 | header.isSuccessful                       | Boolean | O        | Successful or not                                 |
 | header.resultCode                         | Integer | O        | Failure code                                      |
 | header.resultMessage                      | String  | O        | Failure message                                   |
+| body                                      | Object  | X        | Body area                                         |
 | body.pageNum                              | Integer | O        | Current page number                               |
 | body.pageSize                             | Integer | O        | Queried data count                                |
 | body.totalCount                           | Integer | O        | Total data count                                  |
@@ -4570,6 +4594,7 @@ curl -X GET \
 | header.isSuccessful     | Boolean | O        | Successful or not         |
 | header.resultCode       | Integer | O        | Failure code              |
 | header.resultMessage    | String  | O        | Failure message           |
+| body                    | Object  | X        | Body area                 |
 | body.pageNum            | Integer | O        | Page number               |
 | body.pageSize           | Integer | O        | Queried data count        |
 | body.totalCount         | Integer | O        | Total data count          |
@@ -4666,6 +4691,7 @@ curl -X GET \
 | header.isSuccessful      | Boolean | O        | Successful or not         |
 | header.resultCode        | Integer | O        | Failure code              |
 | header.resultMessage     | String  | O        | Failure message           |
+| body                     | Object  | X        | Body area                 |
 | body.data                | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects
@@ -4760,6 +4786,7 @@ curl -X GET \
 | header.isSuccessful      | Boolean | O        | Successful or not         |
 | header.resultCode        | Integer | O        | Failure code              |
 | header.resultMessage     | String  | O        | Failure message           |
+| body                     | Object  | X        | Body area                 |
 | body.data                | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects
@@ -4858,6 +4885,7 @@ curl -X GET \
 | header.isSuccessful  | Boolean | O        | Successful or not         |
 | header.resultCode    | Integer | O        | Failure code              |
 | header.resultMessage | String  | O        | Failure message           |
+| body                 | Object  | X        | Body area                 |
 | body.data            | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects (Statistics criteria: Default value)
@@ -4920,6 +4948,7 @@ curl -X GET \
 | header.isSuccessful  | Boolean | O        | Successful or not         |
 | header.resultCode    | Integer | O        | Failure code              |
 | header.resultMessage | String  | O        | Failure message           |
+| body                 | Object  | X        | Body area                 |
 | body.data            | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects (Statistics criteria added)
@@ -5008,6 +5037,7 @@ curl -X GET \
 | header.isSuccessful        | Boolean | O        | Successful or not                |
 | header.resultCode          | Integer | O        | Failure code                     |
 | header.resultMessage       | String  | O        | Failure message                  |
+| body                       | Object  | X        | Body area                        |
 | body.data[].divisionName   | String  | X        | Display name<br/>Date, time, Day |
 | body.data[].statisticsView | Object  | X        |                                  |
 | body.data[].requestedCount | Integer | X        | Number of requests               |
@@ -5122,6 +5152,7 @@ curl -X GET \
 | header.isSuccessful           | Boolean       | O        | Successful or not                                                                                                                                                                     |
 | header.resultCode             | Integer       | O        | Failure code                                                                                                                                                                          |
 | header.resultMessage          | String        | O        | Failure message                                                                                                                                                                       |
+| body                          | Object        | X        | Body area                                                                                                                                                                             |
 | body.pageNum                  | Integer       | O        | Current page number                                                                                                                                                                   |
 | body.pageSize                 | Integer       | O        | Queried data count                                                                                                                                                                    |
 | body.totalCount               | Integer       | O        | Total data count                                                                                                                                                                      |
@@ -5233,6 +5264,7 @@ curl -X GET \
 | header.isSuccessful                       | Boolean       | O        | Successful or not                                                                                                                                                                      |
 | header.resultCode                         | Integer       | O        | Failure code                                                                                                                                                                           |
 | header.resultMessage                      | String        | O        | Failure message                                                                                                                                                                        |
+| body                                      | Object        | X        | Body area                                                                                                                                                                              |
 | body.pageNum                              | Integer       | O        | Current page number                                                                                                                                                                    |
 | body.pageSize                             | Integer       | O        | Queried data count                                                                                                                                                                     |
 | body.totalCount                           | Integer       | O        | Total data count                                                                                                                                                                       |
@@ -5350,6 +5382,7 @@ curl -X PUT \
 | header.isSuccessful      | Boolean | O        | Successful or not                 |
 | header.resultCode        | Integer | O        | Failure code                      |
 | header.resultMessage     | String  | O        | Failure message                   |
+| body                     | Object  | X        | Body area                         |
 | body.data.requestedCount | Integer | O        | Number of failed requests         |
 | body.data.canceledCount  | Integer | O        | Number of successful cancellation |
 
@@ -5469,13 +5502,14 @@ curl -X PUT \
 }
 ```
 
-| Value                             | Type    | Not Null | Description                                                                                                                                                                                                    |
-|-----------------------------------|---------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header                            | Object  | O        | Header area                                                                                                                                                                                                    |
-| header.isSuccessful               | Boolean | O        | Successful or not                                                                                                                                                                                              |
-| header.resultCode                 | Integer | O        | Failure code                                                                                                                                                                                                   |
-| header.resultMessage              | String  | O        | Failure message                                                                                                                                                                                                |
-| body.data.reservationCancelId     | Integer | O        | Schedule Cancellation ID                                                                                                                                                                                       |
+| Value                             | Type    | Not Null | Description                                                                                                                                                                                                   |
+|-----------------------------------|---------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                            | Object  | O        | Header area                                                                                                                                                                                                   |
+| header.isSuccessful               | Boolean | O        | Successful or not                                                                                                                                                                                             |
+| header.resultCode                 | Integer | O        | Failure code                                                                                                                                                                                                  |
+| header.resultMessage              | String  | O        | Failure message                                                                                                                                                                                               |
+| body                              | Object  | X        | Body area                                                                                                                                                                                                     |
+| body.data.reservationCancelId     | Integer | O        | Schedule Cancellation ID                                                                                                                                                                                      |
 | body.data.requestedDateTime       | String  | O        | Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss)                                                                                                                                                           |
 | body.data.reservationCancelStatus | String  | X        | Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
 
@@ -5562,6 +5596,7 @@ curl -X GET \
 | header.isSuccessful                 | Boolean              | O        | Successful or not                                                       |
 | header.resultCode                   | Integer              | O        | Failure code                                                            |
 | header.resultMessage                | String               | O        | Failure message                                                         |
+| body                                | Object               | X        | Body area                                                               |
 | body.data[].reservationCancelId     | String               | O        | Schedule Cancellation ID                                                |
 | body.data[].searchParameter         | Map<String, Object>  | O        | Request Parameter for Schedule Cancellation                             |
 | body.data[].requestedDateTime       | String               | O        | Request Time for Schedule Cancellation                                  |
@@ -5692,6 +5727,7 @@ curl -X POST \
 | header.isSuccessful          | Boolean | O        | Successful or not                                                                                                                                                                        |
 | header.resultCode            | Integer | O        | Failure code                                                                                                                                                                             |
 | header.resultMessage         | String  | O        | Failure message                                                                                                                                                                          |
+| body                         | Object  | X        | Body area.                                                                                                                                                                               |
 | body.data.downloadId         | String  | O        | Download ID                                                                                                                                                                              |
 | body.data.downloadType       | String  | O        | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery                                                              |
 | body.data.fileType           | String  | X        | File type (currently supports csv only)                                                                                                                                                  |
@@ -5781,6 +5817,7 @@ curl -X GET \
 | header.isSuccessful            | Boolean | O        | Successful or not                                                                                                                                                                        |
 | header.resultCode              | Integer | O        | Failure code                                                                                                                                                                             |
 | header.resultMessage           | String  | O        | Failure message                                                                                                                                                                          |
+| body                           | Object  | X        | Body area                                                                                                                                                                                |
 | body.totalCount                | Integer | O        | Total count                                                                                                                                                                              |
 | body.data[].downloadId         | String  | O        | Download ID                                                                                                                                                                              |
 | body.data[].downloadType       | String  | O        | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery                                                              |
@@ -5914,12 +5951,13 @@ curl -X GET \
 | Value                   | Type    | Not Null | 	Description                  | 
 |-------------------------|---------|----------|-------------------------------|
 | header                  | Object  | O        | Header area                   |
-| header.isSuccessful     | Boolean | O        | 	Successful or not            |
-| header.resultCode       | Integer | O        | 	Failure code                 |
-| header.resultMessage    | String  | O        | 	Failure message              |
-| body.pageNum            | Integer | O        | 	Page number                  |
-| body.pageSize           | Integer | O        | 	Number of queries            |
-| body.totalCount         | Integer | O        | 	Total data count             |
+| header.isSuccessful     | Boolean | O        | Successful or not             |
+| header.resultCode       | Integer | O        | Failure code                  |
+| header.resultMessage    | String  | O        | Failure message               |
+| body                    | Object  | X        | Body area                     |
+| body.pageNum            | Integer | O        | Page number                   |
+| body.pageSize           | Integer | O        | Number of queries             |
+| body.totalCount         | Integer | O        | Total data count              |
 | body.data[].tagId       | String  | O        | Tag ID                        |
 | body.data[].tagName     | String  | X        | Tag name                      |
 | body.data[].createdDate | String  | O        | Date and time of creation     |
@@ -5999,6 +6037,7 @@ curl -X POST \
 | header.isSuccessful  | Boolean | O        | Successful or not |
 | header.resultCode    | Integer | O        | Failure code      |
 | header.resultMessage | String  | O        | Failure message   |
+| body                 | Object  | X        | Body area         |
 | body.data.tagId      | String  | O        | Tag ID            |
 
 ### Modify Tags
@@ -6223,6 +6262,7 @@ curl -X GET \
 | header.isSuccessful                     | Boolean  | O        | Successful or not                 |
 | header.resultCode                       | Integer  | O        | Failure code                      |
 | header.resultMessage                    | String   | O        | Failure message                   |
+| body                                    | Object   | X        | Body area                         |
 | body.data.uids[].uid                    | String   | O        | UID                               |
 | body.data.uids[].tags[].tagId           | String   | O        | Tag ID                            |
 | body.data.uids[].tags[].tagName         | String   | X        | Tag name                          |
@@ -6309,6 +6349,7 @@ curl -X GET \
 | header.isSuccessful              | Boolean  | O        | Successful or not                 |
 | header.resultCode                | Integer  | O        | Failure code                      |
 | header.resultMessage             | String   | O        | Failure message                   |
+| body                             | Object   | X        | Body area                         |
 | body.data.uid                    | String   | O        | UID                               |
 | body.data.tags[].tagId           | String   | O        | Tag ID                            |
 | body.data.tags[].tagName         | String   | X        | Tag name                          |

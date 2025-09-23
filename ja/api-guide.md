@@ -402,6 +402,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?start
 | header.isSuccessful              | Boolean | O        | 成否                                         |
 | header.resultCode                | Integer | O        | 失敗コード                                      |
 | header.resultMessage             | String  | O        | 失敗メッセージ                                    |
+| body                             | Object  | X        | 本文領域                                        |
 | body.pageNum                     | Integer | O        | 現在のページ番号                                   |
 | body.pageSize                    | Integer | O        | 検索されたデータ数                                  |
 | body.totalCount                  | Integer | O        | データの総数                                     |
@@ -531,6 +532,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
 | header.isSuccessful            | Boolean | O        | 成否                                                           |
 | header.resultCode              | Integer | O        | 失敗コード                                                      |
 | header.resultMessage           | String  | O        | 失敗メッセージ                                                  |
+| body                           | Object  | X        | 本文領域                                                       |
 | body.data.requestId            | String  | O        | リクエストID                                                   |
 | body.data.requestDate          | String  | O        | 発信日時                                                       |
 | body.data.resultDate           | String  | X        | 受信日時                                                       |
@@ -775,6 +777,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 | header.isSuccessful                             | Boolean | O        | 成否                                             |
 | header.resultCode                               | Integer | O        | 失敗コード                                          |
 | header.resultMessage                            | String  | O        | 失敗メッセージ                                        |
+| body                                            | Object  | X        | 本文領域                                           |
 | body.data.requestId                             | String  | O        | リクエストID                                        |
 | body.data.statusCode                            | String  | O        | リクエストステータスコード(1：リクエスト中、 2：リクエスト完了、 3：リクエスト失敗) |
 | body.data.senderGroupingKey                     | String  | X        | 発信者グループキー                                      |
@@ -1042,6 +1045,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?start
 | header.isSuccessful                       | Boolean | O        | 成否                                         |
 | header.resultCode                         | Integer | O        | 失敗コード                                      |
 | header.resultMessage                      | String  | O        | 失敗メッセージ                                    |
+| body                                      | Object  | X        | 本文領域                                        |
 | body.pageNum                              | Integer | O        | 現在のページ番号                                   |
 | body.pageSize                             | Integer | O        | 検索されたデータ数                                  |
 | body.totalCount                           | Integer | O        | データの総数                                     |
@@ -1179,6 +1183,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${R
 | header.isSuccessful                     | Boolean  | O        | 成否                                                           |
 | header.resultCode                       | Integer  | O        | 失敗コード                                                        |
 | header.resultMessage                    | String   | O        | 失敗メッセージ                                                      |
+| body                                    | Object   | X        | 本文領域                                                          |
 | body.pageNum                            | Integer  | O        | 現在のページ番号                                                     |
 | body.pageSize                           | Integer  | O        | 検索されたデータ数                                                    |
 | body.totalCount                         | Integer  | O        | データの総数                                                       |
@@ -1356,6 +1361,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms'
 | header.isSuccessful                             | Boolean | O        | 成否                                                     |
 | header.resultCode                               | Integer | O        | 失敗コード                                               |
 | header.resultMessage                            | String  | O        | 失敗メッセージ                                           |
+| body                                            | Object  | X        | 本文領域                                                |
 | body.data.requestId                             | String  | O        | リクエストID                                             |
 | body.data.statusCode                            | String  | O        | リクエストステータスコード(1：リクエスト中、 2：リクエスト完了、 3：リクエスト失敗) |
 | body.data.senderGroupingKey                     | String  | X        | 発信者グループキー                                       |
@@ -1545,6 +1551,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?
 | header.isSuccessful              | Boolean | O        | 成否                                         |
 | header.resultCode                | Integer | O        | 失敗コード                                      |
 | header.resultMessage             | String  | O        | 失敗メッセージ                                    |
+| body                             | Object  | X        | 本文領域                                        |
 | body.pageNum                     | Integer | O        | 現在のページ番号                                   |
 | body.pageSize                    | Integer | O        | 検索されたデータ数                                  |
 | body.totalCount                  | Integer | O        | データの総数                                     |
@@ -1673,6 +1680,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
 | header.isSuccessful            | Boolean | O        | 成否                                                                              |
 | header.resultCode              | Integer | O        | 失敗コード                                                                         |
 | header.resultMessage           | String  | O        | 失敗メッセージ                                                                      |
+| body                           | Object  | X        | 本文領域                                                                           |
 | body.data.requestId            | String  | O        | リクエストID                                                                       |
 | body.data.requestDate          | String  | O        | 発信日時                                                                          |
 | body.data.resultDate           | String  | X        | 受信日時                                                                          |
@@ -2081,6 +2089,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/message-results?
 | header.isSuccessful                                | Boolean | O        | 成否                              |
 | header.resultCode                                  | Integer | O        | 失敗コード                          |
 | header.resultMessage                               | String  | O        | 失敗メッセージ                       |
+| body                                               | Object  | X        | 本文領域                           |
 | body.data.resultUpdateList[].messageType           | String  | O        | メッセージタイプ(SMS/LMS/MMS/AUTH)    |
 | body.data.resultUpdateList[].requestId             | String  | O        | リクエストID                        |
 | body.data.resultUpdateList[].recipientSeq          | Integer | O        | 受信者シーケンス                      |
@@ -2190,6 +2199,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender?requ
 | header.isSuccessful          | Boolean  | O          | 成否               |
 | header.resultCode            | Integer  | O          | 失敗コード           |
 | header.resultMessage         | String   | O          | 失敗メッセージ        |
+| body                         | Object   | X          | 本文領域            |
 | body.data[].requestId        | String   | O          | リクエストID         |
 | body.data[].requestDate      | String   | O          | リクエスト時間        |
 | body.data[].masterStatusCode | String   | O          | 大量送信ステータスコード |
@@ -2298,6 +2308,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requ
 | header.isSuccessful        | Boolean | O         | 成否                                                |
 | header.resultCode          | Integer | O         | 失敗コード                                           |
 | header.resultMessage       | String  | O         | 失敗メッセージ                                       |
+| body                       | Object  | X         | 本文領域                                           |
 | body.data[].requestId      | String  | O         | リクエストID                                         |
 | body.data[].recipientSeq   | Integer | O         | 受信者シーケンス                                     |
 | body.data[].countryCode    | String  | O         | 受信者国家コード                                     |
@@ -2395,6 +2406,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/rece
 | header.isSuccessful                     | Boolean | O          | 成否                                              |
 | header.resultCode                       | Integer | O          | 失敗コード                                        |
 | header.resultMessage                    | String  | O          | 失敗メッセージ                                    |
+| body                                    | Object  | X          | 本文領域                                        |
 | body.data.requestId                     | String  | O          | リクエストID                                      |
 | body.data.recipientSeq                  | Integer | O          | 受信者シーケンス                                  |
 | body.data.sendType                      | String  | O          | 送信タイプ                                        |
@@ -2536,6 +2548,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/sms' 
 | header.isSuccessful  | Boolean | O          | 成否        |
 | header.resultCode    | Integer | O          | 失敗コード  |
 | header.resultMessage | String  | O          | 失敗メッセージ |
+| body                 | Object  | X          | 本文領域    |
 | body.data.requestId  | String  | O          | リクエストID |
 
 ### タグLMS送信
@@ -2658,6 +2671,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/mms' 
 | header.isSuccessful  | Boolean | O        | 成否         |
 | header.resultCode    | Integer | O        | 失敗コード    |
 | header.resultMessage | String  | O        | 失敗メッセージ |
+| body                 | Object  | X        | 本文領域     |
 | body.data.requestId  | String  | O        | リクエストID  |
 
 ### タグ送信リスト検索
@@ -2761,6 +2775,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender?reque
 | header.isSuccessful         | Boolean      | O        | 成否                |
 | header.resultCode           | Integer      | O        | 失敗コード          |
 | header.resultMessage        | String       | O        | 失敗メッセージ      |
+| body                        | Object       | X        | 本文領域           |
 | body.data[].requestId       | String       | O        | リクエストID        |
 | body.data[].requestIp       | String       | X        | リクエストIP        |
 | body.data[].requestDate     | String       | O        | リクエスト時間      |
@@ -2876,6 +2891,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 | header.isSuccessful        | Boolean | O        | 成否                                          |
 | header.resultCode          | Integer | O        | 失敗コード                                     |
 | header.resultMessage       | String  | O        | 失敗メッセージ                                 |
+| body                       | Object  | X        | 本文領域                                      |
 | body.data[].requestId      | String  | O        | リクエストID                                  |
 | body.data[].recipientSeq   | Integer | O        | 受信者シーケンス                               |
 | body.data[].countryCode    | String  | O        | 受信者国家コード                               |
@@ -2981,6 +2997,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 | header.isSuccessful                     | Boolean | O        | 成否                                                                   |
 | header.resultCode                       | Integer | O        | 失敗コード                                                              |
 | header.resultMessage                    | String  | O        | 失敗メッセージ                                                          |
+| body                                    | Object  | X        | 本文領域                                                              |
 | body.data.requestId                     | String  | O        | リクエストID                                                           |
 | body.data.recipientSeq                  | Integer | O        | 受信者シーケンス                                                        |
 | body.data.sendType                      | String  | O        | 送信タイプ                                                             |
@@ -3086,12 +3103,13 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/attachfile/binar
 }
 ```
 
-| 値                    | タイプ    | Not Null | 説明                                                              |
-|----------------------|---------|----------|-------------------------------------------------------------------|
-| header               | Object  | O        | ヘッダ領域                                                          |
-| header.isSuccessful  | Boolean | O        | 成否                                                              |
+| 値                    | タイプ    | Not Null | 説明                                                             |
+|----------------------|---------|----------|------------------------------------------------------------------|
+| header               | Object  | O        | ヘッダ領域                                                         |
+| header.isSuccessful  | Boolean | O        | 成否                                                             |
 | header.resultCode    | Integer | O        | 失敗コード                                                         |
-| header.resultMessage | String  | O        | 失敗メッセージ                                                       |
+| header.resultMessage | String  | O        | 失敗メッセージ                                                      |
+| body                 | Object  | X        | 本文領域                                                          |
 | body.data.fileId     | Integer | O        | ファイルID                                                        |
 | body.data.fileName   | String  | X        | ファイル名                                                         |
 | body.data.filePath   | String  | X        | 添付ファイル基本パス <br/>(https://domain/attachFile/filePath/fileName) |
@@ -3232,6 +3250,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 | header.isSuccessful                 | Boolean  | O        | 成否             |
 | header.resultCode                   | Integer  | O        | 失敗コード       |
 | header.resultMessage                | String   | O        | 失敗メッセージ   |
+| body                                | Object   | X        | 本文領域       |
 | body.data[].categoryId              | Integer  | O        | カテゴリーID     |
 | body.data[].categoryParentId        | Integer  | X        | 親カテゴリーID   |
 | body.data[].depth                   | Integer  | X        | カテゴリーの深さ |
@@ -3324,6 +3343,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 | header.isSuccessful                 | Boolean | O        | 成否           |
 | header.resultCode                   | Integer | O        | 失敗コード       |
 | header.resultMessage                | String  | O        | 失敗メッセージ     |
+| body                                | Object  | X        | 本文領域        |
 | body.pageNum                        | Integer | O        | 現在のページ番号   |
 | body.pageSize                       | Integer | O        | 検索されたデータ数  |
 | body.totalCount                     | Integer | O        | データの総数      |
@@ -3413,6 +3433,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C
 | header.isSuccessful                 | Boolean | O        | 成否              |
 | header.resultCode                   | Integer | O        | 失敗コード          |
 | header.resultMessage                | String  | O        | 失敗メッセージ       |
+| body                                | Object  | X        | 本文領域           |
 | body.data[].categoryId              | Integer | O        | カテゴリーID        |
 | body.data[].categoryParentId        | Integer | X        | 親カテゴリーID      |
 | body.data[].depth                   | Integer | X        | カテゴリーの深さ     |
@@ -3940,40 +3961,41 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 }
 ```
 
-| 値                                         | タイプ    | Not Null | 説明                              |
+| 値                                         | タイプ    | Not Null | 説明                               |
 |--------------------------------------------|---------|----------|-----------------------------------|
-| header                                     | Object  | O        | ヘッダ領域                          |
-| header.isSuccessful                        | Boolean | O        | 成否                              |
+| header                                     | Object  | O        | ヘッダ領域                           |
+| header.isSuccessful                        | Boolean | O        | 成否                               |
 | header.resultCode                          | Integer | O        | 失敗コード                           |
-| header.resultMessage                       | String  | O        | 失敗メッセージ                         |
-| body.pageNum                               | Integer | O        | 現在のページ番号                        |
-| body.pageSize                              | Integer | O        | 検索されたデータ数                       |
-| body.totalCount                            | Integer | O        | データの総数                          |
+| header.resultMessage                       | String  | O        | 失敗メッセージ                        |
+| body                                       | Object  | X        | 本文領域                            |
+| body.pageNum                               | Integer | O        | 現在のページ番号                       |
+| body.pageSize                              | Integer | O        | 検索されたデータ数                     |
+| body.totalCount                            | Integer | O        | データの総数                         |
 | body.data[].templateId                     | String  | O        | テンプレートID                        |
-| body.data[].serviceId                      | Integer | O        | サービスID(内部用、未使用値)                |
+| body.data[].serviceId                      | Integer | O        | サービスID(内部用、未使用値)             |
 | body.data[].categoryId                     | Integer | X        | カテゴリーID                         |
 | body.data[].categoryName                   | String  | X        | カテゴリー名                          |
 | body.data[].sort                           | Integer | X        | ソート値                            |
-| body.data[].templateName                   | String  | X        | テンプレート名                         |
-| body.data[].templateDesc                   | String  | X        | テンプレート説明                        |
-| body.data[].useYn                          | String  | X        | 使用するかどうか                        |
-| body.data[].priority                       | String  | X        | 優先順位値(未使用値)                     |
+| body.data[].templateName                   | String  | X        | テンプレート名                        |
+| body.data[].templateDesc                   | String  | X        | テンプレート説明                       |
+| body.data[].useYn                          | String  | X        | 使用するかどうか                       |
+| body.data[].priority                       | String  | X        | 優先順位値(未使用値)                   |
 | body.data[].sendNo                         | String  | X        | 発信番号                            |
 | body.data[].sendType                       | String  | X        | 送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth) |
 | body.data[].sendTypeName                   | String  | X        | 送信タイプ名                          |
 | body.data[].title                          | String  | X        | タイトル                            |
 | body.data[].body                           | String  | X        | 本文内容                            |
-| body.data[].attachFileYn                   | String  | X        | 添付ファイルかどうか(Y/N)                 |
-| body.data[].delYn                          | String  | X        | 削除Y/N、現在状態表記用でのみ使用              |
+| body.data[].attachFileYn                   | String  | X        | 添付ファイルかどうか(Y/N)               |
+| body.data[].delYn                          | String  | X        | 削除Y/N、現在状態表記用でのみ使用          |
 | body.data[].createDate                     | String  | X        | 登録日                             |
-| body.data[].createUser                     | String  | X        | 登録したユーザー                        |
+| body.data[].createUser                     | String  | X        | 登録したユーザー                      |
 | body.data[].updateDate                     | String  | X        | 修正日                             |
-| body.data[].updateUser                     | String  | X        | 修正したユーザー                        |
+| body.data[].updateUser                     | String  | X        | 修正したユーザー                      |
 | body.data[].attachFileList[].fileId        | Integer | O        | ファイルID                          |
-| body.data[].attachFileList[].filePath      | String  | X        | ファイル保存パス(内部用)                   |
+| body.data[].attachFileList[].filePath      | String  | X        | ファイル保存パス(内部用)                |
 | body.data[].attachFileList[].filename      | String  | X        | ファイル名                           |
-| body.data[].attachFileList[].saveFileName  | String  | X        | 保存された添付ファイル名                    |
-| body.data[].attachFileList[].uploadType    | String  | X        | アップロードタイプ                       |
+| body.data[].attachFileList[].saveFileName  | String  | X        | 保存された添付ファイル名                 |
+| body.data[].attachFileList[].uploadType    | String  | X        | アップロードタイプ                     |
 
 ### テンプレート単一検索
 
@@ -4059,40 +4081,41 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
 }
 ```
 
-| 値                                         | タイプ     | Not Null | 説明                              |
+| 値                                         | タイプ     | Not Null | 説明                             |
 |-------------------------------------------|----------|----------|----------------------------------|
 | header                                    | Object   | O        | ヘッダ領域                          |
 | header.isSuccessful                       | Boolean  | O        | 成否                              |
-| header.resultCode                         | Integer  | O        | 失敗コード                           |
-| header.resultMessage                      | String   | O        | 失敗メッセージ                         |
-| body.pageNum                              | Integer  | O        | 現在のページ番号                        |
-| body.pageSize                             | Integer  | O        | 検索されたデータ数                       |
-| body.totalCount                           | Integer  | O        | データの総数                          |
-| body.data.templateId                      | String   | O        | テンプレートID                        |
-| body.data.serviceId                       | Integer  | O        | サービスID(内部用、未使用値)                |
+| header.resultCode                         | Integer  | O        | 失敗コード                          |
+| header.resultMessage                      | String   | O        | 失敗メッセージ                       |
+| body                                       | Object  | X        | 本文領域                           |
+| body.pageNum                              | Integer  | O        | 現在のページ番号                     |
+| body.pageSize                             | Integer  | O        | 検索されたデータ数                    |
+| body.totalCount                           | Integer  | O        | データの総数                        |
+| body.data.templateId                      | String   | O        | テンプレートID                       |
+| body.data.serviceId                       | Integer  | O        | サービスID(内部用、未使用値)             |
 | body.data.categoryId                      | Integer  | X        | カテゴリーID                         |
 | body.data.categoryName                    | String   | X        | カテゴリー名                          |
-| body.data.sort                            | Integer  | X        | ソート値                            |
+| body.data.sort                            | Integer  | X        | ソート値                             |
 | body.data.templateName                    | String   | X        | テンプレート名                         |
-| body.data.templateDesc                    | String   | X        | テンプレート説明                        |
-| body.data.useYn                           | String   | X        | 使用するかどうか                        |
-| body.data.priority                        | String   | X        | 優先順位値(未使用値)                     |
+| body.data.templateDesc                    | String   | X        | テンプレート説明                       |
+| body.data.useYn                           | String   | X        | 使用するかどうか                       |
+| body.data.priority                        | String   | X        | 優先順位値(未使用値)                   |
 | body.data.sendNo                          | String   | X        | 発信番号                            |
 | body.data.sendType                        | String   | X        | 送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth) |
 | body.data.sendTypeName                    | String   | X        | 送信タイプ名                          |
-| body.data.title                           | String   | X        | タイトル                            |
-| body.data.body                            | String   | X        | 本文内容                            |
-| body.data.attachFileYn                    | String   | X        | 添付ファイルかどうか(Y/N)                 |
-| body.data.delYn                           | String   | X        | 削除Y/N、現在態表記用でのみ使用               |
-| body.data.createDate                      | String   | X        | 登録日                             |
-| body.data.createUser                      | String   | X        | 登録したユーザー                        |
-| body.data.updateDate                      | String   | X        | 修正日                             |
-| body.data.updateUser                      | String   | X        | 修正したユーザー                        |
-| body.data[].attachFileList[].fileId       | Integer  | O        | ファイルID                          |
-| body.data[].attachFileList[].filePath     | String   | X        | ファイル保存パス(内部用)                   |
+| body.data.title                           | String   | X        | タイトル                             |
+| body.data.body                            | String   | X        | 本文内容                             |
+| body.data.attachFileYn                    | String   | X        | 添付ファイルかどうか(Y/N)                |
+| body.data.delYn                           | String   | X        | 削除Y/N、現在態表記用でのみ使用            |
+| body.data.createDate                      | String   | X        | 登録日                              |
+| body.data.createUser                      | String   | X        | 登録したユーザー                       |
+| body.data.updateDate                      | String   | X        | 修正日                              |
+| body.data.updateUser                      | String   | X        | 修正したユーザー                       |
+| body.data[].attachFileList[].fileId       | Integer  | O        | ファイルID                           |
+| body.data[].attachFileList[].filePath     | String   | X        | ファイル保存パス(内部用)                |
 | body.data[].attachFileList[].filename     | String   | X        | ファイル名                           |
-| body.data[].attachFileList[].saveFileName | String   | X        | 保存された添付ファイル名                    |
-| body.data[].attachFileList[].uploadType   | String   | X        | アップロードタイプ                       |
+| body.data[].attachFileList[].saveFileName | String   | X        | 保存された添付ファイル名                 |
+| body.data[].attachFileList[].uploadType   | String   | X        | アップロードタイプ                     |
 
 ### テンプレート修正
 
@@ -4555,18 +4578,19 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 | header.isSuccessful     | Boolean  | O        | 成否            |
 | header.resultCode       | Integer  | O        | 失敗コード        |
 | header.resultMessage    | String   | O        | 失敗メッセージ      |
+| body                    | Object   | X        | 本文領域          |
 | body.pageNum            | Integer  | O        | ページ番号        |
-| body.pageSize           | Integer  | O        | 検索されたデータ数    |
+| body.pageSize           | Integer  | O        | 検索されたデータ数  |
 | body.totalCount         | Integer  | O        | データの総数       |
 | body.data[].serviceId   | Integer  | O        | サービスID        |
 | body.data[].sendNo      | String   | O        | 発信番号         |
-| body.data[].useYn       | String   | X        | 使用するかどうか     |
-| body.data[].blockYn     | String   | X        | ブロックするかどうか   |
+| body.data[].useYn       | String   | X        | 使用するかどうか    |
+| body.data[].blockYn     | String   | X        | ブロックするかどうか |
 | body.data[].blockReason | String   | X        | ブロック理由       |
 | body.data[].createDate  | String   | X        | 作成日時         |
 | body.data[].createUser  | String   | X        | 作成者          |
 | body.data[].updateDate  | String   | X        | 修正日          |
-| body.data[].updateUser  | String   | X        | 修正したユーザー     |
+| body.data[].updateUser  | String   | X        | 修正したユーザー   |
 
 ## 統計
 
@@ -4652,12 +4676,13 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                   | タイプ    | Not Null | 説明                      |
-|----------------------|---------|----------|---------------------------|
-| header               | Object  | O        | ヘッダ領域                 |
-| header.isSuccessful  | Boolean | O        | 成否                      |
+| 値                   | タイプ    | Not Null | 説明                    |
+|----------------------|---------|----------|------------------------|
+| header               | Object  | O        | ヘッダ領域                |
+| header.isSuccessful  | Boolean | O        | 成否                    |
 | header.resultCode    | Integer | O        | 失敗コード                |
-| header.resultMessage | String  | O        | 失敗メッセージ            |
+| header.resultMessage | String  | O        | 失敗メッセージ             |
+| body                 | Object  | X        | 本文領域                 |
 | body.data            | List    | O        | 統計イベントオブジェクトリスト |
 
 #### 統計イベントオブジェクト
@@ -4745,11 +4770,12 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 ```
 
 | 値                   | タイプ    | Not Null | 説明                      |
-|----------------------|---------|----------|---------------------------|
-| header               | Object  | O        | ヘッダ領域                 |
-| header.isSuccessful  | Boolean | O        | 成否                      |
-| header.resultCode    | Integer | O        | 失敗コード                |
+|----------------------|---------|----------|--------------------------|
+| header               | Object  | O        | ヘッダ領域                |
+| header.isSuccessful  | Boolean | O        | 成否                    |
+| header.resultCode    | Integer | O        | 失敗コード               |
 | header.resultMessage | String  | O        | 失敗メッセージ            |
+| body                 | Object  | X        | 本文領域                 |
 | body.data            | List    | O        | 統計イベントオブジェクトリスト |
 
 #### 統計イベントオブジェクト
@@ -4842,12 +4868,13 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                    | タイプ    | Not Null | 説明                    |
-|----------------------|---------|----------|-------------------------|
-| header               | Object  | O        | ヘッダ領域                 |
-| header.isSuccessful  | Boolean | O        | 成否                    |
-| header.resultCode    | Integer | O        | 失敗コード              |
-| header.resultMessage | String  | O        | 失敗メッセージ          |
+| 値                    | タイプ    | Not Null | 説明                  |
+|----------------------|---------|----------|-----------------------|
+| header               | Object  | O        | ヘッダ領域               |
+| header.isSuccessful  | Boolean | O        | 成否                   |
+| header.resultCode    | Integer | O        | 失敗コード               |
+| header.resultMessage | String  | O        | 失敗メッセージ            |
+| body                 | Object  | X        | 本文領域                |
 | body.data            | List    | O        | 統計イベントオブジェクトリスト |
 
 #### 統計イベントオブジェクト(統計基準：デフォルト値)
@@ -4902,12 +4929,13 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                    | タイプ    | Not Null | 説明                    |
-|----------------------|---------|----------|-------------------------|
-| header               | Object  | O        | ヘッダ領域                 |
+| 値                    | タイプ    | Not Null | 説明                   |
+|----------------------|---------|----------|------------------------|
+| header               | Object  | O        | ヘッダ領域                |
 | header.isSuccessful  | Boolean | O        | 成否                    |
-| header.resultCode    | Integer | O        | 失敗コード              |
-| header.resultMessage | String  | O        | 失敗メッセージ          |
+| header.resultCode    | Integer | O        | 失敗コード                |
+| header.resultMessage | String  | O        | 失敗メッセージ             |
+| body                 | Object  | X        | 本文領域                 |
 | body.data            | List    | O        | 統計イベントオブジェクトリスト |
 
 #### 統計イベントオブジェクト(統計基準追加)
@@ -4990,20 +5018,21 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 }
 ```
 
-| 値                          | タイプ    | Not Null | 説明              |
-|----------------------------|---------|----------|-------------------|
-| header                     | Object  | O        | ヘッダ領域           |
+| 値                          | タイプ    | Not Null | 説明               |
+|----------------------------|---------|----------|--------------------|
+| header                     | Object  | O        | ヘッダ領域            |
 | header.isSuccessful        | Boolean | O        | 成否                |
 | header.resultCode          | Integer | O        | 失敗コード            |
 | header.resultMessage       | String  | O        | 失敗メッセージ         |
+| body                       | Object  | X        | 本文領域              |
 | body.data[].divisionName   | String  | X        | 表示名<br/>日、時間、曜日 |
-| body.data[].statisticsView | Object  | X        |                   |
+| body.data[].statisticsView | Object  | X        |                     |
 | body.data[].requestedCount | Integer | X        | リクエスト数           |
-| body.data[].succeedCount   | Integer | X        | 成功数              |
-| body.data[].failedCount    | Integer | X        | 失敗数              |
+| body.data[].succeedCount   | Integer | X        | 成功数               |
+| body.data[].failedCount    | Integer | X        | 失敗数               |
 | body.data[].pendingCount   | Integer | X        | 送信中の数            |
-| body.data[].succeedRate    | String  | X        | 成功比率             |
-| body.data[].failedRate     | String  | X        | 失敗比率             |
+| body.data[].succeedRate    | String  | X        | 成功比率              |
+| body.data[].failedRate     | String  | X        | 失敗比率              |
 | body.data[].pendingRate    | String  | X        | 送信中の比率           |
 
 ## 予約送信
@@ -5105,30 +5134,31 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations' \
 ```
 
 | 値                             | タイプ         | Not Null | 説明                                                                                                |
-|-------------------------------|---------------|----------|-----------------------------------------------------------------------------------------------------|
+|-------------------------------|---------------|----------|----------------------------------------------------------------------------------------------------|
 | header                        | Object        | O        | ヘッダ領域                                                                                            |
 | header.isSuccessful           | Boolean       | O        | 成否                                                                                                |
-| header.resultCode             | Integer       | O        | 失敗コード                                                                                             |
-| header.resultMessage          | String        | O        | 失敗メッセージ                                                                                           |
-| body.pageNum                  | Integer       | O        | 現在のページ番号                                                                                          |
-| body.pageSize                 | Integer       | O        | 検索されたデータ数                                                                                         |
-| body.totalCount               | Integer       | O        | データの総数                                                                                            |
-| body.data[].requestId         | String        | O        | リクエストID                                                                                           |
-| body.data[].recipientSeq      | Integer       | O        | 受信者シーケンス                                                                                          |
-| body.data[].requestDate       | String        | O        | 発信日時                                                                                              |
-| body.data[].sendNo            | String        | O        | 発信番号                                                                                              |
-| body.data[].recipientNo       | String        | O        | 受信番号                                                                                              |
-| body.data[].countryCode       | String        | O        | 国番号                                                                                               |
-| body.data[].sendType          | String        | O        | 送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)                                                                   |
-| body.data[].messageType       | String        | O        | メッセージタイプ<br/>(SMS,LMS,MMS,AUTH)                                                                   |
-| body.data[].adYn              | String        | O        | 広告かどうか                                                                                            |
-| body.data[].templateId        | String        | X        | テンプレートID                                                                                          |
-| body.data[].templateParameter | String(json)  | X        | テンプレートパラメータ                                                                                       |
-| body.data[].templateName      | String        | X        | テンプレート名                                                                                           |
-| body.data[].title             | String        | X        | タイトル                                                                                              |
-| body.data[].body              | String        | O        | 本文内容                                                                                              |
+| header.resultCode             | Integer       | O        | 失敗コード                                                                                            |
+| header.resultMessage          | String        | O        | 失敗メッセージ                                                                                         |
+| body                          | Object        | X        | 本文領域                                                                                             |
+| body.pageNum                  | Integer       | O        | 現在のページ番号                                                                                       |
+| body.pageSize                 | Integer       | O        | 検索されたデータ数                                                                                     |
+| body.totalCount               | Integer       | O        | データの総数                                                                                         |
+| body.data[].requestId         | String        | O        | リクエストID                                                                                         |
+| body.data[].recipientSeq      | Integer       | O        | 受信者シーケンス                                                                                       |
+| body.data[].requestDate       | String        | O        | 発信日時                                                                                            |
+| body.data[].sendNo            | String        | O        | 発信番号                                                                                            |
+| body.data[].recipientNo       | String        | O        | 受信番号                                                                                            |
+| body.data[].countryCode       | String        | O        | 国番号                                                                                             |
+| body.data[].sendType          | String        | O        | 送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)                                                                 |
+| body.data[].messageType       | String        | O        | メッセージタイプ<br/>(SMS,LMS,MMS,AUTH)                                                                |
+| body.data[].adYn              | String        | O        | 広告かどうか                                                                                          |
+| body.data[].templateId        | String        | X        | テンプレートID                                                                                        |
+| body.data[].templateParameter | String(json)  | X        | テンプレートパラメータ                                                                                   |
+| body.data[].templateName      | String        | X        | テンプレート名                                                                                         |
+| body.data[].title             | String        | X        | タイトル                                                                                             |
+| body.data[].body              | String        | O        | 本文内容                                                                                             |
 | body.data[].messageStatus     | String        | O        | メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信、FAILED_AD:失敗(広告制限)、再送信待機(広告制限)) |
-| body.data[].createUser        | String        | X        | 登録したユーザー                                                                                          |
+| body.data[].createUser        | String        | X        | 登録したユーザー                                                                                       |
 | body.data[].createDate        | String        | O        | 登録日                                                                                               |
 | body.data[].updateDate        | String        | X        | 修正日                                                                                               |
 
@@ -5215,36 +5245,37 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/'"$
 }
 ```
 
-| 値                                         | タイプ        | Not Null | 説明                                                                                                    |
+| 値                                         | タイプ        | Not Null | 説明                                                                                                  |
 |-------------------------------------------|-------------|----------|-------------------------------------------------------------------------------------------------------|
 | header                                    | Object      | O        | ヘッダ領域                                                                                               |
-| header.isSuccessful                       | Boolean     | O        | 成否                                                                                                    |
+| header.isSuccessful                       | Boolean     | O        | 成否                                                                                                   |
 | header.resultCode                         | Integer     | O        | 失敗コード                                                                                               |
-| header.resultMessage                      | String      | O        | 失敗メッセージ                                                                                             |
-| body.pageNum                              | Integer     | O        | 現在のページ番号                                                                                            |
-| body.pageSize                             | Integer     | O        | 検索されたデータ数                                                                                           |
-| body.totalCount                           | Integer     | O        | データの総数                                                                                              |
+| header.resultMessage                      | String      | O        | 失敗メッセージ                                                                                            |
+| body                                      | Object      | X        | 本文領域                                                                                                |
+| body.pageNum                              | Integer     | O        | 現在のページ番号                                                                                          |
+| body.pageSize                             | Integer     | O        | 検索されたデータ数                                                                                        |
+| body.totalCount                           | Integer     | O        | データの総数                                                                                             |
 | body.data.requestId                       | String      | O        | リクエストID                                                                                             |
-| body.data.recipientSeq                    | Integer     | O        | 受信者シーケンス                                                                                            |
+| body.data.recipientSeq                    | Integer     | O        | 受信者シーケンス                                                                                          |
 | body.data.requestDate                     | String      | O        | 発信日時                                                                                                |
 | body.data.sendNo                          | String      | O        | 発信番号                                                                                                |
 | body.data.recipientNo                     | String      | O        | 受信番号                                                                                                |
 | body.data.countryCode                     | String      | O        | 国番号                                                                                                 |
 | body.data.sendType                        | String      | O        | 送信タイプ(0:Sms, 1:Lms/Mms, 2:Auth)                                                                     |
-| body.data.messageType                     | String      | O        | メッセージタイプ<br/>(SMS、LMS、MMS、AUTH)                                                                     |
+| body.data.messageType                     | String      | O        | メッセージタイプ<br/>(SMS、LMS、MMS、AUTH)                                                                    |
 | body.data.adYn                            | String      | O        | 広告かどうか                                                                                              |
 | body.data.templateId                      | String      | X        | テンプレートID                                                                                            |
-| body.data.templateParameter               | String(json) | X        | テンプレートパラメータ                                                                                         |
+| body.data.templateParameter               | String(json) | X        | テンプレートパラメータ                                                                                      |
 | body.data.templateName                    | String      | X        | テンプレート名                                                                                             |
 | body.data.title                           | String      | X        | タイトル                                                                                                |
 | body.data.body                            | String      | O        | 本文内容                                                                                                |
 | body.data.messageStatus                   | String      | O        | メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信、FAILED_AD:失敗(広告制限)、再送信待機(広告制限)) |
-| body.data.createUser                      | String      | X        | 登録したユーザー                                                                                            |
-| body.data.createDate                      | String      | X        | 登録日                                                                                                 |
-| body.data[].attachFileList[].fileId       | Integer     | O        | ファイルID                                                                                              |
-| body.data[].attachFileList[].filePath     | String      | X        | ファイル保存パス(内部用)                                                                                       |
-| body.data[].attachFileList[].filename     | String      | X        | ファイル名                                                                                               |
-| body.data[].attachFileList[].saveFileName | String      | X        | 保存された添付ファイル名                                                                                        |
+| body.data.createUser                      | String      | X        | 登録したユーザー                                                                                           |
+| body.data.createDate                      | String      | X        | 登録日                                                                                                  |
+| body.data[].attachFileList[].fileId       | Integer     | O        | ファイルID                                                                                               |
+| body.data[].attachFileList[].filePath     | String      | X        | ファイル保存パス(内部用)                                                                                     |
+| body.data[].attachFileList[].filename     | String      | X        | ファイル名                                                                                                |
+| body.data[].attachFileList[].saveFileName | String      | X        | 保存された添付ファイル名                                                                                      |
 | body.data[].attachFileList[].uploadType   | String      | X        | アップロードタイプ                                                                                           |
 
 ### 予約送信キャンセル
@@ -5333,10 +5364,11 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/can
 
 | 値                        | タイプ    | Not Null | 説明               |
 |--------------------------|---------|----------|--------------------|
-| header                   | Object  | O        | ヘッダ領域           |
+| header                   | Object  | O        | ヘッダ領域            |
 | header.isSuccessful      | Boolean | O        | 成否                |
 | header.resultCode        | Integer | O        | 失敗コード            |
 | header.resultMessage     | String  | O        | 失敗メッセージ         |
+| body                     | Object  | X        | 本文領域             |
 | body.data.requestedCount | Integer | O        | キャンセルリクエスト件数 |
 | body.data.canceledCount  | Integer | O        | キャンセル成功件数      |
 
@@ -5456,14 +5488,15 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/sea
 }
 ```
 
-| 値                                 | タイプ    | Not Null | 説明                                                                                                         |
+| 値                                 | タイプ    | Not Null | 説明                                                                                                        |
 |------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------|
 | header                            | Object  | O        | ヘッダ領域                                                                                                     |
 | header.isSuccessful               | Boolean | O        | 成否                                                                                                         |
-| header.resultCode                 | Integer | O        | 失敗コード                                                                                                      |
-| header.resultMessage              | String  | O        | 失敗メッセージ                                                                                                    |
-| body.data.reservationCancelId     | Integer | O        | 予約キャンセルID                                                                                                  |
-| body.data.requestedDateTime       | String  | O        | 予約キャンセル時間(yyyy-MM-dd HH:mm:ss)                                                                             |
+| header.resultCode                 | Integer | O        | 失敗コード                                                                                                     |
+| header.resultMessage              | String  | O        | 失敗メッセージ                                                                                                  |
+| body                              | Object  | X        | 本文領域                                                                                                      |
+| body.data.reservationCancelId     | Integer | O        | 予約キャンセルID                                                                                                |
+| body.data.requestedDateTime       | String  | O        | 予約キャンセル時間(yyyy-MM-dd HH:mm:ss)                                                                          |
 | body.data.reservationCancelStatus | String  | X        | 予約キャンセル状態<br/>- READY ：予約準備<br/>- PROCESSING ：予約キャンセル中<br/>- COMPLETED ：予約キャンセル完了<br/>- FAILED ：予約キャンセル失敗 |
 
 ### 予約送信キャンセルリクエストリスト検索 - 多重フィルタ
@@ -5546,19 +5579,20 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/sea
 | 値                                   | タイプ                | Not Null | 説明                                                                                                        |
 |-------------------------------------|---------------------|----------|-------------------------------------------------------------------------------------------------------------|
 | header                              | Object              | O        | ヘッダ領域                                                                                                     |
-| header.isSuccessful                 | Boolean             | O        | 成否                                                                                                        |
+| header.isSuccessful                 | Boolean             | O        | 成否                                                                                                         |
 | header.resultCode                   | Integer             | O        | 失敗コード                                                                                                     |
-| header.resultMessage                | String              | O        | 失敗メッセージ                                                                                                   |
-| body.data[].reservationCancelId     | String              | O        | 予約キャンセルID                                                                                                 |
-| body.data[].searchParameter         | Map<String, Object> | O        | 予約キャンセルリクエストパラメータ                                                                                          |
-| body.data[].requestedDateTime       | String              | O        | 予約キャンセルリクエスト時間                                                                                            |
-| body.data[].completedDateTime       | String              | X        | 予約キャンセル完了時間                                                                                               |
+| header.resultMessage                | String              | O        | 失敗メッセージ                                                                                                  |
+| body                                | Object              | X        | 本文領域                                                                                                      |
+| body.data[].reservationCancelId     | String              | O        | 予約キャンセルID                                                                                                |
+| body.data[].searchParameter         | Map<String, Object> | O        | 予約キャンセルリクエストパラメータ                                                                                    |
+| body.data[].requestedDateTime       | String              | O        | 予約キャンセルリクエスト時間                                                                                        |
+| body.data[].completedDateTime       | String              | X        | 予約キャンセル完了時間                                                                                            |
 | body.data[].reservationCancelStatus | String              | X        | 予約キャンセル状態<br/>- READY ：予約準備<br/>- PROCESSING ：予約キャンセル中<br/>- COMPLETED ：予約キャンセル完了<br/>- FAILED ：予約キャンセル失敗 |
-| body.data[].totalCount              | Integer             | X        | 予約キャンセル対象件数                                                                                                |
-| body.data[].successCount            | Integer             | X        | 予約キャンセル成功件数                                                                                                |
-| body.data[].createUser              | String              | X        | 予約キャンセルリクエスト者                                                                                             |
-| body.data[].createdDateTime         | String              | X        | 予約キャンセルリクエスト作成時間                                                                                          |
-| body.data[].updatedDateTime         | String              | X        | 予約キャンセル修正時間                                                                                               |
+| body.data[].totalCount              | Integer             | X        | 予約キャンセル対象件数                                                                                            |
+| body.data[].successCount            | Integer             | X        | 予約キャンセル成功件数                                                                                            |
+| body.data[].createUser              | String              | X        | 予約キャンセルリクエスト者                                                                                         |
+| body.data[].createdDateTime         | String              | X        | 予約キャンセルリクエスト作成時間                                                                                     |
+| body.data[].updatedDateTime         | String              | X        | 予約キャンセル修正時間                                                                                            |
 
 ## 送信結果ファイルダウンロード
 
@@ -5676,14 +5710,15 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-
 | 値                            | タイプ    | Not Null | 説明                                                                                                        |
 |------------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
 | header                       | Object  | O        | ヘッダ領域                                                                                                     |
-| header.isSuccessful          | Boolean | O        | 成否                                                                                                          |
-| header.resultCode            | Integer | O        | 失敗コード                                                                                                       |
-| header.resultMessage         | String  | O        | 失敗メッセージ                                                                                                     |
-| body.data.downloadId         | String  | O        | ダウンロードID                                                                                                    |
-| body.data.downloadType       | String  | O        | ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信                                 |
-| body.data.fileType           | String  | X        | ファイルタイプ(現在csvのみサポート)                                                                                        |
+| header.isSuccessful          | Boolean | O        | 成否                                                                                                         |
+| header.resultCode            | Integer | O        | 失敗コード                                                                                                     |
+| header.resultMessage         | String  | O        | 失敗メッセージ                                                                                                  |
+| body                         | Object  | X        | 本文領域                                                                                                      |
+| body.data.downloadId         | String  | O        | ダウンロードID                                                                                                 |
+| body.data.downloadType       | String  | O        | ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信                    |
+| body.data.fileType           | String  | X        | ファイルタイプ(現在csvのみサポート)                                                                                 |
 | body.data.downloadStatusCode | String  | O        | ファイル作成状態<br/>- READY：作成準備<br/>- MAKING：作成中<br/>- COMPLETED：作成完了<br/>- FAILED：作成失敗<br/>- EXPIRED：ダウンロード期間終了 |
-| body.data.expiredDate        | String  | X        | ダウンロード期間終了日時                                                                                                |
+| body.data.expiredDate        | String  | X        | ダウンロード期間終了日時                                                                                          |
 
 ### 送信結果ファイル作成リクエスト内訳検索
 
@@ -5765,21 +5800,22 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reserva
 | 値                              | タイプ    | Not Null | 説明                                                                                                        |
 |--------------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
 | header                         | Object  | O        | ヘッダ領域                                                                                                     |
-| header.isSuccessful            | Boolean | O        | 成否                                                                                                        |
+| header.isSuccessful            | Boolean | O        | 成否                                                                                                         |
 | header.resultCode              | Integer | O        | 失敗コード                                                                                                     |
-| header.resultMessage           | String  | O        | 失敗メッセージ                                                                                                   |
-| body.totalCount                | Integer | O        | 全体件数                                                                                                       |
-| body.data[].downloadId         | String  | O        | ダウンロードID                                                                                                   |
-| body.data[].downloadType       | String  | O        | ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信                                |
-| body.data[].fileType           | String  | X        | ファイルタイプ                                                                                                    |
-| body.data[].parameter          | String  | X        | リクエストパラメータ                                                                                                 |
-| body.data[].size               | Integer | X        | 検索データサイズ                                                                                                   |
+| header.resultMessage           | String  | O        | 失敗メッセージ                                                                                                  |
+| body                           | Object  | X        | 本文領域                                                                                                      |
+| body.totalCount                | Integer | O        | 全体件数                                                                                                     |
+| body.data[].downloadId         | String  | O        | ダウンロードID                                                                                                 |
+| body.data[].downloadType       | String  | O        | ダウンロードタイプ<br/>- BLOCK：受信拒否<br/>- NORMAL：一般送信<br/>- MASS：大量送信<br/>- TAG：タグ送信                    |
+| body.data[].fileType           | String  | X        | ファイルタイプ                                                                                                  |
+| body.data[].parameter          | String  | X        | リクエストパラメータ                                                                                             |
+| body.data[].size               | Integer | X        | 検索データサイズ                                                                                                |
 | body.data[].downloadStatusCode | String  | O        | ファイル作成状態<br/>- READY：作成準備<br/>- MAKING：作成中<br/>- COMPLETED：作成完了<br/>- FAILED：作成失敗<br/>- EXPIRED：ダウンロード期間終了 |
-| body.data[].resultMessage      | String  | X        | 結果メッセージ(失敗時レスポンス)                                                                                          |
-| body.data[].expiredDate        | String  | X        | ファイル終了日時                                                                                                   |
-| body.data[].createUser         | String  | O        | ファイル作成リクエスト者                                                                                               |
-| body.data[].createDate         | String  | O        | ファイル作成リクエスト日時                                                                                              |
-| body.data[].updateDate         | String  | X        | ファイル作成完了、失敗日時                                                                                              |
+| body.data[].resultMessage      | String  | X        | 結果メッセージ(失敗時レスポンス)                                                                                    |
+| body.data[].expiredDate        | String  | X        | ファイル終了日時                                                                                                |
+| body.data[].createUser         | String  | O        | ファイル作成リクエスト者                                                                                          |
+| body.data[].createDate         | String  | O        | ファイル作成リクエスト日時                                                                                         |
+| body.data[].updateDate         | String  | X        | ファイル作成完了、失敗日時                                                                                         |
 
 ### 送信結果ファイルダウンロードリクエスト
 
@@ -5900,17 +5936,18 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 
 | 値                       | タイプ    | Not Null | 説明           |
 |-------------------------|---------|----------|----------------|
-| header                  | Object  | O        | ヘッダ領域       |
-| header.isSuccessful     | Boolean | O        | 成否           |
-| header.resultCode       | Integer | O        | 失敗コード     |
-| header.resultMessage    | String  | O        | 失敗メッセージ |
-| body.pageNum            | Integer | O        | 現在のページ番号 |
+| header                  | Object  | O        | ヘッダ領域        |
+| header.isSuccessful     | Boolean | O        | 成否            |
+| header.resultCode       | Integer | O        | 失敗コード       |
+| header.resultMessage    | String  | O        | 失敗メッセージ    |
+| body                    | Object  | X        | 本文領域         |
+| body.pageNum            | Integer | O        | 現在のページ番号   |
 | body.pageSize           | Integer | O        | 検索されたデータ数 |
-| body.totalCount         | Integer | O        | データの総数   |
+| body.totalCount         | Integer | O        | データの総数     |
 | body.data[].tagId       | String  | O        | タグID         |
-| body.data[].tagName     | String  | X        | タグ名         |
-| body.data[].createdDate | String  | O        | 作成日時       |
-| body.data[].updatedDate | String  | O        | 修正日時       |
+| body.data[].tagName     | String  | X        | タグ名          |
+| body.data[].createdDate | String  | O        | 作成日時        |
+| body.data[].updatedDate | String  | O        | 修正日時        |
 
 ### タグ登録
 
@@ -5983,10 +6020,11 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 | 値                    | タイプ    | Not Null | 説明       |
 |----------------------|---------|----------|------------|
 | header               | Object  | O        | ヘッダ領域    |
-| header.isSuccessful  | Boolean | O        | 成否       |
-| header.resultCode    | Integer | O        | 失敗コード |
+| header.isSuccessful  | Boolean | O        | 成否         |
+| header.resultCode    | Integer | O        | 失敗コード    |
 | header.resultMessage | String  | O        | 失敗メッセージ |
-| body.data.tagId      | String  | O        | タグID     |
+| body                 | Object  | X        | 本文領域      |
+| body.data.tagId      | String  | O        | タグID       |
 
 ### タグ修正
 
@@ -6210,6 +6248,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids' \
 | header.isSuccessful                     | Boolean  | O        | 成否           |
 | header.resultCode                       | Integer  | O        | 失敗コード       |
 | header.resultMessage                    | String   | O        | 失敗メッセージ     |
+| body                                    | Object   | X        | 本文領域         |
 | body.data.uids[].uid                    | String   | O        | UID            |
 | body.data.uids[].tags[].tagId           | String   | O        | タグID          |
 | body.data.uids[].tags[].tagName         | String   | X        | タグ名          |
@@ -6296,14 +6335,15 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID
 | header.isSuccessful              | Boolean | O        | 成否             |
 | header.resultCode                | Integer | O        | 失敗コード         |
 | header.resultMessage             | String  | O        | 失敗メッセージ      |
-| body.data.uid                    | String  | O        | UID              |
+| body                             | Object  | X        | 本文領域          |
+| body.data.uid                    | String  | O        | UID             |
 | body.data.tags[].tagId           | String  | O        | タグID           |
 | body.data.tags[].tagName         | String  | X        | タグ名           |
-| body.data.tags[].createdDate     | String  | O        | タグ作成日時     |
-| body.data.tags[].updatedDate     | String  | O        | タグ修正日時     |
-| body.data.contacts[].contactType | String  | O        | 連絡先タイプ     |
+| body.data.tags[].createdDate     | String  | O        | タグ作成日時       |
+| body.data.tags[].updatedDate     | String  | O        | タグ修正日時       |
+| body.data.contacts[].contactType | String  | O        | 連絡先タイプ       |
 | body.data.contacts[].contact     | String  | O        | 連絡先(携帯電話番号) |
-| body.data.contacts[].createdDate | String  | O        | 連絡先作成日時   |
+| body.data.contacts[].createdDate | String  | O        | 連絡先作成日時      |
 
 ### UID登録
 
