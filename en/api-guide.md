@@ -414,7 +414,7 @@ curl -X GET \
 | body.data[].sendNo               | String  | O        | Sender number                                                                         |
 | body.data[].countryCode          | String  | O        | Country code                                                                          |
 | body.data[].recipientNo          | String  | O        | Recipient number                                                                      |
-| body.data[].msgStatus            | String  | X        | Message status code                                                                   |
+| body.data[].msgStatus            | String  | O        | Message status code                                                                   |
 | body.data[].msgStatusName        | String  | O        | Name of message status code                                                           |
 | body.data[].resultCode           | String  | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
 | body.data[].resultCodeName       | String  | X        | Result code name of receiving                                                         |
@@ -541,7 +541,7 @@ curl -X GET \
 | body.data.sendNo               | String  | O        | Sender name                                                                                                                                                                        |
 | body.data.countryCode          | String  | O        | Country code                                                                                                                                                                       |
 | body.data.recipientNo          | String  | O        | Recipient number                                                                                                                                                                   |
-| body.data.msgStatus            | String  | X        | Message status code                                                                                                                                                                |
+| body.data.msgStatus            | String  | O        | Message status code                                                                                                                                                                |
 | body.data.msgStatusName        | String  | O        | Name of message status code                                                                                                                                                        |
 | body.data.resultCode           | String  | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]                                                                                              |
 | body.data.resultCodeName       | String  | X        | Result code name of receiving                                                                                                                                                      |
@@ -1058,7 +1058,7 @@ curl -X GET \
 | body.data[].sendNo                        | String  | O        | Sender number                                                                         |
 | body.data[].countryCode                   | String  | O        | Country code                                                                          |
 | body.data[].recipientNo                   | String  | O        | Recipient number                                                                      |
-| body.data[].msgStatus                     | String  | X        | Message status code                                                                   |
+| body.data[].msgStatus                     | String  | O        | Message status code                                                                   |
 | body.data[].msgStatusName                 | String  | O        | Name of message status code                                                           |
 | body.data[].resultCode                    | String  | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
 | body.data[].resultCodeName                | String  | X        | Result code name of receiving                                                         |
@@ -1195,7 +1195,7 @@ curl -X GET \
 | body.data.sendNo                        | String  | O        | Sender number                                                                                                                                                                      |
 | body.data.countryCode                   | String  | O        | Country code                                                                                                                                                                       |
 | body.data.recipientNo                   | String  | O        | Recipient number                                                                                                                                                                   |
-| body.data.msgStatus                     | String  | X        | Message status code                                                                                                                                                                |
+| body.data.msgStatus                     | String  | O        | Message status code                                                                                                                                                                |
 | body.data.msgStatusName                 | String  | O        | Name of message status code                                                                                                                                                        |
 | body.data.resultCode                    | String  | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]                                                                                              |
 | body.data.resultCodeName                | String  | X        | Result code name of receiving                                                                                                                                                      |
@@ -1564,7 +1564,7 @@ curl -X GET \
 | body.data[].sendNo               | String   | O        | Sender number                                                                             |
 | body.data[].countryCode          | String   | O        | Country code                                                                              |
 | body.data[].recipientNo          | String   | O        | Recipient number                                                                          |
-| body.data[].msgStatus            | String   | X        | Message status code                                                                       |
+| body.data[].msgStatus            | String   | O        | Message status code                                                                       |
 | body.data[].msgStatusName        | String   | O        | Name of message status code                                                               |
 | body.data[].resultCode           | String   | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]     |
 | body.data[].resultCodeName       | String   | X        | Result code name of receiving                                                             |
@@ -1691,7 +1691,7 @@ curl -X GET \
 | body.data.sendNo               | String  | O        | Sender number                                                                                                                                                                      |
 | body.data.countryCode          | String  | O        | Country code                                                                                                                                                                       |
 | body.data.recipientNo          | String  | O        | Recipient number                                                                                                                                                                   |
-| body.data.msgStatus            | String  | X        | Message status code                                                                                                                                                                |
+| body.data.msgStatus            | String  | O        | Message status code                                                                                                                                                                |
 | body.data.msgStatusName        | String  | O        | Name of message status code                                                                                                                                                        |
 | body.data.resultCode           | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)]                                                                                              |
 | body.data.resultCodeName       | String  | X        | Result code name of receiving                                                                                                                                                      |
@@ -2324,7 +2324,7 @@ curl -X GET \
 | body.data[].countryCode   | String  | O        | Recipient's country code                                                          |
 | body.data[].recipientNo   | String  | O        | Recipient number                                                                  |
 | body.data[].requestDate   | String  | O        | Date and time of request                                                          |
-| body.data[].msgStatus     | String  | X        | Message status code                                                               |
+| body.data[].msgStatus     | String  | O        | Message status code                                                               |
 | body.data[].msgStatusName | String  | O        | Name of message status code                                                       |
 | body.data[].messageCount  | Integer | X        | Number of messages sent                                                           |
 | body.data[].resultCode    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
@@ -2429,7 +2429,7 @@ curl -X GET \
 | body.data.recipientNo                   | String  | O        | Recipient number                                                                      |
 | body.data.countryCode                   | String  | O        | Recipient's country code                                                              |
 | body.data.requestDate                   | String  | O        | Date and time of request                                                              |
-| body.data.msgStatus                     | String  | X        | Message status                                                                        |
+| body.data.msgStatus                     | String  | O        | Message status                                                                        |
 | body.data.msgStatusName                 | String  | O        | Message status name                                                                   |
 | body.data.messageCount                  | Integer | X        | Number of messages sent                                                               |
 | body.data.resultCode                    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
@@ -2907,7 +2907,7 @@ curl -X GET \
 | body.data[].countryCode   | String  | O        | Recipient's country code                                                              |
 | body.data[].recipientNo   | String  | O        | Recipient number                                                                      |
 | body.data[].requestDate   | String  | O        | Date and time of request                                                              |
-| body.data[].msgStatus     | String  | X        | Message status code                                                                   |
+| body.data[].msgStatus     | String  | O        | Message status code                                                                   |
 | body.data[].msgStatusName | String  | O        | Name of message status code                                                           |
 | body.data[].messageCount  | Integer | X        | Number of messages sent                                                               |
 | body.data[].resultCode    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |

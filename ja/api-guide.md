@@ -417,7 +417,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?start
 | body.data[].sendNo               | String  | O        | 発信番号                                       |
 | body.data[].countryCode          | String  | O        | 国番号                                        |
 | body.data[].recipientNo          | String  | O        | 受信番号                                       |
-| body.data[].msgStatus            | String  | X        | メッセージステータスコード                              |
+| body.data[].msgStatus            | String  | O        | メッセージステータスコード                              |
 | body.data[].msgStatusName        | String  | O        | メッセージステータスコード名                             |
 | body.data[].resultCode           | String  | X        | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
 | body.data[].resultCodeName       | String  | X        | 受信結果コード名                                   |
@@ -544,7 +544,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${R
 | body.data.sendNo               | String  | O        | 発信番号                                                       |
 | body.data.countryCode          | String  | O        | 国番号                                                         |
 | body.data.recipientNo          | String  | O        | 受信番号                                                       |
-| body.data.msgStatus            | String  | X        | メッセージステータスコード                                     |
+| body.data.msgStatus            | String  | O        | メッセージステータスコード                                     |
 | body.data.msgStatusName        | String  | O        | メッセージステータスコード名                                   |
 | body.data.resultCode           | String  | X        | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)]       |
 | body.data.resultCodeName       | String  | X        | 受信結果コード名                                               |
@@ -1060,7 +1060,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?start
 | body.data[].sendNo                        | String  | O        | 発信番号                                       |
 | body.data[].countryCode                   | String  | O        | 国番号                                        |
 | body.data[].recipientNo                   | String  | O        | 受信番号                                       |
-| body.data[].msgStatus                     | String  | X        | メッセージステータスコード                              |
+| body.data[].msgStatus                     | String  | O        | メッセージステータスコード                              |
 | body.data[].msgStatusName                 | String  | O        | メッセージステータスコード名                             |
 | body.data[].resultCode                    | String  | X        | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
 | body.data[].resultCodeName                | String  | X        | 受信結果コード名                                   |
@@ -1198,7 +1198,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${R
 | body.data.sendNo                        | String   | O        | 発信番号                                                         |
 | body.data.countryCode                   | String   | O        | 国家番号                                                         |
 | body.data.recipientNo                   | String   | O        | 受信番号                                                         |
-| body.data.msgStatus                     | String   | X        | メッセージステータスコード                                                |
+| body.data.msgStatus                     | String   | O        | メッセージステータスコード                                                |
 | body.data.msgStatusName                 | String   | O        | メッセージステータスコード名                                               |
 | body.data.resultCode                    | String   | X        | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)]                   |
 | body.data.resultCodeName                | String   | X        | 受信結果コード名                                                     |
@@ -1566,7 +1566,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?
 | body.data[].sendNo               | String  | O        | 発信番号                                       |
 | body.data[].countryCode          | String  | O        | 国番号                                        |
 | body.data[].recipientNo          | String  | O        | 受信番号                                       |
-| body.data[].msgStatus            | String  | X        | メッセージステータスコード                              |
+| body.data[].msgStatus            | String  | O        | メッセージステータスコード                              |
 | body.data[].msgStatusName        | String  | O        | メッセージステータスコード名                             |
 | body.data[].resultCode           | String  | X        | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
 | body.data[].resultCodeName       | String  | X        | 受信結果コード名                                   |
@@ -1692,7 +1692,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/
 | body.data.sendNo               | String  | O        | 発信番号                                                                          |
 | body.data.countryCode          | String  | O        | 国番号                                                                           |
 | body.data.recipientNo          | String  | O        | 受信番号                                                                          |
-| body.data.msgStatus            | String  | X        | メッセージステータスコード                                                           |
+| body.data.msgStatus            | String  | O        | メッセージステータスコード                                                           |
 | body.data.msgStatusName        | String  | O        | メッセージステータスコード名                                                        |
 | body.data.resultCode           | String  | X        | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)]                           |
 | body.data.resultCodeName       | String  | X        | 受信結果コード名                                                                   |
@@ -2314,7 +2314,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requ
 | body.data[].countryCode    | String  | O         | 受信者国家コード                                     |
 | body.data[].recipientNo    | String  | O         | 受信者番号                                           |
 | body.data[].requestDate    | String  | O         | リクエスト日時                                       |
-| body.data[].msgStatus      | String  | X         | メッセージステータスコード                            |
+| body.data[].msgStatus      | String  | O         | メッセージステータスコード                            |
 | body.data[].msgStatusName  | String  | O         | メッセージステータスコード名                          |
 | body.data[].messageCount   | Integer | X         | 送信されたメッセージの件数                            |
 | body.data[].resultCode     | String  | X         | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
@@ -2419,7 +2419,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/rece
 | body.data.recipientNo                   | String  | O          | 受信者番号                                        |
 | body.data.countryCode                   | String  | O          | 受信者国コード                                    |
 | body.data.requestDate                   | String  | O          | リクエスト日時                                    |
-| body.data.msgStatus                     | String  | X          | メッセージ状態                                    |
+| body.data.msgStatus                     | String  | O          | メッセージ状態                                    |
 | body.data.msgStatusName                 | String  | O          | メッセージ状態名                                  |
 | body.data.messageCount                  | Integer | X          | 送信されたメッセージの件数                        |
 | body.data.resultCode                    | String  | X          | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |
@@ -2897,7 +2897,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${R
 | body.data[].countryCode    | String  | O        | 受信者国家コード                               |
 | body.data[].recipientNo    | String  | O        | 受信者番号                                     |
 | body.data[].requestDate    | String  | O        | リクエスト日時                                 |
-| body.data[].msgStatus      | String  | X        | メッセージステータスコード                      |
+| body.data[].msgStatus      | String  | O        | メッセージステータスコード                      |
 | body.data[].msgStatusName  | String  | O        | メッセージステータスコード名                    |
 | body.data[].messageCount   | Integer | X        | 送信されたメッセージ件数                        |
 | body.data[].resultCode     | String  | X        | 受信結果コード[[受信結果コード表](./error-code/#emma-v3)] |

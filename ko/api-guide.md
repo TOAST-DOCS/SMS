@@ -415,7 +415,7 @@ curl -X GET \
 | body.data[].sendNo               | String  | O        | 발신 번호                                         |
 | body.data[].countryCode          | String  | O        | 국가 번호                                         |
 | body.data[].recipientNo          | String  | O        | 수신 번호                                         |
-| body.data[].msgStatus            | String  | X        | 메시지 상태 코드                                     |
+| body.data[].msgStatus            | String  | O        | 메시지 상태 코드                                     |
 | body.data[].msgStatusName        | String  | O        | 메시지 상태 코드명                                    |
 | body.data[].resultCode           | String  | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)] |
 | body.data[].resultCodeName       | String  | X        | 수신 결과 코드명                                     |
@@ -542,7 +542,7 @@ curl -X GET \
 | body.data.sendNo                | String    | O        | 발신 번호                                                             |
 | body.data.countryCode           | String    | O        | 국가 번호                                                             |
 | body.data.recipientNo           | String    | O        | 수신 번호                                                             |
-| body.data.msgStatus             | String    | X        | 메시지 상태 코드                                                       |
+| body.data.msgStatus             | String    | O        | 메시지 상태 코드                                                       |
 | body.data.msgStatusName         | String    | O        | 메시지 상태 코드명                                                     |
 | body.data.resultCode            | String    | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]              |
 | body.data.resultCodeName        | String    | X        | 수신 결과 코드명                                                       |
@@ -1059,7 +1059,7 @@ curl -X GET \
 | body.data[].sendNo                         | String    | O        | 발신 번호                                      |
 | body.data[].countryCode                    | String    | O        | 국가 번호                                      |
 | body.data[].recipientNo                    | String    | O        | 수신 번호                                      |
-| body.data[].msgStatus                      | String    | X        | 메시지 상태 코드                               |
+| body.data[].msgStatus                      | String    | O        | 메시지 상태 코드                               |
 | body.data[].msgStatusName                  | String    | O        | 메시지 상태 코드명                             |
 | body.data[].resultCode                     | String    | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)] |
 | body.data[].resultCodeName                 | String    | X        | 수신 결과 코드명                               |
@@ -1197,7 +1197,7 @@ curl -X GET \
 | body.data.sendNo                        | String   | O        | 발신 번호                                                          |
 | body.data.countryCode                   | String   | O        | 국가 번호                                                          |
 | body.data.recipientNo                   | String   | O        | 수신 번호                                                          |
-| body.data.msgStatus                     | String   | X        | 메시지 상태 코드                                                   |
+| body.data.msgStatus                     | String   | O        | 메시지 상태 코드                                                   |
 | body.data.msgStatusName                 | String   | O        | 메시지 상태 코드명                                                 |
 | body.data.resultCode                    | String   | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]         |
 | body.data.resultCodeName                | String   | X        | 수신 결과 코드명                                                   |
@@ -1565,7 +1565,7 @@ curl -X GET \
 | body.data[].sendNo               | String    | O        | 발신 번호                                         |
 | body.data[].countryCode          | String    | O        | 국가 번호                                         |
 | body.data[].recipientNo          | String    | O        | 수신 번호                                         |
-| body.data[].msgStatus            | String    | X        | 메시지 상태 코드                                   |
+| body.data[].msgStatus            | String    | O        | 메시지 상태 코드                                   |
 | body.data[].msgStatusName        | String    | O        | 메시지 상태 코드명                                 |
 | body.data[].resultCode           | String    | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)] |
 | body.data[].resultCodeName       | String    | X        | 수신 결과 코드명                                   |
@@ -1692,7 +1692,7 @@ curl -X GET \
 | body.data.sendNo               | String  | O        | 발신 번호                                                                              |
 | body.data.countryCode          | String  | O        | 국가 번호                                                                              |
 | body.data.recipientNo          | String  | O        | 수신 번호                                                                              |
-| body.data.msgStatus            | String  | X        | 메시지 상태 코드                                                                          |
+| body.data.msgStatus            | String  | O        | 메시지 상태 코드                                                                          |
 | body.data.msgStatusName        | String  | O        | 메시지 상태 코드명                                                                         |
 | body.data.resultCode           | String  | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]                                      |
 | body.data.resultCodeName       | String  | X        | 수신 결과 코드명                                                                          |
@@ -2327,7 +2327,7 @@ curl -X GET \
 | body.data[].countryCode    | String  | O        | 수신자 국가코드                                     |
 | body.data[].recipientNo    | String  | O        | 수신자 번호                                       |
 | body.data[].requestDate    | String  | O        | 요청 일시                                        |
-| body.data[].msgStatus      | String  | X        | 메시지 상태 코드                                    |
+| body.data[].msgStatus      | String  | O        | 메시지 상태 코드                                    |
 | body.data[].msgStatusName  | String  | O        | 메시지 상태 코드명                                   |
 | body.data[].messageCount   | Integer | X        | 발송된 메시지 건수                                   |
 | body.data[].resultCode     | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
@@ -2432,7 +2432,7 @@ curl -X GET \
 | body.data.recipientNo                   | String  | O        | 수신자 번호                                      |
 | body.data.countryCode                   | String  | O        | 수신자 국가코드                                  |
 | body.data.requestDate                   | String  | O        | 요청 일시                                       |
-| body.data.msgStatus                     | String  | X        | 메시지 상태                                      |
+| body.data.msgStatus                     | String  | O        | 메시지 상태                                      |
 | body.data.msgStatusName                 | String  | O        | 메시지 상태 이름                                 |
 | body.data.messageCount                  | Integer | X        | 발송된 메시지 건수                               |
 | body.data.resultCode                    | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
@@ -2910,7 +2910,7 @@ curl -X GET \
 | body.data[].countryCode    | String  | O        | 수신자 국가코드                                 |
 | body.data[].recipientNo    | String  | O        | 수신자 번호                                     |
 | body.data[].requestDate    | String  | O        | 요청 일시                                      |
-| body.data[].msgStatus      | String  | X        | 메시지 상태 코드                                |
+| body.data[].msgStatus      | String  | O        | 메시지 상태 코드                                |
 | body.data[].msgStatusName  | String  | O        | 메시지 상태 코드명                              |
 | body.data[].messageCount   | Integer | X        | 발송된 메시지 건수                              |
 | body.data[].resultCode     | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
