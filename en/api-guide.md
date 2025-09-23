@@ -4700,10 +4700,10 @@ curl -X GET \
 |-----------------------|---------|----------|----------------------------------------------------|
 | eventDateTime         | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly |
 | events                | Object  | O        | Statistics value object                            |
-| events.requested      | Integer | X        | Number of requests                                 |
-| events.sent           | Integer | X        | Number of sent items                               |
-| events.sentFailed     | Integer | X        | Number of failures                                 |
-| events.received       | Integer | X        | Number of successes                                |
+| events.requested      | Integer | O        | Number of requests                                 |
+| events.sent           | Integer | O        | Number of sent items                               |
+| events.sentFailed     | Integer | O        | Number of failures                                 |
+| events.received       | Integer | O        | Number of successes                                |
 
 ### Statistics Search - Based on Request Time
 
@@ -4794,11 +4794,11 @@ curl -X GET \
 |-------------------|---------|----------|---------------------------------------------------|
 | eventDateTime     | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly |
 | events            | Object  | O        | Statistics value object                           |
-| events.requested  | Integer | X        | Number of requests                                |
-| events.sent       | Integer | X        | Number of sent items                              |
-| events.sentFailed | Integer | X        | Number of failures                                |
-| events.received   | Integer | X        | Number of successes                               |
-| events.pending    | Integer | X        | Number of pending items                           |
+| events.requested  | Integer | O        | Number of requests                                |
+| events.sent       | Integer | O        | Number of sent items                              |
+| events.sentFailed | Integer | O        | Number of failures                                |
+| events.received   | Integer | O        | Number of successes                               |
+| events.pending    | Integer | O        | Number of pending items                           |
 
 ### Statistic Search - International Send
 
@@ -4893,13 +4893,13 @@ curl -X GET \
 |------------------------|---------|----------|---------------------------------------------------------------------------------|
 | eventDateTime          | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly                               |
 | events                 | Object  | O        | When statsCriteria is set only as EVENT {statsCriteriaValue} is omitted         |
-| events.REQUESTED       | Integer | X        | Number of requests                                                              |
-| events.SENT            | Integer | X        | Number of sent items                                                            |
-| events.SENT_FAILED     | Integer | X        | Number of failures                                                              |
-| events.RECEIVED        | Integer | X        | Number of receptions                                                            |
-| events.CONCAT          | Integer | X        | Number of successes                                                             |
-| events.READY           | Integer | X        | Number of conversion rate collection requests successfuly sent                  |
-| events.CONVERTED       | Integer | X        | Number of converted items                                                       |
+| events.REQUESTED       | Integer | O        | Number of requests                                                              |
+| events.SENT            | Integer | O        | Number of sent items                                                            |
+| events.SENT_FAILED     | Integer | O        | Number of failures                                                              |
+| events.RECEIVED        | Integer | O        | Number of receptions                                                            |
+| events.CONCAT          | Integer | O        | Number of successes                                                             |
+| events.READY           | Integer | O        | Number of conversion rate collection requests successfuly sent                  |
+| events.CONVERTED       | Integer | O        | Number of converted items                                                       |
 
 #### Response (Statistics criteria added)
 
@@ -4955,14 +4955,14 @@ curl -X GET \
 | Value                                       | Type    | Not Null | Description                                                        |
 |---------------------------------------------|---------|----------|------------------------------------------------------------------|
 | eventDateTime                               | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly               |
-| events.{statsCriteriaValue}                 | Object  | X        | Value for statsCriteria<br/>Can be country code                 |
-| events.{statsCriteriaValue}.REQUESTED       | Integer | X        | Number of requests                                               |
-| events.{statsCriteriaValue}.SENT            | Integer | X        | Number of sent items                                             |
-| events.{statsCriteriaValue}.SENT_FAILED     | Integer | X        | Number of failures                                               |
-| events.{statsCriteriaValue}.RECEIVED        | Integer | X        | Number of receptions                                             |
-| events.{statsCriteriaValue}.CONCAT          | Integer | X        | Number of successes                                              |
-| events.{statsCriteriaValue}.READY           | Integer | X        | Number of conversion rate collection requests successfuly sent   |
-| events.{statsCriteriaValue}.CONVERTED       | Integer | X        | Number of converted items                                        |
+| events.{statsCriteriaValue}                 | Object  | O        | Value for statsCriteria<br/>Can be country code                 |
+| events.{statsCriteriaValue}.REQUESTED       | Integer | O        | Number of requests                                               |
+| events.{statsCriteriaValue}.SENT            | Integer | O        | Number of sent items                                             |
+| events.{statsCriteriaValue}.SENT_FAILED     | Integer | O        | Number of failures                                               |
+| events.{statsCriteriaValue}.RECEIVED        | Integer | O        | Number of receptions                                             |
+| events.{statsCriteriaValue}.CONCAT          | Integer | O        | Number of successes                                              |
+| events.{statsCriteriaValue}.READY           | Integer | O        | Number of conversion rate collection requests successfuly sent   |
+| events.{statsCriteriaValue}.CONVERTED       | Integer | O        | Number of converted items                                        |
 
 ### (Old)Query Integrated Statistics
 

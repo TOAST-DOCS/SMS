@@ -4707,10 +4707,10 @@ curl -X GET \
 |-------------------|---------|----------|--------------------------------|
 | eventDateTime     | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
 | events            | Object  | O        | 통계 값 객체                      |
-| events.requested  | Integer | X        | 요청 개수                        |
-| events.sent       | Integer | X        | 발송 개수                        |
-| events.sentFailed | Integer | X        | 실패 개수                        |
-| events.received   | Integer | X        | 성공 개수                        |
+| events.requested  | Integer | O        | 요청 개수                        |
+| events.sent       | Integer | O        | 발송 개수                        |
+| events.sentFailed | Integer | O        | 실패 개수                        |
+| events.received   | Integer | O        | 성공 개수                        |
 
 ### 통계 검색 - 요청 시간 기반
 
@@ -4800,11 +4800,11 @@ curl -X GET \
 |-------------------|---------|----------|--------------------------------|
 | eventDateTime     | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
 | events            | Object  | O        | 통계 값 객체                      |
-| events.requested  | Integer | X        | 요청 개수                        |
-| events.sent       | Integer | X        | 발송 개수                        |
-| events.sentFailed | Integer | X        | 실패 개수                        |
-| events.received   | Integer | X        | 성공 개수                        |
-| events.pending    | Integer | X        | 발송 중 개수                      |
+| events.requested  | Integer | O        | 요청 개수                        |
+| events.sent       | Integer | O        | 발송 개수                        |
+| events.sentFailed | Integer | O        | 실패 개수                        |
+| events.received   | Integer | O        | 성공 개수                        |
+| events.pending    | Integer | O        | 발송 중 개수                      |
 
 ### 통계 검색 - 국제 발송
 
@@ -4899,13 +4899,13 @@ curl -X GET \
 |--------------------|---------|----------|-----------------------------------------------------------|
 | eventDateTime      | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별                            |
 | events             | Object  | O        | statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
-| events.REQUESTED   | Integer | X        | 요청 개수                                                     |
-| events.SENT        | Integer | X        | 발송 개수                                                     |
-| events.SENT_FAILED | Integer | X        | 실패 개수                                                     |
-| events.RECEIVED    | Integer | X        | 수신 개수                                                     |
-| events.CONCAT      | Integer | X        | 실 수신 성공 개수                                              |
-| events.READY       | Integer | X        | 전환율 수집 요청 발송 성공 개수                                    |
-| events.CONVERTED   | Integer | X        | 전환 개수                                                     |
+| events.REQUESTED   | Integer | O        | 요청 개수                                                     |
+| events.SENT        | Integer | O        | 발송 개수                                                     |
+| events.SENT_FAILED | Integer | O        | 실패 개수                                                     |
+| events.RECEIVED    | Integer | O        | 수신 개수                                                     |
+| events.CONCAT      | Integer | O        | 실 수신 성공 개수                                              |
+| events.READY       | Integer | O        | 전환율 수집 요청 발송 성공 개수                                    |
+| events.CONVERTED   | Integer | O        | 전환 개수                                                     |
 
 #### 응답(통계 기준 추가)
 
@@ -4959,14 +4959,14 @@ curl -X GET \
 | 값                                       | 타입      | Not Null | 설명                                        |
 |-----------------------------------------|---------|----------|-------------------------------------------|
 | eventDateTime                           | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별                |
-| events.{statsCriteriaValue}             | Object  | X        | statsCriteria에 해당하는 값<br/>국가 코드 값이 올 수 있음 |
-| events.{statsCriteriaValue}.REQUESTED   | Integer | X        | 요청 개수                                     |
-| events.{statsCriteriaValue}.SENT        | Integer | X        | 발송 개수                                     |
-| events.{statsCriteriaValue}.SENT_FAILED | Integer | X        | 실패 개수                                     |
-| events.{statsCriteriaValue}.RECEIVED    | Integer | X        | 수신 개수                                     |
-| events.{statsCriteriaValue}.CONCAT      | Integer | X        | 실 수신 성공 개수                                |
-| events.{statsCriteriaValue}.READY       | Integer | X        | 전환율 수집 요청 발송 성공 개수                        |
-| events.{statsCriteriaValue}.CONVERTED   | Integer | X        | 전환 개수                                     |
+| events.{statsCriteriaValue}             | Object  | O        | statsCriteria에 해당하는 값<br/>국가 코드 값이 올 수 있음 |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | O        | 요청 개수                                     |
+| events.{statsCriteriaValue}.SENT        | Integer | O        | 발송 개수                                     |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | O        | 실패 개수                                     |
+| events.{statsCriteriaValue}.RECEIVED    | Integer | O        | 수신 개수                                     |
+| events.{statsCriteriaValue}.CONCAT      | Integer | O        | 실 수신 성공 개수                                |
+| events.{statsCriteriaValue}.READY       | Integer | O        | 전환율 수집 요청 발송 성공 개수                        |
+| events.{statsCriteriaValue}.CONVERTED   | Integer | O        | 전환 개수                                     |
 
 ### (구)통합 통계 검색
 

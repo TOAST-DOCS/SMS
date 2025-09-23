@@ -4690,10 +4690,10 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 |-------------------|---------|----------|-----------------------------------|
 | eventDateTime     | String  | O        | 表示名<br/>分別、時間別、曜日別、月別 |
 | events            | Object  | O        | 統計値オブジェクト                |
-| events.requested  | Integer | X        | リクエスト数                      |
-| events.sent       | Integer | X        | 送信数                            |
-| events.sentFailed | Integer | X        | 失敗数                            |
-| events.received   | Integer | X        | 成功数                            |
+| events.requested  | Integer | O        | リクエスト数                      |
+| events.sent       | Integer | O        | 送信数                            |
+| events.sentFailed | Integer | O        | 失敗数                            |
+| events.received   | Integer | O        | 成功数                            |
 
 ### 統計検索 - リクエスト時間ベース
 
@@ -4783,11 +4783,11 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 |-------------------|---------|----------|-------------------------------|
 | eventDateTime     | String  | O        | 表示名<br/>分別、時間別、曜日別、月別 |
 | events            | Object  | O        | 統計値オブジェクト            |
-| events.requested  | Integer | X        | リクエスト数                  |
-| events.sent       | Integer | X        | 送信数                        |
-| events.sentFailed | Integer | X        | 失敗数                        |
-| events.received   | Integer | X        | 成功数                        |
-| events.pending    | Integer | X        | 送信中の数                    |
+| events.requested  | Integer | O        | リクエスト数                  |
+| events.sent       | Integer | O        | 送信数                        |
+| events.sentFailed | Integer | O        | 失敗数                        |
+| events.received   | Integer | O        | 成功数                        |
+| events.pending    | Integer | O        | 送信中の数                    |
 
 ### 統計検索 - 国際送信
 
@@ -4882,13 +4882,13 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 |-------------------|---------|----------|----------------------------------------------------------------|
 | eventDateTime      | String  | O        | 表示名<br/>分別、時間別、曜日別、月別                            |
 | events             | Object  | O        | statsCriteriaをEVENTにのみ設定した場合、{statsCriteriaValue}は省略されます |
-| events.REQUESTED   | Integer | X        | リクエスト数                                                   |
-| events.SENT        | Integer | X        | 送信数                                                         |
-| events.SENT_FAILED | Integer | X        | 失敗数                                                         |
-| events.RECEIVED    | Integer | X        | 受信数                                                         |
-| events.CONCAT      | Integer | X        | 実受信成功数                                                   |
-| events.READY       | Integer | X        | コンバージョン率収集リクエストの送信成功数                     |
-| events.CONVERTED   | Integer | X        | コンバージョン数                                               |
+| events.REQUESTED   | Integer | O        | リクエスト数                                                   |
+| events.SENT        | Integer | O        | 送信数                                                         |
+| events.SENT_FAILED | Integer | O        | 失敗数                                                         |
+| events.RECEIVED    | Integer | O        | 受信数                                                         |
+| events.CONCAT      | Integer | O        | 実受信成功数                                                   |
+| events.READY       | Integer | O        | コンバージョン率収集リクエストの送信成功数                     |
+| events.CONVERTED   | Integer | O        | コンバージョン数                                               |
 
 #### レスポンス(統計基準追加)
 
@@ -4942,14 +4942,14 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statistics
 | 値                                     | タイプ    | Not Null | 説明                                                |
 |----------------------------------------|---------|----------|-----------------------------------------------------|
 | eventDateTime                           | String  | O        | 表示名前<br/>分別、時間別、曜日別、月別              |
-| events.{statsCriteriaValue}             | Object  | X        | statsCriteriaに該当する値<br/>国コード値が入ることがある |
-| events.{statsCriteriaValue}.REQUESTED   | Integer | X        | リクエスト数                                        |
-| events.{statsCriteriaValue}.SENT        | Integer | X        | 送信数                                              |
-| events.{statsCriteriaValue}.SENT_FAILED | Integer | X        | 失敗数                                              |
-| events.{statsCriteriaValue}.RECEIVED    | Integer | X        | 受信数                                              |
-| events.{statsCriteriaValue}.CONCAT      | Integer | X        | 実受信成功数                                        |
-| events.{statsCriteriaValue}.READY       | Integer | X        | コンバージョン率収集リクエストの送信成功数           |
-| events.{statsCriteriaValue}.CONVERTED   | Integer | X        | コンバージョン数                                    |
+| events.{statsCriteriaValue}             | Object  | O        | statsCriteriaに該当する値<br/>国コード値が入ることがある |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | O        | リクエスト数                                        |
+| events.{statsCriteriaValue}.SENT        | Integer | O        | 送信数                                              |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | O        | 失敗数                                              |
+| events.{statsCriteriaValue}.RECEIVED    | Integer | O        | 受信数                                              |
+| events.{statsCriteriaValue}.CONCAT      | Integer | O        | 実受信成功数                                        |
+| events.{statsCriteriaValue}.READY       | Integer | O        | コンバージョン率収集リクエストの送信成功数           |
+| events.{statsCriteriaValue}.CONVERTED   | Integer | O        | コンバージョン数                                    |
 
 ### (旧)統合統計検索
 
