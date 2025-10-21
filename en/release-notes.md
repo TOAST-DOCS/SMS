@@ -1,5 +1,13 @@
 ## Notification > SMS > Release Notes
 
+### October 28, 2025
+#### Feature Updates
+* [Console/API] Relaxed the 080 opt-out number validation logic when sending advertisements
+  * When sending advertisements, the 080 opt-out number has been changed so that it can be sent normally even if a '-' is inserted in the middle.
+* [ETC] Notification Management - Added the notification for monthly sending limit notification
+    * You can get the notifications automatically whenever the set monthly sending limit reaches 70%, 90%, and 100%.
+    * You can set it from **Project Dashboard > Notification Management**.
+
 ### June 24, 2025
 #### Feature Updates
 * [Console/API] Improved the international sending statistics

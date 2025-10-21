@@ -1399,7 +1399,9 @@ Same as Send SMS in the above.
 
 Required statements for ads are as follows.
 - Opening statement: `(Ads)`
-- Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
+- Last statement: `toll-free opt out {080 opt-out number}` or `free opt out {080 opt-out number}` 
+  - The phrase may contain spaces.
+  - The 080 opt-out number may contain a hyphen (-).
 
 Example
 ```
@@ -1410,6 +1412,11 @@ Example
 (Ad)
 
 [Deny for free]080XXXXXXX
+```
+```
+(Ad)
+
+Free opt out 080-XXX-XXXX
 ```
 
 ### Send MMS for Advertisement
@@ -1437,7 +1444,9 @@ Same as Send MMS in the above.
 
 Required statements for ads are as follows.
 - Opening statement: `(Ads)`
-- Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
+- Last statement: `toll-free opt out {080 opt-out number}` or `free opt out {080 opt-out number}` 
+  - The phrase may contain spaces.
+  - The 080 opt-out number may contain a hyphen (-).
 
 Example
 ```
@@ -1448,6 +1457,11 @@ Example
 (Ad)
 
 [Deny for free]080XXXXXXX
+```
+```
+(Ad)
+
+Free opt out 080-XXX-XXXX
 ```
 
 ## Query Messages by Result Updates
