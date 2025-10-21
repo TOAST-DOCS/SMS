@@ -5497,7 +5497,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/sea
 | body                              | Object  | X        | 本文領域                                                                                                      |
 | body.data.reservationCancelId     | Integer | O        | 予約キャンセルID                                                                                                |
 | body.data.requestedDateTime       | String  | O        | 予約キャンセル時間(yyyy-MM-dd HH:mm:ss)                                                                          |
-| body.data.reservationCancelStatus | String  | X        | 予約キャンセル状態<br/>- READY ：予約準備<br/>- PROCESSING ：予約キャンセル中<br/>- COMPLETED ：予約キャンセル完了<br/>- FAILED ：予約キャンセル失敗 |
+| body.data.reservationCancelStatus | String  | O        | 予約キャンセル状態<br/>- READY ：予約準備<br/>- PROCESSING ：予約キャンセル中<br/>- COMPLETED ：予約キャンセル完了<br/>- FAILED ：予約キャンセル失敗 |
 
 ### 予約送信キャンセルリクエストリスト検索 - 多重フィルタ
 

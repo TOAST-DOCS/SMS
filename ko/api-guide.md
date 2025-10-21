@@ -5511,7 +5511,7 @@ curl -X PUT \
 | body                              | Object  | X        | 본문 영역                                                                                                     |
 | body.data.reservationCancelId     | Integer | O        | 예약 취소 ID                                                                                                  |
 | body.data.requestedDateTime       | String  | O        | 예약 취소 시간(yyyy-MM-dd HH:mm:ss)                                                                             |
-| body.data.reservationCancelStatus | String  | X        | 예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+| body.data.reservationCancelStatus | String  | O        | 예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
 
 ### 예약 발송 취소 요청 목록 검색 - 다중 필터
 

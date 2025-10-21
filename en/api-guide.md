@@ -5511,7 +5511,7 @@ curl -X PUT \
 | body                              | Object  | X        | Body area                                                                                                                                                                                                     |
 | body.data.reservationCancelId     | Integer | O        | Schedule Cancellation ID                                                                                                                                                                                      |
 | body.data.requestedDateTime       | String  | O        | Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss)                                                                                                                                                           |
-| body.data.reservationCancelStatus | String  | X        | Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
+| body.data.reservationCancelStatus | String  | O        | Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
 
 ### List Request of Scheduled Delivery Cancellation - Multiple Filter
 
