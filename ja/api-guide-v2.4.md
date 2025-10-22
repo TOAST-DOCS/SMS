@@ -697,7 +697,7 @@ curl -X POST \
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-  0
+0
   ],
   "recipientList": [
     {
@@ -1465,8 +1465,10 @@ Content-Type: application/json;charset=UTF-8
 
 広告性必須文言のルールは次のとおりです。
 - 冒頭の文言: `(広告)`
-- 最後の文言： 無料受信拒否 {080受信拒否番号}`または `無料受信拒否 {080受信拒否番号}` (この文言には空白が含まれる場合があります。)
-
+- 最後の文言： 無料受信拒否 {080受信拒否番号}`または `無料受信拒否 {080受信拒否番号}`
+  - この文言には空白が含まれる場合があります。
+ - 080受信拒否番号の間に「-」を含めることができます。
+  
 例
 ```
 (広告)
@@ -1476,6 +1478,10 @@ Content-Type: application/json;charset=UTF-8
 (広告)
 
 [無料拒否]080XXXXXXX
+```
+```
+(広告)
+無料拒否 080-XXX-XXXX
 ```
 
 #### cURL
@@ -1770,7 +1776,7 @@ Content-Type: application/json;charset=UTF-8
   "attachFileIdList": [
     1,
     2,
-    3
+3
   ],
   "tagExpression": [
     "tag1",
@@ -2635,7 +2641,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -2705,7 +2711,7 @@ curl -X POST \
   "useYn": "Y",
   "attachFileIdList": [
     123123,
-    456456
+456456
   ]
 }
 ```
@@ -3116,7 +3122,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
