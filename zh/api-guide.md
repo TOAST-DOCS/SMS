@@ -151,19 +151,21 @@ curl -X POST \
 }
 ```
 
-| Value                                           | Type     | Description                                                               |
-|-------------------------------------------------|----------|---------------------------------------------------------------------------|
-| header.isSuccessful                             | 	Boolean | Successful or not                                                         |
-| header.resultCode                               | 	Integer | Failure code                                                              |
-| header.resultMessage                            | 	String  | Failure message                                                           |
-| body.data.requestId                             | 	String  | Request ID                                                                |
-| body.data.statusCode                            | 	String  | Request status code (1:Requesting, 2:Request completed, 3:Request failed) |
-| body.data.senderGroupingKey                     | 	String  | Sender group key                                                          |
-| body.data.sendResultList[].recipientNo          | String   | Recipient number                                                          |
-| body.data.sendResultList[].resultCode           | Integer  | Result code                                                               |
-| body.data.sendResultList[].resultMessage        | String   | Result message                                                            |
-| body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                 |
-| body.data.sendResultList[].recipientGroupingKey | String   | Recipient group key                                                       |
+| Value                                           | Type    | Not Null | Description                                                               |
+|-------------------------------------------------|---------|----------|---------------------------------------------------------------------------|
+| header                                          | Object  | O        | Header area                                                               |
+| header.isSuccessful                             | Boolean | O        | Successful or not                                                         |
+| header.resultCode                               | Integer | O        | Failure code                                                              |
+| header.resultMessage                            | String  | O        | Failure message                                                           |
+| body                                            |	Object  | X        | Body area                                                                 |
+| body.data.requestId                             | String  | O        | Request ID                                                                |
+| body.data.statusCode                            | String  | O        | Request status code (1:Requesting, 2:Request completed, 3:Request failed) |
+| body.data.senderGroupingKey                     | String  | X        | Sender group key                                                          |
+| body.data.sendResultList[].recipientNo          | String  | O        | Recipient number                                                          |
+| body.data.sendResultList[].resultCode           | Integer | X        | Result code                                                               |
+| body.data.sendResultList[].resultMessage        | String  | X        | Result message                                                            |
+| body.data.sendResultList[].recipientSeq         | Integer | O        | Recipient sequence (mtPr)                                                 |
+| body.data.sendResultList[].recipientGroupingKey | String  | X        | Recipient group key                                                       |
 
 #### Example of Sending Short SMS (general domestic recipient numbers)
 
@@ -391,40 +393,42 @@ curl -X GET \
 }
 ```
 
-| Value                            | Type     | Description                                                                           |
-|----------------------------------|----------|---------------------------------------------------------------------------------------|
-| header.isSuccessful              | 	Boolean | Successful or not                                                                     |
-| header.resultCode                | 	Integer | Failure code                                                                          |
-| header.resultMessage             | 	String  | Failure message                                                                       |
-| body.pageNum                     | 	Integer | Current page number                                                                   |
-| body.pageSize                    | 	Integer | Number of queried data                                                                |
-| body.totalCount                  | 	Integer | Number of total data                                                                  |
-| body.data[].requestId            | 	String  | Request ID                                                                            |
-| body.data[].requestDate          | 	String  | Date and time of sending                                                              |
-| body.data[].resultDate           | 	String  | Date and time of receiving                                                            |
-| body.data[].templateId           | 	String  | Template ID                                                                           |
-| body.data[].templateName         | 	String  | Template name                                                                         |
-| body.data[].categoryId           | 	Integer | Category ID                                                                           |
-| body.data[].categoryName         | 	String  | Category name                                                                         |
-| body.data[].body                 | 	String  | Body                                                                                  |
-| body.data[].sendNo               | 	String  | Sender number                                                                         |
-| body.data[].countryCode          | 	String  | Country code                                                                          |
-| body.data[].recipientNo          | 	String  | Recipient number                                                                      |
-| body.data[].msgStatus            | 	String  | Message status code                                                                   |
-| body.data[].msgStatusName        | 	String  | Name of message status code                                                           |
-| body.data[].resultCode           | 	String  | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
-| body.data[].resultCodeName       | 	String  | Result code name of receiving                                                         |
-| body.data[].telecomCode          | 	Integer | Code of telecom provider                                                              |
-| body.data[].telecomCodeName      | 	String  | Name of telecom provider                                                              |
-| body.data[].recipientSeq         | 	Integer | Detail delivery ID (required to query details)                                        |
-| body.data[].sendType             | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
-| body.data[].messageType          | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                       |
-| body.data[].messageCount         | Integer  | Number of messages sent                                                               |
-| body.data[].userId               | 	String  | Delivery request ID                                                                   |
-| body.data[].adYn                 | 	String  | Ad or not                                                                             |
-| body.data[].resultMessage        | 	String  | 	Result message                                                                       |
-| body.data[].senderGroupingKey    | 	String  | Sender's group key                                                                    |
-| body.data[].recipientGroupingKey | 	String  | Recipient's group key                                                                 |
+| Value                            | Type    | Not Null | Description                                                                           |
+|----------------------------------|---------|----------|---------------------------------------------------------------------------------------|
+| header                           | Object  | O        | Header area                                                                           |
+| header.isSuccessful              | Boolean | O        | Successful or not                                                                     |
+| header.resultCode                | Integer | O        | Failure code                                                                          |
+| header.resultMessage             | String  | O        | Failure message                                                                       |
+| body                             | Object  | X        | Body area                                                                             |
+| body.pageNum                     | Integer | O        | Current page number                                                                   |
+| body.pageSize                    | Integer | O        | Number of queried data                                                                |
+| body.totalCount                  | Integer | O        | Number of total data                                                                  |
+| body.data[].requestId            | String  | O        | Request ID                                                                            |
+| body.data[].requestDate          | String  | O        | Date and time of sending                                                              |
+| body.data[].resultDate           | String  | X        | Date and time of receiving                                                            |
+| body.data[].templateId           | String  | X        | Template ID                                                                           |
+| body.data[].templateName         | String  | X        | Template name                                                                         |
+| body.data[].categoryId           | Integer | X        | Category ID                                                                           |
+| body.data[].categoryName         | String  | X        | Category name                                                                         |
+| body.data[].body                 | String  | O        | Body                                                                                  |
+| body.data[].sendNo               | String  | O        | Sender number                                                                         |
+| body.data[].countryCode          | String  | O        | Country code                                                                          |
+| body.data[].recipientNo          | String  | O        | Recipient number                                                                      |
+| body.data[].msgStatus            | String  | O        | Message status code                                                                   |
+| body.data[].msgStatusName        | String  | O        | Name of message status code                                                           |
+| body.data[].resultCode           | String  | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
+| body.data[].resultCodeName       | String  | X        | Result code name of receiving                                                         |
+| body.data[].telecomCode          | Integer | X        | Code of telecom provider                                                              |
+| body.data[].telecomCodeName      | String  | X        | Name of telecom provider                                                              |
+| body.data[].recipientSeq         | Integer | O        | Detail delivery ID (required to query details)                                        |
+| body.data[].sendType             | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
+| body.data[].messageType          | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                       |
+| body.data[].messageCount         | Integer | O        | Number of messages sent                                                               |
+| body.data[].userId               | String  | X        | Delivery request ID                                                                   |
+| body.data[].adYn                 | String  | O        | Ad or not                                                                             |
+| body.data[].resultMessage        | String  | X        | Result message                                                                        |
+| body.data[].senderGroupingKey    | String  | X        | Sender's group key                                                                    |
+| body.data[].recipientGroupingKey | String  | X        | Recipient's group key                                                                 |
 
 ### Query Delivery of Short SMS
 
@@ -519,41 +523,43 @@ curl -X GET \
 }
 ```
 
-| Value                          | Type     | Description                                                                                                                                                                        |
-|--------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful            | 	Boolean | Successful or not                                                                                                                                                                  |
-| header.resultCode              | 	Integer | Failure code                                                                                                                                                                       |
-| header.resultMessage           | 	String  | Failure message                                                                                                                                                                    |
-| body.data.requestId            | 	String  | Request ID                                                                                                                                                                         |
-| body.data.requestDate          | 	String  | Date and time of sending                                                                                                                                                           |
-| body.data.resultDate           | 	String  | Date and time of receiving                                                                                                                                                         |
-| body.data.templateId           | 	String  | Template ID                                                                                                                                                                        |
-| body.data.templateName         | 	String  | Template name                                                                                                                                                                      |
-| body.data.categoryId           | 	Integer | Category ID                                                                                                                                                                        |
-| body.data.categoryName         | 	String  | Category name                                                                                                                                                                      |
-| body.data.body                 | 	String  | Body                                                                                                                                                                               |
-| body.data.sendNo               | 	String  | Sender name                                                                                                                                                                        |
-| body.data.countryCode          | 	String  | Country code                                                                                                                                                                       |
-| body.data.recipientNo          | 	String  | Recipient number                                                                                                                                                                   |
-| body.data.msgStatus            | 	String  | Message status code                                                                                                                                                                |
-| body.data.msgStatusName        | 	String  | Name of message status code                                                                                                                                                        |
-| body.data.resultCode           | 	String  | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]                                                                                              |
-| body.data.resultCodeName       | 	String  | Result code name of receiving                                                                                                                                                      |
-| body.data.telecomCode          | 	Integer | Telecom provider code                                                                                                                                                              |
-| body.data.telecomCodeName      | 	String  | Telecom provider name                                                                                                                                                              |
-| body.data.recipientSeq         | 	Integer | Detail delivery ID (required to query details)                                                                                                                                     |
-| body.data.sendType             | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
-| body.data.messageType          | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
-| body.data.messageCount         | 	Integer | 	Number of messages sent (international sending)                                                                                                                                   |
-| body.data.userId               | 	String  | Delivery request ID                                                                                                                                                                |
-| body.data.adYn                 | 	String  | Ad or not                                                                                                                                                                          |
-| body.data.originCode           | String   | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
-| body.data.resultMessage        | 	String  | 	Result message                                                                                                                                                                    |
-| body.data.senderGroupingKey    | 	String  | Sender's group key                                                                                                                                                                 |
-| body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                                                                                                              |
-| body.data.dlr.dlrStatus        | 	String  | 	DLR status code                                                      |
-| body.data.dlr.networkCode      | 	String  | 	DLR network code                                                     |
-| body.data.dlr.errorCode        | 	String  | 	DLR error code                                                       |
+| Value                          | Type    | Not Null | Description                                                                                                                                                                        |
+|--------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| header                         | Object  | O        | Header area                                                                                                                                                                        |
+| header.isSuccessful            | Boolean | O        | Successful or not                                                                                                                                                                  |
+| header.resultCode              | Integer | O        | Failure code                                                                                                                                                                       |
+| header.resultMessage           | String  | O        | Failure message                                                                                                                                                                    |
+| body                           | Object  | X        | Body area                                                                                                                                                                          |
+| body.data.requestId            | String  | O        | Request ID                                                                                                                                                                         |
+| body.data.requestDate          | String  | O        | Date and time of sending                                                                                                                                                           |
+| body.data.resultDate           | String  | X        | Date and time of receiving                                                                                                                                                         |
+| body.data.templateId           | String  | X        | Template ID                                                                                                                                                                        |
+| body.data.templateName         | String  | X        | Template name                                                                                                                                                                      |
+| body.data.categoryId           | Integer | X        | Category ID                                                                                                                                                                        |
+| body.data.categoryName         | String  | X        | Category name                                                                                                                                                                      |
+| body.data.body                 | String  | O        | Body                                                                                                                                                                               |
+| body.data.sendNo               | String  | O        | Sender name                                                                                                                                                                        |
+| body.data.countryCode          | String  | O        | Country code                                                                                                                                                                       |
+| body.data.recipientNo          | String  | O        | Recipient number                                                                                                                                                                   |
+| body.data.msgStatus            | String  | O        | Message status code                                                                                                                                                                |
+| body.data.msgStatusName        | String  | O        | Name of message status code                                                                                                                                                        |
+| body.data.resultCode           | String  | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]                                                                                              |
+| body.data.resultCodeName       | String  | X        | Result code name of receiving                                                                                                                                                      |
+| body.data.telecomCode          | Integer | X        | Telecom provider code                                                                                                                                                              |
+| body.data.telecomCodeName      | String  | X        | Telecom provider name                                                                                                                                                              |
+| body.data.recipientSeq         | Integer | O        | Detail delivery ID (required to query details)                                                                                                                                     |
+| body.data.sendType             | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
+| body.data.messageType          | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
+| body.data.messageCount         | Integer | O        | Number of messages sent (international sending)                                                                                                                                    |
+| body.data.userId               | String  | X        | Delivery request ID                                                                                                                                                                |
+| body.data.adYn                 | String  | O        | Ad or not                                                                                                                                                                          |
+| body.data.originCode           | String  | X        | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+| body.data.resultMessage        | String  | X        | Result message                                                                                                                                                                     |
+| body.data.senderGroupingKey    | String  | X        | Sender's group key                                                                                                                                                                 |
+| body.data.recipientGroupingKey | String  | X        | Recipient's group key                                                                                                                                                              |
+| body.data.dlr.dlrStatus        | String  | X        | DLR status code                                                                                                                                                                    |
+| body.data.dlr.networkCode      | String  | X        | DLR network code                                                                                                                                                                   |
+| body.data.dlr.errorCode        | String  | X        | DLR error code                                                                                                                                                                     |
 
 ### Convert Internation Delivery of Short SMS
 
@@ -627,11 +633,12 @@ curl -X POST \
 }
 ```
 
-| Value                    | Type      | Description     |
-|----------------------|---------|--------|
-| header.isSuccessful  | Boolean | Successful or not  |
-| header.resultCode    | Integer | Failure code  |
-| header.resultMessage | String  | Failure message |
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
 
 ## Long MMS
 
@@ -762,19 +769,21 @@ curl -X POST \
 }
 ```
 
-| Value                                           | Type     | Description                                                                 |
-|-------------------------------------------------|----------|-----------------------------------------------------------------------------|
-| header.isSuccessful                             | 	Boolean | Successful or not                                                           |
-| header.resultCode                               | 	Integer | Failure code                                                                |
-| header.resultMessage                            | 	String  | Failure message                                                             |
-| body.data.requestId                             | 	String  | Request ID                                                                  |
-| body.data.statusCode                            | 	String  | Request status code (1: requesting, 2:request completed, 3: request failed) |
-| body.data.senderGroupingKey                     | 	String  | Sender's group key                                                          |
-| body.data.sendResultList[].recipientNo          | String   | Recipient number                                                            |
-| body.data.sendResultList[].resultCode           | Integer  | Result code                                                                 |
-| body.data.sendResultList[].resultMessage        | String   | Result message                                                              |
-| body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                   |
-| body.data.sendResultList[].recipientGroupingKey | String   | Recipient's group key                                                       |
+| Value                                           | Type    | Not Null | Description                                                                 |
+|-------------------------------------------------|---------|----------|-----------------------------------------------------------------------------|
+| header                                          | Object  | O        | Header area                                                                 |
+| header.isSuccessful                             | Boolean | O        | Successful or not                                                           |
+| header.resultCode                               | Integer | O        | Failure code                                                                |
+| header.resultMessage                            | String  | O        | Failure message                                                             |
+| body                                            | Object  | X        | Body area                                                                   |
+| body.data.requestId                             | String  | O        | Request ID                                                                  |
+| body.data.statusCode                            | String  | O        | Request status code (1: requesting, 2:request completed, 3: request failed) |
+| body.data.senderGroupingKey                     | String  | X        | Sender's group key                                                          |
+| body.data.sendResultList[].recipientNo          | String  | O        | Recipient number                                                            |
+| body.data.sendResultList[].resultCode           | Integer | X        | Result code                                                                 |
+| body.data.sendResultList[].resultMessage        | String  | X        | Result message                                                              |
+| body.data.sendResultList[].recipientSeq         | Integer | O        | Recipient sequence (mtPr)                                                   |
+| body.data.sendResultList[].recipientGroupingKey | String  | X        | Recipient's group key                                                       |
 
 #### Example of Sending Long MMS
 
@@ -1028,45 +1037,46 @@ curl -X GET \
 }
 ```
 
-| Value                                     | Type     | Description                                                                           |
-|-------------------------------------------|----------|---------------------------------------------------------------------------------------|
-| header.isSuccessful                       | 	Boolean | Successful or not                                                                     |
-| header.resultCode                         | 	Integer | Failure code                                                                          |
-| header.resultMessage                      | 	String  | Failure message                                                                       |
-| body                                      | 	Object  | Body area                                                                             |
-| body.pageNum                              | 	Integer | Current page number                                                                   |
-| body.pageSize                             | 	Integer | Queried data count                                                                    |
-| body.totalCount                           | 	Integer | Total data count                                                                      |
-| body.data[].requestId                     | 	String  | Request ID                                                                            |
-| body.data[].requestDate                   | 	String  | Date and time of request                                                              |
-| body.data[].resultDate                    | 	String  | Date and time of receiving                                                            |
-| body.data[].templateId                    | 	String  | Template ID                                                                           |
-| body.data[].templateName                  | 	String  | Template name                                                                         |
-| body.data[].categoryId                    | 	Integer | Category ID                                                                           |
-| body.data[].categoryName                  | 	String  | Category name                                                                         |
-| body.data[].body                          | 	String  | Body message                                                                          |
-| body.data[].sendNo                        | 	String  | Sender number                                                                         |
-| body.data[].countryCode                   | 	String  | Country code                                                                          |
-| body.data[].recipientNo                   | 	String  | Recipient number                                                                      |
-| body.data[].msgStatus                     | 	String  | Message status code                                                                   |
-| body.data[].msgStatusName                 | 	String  | Name of message status code                                                           |
-| body.data[].resultCode                    | 	String  | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
-| body.data[].resultCodeName                | 	String  | Result code name of receiving                                                         |
-| body.data[].telecomCode                   | 	Integer | Code of telecom provider                                                              |
-| body.data[].telecomCodeName               | 	String  | Name of telecom provider                                                              |
-| body.data[].recipientSeq                  | 	Integer | Detail delivery ID (required to query details)                                        |
-| body.data[].sendType                      | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
-| body.data[].messageType                   | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                       |
-| body.data[].messageCount                  | Integer  | Number of messages sent                                                               |
-| body.data[].userId                        | 	String  | Delivery request ID                                                                   |
-| body.data[].adYn                          | 	String  | Ad or not                                                                             |
-| body.data[].attachFileList[].fileId       | 	Integer | File ID                                                                               |
-| body.data[].attachFileList[].filePath     | 	String  | Path of file saving (for internal purpose)                                            |
-| body.data[].attachFileList[].fileName     | 	String  | File name                                                                             |
-| body.data[].attachFileList[].saveFileName | 	String  | 	Name of saved file                                                                   |
-| body.data[].attachFileList[].uploadType   | 	String  | 	Type of uploaded                                                                     |
-| body.data[].senderGroupingKey             | 	String  | Sender's group key                                                                    |
-| body.data[].recipientGroupingKey          | 	String  | Recipient's group key                                                                 |
+| Value                                     | Type    | Not Null | Description                                                                           |
+|-------------------------------------------|---------|----------|---------------------------------------------------------------------------------------|
+| header                                    | Object  | O        | Header area                                                                           |
+| header.isSuccessful                       | Boolean | O        | Successful or not                                                                     |
+| header.resultCode                         | Integer | O        | Failure code                                                                          |
+| header.resultMessage                      | String  | O        | Failure message                                                                       |
+| body                                      | Object  | X        | Body area                                                                             |
+| body.pageNum                              | Integer | O        | Current page number                                                                   |
+| body.pageSize                             | Integer | O        | Queried data count                                                                    |
+| body.totalCount                           | Integer | O        | Total data count                                                                      |
+| body.data[].requestId                     | String  | O        | Request ID                                                                            |
+| body.data[].requestDate                   | String  | O        | Date and time of request                                                              |
+| body.data[].resultDate                    | String  | X        | Date and time of receiving                                                            |
+| body.data[].templateId                    | String  | X        | Template ID                                                                           |
+| body.data[].templateName                  | String  | X        | Template name                                                                         |
+| body.data[].categoryId                    | Integer | X        | Category ID                                                                           |
+| body.data[].categoryName                  | String  | X        | Category name                                                                         |
+| body.data[].body                          | String  | O        | Body message                                                                          |
+| body.data[].sendNo                        | String  | O        | Sender number                                                                         |
+| body.data[].countryCode                   | String  | O        | Country code                                                                          |
+| body.data[].recipientNo                   | String  | O        | Recipient number                                                                      |
+| body.data[].msgStatus                     | String  | O        | Message status code                                                                   |
+| body.data[].msgStatusName                 | String  | O        | Name of message status code                                                           |
+| body.data[].resultCode                    | String  | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
+| body.data[].resultCodeName                | String  | X        | Result code name of receiving                                                         |
+| body.data[].telecomCode                   | Integer | X        | Code of telecom provider                                                              |
+| body.data[].telecomCodeName               | String  | X        | Name of telecom provider                                                              |
+| body.data[].recipientSeq                  | Integer | O        | Detail delivery ID (required to query details)                                        |
+| body.data[].sendType                      | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
+| body.data[].messageType                   | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                       |
+| body.data[].messageCount                  | Integer | O        | Number of messages sent                                                               |
+| body.data[].userId                        | String  | X        | Delivery request ID                                                                   |
+| body.data[].adYn                          | String  | O        | Ad or not                                                                             |
+| body.data[].attachFileList[].fileId       | Integer | O        | File ID                                                                               |
+| body.data[].attachFileList[].filePath     | String  | X        | Path of file saving (for internal purpose)                                            |
+| body.data[].attachFileList[].fileName     | String  | X        | File name                                                                             |
+| body.data[].attachFileList[].saveFileName | String  | X        | Name of saved file                                                                    |
+| body.data[].attachFileList[].uploadType   | String  | X        | Type of uploaded                                                                      |
+| body.data[].senderGroupingKey             | String  | X        | Sender's group key                                                                    |
+| body.data[].recipientGroupingKey          | String  | X        | Recipient's group key                                                                 |
 
 ### Query Single Delivery of Long MMS
 
@@ -1164,46 +1174,47 @@ curl -X GET \
 }
 ```
 
-| Value                                   | Type     | Description                                                                                                                                                                        |
-|-----------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                     | 	Boolean | Successful or not                                                                                                                                                                  |
-| header.resultCode                       | 	Integer | Failure code                                                                                                                                                                       |
-| header.resultMessage                    | 	String  | Failure message                                                                                                                                                                    |
-| body                                    | 	Object  | Body area                                                                                                                                                                          |
-| body.pageNum                            | 	Integer | Current page number                                                                                                                                                                |
-| body.pageSize                           | 	Integer | Queried data count                                                                                                                                                                 |
-| body.totalCount                         | 	Integer | Total data count                                                                                                                                                                   |
-| body.data.requestId                     | 	String  | Request ID                                                                                                                                                                         |
-| body.data.requestDate                   | 	String  | Date and time of sending                                                                                                                                                           |
-| body.data.resultDate                    | 	String  | Date and time of receiving                                                                                                                                                         |
-| body.data.templateId                    | 	String  | Template ID                                                                                                                                                                        |
-| body.data.templateName                  | 	String  | Template name                                                                                                                                                                      |
-| body.data.categoryId                    | 	Integer | Category ID                                                                                                                                                                        |
-| body.data.categoryName                  | 	String  | Category name                                                                                                                                                                      |
-| body.data.body                          | 	String  | Body message                                                                                                                                                                       |
-| body.data.sendNo                        | 	String  | Sender number                                                                                                                                                                      |
-| body.data.countryCode                   | 	String  | Country code                                                                                                                                                                       |
-| body.data.recipientNo                   | 	String  | Recipient number                                                                                                                                                                   |
-| body.data.msgStatus                     | 	String  | Message status code                                                                                                                                                                |
-| body.data.msgStatusName                 | 	String  | Name of message status code                                                                                                                                                        |
-| body.data.resultCode                    | 	String  | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]                                                                                              |
-| body.data.resultCodeName                | 	String  | Result code name of receiving                                                                                                                                                      |
-| body.data.telecomCode                   | 	Integer | Code of telecom provider                                                                                                                                                           |
-| body.data.telecomCodeName               | 	String  | Name of telecom provider                                                                                                                                                           |
-| body.data.recipientSeq                  | 	Integer | Detail delivery ID (required to query details)                                                                                                                                     |
-| body.data.sendType                      | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
-| body.data.messageType                   | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
-| body.data.userId                        | 	String  | Delivery request ID                                                                                                                                                                |
-| body.data.adYn                          | 	String  | Ad or not                                                                                                                                                                          |
-| body.data.originCode                    | String   | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
-| body.data.attachFileList[].fileId       | 	Integer | File ID                                                                                                                                                                            |
-| body.data.attachFileList[].filePath     | 	String  | Path of file saving (for internal purpose)                                                                                                                                         |
-| body.data.attachFileList[].fileName     | 	String  | File name                                                                                                                                                                          |
-| body.data.attachFileList[].saveFileName | 	String  | 	Name of saved file                                                                                                                                                                |
-| body.data.attachFileList[].uploadType   | 	String  | 	Type of uploaded                                                                                                                                                                  |
-| body.data.resultMessage                 | 	String  | Result message                                                                                                                                                                     |
-| body.data.senderGroupingKey             | 	String  | Sender's group key                                                                                                                                                                 |
-| body.data.recipientGroupingKey          | 	String  | Recipient's group key                                                                                                                                                              |
+| Value                                   | Type    | Not Null | Description                                                                                                                                                                        |
+|-----------------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                                  | Object  | O        | Header area                                                                                                                                                                        |
+| header.isSuccessful                     | Boolean | O        | Successful or not                                                                                                                                                                  |
+| header.resultCode                       | Integer | O        | Failure code                                                                                                                                                                       |
+| header.resultMessage                    | String  | O        | Failure message                                                                                                                                                                    |
+| body                                    | Object  | X        | Body area                                                                                                                                                                          |
+| body.pageNum                            | Integer | O        | Current page number                                                                                                                                                                |
+| body.pageSize                           | Integer | O        | Queried data count                                                                                                                                                                 |
+| body.totalCount                         | Integer | O        | Total data count                                                                                                                                                                   |
+| body.data.requestId                     | String  | O        | Request ID                                                                                                                                                                         |
+| body.data.requestDate                   | String  | O        | Date and time of sending                                                                                                                                                           |
+| body.data.resultDate                    | String  | X        | Date and time of receiving                                                                                                                                                         |
+| body.data.templateId                    | String  | X        | Template ID                                                                                                                                                                        |
+| body.data.templateName                  | String  | X        | Template name                                                                                                                                                                      |
+| body.data.categoryId                    | Integer | X        | Category ID                                                                                                                                                                        |
+| body.data.categoryName                  | String  | X        | Category name                                                                                                                                                                      |
+| body.data.body                          | String  | O        | Body message                                                                                                                                                                       |
+| body.data.sendNo                        | String  | O        | Sender number                                                                                                                                                                      |
+| body.data.countryCode                   | String  | O        | Country code                                                                                                                                                                       |
+| body.data.recipientNo                   | String  | O        | Recipient number                                                                                                                                                                   |
+| body.data.msgStatus                     | String  | O        | Message status code                                                                                                                                                                |
+| body.data.msgStatusName                 | String  | O        | Name of message status code                                                                                                                                                        |
+| body.data.resultCode                    | String  | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]                                                                                              |
+| body.data.resultCodeName                | String  | X        | Result code name of receiving                                                                                                                                                      |
+| body.data.telecomCode                   | Integer | X        | Code of telecom provider                                                                                                                                                           |
+| body.data.telecomCodeName               | String  | X        | Name of telecom provider                                                                                                                                                           |
+| body.data.recipientSeq                  | Integer | O        | Detail delivery ID (required to query details)                                                                                                                                     |
+| body.data.sendType                      | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
+| body.data.messageType                   | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
+| body.data.userId                        | String  | X        | Delivery request ID                                                                                                                                                                |
+| body.data.adYn                          | String  | O        | Ad or not                                                                                                                                                                          |
+| body.data.originCode                    | String  | X        | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+| body.data.attachFileList[].fileId       | Integer | O        | File ID                                                                                                                                                                            |
+| body.data.attachFileList[].filePath     | String  | X        | Path of file saving (for internal purpose)                                                                                                                                         |
+| body.data.attachFileList[].fileName     | String  | X        | File name                                                                                                                                                                          |
+| body.data.attachFileList[].saveFileName | String  | X        | Name of saved file                                                                                                                                                                |
+| body.data.attachFileList[].uploadType   | String  | X        | Type of uploaded                                                                                                                                                                  |
+| body.data.resultMessage                 | String  | X        | Result message                                                                                                                                                                     |
+| body.data.senderGroupingKey             | String  | X        | Sender's group key                                                                                                                                                                 |
+| body.data.recipientGroupingKey          | String  | X        | Recipient's group key                                                                                                                                                              |
 
 ## SMS for Authentication (emergency)
 
@@ -1342,19 +1353,21 @@ curl -X POST \
 }
 ```
 
-| Value                                           | Type     | Description                                                                  |
-|-------------------------------------------------|----------|------------------------------------------------------------------------------|
-| header.isSuccessful                             | 	Boolean | Successful or not                                                            |
-| header.resultCode                               | 	Integer | Failure code                                                                 |
-| header.resultMessage                            | 	String  | Failure message                                                              |
-| body.data.requestId                             | 	String  | Request ID                                                                   |
-| body.data.statusCode                            | 	String  | Request status code (1: Requesting, 2: Request completed, 3: Request failed) |
-| body.data.senderGroupingKey                     | 	String  | Sender's group key                                                           |
-| body.data.sendResultList[].recipientNo          | String   | Recipient number                                                             |
-| body.data.sendResultList[].resultCode           | Integer  | Result code                                                                  |
-| body.data.sendResultList[].resultMessage        | String   | Result message                                                               |
-| body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                    |
-| body.data.sendResultList[].recipientGroupingKey | String   | Recipient's group key                                                        |
+| Value                                           | Type     | Not Null | Description                                                                  |
+|-------------------------------------------------|----------|----------|------------------------------------------------------------------------------|
+| header                                          | Object   | O        | Header area                                                                  |
+| header.isSuccessful                             | Boolean  | O        | Successful or not                                                            |
+| header.resultCode                               | Integer  | O        | Failure code                                                                 |
+| header.resultMessage                            | String   | O        | Failure message                                                              |
+| body                                            | Object   | X        | Body area                                                                    |
+| body.data.requestId                             | String   | O        | Request ID                                                                   |
+| body.data.statusCode                            | String   | O        | Request status code (1: Requesting, 2: Request completed, 3: Request failed) |
+| body.data.senderGroupingKey                     | String   | X        | Sender's group key                                                           |
+| body.data.sendResultList[].recipientNo          | String   | O        | Recipient number                                                             |
+| body.data.sendResultList[].resultCode           | Integer  | X        | Result code                                                                  |
+| body.data.sendResultList[].resultMessage        | String   | X        | Result message                                                               |
+| body.data.sendResultList[].recipientSeq         | Integer  | O        | Recipient sequence (mtPr)                                                    |
+| body.data.sendResultList[].recipientGroupingKey | String   | X        | Recipient's group key                                                        |
 
 #### Example
 
@@ -1530,40 +1543,42 @@ curl -X GET \
 }
 ```
 
-| Value                            | Type     | Description                                                                           |
-|----------------------------------|----------|---------------------------------------------------------------------------------------|
-| header.isSuccessful              | 	Boolean | Successful or not                                                                     |
-| header.resultCode                | 	Integer | Failure code                                                                          |
-| header.resultMessage             | 	String  | Failure message                                                                       |
-| body.pageNum                     | 	Integer | Current page number                                                                   |
-| body.pageSize                    | 	Integer | Queried data count                                                                    |
-| body.totalCount                  | 	Integer | Total data count                                                                      |
-| body.data[].requestId            | 	String  | Request ID                                                                            |
-| body.data[].requestDate          | 	String  | Date and time of sending                                                              |
-| body.data[].resultDate           | 	String  | Date and time of receiving                                                            |
-| body.data[].templateId           | 	String  | Template ID                                                                           |
-| body.data[].templateName         | 	String  | Template name                                                                         |
-| body.data[].categoryId           | 	Integer | Category ID                                                                           |
-| body.data[].categoryName         | 	String  | Category name                                                                         |
-| body.data[].body                 | 	String  | Body message                                                                          |
-| body.data[].sendNo               | 	String  | Sender number                                                                         |
-| body.data[].countryCode          | 	String  | Country code                                                                          |
-| body.data[].recipientNo          | 	String  | Recipient number                                                                      |
-| body.data[].msgStatus            | 	String  | Message status code                                                                   |
-| body.data[].msgStatusName        | 	String  | Name of message status code                                                           |
-| body.data[].resultCode           | 	String  | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)] |
-| body.data[].resultCodeName       | 	String  | Result code name of receiving                                                         |
-| body.data[].messageCount         | 	Integer | 	Number of messages sent                                                              |
-| body.data[].telecomCode          | 	Integer | Code of telecom provider                                                              |
-| body.data[].telecomCodeName      | 	String  | Name of telecom provider                                                              |
-| body.data[].recipientSeq         | 	Integer | Detail delivery ID (required to query details)                                        |
-| body.data[].sendType             | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                              |
-| body.data[].messageType          | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                       |
-| body.data[].userId               | 	String  | Request ID for sending                                                                |
-| body.data[].adYn                 | 	String  | Ad or not                                                                             |
-| body.data[].resultMessage        | 	String  | Result message                                                                        |
-| body.data[].senderGroupingKey    | 	String  | Sender's group key                                                                    |
-| body.data[].recipientGroupingKey | 	String  | Recipient's group key                                                                 |
+| Value                            | Type     | Not Null | Description                                                                               |
+|----------------------------------|----------|----------|-------------------------------------------------------------------------------------------|
+| header                           | Object   | O        | Header area                                                                               |
+| header.isSuccessful              | Boolean  | O        | Successful or not                                                                         |
+| header.resultCode                | Integer  | O        | Failure code                                                                              |
+| header.resultMessage             | String   | O        | Failure message                                                                           |
+| body                             | Object   | X        | Body area                                                                                 |
+| body.pageNum                     | Integer  | O        | Current page number                                                                       |
+| body.pageSize                    | Integer  | O        | Queried data count                                                                        |
+| body.totalCount                  | Integer  | O        | Total data count                                                                          |
+| body.data[].requestId            | String   | O        | Request ID                                                                                |
+| body.data[].requestDate          | String   | O        | Date and time of sending                                                                  |
+| body.data[].resultDate           | String   | X        | Date and time of receiving                                                                |
+| body.data[].templateId           | String   | X        | Template ID                                                                               |
+| body.data[].templateName         | String   | X        | Template name                                                                             |
+| body.data[].categoryId           | Integer  | X        | Category ID                                                                               |
+| body.data[].categoryName         | String   | X        | Category name                                                                             |
+| body.data[].body                 | String   | O        | Body message                                                                              |
+| body.data[].sendNo               | String   | O        | Sender number                                                                             |
+| body.data[].countryCode          | String   | O        | Country code                                                                              |
+| body.data[].recipientNo          | String   | O        | Recipient number                                                                          |
+| body.data[].msgStatus            | String   | O        | Message status code                                                                       |
+| body.data[].msgStatusName        | String   | O        | Name of message status code                                                               |
+| body.data[].resultCode           | String   | X        | Result code of receiving [[Table on Result Code of Receiving](./error-code/#emma-v3)]     |
+| body.data[].resultCodeName       | String   | X        | Result code name of receiving                                                             |
+| body.data[].telecomCode          | Integer  | X        | Code of telecom provider                                                                  |
+| body.data[].telecomCodeName      | String   | X        | Name of telecom provider                                                                  |
+| body.data[].recipientSeq         | Integer  | O        | Detail delivery ID (required to query details)                                            |
+| body.data[].sendType             | String   | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                  |
+| body.data[].messageType          | String   | O        | Message type (SMS/LMS/MMS/AUTH)                                                           |
+| body.data[].messageCount         | Integer  | O        | Number of messages sent                                                                   |
+| body.data[].userId               | String   | X        | Request ID for sending                                                                    |
+| body.data[].adYn                 | String   | O        | Ad or not                                                                                 |
+| body.data[].resultMessage        | String   | X        | Result message                                                                            |
+| body.data[].senderGroupingKey    | String   | X        | Sender's group key                                                                        |
+| body.data[].recipientGroupingKey | String   | X        | Recipient's group key                                                                     |
 
 ### Query Single SMS Delivery for Authentication
 
@@ -1658,47 +1673,49 @@ curl -X GET \
 }
 ```
 
-| Value                          | Type     | Description                                                                                                                                                                        |
-|--------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful            | 	Boolean | Successful or not                                                                                                                                                                  |
-| header.resultCode              | 	Integer | Failure code                                                                                                                                                                       |
-| header.resultMessage           | 	String  | Failure message                                                                                                                                                                    |
-| body.data.requestId            | 	String  | Requst ID                                                                                                                                                                          |
-| body.data.requestDate          | 	String  | Date and time of sending                                                                                                                                                           |
-| body.data.resultDate           | 	String  | Date and time of receiving                                                                                                                                                         |
-| body.data.templateId           | 	String  | Template ID                                                                                                                                                                        |
-| body.data.templateName         | 	String  | Template name                                                                                                                                                                      |
-| body.data.categoryId           | 	Integer | Category ID                                                                                                                                                                        |
-| body.data.categoryName         | 	String  | Category name                                                                                                                                                                      |
-| body.data.body                 | 	String  | Body message                                                                                                                                                                       |
-| body.data.sendNo               | 	String  | Sender number                                                                                                                                                                      |
-| body.data.countryCode          | 	String  | Country code                                                                                                                                                                       |
-| body.data.recipientNo          | 	String  | Recipient number                                                                                                                                                                   |
-| body.data.msgStatus            | 	String  | Message status code                                                                                                                                                                |
-| body.data.msgStatusName        | 	String  | Name of message status code                                                                                                                                                        |
-| body.data.resultCode           | 	String  | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)]                                                                                              |
-| body.data.resultCodeName       | 	String  | Result code name of receiving                                                                                                                                                      |
-| body.data.telecomCode          | 	Integer | Code of telecom provider                                                                                                                                                           |
-| body.data.telecomCodeName      | 	String  | Name of telecom provider                                                                                                                                                           |
-| body.data.recipientSeq         | 	Integer | Detail delivery ID (required to query details)                                                                                                                                     |
-| body.data.sendType             | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
-| body.data.messageType          | 	String  | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
-| body.data.messageCount         | Integer  | Number of messages sent                                                                                                                                                            |
-| body.data.userId               | 	String  | Request ID for sending                                                                                                                                                             |
-| body.data.adYn                 | 	String  | Ad or not                                                                                                                                                                          |
-| body.data.originCode           | String   | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
-| body.data.resultMessage        | 	String  | Result message                                                                                                                                                                     |
-| body.data.senderGroupingKey    | 	String  | Sender's group key                                                                                                                                                                 |
-| body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                                                                                                              |
-| body.data.dlr.dlrStatus        | String   | DLR status code                                                                                                                                                                    |
-| body.data.dlr.networkCode      | String   | DLR network code                                                                                                                                                                   |
-| body.data.dlr.errorCode        | String   | DLR error code                                                                                                                                                                     |
+| Value                          | Type    | Not Null | Description                                                                                                                                                                        |
+|--------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| header                         | Object  | O        | Header area                                                                                                                                                                        |
+| header.isSuccessful            | Boolean | O        | Successful or not                                                                                                                                                                  |
+| header.resultCode              | Integer | O        | Failure code                                                                                                                                                                       |
+| header.resultMessage           | String  | O        | Failure message                                                                                                                                                                    |
+| body                           | Object  | X        | Body area                                                                                                                                                                          |
+| body.data.requestId            | String  | O        | Requst ID                                                                                                                                                                          |
+| body.data.requestDate          | String  | O        | Date and time of sending                                                                                                                                                           |
+| body.data.resultDate           | String  | X        | Date and time of receiving                                                                                                                                                         |
+| body.data.templateId           | String  | X        | Template ID                                                                                                                                                                        |
+| body.data.templateName         | String  | X        | Template name                                                                                                                                                                      |
+| body.data.categoryId           | Integer | X        | Category ID                                                                                                                                                                        |
+| body.data.categoryName         | String  | X        | Category name                                                                                                                                                                      |
+| body.data.body                 | String  | O        | Body message                                                                                                                                                                       |
+| body.data.sendNo               | String  | O        | Sender number                                                                                                                                                                      |
+| body.data.countryCode          | String  | O        | Country code                                                                                                                                                                       |
+| body.data.recipientNo          | String  | O        | Recipient number                                                                                                                                                                   |
+| body.data.msgStatus            | String  | O        | Message status code                                                                                                                                                                |
+| body.data.msgStatusName        | String  | O        | Name of message status code                                                                                                                                                        |
+| body.data.resultCode           | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)]                                                                                              |
+| body.data.resultCodeName       | String  | X        | Result code name of receiving                                                                                                                                                      |
+| body.data.telecomCode          | Integer | X        | Code of telecom provider                                                                                                                                                           |
+| body.data.telecomCodeName      | String  | X        | Name of telecom provider                                                                                                                                                           |
+| body.data.recipientSeq         | Integer | O        | Detail delivery ID (required to query details)                                                                                                                                     |
+| body.data.sendType             | String  | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                           |
+| body.data.messageType          | String  | O        | Message type (SMS/LMS/MMS/AUTH)                                                                                                                                                    |
+| body.data.messageCount         | Integer | O        | Number of messages sent                                                                                                                                                            |
+| body.data.userId               | String  | X        | Request ID for sending                                                                                                                                                             |
+| body.data.adYn                 | String  | O        | Ad or not                                                                                                                                                                          |
+| body.data.originCode           | String  | X        | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators) |
+| body.data.resultMessage        | String  | X        | Result message                                                                                                                                                                     |
+| body.data.senderGroupingKey    | String  | X        | Sender's group key                                                                                                                                                                 |
+| body.data.recipientGroupingKey | String  | X        | Recipient's group key                                                                                                                                                              |
+| body.data.dlr.dlrStatus        | String  | X        | DLR status code                                                                                                                                                                    |
+| body.data.dlr.networkCode      | String  | X        | DLR network code                                                                                                                                                                   |
+| body.data.dlr.errorCode        | String  | X        | DLR error code                                                                                                                                                                     |
 
 ### Convert Authentication SMS Internaional Delivery
 
 * The Conversion API is an API that responds that a successful conversion has occurred for an international sending of a verified SMS that requests conversion rate collection.
 * You can use this API to manage conversion rates for messages that are successfully sent.
-* If you did not request to collect conversion rates via the useConversion field when sending, or if the sending did not complete, the API responds with a failure.
+* If you did not request to collect conversion rates via the useConversion field when sending, or if the sending did not complete, the API responds with a failure. 
 
 #### Request
 
@@ -1766,11 +1783,12 @@ curl -X POST \
 }
 ```
 
-| Value                    | Type      | Description     |
-|----------------------|---------|--------|
-| header.isSuccessful  | Boolean | Successful or not  |
-| header.resultCode    | Integer | Failure code  |
-| header.resultMessage | String  | Failure message |
+| Value                | Type    | Not Null | Description       |
+|----------------------|---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
 
 ## Advertising message
 
@@ -1980,11 +1998,12 @@ curl -X POST \
 }
 ```
 
-|  Value      | Type     | Description     |
-|----------------------|---------|--------|
-| header.isSuccessful  | Boolean | Successful or not  |
-| header.resultCode    | Integer | Failure core  |
-| header.resultMessage | String  | Failure message |
+| Value                | Type    | Not Null | Description       |
+|----------------------|---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure core      |
+| header.resultMessage | String  | O        | Failure message   |
 
 ## Search Messages based on result update
 
@@ -2074,23 +2093,25 @@ curl -X GET \
 }
 ```
 
-| Value                                             | Type     | Description                                             |
-|---------------------------------------------------|----------|---------------------------------------------------------|
-| header.isSuccessful                               | 	Boolean | Successful or not                                       |
-| header.resultCode                                 | 	Integer | Failure code                                            |
-| header.resultMessage                              | 	String  | Failure message                                         |
-| body.data.resultUpdateList[].messageType          | String   | Message type (SMS/LMS/MMS/AUTH)                         |
-| body.data.resultUpdateList[].requestId            | String   | Request ID                                              |
-| body.data.resultUpdateList[].recipientSeq         | Integer  | Recipient sequence                                      |
-| body.data.resultUpdateList[].resultCode           | String   | Result code                                             |
-| body.data.resultUpdateList[].resultCodeName       | String   | Name of result code                                     |
-| body.data.resultUpdateList[].requestDate          | String   | Date and time of request (yyyy-MM-dd HH:mm:ss.S)        |
-| body.data.resultUpdateList[].resultDate           | String   | Date and time of receiving (yyyy-MM-dd HH:mm:ss.S)      |
-| body.data.resultUpdateList[].updateDate           | String   | Date and time of result updates (yyyy-MM-dd HH:mm:ss.S) |
-| body.data.resultUpdateList[].telecomCode          | String   | Code of telecom provider                                |
-| body.data.resultUpdateList[].telecomCodeName      | String   | Name of telecom provider                                |
-| body.data.resultUpdateList[].senderGroupingKey    | String   | Sender's group key                                      |
-| body.data.resultUpdateList[].recipientGroupingKey | String   | Recipient's group key                                   |
+| Value                                             | Type    | Not Null | Description                                             |
+|---------------------------------------------------|---------|----------|---------------------------------------------------------|
+| header                                            | Object  | O        | Header area                                             |
+| header.isSuccessful                               | Boolean | O        | Successful or not                                       |
+| header.resultCode                                 | Integer | O        | Failure code                                            |
+| header.resultMessage                              | String  | O        | Failure message                                         |
+| body                                              | Object  | X        | Body area                                               |
+| body.data.resultUpdateList[].messageType          | String  | O        | Message type (SMS/LMS/MMS/AUTH)                         |
+| body.data.resultUpdateList[].requestId            | String  | O        | Request ID                                              |
+| body.data.resultUpdateList[].recipientSeq         | Integer | O        | Recipient sequence                                      |
+| body.data.resultUpdateList[].resultCode           | String  | X        | Result code                                             |
+| body.data.resultUpdateList[].resultCodeName       | String  | X        | Name of result code                                     |
+| body.data.resultUpdateList[].requestDate          | String  | O        | Date and time of request (yyyy-MM-dd HH:mm:ss.S)        |
+| body.data.resultUpdateList[].resultDate           | String  | X        | Date and time of receiving (yyyy-MM-dd HH:mm:ss.S)      |
+| body.data.resultUpdateList[].updateDate           | String  | X        | Date and time of result updates (yyyy-MM-dd HH:mm:ss.S) |
+| body.data.resultUpdateList[].telecomCode          | String  | X        | Code of telecom provider                                |
+| body.data.resultUpdateList[].telecomCodeName      | String  | X        | Name of telecom provider                                |
+| body.data.resultUpdateList[].senderGroupingKey    | String  | X        | Sender's group key                                      |
+| body.data.resultUpdateList[].recipientGroupingKey | String  | X        | Recipient's group key                                   |
 
 ## Mass Delivery
 
@@ -2182,24 +2203,26 @@ curl -X GET \
 }
 ```
 
-| Value                        | 	Type    | 	Description               |
-|------------------------------|----------|----------------------------|
-| header.isSuccessful          | 	Boolean | Successful or not          |
-| header.resultCode            | 	Integer | 	Failure code              |
-| header.resultMessage         | 	String  | 	Failure message           |
-| body.data[].requestId        | String   | Request ID                 |
-| body.data[].requestDate      | String   | Request time               |
-| body.data[].masterStatusCode | String   | Mass delivery status code  |
-| body.data[].masterStatus     | String   | Mass delivery status       |
-| body.data[].templateId       | String   | Template ID                |
-| body.data[].sendNo           | String   | Sender number              |
-| body.data[].title            | String   | Title                      |
-| body.data[].body             | String   | Body                       |
-| body.data[].adYn             | String   | Ad or Not                  |
-| body.data[].autoSendYn       | String   | Auto delivery or not       |
-| body.data[].sendErrorCount   | Integer  | Error counts in recipients |
-| body.data[].createUser       | String   | Creator                    |
-| body.data[].createDate       | String   | Date and time of creation  |
+| Value                        | Type    | Not Null | Description               |
+|------------------------------|---------|----------|---------------------------|
+| header                       | Object  | O        | Header area               |
+| header.isSuccessful          | Boolean | O        | Successful or not         |
+| header.resultCode            | Integer | O        | Failure code              |
+| header.resultMessage         | String  | O        | Failure message           |
+| body                         | Object  | X        | Body area                 |
+| body.data[].requestId        | String  | O        | Request ID                |
+| body.data[].requestDate      | String  | O        | Request time              |
+| body.data[].masterStatusCode | String  | O        | Mass delivery status code |
+| body.data[].masterStatus     | String  | X        | Mass delivery status      |
+| body.data[].templateId       | String  | X        | Template ID               |
+| body.data[].sendNo           | String  | O        | Sender number             |
+| body.data[].title            | String  | X        | Title                     |
+| body.data[].body             | String  | O        | Body                      |
+| body.data[].adYn             | String  | X        | Ad or Not                 |
+| body.data[].autoSendYn       | String  | O        | Auto delivery or not      |
+| body.data[].sendErrorCount   | Integer | X        | Error counts in recipients|
+| body.data[].createUser       | String  | X        | Creator                   |
+| body.data[].createDate       | String  | O        | Date and time of creation |
 
 ### List Recipients of Mass Delivery
 
@@ -2289,21 +2312,23 @@ curl -X GET \
 }
 ```
 
-| Value                     | 	Type    | 	Description                                                                          |
-|---------------------------|----------|---------------------------------------------------------------------------------------|
-| header.isSuccessful       | 	Boolean | 	Successful or not                                                                    |
-| header.resultCode         | 	Integer | Failure code                                                                          |
-| header.resultMessage      | 	String  | 	Failure message                                                                      |
-| body.data[].requestId     | String   | Request ID                                                                            |
-| body.data[].recipientSeq  | Integer  | Recipient sequence                                                                    |
-| body.data[].countryCode   | String   | Recipient's country code                                                              |
-| body.data[].recipientNo   | String   | Recipient number                                                                      |
-| body.data[].requestDate   | String   | Date and time of request                                                              |
-| body.data[].msgStatus     | String   | Message status code                                                                   |
-| body.data[].msgStatusName | String   | Name of message status code                                                           |
-| body.data[].messageCount  | Integer  | Number of messages sent                                                               |
-| body.data[].resultCode    | String   | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
-| body.data[].receiveDate   | String   | Date and time of receiving                                                            |
+| Value                     | Type    | Not Null | Description                                                                       |
+|---------------------------|---------|----------|-----------------------------------------------------------------------------------| 
+| header                    | Object  | O        | Header area                                                                       |
+| header.isSuccessful       | Boolean | O        | Successful or not                                                                 |
+| header.resultCode         | Integer | O        | Failure code                                                                      |
+| header.resultMessage      | String  | O        | Failure message                                                                   |
+| body                      | Object  | X        | Body area                                                                         |
+| body.data[].requestId     | String  | O        | Request ID                                                                        |
+| body.data[].recipientSeq  | Integer | O        | Recipient sequence                                                                |
+| body.data[].countryCode   | String  | O        | Recipient's country code                                                          |
+| body.data[].recipientNo   | String  | O        | Recipient number                                                                  |
+| body.data[].requestDate   | String  | O        | Date and time of request                                                          |
+| body.data[].msgStatus     | String  | O        | Message status code                                                               |
+| body.data[].msgStatusName | String  | O        | Name of message status code                                                       |
+| body.data[].messageCount  | Integer | O        | Number of messages sent                                                           |
+| body.data[].resultCode    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+| body.data[].receiveDate   | String  | X        | Date and time of receiving                                                        |
 
 ### List Recipient Details of Mass Delivery
 
@@ -2385,39 +2410,40 @@ curl -X GET \
 }
 ```
 
-| Value                                   | 	Type    | 	Description                                                                          |
-|-----------------------------------------|----------|---------------------------------------------------------------------------------------|
-| header                                  | 	Object  | 	Header area                                                                          |
-| header.isSuccessful                     | 	Boolean | Successful or not                                                                     |
-| header.resultCode                       | 	Integer | Failure code                                                                          |
-| header.resultMessage                    | 	String  | 	Failure message                                                                      |
-| body.data.requestId                     | String   | Request ID                                                                            |
-| body.data.recipientSeq                  | Integer  | Recipient sequence                                                                    |
-| body.data.sendType                      | String   | Delivery type                                                                         |
-| body.data.messageType                   | String   | Message type                                                                          |
-| body.data.templateId                    | String   | Template ID                                                                           |
-| body.data.templateName                  | String   | Template name                                                                         |
-| body.data.sendNo                        | String   | Sender number                                                                         |
-| body.data.title                         | String   | Title                                                                                 |
-| body.data.body                          | String   | Body                                                                                  |
-| body.data.recipientNo                   | String   | Recipient number                                                                      |
-| body.data.countryCode                   | String   | Recipient's country code                                                              |
-| body.data.requestDate                   | String   | Date and time of request                                                              |
-| body.data.msgStatus                     | String   | Message status                                                                        |
-| body.data.msgStatusName                 | String   | Message status name                                                                   |
-| body.data.messageCount                  | Integer  | Number of messages sent                                                               |
-| body.data.resultCode                    | String   | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
-| body.data.receiveDate                   | String   | Data and time of receiving                                                            |
-| body.data.createDate                    | String   | Date and time of registration                                                         |
-| body.data.attachFileList[].filePath     | String   | Attached file - path                                                                  |
-| body.data.attachFileList[].fileName     | String   | Attached file - file name                                                             |
-| body.data.attachFileList[].fileSize     | Long     | Attached file - size                                                                  |
-| body.data.attachFileList[].fileSequence | Integer  | Attached file - file sequence                                                         |
-| body.data.attachFileList[].createDate   | String   | Attached file - date and time of creation                                             |
-| body.data.attachFileList[].updateDate   | String   | Attached file - date of modification                                                  |
-| body.data.dlr.dlrStatus                 |	String   | DLR status code                                                                       |
-| body.data.dlr.networkCode               | String   | DLR network code                                                                      |
-| body.data.dlr.errorCode                 | String   | DLR error code                                                                        |
+| Value                                   | Type    | Not Null | Description                                                                           |
+|-----------------------------------------|---------|----------|---------------------------------------------------------------------------------------|
+| header                                  | Object  | O        | Header area                                                                           |
+| header.isSuccessful                     | Boolean | O        | Successful or not                                                                     |
+| header.resultCode                       | Integer | O        | Failure code                                                                          |
+| header.resultMessage                    | String  | O        | Failure message                                                                       |
+| body                                    | Object  | X        | Body area                                                                             |
+| body.data.requestId                     | String  | O        | Request ID                                                                            |
+| body.data.recipientSeq                  | Integer | O        | Recipient sequence                                                                    |
+| body.data.sendType                      | String  | O        | Delivery type                                                                         |
+| body.data.messageType                   | String  | O        | Message type                                                                          |
+| body.data.templateId                    | String  | X        | Template ID                                                                           |
+| body.data.templateName                  | String  | X        | Template name                                                                         |
+| body.data.sendNo                        | String  | O        | Sender number                                                                         |
+| body.data.title                         | String  | X        | Title                                                                                 |
+| body.data.body                          | String  | O        | Body                                                                                  |
+| body.data.recipientNo                   | String  | O        | Recipient number                                                                      |
+| body.data.countryCode                   | String  | O        | Recipient's country code                                                              |
+| body.data.requestDate                   | String  | O        | Date and time of request                                                              |
+| body.data.msgStatus                     | String  | O        | Message status                                                                        |
+| body.data.msgStatusName                 | String  | O        | Message status name                                                                   |
+| body.data.messageCount                  | Integer | O        | Number of messages sent                                                               |
+| body.data.resultCode                    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+| body.data.receiveDate                   | String  | X        | Data and time of receiving                                                            |
+| body.data.createDate                    | String  | X        | Date and time of registration                                                         |
+| body.data.attachFileList[].filePath     | String  | X        | Attached file - path                                                                  |
+| body.data.attachFileList[].fileName     | String  | X        | Attached file - file name                                                             |
+| body.data.attachFileList[].fileSize     | Long    | X        | Attached file - size                                                                  |
+| body.data.attachFileList[].fileSequence | Integer | X        | Attached file - file sequence                                                         |
+| body.data.attachFileList[].createDate   | String  | X        | Attached file - date and time of creation                                             |
+| body.data.attachFileList[].updateDate   | String  | X        | Attached file - date of modification                                                  |
+| body.data.dlr.dlrStatus                 | String  | X        | DLR status code                                                                       |
+| body.data.dlr.networkCode               | String  | X        | DLR network code                                                                      |
+| body.data.dlr.errorCode                 | String  | X        | DLR error code                                                                        |
 
 ## Tag Delivery
 
@@ -2526,12 +2552,14 @@ curl -X POST \
 }
 ```
 
-| Value                | Type     | Description       |
-|----------------------|----------|-------------------|
-| header.isSuccessful  | 	Boolean | Successful or not |
-| header.resultCode    | 	Integer | Failure code      |
-| header.resultMessage | 	String  | Failure message   |
-| body.data.requestId  | 	String  | Request ID        |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
+| body                 | Object  | X        | Body area         |
+| body.data.requestId  | String  | O        | Request ID        |
 
 ### Send Tagged LMS
 
@@ -2647,12 +2675,14 @@ curl -X POST \
 }
 ```
 
-| Value                | Type     | Description       |
-|----------------------|----------|-------------------|
-| header.isSuccessful  | 	Boolean | Successful or not |
-| header.resultCode    | 	Integer | Failure code      |
-| header.resultMessage | 	String  | Failure message   |
-| body.data.requestId  | 	String  | Request ID        |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
+| body                 | Object  | X        | Body area         |
+| body.data.requestId  | String  | O        | Request ID        |
 
 ### List Tag Delivery
 
@@ -2749,29 +2779,31 @@ curl -X GET \
 }
 ```
 
-| Value                       | Type         | Description                   |
-|-----------------------------|--------------|-------------------------------|
-| header.isSuccessful         | 	Boolean     | Successful or not             |
-| header.resultCode           | 	Integer     | Failure code                  |
-| header.resultMessage        | 	String      | Failure message               |
-| body.data[].requestId       | String       | Request ID                    |
-| body.data[].requestIp       | String       | Request IP                    |
-| body.data[].requestDate     | String       | Request time                  |
-| body.data[].tagSendStatus   | String       | Tag delivery status           |
-| body.data[].tagExpression[] | List<String> | Tag expression                |
-| body.data[].templateId      | String       | Template ID                   |
-| body.data[].templateName    | String       | Template name                 |
-| body.data[].senderName      | String       | Sender's name                 |
-| body.data[].senderMail      | String       | Sender's address              |
-| body.data[].title           | String       | Title                         |
-| body.data[].body            | String       | Body                          |
-| body.data[].adYn            | String       | Ad or not                     |
-| body.data[].autoSendYn      | String       | Auto delivery or not          |
-| body.data[].sendErrorCount  | Integer      | Error counts in recipients    |
-| body.data[].createUser      | String       | Creator                       |
-| body.data[].createDate      | String       | Date and time of creation     |
-| body.data[].updateUser      | String       | Modifier                      |
-| body.data[].updateDate      | String       | Date and time of modification |
+| Value                       | Type         | Not Null | Description                   |
+|-----------------------------|--------------|----------|-------------------------------|
+| header                      | Object       | O        | Header area                   |
+| header.isSuccessful         | Boolean      | O        | Successful or not             |
+| header.resultCode           | Integer      | O        | Failure code                  |
+| header.resultMessage        | String       | O        | Failure message               |
+| body                        | Object       | X        | Body area                     |
+| body.data[].requestId       | String       | O        | Request ID                    |
+| body.data[].requestIp       | String       | X        | Request IP                    |
+| body.data[].requestDate     | String       | O        | Request time                  |
+| body.data[].tagSendStatus   | String       | X        | Tag delivery status           |
+| body.data[].tagExpression[] | List<String> | O        | Tag expression                |
+| body.data[].templateId      | String       | X        | Template ID                   |
+| body.data[].templateName    | String       | X        | Template name                 |
+| body.data[].senderName      | String       | X        | Sender's name                 |
+| body.data[].senderMail      | String       | X        | Sender's address              |
+| body.data[].title           | String       | X        | Title                         |
+| body.data[].body            | String       | O        | Body                          |
+| body.data[].adYn            | String       | X        | Ad or not                     |
+| body.data[].autoSendYn      | String       | O        | Auto delivery or not          |
+| body.data[].sendErrorCount  | Integer      | O        | Error counts in recipients    |
+| body.data[].createUser      | String       | X        | Creator                       |
+| body.data[].createDate      | String       | O        | Date and time of creation     |
+| body.data[].updateUser      | String       | X        | Modifier                      |
+| body.data[].updateDate      | String       | X        | Date and time of modification |
 
 ### List Recipients of Tag Delivery
 
@@ -2863,23 +2895,25 @@ curl -X GET \
 }
 ```
 
-| Value                     | Type     | Description                                                                           |
-|---------------------------|----------|---------------------------------------------------------------------------------------|
-| header.isSuccessful       | 	Boolean | Successful or not                                                                     |
-| header.resultCode         | 	Integer | Failure code                                                                          |
-| header.resultMessage      | 	String  | Failure message                                                                       |
-| body.data[].requestId     | String   | Request ID                                                                            |
-| body.data[].recipientSeq  | Integer  | Recipient sequence                                                                    |
-| body.data[].countryCode   | String   | Recipient's country code                                                              |
-| body.data[].recipientNo   | String   | Recipient number                                                                      |
-| body.data[].requestDate   | String   | Date and time of request                                                              |
-| body.data[].msgStatus     | String   | Message status code                                                                   |
-| body.data[].msgStatusName | String   | Name of message status code                                                           |
-| body.data[].messageCount  | Integer  | Number of messages sent                                                               |
-| body.data[].resultCode    | String   | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
-| body.data[].receiveDate   | String   | Date and time of receiving                                                            |
-| body.data[].createDate    | String   | Date and time of registration                                                         |
-| body.data[].updateDate    | String   | Date of modification                                                                  |
+| Value                     | Type    | Not Null | Description                                                                           |
+|---------------------------|---------|----------|---------------------------------------------------------------------------------------| 
+| header                    | Object  | O        | Header area                                                                           |
+| header.isSuccessful       | Boolean | O        | Successful or not                                                                     |
+| header.resultCode         | Integer | O        | Failure code                                                                          |
+| header.resultMessage      | String  | O        | Failure message                                                                       |
+| body                      | Object  | X        | Body area                                                                             |
+| body.data[].requestId     | String  | O        | Request ID                                                                            |
+| body.data[].recipientSeq  | Integer | O        | Recipient sequence                                                                    |
+| body.data[].countryCode   | String  | O        | Recipient's country code                                                              |
+| body.data[].recipientNo   | String  | O        | Recipient number                                                                      |
+| body.data[].requestDate   | String  | O        | Date and time of request                                                              |
+| body.data[].msgStatus     | String  | O        | Message status code                                                                   |
+| body.data[].msgStatusName | String  | O        | Name of message status code                                                           |
+| body.data[].messageCount  | Integer | O        | Number of messages sent                                                               |
+| body.data[].resultCode    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+| body.data[].receiveDate   | String  | X        | Date and time of receiving                                                            |
+| body.data[].createDate    | String  | X        | Date and time of registration                                                         |
+| body.data[].updateDate    | String  | X        | Date of modification                                                                  |
 
 ### List Recipient Details of Tagged Delivery
 
@@ -2967,37 +3001,38 @@ curl -X GET \
 }
 ```
 
-| Value                                   | Type     | Description                                                                           |
-|-----------------------------------------|----------|---------------------------------------------------------------------------------------|
-| header                                  | 	Object  | Header area                                                                           |
-| header.isSuccessful                     | 	Boolean | Successful or not                                                                     |
-| header.resultCode                       | 	Integer | Failure code                                                                          |
-| header.resultMessage                    | 	String  | Failure message                                                                       |
-| body.data.requestId                     | String   | Request ID                                                                            |
-| body.data.recipientSeq                  | Integer  | Recipient sequence                                                                    |
-| body.data.sendType                      | String   | Delivery type                                                                         |
-| body.data.messageType                   | String   | Message type                                                                          |
-| body.data.templateId                    | String   | Template ID                                                                           |
-| body.data.templateName                  | String   | Template name                                                                         |
-| body.data.sendNo                        | String   | Sender number                                                                         |
-| body.data.title                         | String   | Title                                                                                 |
-| body.data.body                          | String   | Body                                                                                  |
-| body.data.recipientNum                  | String   | Recipient number                                                                      |
-| body.data.requestDate                   | String   | Date and time of request                                                              |
-| body.data.msgStatusName                 | String   | Message status name                                                                   |
-| body.data.messageCount                  | Integer  | Number of messages sent                                                               |
-| body.data.resultCode                    | String   | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
-| body.data.receiveDate                   | String   | Date and time of receiving                                                            |
-| body.data.attachFileList[].filePath     | String   | Attached file- path                                                                   |
-| body.data.attachFileList[].fileName     | String   | Attached file - file name                                                             |
-| body.data.attachFileList[].fileSize     | Long     | Attached file - size                                                                  |
-| body.data.attachFileList[].fileSequence | Integer  | Attached file - file sequence                                                         |
-| body.data.attachFileList[].createDate   | String   | Attached file - date of creation                                                      |
-| body.data.attachFileList[].updateDate   | String   | Attached file - date of modification                                                  |
-| body.data.originCode                    | String   | Identification code (For special value-added telecommunication business operators, must use the 9 digit registration number listed on certificates excluding symbols, letters, and spaces.) |
-| body.data.dlr.dlrStatus                 | String   | DLR status code                                                                       |
-| body.data.dlr.networkCode               | String   | DLR network code                                                                      |
-| body.data.dlr.errorCode                 | String   | DLR error code                                                                        |
+| Value                                   | Type    | Not Null | Description                                                                           |
+|-----------------------------------------|---------|----------|---------------------------------------------------------------------------------------|
+| header                                  | Object  | X        | Header area                                                                           |
+| header.isSuccessful                     | Boolean | O        | Successful or not                                                                     |
+| header.resultCode                       | Integer | O        | Failure code                                                                          |
+| header.resultMessage                    | String  | O        | Failure message                                                                       |
+| body                                    | Object  | X        | Body area                                                                             |
+| body.data.requestId                     | String  | O        | Request ID                                                                            |
+| body.data.recipientSeq                  | Integer | O        | Recipient sequence                                                                    |
+| body.data.sendType                      | String  | O        | Delivery type                                                                         |
+| body.data.messageType                   | String  | O        | Message type                                                                          |
+| body.data.templateId                    | String  | X        | Template ID                                                                           |
+| body.data.templateName                  | String  | X        | Template name                                                                         |
+| body.data.sendNo                        | String  | O        | Sender number                                                                         |
+| body.data.title                         | String  | X        | Title                                                                                 |
+| body.data.body                          | String  | O        | Body                                                                                  |
+| body.data.recipientNum                  | String  | O        | Recipient number                                                                      |
+| body.data.requestDate                   | String  | O        | Date and time of request                                                              |
+| body.data.msgStatusName                 | String  | O        | Message status name                                                                   |
+| body.data.messageCount                  | Integer | O        | Number of messages sent                                                               |
+| body.data.resultCode                    | String  | X        | Result code of receiving [[Table on result code of receiving](./error-code/#emma-v3)] |
+| body.data.receiveDate                   | String  | X        | Date and time of receiving                                                            |
+| body.data.attachFileList[].filePath     | String  | X        | Attached file- path                                                                   |
+| body.data.attachFileList[].fileName     | String  | X        | Attached file - file name                                                             |
+| body.data.attachFileList[].fileSize     | Long    | X        | Attached file - size                                                                  |
+| body.data.attachFileList[].fileSequence | Integer | X        | Attached file - file sequence                                                         |
+| body.data.attachFileList[].createDate   | String  | X        | Attached file - date of creation                                                      |
+| body.data.attachFileList[].updateDate   | String  | X        | Attached file - date of modification                                                  |
+| body.data.originCode                    | String  | X        | Identification code (For special value-added telecommunication business operators, must use the 9 digit registration number listed on certificates excluding symbols, letters, and spaces.) |
+| body.data.dlr.dlrStatus                 | String  | X        | DLR status code                                                                       |
+| body.data.dlr.networkCode               | String  | X        | DLR network code                                                                      |
+| body.data.dlr.errorCode                 | String  | X        | DLR error code                                                                        |
 <span id="binaryUpload"></span>
 
 ## Attached Files
@@ -3080,14 +3115,16 @@ curl -X POST \
 }
 ```
 
-| Value                | Type     | Description                                                                       |
-|----------------------|----------|-----------------------------------------------------------------------------------|
-| header.isSuccessful  | 	Boolean | Successful or not                                                                 |
-| header.resultCode    | 	Integer | Failure code                                                                      |
-| header.resultMessage | 	String  | Failure message                                                                   |
-| body.data.fileId     | 	Integer | File ID                                                                           |
-| body.data.fileName   | 	String  | File name                                                                         |
-| body.data.filePath   | 	String  | Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
+| body                 | Object  | X        | Body area         |
+| body.data.fileId     | Integer | O        | File ID           |
+| body.data.fileName   | String  | X        | File name         |
+| body.data.filePath   | String  | X        | Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
 
 #### Example of Uploading Attached Files
 
@@ -3219,19 +3256,21 @@ curl -X POST \
 }
 ```
 
-| Value                        | Type     | Description               |
-|------------------------------|----------|---------------------------|
-| header.isSuccessful          | 	Boolean | Successful or not         |
-| header.resultCode            | 	Integer | Failure code              |
-| header.resultMessage         | 	String  | Failure message           |
-| body.data[].categoryId       | 	Integer | Category ID               |
-| body.data[].categoryParentId | 	Integer | Parent category ID        |
-| body.data[].depth            | 	Integer | Depth of category         |
-| body.data[].sort             | 	Integer | Sorting order of category |
-| body.data[].categoryName     | 	String  | Category name             |
-| body.data[].categoryDesc     | 	String  | Category description      |
-| body.data[].useYn            | 	String  | Use or not                |
-| body.data[].createUser       | 	String  | Registered user           |
+| Value                        | Type    | Not Null | Description               |
+|------------------------------|---------|----------|---------------------------|
+| header                       | Object  | O        | Header area               |
+| header.isSuccessful          | Boolean | O        | Successful or not         |
+| header.resultCode            | Integer | O        | Failure code              |
+| header.resultMessage         | String  | O        | Failure message           |
+| body                         | Object  | X        | Body area                 |
+| body.data[].categoryId       | Integer | O        | Category ID               |
+| body.data[].categoryParentId | Integer | X        | Parent category ID        |
+| body.data[].depth            | Integer | X        | Depth of category         |
+| body.data[].sort             | Integer | X        | Sorting order of category |
+| body.data[].categoryName     | String  | X        | Category name             |
+| body.data[].categoryDesc     | String  | X        | Category description      |
+| body.data[].useYn            | String  | O        | Use or not                |
+| body.data[].createUser       | String  | X        | Registered user           |
 
 ### List Category
 
@@ -3310,25 +3349,27 @@ curl -X GET \
 }
 ```
 
-| Value                        | Type     | Description               |
-|------------------------------|----------|---------------------------|
-| header.isSuccessful          | 	Boolean | Successful or not         |
-| header.resultCode            | 	Integer | Failure code              |
-| header.resultMessage         | 	String  | Failure messagae          |
-| body.pageNum                 | 	Integer | Current page number       |
-| body.pageSize                | 	Integer | Queried data count        |
-| body.totalCount              | 	Integer | Total data count          |
-| body.data[].categoryId       | 	Integer | Category ID               |
-| body.data[].categoryParentId | 	Integer | Parent category ID        |
-| body.data[].depth            | 	Integer | Depth of category         |
-| body.data[].sort             | 	Integer | Sorting order of category |
-| body.data[].categoryName     | 	String  | Category name             |
-| body.data[].categoryDesc     | 	String  | Category description      |
-| body.data[].useYn            | 	String  | Use or not                |
-| body.data[].createDate       | 	String  | Date of registration      |
-| body.data[].createUser       | 	String  | Registered user           |
-| body.data[].updateDate       | 	String  | Date of modification      |
-| body.data[].updateUser       | 	String  | Modified user             |
+| Value                        | Type    | Not Null | Description               |
+|------------------------------|---------|----------|---------------------------|
+| header                       | Object  | O        | Header area               |
+| header.isSuccessful          | Boolean | O        | Successful or not         |
+| header.resultCode            | Integer | O        | Failure code              |
+| header.resultMessage         | String  | O        | Failure messagae          |
+| body                         | Object  | X        | Body area                 |
+| body.pageNum                 | Integer | O        | Current page number       |
+| body.pageSize                | Integer | O        | Queried data count        |
+| body.totalCount              | Integer | O        | Total data count          |
+| body.data[].categoryId       | Integer | O        | Category ID               |
+| body.data[].categoryParentId | Integer | X        | Parent category ID        |
+| body.data[].depth            | Integer | X        | Depth of category         |
+| body.data[].sort             | Integer | X        | Sorting order of category |
+| body.data[].categoryName     | String  | X        | Category name             |
+| body.data[].categoryDesc     | String  | X        | Category description      |
+| body.data[].useYn            | String  | O        | Use or not                |
+| body.data[].createDate       | String  | X        | Date of registration      |
+| body.data[].createUser       | String  | X        | Registered user           |
+| body.data[].updateDate       | String  | X        | Date of modification      |
+| body.data[].updateUser       | String  | X        | Modified user             |
 
 ### Get Category
 
@@ -3398,22 +3439,24 @@ curl -X GET \
 }
 ```
 
-| Value                        | Type     | Description               |
-|------------------------------|----------|---------------------------|
-| header.isSuccessful          | 	Boolean | Successful or not         |
-| header.resultCode            | 	Integer | Failure code              |
-| header.resultMessage         | 	String  | Failure message           |
-| body.data[].categoryId       | 	Integer | Category ID               |
-| body.data[].categoryParentId | 	Integer | Parent category ID        |
-| body.data[].depth            | 	Integer | Depth of category         |
-| body.data[].sort             | 	Integer | Sorting order of category |
-| body.data[].categoryName     | 	String  | Category name             |
-| body.data[].categoryDesc     | 	String  | Category description      |
-| body.data[].useYn            | 	String  | Use or not                |
-| body.data[].createDate       | 	String  | Date of registration      |
-| body.data[].createUser       | 	String  | Registered user           |
-| body.data[].updateDate       | 	String  | Date of modification      |
-| body.data[].updateUser       | 	String  | Modified user             |
+| Value                        | Type    | Not Null | Description               |
+|------------------------------|---------|----------|---------------------------|
+| header                       | Object  | O        | Header area               |
+| header.isSuccessful          | Boolean | O        | Successful or not         |
+| header.resultCode            | Integer | O        | Failure code              |
+| header.resultMessage         | String  | O        | Failure message           |
+| body                         | Object  | X        | Body area                 |
+| body.data[].categoryId       | Integer | O        | Category ID               |
+| body.data[].categoryParentId | Integer | X        | Parent category ID        |
+| body.data[].depth            | Integer | X        | Depth of category         |
+| body.data[].sort             | Integer | X        | Sorting order of category |
+| body.data[].categoryName     | String  | X        | Category name             |
+| body.data[].categoryDesc     | String  | X        | Category description      |
+| body.data[].useYn            | String  | O        | Use or not                |
+| body.data[].createDate       | String  | X        | Date of registration      |
+| body.data[].createUser       | String  | X        | Registered user           |
+| body.data[].updateDate       | String  | X        | Date of modification      |
+| body.data[].updateUser       | String  | X        | Modified user             |
 
 ### Modify Category
 
@@ -3491,6 +3534,13 @@ curl -X PUT \
 }
 ```
 
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
+
 ### Delete Category
 
 #### Request
@@ -3541,6 +3591,13 @@ curl -X DELETE \
   }
 }
 ```
+
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
 
 ## Templates
 
@@ -3637,6 +3694,13 @@ curl -X POST \
   }
 }
 ```
+
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
 
 #### Example of Registration
 
@@ -3911,39 +3975,41 @@ curl -X GET \
 }
 ```
 
-| Value                                     | Type     | Description                                       |
-|-------------------------------------------|----------|---------------------------------------------------|
-| header.isSuccessful                       | 	Boolean | Successful or not                                 |
-| header.resultCode                         | 	Integer | Failure code                                      |
-| header.resultMessage                      | 	String  | Faliure message                                   |
-| body.pageNum                              | 	Integer | Current page number                               |
-| body.pageSize                             | 	Integer | Queried data count                                |
-| body.totalCount                           | 	Integer | Total data count                                  |
-| body.data[].templateId                    | 	String  | Template ID                                       |
-| body.data[].serviceId                     | 	Integer | Service ID (unused, for internal purpose)         |
-| body.data[].categoryId                    | 	Integer | Category ID                                       |
-| body.data[].categoryName                  | 	String  | Category name                                     |
-| body.data[].sort                          | 	Integer | Sorted value                                      |
-| body.data[].templateName                  | 	String  | Template name                                     |
-| body.data[].templateDesc                  | 	String  | Template description                              |
-| body.data[].useYn                         | 	String  | Use or not                                        |
-| body.data[].priority                      | 	String  | Priority value (unused)                           |
-| body.data[].sendNo                        | 	String  | Sender number                                     |
-| body.data[].sendType                      | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)          |
-| body.data[].sendTypeName                  | 	String  | Name of delivery type                             |
-| body.data[].title                         | 	String  | Title                                             |
-| body.data[].body                          | 	String  | Body message                                      |
-| body.data[].attachFileYn                  | 	String  | Attached or not (Y/N)                             |
-| body.data[].delYn                         | 	String  | Deleted or not (Y/N): only to show current status |
-| body.data[].createDate                    | 	String  | Date of registration                              |
-| body.data[].createUser                    | 	String  | Registered user                                   |
-| body.data[].updateDate                    | 	String  | Date of modification                              |
-| body.data[].updateUser                    | 	String  | Modifier                                          |
-| body.data[].attachFileList[].fileId       | 	Integer | File ID                                           |
-| body.data[].attachFileList[].filePath     | 	String  | Path of file saving (for internal purpose)        |
-| body.data[].attachFileList[].fileName     | 	String  | File name                                         |
-| body.data[].attachFileList[].saveFileName | 	String  | 	Name of saved file                               |
-| body.data[].attachFileList[].uploadType   | 	String  | 	Type of uploaded                                 |
+| Value                                     | Type    | Not Null | Description                                       |
+|-------------------------------------------|---------|----------|---------------------------------------------------|
+| header                                    | Object  | O        | Header area                                       |
+| header.isSuccessful                       | Boolean | O        | Successful or not                                 |
+| header.resultCode                         | Integer | O        | Failure code                                      |
+| header.resultMessage                      | String  | O        | Faliure message                                   |
+| body                                      | Object  | X        | Body area                                         |
+| body.pageNum                              | Integer | O        | Current page number                               |
+| body.pageSize                             | Integer | O        | Queried data count                                |
+| body.totalCount                           | Integer | O        | Total data count                                  |
+| body.data[].templateId                    | String  | O        | Template ID                                       |
+| body.data[].serviceId                     | Integer | O        | Service ID (unused, for internal purpose)         |
+| body.data[].categoryId                    | Integer | X        | Category ID                                       |
+| body.data[].categoryName                  | String  | X        | Category name                                     |
+| body.data[].sort                          | Integer | X        | Sorted value                                      |
+| body.data[].templateName                  | String  | X        | Template name                                     |
+| body.data[].templateDesc                  | String  | X        | Template description                              |
+| body.data[].useYn                         | String  | X        | Use or not                                        |
+| body.data[].priority                      | String  | X        | Priority value (unused)                           |
+| body.data[].sendNo                        | String  | X        | Sender number                                     |
+| body.data[].sendType                      | String  | X        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)          |
+| body.data[].sendTypeName                  | String  | X        | Name of delivery type                             |
+| body.data[].title                         | String  | X        | Title                                             |
+| body.data[].body                          | String  | X        | Body message                                      |
+| body.data[].attachFileYn                  | String  | X        | Attached or not (Y/N)                             |
+| body.data[].delYn                         | String  | X        | Deleted or not (Y/N): only to show current status |
+| body.data[].createDate                    | String  | X        | Date of registration                              |
+| body.data[].createUser                    | String  | X        | Registered user                                   |
+| body.data[].updateDate                    | String  | X        | Date of modification                              |
+| body.data[].updateUser                    | String  | X        | Modifier                                          |
+| body.data[].attachFileList[].fileId       | Integer | O        | File ID                                           |
+| body.data[].attachFileList[].filePath     | String  | X        | Path of file saving (for internal purpose)        |
+| body.data[].attachFileList[].fileName     | String  | X        | File name                                         |
+| body.data[].attachFileList[].saveFileName | String  | X        | Name of saved file                                |
+| body.data[].attachFileList[].uploadType   | String  | X        | Type of uploaded                                  |
 
 ### Query Single Template
 
@@ -4029,39 +4095,41 @@ curl -X GET \
 }
 ```
 
-| Value                                     | Type     | Description                                       |
-|-------------------------------------------|----------|---------------------------------------------------|
-| header.isSuccessful                       | 	Boolean | Successful or not                                 |
-| header.resultCode                         | 	Integer | Failure code                                      |
-| header.resultMessage                      | 	String  | Failure message                                   |
-| body.pageNum                              | 	Integer | Current page number                               |
-| body.pageSize                             | 	Integer | Queried data count                                |
-| body.totalCount                           | 	Integer | Total data count                                  |
-| body.data.templateId                      | 	String  | Template ID                                       |
-| body.data.serviceId                       | 	Integer | Service ID (unused, for internal purpose)         |
-| body.data.categoryId                      | 	Integer | Category ID                                       |
-| body.data.categoryName                    | 	String  | Category name                                     |
-| body.data.sort                            | 	Integer | Sorted value                                      |
-| body.data.templateName                    | 	String  | Template name                                     |
-| body.data.templateDesc                    | 	String  | Template description                              |
-| body.data.useYn                           | 	String  | Use or not                                        |
-| body.data.priority                        | 	String  | Priority value (unused)                           |
-| body.data.sendNo                          | 	String  | Sender number                                     |
-| body.data.sendType                        | 	String  | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)          |
-| body.data.sendTypeName                    | 	String  | Name of delivery type                             |
-| body.data.title                           | 	String  | Title                                             |
-| body.data.body                            | 	String  | Body message                                      |
-| body.data.attachFileYn                    | 	String  | Attached or not (Y/N)                             |
-| body.data.delYn                           | 	String  | Deleted or not (Y/N): only to show current status |
-| body.data.createDate                      | 	String  | Date of registration                              |
-| body.data.createUser                      | 	String  | Registered user                                   |
-| body.data.updateDate                      | 	String  | Date of modification                              |
-| body.data.updateUser                      | 	String  | Modifier                                          |
-| body.data[].attachFileList[].fileId       | 	Integer | File ID                                           |
-| body.data[].attachFileList[].filePath     | 	String  | Path of file saving (for internal purpose)        |
-| body.data[].attachFileList[].fileName     | 	String  | File name                                         |
-| body.data[].attachFileList[].saveFileName | 	String  | 	Name of saved file                               |
-| body.data[].attachFileList[].uploadType   | 	String  | 	Type of uploaded                                 |
+| Value                                     | Type    | Not Null | Description                                       |
+|-------------------------------------------|---------|----------|---------------------------------------------------|
+| header                                    | Object  | O        | Header area                                       |
+| header.isSuccessful                       | Boolean | O        | Successful or not                                 |
+| header.resultCode                         | Integer | O        | Failure code                                      |
+| header.resultMessage                      | String  | O        | Failure message                                   |
+| body                                      | Object  | X        | Body area                                         |
+| body.pageNum                              | Integer | O        | Current page number                               |
+| body.pageSize                             | Integer | O        | Queried data count                                |
+| body.totalCount                           | Integer | O        | Total data count                                  |
+| body.data.templateId                      | String  | O        | Template ID                                       |
+| body.data.serviceId                       | Integer | O        | Service ID (unused, for internal purpose)         |
+| body.data.categoryId                      | Integer | X        | Category ID                                       |
+| body.data.categoryName                    | String  | X        | Category name                                     |
+| body.data.sort                            | Integer | X        | Sorted value                                      |
+| body.data.templateName                    | String  | X        | Template name                                     |
+| body.data.templateDesc                    | String  | X        | Template description                              |
+| body.data.useYn                           | String  | X        | Use or not                                        |
+| body.data.priority                        | String  | X        | Priority value (unused)                           |
+| body.data.sendNo                          | String  | X        | Sender number                                     |
+| body.data.sendType                        | String  | X        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)          |
+| body.data.sendTypeName                    | String  | X        | Name of delivery type                             |
+| body.data.title                           | String  | X        | Title                                             |
+| body.data.body                            | String  | X        | Body message                                      |
+| body.data.attachFileYn                    | String  | X        | Attached or not (Y/N)                             |
+| body.data.delYn                           | String  | X        | Deleted or not (Y/N): only to show current status |
+| body.data.createDate                      | String  | X        | Date of registration                              |
+| body.data.createUser                      | String  | X        | Registered user                                   |
+| body.data.updateDate                      | String  | X        | Date of modification                              |
+| body.data.updateUser                      | String  | X        | Modifier                                          |
+| body.data[].attachFileList[].fileId       | Integer | O        | File ID                                           |
+| body.data[].attachFileList[].filePath     | String  | X        | Path of file saving (for internal purpose)        |
+| body.data[].attachFileList[].fileName     | String  | X        | File name                                         |
+| body.data[].attachFileList[].saveFileName | String  | X        | Name of saved file                                |
+| body.data[].attachFileList[].uploadType   | String  | X        | Type of uploaded                                  |
 
 ### Modify Template
 
@@ -4141,6 +4209,13 @@ curl -X GET \
 }
 ```
 
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
+
 ### Delete Template
 
 #### Request
@@ -4191,6 +4266,13 @@ curl -X DELETE \
   }
 }
 ```
+
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
 
 ## Rejection of Receiving 080 Numbers
 
@@ -4267,6 +4349,13 @@ curl -X POST \
   }
 }
 ```
+
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
 
 ### Query Target of Rejection
 
@@ -4400,6 +4489,13 @@ curl -X DELETE \
 }
 ```
 
+| Value                    | Type    | Not Null | Description       |
+|--------------------------|---------|----------|-------------------|
+| header                   | Object  | O        | Header area       |
+| header.isSuccessful      | Boolean | O        | Successful or not |
+| header.resultCode        | Integer | O        | Failure code      |
+| header.resultMessage     | String  | O        | Failure message   |
+
 ## Sender Numbers
 
 ### List Registered Sender Numbers API
@@ -4492,23 +4588,25 @@ curl -X GET \
 }
 ```
 
-| Value                   | Type     | Description               |
-|-------------------------|----------|---------------------------|
-| header.isSuccessful     | 	Boolean | Successful or not         |
-| header.resultCode       | 	Integer | Failure code              |
-| header.resultMessage    | 	String  | Failure message           |
-| body.pageNum            | 	Integer | Page number               |
-| body.pageSize           | 	Integer | Queried data count        |
-| body.totalCount         | 	Integer | Total data count          |
-| body.data[].serviceId   | Integer  | Service ID                |
-| body.data[].sendNo      | String   | Sender number             |
-| body.data[].useYn       | String   | Use or not                |
-| body.data[].blockYn     | String   | Block or not              |
-| body.data[].blockReason | String   | Cause of blockage         |
-| body.data[].createDate  | String   | Date and time of creation |
-| body.data[].createUser  | String   | Creator                   |
-| body.data[].updateDate  | String   | Date of modification      |
-| body.data[].updateUser  | String   | Modified user             |
+| Value                   | Type    | Not Null | Description               |
+|-------------------------|---------|----------|---------------------------|
+| header                  | Object  | O        | Header area               |
+| header.isSuccessful     | Boolean | O        | Successful or not         |
+| header.resultCode       | Integer | O        | Failure code              |
+| header.resultMessage    | String  | O        | Failure message           |
+| body                    | Object  | X        | Body area                 |
+| body.pageNum            | Integer | O        | Page number               |
+| body.pageSize           | Integer | O        | Queried data count        |
+| body.totalCount         | Integer | O        | Total data count          |
+| body.data[].serviceId   | Integer | O        | Service ID                |
+| body.data[].sendNo      | String  | O        | Sender number             |
+| body.data[].useYn       | String  | X        | Use or not                |
+| body.data[].blockYn     | String  | X        | Block or not              |
+| body.data[].blockReason | String  | X        | Cause of blockage         |
+| body.data[].createDate  | String  | X        | Date and time of creation |
+| body.data[].createUser  | String  | X        | Creator                   |
+| body.data[].updateDate  | String  | X        | Date of modification      |
+| body.data[].updateUser  | String  | X        | Modified user             |
 
 ## Query Statistics
 
@@ -4587,23 +4685,25 @@ curl -X GET \
 }
 ```
 
-| Value                    | Type      | Description            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | Successful or not         |
-| header.resultCode    | Integer | Failure code       |
-| header.resultMessage | String  | Failure message        |
-| body.data            | List    | Statistical event objects |
+| Value                    | Type    | Not Null | Description               |
+|--------------------------|---------|----------|---------------------------|
+| header                   | Object  | O        | Header area               |
+| header.isSuccessful      | Boolean | O        | Successful or not         |
+| header.resultCode        | Integer | O        | Failure code              |
+| header.resultMessage     | String  | O        | Failure message           |
+| body                     | Object  | X        | Body area                 |
+| body.data                | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects
 
-| Value                 | Type      | Description                         |
-|-------------------|---------|----------------------------|
-| eventDateTime     | String  | Display name<br/>Minutely, Hourly, Daily, Monthly |
-| events            | Object  | Statistics value object                    |
-| events.requested  | Integer | Number of requests                      |
-| events.sent       | Integer | Number of sent items             |
-| events.sentFailed | Integer | Number of failures                    |
-| events.received   | Integer | Number of successes                      |
+| Value                 | Type    | Not Null | Description                                        |
+|-----------------------|---------|----------|----------------------------------------------------|
+| eventDateTime         | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly |
+| events                | Object  | O        | Statistics value object                            |
+| events.requested      | Integer | O        | Number of requests                                 |
+| events.sent           | Integer | O        | Number of sent items                               |
+| events.sentFailed     | Integer | O        | Number of failures                                 |
+| events.received       | Integer | O        | Number of successes                                |
 
 ### Statistics Search - Based on Request Time
 
@@ -4668,7 +4768,7 @@ curl -X GET \
       {
         "eventDateTime": "",
         "events": {
-          "requested": 10,
+           "requested": 10,
           "sent": 10,
           "sentFailed": 0,
           "received": 0,
@@ -4680,23 +4780,25 @@ curl -X GET \
 }
 ```
 
-| Value                    | Type      | Description            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | Successful or not        |
-| header.resultCode    | Integer | Failure code         |
-| header.resultMessage | String  | Failure message        |
-| body.data            | List    | Statistical event objects |
+| Value                    | Type    | Not Null | Description               |
+|--------------------------|---------|----------|---------------------------|
+| header                   | Object  | O        | Header area               |
+| header.isSuccessful      | Boolean | O        | Successful or not         |
+| header.resultCode        | Integer | O        | Failure code              |
+| header.resultMessage     | String  | O        | Failure message           |
+| body                     | Object  | X        | Body area                 |
+| body.data                | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects
-| Value                 | Type      | Description                         |
-|-------------------|---------|----------------------------|
-| eventDateTime     | String  | Display name<br/>Minutely, Hourly, Daily, Monthly |
-| events            | Object  | Statistics value object                    |
-| events.requested  | Integer | Number of requests                    |
-| events.sent       | Integer | Number of sent items             |
-| events.sentFailed | Integer | Number of failures           |
-| events.received   | Integer | Number of successes             |
-| events.pending    | Integer | Number of pending items             |
+| Value             | Type    | Not Null | Description                                       |
+|-------------------|---------|----------|---------------------------------------------------|
+| eventDateTime     | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly |
+| events            | Object  | O        | Statistics value object                           |
+| events.requested  | Integer | O        | Number of requests                                |
+| events.sent       | Integer | O        | Number of sent items                              |
+| events.sentFailed | Integer | O        | Number of failures                                |
+| events.received   | Integer | O        | Number of successes                               |
+| events.pending    | Integer | O        | Number of pending items                           |
 
 ### Statistic Search - International Send
 
@@ -4777,25 +4879,27 @@ curl -X GET \
 }
 ```
 
-| Value                    | Type      | Description            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | Successful or not         |
-| header.resultCode    | Integer | Failure code         |
-| header.resultMessage | String  | Failure message        |
-| body.data            | List    | Statistical event objects |
+| Value                | Type    | Not Null | Description               |
+|----------------------|---------|----------|---------------------------|
+| header               | Object  | O        | Header area               |
+| header.isSuccessful  | Boolean | O        | Successful or not         |
+| header.resultCode    | Integer | O        | Failure code              |
+| header.resultMessage | String  | O        | Failure message           |
+| body                 | Object  | X        | Body area                 |
+| body.data            | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects (Statistics criteria: Default value)
-| Value                  | Type      | Description                                                      |
-|--------------------|---------|---------------------------------------------------------|
-| eventDateTime      | String  | Display name<br/>Minutely, Hourly, Daily, Monthly                              |
-| events             | Object  | When statsCriteria is set only as EVENT {statsCriteriaValue} is omitted |
-| events.REQUESTED   | Integer | Number of requests                                                   |
-| events.SENT        | Integer | Number of sent items                                               |
-| events.SENT_FAILED | Integer | Number of failures                                        |
-| events.RECEIVED    | Integer | Number of receptions                                                   |
-| events.CONCAT      | Integer | Number of successes                                          |
-| events.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
-| events.CONVERTED   | Integer | Number of converted items                                                   |
+| Value                  | Type    | Not Null | Description                                                                     |
+|------------------------|---------|----------|---------------------------------------------------------------------------------|
+| eventDateTime          | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly                               |
+| events                 | Object  | O        | When statsCriteria is set only as EVENT {statsCriteriaValue} is omitted         |
+| events.REQUESTED       | Integer | O        | Number of requests                                                              |
+| events.SENT            | Integer | O        | Number of sent items                                                            |
+| events.SENT_FAILED     | Integer | O        | Number of failures                                                              |
+| events.RECEIVED        | Integer | O        | Number of receptions                                                            |
+| events.CONCAT          | Integer | O        | Number of successes                                                             |
+| events.READY           | Integer | O        | Number of conversion rate collection requests successfuly sent                  |
+| events.CONVERTED       | Integer | O        | Number of converted items                                                       |
 
 #### Response (Statistics criteria added)
 
@@ -4838,25 +4942,27 @@ curl -X GET \
 }
 ```
 
-| Value                    | Type      | Description            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | Successful or not         |
-| header.resultCode    | Integer | Failure code         |
-| header.resultMessage | String  | Failure message        |
-| body.data            | List    | Statistical event objects |
+| Value                | Type    | Not Null | Description               |
+|----------------------|---------|----------|---------------------------|
+| header               | Object  | O        | Header area               |
+| header.isSuccessful  | Boolean | O        | Successful or not         |
+| header.resultCode    | Integer | O        | Failure code              |
+| header.resultMessage | String  | O        | Failure message           |
+| body                 | Object  | X        | Body area                 |
+| body.data            | List    | O        | Statistical event objects |
 
 #### Statistical Event Objects (Statistics criteria added)
-| Value                                       | Type      | Description                                         |
-|-----------------------------------------|---------|--------------------------------------------|
-| eventDateTime                           | String  | Display name<br/>Minutely, Hourly, Daily, Monthly                 |
-| events.{statsCriteriaValue}             | Object  | Value for statsCriteria<br/>Can be country code |
-| events.{statsCriteriaValue}.REQUESTED   | Integer | Number of requests                                      |
-| events.{statsCriteriaValue}.SENT        | Integer | Number of sent items                  |
-| events.{statsCriteriaValue}.SENT_FAILED | Integer | Number of failures                           |
-| events.{statsCriteriaValue}.RECEIVED    | Integer | Number of receptions                                      |
-| events.{statsCriteriaValue}.CONCAT      | Integer | Number of successes                             |
-| events.{statsCriteriaValue}.READY       | Integer | Number of conversion rate collection requests successfuly sent                                      |
-| events.{statsCriteriaValue}.CONVERTED   | Integer | Number of converted items                                                   |
+| Value                                       | Type    | Not Null | Description                                                        |
+|---------------------------------------------|---------|----------|------------------------------------------------------------------|
+| eventDateTime                               | String  | O        | Display name<br/>Minutely, Hourly, Daily, Monthly               |
+| events.{statsCriteriaValue}                 | Object  | O        | Value for statsCriteria<br/>Can be country code                 |
+| events.{statsCriteriaValue}.REQUESTED       | Integer | O        | Number of requests                                               |
+| events.{statsCriteriaValue}.SENT            | Integer | O        | Number of sent items                                             |
+| events.{statsCriteriaValue}.SENT_FAILED     | Integer | O        | Number of failures                                               |
+| events.{statsCriteriaValue}.RECEIVED        | Integer | O        | Number of receptions                                             |
+| events.{statsCriteriaValue}.CONCAT          | Integer | O        | Number of successes                                              |
+| events.{statsCriteriaValue}.READY           | Integer | O        | Number of conversion rate collection requests successfuly sent   |
+| events.{statsCriteriaValue}.CONVERTED       | Integer | O        | Number of converted items                                        |
 
 ### (Old)Query Integrated Statistics
 
@@ -4925,20 +5031,22 @@ curl -X GET \
 }
 ```
 
-| Value                      | Type     | Description                      |
-|----------------------------|----------|----------------------------------|
-| header.isSuccessful        | 	Boolean | Successful or not                |
-| header.resultCode          | 	Integer | Failure code                     |
-| header.resultMessage       | 	String  | Failure message                  |
-| body.data[].divisionName   | String   | Display name<br/>Date, time, Day |
-| body.data[].statisticsView | Object   |                                  |
-| body.data[].requestedCount | Integer  | Number of requests               |
-| body.data[].succeedCount   | Integer  | Success count                    |
-| body.data[].failedCount    | Integer  | Failure count                    |
-| body.data[].pendingCount   | Integer  | Delivery count                   |
-| body.data[].succeedRate    | String   | Success rate                     |
-| body.data[].failedRate     | String   | Failure rate                     |
-| body.data[].pendingRate    | String   | Delivery rate                    |
+| Value                      | Type    | Not Null | Description                      |
+|----------------------------|---------|----------|----------------------------------|
+| header                     | Object  | O        | Header area                      |
+| header.isSuccessful        | Boolean | O        | Successful or not                |
+| header.resultCode          | Integer | O        | Failure code                     |
+| header.resultMessage       | String  | O        | Failure message                  |
+| body                       | Object  | X        | Body area                        |
+| body.data[].divisionName   | String  | X        | Display name<br/>Date, time, Day |
+| body.data[].statisticsView | Object  | X        |                                  |
+| body.data[].requestedCount | Integer | X        | Number of requests               |
+| body.data[].succeedCount   | Integer | X        | Success count                    |
+| body.data[].failedCount    | Integer | X        | Failure count                    |
+| body.data[].pendingCount   | Integer | X        | Delivery count                   |
+| body.data[].succeedRate    | String  | X        | Success rate                     |
+| body.data[].failedRate     | String  | X        | Failure rate                     |
+| body.data[].pendingRate    | String  | X        | Delivery rate                    |
 
 ## Scheduled Delivery
 
@@ -5038,32 +5146,34 @@ curl -X GET \
 }
 ```
 
-| Value                         | Type          | Description                                                                                                                                                                           |
-|-------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful           | 	Boolean      | Successful or not                                                                                                                                                                     |
-| header.resultCode             | 	Integer      | Failure code                                                                                                                                                                          |
-| header.resultMessage          | 	String       | Failure message                                                                                                                                                                       |
-| body.pageNum                  | 	Integer      | Current page number                                                                                                                                                                   |
-| body.pageSize                 | 	Integer      | Queried data count                                                                                                                                                                    |
-| body.totalCount               | 	Integer      | Total data count                                                                                                                                                                      |
-| body.data[].requestId         | 	String       | Request ID                                                                                                                                                                            |
-| body.data[].recipientSeq      | 	Integer      | Recipient sequence                                                                                                                                                                    |
-| body.data[].requestDate       | 	String       | Date and time of sending                                                                                                                                                              |
-| body.data[].sendNo            | 	String       | Sender number                                                                                                                                                                         |
-| body.data[].recipientNo       | 	String       | Recipient number                                                                                                                                                                      |
-| body.data[].countryCode       | 	String       | Country code                                                                                                                                                                          |
-| body.data[].sendType          | 	String       | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                              |
-| body.data[].messageType       | 	String       | Message type<br/>(SMS,LMS,MMS,AUTH)                                                                                                                                                   |
-| body.data[].adYn              | 	String       | Ad or not                                                                                                                                                                             |
-| body.data[].templateId        | 	String       | Template ID                                                                                                                                                                           |
-| body.data[].templateParameter | 	String(json) | Template parameter                                                                                                                                                                    |
-| body.data[].templateName      | 	String       | Template name                                                                                                                                                                         |
-| body.data[].title             | 	String       | Title                                                                                                                                                                                 |
-| body.data[].body              | 	String       | Body message                                                                                                                                                                          |
-| body.data[].messageStatus     | 	String       | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
-| body.data[].createUser        | 	String       | Registered user                                                                                                                                                                       |
-| body.data[].createDate        | 	String       | Date of registration                                                                                                                                                                  |
-| body.data[].updateDate        | 	String       | Date of modification                                                                                                                                                                  |
+| Value                         | Type          | Not Null | Description                                                                                                                                                                           |
+|-------------------------------|---------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                        | Object        | O        | Header area                                                                                                                                                                           |
+| header.isSuccessful           | Boolean       | O        | Successful or not                                                                                                                                                                     |
+| header.resultCode             | Integer       | O        | Failure code                                                                                                                                                                          |
+| header.resultMessage          | String        | O        | Failure message                                                                                                                                                                       |
+| body                          | Object        | X        | Body area                                                                                                                                                                             |
+| body.pageNum                  | Integer       | O        | Current page number                                                                                                                                                                   |
+| body.pageSize                 | Integer       | O        | Queried data count                                                                                                                                                                    |
+| body.totalCount               | Integer       | O        | Total data count                                                                                                                                                                      |
+| body.data[].requestId         | String        | O        | Request ID                                                                                                                                                                            |
+| body.data[].recipientSeq      | Integer       | O        | Recipient sequence                                                                                                                                                                    |
+| body.data[].requestDate       | String        | O        | Date and time of sending                                                                                                                                                              |
+| body.data[].sendNo            | String        | O        | Sender number                                                                                                                                                                         |
+| body.data[].recipientNo       | String        | O        | Recipient number                                                                                                                                                                      |
+| body.data[].countryCode       | String        | O        | Country code                                                                                                                                                                          |
+| body.data[].sendType          | String        | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                              |
+| body.data[].messageType       | String        | O        | Message type<br/>(SMS,LMS,MMS,AUTH)                                                                                                                                                   |
+| body.data[].adYn              | String        | O        | Ad or not                                                                                                                                                                             |
+| body.data[].templateId        | String        | X        | Template ID                                                                                                                                                                           |
+| body.data[].templateParameter | String(json)  | X        | Template parameter                                                                                                                                                                    |
+| body.data[].templateName      | String        | X        | Template name                                                                                                                                                                         |
+| body.data[].title             | String        | X        | Title                                                                                                                                                                                 |
+| body.data[].body              | String        | O        | Body message                                                                                                                                                                          |
+| body.data[].messageStatus     | String        | O        | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
+| body.data[].createUser        | String        | X        | Registered user                                                                                                                                                                       |
+| body.data[].createDate        | String        | O        | Date of registration                                                                                                                                                                  |
+| body.data[].updateDate        | String        | X        | Date of modification                                                                                                                                                                  |
 
 ### Query Detail Scheduled Delivery
 
@@ -5148,36 +5258,38 @@ curl -X GET \
 }
 ```
 
-| Value                                     | Type          | Description                                                                                                                                                                            |
-|-------------------------------------------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                       | 	Boolean      | Successful or not                                                                                                                                                                      |
-| header.resultCode                         | 	Integer      | Failure code                                                                                                                                                                           |
-| header.resultMessage                      | 	String       | Failure message                                                                                                                                                                        |
-| body.pageNum                              | 	Integer      | Current page number                                                                                                                                                                    |
-| body.pageSize                             | 	Integer      | Queried data count                                                                                                                                                                     |
-| body.totalCount                           | 	Integer      | Total data count                                                                                                                                                                       |
-| body.data.requestId                       | 	String       | Request ID                                                                                                                                                                             |
-| body.data.recipientSeq                    | 	Integer      | Recipient sequence                                                                                                                                                                     |
-| body.data.requestDate                     | 	String       | Date and time of sending                                                                                                                                                               |
-| body.data.sendNo                          | 	String       | Sender number                                                                                                                                                                          |
-| body.data.recipientNo                     | 	String       | Recipient number                                                                                                                                                                       |
-| body.data.countryCode                     | 	String       | Country code                                                                                                                                                                           |
-| body.data.sendType                        | 	String       | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                               |
-| body.data.messageType                     | 	String       | Message type <br/>(SMS,LMS,MMS,AUTH)                                                                                                                                                   |
-| body.data.adYn                            | 	String       | Ad or not                                                                                                                                                                              |
-| body.data.templateId                      | 	String       | Template ID                                                                                                                                                                            |
-| body.data.templateParameter               | 	String(json) | Template parameter                                                                                                                                                                     |
-| body.data.templateName                    | 	String       | Template name                                                                                                                                                                          |
-| body.data.title                           | 	String       | Title                                                                                                                                                                                  |
-| body.data.body                            | 	String       | Body message                                                                                                                                                                           |
-| body.data.messageStatus                   | 	String       | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
-| body.data.createUser                      | 	String       | Registered user                                                                                                                                                                        |
-| body.data.createDate                      | 	String       | Date of registration                                                                                                                                                                   |
-| body.data[].attachFileList[].fileId       | 	Integer      | File ID                                                                                                                                                                                |
-| body.data[].attachFileList[].filePath     | 	String       | Path of file saving (for internal purpose)                                                                                                                                             |
-| body.data[].attachFileList[].fileName     | 	String       | File name                                                                                                                                                                              |
-| body.data[].attachFileList[].saveFileName | 	String       | 	Name of saved file                                                                                                                                                                    |
-| body.data[].attachFileList[].uploadType   | 	String       | 	Type of uploaded                                                                                                                                                                      |
+| Value                                     | Type          | Not Null | Description                                                                                                                                                                            |
+|-------------------------------------------|---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                                    | Object        | O        | Header area                                                                                                                                                                            |
+| header.isSuccessful                       | Boolean       | O        | Successful or not                                                                                                                                                                      |
+| header.resultCode                         | Integer       | O        | Failure code                                                                                                                                                                           |
+| header.resultMessage                      | String        | O        | Failure message                                                                                                                                                                        |
+| body                                      | Object        | X        | Body area                                                                                                                                                                              |
+| body.pageNum                              | Integer       | O        | Current page number                                                                                                                                                                    |
+| body.pageSize                             | Integer       | O        | Queried data count                                                                                                                                                                     |
+| body.totalCount                           | Integer       | O        | Total data count                                                                                                                                                                       |
+| body.data.requestId                       | String        | O        | Request ID                                                                                                                                                                             |
+| body.data.recipientSeq                    | Integer       | O        | Recipient sequence                                                                                                                                                                     |
+| body.data.requestDate                     | String        | O        | Date and time of sending                                                                                                                                                               |
+| body.data.sendNo                          | String        | O        | Sender number                                                                                                                                                                          |
+| body.data.recipientNo                     | String        | O        | Recipient number                                                                                                                                                                       |
+| body.data.countryCode                     | String        | O        | Country code                                                                                                                                                                           |
+| body.data.sendType                        | String        | O        | Delivery type (0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                               |
+| body.data.messageType                     | String        | O        | Message type <br/>(SMS,LMS,MMS,AUTH)                                                                                                                                                   |
+| body.data.adYn                            | String        | O        | Ad or not                                                                                                                                                                              |
+| body.data.templateId                      | String        | X        | Template ID                                                                                                                                                                            |
+| body.data.templateParameter               | String(json)  | X        | Template parameter                                                                                                                                                                     |
+| body.data.templateName                    | String        | X        | Template name                                                                                                                                                                          |
+| body.data.title                           | String        | X        | Title                                                                                                                                                                                  |
+| body.data.body                            | String        | O        | Body message                                                                                                                                                                           |
+| body.data.messageStatus                   | String        | O        | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
+| body.data.createUser                      | String        | X        | Registered user                                                                                                                                                                        |
+| body.data.createDate                      | String        | X        | Date of registration                                                                                                                                                                   |
+| body.data[].attachFileList[].fileId       | Integer       | O        | File ID                                                                                                                                                                                |
+| body.data[].attachFileList[].filePath     | String        | X        | Path of file saving (for internal purpose)                                                                                                                                             |
+| body.data[].attachFileList[].fileName     | String        | X        | File name                                                                                                                                                                              |
+| body.data[].attachFileList[].saveFileName | String        | X        | Name of saved file                                                                                                                                                                     |
+| body.data[].attachFileList[].uploadType   | String        | X        | Type of uploaded                                                                                                                                                                       |
 
 ### Cancel Scheduled Delivery
 
@@ -5264,13 +5376,15 @@ curl -X PUT \
 }
 ```
 
-| Value                    | Type     | Description                       |
-|--------------------------|----------|-----------------------------------|
-| header.isSuccessful      | 	Boolean | Successful or not                 |
-| header.resultCode        | 	Integer | Failure code                      |
-| header.resultMessage     | 	String  | Failure message                   |
-| body.data.requestedCount | 	Integer | Number of failed requests         |
-| body.data.canceledCount  | 	Integer | Number of successful cancellation |
+| Value                    | Type    | Not Null | Description                       |
+|--------------------------|---------|----------|-----------------------------------|
+| header                   | Object  | O        | Header area                       |
+| header.isSuccessful      | Boolean | O        | Successful or not                 |
+| header.resultCode        | Integer | O        | Failure code                      |
+| header.resultMessage     | String  | O        | Failure message                   |
+| body                     | Object  | X        | Body area                         |
+| body.data.requestedCount | Integer | O        | Number of failed requests         |
+| body.data.canceledCount  | Integer | O        | Number of successful cancellation |
 
 ### Cancel Scheduled Delivery - Multiple Filter
 
@@ -5388,14 +5502,16 @@ curl -X PUT \
 }
 ```
 
-| Value                             | Type     | Description                                                                                                                                                                                                    |
-|-----------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful               | 	Boolean | 	Successful or not                                                                                                                                                                                             |
-| header.resultCode                 | 	Integer | 	Failure code                                                                                                                                                                                                  |
-| header.resultMessage              | 	String  | 	Failure message                                                                                                                                                                                               |
-| body.data.reservationCancelId     | 	Integer | 	Schedule Cancellation ID                                                                                                                                                                                      |
-| body.data.requestedDateTime       | 	String  | 	Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss)                                                                                                                                                           |
-| body.data.reservationCancelStatus | 	String  | 	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
+| Value                             | Type    | Not Null | Description                                                                                                                                                                                                   |
+|-----------------------------------|---------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                            | Object  | O        | Header area                                                                                                                                                                                                   |
+| header.isSuccessful               | Boolean | O        | Successful or not                                                                                                                                                                                             |
+| header.resultCode                 | Integer | O        | Failure code                                                                                                                                                                                                  |
+| header.resultMessage              | String  | O        | Failure message                                                                                                                                                                                               |
+| body                              | Object  | X        | Body area                                                                                                                                                                                                     |
+| body.data.reservationCancelId     | Integer | O        | Schedule Cancellation ID                                                                                                                                                                                      |
+| body.data.requestedDateTime       | String  | O        | Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss)                                                                                                                                                           |
+| body.data.reservationCancelStatus | String  | O        | Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
 
 ### List Request of Scheduled Delivery Cancellation - Multiple Filter
 
@@ -5474,21 +5590,23 @@ curl -X GET \
 }
 ```
 
-| Value                               | Type                 | Description                                                                                                                                                                                                   |
-|-------------------------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                 | 	Boolean             | 	Successful or not                                                                                                                                                                                            |
-| header.resultCode                   | 	Integer             | 	Failure code                                                                                                                                                                                                 |
-| header.resultMessage                | 	String              | 	Failure message                                                                                                                                                                                              |
-| body.data[].reservationCancelId     | 	String              | 	 Schedule Cancellation ID                                                                                                                                                                                    |
-| body.data[].searchParameter         | 	Map<String, Object> | Request Parameter for Schedule Cancellation                                                                                                                                                                   |
-| body.data[].requestedDateTime       | 	String              | 	Request Time for Schedule Cancellation                                                                                                                                                                       |
-| body.data[].completedDateTime       | 	String              | 	Request End Time for Schedule Cancellation                                                                                                                                                                   |
-| body.data[].reservationCancelStatus | 	String              | 	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
-| body.data[].totalCount              | 	Integer             | Number of Scheduled Cancellation Targets                                                                                                                                                                      |
-| body.data[].successCount            | 	Integer             | Number of Successful Schedule Cancellation                                                                                                                                                                    |
-| body.data[].createUser              | 	String              | Requester of Scheduled Cancellation	                                                                                                                                                                          |
-| body.data[].createdDateTime         | 	String              | 	Request Creation Time for Schedule Cancellation                                                                                                                                                              |
-| body.data[].updatedDateTime         | 	String              | 	Modified Time for Scheduled Cancellation                                                                                                                                                                     |
+| Value                               | Type                 | Not Null | Description                                                             |
+|-------------------------------------|----------------------|----------|-------------------------------------------------------------------------|
+| header                              | Object               | O        | Header area                                                             |
+| header.isSuccessful                 | Boolean              | O        | Successful or not                                                       |
+| header.resultCode                   | Integer              | O        | Failure code                                                            |
+| header.resultMessage                | String               | O        | Failure message                                                         |
+| body                                | Object               | X        | Body area                                                               |
+| body.data[].reservationCancelId     | String               | O        | Schedule Cancellation ID                                                |
+| body.data[].searchParameter         | Map<String, Object>  | O        | Request Parameter for Schedule Cancellation                             |
+| body.data[].requestedDateTime       | String               | O        | Request Time for Schedule Cancellation                                  |
+| body.data[].completedDateTime       | String               | X        | Request End Time for Schedule Cancellation                              |
+| body.data[].reservationCancelStatus | String               | X        | Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
+| body.data[].totalCount              | Integer              | X        | Number of Scheduled Cancellation Targets                                |
+| body.data[].successCount            | Integer              | X        | Number of Successful Schedule Cancellation                              |
+| body.data[].createUser              | String               | X        | Requester of Scheduled Cancellation                                     |
+| body.data[].createdDateTime         | String               | X        | Request Creation Time for Schedule Cancellation                         |
+| body.data[].updatedDateTime         | String               | X        | Modified Time for Scheduled Cancellation                                |
 
 ## Download Delivery Result Files
 
@@ -5603,16 +5721,18 @@ curl -X POST \
 }
 ```
 
-| Value                        | Type     | Description                                                                                                                                                                              |
-|------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful          | 	Boolean | Successful or not                                                                                                                                                                        |
-| header.resultCode            | 	Integer | Failure code                                                                                                                                                                             |
-| header.resultMessage         | 	String  | Failure message                                                                                                                                                                          |
-| body.data.downloadId         | 	String  | Download ID                                                                                                                                                                              |
-| body.data.downloadType       | 	String  | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery                                                              |
-| body.data.fileType           | 	String  | File type (currently supports csv only)                                                                                                                                                  |
-| body.data.downloadStatusCode | 	String  | Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
-| body.data.expiredDate        | 	String  | 	Date and time of expiration for download period                                                                                                                                         |
+| Value                        | Type    | Not Null | Description                                                                                                                                                                              |
+|------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                       | Object  | O        | Header area                                                                                                                                                                              |
+| header.isSuccessful          | Boolean | O        | Successful or not                                                                                                                                                                        |
+| header.resultCode            | Integer | O        | Failure code                                                                                                                                                                             |
+| header.resultMessage         | String  | O        | Failure message                                                                                                                                                                          |
+| body                         | Object  | X        | Body area.                                                                                                                                                                               |
+| body.data.downloadId         | String  | O        | Download ID                                                                                                                                                                              |
+| body.data.downloadType       | String  | O        | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery                                                              |
+| body.data.fileType           | String  | X        | File type (currently supports csv only)                                                                                                                                                  |
+| body.data.downloadStatusCode | String  | O        | Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
+| body.data.expiredDate        | String  | X        | Date and time of expiration for download period                                                                                                                                          |
 
 ### Query Request History for Delivery Result of File Creation
 
@@ -5691,23 +5811,25 @@ curl -X GET \
 }
 ```
 
-| Value                          | Type     | Description                                                                                                                                                                              |
-|--------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful            | 	Boolean | Successful or not                                                                                                                                                                        |
-| header.resultCode              | 	Integer | Failure code                                                                                                                                                                             |
-| header.resultMessage           | 	String  | Failure message                                                                                                                                                                          |
-| body.totalCount                | Integer  | Total count                                                                                                                                                                              |
-| body.data[].downloadId         | String   | Download ID                                                                                                                                                                              |
-| body.data[].downloadType       | String   | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery                                                              |
-| body.data[].fileType           | String   | File type                                                                                                                                                                                |
-| body.data[].parameter          | String   | Request parameter                                                                                                                                                                        |
-| body.data[].size               | Integer  | Size of query data                                                                                                                                                                       |
-| body.data[].downloadStatusCode | String   | Status of file creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
-| body.data[].resultMessage      | String   | Result message (respond when it fails)                                                                                                                                                   |
-| body.data[].expiredDate        | String   | Date and time of file expiration                                                                                                                                                         |
-| body.data[].createUser         | String   | Requester for file creation                                                                                                                                                              |
-| body.data[].createDate         | String   | Date and time of request for file creation                                                                                                                                               |
-| body.data[].updateDate         | String   | Date and time of completion or failure of file creation                                                                                                                                  |
+| Value                          | Type    | Not Null | Description                                                                                                                                                                              |
+|--------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                         | Object  | O        | Header area                                                                                                                                                                              |
+| header.isSuccessful            | Boolean | O        | Successful or not                                                                                                                                                                        |
+| header.resultCode              | Integer | O        | Failure code                                                                                                                                                                             |
+| header.resultMessage           | String  | O        | Failure message                                                                                                                                                                          |
+| body                           | Object  | X        | Body area                                                                                                                                                                                |
+| body.totalCount                | Integer | O        | Total count                                                                                                                                                                              |
+| body.data[].downloadId         | String  | O        | Download ID                                                                                                                                                                              |
+| body.data[].downloadType       | String  | O        | Download type<br/>- BLOCK: Block receiving<br/>- NORMAL: General delivery<br/>- MASS: Mass delivery<br/>- TAG: Tag delivery                                                              |
+| body.data[].fileType           | String  | X        | File type                                                                                                                                                                                |
+| body.data[].parameter          | String  | X        | Request parameter                                                                                                                                                                        |
+| body.data[].size               | Integer | X        | Size of query data                                                                                                                                                                       |
+| body.data[].downloadStatusCode | String  | O        | Status of file creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
+| body.data[].resultMessage      | String  | X        | Result message (respond when it fails)                                                                                                                                                   |
+| body.data[].expiredDate        | String  | X        | Date and time of file expiration                                                                                                                                                         |
+| body.data[].createUser         | String  | O        | Requester for file creation                                                                                                                                                              |
+| body.data[].createDate         | String  | O        | Date and time of request for file creation                                                                                                                                               |
+| body.data[].updateDate         | String  | X        | Date and time of completion or failure of file creation                                                                                                                                  |
 
 ### Request for Downloading Delivery Result Files
 
@@ -5826,18 +5948,20 @@ curl -X GET \
 }
 ```
 
-| Value                   | 	Type    | 	Description                  |
-|-------------------------|----------|-------------------------------|
-| header.isSuccessful     | 	Boolean | 	Successful or not            |
-| header.resultCode       | 	Integer | 	Failure code                 |
-| header.resultMessage    | 	String  | 	Failure message              |
-| body.pageNum            | 	Integer | 	Page number                  |
-| body.pageSize           | 	Integer | 	Number of queries            |
-| body.totalCount         | 	Integer | 	Total data count             |
-| body.data[].tagId       | String   | Tag ID                        |
-| body.data[].tagName     | String   | Tag name                      |
-| body.data[].createdDate | String   | Date and time of creation     |
-| body.data[].tagId       | String   | Date and time of modification |
+| Value                   | Type    | Not Null | 	Description                  | 
+|-------------------------|---------|----------|-------------------------------|
+| header                  | Object  | O        | Header area                   |
+| header.isSuccessful     | Boolean | O        | Successful or not             |
+| header.resultCode       | Integer | O        | Failure code                  |
+| header.resultMessage    | String  | O        | Failure message               |
+| body                    | Object  | X        | Body area                     |
+| body.pageNum            | Integer | O        | Page number                   |
+| body.pageSize           | Integer | O        | Number of queries             |
+| body.totalCount         | Integer | O        | Total data count              |
+| body.data[].tagId       | String  | O        | Tag ID                        |
+| body.data[].tagName     | String  | X        | Tag name                      |
+| body.data[].createdDate | String  | O        | Date and time of creation     |
+| body.data[].tagId       | String  | O        | Date and time of modification |
 
 ### Register Tags
 
@@ -5907,12 +6031,14 @@ curl -X POST \
 }
 ```
 
-| Value                | 	Type    | 	Description       |
-|----------------------|----------|--------------------|
-| header.isSuccessful  | 	Boolean | 	Successful or not |
-| header.resultCode    | 	Integer | 	Failure code      |
-| header.resultMessage | 	String  | 	Failure message   |
-| body.data.tagId      | String   | Tag ID             |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
+| body                 | Object  | X        | Body area         |
+| body.data.tagId      | String  | O        | Tag ID            |
 
 ### Modify Tags
 
@@ -5979,11 +6105,12 @@ curl -X PUT \
 }
 ```
 
-| Value                | 	Type    | 	Description       |
-|----------------------|----------|--------------------|
-| header.isSuccessful  | 	Boolean | 	Successful or not |
-| header.resultCode    | 	Integer | 	Failure code      |
-| header.resultMessage | 	String  | 	Failure message   |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
 
 ### Delete Tags
 
@@ -6035,11 +6162,12 @@ curl -X DELETE \
 }
 ```
 
-| Value                | 	Type    | 	Description       |
-|----------------------|----------|--------------------|
-| header.isSuccessful  | 	Boolean | 	Successful or not |
-| header.resultCode    | 	Integer | 	Failure code      |
-| header.resultMessage | 	String  | 	Failure message   |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
 
 ## UID Management
 
@@ -6128,20 +6256,22 @@ curl -X GET \
 }
 ```
 
-| Value                                   | 	Type    | 	Description                      |
-|-----------------------------------------|----------|-----------------------------------|
-| header.isSuccessful                     | 	Boolean | 	Successful or not                |
-| header.resultCode                       | 	Integer | 	Failure code                     |
-| header.resultMessage                    | 	String  | 	Failure message                  |
-| body.data.uids[].uid                    | String   | UID                               |
-| body.data.uids[].tags[].tagId           | String   | Tag ID                            |
-| body.data.uids[].tags[].tagName         | String   | Tag name                          |
-| body.data.uids[].tags[].createdDate     | String   | Date and time of tag creation     |
-| body.data.uids[].tags[].updatedDate     | String   | Date and time of tag modification |
-| body.data.uids[].contacts[].contactType | String   | Contact type(PHONE_NUMBER)        |
-| body.data.uids[].contacts[].contact     | String   | Contact (phone number)            |
-| body.data.uids[].contacts[].createdDate | String   | Date and time of contact creation |
-| body.data.uids[].last                   | Boolean  | Last on list or not               |
+| Value                                   | Type     | Not Null | Description                       |
+|-----------------------------------------|----------|----------|-----------------------------------|
+| header                                  | Object   | O        | Header area                       |
+| header.isSuccessful                     | Boolean  | O        | Successful or not                 |
+| header.resultCode                       | Integer  | O        | Failure code                      |
+| header.resultMessage                    | String   | O        | Failure message                   |
+| body                                    | Object   | X        | Body area                         |
+| body.data.uids[].uid                    | String   | O        | UID                               |
+| body.data.uids[].tags[].tagId           | String   | O        | Tag ID                            |
+| body.data.uids[].tags[].tagName         | String   | X        | Tag name                          |
+| body.data.uids[].tags[].createdDate     | String   | O        | Date and time of tag creation     |
+| body.data.uids[].tags[].updatedDate     | String   | O        | Date and time of tag modification |
+| body.data.uids[].contacts[].contactType | String   | O        | Contact type(PHONE_NUMBER)        |
+| body.data.uids[].contacts[].contact     | String   | O        | Contact (phone number)            |
+| body.data.uids[].contacts[].createdDate | String   | O        | Date and time of contact creation |
+| body.data.uids[].last                   | Boolean  | X        | Last on list or not               |
 
 ### Get UIDs
 
@@ -6213,19 +6343,21 @@ curl -X GET \
 }
 ```
 
-| Value                            | 	Type    | 	Description                      |
-|----------------------------------|----------|-----------------------------------|
-| header.isSuccessful              | 	Boolean | 	Successful or not                |
-| header.resultCode                | 	Integer | 	Failure code                     |
-| header.resultMessage             | 	String  | 	Failure message                  |
-| body.data.uid                    | String   | UID                               |
-| body.data.tags[].tagId           | String   | Tag ID                            |
-| body.data.tags[].tagName         | String   | Tag name                          |
-| body.data.tags[].createdDate     | String   | Date and time of tag creation     |
-| body.data.tags[].updatedDate     | String   | Date and time of tag modification |
-| body.data.contacts[].contactType | String   | Contact type                      |
-| body.data.contacts[].contact     | String   | Contact(phone number)             |
-| body.data.contacts[].createdDate | String   | Date and time of contact creation |
+| Value                            | Type     | Not Null | Description                       |
+|----------------------------------|----------|----------|-----------------------------------|
+| header                           | Object   | O        | Header area                       |
+| header.isSuccessful              | Boolean  | O        | Successful or not                 |
+| header.resultCode                | Integer  | O        | Failure code                      |
+| header.resultMessage             | String   | O        | Failure message                   |
+| body                             | Object   | X        | Body area                         |
+| body.data.uid                    | String   | O        | UID                               |
+| body.data.tags[].tagId           | String   | O        | Tag ID                            |
+| body.data.tags[].tagName         | String   | X        | Tag name                          |
+| body.data.tags[].createdDate     | String   | O        | Date and time of tag creation     |
+| body.data.tags[].updatedDate     | String   | O        | Date and time of tag modification |
+| body.data.contacts[].contactType | String   | O        | Contact type                      |
+| body.data.contacts[].contact     | String   | O        | Contact(phone number)             |
+| body.data.contacts[].createdDate | String   | O        | Date and time of contact creation |
 
 ### Register UIDs
 
@@ -6323,11 +6455,12 @@ curl -X POST \
 }
 ```
 
-| Value                | 	Type    | 	Description       |
-|----------------------|----------|--------------------|
-| header.isSuccessful  | 	Boolean | 	Successful or not |
-| header.resultCode    | 	Integer | 	Failure code      |
-| header.resultMessage | 	String  | 	Failure message   |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
 
 ### Delete UIDs
 
@@ -6379,11 +6512,12 @@ curl -X DELETE \
 }
 ```
 
-| Value                | 	Type    | 	Description       |
-|----------------------|----------|--------------------|
-| header.isSuccessful  | 	Boolean | 	Successful or not |
-| header.resultCode    | 	Integer | 	Failure code      |
-| header.resultMessage | 	String  | 	Failure message   |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
 
 ### Register Phone Number
 
@@ -6450,11 +6584,12 @@ curl -X POST \
 }
 ```
 
-| Value                | 	Type    | 	Description       |
-|----------------------|----------|--------------------|
-| header.isSuccessful  | 	Boolean | 	Successful or not |
-| header.resultCode    | 	Integer | 	Failure code      |
-| header.resultMessage | 	String  | 	Failure message   |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
 
 ### Delete phone number
 
@@ -6507,8 +6642,9 @@ curl -X DELETE \
 }
 ```
 
-| Value                | 	Type    | 	Description       |
-|----------------------|----------|--------------------|
-| header.isSuccessful  | 	Boolean | 	Successful or not |
-| header.resultCode    | 	Integer | 	Failure code      |
-| header.resultMessage | 	String  | 	Failure message   |
+| Value                | Type    | Not Null | Description       |
+|--------------------- |---------|----------|-------------------|
+| header               | Object  | O        | Header area       |
+| header.isSuccessful  | Boolean | O        | Successful or not |
+| header.resultCode    | Integer | O        | Failure code      |
+| header.resultMessage | String  | O        | Failure message   |
