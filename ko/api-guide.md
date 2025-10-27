@@ -152,19 +152,21 @@ curl -X POST \
 }
 ```
 
-| 값                                               | 	타입      | 	설명                                 |
-|-------------------------------------------------|----------|-------------------------------------|
-| header.isSuccessful                             | 	Boolean | 	성공 여부                              |
-| header.resultCode                               | 	Integer | 	실패 코드                              |
-| header.resultMessage                            | 	String  | 	실패 메시지                             |
-| body.data.requestId                             | 	String  | 	요청 ID                              |
-| body.data.statusCode                            | 	String  | 	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패) |
-| body.data.senderGroupingKey                     | 	String  | 	발신자 그룹 키                           |
-| body.data.sendResultList[].recipientNo          | String   | 수신 번호                               |
-| body.data.sendResultList[].resultCode           | Integer  | 결과 코드                               |
-| body.data.sendResultList[].resultMessage        | String   | 결과 메시지                              |
-| body.data.sendResultList[].recipientSeq         | Integer  | 수신자 시퀀스(mtPr)                       |
-| body.data.sendResultList[].recipientGroupingKey | String   | 수신자 그룹 키                            |
+| 값                                               | 타입      | Not Null | 설명                                         |
+|-------------------------------------------------|----------|----------|---------------------------------------------|
+| header                                          | Object   | O        | 헤더 영역                                    |
+| header.isSuccessful                             | Boolean  | O        | 성공 여부                                    |
+| header.resultCode                               | Integer  | O        | 실패 코드                                    |
+| header.resultMessage                            | String   | O        | 실패 메시지                                   |
+| body                                            | Object   | X        | 본문 영역                                    |
+| body.data.requestId                             | String   | O        | 요청 ID                                     |
+| body.data.statusCode                            | String   | O        | 요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패) |
+| body.data.senderGroupingKey                     | String   | X        | 발신자 그룹 키                               |
+| body.data.sendResultList[].recipientNo          | String   | O        | 수신 번호                                   |
+| body.data.sendResultList[].resultCode           | Integer  | X        | 결과 코드                                   |
+| body.data.sendResultList[].resultMessage        | String   | X        | 결과 메시지                                 |
+| body.data.sendResultList[].recipientSeq         | Integer  | O        | 수신자 시퀀스(mtPr)                          |
+| body.data.sendResultList[].recipientGroupingKey | String   | X        | 수신자 그룹 키                               |
 
 #### 단문 SMS 발송 예제(일반 국내 수신 번호)
 
@@ -392,40 +394,42 @@ curl -X GET \
 }
 ```
 
-| 값                                | 	타입      | 	설명                                            |
-|----------------------------------|----------|------------------------------------------------|
-| header.isSuccessful              | 	Boolean | 	성공 여부                                         |
-| header.resultCode                | 	Integer | 	실패 코드                                         |
-| header.resultMessage             | 	String  | 	실패 메시지                                        |
-| body.pageNum                     | 	Integer | 	현재 페이지 번호                                     |
-| body.pageSize                    | 	Integer | 	검색된 데이터 수                                     |
-| body.totalCount                  | 	Integer | 	총 데이터 수                                       |
-| body.data[].requestId            | 	String  | 	요청 ID                                         |
-| body.data[].requestDate          | 	String  | 	발신 일시                                         |
-| body.data[].resultDate           | 	String  | 	수신 일시                                         |
-| body.data[].templateId           | 	String  | 	템플릿 ID                                        |
-| body.data[].templateName         | 	String  | 	템플릿명                                          |
-| body.data[].categoryId           | 	Integer | 	카테고리 ID                                       |
-| body.data[].categoryName         | 	String  | 	카테고리명                                         |
-| body.data[].body                 | 	String  | 	본문 내용                                         |
-| body.data[].sendNo               | 	String  | 	발신 번호                                         |
-| body.data[].countryCode          | 	String  | 	국가 번호                                         |
-| body.data[].recipientNo          | 	String  | 	수신 번호                                         |
-| body.data[].msgStatus            | 	String  | 	메시지 상태 코드                                     |
-| body.data[].msgStatusName        | 	String  | 	메시지 상태 코드명                                    |
-| body.data[].resultCode           | 	String  | 	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)] |
-| body.data[].resultCodeName       | 	String  | 	수신 결과 코드명                                     |
-| body.data[].telecomCode          | 	Integer | 	통신사 코드                                        |
-| body.data[].telecomCodeName      | 	String  | 	통신사명                                          |
-| body.data[].recipientSeq         | 	Integer | 	발송 상세 ID(상세 검색 시 필수)(구 mtPr)                  |
-| body.data[].sendType             | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)               |
-| body.data[].messageType          | 	String  | 	메시지 타입(SMS/LMS/MMS/AUTH)                      |
-| body.data[].messageCount         | Integer  | 발송된 메시지 건수                                     |
-| body.data[].userId               | 	String  | 	발송 요청 ID                                      |
-| body.data[].adYn                 | 	String  | 	광고 여부                                         |
-| body.data[].resultMessage        | 	String  | 	결과 메시지                                        |
-| body.data[].senderGroupingKey    | 	String  | 	발신자 그룹 키                                      |
-| body.data[].recipientGroupingKey | 	String  | 	수신자 그룹 키                                      |
+| 값                                | 타입     | Not Null | 설명                                            |
+|----------------------------------|---------|----------|------------------------------------------------|
+| header                           | Object  | O        | 헤더 영역                                        |
+| header.isSuccessful              | Boolean | O        | 성공 여부                                         |
+| header.resultCode                | Integer | O        | 실패 코드                                         |
+| header.resultMessage             | String  | O        | 실패 메시지                                        |
+| body                             | Object  | X        | 본문 영역                                         |
+| body.pageNum                     | Integer | O        | 현재 페이지 번호                                     |
+| body.pageSize                    | Integer | O        | 검색된 데이터 수                                     |
+| body.totalCount                  | Integer | O        | 총 데이터 수                                       |
+| body.data[].requestId            | String  | O        | 요청 ID                                         |
+| body.data[].requestDate          | String  | O        | 발신 일시                                         |
+| body.data[].resultDate           | String  | X        | 수신 일시                                         |
+| body.data[].templateId           | String  | X        | 템플릿 ID                                        |
+| body.data[].templateName         | String  | X        | 템플릿명                                          |
+| body.data[].categoryId           | Integer | X        | 카테고리 ID                                       |
+| body.data[].categoryName         | String  | X        | 카테고리명                                         |
+| body.data[].body                 | String  | O        | 본문 내용                                         |
+| body.data[].sendNo               | String  | O        | 발신 번호                                         |
+| body.data[].countryCode          | String  | O        | 국가 번호                                         |
+| body.data[].recipientNo          | String  | O        | 수신 번호                                         |
+| body.data[].msgStatus            | String  | O        | 메시지 상태 코드                                     |
+| body.data[].msgStatusName        | String  | O        | 메시지 상태 코드명                                    |
+| body.data[].resultCode           | String  | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)] |
+| body.data[].resultCodeName       | String  | X        | 수신 결과 코드명                                     |
+| body.data[].telecomCode          | Integer | X        | 통신사 코드                                        |
+| body.data[].telecomCodeName      | String  | X        | 통신사명                                          |
+| body.data[].recipientSeq         | Integer | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)                  |
+| body.data[].sendType             | String  | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)               |
+| body.data[].messageType          | String  | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                      |
+| body.data[].messageCount         | Integer | O        | 발송된 메시지 건수                                     |
+| body.data[].userId               | String  | X        | 발송 요청 ID                                      |
+| body.data[].adYn                 | String  | O        | 광고 여부                                         |
+| body.data[].resultMessage        | String  | X        | 결과 메시지                                        |
+| body.data[].senderGroupingKey    | String  | X        | 발신자 그룹 키                                      |
+| body.data[].recipientGroupingKey | String  | X        | 수신자 그룹 키                                      |
 
 ### 단문 SMS 발송 단일 검색
 
@@ -520,41 +524,43 @@ curl -X GET \
 }
 ```
 
-| 값                              | 	타입      | 	설명                                                             |
-|--------------------------------|----------|-----------------------------------------------------------------|
-| header.isSuccessful            | 	Boolean | 	성공 여부                                                          |
-| header.resultCode              | 	Integer | 	실패 코드                                                          |
-| header.resultMessage           | 	String  | 	실패 메시지                                                         |
-| body.data.requestId            | 	String  | 	요청 ID                                                          |
-| body.data.requestDate          | 	String  | 	발신 일시                                                          |
-| body.data.resultDate           | 	String  | 	수신 일시                                                          |
-| body.data.templateId           | 	String  | 	템플릿 ID                                                         |
-| body.data.templateName         | 	String  | 	템플릿명                                                           |
-| body.data.categoryId           | 	Integer | 	카테고리 ID                                                        |
-| body.data.categoryName         | 	String  | 	카테고리명                                                          |
-| body.data.body                 | 	String  | 	본문 내용                                                          |
-| body.data.sendNo               | 	String  | 	발신 번호                                                          |
-| body.data.countryCode          | 	String  | 	국가 번호                                                          |
-| body.data.recipientNo          | 	String  | 	수신 번호                                                          |
-| body.data.msgStatus            | 	String  | 	메시지 상태 코드                                                      |
-| body.data.msgStatusName        | 	String  | 	메시지 상태 코드명                                                     |
-| body.data.resultCode           | 	String  | 	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]                  |
-| body.data.resultCodeName       | 	String  | 	수신 결과 코드명                                                      |
-| body.data.telecomCode          | 	Integer | 	통신사 코드                                                         |
-| body.data.telecomCodeName      | 	String  | 	통신사명                                                           |
-| body.data.recipientSeq         | 	Integer | 	발송 상세 ID(상세 검색 시 필수)(구 mtPr)                                   |
-| body.data.sendType             | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                |
-| body.data.messageType          | 	String  | 	메시지 타입(SMS/LMS/MMS/AUTH)                                       |
-| body.data.messageCount         | 	Integer | 	발송된 메시지 건수                                                     |
-| body.data.userId               | 	String  | 	발송 요청 ID                                                       |
-| body.data.adYn                 | 	String  | 	광고 여부                                                          |
-| body.data.originCode           | String   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
-| body.data.resultMessage        | 	String  | 	결과 메시지                                                         |
-| body.data.senderGroupingKey    | 	String  | 	발신자 그룹 키                                                       |
-| body.data.recipientGroupingKey | 	String  | 	수신자 그룹 키                                                       |
-| body.data.dlr.dlrStatus        | 	String  | 	DLR 상태 코드                                                       |
-| body.data.dlr.networkCode      | 	String  | 	DLR 네트워크 코드                                                     |
-| body.data.dlr.errorCode        | 	String  | 	DLR 에러 코드                                                       |
+| 값                              | 타입        | Not Null | 설명                                                                  |
+|---------------------------------|-----------|----------|-----------------------------------------------------------------------|
+| header                          | Object    | O        | 헤더 영역                                                              |
+| header.isSuccessful             | Boolean   | O        | 성공 여부                                                             |
+| header.resultCode               | Integer   | O        | 실패 코드                                                             |
+| header.resultMessage            | String    | O        | 실패 메시지                                                           |
+| body                            | Object    | X        | 본문 영역                                                             |
+| body.data.requestId             | String    | O        | 요청 ID                                                               |
+| body.data.requestDate           | String    | O        | 발신 일시                                                             |
+| body.data.resultDate            | String    | X        | 수신 일시                                                             |
+| body.data.templateId            | String    | X        | 템플릿 ID                                                             |
+| body.data.templateName          | String    | X        | 템플릿명                                                              |
+| body.data.categoryId            | Integer   | X        | 카테고리 ID                                                           |
+| body.data.categoryName          | String    | X        | 카테고리명                                                            |
+| body.data.body                  | String    | O        | 본문 내용                                                             |
+| body.data.sendNo                | String    | O        | 발신 번호                                                             |
+| body.data.countryCode           | String    | O        | 국가 번호                                                             |
+| body.data.recipientNo           | String    | O        | 수신 번호                                                             |
+| body.data.msgStatus             | String    | O        | 메시지 상태 코드                                                       |
+| body.data.msgStatusName         | String    | O        | 메시지 상태 코드명                                                     |
+| body.data.resultCode            | String    | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]              |
+| body.data.resultCodeName        | String    | X        | 수신 결과 코드명                                                       |
+| body.data.telecomCode           | Integer   | X        | 통신사 코드                                                           |
+| body.data.telecomCodeName       | String    | X        | 통신사명                                                              |
+| body.data.recipientSeq          | Integer   | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)                                |
+| body.data.sendType              | String    | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                   |
+| body.data.messageType           | String    | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                                          |
+| body.data.messageCount          | Integer   | O        | 발송된 메시지 건수                                                     |
+| body.data.userId                | String    | X        | 발송 요청 ID                                                          |
+| body.data.adYn                  | String    | O        | 광고 여부                                                             |
+| body.data.originCode            | String    | X        | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+| body.data.resultMessage         | String    | X        | 결과 메시지                                                           |
+| body.data.senderGroupingKey     | String    | X        | 발신자 그룹 키                                                         |
+| body.data.recipientGroupingKey  | String    | X        | 수신자 그룹 키                                                         |
+| body.data.dlr.dlrStatus         | String    | X        | DLR 상태 코드                                                         |
+| body.data.dlr.networkCode       | String    | X        | DLR 네트워크 코드                                                      |
+| body.data.dlr.errorCode         | String    | X        | DLR 에러 코드                                                         |
 
 ### 단문 SMS 국제 발송 전환
 
@@ -628,11 +634,12 @@ curl -X POST \
 }
 ```
 
-| 값                    | 타입      | 설명     |
-|----------------------|---------|--------|
-| header.isSuccessful  | Boolean | 성공 여부  |
-| header.resultCode    | Integer | 실패 코드  |
-| header.resultMessage | String  | 실패 메시지 |
+| 값                    | 타입        | Not Null | 설명      |
+|-----------------------|-----------|----------|-----------|
+| header                | Object    | O        | 헤더 영역 |
+| header.isSuccessful   | Boolean   | O        | 성공 여부 |
+| header.resultCode     | Integer   | O        | 실패 코드 |
+| header.resultMessage  | String    | O        | 실패 메시지|
 
 ## 장문 MMS
 
@@ -763,19 +770,21 @@ curl -X POST \
 }
 ```
 
-| 값                                               | 	타입      | 	설명                                 |
-|-------------------------------------------------|----------|-------------------------------------|
-| header.isSuccessful                             | 	Boolean | 	성공 여부                              |
-| header.resultCode                               | 	Integer | 	실패 코드                              |
-| header.resultMessage                            | 	String  | 	실패 메시지                             |
-| body.data.requestId                             | 	String  | 	요청 ID                              |
-| body.data.statusCode                            | 	String  | 	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패) |
-| body.data.senderGroupingKey                     | 	String  | 	발신자 그룹 키                           |
-| body.data.sendResultList[].recipientNo          | String   | 수신 번호                               |
-| body.data.sendResultList[].resultCode           | Integer  | 결과 코드                               |
-| body.data.sendResultList[].resultMessage        | String   | 결과 메시지                              |
-| body.data.sendResultList[].recipientSeq         | Integer  | 수신자 시퀀스(mtPr)                       |
-| body.data.sendResultList[].recipientGroupingKey | String   | 수신자 그룹 키                            |
+| 값                                               | 타입       | Not Null | 설명                                      |
+|-------------------------------------------------|-----------|----------|-------------------------------------------|
+| header                                          | Object    | O        | 헤더 영역                                 |
+| header.isSuccessful                             | Boolean   | O        | 성공 여부                                 |
+| header.resultCode                               | Integer   | O        | 실패 코드                                 |
+| header.resultMessage                            | String    | O        | 실패 메시지                               |
+| body                                            | Object    | X        | 본문 영역                                 |
+| body.data.requestId                             | String    | O        | 요청 ID                                   |
+| body.data.statusCode                            | String    | O        | 요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패) |
+| body.data.senderGroupingKey                     | String    | X        | 발신자 그룹 키                            |
+| body.data.sendResultList[].recipientNo          | String    | O        | 수신 번호                                 |
+| body.data.sendResultList[].resultCode           | Integer   | X        | 결과 코드                                 |
+| body.data.sendResultList[].resultMessage        | String    | X        | 결과 메시지                               |
+| body.data.sendResultList[].recipientSeq         | Integer   | O        | 수신자 시퀀스(mtPr)                       |
+| body.data.sendResultList[].recipientGroupingKey | String    | X        | 수신자 그룹 키                            |
 
 #### 장문 MMS 발송 예제
 
@@ -1029,46 +1038,47 @@ curl -X GET \
 }
 ```
 
-| 값                                         | 	타입      | 	설명                                            |
-|-------------------------------------------|----------|------------------------------------------------|
-| header.isSuccessful                       | 	Boolean | 	성공 여부                                         |
-| header.resultCode                         | 	Integer | 	실패 코드                                         |
-| header.resultMessage                      | 	String  | 	실패 메시지                                        |
-| body                                      | 	Object  | 	본문 영역                                         |
-| body.pageNum                              | 	Integer | 	현재 페이지 번호                                     |
-| body.pageSize                             | 	Integer | 	검색된 데이터 수                                     |
-| body.totalCount                           | 	Integer | 	총 데이터 수                                       |
-| body.data[].requestId                     | 	String  | 	요청 ID                                         |
-| body.data[].requestDate                   | 	String  | 	발신 일시                                         |
-| body.data[].resultDate                    | 	String  | 	수신 일시                                         |
-| body.data[].templateId                    | 	String  | 	템플릿 ID                                        |
-| body.data[].templateName                  | 	String  | 	템플릿명                                          |
-| body.data[].categoryId                    | 	Integer | 	카테고리 ID                                       |
-| body.data[].categoryName                  | 	String  | 	카테고리명                                         |
-| body.data[].body                          | 	String  | 	본문 내용                                         |
-| body.data[].sendNo                        | 	String  | 	발신 번호                                         |
-| body.data[].countryCode                   | 	String  | 	국가 번호                                         |
-| body.data[].recipientNo                   | 	String  | 	수신 번호                                         |
-| body.data[].msgStatus                     | 	String  | 	메시지 상태 코드                                     |
-| body.data[].msgStatusName                 | 	String  | 	메시지 상태 코드명                                    |
-| body.data[].resultCode                    | 	String  | 	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)] |
-| body.data[].resultCodeName                | 	String  | 	수신 결과 코드명                                     |
-| body.data[].telecomCode                   | 	Integer | 	통신사 코드                                        |
-| body.data[].telecomCodeName               | 	String  | 	통신사명                                          |
-| body.data[].recipientSeq                  | 	Integer | 	발송 상세 ID(상세 검색 시 필수)(구 mtPr)                  |
-| body.data[].sendType                      | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)               |
-| body.data[].messageType                   | 	String  | 	메시지 타입(SMS/LMS/MMS/AUTH)                      |
-| body.data[].messageCount                  | Integer  | 발송된 메시지 건수                                     |
-| body.data[].userId                        | 	String  | 	발송 요청 ID                                      |
-| body.data[].adYn                          | 	String  | 	광고 여부                                         |
-| body.data[].attachFileList[].fileId       | 	Integer | 	파일 ID                                         |
-| body.data[].attachFileList[].filePath     | 	String  | 	파일 저장경로(내부용)                                  |
-| body.data[].attachFileList[].filename     | 	String  | 	파일명                                           |
-| body.data[].attachFileList[].saveFileName | 	String  | 	저장된 첨부파일명                                     |
-| body.data[].attachFileList[].uploadType   | 	String  | 	업로드 타입                                        |
-| body.data[].resultMessage                 | 	String  | 	결과 메시지                                        |
-| body.data[].senderGroupingKey             | 	String  | 	발신자 그룹 키                                      |
-| body.data[].recipientGroupingKey          | 	String  | 	수신자 그룹 키                                      |
+| 값                                         | 타입        | Not Null | 설명                                            |
+|--------------------------------------------|-----------|----------|------------------------------------------------|
+| header                                     | Object    | O        | 헤더 영역                                      |
+| header.isSuccessful                        | Boolean   | O        | 성공 여부                                      |
+| header.resultCode                          | Integer   | O        | 실패 코드                                      |
+| header.resultMessage                       | String    | O        | 실패 메시지                                    |
+| body                                       | Object    | X        | 본문 영역                                     |
+| body.pageNum                               | Integer   | O        | 현재 페이지 번호                               |
+| body.pageSize                              | Integer   | O        | 검색된 데이터 수                               |
+| body.totalCount                            | Integer   | O        | 총 데이터 수                                   |
+| body.data[].requestId                      | String    | O        | 요청 ID                                        |
+| body.data[].requestDate                    | String    | O        | 발신 일시                                      |
+| body.data[].resultDate                     | String    | X        | 수신 일시                                      |
+| body.data[].templateId                     | String    | X        | 템플릿 ID                                      |
+| body.data[].templateName                   | String    | X        | 템플릿명                                       |
+| body.data[].categoryId                     | Integer   | X        | 카테고리 ID                                    |
+| body.data[].categoryName                   | String    | X        | 카테고리명                                     |
+| body.data[].body                           | String    | O        | 본문 내용                                      |
+| body.data[].sendNo                         | String    | O        | 발신 번호                                      |
+| body.data[].countryCode                    | String    | O        | 국가 번호                                      |
+| body.data[].recipientNo                    | String    | O        | 수신 번호                                      |
+| body.data[].msgStatus                      | String    | O        | 메시지 상태 코드                               |
+| body.data[].msgStatusName                  | String    | O        | 메시지 상태 코드명                             |
+| body.data[].resultCode                     | String    | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)] |
+| body.data[].resultCodeName                 | String    | X        | 수신 결과 코드명                               |
+| body.data[].telecomCode                    | Integer   | X        | 통신사 코드                                    |
+| body.data[].telecomCodeName                | String    | X        | 통신사명                                       |
+| body.data[].recipientSeq                   | Integer   | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)       |
+| body.data[].sendType                       | String    | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)           |
+| body.data[].messageType                    | String    | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                  |
+| body.data[].messageCount                   | Integer   | O        | 발송된 메시지 건수                             |
+| body.data[].userId                         | String    | X        | 발송 요청 ID                                   |
+| body.data[].adYn                           | String    | O        | 광고 여부                                      |
+| body.data[].attachFileList[].fileId        | Integer   | O        | 파일 ID                                        |
+| body.data[].attachFileList[].filePath      | String    | X        | 파일 저장경로(내부용)                          |
+| body.data[].attachFileList[].filename      | String    | X        | 파일명                                         |
+| body.data[].attachFileList[].saveFileName  | String    | X        | 저장된 첨부파일명                              |
+| body.data[].attachFileList[].uploadType    | String    | X        | 업로드 타입                                    |
+| body.data[].resultMessage                  | String    | X        | 결과 메시지                                    |
+| body.data[].senderGroupingKey              | String    | X        | 발신자 그룹 키                                 |
+| body.data[].recipientGroupingKey           | String    | X        | 수신자 그룹 키                                 |
 
 ### 장문 MMS 발송 단일 검색
 
@@ -1166,46 +1176,47 @@ curl -X GET \
 }
 ```
 
-| 값                                       | 	타입      | 	설명                                                             |
-|-----------------------------------------|----------|-----------------------------------------------------------------|
-| header.isSuccessful                     | 	Boolean | 	성공 여부                                                          |
-| header.resultCode                       | 	Integer | 	실패 코드                                                          |
-| header.resultMessage                    | 	String  | 	실패 메시지                                                         |
-| body                                    | 	Object  | 	본문 영역                                                          |
-| body.pageNum                            | 	Integer | 	현재 페이지 번호                                                      |
-| body.pageSize                           | 	Integer | 	검색된 데이터 수                                                      |
-| body.totalCount                         | 	Integer | 	총 데이터 수                                                        |
-| body.data.requestId                     | 	String  | 	요청 ID                                                          |
-| body.data.requestDate                   | 	String  | 	발신 일시                                                          |
-| body.data.resultDate                    | 	String  | 	수신 일시                                                          |
-| body.data.templateId                    | 	String  | 	템플릿 ID                                                         |
-| body.data.templateName                  | 	String  | 	템플릿명                                                           |
-| body.data.categoryId                    | 	Integer | 	카테고리 ID                                                        |
-| body.data.categoryName                  | 	String  | 	카테고리명                                                          |
-| body.data.body                          | 	String  | 	본문 내용                                                          |
-| body.data.sendNo                        | 	String  | 	발신 번호                                                          |
-| body.data.countryCode                   | 	String  | 	국가 번호                                                          |
-| body.data.recipientNo                   | 	String  | 	수신 번호                                                          |
-| body.data.msgStatus                     | 	String  | 	메시지 상태 코드                                                      |
-| body.data.msgStatusName                 | 	String  | 	메시지 상태 코드명                                                     |
-| body.data.resultCode                    | 	String  | 	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]                  |
-| body.data.resultCodeName                | 	String  | 	수신 결과 코드명                                                      |
-| body.data.telecomCode                   | 	Integer | 	통신사 코드                                                         |
-| body.data.telecomCodeName               | 	String  | 	통신사명                                                           |
-| body.data.recipientSeq                  | 	Integer | 	발송 상세 ID(상세 검색 시 필수)                                           |
-| body.data.sendType                      | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                |
-| body.data.messageType                   | 	String  | 	메시지 타입(SMS/LMS/MMS/AUTH)                                       |
-| body.data.userId                        | 	String  | 	발송 요청 ID                                                       |
-| body.data.adYn                          | 	String  | 	광고 여부                                                          |
-| body.data.originCode                    | String   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
-| body.data.attachFileList[].fileId       | 	Integer | 	파일 ID                                                          |
-| body.data.attachFileList[].filePath     | 	String  | 	파일 저장경로(내부용)                                                   |
-| body.data.attachFileList[].filename     | 	String  | 	파일명                                                            |
-| body.data.attachFileList[].saveFileName | 	String  | 	저장된 첨부파일명                                                      |
-| body.data.attachFileList[].uploadType   | 	String  | 	업로드 타입                                                         |
-| body.data.resultMessage                 | 	String  | 	결과 메시지                                                         |
-| body.data.senderGroupingKey             | 	String  | 	발신자 그룹 키                                                       |
-| body.data.recipientGroupingKey          | 	String  | 	수신자 그룹 키                                                       |
+| 값                                       | 타입      | Not Null | 설명                                                               |
+|-----------------------------------------|----------|----------|--------------------------------------------------------------------|
+| header                                  | Object   | O        | 헤더 영역                                                           |
+| header.isSuccessful                     | Boolean  | O        | 성공 여부                                                          |
+| header.resultCode                       | Integer  | O        | 실패 코드                                                          |
+| header.resultMessage                    | String   | O        | 실패 메시지                                                        |
+| body                                    | Object   | X        | 본문 영역                                                        |
+| body.pageNum                            | Integer  | O        | 현재 페이지 번호                                                   |
+| body.pageSize                           | Integer  | O        | 검색된 데이터 수                                                   |
+| body.totalCount                         | Integer  | O        | 총 데이터 수                                                       |
+| body.data.requestId                     | String   | O        | 요청 ID                                                           |
+| body.data.requestDate                   | String   | O        | 발신 일시                                                          |
+| body.data.resultDate                    | String   | X        | 수신 일시                                                          |
+| body.data.templateId                    | String   | X        | 템플릿 ID                                                         |
+| body.data.templateName                  | String   | X        | 템플릿명                                                          |
+| body.data.categoryId                    | Integer  | X        | 카테고리 ID                                                       |
+| body.data.categoryName                  | String   | X        | 카테고리명                                                        |
+| body.data.body                          | String   | O        | 본문 내용                                                          |
+| body.data.sendNo                        | String   | O        | 발신 번호                                                          |
+| body.data.countryCode                   | String   | O        | 국가 번호                                                          |
+| body.data.recipientNo                   | String   | O        | 수신 번호                                                          |
+| body.data.msgStatus                     | String   | O        | 메시지 상태 코드                                                   |
+| body.data.msgStatusName                 | String   | O        | 메시지 상태 코드명                                                 |
+| body.data.resultCode                    | String   | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]         |
+| body.data.resultCodeName                | String   | X        | 수신 결과 코드명                                                   |
+| body.data.telecomCode                   | Integer  | X        | 통신사 코드                                                        |
+| body.data.telecomCodeName               | String   | X        | 통신사명                                                          |
+| body.data.recipientSeq                  | Integer  | O        | 발송 상세 ID(상세 검색 시 필수)                                   |
+| body.data.sendType                      | String   | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                              |
+| body.data.messageType                   | String   | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                                     |
+| body.data.userId                        | String   | X        | 발송 요청 ID                                                      |
+| body.data.adYn                          | String   | O        | 광고 여부                                                          |
+| body.data.originCode                    | String   | X        | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+| body.data.attachFileList[].fileId       | Integer  | O        | 파일 ID                                                           |
+| body.data.attachFileList[].filePath     | String   | X        | 파일 저장경로(내부용)                                             |
+| body.data.attachFileList[].filename     | String   | X        | 파일명                                                            |
+| body.data.attachFileList[].saveFileName | String   | X        | 저장된 첨부파일명                                                  |
+| body.data.attachFileList[].uploadType   | String   | X        | 업로드 타입                                                        |
+| body.data.resultMessage                 | String   | X        | 결과 메시지                                                        |
+| body.data.senderGroupingKey             | String   | X        | 발신자 그룹 키                                                     |
+| body.data.recipientGroupingKey          | String   | X        | 수신자 그룹 키                                                     |
 
 ## 인증용 SMS(긴급)
 
@@ -1343,19 +1354,21 @@ curl -X POST \
 }
 ```
 
-| 값                                               | 	타입      | 	설명                                 |
-|-------------------------------------------------|----------|-------------------------------------|
-| header.isSuccessful                             | 	Boolean | 	성공 여부                              |
-| header.resultCode                               | 	Integer | 	실패 코드                              |
-| header.resultMessage                            | 	String  | 	실패 메시지                             |
-| body.data.requestId                             | 	String  | 	요청 ID                              |
-| body.data.statusCode                            | 	String  | 	요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패) |
-| body.data.senderGroupingKey                     | 	String  | 	발신자 그룹 키                           |
-| body.data.sendResultList[].recipientNo          | String   | 수신 번호                               |
-| body.data.sendResultList[].resultCode           | Integer  | 결과 코드                               |
-| body.data.sendResultList[].resultMessage        | String   | 결과 메시지                              |
-| body.data.sendResultList[].recipientSeq         | Integer  | 수신자 시퀀스(mtPr)                       |
-| body.data.sendResultList[].recipientGroupingKey | String   | 수신자 그룹 키                            |
+| 값                                               | 타입      | Not Null | 설명                                      |
+|-------------------------------------------------|-----------|----------|-------------------------------------------|
+| header                                          | Object    | O        | 헤더 영역                                 |
+| header.isSuccessful                             | Boolean   | O        | 성공 여부                                 |
+| header.resultCode                               | Integer   | O        | 실패 코드                                 |
+| header.resultMessage                            | String    | O        | 실패 메시지                               |
+| body                                            | Object    | X        | 본문 영역                                 |
+| body.data.requestId                             | String    | O        | 요청 ID                                   |
+| body.data.statusCode                            | String    | O        | 요청 상태 코드(1:요청 중, 2:요청 완료, 3:요청 실패) |
+| body.data.senderGroupingKey                     | String    | X        | 발신자 그룹 키                            |
+| body.data.sendResultList[].recipientNo          | String    | O        | 수신 번호                                 |
+| body.data.sendResultList[].resultCode           | Integer   | X        | 결과 코드                                 |
+| body.data.sendResultList[].resultMessage        | String    | X        | 결과 메시지                               |
+| body.data.sendResultList[].recipientSeq         | Integer   | O        | 수신자 시퀀스(mtPr)                       |
+| body.data.sendResultList[].recipientGroupingKey | String    | X        | 수신자 그룹 키                            |
 
 #### 예제
 
@@ -1531,40 +1544,42 @@ curl -X GET \
 }
 ```
 
-| 값                                | 	타입      | 	설명                                            |
-|----------------------------------|----------|------------------------------------------------|
-| header.isSuccessful              | 	Boolean | 	성공 여부                                         |
-| header.resultCode                | 	Integer | 	실패 코드                                         |
-| header.resultMessage             | 	String  | 	실패 메시지                                        |
-| body.pageNum                     | 	Integer | 	현재 페이지 번호                                     |
-| body.pageSize                    | 	Integer | 	검색된 데이터 수                                     |
-| body.totalCount                  | 	Integer | 	총 데이터 수                                       |
-| body.data[].requestId            | 	String  | 	요청 ID                                         |
-| body.data[].requestDate          | 	String  | 	발신 일시                                         |
-| body.data[].resultDate           | 	String  | 	수신 일시                                         |
-| body.data[].templateId           | 	String  | 	템플릿 ID                                        |
-| body.data[].templateName         | 	String  | 	템플릿명                                          |
-| body.data[].categoryId           | 	Integer | 	카테고리 ID                                       |
-| body.data[].categoryName         | 	String  | 	카테고리명                                         |
-| body.data[].body                 | 	String  | 	본문 내용                                         |
-| body.data[].sendNo               | 	String  | 	발신 번호                                         |
-| body.data[].countryCode          | 	String  | 	국가 번호                                         |
-| body.data[].recipientNo          | 	String  | 	수신 번호                                         |
-| body.data[].msgStatus            | 	String  | 	메시지 상태 코드                                     |
-| body.data[].msgStatusName        | 	String  | 	메시지 상태 코드명                                    |
-| body.data[].resultCode           | 	String  | 	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)] |
-| body.data[].resultCodeName       | 	String  | 	수신 결과 코드명                                     |
-| body.data[].telecomCode          | 	Integer | 	통신사 코드                                        |
-| body.data[].telecomCodeName      | 	String  | 	통신사명                                          |
-| body.data[].recipientSeq         | 	Integer | 	발송 상세 ID(상세 검색 시 필수)(구 mtPr)                  |
-| body.data[].sendType             | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)               |
-| body.data[].messageType          | 	String  | 	메시지 타입(SMS/LMS/MMS/AUTH)                      |
-| body.data[].messageCount         | 	Integer | 	발송된 메시지 건수                                    |
-| body.data[].userId               | 	String  | 	발송 요청 ID                                      |
-| body.data[].adYn                 | 	String  | 	광고 여부                                         |
-| body.data[].resultMessage        | 	String  | 	결과 메시지                                        |
-| body.data[].senderGroupingKey    | 	String  | 	발신자 그룹 키                                      |
-| body.data[].recipientGroupingKey | 	String  | 	수신자 그룹 키                                      |
+| 값                                | 타입       | Not Null | 설명                                              |
+|----------------------------------|-----------|----------|---------------------------------------------------|
+| header                           | Object    | O        | 헤더 영역                                          |
+| header.isSuccessful              | Boolean   | O        | 성공 여부                                         |
+| header.resultCode                | Integer   | O        | 실패 코드                                         |
+| header.resultMessage             | String    | O        | 실패 메시지                                        |
+| body                             | Object    | X        | 본문 영역                                        |
+| body.pageNum                     | Integer   | O        | 현재 페이지 번호                                   |
+| body.pageSize                    | Integer   | O        | 검색된 데이터 수                                   |
+| body.totalCount                  | Integer   | O        | 총 데이터 수                                       |
+| body.data[].requestId            | String    | O        | 요청 ID                                           |
+| body.data[].requestDate          | String    | O        | 발신 일시                                         |
+| body.data[].resultDate           | String    | X        | 수신 일시                                         |
+| body.data[].templateId           | String    | X        | 템플릿 ID                                         |
+| body.data[].templateName         | String    | X        | 템플릿명                                          |
+| body.data[].categoryId           | Integer   | X        | 카테고리 ID                                       |
+| body.data[].categoryName         | String    | X        | 카테고리명                                         |
+| body.data[].body                 | String    | O        | 본문 내용                                         |
+| body.data[].sendNo               | String    | O        | 발신 번호                                         |
+| body.data[].countryCode          | String    | O        | 국가 번호                                         |
+| body.data[].recipientNo          | String    | O        | 수신 번호                                         |
+| body.data[].msgStatus            | String    | O        | 메시지 상태 코드                                   |
+| body.data[].msgStatusName        | String    | O        | 메시지 상태 코드명                                 |
+| body.data[].resultCode           | String    | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)] |
+| body.data[].resultCodeName       | String    | X        | 수신 결과 코드명                                   |
+| body.data[].telecomCode          | Integer   | X        | 통신사 코드                                        |
+| body.data[].telecomCodeName      | String    | X        | 통신사명                                          |
+| body.data[].recipientSeq         | Integer   | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)           |
+| body.data[].sendType             | String    | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)               |
+| body.data[].messageType          | String    | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                      |
+| body.data[].messageCount         | Integer   | O        | 발송된 메시지 건수                                 |
+| body.data[].userId               | String    | X        | 발송 요청 ID                                      |
+| body.data[].adYn                 | String    | O        | 광고 여부                                         |
+| body.data[].resultMessage        | String    | X        | 결과 메시지                                        |
+| body.data[].senderGroupingKey    | String    | X        | 발신자 그룹 키                                    |
+| body.data[].recipientGroupingKey | String    | X        | 수신자 그룹 키                                    |
 
 ### 인증용 SMS 발송 단일 검색
 
@@ -1659,41 +1674,43 @@ curl -X GET \
 }
 ```
 
-| 값                              | 	타입      | 	설명                                                             |
-|--------------------------------|----------|-----------------------------------------------------------------|
-| header.isSuccessful            | 	Boolean | 	성공 여부                                                          |
-| header.resultCode              | 	Integer | 	실패 코드                                                          |
-| header.resultMessage           | 	String  | 	실패 메시지                                                         |
-| body.data.requestId            | 	String  | 	요청 ID                                                          |
-| body.data.requestDate          | 	String  | 	발신 일시                                                          |
-| body.data.resultDate           | 	String  | 	수신 일시                                                          |
-| body.data.templateId           | 	String  | 	템플릿 ID                                                         |
-| body.data.templateName         | 	String  | 	템플릿명                                                           |
-| body.data.categoryId           | 	Integer | 	카테고리 ID                                                        |
-| body.data.categoryName         | 	String  | 	카테고리명                                                          |
-| body.data.body                 | 	String  | 	본문 내용                                                          |
-| body.data.sendNo               | 	String  | 	발신 번호                                                          |
-| body.data.countryCode          | 	String  | 	국가 번호                                                          |
-| body.data.recipientNo          | 	String  | 	수신 번호                                                          |
-| body.data.msgStatus            | 	String  | 	메시지 상태 코드                                                      |
-| body.data.msgStatusName        | 	String  | 	메시지 상태 코드명                                                     |
-| body.data.resultCode           | 	String  | 	수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]                  |
-| body.data.resultCodeName       | 	String  | 	수신 결과 코드명                                                      |
-| body.data.telecomCode          | 	Integer | 	통신사 코드                                                         |
-| body.data.telecomCodeName      | 	String  | 	통신사명                                                           |
-| body.data.recipientSeq         | 	Integer | 	발송 상세 ID(상세 검색 시 필수)(구 mtPr)                                   |
-| body.data.sendType             | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                |
-| body.data.messageType          | 	String  | 	메시지 타입(SMS/LMS/MMS/AUTH)                                       |
-| body.data.messageCount         | Integer  | 발송된 메시지 건수                                                      |
-| body.data.userId               | 	String  | 	발송 요청 ID                                                       |
-| body.data.adYn                 | 	String  | 	광고 여부                                                          |
-| body.data.originCode           | String   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
-| body.data.resultMessage        | 	String  | 	결과 메시지                                                         |
-| body.data.senderGroupingKey    | 	String  | 	발신자 그룹 키                                                       |
-| body.data.recipientGroupingKey | 	String  | 	수신자 그룹 키                                                       |
-| body.data.dlr.dlrStatus        | String   | DLR 상태 코드                                                         |
-| body.data.dlr.networkCode      | String   | DLR 네트워크 코드                                                      |
-| body.data.dlr.errorCode        | String   | DLR 에러 코드                                                         |
+| 값                              | 타입     | Not Null | 설명                                                                                   |
+|--------------------------------|---------|----------|----------------------------------------------------------------------------------------|
+| header                         | Object  | O        | 헤더 영역                                                                               |
+| header.isSuccessful            | Boolean | O        | 성공 여부                                                                              |
+| header.resultCode              | Integer | O        | 실패 코드                                                                              |
+| header.resultMessage           | String  | O        | 실패 메시지                                                                             |
+| body                           | Object  | X        | 본문 영역                                                                              |
+| body.data.requestId            | String  | O        | 요청 ID                                                                                |
+| body.data.requestDate          | String  | O        | 발신 일시                                                                              |
+| body.data.resultDate           | String  | X        | 수신 일시                                                                              |
+| body.data.templateId           | String  | X        | 템플릿 ID                                                                             |
+| body.data.templateName         | String  | X        | 템플릿명                                                                               |
+| body.data.categoryId           | Integer | X        | 카테고리 ID                                                                            |
+| body.data.categoryName         | String  | X        | 카테고리명                                                                              |
+| body.data.body                 | String  | O        | 본문 내용                                                                              |
+| body.data.sendNo               | String  | O        | 발신 번호                                                                              |
+| body.data.countryCode          | String  | O        | 국가 번호                                                                              |
+| body.data.recipientNo          | String  | O        | 수신 번호                                                                              |
+| body.data.msgStatus            | String  | O        | 메시지 상태 코드                                                                          |
+| body.data.msgStatusName        | String  | O        | 메시지 상태 코드명                                                                         |
+| body.data.resultCode           | String  | X        | 수신 결과 코드 [[수신 결과 코드표](./error-code/#emma-v3)]                                      |
+| body.data.resultCodeName       | String  | X        | 수신 결과 코드명                                                                          |
+| body.data.telecomCode          | Integer | X        | 통신사 코드                                                                             |
+| body.data.telecomCodeName      | String  | X        | 통신사명                                                                               |
+| body.data.recipientSeq         | Integer | O        | 발송 상세 ID(상세 검색 시 필수)(구 mtPr)                                                       |
+| body.data.sendType             | String  | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                    |
+| body.data.messageType          | String  | O        | 메시지 타입(SMS/LMS/MMS/AUTH)                                                           |
+| body.data.messageCount         | Integer | O        | 발송된 메시지 건수                                                                          |
+| body.data.userId               | String  | X        | 발송 요청 ID                                                                           |
+| body.data.adYn                 | String  | O        | 광고 여부                                                                              |
+| body.data.originCode           | String  | X        | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
+| body.data.resultMessage        | String  | X        | 결과 메시지                                                                             |
+| body.data.senderGroupingKey    | String  | X        | 발신자 그룹 키                                                                           |
+| body.data.recipientGroupingKey | String  | X        | 수신자 그룹 키                                                                           |
+| body.data.dlr.dlrStatus        | String  | X        | DLR 상태 코드                                                                           |
+| body.data.dlr.networkCode      | String  | X        | DLR 네트워크 코드                                                                        |
+| body.data.dlr.errorCode        | String  | X        | DLR 에러 코드                                                                           |
 
 ### 인증 SMS 국제 발송 전환
 
@@ -1767,11 +1784,12 @@ curl -X POST \
 }
 ```
 
-| 값                    | 타입      | 설명     |
-|----------------------|---------|--------|
-| header.isSuccessful  | Boolean | 성공 여부  |
-| header.resultCode    | Integer | 실패 코드  |
-| header.resultMessage | String  | 실패 메시지 |
+| 값                   | 타입     | Not Null | 설명      |
+|---------------------|---------|----------|-----------|
+| header              | Object  | O        | 헤더 영역  |
+| header.isSuccessful | Boolean | O        | 성공 여부  |
+| header.resultCode   | Integer | O        | 실패 코드  |
+| header.resultMessage| String  | O        | 실패 메시지 |
 
 ## 광고 문자
 
@@ -1983,11 +2001,12 @@ curl -X POST \
 }
 ```
 
-| 값                    | 타입      | 설명     |
-|----------------------|---------|--------|
-| header.isSuccessful  | Boolean | 성공 여부  |
-| header.resultCode    | Integer | 실패 코드  |
-| header.resultMessage | String  | 실패 메시지 |
+| 값                   | 타입      | Not Null | 설명    |
+|----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 ## 결과 업데이트 기준 메시지 검색
 
@@ -2077,23 +2096,25 @@ curl -X GET \
 }
 ```
 
-| 값                                                 | 	타입      | 	설명                               |
-|---------------------------------------------------|----------|-----------------------------------|
-| header.isSuccessful                               | 	Boolean | 	성공 여부                            |
-| header.resultCode                                 | 	Integer | 	실패 코드                            |
-| header.resultMessage                              | 	String  | 	실패 메시지                           |
-| body.data.resultUpdateList[].messageType          | String   | 메시지 타입(SMS/LMS/MMS/AUTH)          |
-| body.data.resultUpdateList[].requestId            | String   | 요청 ID                             |
-| body.data.resultUpdateList[].recipientSeq         | Integer  | 수신자 시퀀스                           |
-| body.data.resultUpdateList[].resultCode           | String   | 결과 코드                             |
-| body.data.resultUpdateList[].resultCodeName       | String   | 결과 코드명                            |
-| body.data.resultUpdateList[].requestDate          | String   | 요청 일시(yyyy-MM-dd HH:mm:ss.S)      |
-| body.data.resultUpdateList[].resultDate           | String   | 수신 일시(yyyy-MM-dd HH:mm:ss.S)      |
-| body.data.resultUpdateList[].updateDate           | String   | 결과 업데이트 일시(yyyy-MM-dd HH:mm:ss.S) |
-| body.data.resultUpdateList[].telecomCode          | String   | 통신사 코드                            |
-| body.data.resultUpdateList[].telecomCodeName      | String   | 통신사 코드명                           |
-| body.data.resultUpdateList[].senderGroupingKey    | String   | 발신자 그룹 키                          |
-| body.data.resultUpdateList[].recipientGroupingKey | String   | 수신자 그룹 키                          |
+| 값                                                 | 타입       | Not Null | 설명                                  |
+|----------------------------------------------------|----------|----------|---------------------------------------|
+| header                                             | Object   | O        | 헤더 영역                             |
+| header.isSuccessful                                | Boolean  | O        | 성공 여부                             |
+| header.resultCode                                  | Integer  | O        | 실패 코드                             |
+| header.resultMessage                               | String   | O        | 실패 메시지                           |
+| body                                               | Object   | X        | 본문 영역                            |
+| body.data.resultUpdateList[].messageType           | String   | O        | 메시지 타입(SMS/LMS/MMS/AUTH)         |
+| body.data.resultUpdateList[].requestId             | String   | O        | 요청 ID                               |
+| body.data.resultUpdateList[].recipientSeq          | Integer  | O        | 수신자 시퀀스                         |
+| body.data.resultUpdateList[].resultCode            | String   | X        | 결과 코드                             |
+| body.data.resultUpdateList[].resultCodeName        | String   | X        | 결과 코드명                           |
+| body.data.resultUpdateList[].requestDate           | String   | O        | 요청 일시(yyyy-MM-dd HH:mm:ss.S)      |
+| body.data.resultUpdateList[].resultDate            | String   | X        | 수신 일시(yyyy-MM-dd HH:mm:ss.S)      |
+| body.data.resultUpdateList[].updateDate            | String   | X        | 결과 업데이트 일시(yyyy-MM-dd HH:mm:ss.S) |
+| body.data.resultUpdateList[].telecomCode           | String   | X        | 통신사 코드                           |
+| body.data.resultUpdateList[].telecomCodeName       | String   | X        | 통신사 코드명                         |
+| body.data.resultUpdateList[].senderGroupingKey     | String   | X        | 발신자 그룹 키                        |
+| body.data.resultUpdateList[].recipientGroupingKey  | String   | X        | 수신자 그룹 키                        |
 
 ## 대량 발송
 
@@ -2185,24 +2206,26 @@ curl -X GET \
 }
 ```
 
-| 값                            | 	타입      | 	설명         |
-|------------------------------|----------|-------------|
-| header.isSuccessful          | 	Boolean | 	성공 여부      |
-| header.resultCode            | 	Integer | 	실패 코드      |
-| header.resultMessage         | 	String  | 	실패 메시지     |
-| body.data[].requestId        | String   | 요청 ID       |
-| body.data[].requestDate      | String   | 요청 시간       |
-| body.data[].masterStatusCode | String   | 대량 발송 상태 코드 |
-| body.data[].masterStatus     | String   | 대량 발송 상태    |
-| body.data[].templateId       | String   | 템플릿 ID      |
-| body.data[].sendNo           | String   | 발신자 번호      |
-| body.data[].title            | String   | 제목          |
-| body.data[].body             | String   | 내용          |
-| body.data[].adYn             | String   | 광고 여부       |
-| body.data[].autoSendYn       | String   | 자동 발송 여부    |
-| body.data[].sendErrorCount   | Integer  | 에러 수신자 건수   |
-| body.data[].createUser       | String   | 생성자         |
-| body.data[].createDate       | String   | 생성 일시       |
+| 값                            | 타입      | Not Null | 설명            |
+|------------------------------|----------|----------|----------------|
+| header                       | Object   | O        | 헤더 영역         |
+| header.isSuccessful          | Boolean  | O        | 성공 여부          |
+| header.resultCode            | Integer  | O        | 실패 코드          |
+| header.resultMessage         | String   | O        | 실패 메시지         |
+| body                         | Object   | X        | 본문 영역          |
+| body.data[].requestId        | String   | O        | 요청 ID          |
+| body.data[].requestDate      | String   | O        | 요청 시간          |
+| body.data[].masterStatusCode | String   | O        | 대량 발송 상태 코드    |
+| body.data[].masterStatus     | String   | X        | 대량 발송 상태       |
+| body.data[].templateId       | String   | X        | 템플릿 ID         |
+| body.data[].sendNo           | String   | O        | 발신자 번호         |
+| body.data[].title            | String   | X        | 제목             |
+| body.data[].body             | String   | O        | 내용             |
+| body.data[].adYn             | String   | X        | 광고 여부          |
+| body.data[].autoSendYn       | String   | O        | 자동 발송 여부       |
+| body.data[].sendErrorCount   | Integer  | X        | 에러 수신자 건수      |
+| body.data[].createUser       | String   | X        | 생성자            |
+| body.data[].createDate       | String   | O        | 생성 일시          |
 
 ### 대량 발송 수신자 목록 검색
 
@@ -2292,21 +2315,23 @@ curl -X GET \
 }
 ```
 
-| 값                         | 	타입      | 	설명                                          |
-|---------------------------|----------|----------------------------------------------|
-| header.isSuccessful       | 	Boolean | 	성공 여부                                       |
-| header.resultCode         | 	Integer | 	실패 코드                                       |
-| header.resultMessage      | 	String  | 	실패 메시지                                      |
-| body.data[].requestId     | String   | 요청 ID                                        |
-| body.data[].recipientSeq  | Integer  | 수신자 시퀀스                                      |
-| body.data[].countryCode   | String   | 수신자 국가코드                                     |
-| body.data[].recipientNo   | String   | 수신자 번호                                       |
-| body.data[].requestDate   | String   | 요청 일시                                        |
-| body.data[].msgStatus     | String   | 메시지 상태 코드                                    |
-| body.data[].msgStatusName | String   | 메시지 상태 코드명                                   |
-| body.data[].messageCount  | Integer  | 발송된 메시지 건수                                   |
-| body.data[].resultCode    | String   | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-| body.data[].receiveDate   | String   | 수신 일시                                        |
+| 값                         | 타입      | Not Null | 설명                                            |
+|----------------------------|---------|----------|-----------------------------------------------|
+| header                     | Object  | O        | 헤더 영역                                       |
+| header.isSuccessful        | Boolean | O        | 성공 여부                                       |
+| header.resultCode          | Integer | O        | 실패 코드                                       |
+| header.resultMessage       | String  | O        | 실패 메시지                                      |
+| body                       | Object  | X        | 본문 영역                                       |
+| body.data[].requestId      | String  | O        | 요청 ID                                        |
+| body.data[].recipientSeq   | Integer | O        | 수신자 시퀀스                                      |
+| body.data[].countryCode    | String  | O        | 수신자 국가코드                                     |
+| body.data[].recipientNo    | String  | O        | 수신자 번호                                       |
+| body.data[].requestDate    | String  | O        | 요청 일시                                        |
+| body.data[].msgStatus      | String  | O        | 메시지 상태 코드                                    |
+| body.data[].msgStatusName  | String  | O        | 메시지 상태 코드명                                   |
+| body.data[].messageCount   | Integer | O        | 발송된 메시지 건수                                   |
+| body.data[].resultCode     | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
+| body.data[].receiveDate    | String  | X        | 수신 일시                                        |
 
 ### 대량 발송 수신자 목록 상세 검색
 
@@ -2388,39 +2413,40 @@ curl -X GET \
 }
 ```
 
-| 값                                       | 	타입      | 	설명                                          |
-|-----------------------------------------|----------|----------------------------------------------|
-| header                                  | 	Object  | 	헤더 영역                                       |
-| header.isSuccessful                     | 	Boolean | 	성공 여부                                       |
-| header.resultCode                       | 	Integer | 	실패 코드                                       |
-| header.resultMessage                    | 	String  | 	실패 메시지                                      |
-| body.data.requestId                     | String   | 요청 ID                                        |
-| body.data.recipientSeq                  | Integer  | 수신자 시퀀스                                      |
-| body.data.sendType                      | String   | 발송 유형                                        |
-| body.data.messageType                   | String   | 메시지 타입                                       |
-| body.data.templateId                    | String   | 템플릿 ID                                       |
-| body.data.templateName                  | String   | 템플릿명                                         |
-| body.data.sendNo                        | String   | 발신 번호                                        |
-| body.data.title                         | String   | 제목                                           |
-| body.data.body                          | String   | 내용                                           |
-| body.data.recipientNo                   | String   | 수신자 번호                                       |
-| body.data.countryCode                   | String   | 수신자 국가코드                                     |
-| body.data.requestDate                   | String   | 요청 일시                                        |
-| body.data.msgStatus                     | String   | 메시지 상태                                       |
-| body.data.msgStatusName                 | String   | 메시지 상태 이름                                    |
-| body.data.messageCount                  | Integer  | 발송된 메시지 건수                                   |
-| body.data.resultCode                    | String   | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-| body.data.receiveDate                   | String   | 수신 일시                                        |
-| body.data.createDate                    | String   | 등록 일시                                        |
-| body.data.attachFileList[].filePath     | String   | 첨부 파일 - 경로                                   |
-| body.data.attachFileList[].fileName     | String   | 첨부 파일 - 파일명                                  |
-| body.data.attachFileList[].fileSize     | Long     | 첨부 파일 - 사이즈                                  |
-| body.data.attachFileList[].fileSequence | Integer  | 첨부 파일 - 파일 번호                                |
-| body.data.attachFileList[].createDate   | String   | 첨부 파일 - 생성 일시                                |
-| body.data.attachFileList[].updateDate   | String   | 첨부 파일 - 수정 날짜                                |
-| body.data.dlr.dlrStatus                 |	String   | DLR 상태 코드                                      |
-| body.data.dlr.networkCode               | String   | DLR 네트워크 코드                                   |
-| body.data.dlr.errorCode                 | String   | DLR 에러 코드                                      |
+| 값                                       | 타입     | Not Null | 설명                                            |
+|-----------------------------------------|---------|----------|-----------------------------------------------|
+| header                                  | Object  | O        | 헤더 영역                                       |
+| header.isSuccessful                     | Boolean | O        | 성공 여부                                       |
+| header.resultCode                       | Integer | O        | 실패 코드                                       |
+| header.resultMessage                    | String  | O        | 실패 메시지                                      |
+| body                                    | Object  | X        | 본문 영역                                       |
+| body.data.requestId                     | String  | O        | 요청 ID                                        |
+| body.data.recipientSeq                  | Integer | O        | 수신자 시퀀스                                    |
+| body.data.sendType                      | String  | O        | 발송 유형                                       |
+| body.data.messageType                   | String  | O        | 메시지 타입                                      |
+| body.data.templateId                    | String  | X        | 템플릿 ID                                       |
+| body.data.templateName                  | String  | X        | 템플릿명                                        |
+| body.data.sendNo                        | String  | O        | 발신 번호                                       |
+| body.data.title                         | String  | X        | 제목                                           |
+| body.data.body                          | String  | O        | 내용                                           |
+| body.data.recipientNo                   | String  | O        | 수신자 번호                                      |
+| body.data.countryCode                   | String  | O        | 수신자 국가코드                                  |
+| body.data.requestDate                   | String  | O        | 요청 일시                                       |
+| body.data.msgStatus                     | String  | O        | 메시지 상태                                      |
+| body.data.msgStatusName                 | String  | O        | 메시지 상태 이름                                 |
+| body.data.messageCount                  | Integer | O        | 발송된 메시지 건수                               |
+| body.data.resultCode                    | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
+| body.data.receiveDate                   | String  | X        | 수신 일시                                       |
+| body.data.createDate                    | String  | X        | 등록 일시                                       |
+| body.data.attachFileList[].filePath     | String  | X        | 첨부 파일 - 경로                                |
+| body.data.attachFileList[].fileName     | String  | X        | 첨부 파일 - 파일명                               |
+| body.data.attachFileList[].fileSize     | Long    | X        | 첨부 파일 - 사이즈                               |
+| body.data.attachFileList[].fileSequence | Integer | X        | 첨부 파일 - 파일 번호                            |
+| body.data.attachFileList[].createDate   | String  | X        | 첨부 파일 - 생성 일시                            |
+| body.data.attachFileList[].updateDate   | String  | X        | 첨부 파일 - 수정 날짜                            |
+| body.data.dlr.dlrStatus                 | String  | X        | DLR 상태 코드                                   |
+| body.data.dlr.networkCode               | String  | X        | DLR 네트워크 코드                                |
+| body.data.dlr.errorCode                 | String  | X        | DLR 에러 코드                                   |
 
 ## 태그 발송
 
@@ -2529,12 +2555,14 @@ curl -X POST \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
-| body.data.requestId  | 	String  | 	요청 ID  |
+| 값                    | 타입     | Not Null | 설명      |
+|----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
+| header.isSuccessful  | Boolean | O        | 성공 여부  |
+| header.resultCode    | Integer | O        | 실패 코드  |
+| header.resultMessage | String  | O        | 실패 메시지 |
+| body                 | Object  | X        | 본문 영역  |
+| body.data.requestId  | String  | O        | 요청 ID   |
 
 ### 태그 LMS 발송
 
@@ -2650,12 +2678,14 @@ curl -X POST \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
-| body.data.requestId  | 	String  | 	요청 ID  |
+| 값                    | 타입     | Not Null | 설명     |
+|----------------------|---------|----------|----------|
+| header               | Object  | O        | 헤더 영역 |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
+| body                 | Object  | X        | 본문 영역  |
+| body.data.requestId  | String  | O        | 요청 ID  |
 
 ### 태그 발송 목록 검색
 
@@ -2752,29 +2782,31 @@ curl -X GET \
 }
 ```
 
-| 값                           | 	타입          | 	설명       |
-|-----------------------------|--------------|-----------|
-| header.isSuccessful         | 	Boolean     | 	성공 여부    |
-| header.resultCode           | 	Integer     | 	실패 코드    |
-| header.resultMessage        | 	String      | 	실패 메시지   |
-| body.data[].requestId       | String       | 요청 ID     |
-| body.data[].requestIp       | String       | 요청 IP     |
-| body.data[].requestDate     | String       | 요청 시간     |
-| body.data[].tagSendStatus   | String       | 태그 발송 상태  |
-| body.data[].tagExpression[] | List<String> | 태그 표현식    |
-| body.data[].templateId      | String       | 템플릿 ID    |
-| body.data[].templateName    | String       | 템플릿명      |
-| body.data[].senderName      | String       | 발신자명      |
-| body.data[].senderMail      | String       | 발신자 주소    |
-| body.data[].title           | String       | 제목        |
-| body.data[].body            | String       | 내용        |
-| body.data[].adYn            | String       | 광고 여부     |
-| body.data[].autoSendYn      | String       | 자동 발송 여부  |
-| body.data[].sendErrorCount  | Integer      | 에러 수신자 건수 |
-| body.data[].createUser      | String       | 생성자       |
-| body.data[].createDate      | String       | 생성 일시     |
-| body.data[].updateUser      | String       | 수정한 사용자   |
-| body.data[].updateDate      | String       | 수정 날짜     |
+| 값                           | 타입           | Not Null | 설명           |
+|------------------------------|--------------|----------|----------------|
+| header                       | Object       | O        | 헤더 영역       |
+| header.isSuccessful          | Boolean      | O        | 성공 여부       |
+| header.resultCode            | Integer      | O        | 실패 코드       |
+| header.resultMessage         | String       | O        | 실패 메시지     |
+| body                         | Object       | X        | 본문 영역       |
+| body.data[].requestId        | String       | O        | 요청 ID        |
+| body.data[].requestIp        | String       | X        | 요청 IP        |
+| body.data[].requestDate      | String       | O        | 요청 시간       |
+| body.data[].tagSendStatus    | String       | X        | 태그 발송 상태  |
+| body.data[].tagExpression[]  | List<String> | O        | 태그 표현식     |
+| body.data[].templateId       | String       | X        | 템플릿 ID      |
+| body.data[].templateName     | String       | X        | 템플릿명       |
+| body.data[].senderName       | String       | X        | 발신자명       |
+| body.data[].senderMail       | String       | X        | 발신자 주소     |
+| body.data[].title            | String       | X        | 제목          |
+| body.data[].body             | String       | O        | 내용          |
+| body.data[].adYn             | String       | X        | 광고 여부       |
+| body.data[].autoSendYn       | String       | O        | 자동 발송 여부  |
+| body.data[].sendErrorCount   | Integer      | O        | 에러 수신자 건수 |
+| body.data[].createUser       | String       | X        | 생성자         |
+| body.data[].createDate       | String       | O        | 생성 일시      |
+| body.data[].updateUser       | String       | X        | 수정한 사용자   |
+| body.data[].updateDate       | String       | X        | 수정 날짜      |
 
 ### 태그 발송 수신자 목록 검색
 
@@ -2866,23 +2898,25 @@ curl -X GET \
 }
 ```
 
-| 값                         | 	타입      | 	설명                                          |
-|---------------------------|----------|----------------------------------------------|
-| header.isSuccessful       | 	Boolean | 	성공 여부                                       |
-| header.resultCode         | 	Integer | 	실패 코드                                       |
-| header.resultMessage      | 	String  | 	실패 메시지                                      |
-| body.data[].requestId     | String   | 요청 ID                                        |
-| body.data[].recipientSeq  | Integer  | 수신자 시퀀스                                      |
-| body.data[].countryCode   | String   | 수신자 국가코드                                     |
-| body.data[].recipientNo   | String   | 수신자 번호                                       |
-| body.data[].requestDate   | String   | 요청 일시                                        |
-| body.data[].msgStatus     | String   | 메시지 상태 코드                                    |
-| body.data[].msgStatusName | String   | 메시지 상태 코드명                                   |
-| body.data[].messageCount  | Integer  | 발송된 메시지 건수                                   |
-| body.data[].resultCode    | String   | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-| body.data[].receiveDate   | String   | 수신 일시                                        |
-| body.data[].createDate    | String   | 등록 일시                                        |
-| body.data[].updateDate    | String   | 수정 날짜                                        |
+| 값                         | 타입     | Not Null | 설명                                           |
+|----------------------------|---------|----------|-----------------------------------------------|
+| header                     | Object  | O        | 헤더 영역                                      |
+| header.isSuccessful        | Boolean | O        | 성공 여부                                      |
+| header.resultCode          | Integer | O        | 실패 코드                                      |
+| header.resultMessage       | String  | O        | 실패 메시지                                     |
+| body                       | Object  | X        | 본문 영역                                      |
+| body.data[].requestId      | String  | O        | 요청 ID                                        |
+| body.data[].recipientSeq   | Integer | O        | 수신자 시퀀스                                   |
+| body.data[].countryCode    | String  | O        | 수신자 국가코드                                 |
+| body.data[].recipientNo    | String  | O        | 수신자 번호                                     |
+| body.data[].requestDate    | String  | O        | 요청 일시                                      |
+| body.data[].msgStatus      | String  | O        | 메시지 상태 코드                                |
+| body.data[].msgStatusName  | String  | O        | 메시지 상태 코드명                              |
+| body.data[].messageCount   | Integer | O        | 발송된 메시지 건수                              |
+| body.data[].resultCode     | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
+| body.data[].receiveDate    | String  | X        | 수신 일시                                      |
+| body.data[].createDate     | String  | X        | 등록 일시                                      |
+| body.data[].updateDate     | String  | X        | 수정 날짜                                      |
 
 ### 태그 발송 수신자 상세 검색
 
@@ -2970,37 +3004,38 @@ curl -X GET \
 }
 ```
 
-| 값                                       | 	타입      | 	설명                                          |
-|-----------------------------------------|----------|----------------------------------------------|
-| header                                  | 	Object  | 	헤더 영역                                       |
-| header.isSuccessful                     | 	Boolean | 	성공 여부                                       |
-| header.resultCode                       | 	Integer | 	실패 코드                                       |
-| header.resultMessage                    | 	String  | 	실패 메시지                                      |
-| body.data.requestId                     | String   | 요청 ID                                        |
-| body.data.recipientSeq                  | Integer  | 수신자 시퀀스                                      |
-| body.data.sendType                      | String   | 발송 유형                                        |
-| body.data.messageType                   | String   | 메시지 타입                                       |
-| body.data.templateId                    | String   | 템플릿 ID                                       |
-| body.data.templateName                  | String   | 템플릿명                                         |
-| body.data.sendNo                        | String   | 발신 번호                                        |
-| body.data.title                         | String   | 제목                                           |
-| body.data.body                          | String   | 내용                                           |
-| body.data.recipientNum                  | String   | 수신자 번호                                       |
-| body.data.requestDate                   | String   | 요청 일시                                        |
-| body.data.msgStatusName                 | String   | 메시지 상태 이름                                    |
-| body.data.messageCount                  | Integer  | 발송된 메시지 건수                                   |
-| body.data.resultCode                    | String   | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)] |
-| body.data.receiveDate                   | String   | 수신 일시                                        |
-| body.data.attachFileList[].filePath     | String   | 첨부 파일 - 경로                                   |
-| body.data.attachFileList[].fileName     | String   | 첨부 파일 - 파일명                                  |
-| body.data.attachFileList[].fileSize     | Long     | 첨부 파일 - 사이즈                                  |
-| body.data.attachFileList[].fileSequence | Integer  | 첨부 파일 - 파일 번호                                |
-| body.data.attachFileList[].createDate   | String   | 첨부 파일 - 생성 일시                                |
-| body.data.attachFileList[].updateDate   | String   | 첨부 파일 - 수정 날짜                                |
-| body.data.originCode                    | String   | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자) |
-| body.data.dlr.dlrStatus                 | String   | 	DLR 상태 코드                                      |
-| body.data.dlr.networkCode               | String   | 	DLR 네트워크 코드                                   |
-| body.data.dlr.errorCode                 | String   | 	DLR 에러 코드                                      |
+| 값                                       | 타입     | Not Null | 설명                                                                                    |
+|-----------------------------------------|---------|----------|----------------------------------------------------------------------------------------|
+| header                                  | Object  | O        | 헤더 영역                                                                                |
+| header.isSuccessful                     | Boolean | O        | 성공 여부                                                                                |
+| header.resultCode                       | Integer | O        | 실패 코드                                                                                |
+| header.resultMessage                    | String  | O        | 실패 메시지                                                                               |
+| body                                    | Object  | X        | 본문 영역                                                                                |
+| body.data.requestId                     | String  | O        | 요청 ID                                                                                 |
+| body.data.recipientSeq                  | Integer | O        | 수신자 시퀀스                                                                             |
+| body.data.sendType                      | String  | O        | 발송 유형                                                                                |
+| body.data.messageType                   | String  | O        | 메시지 타입                                                                              |
+| body.data.templateId                    | String  | X        | 템플릿 ID                                                                               |
+| body.data.templateName                  | String  | X        | 템플릿명                                                                                |
+| body.data.sendNo                        | String  | O        | 발신 번호                                                                               |
+| body.data.title                         | String  | X        | 제목                                                                                   |
+| body.data.body                          | String  | O        | 내용                                                                                   |
+| body.data.recipientNum                  | String  | O        | 수신자 번호                                                                              |
+| body.data.requestDate                   | String  | O        | 요청 일시                                                                               |
+| body.data.msgStatusName                 | String  | O        | 메시지 상태 이름                                                                         |
+| body.data.messageCount                  | Integer | O        | 발송된 메시지 건수                                                                       |
+| body.data.resultCode                    | String  | X        | 수신 결과 코드[[수신 결과 코드표](./error-code/#emma-v3)]                                   |
+| body.data.receiveDate                   | String  | X        | 수신 일시                                                                              |
+| body.data.attachFileList[].filePath     | String  | X        | 첨부 파일 - 경로                                                                        |
+| body.data.attachFileList[].fileName     | String  | X        | 첨부 파일 - 파일명                                                                       |
+| body.data.attachFileList[].fileSize     | Long    | X        | 첨부 파일 - 사이즈                                                                       |
+| body.data.attachFileList[].fileSequence | Integer | X        | 첨부 파일 - 파일 번호                                                                    |
+| body.data.attachFileList[].createDate   | String  | X        | 첨부 파일 - 생성 일시                                                                    |
+| body.data.attachFileList[].updateDate   | String  | X        | 첨부 파일 - 수정 날짜                                                                    |
+| body.data.originCode                    | String  | X        | 식별 코드(특수한 유형의 부가통신사업자 등록증에 기재되어 있는 기호, 문자, 공백을 제외한 등록번호 9자리 숫자)  |
+| body.data.dlr.dlrStatus                 | String  | X        | DLR 상태 코드                                                                          |
+| body.data.dlr.networkCode               | String  | X        | DLR 네트워크 코드                                                                       |
+| body.data.dlr.errorCode                 | String  | X        | DLR 에러 코드                                                                          |
 <span id="binaryUpload"></span>
 
 ## 첨부 파일
@@ -3082,14 +3117,16 @@ curl -X POST \
 }
 ```
 
-| 값                    | 	타입      | 	설명                                                             |
-|----------------------|----------|-----------------------------------------------------------------|
-| header.isSuccessful  | 	Boolean | 	성공 여부                                                          |
-| header.resultCode    | 	Integer | 	실패 코드                                                          |
-| header.resultMessage | 	String  | 	실패 메시지                                                         |
-| body.data.fileId     | 	Integer | 	파일 ID                                                          |
-| body.data.fileName   | 	String  | 	파일명                                                            |
-| body.data.filePath   | 	String  | 	첨부 파일 기본 경로 <br/>(https://domain/attachFile/filePath/fileName) |
+| 값                    | 타입     | Not Null | 설명                                                               |
+|----------------------|---------|----------|-------------------------------------------------------------------|
+| header               | Object  | O        | 헤더 영역                                                          |
+| header.isSuccessful  | Boolean | O        | 성공 여부                                                          |
+| header.resultCode    | Integer | O        | 실패 코드                                                          |
+| header.resultMessage | String  | O        | 실패 메시지                                                         |
+| body                 | Object  | X        | 본문 영역                                                          |
+| body.data.fileId     | Integer | O        | 파일 ID                                                           |
+| body.data.fileName   | String  | X        | 파일명                                                             |
+| body.data.filePath   | String  | X        | 첨부 파일 기본 경로 <br/>(https://domain/attachFile/filePath/fileName) |
 
 #### 첨부 파일 업로드 예제
 
@@ -3221,19 +3258,21 @@ curl -X POST \
 }
 ```
 
-| 값                            | 	타입      | 	설명         |
-|------------------------------|----------|-------------|
-| header.isSuccessful          | 	Boolean | 	성공 여부      |
-| header.resultCode            | 	Integer | 	실패 코드      |
-| header.resultMessage         | 	String  | 	실패 메시지     |
-| body.data[].categoryId       | 	Integer | 	카테고리 ID    |
-| body.data[].categoryParentId | 	Integer | 	부모 카테고리 ID |
-| body.data[].depth            | 	Integer | 	카테고리 깊이    |
-| body.data[].sort             | 	Integer | 	카테고리 정렬 순서 |
-| body.data[].categoryName     | 	String  | 	카테고리명      |
-| body.data[].categoryDesc     | 	String  | 	카테고리 설명    |
-| body.data[].useYn            | 	String  | 	사용 여부      |
-| body.data[].createUser       | 	String  | 	등록한 사용자    |
+| 값                            | 타입     | Not Null | 설명           |
+|------------------------------|---------|----------|----------------|
+| header                       | Object  | O        | 헤더 영역       |
+| header.isSuccessful          | Boolean | O        | 성공 여부       |
+| header.resultCode            | Integer | O        | 실패 코드       |
+| header.resultMessage         | String  | O        | 실패 메시지     |
+| body                         | Object  | X        | 본문 영역      |
+| body.data[].categoryId       | Integer | O        | 카테고리 ID     |
+| body.data[].categoryParentId | Integer | X        | 부모 카테고리 ID |
+| body.data[].depth            | Integer | X        | 카테고리 깊이   |
+| body.data[].sort             | Integer | X        | 카테고리 정렬 순서 |
+| body.data[].categoryName     | String  | X        | 카테고리명      |
+| body.data[].categoryDesc     | String  | X        | 카테고리 설명   |
+| body.data[].useYn            | String  | O        | 사용 여부       |
+| body.data[].createUser       | String  | X        | 등록한 사용자   |
 
 ### 카테고리 목록 검색
 
@@ -3312,25 +3351,27 @@ curl -X GET \
 }
 ```
 
-| 값                            | 	타입      | 	설명         |
-|------------------------------|----------|-------------|
-| header.isSuccessful          | 	Boolean | 	성공 여부      |
-| header.resultCode            | 	Integer | 	실패 코드      |
-| header.resultMessage         | 	String  | 	실패 메시지     |
-| body.pageNum                 | 	Integer | 	현재 페이지 번호  |
-| body.pageSize                | 	Integer | 	검색된 데이터 수  |
-| body.totalCount              | 	Integer | 	총 데이터 수    |
-| body.data[].categoryId       | 	Integer | 	카테고리 ID    |
-| body.data[].categoryParentId | 	Integer | 	부모 카테고리 ID |
-| body.data[].depth            | 	Integer | 	카테고리 깊이    |
-| body.data[].sort             | 	Integer | 	카테고리 정렬 순서 |
-| body.data[].categoryName     | 	String  | 	카테고리명      |
-| body.data[].categoryDesc     | 	String  | 	카테고리 설명    |
-| body.data[].useYn            | 	String  | 	사용 여부      |
-| body.data[].createDate       | 	String  | 	등록 날짜      |
-| body.data[].createUser       | 	String  | 	등록한 사용자    |
-| body.data[].updateDate       | 	String  | 	수정 날짜      |
-| body.data[].updateUser       | 	String  | 	수정한 사용자    |
+| 값                            | 타입     | Not Null | 설명            |
+|------------------------------|---------|----------|----------------|
+| header                       | Object  | O        | 헤더 영역       |
+| header.isSuccessful          | Boolean | O        | 성공 여부       |
+| header.resultCode            | Integer | O        | 실패 코드       |
+| header.resultMessage         | String  | O        | 실패 메시지      |
+| body                         | Object  | X        | 본문 영역       |
+| body.pageNum                 | Integer | O        | 현재 페이지 번호  |
+| body.pageSize                | Integer | O        | 검색된 데이터 수  |
+| body.totalCount              | Integer | O        | 총 데이터 수     |
+| body.data[].categoryId       | Integer | O        | 카테고리 ID     |
+| body.data[].categoryParentId | Integer | X        | 부모 카테고리 ID |
+| body.data[].depth            | Integer | X        | 카테고리 깊이    |
+| body.data[].sort             | Integer | X        | 카테고리 정렬 순서|
+| body.data[].categoryName     | String  | X        | 카테고리명       |
+| body.data[].categoryDesc     | String  | X        | 카테고리 설명    |
+| body.data[].useYn            | String  | O        | 사용 여부       |
+| body.data[].createDate       | String  | X        | 등록 날짜       |
+| body.data[].createUser       | String  | X        | 등록한 사용자    |
+| body.data[].updateDate       | String  | X        | 수정 날짜       |
+| body.data[].updateUser       | String  | X        | 수정한 사용자    |
 
 ### 카테고리 단건 검색
 
@@ -3400,22 +3441,24 @@ curl -X GET \
 }
 ```
 
-| 값                            | 	타입      | 	설명         |
-|------------------------------|----------|-------------|
-| header.isSuccessful          | 	Boolean | 	성공 여부      |
-| header.resultCode            | 	Integer | 	실패 코드      |
-| header.resultMessage         | 	String  | 	실패 메시지     |
-| body.data[].categoryId       | 	Integer | 	카테고리 ID    |
-| body.data[].categoryParentId | 	Integer | 	부모 카테고리 ID |
-| body.data[].depth            | 	Integer | 	카테고리 깊이    |
-| body.data[].sort             | 	Integer | 	카테고리 정렬 순서 |
-| body.data[].categoryName     | 	String  | 	카테고리명      |
-| body.data[].categoryDesc     | 	String  | 	카테고리 설명    |
-| body.data[].useYn            | 	String  | 	사용 여부      |
-| body.data[].createDate       | 	String  | 	등록 날짜      |
-| body.data[].createUser       | 	String  | 	등록한 사용자    |
-| body.data[].updateDate       | 	String  | 	수정 날짜      |
-| body.data[].updateUser       | 	String  | 	수정한 사용자    |
+| 값                            | 타입     | Not Null | 설명           |
+|------------------------------|---------|----------|----------------|
+| header                       | Object  | O        | 헤더 영역       |
+| header.isSuccessful          | Boolean | O        | 성공 여부      |
+| header.resultCode            | Integer | O        | 실패 코드      |
+| header.resultMessage         | String  | O        | 실패 메시지    |
+| body                         | Object  | X        | 본문 영역      |
+| body.data[].categoryId       | Integer | O        | 카테고리 ID    |
+| body.data[].categoryParentId | Integer | X        | 부모 카테고리 ID |
+| body.data[].depth            | Integer | X        | 카테고리 깊이  |
+| body.data[].sort             | Integer | X        | 카테고리 정렬 순서 |
+| body.data[].categoryName     | String  | X        | 카테고리명     |
+| body.data[].categoryDesc     | String  | X        | 카테고리 설명  |
+| body.data[].useYn            | String  | O        | 사용 여부      |
+| body.data[].createDate       | String  | X        | 등록 날짜      |
+| body.data[].createUser       | String  | X        | 등록한 사용자  |
+| body.data[].updateDate       | String  | X        | 수정 날짜      |
+| body.data[].updateUser       | String  | X        | 수정한 사용자  |
 
 ### 카테고리 수정
 
@@ -3493,6 +3536,13 @@ curl -X PUT \
 }
 ```
 
+| 값                   | 타입      | Not Null | 설명    |
+|----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
+
 ### 카테고리 삭제
 
 #### 요청
@@ -3543,6 +3593,13 @@ curl -X DELETE \
   }
 }
 ```
+
+| 값                   | 타입      | Not Null | 설명    |
+|----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 ## 템플릿
 
@@ -3639,6 +3696,13 @@ curl -X POST \
   }
 }
 ```
+
+| 값                   | 타입      | Not Null | 설명     |
+|----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 #### 템플릿 등록 예시
 
@@ -3911,39 +3975,41 @@ curl -X GET \
 }
 ```
 
-| 값                                         | 	타입      | 	설명                              |
-|-------------------------------------------|----------|----------------------------------|
-| header.isSuccessful                       | 	Boolean | 	성공 여부                           |
-| header.resultCode                         | 	Integer | 	실패 코드                           |
-| header.resultMessage                      | 	String  | 	실패 메시지                          |
-| body.pageNum                              | 	Integer | 	현재 페이지 번호                       |
-| body.pageSize                             | 	Integer | 	검색된 데이터 수                       |
-| body.totalCount                           | 	Integer | 	총 데이터 수                         |
-| body.data[].templateId                    | 	String  | 	템플릿 ID                          |
-| body.data[].serviceId                     | 	Integer | 	서비스 ID(내부용, 미사용값)               |
-| body.data[].categoryId                    | 	Integer | 	카테고리 ID                         |
-| body.data[].categoryName                  | 	String  | 	카테고리명                           |
-| body.data[].sort                          | 	Integer | 	정렬값                             |
-| body.data[].templateName                  | 	String  | 	템플릿명                            |
-| body.data[].templateDesc                  | 	String  | 	템플릿 설명                          |
-| body.data[].useYn                         | 	String  | 	사용 여부                           |
-| body.data[].priority                      | 	String  | 	우선순위값(미사용값)                     |
-| body.data[].sendNo                        | 	String  | 	발신 번호                           |
-| body.data[].sendType                      | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
-| body.data[].sendTypeName                  | 	String  | 	발송 유형명                          |
-| body.data[].title                         | 	String  | 	제목                              |
-| body.data[].body                          | 	String  | 	본문 내용                           |
-| body.data[].attachFileYn                  | 	String  | 	첨부 파일 여부(Y/N)                   |
-| body.data[].delYn                         | 	String  | 	삭제여부(Y/N), 현재 상태 표기용으로만 사용      |
-| body.data[].createDate                    | 	String  | 	등록 날짜                           |
-| body.data[].createUser                    | 	String  | 	등록한 사용자                         |
-| body.data[].updateDate                    | 	String  | 	수정 날짜                           |
-| body.data[].updateUser                    | 	String  | 	수정한 사용자                         |
-| body.data[].attachFileList[].fileId       | 	Integer | 	파일 ID                           |
-| body.data[].attachFileList[].filePath     | 	String  | 	파일 저장경로(내부용)                    |
-| body.data[].attachFileList[].filename     | 	String  | 	파일명                             |
-| body.data[].attachFileList[].saveFileName | 	String  | 	저장된 첨부파일명                       |
-| body.data[].attachFileList[].uploadType   | 	String  | 	업로드 타입                          |
+| 값                                         | 타입     | Not Null | 설명                                |
+|-------------------------------------------|---------|----------|-------------------------------------|
+| header                                    | Object  | O        | 헤더 영역                           |
+| header.isSuccessful                       | Boolean | O        | 성공 여부                           |
+| header.resultCode                         | Integer | O        | 실패 코드                           |
+| header.resultMessage                      | String  | O        | 실패 메시지                          |
+| body                                      | Object  | X        | 본문 영역                          |
+| body.pageNum                              | Integer | O        | 현재 페이지 번호                     |
+| body.pageSize                             | Integer | O        | 검색된 데이터 수                     |
+| body.totalCount                           | Integer | O        | 총 데이터 수                         |
+| body.data[].templateId                    | String  | O        | 템플릿 ID                          |
+| body.data[].serviceId                     | Integer | O        | 서비스 ID(내부용, 미사용값)           |
+| body.data[].categoryId                    | Integer | X        | 카테고리 ID                         |
+| body.data[].categoryName                  | String  | X        | 카테고리명                           |
+| body.data[].sort                          | Integer | X        | 정렬값                             |
+| body.data[].templateName                  | String  | X        | 템플릿명                            |
+| body.data[].templateDesc                  | String  | X        | 템플릿 설명                          |
+| body.data[].useYn                         | String  | X        | 사용 여부                           |
+| body.data[].priority                      | String  | X        | 우선순위값(미사용값)                 |
+| body.data[].sendNo                        | String  | X        | 발신 번호                           |
+| body.data[].sendType                      | String  | X        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
+| body.data[].sendTypeName                  | String  | X        | 발송 유형명                          |
+| body.data[].title                         | String  | X        | 제목                              |
+| body.data[].body                          | String  | X        | 본문 내용                           |
+| body.data[].attachFileYn                  | String  | X        | 첨부 파일 여부(Y/N)                 |
+| body.data[].delYn                         | String  | X        | 삭제여부(Y/N), 현재 상태 표기용으로만 사용 |
+| body.data[].createDate                    | String  | X        | 등록 날짜                           |
+| body.data[].createUser                    | String  | X        | 등록한 사용자                       |
+| body.data[].updateDate                    | String  | X        | 수정 날짜                           |
+| body.data[].updateUser                    | String  | X        | 수정한 사용자                       |
+| body.data[].attachFileList[].fileId       | Integer | O        | 파일 ID                           |
+| body.data[].attachFileList[].filePath     | String  | X        | 파일 저장경로(내부용)                |
+| body.data[].attachFileList[].filename     | String  | X        | 파일명                             |
+| body.data[].attachFileList[].saveFileName | String  | X        | 저장된 첨부파일명                   |
+| body.data[].attachFileList[].uploadType   | String  | X        | 업로드 타입                          |
 
 ### 템플릿 단일 검색
 
@@ -4029,39 +4095,41 @@ curl -X GET \
 }
 ```
 
-| 값                                         | 	타입      | 	설명                              |
-|-------------------------------------------|----------|----------------------------------|
-| header.isSuccessful                       | 	Boolean | 	성공 여부                           |
-| header.resultCode                         | 	Integer | 	실패 코드                           |
-| header.resultMessage                      | 	String  | 	실패 메시지                          |
-| body.pageNum                              | 	Integer | 	현재 페이지 번호                       |
-| body.pageSize                             | 	Integer | 	검색된 데이터 수                       |
-| body.totalCount                           | 	Integer | 	총 데이터 수                         |
-| body.data.templateId                      | 	String  | 	템플릿 ID                          |
-| body.data.serviceId                       | 	Integer | 	서비스 ID(내부용, 미사용값)               |
-| body.data.categoryId                      | 	Integer | 	카테고리 ID                         |
-| body.data.categoryName                    | 	String  | 	카테고리명                           |
-| body.data.sort                            | 	Integer | 	정렬값                             |
-| body.data.templateName                    | 	String  | 	템플릿명                            |
-| body.data.templateDesc                    | 	String  | 	템플릿 설명                          |
-| body.data.useYn                           | 	String  | 	사용 여부                           |
-| body.data.priority                        | 	String  | 	우선순위값(미사용값)                     |
-| body.data.sendNo                          | 	String  | 	발신 번호                           |
-| body.data.sendType                        | 	String  | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth) |
-| body.data.sendTypeName                    | 	String  | 	발송 유형명                          |
-| body.data.title                           | 	String  | 	제목                              |
-| body.data.body                            | 	String  | 	본문 내용                           |
-| body.data.attachFileYn                    | 	String  | 	첨부 파일 여부(Y/N)                   |
-| body.data.delYn                           | 	String  | 	삭제여부(Y/N), 현재 상태 표기용으로만 사용      |
-| body.data.createDate                      | 	String  | 	등록 날짜                           |
-| body.data.createUser                      | 	String  | 	등록한 사용자                         |
-| body.data.updateDate                      | 	String  | 	수정 날짜                           |
-| body.data.updateUser                      | 	String  | 	수정한 사용자                         |
-| body.data[].attachFileList[].fileId       | 	Integer | 	파일 ID                           |
-| body.data[].attachFileList[].filePath     | 	String  | 	파일 저장경로(내부용)                    |
-| body.data[].attachFileList[].filename     | 	String  | 	파일명                             |
-| body.data[].attachFileList[].saveFileName | 	String  | 	저장된 첨부파일명                       |
-| body.data[].attachFileList[].uploadType   | 	String  | 	업로드 타입                          |
+| 값                                         | 타입     | Not Null | 설명                                |
+|-------------------------------------------|---------|----------|-------------------------------------|
+| header                                    | Object  | O        | 헤더 영역                             |
+| header.isSuccessful                       | Boolean | O        | 성공 여부                             |
+| header.resultCode                         | Integer | O        | 실패 코드                             |
+| header.resultMessage                      | String  | O        | 실패 메시지                           |
+| body                                      | Object  | X        | 본문 영역                            |
+| body.pageNum                              | Integer | O        | 현재 페이지 번호                       |
+| body.pageSize                             | Integer | O        | 검색된 데이터 수                       |
+| body.totalCount                           | Integer | O        | 총 데이터 수                          |
+| body.data.templateId                      | String  | O        | 템플릿 ID                            |
+| body.data.serviceId                       | Integer | O        | 서비스 ID(내부용, 미사용값)              |
+| body.data.categoryId                      | Integer | X        | 카테고리 ID                           |
+| body.data.categoryName                    | String  | X        | 카테고리명                             |
+| body.data.sort                            | Integer | X        | 정렬값                               |
+| body.data.templateName                    | String  | X        | 템플릿명                              |
+| body.data.templateDesc                    | String  | X        | 템플릿 설명                            |
+| body.data.useYn                           | String  | X        | 사용 여부                             |
+| body.data.priority                        | String  | X        | 우선순위값(미사용값)                     |
+| body.data.sendNo                          | String  | X        | 발신 번호                             |
+| body.data.sendType                        | String  | X        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)   |
+| body.data.sendTypeName                    | String  | X        | 발송 유형명                            |
+| body.data.title                           | String  | X        | 제목                                 |
+| body.data.body                            | String  | X        | 본문 내용                             |
+| body.data.attachFileYn                    | String  | X        | 첨부 파일 여부(Y/N)                    |
+| body.data.delYn                           | String  | X        | 삭제여부(Y/N), 현재 상태 표기용으로만 사용   |
+| body.data.createDate                      | String  | X        | 등록 날짜                             |
+| body.data.createUser                      | String  | X        | 등록한 사용자                          |
+| body.data.updateDate                      | String  | X        | 수정 날짜                             |
+| body.data.updateUser                      | String  | X        | 수정한 사용자                          |
+| body.data[].attachFileList[].fileId       | Integer | O        | 파일 ID                             |
+| body.data[].attachFileList[].filePath     | String  | X        | 파일 저장경로(내부용)                   |
+| body.data[].attachFileList[].filename     | String  | X        | 파일명                               |
+| body.data[].attachFileList[].saveFileName | String  | X        | 저장된 첨부파일명                      |
+| body.data[].attachFileList[].uploadType   | String  | X        | 업로드 타입                           |
 
 ### 템플릿 수정
 
@@ -4142,6 +4210,13 @@ curl -X GET \
 }
 ```
 
+| 값                   | 타입      | Not Null | 설명    |
+|----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
+
 ### 템플릿 삭제
 
 #### 요청
@@ -4192,6 +4267,13 @@ curl -X DELETE \
   }
 }
 ```
+
+| 값                   | 타입      | Not Null | 설명     |
+|----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 ## 080 수신 거부 서비스
 
@@ -4268,6 +4350,13 @@ curl -X POST \
   }
 }
 ```
+
+| 값                   | 타입      | Not Null | 설명     |
+|----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 ### 수신 거부 대상자 검색
 
@@ -4393,13 +4482,20 @@ curl -X DELETE \
 ```json
 {
   "header": {
-    "isSuccessful": boolean,
-    "resultCode": Integer,
-    "resultMessage": String
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
   },
   "body": null
 }
 ```
+
+| 값                   | 타입      | Not Null | 설명    |
+|----------------------|---------|----------|---------|
+| header               | Object  | O        | 헤더 영역 |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 ## 발신 번호
 
@@ -4493,23 +4589,25 @@ curl -X GET \
 }
 ```
 
-| 값                       | 	타입      | 	설명        |
-|-------------------------|----------|------------|
-| header.isSuccessful     | 	Boolean | 	성공 여부     |
-| header.resultCode       | 	Integer | 	실패 코드     |
-| header.resultMessage    | 	String  | 	실패 메시지    |
-| body.pageNum            | 	Integer | 	페이지 번호    |
-| body.pageSize           | 	Integer | 	검색된 데이터 수 |
-| body.totalCount         | 	Integer | 	총 데이터 수   |
-| body.data[].serviceId   | Integer  | 서비스 ID     |
-| body.data[].sendNo      | String   | 발신 번호      |
-| body.data[].useYn       | String   | 사용 여부      |
-| body.data[].blockYn     | String   | 차단여부       |
-| body.data[].blockReason | String   | 차단 사유      |
-| body.data[].createDate  | String   | 생성 일시      |
-| body.data[].createUser  | String   | 생성자        |
-| body.data[].updateDate  | String   | 수정 날짜      |
-| body.data[].updateUser  | String   | 수정한 사용자    |
+| 값                        | 타입     | Not Null | 설명           |
+|--------------------------|---------|----------|----------------|
+| header                   | Object  | O        | 헤더 영역      |
+| header.isSuccessful      | Boolean | O        | 성공 여부      |
+| header.resultCode        | Integer | O        | 실패 코드      |
+| header.resultMessage     | String  | O        | 실패 메시지    |
+| body                     | Object  | X        | 본문 영역     |
+| body.pageNum             | Integer | O        | 페이지 번호    |
+| body.pageSize            | Integer | O        | 검색된 데이터 수 |
+| body.totalCount          | Integer | O        | 총 데이터 수   |
+| body.data[].serviceId    | Integer | O        | 서비스 ID      |
+| body.data[].sendNo       | String  | O        | 발신 번호      |
+| body.data[].useYn        | String  | X        | 사용 여부      |
+| body.data[].blockYn      | String  | X        | 차단여부       |
+| body.data[].blockReason  | String  | X        | 차단 사유      |
+| body.data[].createDate   | String  | X        | 생성 일시      |
+| body.data[].createUser   | String  | X        | 생성자         |
+| body.data[].updateDate   | String  | X        | 수정 날짜      |
+| body.data[].updateUser   | String  | X        | 수정한 사용자  |
 
 ## 통계
 
@@ -4595,22 +4693,24 @@ curl -X GET \
 }
 ```
 
-| 값                    | 타입      | 설명            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 성공 여부         |
-| header.resultCode    | Integer | 실패 코드         |
-| header.resultMessage | String  | 실패 메시지        |
-| body.data            | List    | 통계 이벤트 객체 리스트 |
+| 값                    | 타입     | Not Null | 설명               |
+|----------------------|---------|----------|-------------------|
+| header               | Object  | O        | 헤더 영역           |
+| header.isSuccessful  | Boolean | O        | 성공 여부           |
+| header.resultCode    | Integer | O        | 실패 코드           |
+| header.resultMessage | String  | O        | 실패 메시지          |
+| body                 | Object  | X        | 본문 영역           |
+| body.data            | List    | O        | 통계 이벤트 객체 리스트 |
 
 #### 통계 이벤트 객체
-| 값                 | 타입      | 설명                         |
-|-------------------|---------|----------------------------|
-| eventDateTime     | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
-| events            | Object  | 통계 값 객체                    |
-| events.requested  | Integer | 요청 개수                      |
-| events.sent       | Integer | 발송 개수                      |
-| events.sentFailed | Integer | 실패 개수                      |
-| events.received   | Integer | 성공 개수                      |
+| 값                | 타입      | Not Null | 설명                           |
+|-------------------|---------|----------|--------------------------------|
+| eventDateTime     | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
+| events            | Object  | O        | 통계 값 객체                      |
+| events.requested  | Integer | O        | 요청 개수                        |
+| events.sent       | Integer | O        | 발송 개수                        |
+| events.sentFailed | Integer | O        | 실패 개수                        |
+| events.received   | Integer | O        | 성공 개수                        |
 
 ### 통계 검색 - 요청 시간 기반
 
@@ -4686,23 +4786,25 @@ curl -X GET \
 }
 ```
 
-| 값                    | 타입      | 설명            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 성공 여부         |
-| header.resultCode    | Integer | 실패 코드         |
-| header.resultMessage | String  | 실패 메시지        |
-| body.data            | List    | 통계 이벤트 객체 리스트 |
+| 값                    | 타입     | Not Null | 설명              |
+|----------------------|---------|----------|------------------|
+| header               | Object  | O        | 헤더 영역          |
+| header.isSuccessful  | Boolean | O        | 성공 여부           |
+| header.resultCode    | Integer | O        | 실패 코드           |
+| header.resultMessage | String  | O        | 실패 메시지          |
+| body                 | Object  | X        | 본문 영역           |
+| body.data            | List    | O        | 통계 이벤트 객체 리스트 |
 
 #### 통계 이벤트 객체
-| 값                 | 타입      | 설명                         |
-|-------------------|---------|----------------------------|
-| eventDateTime     | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
-| events            | Object  | 통계 값 객체                    |
-| events.requested  | Integer | 요청 개수                      |
-| events.sent       | Integer | 발송 개수                      |
-| events.sentFailed | Integer | 실패 개수                      |
-| events.received   | Integer | 성공 개수                      |
-| events.pending    | Integer | 발송 중 개수                    |
+| 값                | 타입      | Not Null | 설명                           |
+|-------------------|---------|----------|--------------------------------|
+| eventDateTime     | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별 |
+| events            | Object  | O        | 통계 값 객체                      |
+| events.requested  | Integer | O        | 요청 개수                        |
+| events.sent       | Integer | O        | 발송 개수                        |
+| events.sentFailed | Integer | O        | 실패 개수                        |
+| events.received   | Integer | O        | 성공 개수                        |
+| events.pending    | Integer | O        | 발송 중 개수                      |
 
 ### 통계 검색 - 국제 발송
 
@@ -4783,25 +4885,27 @@ curl -X GET \
 }
 ```
 
-| 값                    | 타입      | 설명            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 성공 여부         |
-| header.resultCode    | Integer | 실패 코드         |
-| header.resultMessage | String  | 실패 메시지        |
-| body.data            | List    | 통계 이벤트 객체 리스트 |
+| 값                    | 타입      | Not Null | 설명               |
+|----------------------|---------|----------|--------------------|
+| header               | Object  | O        | 헤더 영역            |
+| header.isSuccessful  | Boolean | O        | 성공 여부            |
+| header.resultCode    | Integer | O        | 실패 코드            |
+| header.resultMessage | String  | O        | 실패 메시지           |
+| body                 | Object  | X        | 본문 영역            |
+| body.data            | List    | O        | 통계 이벤트 객체 리스트 |
 
 #### 통계 이벤트 객체(통계 기준: 기본 값)
-| 값                  | 타입      | 설명                                                      |
-|--------------------|---------|---------------------------------------------------------|
-| eventDateTime      | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                              |
-| events             | Object  | statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
-| events.REQUESTED   | Integer | 요청 개수                                                   |
-| events.SENT        | Integer | 발송 개수                                                   |
-| events.SENT_FAILED | Integer | 실패 개수                                                   |
-| events.RECEIVED    | Integer | 수신 개수                                                   |
-| events.CONCAT      | Integer | 실 수신 성공 개수                                              |
-| events.READY       | Integer | 전환율 수집 요청 발송 성공 개수                                      |
-| events.CONVERTED   | Integer | 전환 개수                                                   |
+| 값                  | 타입     | Not Null | 설명                                                        |
+|--------------------|---------|----------|-----------------------------------------------------------|
+| eventDateTime      | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별                            |
+| events             | Object  | O        | statsCriteria를 EVENT로만 설정한 경우 {statsCriteriaValue}는 생략됨 |
+| events.REQUESTED   | Integer | O        | 요청 개수                                                     |
+| events.SENT        | Integer | O        | 발송 개수                                                     |
+| events.SENT_FAILED | Integer | O        | 실패 개수                                                     |
+| events.RECEIVED    | Integer | O        | 수신 개수                                                     |
+| events.CONCAT      | Integer | O        | 실 수신 성공 개수                                              |
+| events.READY       | Integer | O        | 전환율 수집 요청 발송 성공 개수                                    |
+| events.CONVERTED   | Integer | O        | 전환 개수                                                     |
 
 #### 응답(통계 기준 추가)
 
@@ -4842,25 +4946,27 @@ curl -X GET \
 }
 ```
 
-| 값                    | 타입      | 설명            |
-|----------------------|---------|---------------|
-| header.isSuccessful  | Boolean | 성공 여부         |
-| header.resultCode    | Integer | 실패 코드         |
-| header.resultMessage | String  | 실패 메시지        |
-| body.data            | List    | 통계 이벤트 객체 리스트 |
+| 값                    | 타입     | Not Null | 설명               |
+|----------------------|---------|----------|-------------------|
+| header               | Object  | O        | 헤더 영역           |
+| header.isSuccessful  | Boolean | O        | 성공 여부           |
+| header.resultCode    | Integer | O        | 실패 코드           |
+| header.resultMessage | String  | O        | 실패 메시지          |
+| body                 | Object  | X        | 본문 영역           |
+| body.data            | List    | O        | 통계 이벤트 객체 리스트 |
 
 #### 통계 이벤트 객체(통계 기준 추가)
-| 값                                       | 타입      | 설명                                        |
-|-----------------------------------------|---------|-------------------------------------------|
-| eventDateTime                           | String  | 표시 이름<br/>분별, 시간별, 요일별, 월별                |
-| events.{statsCriteriaValue}             | Object  | statsCriteria에 해당하는 값<br/>국가 코드 값이 올 수 있음 |
-| events.{statsCriteriaValue}.REQUESTED   | Integer | 요청 개수                                     |
-| events.{statsCriteriaValue}.SENT        | Integer | 발송 개수                                     |
-| events.{statsCriteriaValue}.SENT_FAILED | Integer | 실패 개수                                     |
-| events.{statsCriteriaValue}.RECEIVED    | Integer | 수신 개수                                     |
-| events.{statsCriteriaValue}.CONCAT      | Integer | 실 수신 성공 개수                                |
-| events.{statsCriteriaValue}.READY       | Integer | 전환율 수집 요청 발송 성공 개수                        |
-| events.{statsCriteriaValue}.CONVERTED   | Integer | 전환 개수                                     |
+| 값                                       | 타입      | Not Null | 설명                                        |
+|-----------------------------------------|---------|----------|-------------------------------------------|
+| eventDateTime                           | String  | O        | 표시 이름<br/>분별, 시간별, 요일별, 월별                |
+| events.{statsCriteriaValue}             | Object  | O        | statsCriteria에 해당하는 값<br/>국가 코드 값이 올 수 있음 |
+| events.{statsCriteriaValue}.REQUESTED   | Integer | O        | 요청 개수                                     |
+| events.{statsCriteriaValue}.SENT        | Integer | O        | 발송 개수                                     |
+| events.{statsCriteriaValue}.SENT_FAILED | Integer | O        | 실패 개수                                     |
+| events.{statsCriteriaValue}.RECEIVED    | Integer | O        | 수신 개수                                     |
+| events.{statsCriteriaValue}.CONCAT      | Integer | O        | 실 수신 성공 개수                                |
+| events.{statsCriteriaValue}.READY       | Integer | O        | 전환율 수집 요청 발송 성공 개수                        |
+| events.{statsCriteriaValue}.CONVERTED   | Integer | O        | 전환 개수                                     |
 
 ### (구)통합 통계 검색
 
@@ -4929,20 +5035,22 @@ curl -X GET \
 }
 ```
 
-| 값                          | 타입       | 설명                  |
-|----------------------------|----------|---------------------|
-| header.isSuccessful        | 	Boolean | 	성공 여부              |
-| header.resultCode          | 	Integer | 	실패 코드              |
-| header.resultMessage       | 	String  | 	실패 메시지             |
-| body.data[].divisionName   | String   | 표시이름<br/>날짜, 시간, 요일 |
-| body.data[].statisticsView | Object   |                     |
-| body.data[].requestedCount | Integer  | 요청 개수               |
-| body.data[].succeedCount   | Integer  | 성공 개수               |
-| body.data[].failedCount    | Integer  | 실패 개수               |
-| body.data[].pendingCount   | Integer  | 발송 중 개수             |
-| body.data[].succeedRate    | String   | 성공 비율               |
-| body.data[].failedRate     | String   | 실패 비율               |
-| body.data[].pendingRate    | String   | 발송 중 비율             |
+| 값                          | 타입     | Not Null | 설명                      |
+|-----------------------------|---------|----------|-------------------------|
+| header                      | Object  | O        | 헤더 영역                 |
+| header.isSuccessful         | Boolean | O        | 성공 여부                 |
+| header.resultCode           | Integer | O        | 실패 코드                 |
+| header.resultMessage        | String  | O        | 실패 메시지               |
+| body                        | Object  | X        | 본문 영역                 |
+| body.data[].divisionName    | String  | X        | 표시이름<br/>날짜, 시간, 요일 |
+| body.data[].statisticsView  | Object  | X        |                         |
+| body.data[].requestedCount  | Integer | X        | 요청 개수                 |
+| body.data[].succeedCount    | Integer | X        | 성공 개수                 |
+| body.data[].failedCount     | Integer | X        | 실패 개수                 |
+| body.data[].pendingCount    | Integer | X        | 발송 중 개수              |
+| body.data[].succeedRate     | String  | X        | 성공 비율                 |
+| body.data[].failedRate      | String  | X        | 실패 비율                 |
+| body.data[].pendingRate     | String  | X        | 발송 중 비율              |
 
 ## 예약 발송
 
@@ -5042,32 +5150,34 @@ curl -X GET \
 }
 ```
 
-| 값                             | 	타입           | 	설명                                                                                                                                                  |
-|-------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful           | 	Boolean      | 	성공 여부                                                                                                                                               |
-| header.resultCode             | 	Integer      | 	실패 코드                                                                                                                                               |
-| header.resultMessage          | 	String       | 	실패 메시지                                                                                                                                              |
-| body.pageNum                  | 	Integer      | 	현재 페이지 번호                                                                                                                                           |
-| body.pageSize                 | 	Integer      | 	검색된 데이터 수                                                                                                                                           |
-| body.totalCount               | 	Integer      | 	총 데이터 수                                                                                                                                             |
-| body.data[].requestId         | 	String       | 	요청 ID                                                                                                                                               |
-| body.data[].recipientSeq      | 	Integer      | 	수신자 시퀀스                                                                                                                                             |
-| body.data[].requestDate       | 	String       | 	발신 일시                                                                                                                                               |
-| body.data[].sendNo            | 	String       | 	발신 번호                                                                                                                                               |
-| body.data[].recipientNo       | 	String       | 	수신 번호                                                                                                                                               |
-| body.data[].countryCode       | 	String       | 	국가 번호                                                                                                                                               |
-| body.data[].sendType          | 	String       | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                     |
-| body.data[].messageType       | 	String       | 	메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                                                                        |
-| body.data[].adYn              | 	String       | 	광고 여부                                                                                                                                               |
-| body.data[].templateId        | 	String       | 	템플릿 ID                                                                                                                                              |
-| body.data[].templateParameter | 	String(json) | 	템플릿 파라미터                                                                                                                                            |
-| body.data[].templateName      | 	String       | 	템플릿명                                                                                                                                                |
-| body.data[].title             | 	String       | 	제목                                                                                                                                                  |
-| body.data[].body              | 	String       | 	본문 내용                                                                                                                                               |
-| body.data[].messageStatus     | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소, DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고 제한)) |
-| body.data[].createUser        | 	String       | 	등록한 사용자                                                                                                                                             |
-| body.data[].createDate        | 	String       | 	등록 날짜                                                                                                                                               |
-| body.data[].updateDate        | 	String       | 	수정 날짜                                                                                                                                               |
+| 값                             | 타입            | Not Null | 설명                                                                                                                                                  |
+|--------------------------------|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                         | Object        | O        | 헤더 영역                                                                                                                                               |
+| header.isSuccessful            | Boolean       | O        | 성공 여부                                                                                                                                               |
+| header.resultCode              | Integer       | O        | 실패 코드                                                                                                                                               |
+| header.resultMessage           | String        | O        | 실패 메시지                                                                                                                                              |
+| body                           | Object        | X        | 본문 영역                                                                                                                                               |
+| body.pageNum                   | Integer       | O        | 현재 페이지 번호                                                                                                                                           |
+| body.pageSize                  | Integer       | O        | 검색된 데이터 수                                                                                                                                           |
+| body.totalCount                | Integer       | O        | 총 데이터 수                                                                                                                                             |
+| body.data[].requestId          | String        | O        | 요청 ID                                                                                                                                               |
+| body.data[].recipientSeq       | Integer       | O        | 수신자 시퀀스                                                                                                                                             |
+| body.data[].requestDate        | String        | O        | 발신 일시                                                                                                                                               |
+| body.data[].sendNo             | String        | O        | 발신 번호                                                                                                                                               |
+| body.data[].recipientNo        | String        | O        | 수신 번호                                                                                                                                               |
+| body.data[].countryCode        | String        | O        | 국가 번호                                                                                                                                               |
+| body.data[].sendType           | String        | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                     |
+| body.data[].messageType        | String        | O        | 메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                                                                        |
+| body.data[].adYn               | String        | O        | 광고 여부                                                                                                                                               |
+| body.data[].templateId         | String        | X        | 템플릿 ID                                                                                                                                              |
+| body.data[].templateParameter  | String(json)  | X        | 템플릿 파라미터                                                                                                                                            |
+| body.data[].templateName       | String        | X        | 템플릿명                                                                                                                                                |
+| body.data[].title              | String        | X        | 제목                                                                                                                                                  |
+| body.data[].body               | String        | O        | 본문 내용                                                                                                                                               |
+| body.data[].messageStatus      | String        | O        | 메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소, DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고 제한)) |
+| body.data[].createUser         | String        | X        | 등록한 사용자                                                                                                                                             |
+| body.data[].createDate         | String        | O        | 등록 날짜                                                                                                                                               |
+| body.data[].updateDate         | String        | X        | 수정 날짜                                                                                                                                               |
 
 ### 예약 발송 상세 검색
 
@@ -5150,34 +5260,36 @@ curl -X GET \
 }
 ```
 
-| 값                                   | 	타입           | 	설명                                                                                                  |
-|-------------------------------------|---------------|------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                 | 	Boolean      | 	성공 여부                                                                                               |
-| header.resultCode                   | 	Integer      | 	실패 코드                                                                                               |
-| header.resultMessage                | 	String       | 	실패 메시지                                                                                              |
-| body.pageNum                        | 	Integer      | 	현재 페이지 번호                                                                                           |
-| body.pageSize                       | 	Integer      | 	검색된 데이터 수                                                                                           |
-| body.totalCount                     | 	Integer      | 	총 데이터 수                                                                                             |
-| body.data.requestId                 | 	String       | 	요청 ID                                                                                               |
-| body.data.recipientSeq              | 	Integer      | 	수신자 시퀀스                                                                                             |
-| body.data.requestDate               | 	String       | 	발신 일시                                                                                               |
-| body.data.sendNo                    | 	String       | 	발신 번호                                                                                               |
-| body.data.recipientNo               | 	String       | 	수신 번호                                                                                               |
-| body.data.countryCode               | 	String       | 	국가 번호                                                                                               |
-| body.data.sendType                  | 	String       | 	발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                     |
-| body.data.messageType               | 	String       | 	메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                        |
-| body.data.adYn                      | 	String       | 	광고 여부                                                                                               |
-| body.data.templateId                | 	String       | 	템플릿 ID                                                                                              |
-| body.data.templateParameter         | 	String(json) | 	템플릿 파라미터                                                                                            |
-| body.data.templateName              | 	String       | 	템플릿명                                                                                                |
-| body.data.title                     | 	String       | 	제목                                                                                                  |
-| body.data.body                      | 	String       | 	본문 내용                                                                                               |
-| body.data.messageStatus             | 	String       | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한)) |
-| body.data.createUser                | 	String       | 	등록한 사용자                                                                                             |
-| body.data.createDate                | 	String       | 	등록 날짜                                                                                               |
-| body.data.attachFileList[].fileId   | 	Integer      | 	파일 ID                                                                                               |
-| body.data.attachFileList[].filePath | 	String       | 	파일경로(내부용)                                                                                           |
-| body.data.attachFileList[].fileName | 	String       | 	파일명                                                                                                 |
+| 값                                   | 타입           | Not Null | 설명                                                                                                                                                                          |
+|-------------------------------------|---------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| header                              | Object        | O        | 헤더 영역                                                                                                                                                                     |
+| header.isSuccessful                 | Boolean       | O        | 성공 여부                                                                                                                                                                     |
+| header.resultCode                   | Integer       | O        | 실패 코드                                                                                                                                                                     |
+| header.resultMessage                | String        | O        | 실패 메시지                                                                                                                                                                    |
+| body                                | Object        | X        | 본문 영역                                                                                                                                                                     |
+| body.pageNum                        | Integer       | O        | 현재 페이지 번호                                                                                                                                                               |
+| body.pageSize                       | Integer       | O        | 검색된 데이터 수                                                                                                                                                               |
+| body.totalCount                     | Integer       | O        | 총 데이터 수                                                                                                                                                                  |
+| body.data.requestId                 | String        | O        | 요청 ID                                                                                                                                                                       |
+| body.data.recipientSeq              | Integer       | O        | 수신자 시퀀스                                                                                                                                                                  |
+| body.data.requestDate               | String        | O        | 발신 일시                                                                                                                                                                     |
+| body.data.sendNo                    | String        | O        | 발신 번호                                                                                                                                                                     |
+| body.data.recipientNo               | String        | O        | 수신 번호                                                                                                                                                                     |
+| body.data.countryCode               | String        | O        | 국가 번호                                                                                                                                                                     |
+| body.data.sendType                  | String        | O        | 발송 유형(0:Sms, 1:Lms/Mms, 2:Auth)                                                                                                                                          |
+| body.data.messageType               | String        | O        | 메시지타입<br/>(SMS,LMS,MMS,AUTH)                                                                                                                                             |
+| body.data.adYn                      | String        | O        | 광고 여부                                                                                                                                                                     |
+| body.data.templateId                | String        | X        | 템플릿 ID                                                                                                                                                                    |
+| body.data.templateParameter         | String(json)  | X        | 템플릿 파라미터                                                                                                                                                                |
+| body.data.templateName              | String        | X        | 템플릿명                                                                                                                                                                      |
+| body.data.title                     | String        | X        | 제목                                                                                                                                                                        |
+| body.data.body                      | String        | O        | 본문 내용                                                                                                                                                                     |
+| body.data.messageStatus             | String        | O        | 메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소,DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고제한))       |
+| body.data.createUser                | String        | X        | 등록한 사용자                                                                                                                                                                 |
+| body.data.createDate                | String        | X        | 등록 날짜                                                                                                                                                                    |
+| body.data.attachFileList[].fileId   | Integer       | O        | 파일 ID                                                                                                                                                                     |
+| body.data.attachFileList[].filePath | String        | X        | 파일경로(내부용)                                                                                                                                                              |
+| body.data.attachFileList[].fileName | String        | X        | 파일명                                                                                                                                                                      |
 
 ### 예약 발송 취소
 
@@ -5264,13 +5376,15 @@ curl -X PUT \
 }
 ```
 
-| 값                        | 	타입      | 	설명       |
-|--------------------------|----------|-----------|
-| header.isSuccessful      | 	Boolean | 	성공 여부    |
-| header.resultCode        | 	Integer | 	실패 코드    |
-| header.resultMessage     | 	String  | 	실패 메시지   |
-| body.data.requestedCount | 	Integer | 	취소 요청 건수 |
-| body.data.canceledCount  | 	Integer | 	취소 성공 건수 |
+| 값                        | 타입     | Not Null | 설명        |
+|---------------------------|---------|----------|-------------|
+| header                    | Object  | O        | 헤더 영역    |
+| header.isSuccessful       | Boolean | O        | 성공 여부   |
+| header.resultCode         | Integer | O        | 실패 코드   |
+| header.resultMessage      | String  | O        | 실패 메시지 |
+| body                      | Object  | X        | 본문 영역   |
+| body.data.requestedCount  | Integer | O        | 취소 요청 건수 |
+| body.data.canceledCount   | Integer | O        | 취소 성공 건수 |
 
 ### 예약 발송 취소 - 다중 필터
 
@@ -5388,14 +5502,16 @@ curl -X PUT \
 }
 ```
 
-| 값                                 | 	타입      | 	설명                                                                                                         |
-|-----------------------------------|----------|-------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful               | 	Boolean | 	성공 여부                                                                                                      |
-| header.resultCode                 | 	Integer | 	실패 코드                                                                                                      |
-| header.resultMessage              | 	String  | 	실패 메시지                                                                                                     |
-| body.data.reservationCancelId     | 	Integer | 	예약 취소 ID                                                                                                   |
-| body.data.requestedDateTime       | 	String  | 	예약 취소 시간(yyyy-MM-dd HH:mm:ss)                                                                              |
-| body.data.reservationCancelStatus | 	String  | 	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+| 값                                 | 타입      | Not Null | 설명                                                                                                        |
+|------------------------------------|---------|----------|------------------------------------------------------------------------------------------------------------|
+| header                            | Object  | O        | 헤더 영역                                                                                                     |
+| header.isSuccessful               | Boolean | O        | 성공 여부                                                                                                     |
+| header.resultCode                 | Integer | O        | 실패 코드                                                                                                     |
+| header.resultMessage              | String  | O        | 실패 메시지                                                                                                   |
+| body                              | Object  | X        | 본문 영역                                                                                                     |
+| body.data.reservationCancelId     | Integer | O        | 예약 취소 ID                                                                                                  |
+| body.data.requestedDateTime       | String  | O        | 예약 취소 시간(yyyy-MM-dd HH:mm:ss)                                                                             |
+| body.data.reservationCancelStatus | String  | O        | 예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
 
 ### 예약 발송 취소 요청 목록 검색 - 다중 필터
 
@@ -5474,21 +5590,23 @@ curl -X GET \
 }
 ```
 
-| 값                                   | 	타입                  | 	설명                                                                                                         |
-|-------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful                 | 	Boolean             | 	성공 여부                                                                                                      |
-| header.resultCode                   | 	Integer             | 	실패 코드                                                                                                      |
-| header.resultMessage                | 	String              | 	실패 메시지                                                                                                     |
-| body.data[].reservationCancelId     | 	String              | 	 예약 취소 ID                                                                                                  |
-| body.data[].searchParameter         | 	Map<String, Object> | 예약 취소 요청 파라미터                                                                                               |
-| body.data[].requestedDateTime       | 	String              | 	예약 취소 요청 시간                                                                                                |
-| body.data[].completedDateTime       | 	String              | 	예약 취소 완료 시간                                                                                                |
-| body.data[].reservationCancelStatus | 	String              | 	예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
-| body.data[].totalCount              | 	Integer             | 예약 취소 대상 건수                                                                                                 |
-| body.data[].successCount            | 	Integer             | 예약 취소 성공 건수                                                                                                 |
-| body.data[].createUser              | 	String              | 예약 취소 요청자	                                                                                                  |
-| body.data[].createdDateTime         | 	String              | 	예약 취소 요청 생성 시간                                                                                             |
-| body.data[].updatedDateTime         | 	String              | 	예약 취소 수정 시간                                                                                                |
+| 값                                   | 타입                 | Not Null | 설명                                                                                                         |
+|-------------------------------------|---------------------|----------|-------------------------------------------------------------------------------------------------------------|
+| header                              | Object              | O        | 헤더 영역                                                                                                    |
+| header.isSuccessful                 | Boolean             | O        | 성공 여부                                                                                                    |
+| header.resultCode                   | Integer             | O        | 실패 코드                                                                                                    |
+| header.resultMessage                | String              | O        | 실패 메시지                                                                                                   |
+| body                                | Object              | X        | 본문 영역                                                                                                     |
+| body.data[].reservationCancelId     | String              | O        | 예약 취소 ID                                                                                                 |
+| body.data[].searchParameter         | Map<String, Object> | O        | 예약 취소 요청 파라미터                                                                                         |
+| body.data[].requestedDateTime       | String              | O        | 예약 취소 요청 시간                                                                                            |
+| body.data[].completedDateTime       | String              | X        | 예약 취소 완료 시간                                                                                            |
+| body.data[].reservationCancelStatus | String              | X        | 예약 취소 상태<br/>- READY : 예약 준비<br/>- PROCESSING : 예약 취소 중<br/>- COMPLETED : 예약 취소 완료<br/>- FAILED : 예약 취소 실패 |
+| body.data[].totalCount              | Integer             | X        | 예약 취소 대상 건수                                                                                           |
+| body.data[].successCount            | Integer             | X        | 예약 취소 성공 건수                                                                                           |
+| body.data[].createUser              | String              | X        | 예약 취소 요청자                                                                                              |
+| body.data[].createdDateTime         | String              | X        | 예약 취소 요청 생성 시간                                                                                        |
+| body.data[].updatedDateTime         | String              | X        | 예약 취소 수정 시간                                                                                           |
 
 ## 발송 결과 파일 다운로드
 
@@ -5603,16 +5721,18 @@ curl -X POST \
 }
 ```
 
-| 값                            | 	타입      | 	설명                                                                                                                  |
-|------------------------------|----------|----------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful          | 	Boolean | 	성공 여부                                                                                                               |
-| header.resultCode            | 	Integer | 	실패 코드                                                                                                               |
-| header.resultMessage         | 	String  | 	실패 메시지                                                                                                              |
-| body.data.downloadId         | 	String  | 	다운로드 ID                                                                                                             |
-| body.data.downloadType       | 	String  | 	다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                                    |
-| body.data.fileType           | 	String  | 	파일 타입(현재 csv만 지원)                                                                                                   |
-| body.data.downloadStatusCode | 	String  | 	파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
-| body.data.expiredDate        | 	String  | 	다운로드 기간 만료 일시                                                                                                       |
+| 값                            | 타입       | Not Null | 설명                                                                                                                 |
+|-------------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------|
+| header                        | Object   | O        | 헤더 영역                                                                                                             |
+| header.isSuccessful           | Boolean  | O        | 성공 여부                                                                                                              |
+| header.resultCode             | Integer  | O        | 실패 코드                                                                                                              |
+| header.resultMessage          | String   | O        | 실패 메시지                                                                                                            |
+| body                          | Object   | X        | 본문 영역                                                                                                              |
+| body.data.downloadId          | String   | O        | 다운로드 ID                                                                                                            |
+| body.data.downloadType        | String   | O        | 다운로드 유형<br/>- BLOCK: 수신거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                           |
+| body.data.fileType            | String   | X        | 파일 타입(현재 csv만 지원)                                                                                               |
+| body.data.downloadStatusCode  | String   | O        | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
+| body.data.expiredDate         | String   | X        | 다운로드 기간 만료 일시                                                                                                       |
 
 ### 발송 결과 파일 생성 요청 내역 검색
 
@@ -5691,23 +5811,25 @@ curl -X GET \
 }
 ```
 
-| 값                              | 	타입      | 	설명                                                                                                                 |
-|--------------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
-| header.isSuccessful            | 	Boolean | 	성공 여부                                                                                                              |
-| header.resultCode              | 	Integer | 	실패 코드                                                                                                              |
-| header.resultMessage           | 	String  | 	실패 메시지                                                                                                             |
-| body.totalCount                | Integer  | 전체 건수                                                                                                               |
-| body.data[].downloadId         | String   | 다운로드 ID                                                                                                             |
-| body.data[].downloadType       | String   | 다운로드 유형<br/>- BLOCK: 수신 거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                                   |
-| body.data[].fileType           | String   | 파일 타입                                                                                                               |
-| body.data[].parameter          | String   | 요청 파라미터                                                                                                             |
-| body.data[].size               | Integer  | 검색 데이터 크기                                                                                                           |
-| body.data[].downloadStatusCode | String   | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
-| body.data[].resultMessage      | String   | 결과 메시지(실패 시 응답)                                                                                                     |
-| body.data[].expiredDate        | String   | 파일 만료 일시                                                                                                            |
-| body.data[].createUser         | String   | 파일 생성 요청자                                                                                                           |
-| body.data[].createDate         | String   | 파일 생성 요청 일시                                                                                                         |
-| body.data[].updateDate         | String   | 파일 생성 완료, 실패 일시                                                                                                     |
+| 값                              | 타입     | Not Null | 설명                                                                                                                    |
+|--------------------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------|
+| header                         | Object  | O        | 헤더 영역                                                                                                               |
+| header.isSuccessful            | Boolean | O        | 성공 여부                                                                                                               |
+| header.resultCode              | Integer | O        | 실패 코드                                                                                                               |
+| header.resultMessage           | String  | O        | 실패 메시지                                                                                                              |
+| body                           | Object  | X        | 본문 영역                                                                                                               |
+| body.totalCount                | Integer | O        | 전체 건수                                                                                                               |
+| body.data[].downloadId         | String  | O        | 다운로드 ID                                                                                                             |
+| body.data[].downloadType       | String  | O        | 다운로드 유형<br/>- BLOCK: 수신 거부<br/>- NORMAL: 일반 발송<br/>- MASS: 대량 발송<br/>- TAG: 태그 발송                           |
+| body.data[].fileType           | String  | X        | 파일 타입                                                                                                               |
+| body.data[].parameter          | String  | X        | 요청 파라미터                                                                                                             |
+| body.data[].size               | Integer | X        | 검색 데이터 크기                                                                                                           |
+| body.data[].downloadStatusCode | String  | O        | 파일 생성 상태<br/>- READY: 생성 준비<br/>- MAKING: 생성 중<br/>- COMPLETED: 생성 완료<br/>- FAILED: 생성 실패<br/>- EXPIRED: 다운로드 기간 만료 |
+| body.data[].resultMessage      | String  | X        | 결과 메시지(실패 시 응답)                                                                                                     |
+| body.data[].expiredDate        | String  | X        | 파일 만료 일시                                                                                                            |
+| body.data[].createUser         | String  | O        | 파일 생성 요청자                                                                                                           |
+| body.data[].createDate         | String  | O        | 파일 생성 요청 일시                                                                                                         |
+| body.data[].updateDate         | String  | X        | 파일 생성 완료, 실패 일시                                                                                                     |
 
 ### 발송 결과 파일 다운로드 요청
 
@@ -5826,18 +5948,20 @@ curl -X GET \
 }
 ```
 
-| 값                       | 	타입      | 	설명        |
-|-------------------------|----------|------------|
-| header.isSuccessful     | 	Boolean | 	성공 여부     |
-| header.resultCode       | 	Integer | 	실패 코드     |
-| header.resultMessage    | 	String  | 	실패 메시지    |
-| body.pageNum            | 	Integer | 	현재 페이지 번호 |
-| body.pageSize           | 	Integer | 	검색된 데이터 수 |
-| body.totalCount         | 	Integer | 	총 데이터 수   |
-| body.data[].tagId       | String   | 태그 ID      |
-| body.data[].tagName     | String   | 태그 이름      |
-| body.data[].createdDate | String   | 생성 일시      |
-| body.data[].tagId       | String   | 수정 일시      |
+| 값                        | 타입     | Not Null | 설명         |
+|--------------------------|---------|----------|--------------|
+| header                   | Object  | O        | 헤더 영역    |
+| header.isSuccessful      | Boolean | O        | 성공 여부    |
+| header.resultCode        | Integer | O        | 실패 코드    |
+| header.resultMessage     | String  | O        | 실패 메시지  |
+| body                     | Object  | X        | 본문 영역    |
+| body.pageNum             | Integer | O        | 현재 페이지 번호 |
+| body.pageSize            | Integer | O        | 검색된 데이터 수 |
+| body.totalCount          | Integer | O        | 총 데이터 수 |
+| body.data[].tagId        | String  | O        | 태그 ID     |
+| body.data[].tagName      | String  | X        | 태그 이름   |
+| body.data[].createdDate  | String  | O        | 생성 일시   |
+| body.data[].updatedDate  | String  | O        | 수정 일시   |
 
 ### 태그 등록
 
@@ -5907,12 +6031,14 @@ curl -X POST \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
-| body.data.tagId      | String   | 태그 ID   |
+| 값                    | 타입     | Not Null | 설명      |
+|----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역   |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
+| body                 | Object  | X        | 본문 영역  |
+| body.data.tagId      | String  | O        | 태그 ID   |
 
 ### 태그 수정
 
@@ -5979,11 +6105,12 @@ curl -X PUT \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
+| 값                    | 타입     | Not Null | 설명      |
+|----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역   |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 ### 태그 삭제
 
@@ -6035,11 +6162,12 @@ curl -X DELETE \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
+| 값                    | 타입     | Not Null | 설명      |
+|----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역   |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 ## UID 관리
 
@@ -6128,20 +6256,22 @@ curl -X GET \
 }
 ```
 
-| 값                                       | 	타입      | 	설명         |
-|-----------------------------------------|----------|-------------|
-| header.isSuccessful                     | 	Boolean | 	성공 여부      |
-| header.resultCode                       | 	Integer | 	실패 코드      |
-| header.resultMessage                    | 	String  | 	실패 메시지     |
-| body.data.uids[].uid                    | String   | UID         |
-| body.data.uids[].tags[].tagId           | String   | 태그 ID       |
-| body.data.uids[].tags[].tagName         | String   | 태그 이름       |
-| body.data.uids[].tags[].createdDate     | String   | 태그 생성 일시    |
-| body.data.uids[].tags[].updatedDate     | String   | 태그 수정 일시    |
-| body.data.uids[].contacts[].contactType | String   | 연락처 타입      |
-| body.data.uids[].contacts[].contact     | String   | 연락처(휴대폰 번호) |
-| body.data.uids[].contacts[].createdDate | String   | 연락처 생성 일시   |
-| body.data.uids[].last                   | Boolean  | 마지막 목록 여부   |
+| 값                                       | 타입     | Not Null | 설명            |
+|-----------------------------------------|---------|----------|-----------------|
+| header                                  | Object  | O        | 헤더 영역       |
+| header.isSuccessful                     | Boolean | O        | 성공 여부       |
+| header.resultCode                       | Integer | O        | 실패 코드       |
+| header.resultMessage                    | String  | O        | 실패 메시지     |
+| body                                    | Object  | X        | 본문 영역      |
+| body.data.uids[].uid                    | String  | O        | UID          |
+| body.data.uids[].tags[].tagId           | String  | O        | 태그 ID        |
+| body.data.uids[].tags[].tagName         | String  | X        | 태그 이름       |
+| body.data.uids[].tags[].createdDate     | String  | O        | 태그 생성 일시  |
+| body.data.uids[].tags[].updatedDate     | String  | O        | 태그 수정 일시  |
+| body.data.uids[].contacts[].contactType | String  | O        | 연락처 타입     |
+| body.data.uids[].contacts[].contact     | String  | O        | 연락처(휴대폰 번호) |
+| body.data.uids[].contacts[].createdDate | String  | O        | 연락처 생성 일시 |
+| body.data.uids[].last                   | Boolean | X        | 마지막 목록 여부 |
 
 ### UID 단건 검색
 
@@ -6213,19 +6343,21 @@ curl -X GET \
 }
 ```
 
-| 값                                | 	타입      | 	설명         |
-|----------------------------------|----------|-------------|
-| header.isSuccessful              | 	Boolean | 	성공 여부      |
-| header.resultCode                | 	Integer | 	실패 코드      |
-| header.resultMessage             | 	String  | 	실패 메시지     |
-| body.data.uid                    | String   | UID         |
-| body.data.tags[].tagId           | String   | 태그 ID       |
-| body.data.tags[].tagName         | String   | 태그 이름       |
-| body.data.tags[].createdDate     | String   | 태그 생성 일시    |
-| body.data.tags[].updatedDate     | String   | 태그 수정 일시    |
-| body.data.contacts[].contactType | String   | 연락처 타입      |
-| body.data.contacts[].contact     | String   | 연락처(휴대폰 번호) |
-| body.data.contacts[].createdDate | String   | 연락처 생성 일시   |
+| 값                                | 타입       | Not Null | 설명             |
+|-----------------------------------|----------|----------|------------------|
+| header                            | Object   | O        | 헤더 영역         |
+| header.isSuccessful               | Boolean  | O        | 성공 여부        |
+| header.resultCode                 | Integer  | O        | 실패 코드        |
+| header.resultMessage              | String   | O        | 실패 메시지      |
+| body                              | Object   | X        | 본문 영역       |
+| body.data.uid                     | String   | O        | UID              |
+| body.data.tags[].tagId            | String   | O        | 태그 ID          |
+| body.data.tags[].tagName          | String   | X        | 태그 이름        |
+| body.data.tags[].createdDate      | String   | O        | 태그 생성 일시   |
+| body.data.tags[].updatedDate      | String   | O        | 태그 수정 일시   |
+| body.data.contacts[].contactType  | String   | O        | 연락처 타입      |
+| body.data.contacts[].contact      | String   | O        | 연락처(휴대폰 번호) |
+| body.data.contacts[].createdDate  | String   | O        | 연락처 생성 일시 |
 
 ### UID 등록
 
@@ -6323,11 +6455,12 @@ curl -X POST \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
+| 값                    | 타입     | Not Null | 설명      |
+|----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
+| header.isSuccessful  | Boolean | O        | 성공 여부  |
+| header.resultCode    | Integer | O        | 실패 코드  |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 ### UID 삭제
 
@@ -6379,11 +6512,12 @@ curl -X DELETE \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
+| 값                    | 타입     | Not Null | 설명      |
+|----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지 |
 
 ### 휴대폰 번호 등록
 
@@ -6450,11 +6584,12 @@ curl -X POST \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
+| 값                    | 타입     | Not Null | 설명      |
+|----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지|
 
 ### 휴대폰 번호 삭제
 
@@ -6507,8 +6642,9 @@ curl -X DELETE \
 }
 ```
 
-| 값                    | 	타입      | 	설명     |
-|----------------------|----------|---------|
-| header.isSuccessful  | 	Boolean | 	성공 여부  |
-| header.resultCode    | 	Integer | 	실패 코드  |
-| header.resultMessage | 	String  | 	실패 메시지 |
+| 값                    | 타입     | Not Null | 설명      |
+|----------------------|---------|----------|-----------|
+| header               | Object  | O        | 헤더 영역  |
+| header.isSuccessful  | Boolean | O        | 성공 여부 |
+| header.resultCode    | Integer | O        | 실패 코드 |
+| header.resultMessage | String  | O        | 실패 메시지|
