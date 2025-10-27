@@ -8,6 +8,10 @@
     * You can get the notifications automatically whenever the set monthly sending limit reaches 70%, 90%, and 100%.
     * You can set it from **Project Dashboard > Notification Management**.
 
+#### Bug Fixes
+* [API] Fixed statistics query bug
+  * Fixed a bug where data was retrieved twice when the data search range was set narrow in statistics query.
+
 ### June 24, 2025
 #### Feature Updates
 * [Console/API] Improved the international sending statistics
