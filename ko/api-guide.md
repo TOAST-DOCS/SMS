@@ -4291,6 +4291,174 @@ curl -X DELETE \
 
 ## 080 수신 거부 서비스
 
+### 수신 거부 번호 목록 검색
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v3.0/appKeys/{appKey}/blockservice/unsubscribe-nos
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 값      | 	타입     | 	설명     |
+|--------|---------|---------|
+| appKey | 	String | 	고유의 앱키 |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 값            | 	타입     | 	설명        |
+|--------------|---------|------------|
+| X-Secret-Key | 	String | 	고유의 시크릿 키 |
+
+[Query parameter]
+
+| 값                | 	타입      | 	최대 길이 | 필수  | 	설명                                |
+|------------------|----------|--------|-----|------------------------------------|
+| pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                   |
+| pageSize         | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                    |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' 
+```
+
+#### 응답
+
+```
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "unsubscribeNo": "0808888888",
+        "enterpriseName": "업체명",
+        "requestDateTime": "2025-01-01 00:00:00",
+        "startDateTime": "2025-01-01 00:00:00",
+        "status": "RESERVE_USE/USED/TERMINATE/EXTERNAL_REGIST/EXTERNAL_TERMINATE",
+        "shareType": "MASTER/SHARE"
+      }
+    ]
+  }
+}
+```
+
+| 값                                         | 타입     | Not Null | 설명                                |
+|-------------------------------------------|---------|----------|-------------------------------------|
+| header                                    | Object  | O        | 헤더 영역                             |
+| header.isSuccessful                       | Boolean | O        | 성공 여부                             |
+| header.resultCode                         | Integer | O        | 실패 코드                             |
+| header.resultMessage                      | String  | O        | 실패 메시지                           |
+| body                                      | Object  | X        | 본문 영역                            |
+| body.pageNum                              | Integer | O        | 현재 페이지 번호                       |
+| body.pageSize                             | Integer | O        | 검색된 데이터 수                       |
+| body.totalCount                           | Integer | O        | 총 데이터 수                          |
+| body.data.unsubscribeNo                   | String  | O        | 080 수신 거부 번호                     |
+| body.data.enterpriseName                  | String  | O        | 업체명                                |
+| body.data.requestDateTime                 | String  | O        | 080 수신 거부 번호 신청 일시              |
+| body.data.startDateTime                   | String  | X        | 080 수신 거부 번호 사용 시작 일시          |
+| body.data.status                          | String  | O        | 상태 (RESERVE_USE: 요청 / USED: 사용 중 / TERMINATE: 삭제 / EXTERNAL_REGIST: 외부 080 번호 )                               |
+| body.data.shareType                       | String  | O        | 공유 타입 (MASTER: 소유 / SHARE: 공유 받음)|
+
+### 수신 거부 번호 단일 검색
+
+#### 요청
+
+[URL]
+
+```
+GET /sms/v3.0/appKeys/{appKey}/blockservice/unsubscribe-nos/{unsubscribeNo}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 값      | 	타입     | 	설명     |
+|--------|---------|---------|
+| appKey | 	String | 	고유의 앱키 |
+| unsubscribeNo | String | 080 수신 거부 번호 (하이픈 제외) |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 값            | 	타입     | 	설명        |
+|--------------|---------|------------|
+| X-Secret-Key | 	String | 	고유의 시크릿 키 |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos/{unsubscribeNo}' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' 
+```
+#### 응답
+
+```
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "unsubscribeNo": "0808888888",
+        "enterpriseName": "업체명",
+        "requestDateTime": "2025-01-01 00:00:00",
+        "startDateTime": "2025-01-01 00:00:00",
+        "status": "RESERVE_USE/USED/TERMINATE/EXTERNAL_REGIST/EXTERNAL_TERMINATE",
+        "shareType": "MASTER/SHARE"
+      }
+    ]
+  }
+}
+```
+
+| 값                                         | 타입     | Not Null | 설명                                |
+|-------------------------------------------|---------|----------|-------------------------------------|
+| header                                    | Object  | O        | 헤더 영역                             |
+| header.isSuccessful                       | Boolean | O        | 성공 여부                             |
+| header.resultCode                         | Integer | O        | 실패 코드                             |
+| header.resultMessage                      | String  | O        | 실패 메시지                           |
+| body                                      | Object  | X        | 본문 영역                            |
+| body.data.unsubscribeNo                   | String  | O        | 080 수신 거부 번호                     |
+| body.data.enterpriseName                  | String  | O        | 업체명                                |
+| body.data.requestDateTime                 | String  | O        | 080 수신 거부 번호 신청 일시              |
+| body.data.startDateTime                   | String  | X        | 080 수신 거부 번호 사용 시작 일시          |
+| body.data.status                          | String  | O        | 상태 (RESERVE_USE: 요청 / USED: 사용 중 / TERMINATE: 삭제 / EXTERNAL_REGIST: 외부 080 번호 )                               |
+| body.data.shareType                       | String  | O        | 공유 타입 (MASTER: 소유 / SHARE: 공유 받음)|
+
 ### 수신 거부 대상자 등록
 
 #### 요청
