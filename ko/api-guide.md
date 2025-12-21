@@ -4324,8 +4324,8 @@ Content-Type: application/json;charset=UTF-8
 
 | 값                | 	타입      | 	최대 길이 | 필수  | 	설명                                |
 |------------------|----------|--------|-----|------------------------------------|
-| pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                   |
-| pageSize         | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                    |
+| pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값: 1)                   |
+| pageSize         | 	Integer | 1000   | 	옵션 | 	검색 수(기본값: 15)                    |
 
 #### cURL
 
@@ -4377,8 +4377,8 @@ curl -X GET \
 | body.data.enterpriseName                  | String  | O        | 업체명                                |
 | body.data.requestDateTime                 | String  | O        | 080 수신 거부 번호 신청 일시              |
 | body.data.startDateTime                   | String  | X        | 080 수신 거부 번호 사용 시작 일시          |
-| body.data.status                          | String  | O        | 상태 (RESERVE_USE: 요청 / USED: 사용 중 / TERMINATE: 삭제 / EXTERNAL_REGIST: 외부 080 번호 )                               |
-| body.data.shareType                       | String  | O        | 공유 타입 (MASTER: 소유 / SHARE: 공유 받음)|
+| body.data.status                          | String  | O        | 상태(RESERVE_USE: 요청 / USED: 사용 중 / TERMINATE: 삭제 / EXTERNAL_REGIST: 외부 080 번호 / EXTERNAL_TERMINATE: 외부 080 번호 삭제)                               |
+| body.data.shareType                       | String  | O        | 공유 타입(MASTER: 소유 / SHARE: 공유 받음)|
 
 ### 수신 거부 번호 단일 검색
 
@@ -4456,8 +4456,8 @@ curl -X GET \
 | body.data.enterpriseName                  | String  | O        | 업체명                                |
 | body.data.requestDateTime                 | String  | O        | 080 수신 거부 번호 신청 일시              |
 | body.data.startDateTime                   | String  | X        | 080 수신 거부 번호 사용 시작 일시          |
-| body.data.status                          | String  | O        | 상태 (RESERVE_USE: 요청 / USED: 사용 중 / TERMINATE: 삭제 / EXTERNAL_REGIST: 외부 080 번호 )                               |
-| body.data.shareType                       | String  | O        | 공유 타입 (MASTER: 소유 / SHARE: 공유 받음)|
+| body.data.status                          | String  | O        | 상태(RESERVE_USE: 요청 / USED: 사용 중 / TERMINATE: 삭제 / EXTERNAL_REGIST: 외부 080 번호 / EXTERNAL_TERMINATE: 외부 080 번호 삭제)                               |
+| body.data.shareType                       | String  | O        | 공유 타입(MASTER: 소유 / SHARE: 공유 받음)|
 
 ### 수신 거부 대상자 등록
 
