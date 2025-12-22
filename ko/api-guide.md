@@ -4396,7 +4396,7 @@ Content-Type: application/json;charset=UTF-8
 | 값      | 	타입     | 	설명     |
 |--------|---------|---------|
 | appKey | 	String | 	고유의 앱키 |
-| unsubscribeNo | String | 080 수신 거부 번호 (하이픈 제외) |
+| unsubscribeNo | String | 080 수신 거부 번호(하이픈 제외) |
 
 [Header]
 
