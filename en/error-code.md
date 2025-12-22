@@ -2,7 +2,7 @@
 
 ## API Result Code
 
-| Service | Successful or not | Result code | Result code message | API response message |
+| Category | Successful or not | Result code | Result code message | API response message |
 | - | - | - | - | - |
 | Common | true | 0 | Successful | SUCCESS |
 | Common | false | 4 | Parameter validation failed | |
