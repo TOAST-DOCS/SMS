@@ -859,7 +859,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
   "sendNo": "15446859",
   "senderGroupingKey": "SenderGrouping",
   "attachFileIdList": [
-  0
+0
   ],
   "recipientList": [
     {
@@ -2567,7 +2567,7 @@ Content-Type: application/json;charset=UTF-8
   "attachFileIdList": [
     1,
     2,
-    3
+3
   ],
   "tagExpression": [
     "tag1",
@@ -3575,7 +3575,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -3646,7 +3646,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
   "useYn": "Y",
   "attachFileIdList": [
     123123,
-    456456
+456456
   ]
 }
 ```
@@ -4090,7 +4090,7 @@ Content-Type: application/json;charset=UTF-8
   "useYn": "",
   "attachFileIdList": [
     0,
-    1
+1
   ]
 }
 ```
@@ -4179,6 +4179,174 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TE
 ```
 
 ## 080受信拒否サービス
+
+### 受信拒否番号リスト検索
+
+#### リクエスト
+
+[URL]
+
+```
+GET /sms/v3.0/appKeys/{appKey}/blockservice/unsubscribe-nos
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値     | 	タイプ    | 	説明    |
+|--------|---------|---------|
+| appKey | 	String | 	固有のアプリキー |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 値           | 	タイプ    | 	説明       |
+|--------------|---------|------------|
+| X-Secret-Key | 	String | 	固有のシークレットキー |
+
+[Query parameter]
+
+| 値                | 	タイプ      | 	最大長 | 必須  | 	説明                                |
+|------------------|----------|--------|-----|------------------------------------|
+| pageNum          | 	Integer | -      | 	オプション | 	ページ番号(デフォルト値：1)                    |
+| pageSize         | 	Integer | 1000   | 	オプション | 	検索数(デフォルト値：15)                     |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' 
+```
+
+#### レスポンス
+
+```
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "unsubscribeNo": "0808888888",
+        "enterpriseName": "業者名",
+        "requestDateTime": "2025-01-01 00:00:00",
+        "startDateTime": "2025-01-01 00:00:00",
+        "status": "RESERVE_USE/USED/TERMINATE/EXTERNAL_REGIST/EXTERNAL_TERMINATE",
+        "shareType": "MASTER/SHARE"
+      }
+    ]
+  }
+}
+```
+
+| 値                                        | タイプ    | Not Null | 説明                               |
+|-------------------------------------------|---------|----------|-------------------------------------|
+| header                                    | Object  | O        | ヘッダ領域                            |
+| header.isSuccessful                       | Boolean | O        | 成否                            |
+| header.resultCode                         | Integer | O        | 失敗コード                            |
+| header.resultMessage                      | String  | O        | 失敗メッセージ                          |
+| body                                      | Object  | X        | 本文領域                           |
+| body.pageNum                           | Integer | O        | 現在のページ番号                        |
+| body.pageSize                          | Integer | O        | 検索されたデータ数                        |
+| body.totalCount                        | Integer | O        | 総データ数                             |
+| body.data.unsubscribeNo                   | String  | O        | 080受信拒否番号                    |
+| body.data.enterpriseName                  | String  | O        | 業者名                               |
+| body.data.requestDateTime                 | String  | O        | 080受信拒否番号申請日時             |
+| body.data.startDateTime                   | String  | X        | 080受信拒否番号使用開始 日時         |
+| body.data.status                       | String  | O        | 状態(RESERVE_USE：リクエスト / USED：使用中 / TERMINATE：削除 / EXTERNAL_REGIST：外部080番号)                        |
+| body.data.shareType                    | String  | O        | 共有タイプ(MASTER：所有 / SHARE：共有)|
+
+### 受信拒否番号の単一検索
+
+#### リクエスト
+
+[URL]
+
+```
+GET /sms/v3.0/appKeys/{appKey}/blockservice/unsubscribe-nos/{unsubscribeNo}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値     | 	タイプ    | 	説明    |
+|--------|---------|---------|
+| appKey | 	String | 	固有のアプリキー |
+| unsubscribeNo | String | 080受信拒否番号(ハイフン除く) |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| 値           | 	タイプ    | 	説明       |
+|--------------|---------|------------|
+| X-Secret-Key | 	String | 	固有のシークレットキー |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos/{unsubscribeNo}' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' 
+```
+#### レスポンス
+
+```
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "unsubscribeNo": "0808888888",
+        "enterpriseName": "業者名",
+        "requestDateTime": "2025-01-01 00:00:00",
+        "startDateTime": "2025-01-01 00:00:00",
+        "status": "RESERVE_USE/USED/TERMINATE/EXTERNAL_REGIST/EXTERNAL_TERMINATE",
+        "shareType": "MASTER/SHARE"
+      }
+    ]
+  }
+}
+```
+
+| 値                                        | タイプ    | Not Null | 説明                               |
+|-------------------------------------------|---------|----------|-------------------------------------|
+| header                                    | Object  | O        | ヘッダ領域                            |
+| header.isSuccessful                       | Boolean | O        | 成否                            |
+| header.resultCode                         | Integer | O        | 失敗コード                            |
+| header.resultMessage                      | String  | O        | 失敗メッセージ                          |
+| body                                      | Object  | X        | 本文領域                           |
+| body.data.unsubscribeNo                   | String  | O        | 080受信拒否番号                    |
+| body.data.enterpriseName                  | String  | O        | 業者名                               |
+| body.data.requestDateTime                 | String  | O        | 080受信拒否番号申請日時             |
+| body.data.startDateTime                   | String  | X        | 080受信拒否番号使用開始 日時         |
+| body.data.status                       | String  | O        | 状態(RESERVE_USE：リクエスト / USED：使用中 / TERMINATE：削除 / EXTERNAL_REGIST：外部080番号)                        |
+| body.data.shareType                    | String  | O        | 共有タイプ(MASTER：所有 / SHARE：共有)|
 
 ### 受信拒否対象者の登録
 
