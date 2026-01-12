@@ -1,5 +1,11 @@
 ## Notification > SMS > Release Notes
 
+### December 31, 2025
+#### Added Features
+* [API] Added an API to look up 080 opt-out numbers
+    * Added an API to look up 080 opt-out numbers.
+    * For more information, refer to [[API v3.0 Guide > 080 Opt-out Service](./api-guide/#080)].
+
 ### October 28, 2025
 #### Feature Updates
 * [Console/API] Relaxed the 080 opt-out number validation logic when sending advertisements
