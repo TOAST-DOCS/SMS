@@ -4283,7 +4283,175 @@ curl -X DELETE \
 | header.resultCode        | Integer | O        | Failure code      |
 | header.resultMessage     | String  | O        | Failure message   |
 
-## Rejection of Receiving 080 Numbers
+## Toll-free Opt-out Service
+
+### Retrieve Opt-out List
+
+#### Request
+
+[URL]
+
+```
+GET /sms/v3.0/appKeys/{appKey}/blockservice/unsubscribe-nos
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| Value | Type | Description |
+|--------|---------|---------|
+| appKey | String | Unique app key |
+
+[Header]
+
+```json
+{
+"X-Secret-Key": "{secret-key}"
+}
+```
+
+| Value | Type | Description |
+|--------------|---------|------------|
+| X-Secret-Key | String | Unique secret key |
+
+[Query parameter]
+
+| Value | Type | Maximum length | Required | Description |
+|------------------|----------|--------|-----|------------------------------------|
+| pageNum | Integer | - | Optional | Page number (default: 1) |
+| pageSize | Integer | 1,000 | Optional | Search count (default: 15) |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' 
+```
+
+#### Response
+
+```
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "unsubscribeNo": "0808888888",
+        "enterpriseName": "company name",
+        "requestDateTime": "2025-01-01 00:00:00",
+        "startDateTime": "2025-01-01 00:00:00",
+        "status": "RESERVE_USE/USED/TERMINATE/EXTERNAL_REGIST/EXTERNAL_TERMINATE",
+        "shareType": "MASTER/SHARE"
+      }
+    ]
+  }
+}
+```
+
+| Value | Type | Not Null | Description |
+|------------------------------------------------------|---------|----------|-------------------------------------|
+| header | Object | O | Header Area |
+| header.isSuccessful | Boolean | O | Success Status |
+| header.resultCode | Integer | O | Failure Code |
+| header.resultMessage | String | O | Failure Message |
+| body | Object | X | Body Area |
+| body.pageNum | Integer | O | Current Page Number |
+| body.pageSize | Integer | O | Number of Retrieved Data |
+| body.totalCount | Integer | O | Total Number of Data |
+| body.data.unsubscribeNo | String | O | 080 Opt-out Number |
+| body.data.enterpriseName | String | O | Company Name |
+| body.data.requestDateTime | String | O | 080 Opt-out Number Request Date and Time |
+| body.data.startDateTime | String | X | Start date and time of use of 080 Opt-out number |
+| body.data.status | String | O | Status (RESERVE_USE: Request / USED: In use / TERMINATE: Delete / EXTERNAL_REGIST: External 080 number) |
+| body.data.shareType | String | O | Share type (MASTER: Owned / SHARE: Shared) |
+
+### Single Search for Opt-out Number
+
+#### Request
+
+[URL]
+
+```
+GET /sms/v3.0/appKeys/{appKey}/blockservice/unsubscribe-nos/{unsubscribeNo}
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| Value | Type | Description |
+|--------|---------|---------|
+| appKey | String | Unique app key |
+| unsubscribeNo | String | 080 Opt-out Number (without hyphens) |
+
+[Header]
+
+```json
+{
+  "X-Secret-Key": "{secret-key}"
+}
+```
+
+| Value | Type | Description |
+|--------------|---------|------------|
+| X-Secret-Key | String | Unique secret key |
+
+#### cURL
+
+```
+curl -X GET \
+'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos/{unsubscribeNo}' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key:{secretkey}' 
+```
+#### Response
+
+```
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "pageNum": 1,
+    "pageSize": 15,
+    "totalCount": 1,
+    "data": [
+      {
+        "unsubscribeNo": "0808888888",
+        "enterpriseName": "company name",
+        "requestDateTime": "2025-01-01 00:00:00",
+        "startDateTime": "2025-01-01 00:00:00",
+        "status": "RESERVE_USE/USED/TERMINATE/EXTERNAL_REGIST/EXTERNAL_TERMINATE",
+        "shareType": "MASTER/SHARE"
+      }
+    ]
+  }
+}
+```
+
+| Value | Type | Not Null | Description |
+|------------------------------------------------------|---------|----------|-------------------------------------|
+| header | Object | O | Header Area |
+| header.isSuccessful | Boolean | O | Success Status |
+| header.resultCode | Integer | O | Failure Code |
+| header.resultMessage | String | O | Failure Message |
+| body | Object | X | Body Area |
+| body.data.unsubscribeNo | String | O | 080 Opt-out Number |
+| body.data.enterpriseName | String | O | Company Name |
+| body.data.requestDateTime | String | O | 080 Opt-out Number Request Date |
+| body.data.startDateTime | String | X | 080 Opt-out Number Use Start Date |
+| body.data.status | String | O | Status (RESERVE_USE: Requested / USED: In use / TERMINATE: Deleted / EXTERNAL_REGIST: External 080 number) |
+| body.data.shareType | String | O | Share type (MASTER: Owned / SHARE: Shared) |
 
 ### Register Unsubscribers
 
