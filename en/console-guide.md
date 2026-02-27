@@ -507,7 +507,7 @@ Registered webhooks can be checked in the **webhook registration list**.
     * The **Auto-Block Monthly Limit** is 1,000 per month by default, with a maximum of 10,000.
     * If you need an adjustment that exceeds the 10,000 **Auto-Block Monthly Limit**, please contact us via the **Request Exceed 10,000** button.
     * The **Auto-Block Monthly Limit** is an auxiliary function, and detection is not reflected in real time. NHN Cloud is not responsible for any errors in the auxiliary function, so please use it with caution.
-    * If you **enable** **monthly limit threshold notifications**, notifications will be sent to all project members when 70%, 90% and 100% of the value you set for the **Auto-Block Monthly Limit** is reached.
+    * If you **enable** **monthly limit threshold notifications**, notifications will be sent to all project members when 70%, 90%, and 100% of the value you set for the **Auto-Block Monthly Limit** is reached.
 * Block Sending by conversion rate and notifications
     * If you **enable** the **Block Sending and Notification by Conversion Rate**, the block feature is enabled and notifications are sent to all project members when a block occurs.
     * Country-specific blocking by conversion rate only applies to the countries that you set via the **Set Block Country from Sending by Conversion Rate > Select Country to Block**.
