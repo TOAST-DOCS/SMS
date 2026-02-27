@@ -15,7 +15,7 @@
 
 | Environment | Domain                           |
 |-------------|----------------------------------|
-| Real        | 	https://api-sms.cloud.toast.com |
+| Real        | 	https://sms.api.nhncloudservice.com |
 
 <span id="precautions"></span>
 
@@ -136,7 +136,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http metho | URL                                                                  |
 |------------|----------------------------------------------------------------------|
-| POST       | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST       | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms |
 
 [Request body]
 
@@ -196,14 +196,14 @@ Content-Type: application/json;charset=UTF-8
 [curl]
 
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "{body message}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "{body message}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
 ```
 
 #### Example of Sending Short SMS (with country code included to recipient numbers)
 
 | Http metho | URL                                                                  |
 |------------|----------------------------------------------------------------------|
-| POST       | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST       | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms |
 
 [Request body]
 
@@ -253,7 +253,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 [curl]
 
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "body","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "body","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
 ```
 
 ### List Delivery of Short SMS
@@ -577,7 +577,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http metho | URL                                                                  |
 |------------|----------------------------------------------------------------------|
-| POST       | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
+| POST       | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 [Request body]
 
@@ -638,7 +638,7 @@ Content-Type: application/json;charset=UTF-8
 [curl]
 
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms -d '{"title": "{title}","body": "{body message}","sendNo": "{sender number}","recipientList": [{"recipientNo": "{recipient number}","templateParameter": { }}],"userId": ""}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms -d '{"title": "{title}","body": "{body message}","sendNo": "{sender number}","recipientList": [{"recipientNo": "{recipient number}","templateParameter": { }}],"userId": ""}'
 ```
 
 ### Send MMS (attached file included)
@@ -647,7 +647,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 
 | Http method | URL                                                                  |
 |-------------|----------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
+| POST        | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 [Request body]
 
@@ -1095,7 +1095,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http metho | URL                                                                       |
 |------------|---------------------------------------------------------------------------|
-| POST       | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms |
+| POST       | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms |
 
 [Request body]
 
@@ -1155,7 +1155,7 @@ Content-Type: application/json;charset=UTF-8
 [curl]
 
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms -d '{"body": "{Body}","sendNo": "{sender number}","recipientList":[{"recipientNo": "{recipient number}","templateParameter": { }}],"userId": ""}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms -d '{"body": "{Body}","sendNo": "{sender number}","recipientList":[{"recipientNo": "{recipient number}","templateParameter": { }}],"userId": ""}'
 ```
 
 ### List SMS Delivery for Authentication
@@ -2046,7 +2046,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http method | URL                                                                               |
 |-------------|-----------------------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/attachfile/binaryUpload |
+| POST        | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/attachfile/binaryUpload |
 
 [Request body]
 
@@ -2444,7 +2444,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http method | URL                                                                 |
 |-------------|---------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/templates |
+| POST        | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/templates |
 
 [Request body]
 
@@ -2494,8 +2494,8 @@ Content-Type: application/json;charset=UTF-8
 
 | Http method | Type | URL                                                                  |
 |-------------|------|----------------------------------------------------------------------|
-| POST        | SMS  | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
-| POST        | MMS  | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
+| POST        | SMS  | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST        | MMS  | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 For Request URL, choose a delivery type selected to register templates.
 
@@ -2556,8 +2556,8 @@ For Request URL, choose a delivery type selected to register templates.
 
 | Http method | Type | URL                                                                  |
 |-------------|------|----------------------------------------------------------------------|
-| POST        | SMS  | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
-| POST        | MMS  | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
+| POST        | SMS  | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST        | MMS  | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 For Request URL, choose a delivery type selected to register templates.
 

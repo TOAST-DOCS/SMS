@@ -16,7 +16,7 @@
 
 | 環境   | 	ドメイン                            |
 |------|----------------------------------|
-| Real | 	https://api-sms.cloud.toast.com |
+| Real | 	https://sms.api.nhncloudservice.com |
 
 <span id="precautions"></span>
 
@@ -113,7 +113,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -174,7 +174,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
 
 | Http method | URL                                                                  |
 |-------------|----------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms |
+| POST        | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/sender/sms |
 
 [Request body]
 
@@ -236,7 +236,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms' \
 
 | Http method | URL                                                                  |
 |-------------|----------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms |
+| POST        | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/sender/sms |
 
 [Request body]
 
@@ -344,7 +344,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -473,7 +473,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -615,7 +615,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
+'https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' \
 -d '{
@@ -726,7 +726,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -791,7 +791,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 
 | Http method | URL                                                                  |
 |-------------|----------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms |
+| POST        | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/sender/mms |
 
 [Request body]
 
@@ -856,7 +856,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' \
 
 | Http method | URL                                                                  |
 |-------------|----------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms |
+| POST        | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/sender/mms |
 
 [Request body]
 
@@ -977,7 +977,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -1121,7 +1121,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -1311,7 +1311,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -1375,7 +1375,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms'
 
 | Http method | URL                                                                       |
 |-------------|---------------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/auth/sms |
+| POST        | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/sender/auth/sms |
 
 [Request body]
 
@@ -1493,7 +1493,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -1621,7 +1621,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -1763,7 +1763,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/do-convert \
+'https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/auth/sms/do-convert \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' \
 -d '{
@@ -1855,7 +1855,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -1911,7 +1911,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/ad-mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 -d '{
@@ -1977,7 +1977,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
+'https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/sms/do-convert \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' \
 -d '{
@@ -2055,7 +2055,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -2164,7 +2164,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender?requestId='"${REQUEST_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender?requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -2276,7 +2276,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requestId='"${REQUEST_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -2365,7 +2365,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/receive/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/mass-sender/receive/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -2518,7 +2518,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/sms' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/sms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -2641,7 +2641,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/mms' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/mms' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -2733,7 +2733,7 @@ GET /sms/v3.0/appKeys/{appKey}/tag-sender
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${REQUEST_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -2857,7 +2857,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -2956,7 +2956,7 @@ X
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -3084,7 +3084,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/attachfile/binaryUpload' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -3128,7 +3128,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/attachfile/binar
 
 | Http method | URL                                                                               |
 |-------------|-----------------------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/attachfile/binaryUpload |
+| POST        | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/attachfile/binaryUpload |
 
 [Request body]
 
@@ -3218,7 +3218,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -3310,7 +3310,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -3403,7 +3403,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -3508,7 +3508,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X PUT \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${C_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -3573,7 +3573,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X DELETE \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -3665,7 +3665,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -3704,7 +3704,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 
 | Http method | URL                                                                 |
 |-------------|---------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/templates |
+| POST        | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/templates |
 
 [Request body]
 
@@ -3752,8 +3752,8 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 
 | Http method | 種類  | URL                                                                  |
 |-------------|-----|----------------------------------------------------------------------|
-| POST        | SMS | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms |
-| POST        | MMS | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms |
+| POST        | SMS | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/sender/sms |
+| POST        | MMS | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/sender/mms |
 
 Request URLはテンプレート登録時に選択した送信タイプを選択して送信します。
 
@@ -3814,8 +3814,8 @@ Request URLはテンプレート登録時に選択した送信タイプを選択
 
 | Http method | 種類  | URL                                                                  |
 |-------------|-----|----------------------------------------------------------------------|
-| POST        | SMS | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/sms |
-| POST        | MMS | https://api-sms.cloud.toast.com/sms/v3.0/appKeys/{appKey}/sender/mms |
+| POST        | SMS | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/sender/sms |
+| POST        | MMS | https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/{appKey}/sender/mms |
 
 Request URLはテンプレート登録時に選択した送信タイプを選択して送信します。
 
@@ -3916,7 +3916,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -4041,7 +4041,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -4189,7 +4189,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -4247,7 +4247,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X DELETE \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -4313,7 +4313,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos' \
+'https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' 
 ```
@@ -4396,7 +4396,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-'https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos/{unsubscribeNo}' \
+'https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/unsubscribe-nos/{unsubscribeNo}' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key:{secretkey}' 
 ```
@@ -4491,7 +4491,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -4563,7 +4563,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -4633,7 +4633,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X DELETE \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${UNSUB_NO}"'&updateUser='"${UPDATE_USER}"'&recipientNoList='"${RECIPIENT_NO}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${UNSUB_NO}"'&updateUser='"${UPDATE_USER}"'&recipientNoList='"${RECIPIENT_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -4702,7 +4702,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/blockservice/rec
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -4824,7 +4824,7 @@ https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sendNos' \
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${STATISTICS_TYPE}"'&from='"${FROM}"'&to='"${TO}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${STATISTICS_TYPE}"'&from='"${FROM}"'&to='"${TO}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -5267,7 +5267,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -5375,7 +5375,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -5509,7 +5509,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X PUT \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/cancel' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/cancel' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -5626,7 +5626,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X PUT \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -5720,7 +5720,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -5854,7 +5854,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-reservations' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -5940,7 +5940,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reservations' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -6029,7 +6029,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reservations/'"${DOWNLOAD_RESERVATION_ID}"'/download' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/download-reservations/'"${DOWNLOAD_RESERVATION_ID}"'/download' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -6082,7 +6082,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -6170,7 +6170,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -6248,7 +6248,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X PUT \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -6308,7 +6308,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X DELETE \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -6377,7 +6377,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -6470,7 +6470,7 @@ GET /sms/v3.0/appKeys/{appKey}/uids/{uid}
 
 ```
 curl -X GET \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -6588,7 +6588,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/' \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -6658,7 +6658,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X DELETE \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```
@@ -6727,7 +6727,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X POST \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}/phone-numbers" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}'  \
 -d '{
@@ -6788,7 +6788,7 @@ Content-Type: application/json;charset=UTF-8
 
 ```
 curl -X DELETE \
-https://api-sms.cloud.toast.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}" \
+https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: {secretkey}' 
 ```

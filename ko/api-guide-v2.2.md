@@ -14,7 +14,7 @@
 
 | 환경   | 	도메인                             |
 |------|----------------------------------|
-| Real | 	https://api-sms.cloud.toast.com |
+| Real | 	https://sms.api.nhncloudservice.com |
 
 <span id="precautions"></span>
 
@@ -135,7 +135,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http metho | URL                                                                  |
 |------------|----------------------------------------------------------------------|
-| POST       | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST       | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms |
 
 [Request body]
 
@@ -188,14 +188,14 @@ Content-Type: application/json;charset=UTF-8
 [curl]
 
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
 ```
 
 #### 단문 SMS 발송 예제(국가 코드가 포함된 수신 번호)
 
 | Http metho | URL                                                                  |
 |------------|----------------------------------------------------------------------|
-| POST       | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST       | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms |
 
 [Request body]
 
@@ -245,7 +245,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 [curl]
 
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "본문","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "본문","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
 ```
 
 ### 단문 SMS 발송리스트 조회
@@ -571,7 +571,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http metho | URL                                                                  |
 |------------|----------------------------------------------------------------------|
-| POST       | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
+| POST       | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 [Request body]
 
@@ -625,7 +625,7 @@ Content-Type: application/json;charset=UTF-8
 [curl]
 
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms -d '{"title": "{제목}","body": "{본문 내용}","sendNo": "{발신 번호}","recipientList": [{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms -d '{"title": "{제목}","body": "{본문 내용}","sendNo": "{발신 번호}","recipientList": [{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
 ```
 
 ### 장문 MMS 발송(첨부 파일 포함)
@@ -634,7 +634,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.c
 
 | Http method | URL                                                                  |
 |-------------|----------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
+| POST        | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 [Request body]
 
@@ -1084,7 +1084,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http metho | URL                                                                       |
 |------------|---------------------------------------------------------------------------|
-| POST       | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms |
+| POST       | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms |
 
 [Request body]
 
@@ -1144,7 +1144,7 @@ Content-Type: application/json;charset=UTF-8
 [curl]
 
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신 번호}","recipientList":[{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms -d '{"body": "{본문 내용}","sendNo": "{발신 번호}","recipientList":[{"recipientNo": "{수신 번호}","templateParameter": { }}],"userId": ""}'
 ```
 
 ### 인증용 SMS 발송리스트 조회
@@ -2044,7 +2044,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http method | URL                                                                               |
 |-------------|-----------------------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/attachfile/binaryUpload |
+| POST        | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/attachfile/binaryUpload |
 
 [Request body]
 
@@ -2442,7 +2442,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Http method | URL                                                                 |
 |-------------|---------------------------------------------------------------------|
-| POST        | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/templates |
+| POST        | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/templates |
 
 [Request body]
 
@@ -2490,8 +2490,8 @@ Content-Type: application/json;charset=UTF-8
 
 | Http method | 종류  | URL                                                                  |
 |-------------|-----|----------------------------------------------------------------------|
-| POST        | SMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
-| POST        | MMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
+| POST        | SMS | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST        | MMS | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 Request URL은 템플릿 등록시 선택한 발송 유형으로 선택하여 발송합니다.
 
@@ -2552,8 +2552,8 @@ Request URL은 템플릿 등록시 선택한 발송 유형으로 선택하여 �
 
 | Http method | 종류  | URL                                                                  |
 |-------------|-----|----------------------------------------------------------------------|
-| POST        | SMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/sms |
-| POST        | MMS | https://api-sms.cloud.toast.com/sms/v2.2/appKeys/{appKey}/sender/mms |
+| POST        | SMS | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms |
+| POST        | MMS | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms |
 
 Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 발송합니다.
 
