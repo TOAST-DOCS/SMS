@@ -124,7 +124,7 @@ curl -X POST \
     "messageCount": 1,
     "_link": {
       "self": {
-        "href": "https://api-sms.cloud.toast.com/sms/v2.4/appKeys/{appKey}/sender/sms/20240429205802y0Tl7Gbz0e0?recipientSeq=1"
+        "href": "https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/{appKey}/sender/sms/20240429205802y0Tl7Gbz0e0?recipientSeq=1"
       }
     },
   }
