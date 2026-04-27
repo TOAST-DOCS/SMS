@@ -96,12 +96,12 @@
   <tbody>
       <tr>
           <td rowspan=4>Business</td>
-          <td>Representative number, company number</td>
+          <td>Business registration number</td>
           <td>Document verification</td>
           <td>Communication service use certificate</td>
       </tr>
       <tr>
-          <td>Employee number</td>
+          <td>Representative number, Employee number</td>
           <td>Document verification</td>
           <td>Communication service use certificate, proof of employment</td>
       </tr>
@@ -650,7 +650,7 @@ This feature allows you to send a text message by selecting a tag instead of the
     - You can check statistical information after a certain period of time in the **Statistics** tab.
 
 ### Data retention period
-* Retains the sending history for the last 180 days in accordance with the data retention policy.
+* Retains the sending history for the last 180 days in accordance with the data retention policy. During this period, you can view message delivery history. Once the retention period expires, data will be deleted in accordance with applicable laws and regulations.
 * The attachments used in services are retained for 7 days. After 7 days, they are deleted and cannot be retrieved.
 * However, the attachments and evidential documents (communications service certificate) registered to a template are retained as long as the service is provided.
 * Statistical data stores information from the last 90 days.
