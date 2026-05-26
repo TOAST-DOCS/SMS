@@ -5615,7 +5615,9 @@ Content-Type: application/json;charset=UTF-8
     "templateId": "TemplateId",
     "requestId": "20200201010630ReZQ6KZzAH0",
     "createUser": "CreateUser",
-    "senderGroupingKey": "SenderGroupingKey"
+    "senderGroupingKey": "SenderGroupingKey",
+    "receiverRegion": "DOMESTIC",
+    "countryCode": "82"
   },
   "updateUser": "UpdateUser"
 }
@@ -5638,6 +5640,8 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.createUser           | String | 100    | 옵션 | 예약 발송 생성자                       |
 | searchParameter.senderGroupingKey    | String | 100    | 옵션 | 발신자 그룹 키                        |
 | searchParameter.recipientGroupingKey | String | 100    | 옵션 | 수신자 그룹 키                        |
+| searchParameter.receiverRegion       | String | -      | 옵션 | 국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제) |
+| searchParameter.countryCode          | String | -      | 옵션 | 국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
 | updateUser                           | String | 100    | 필수 | 예약 취소 요청자                       |
 
 #### cURL
@@ -5659,7 +5663,9 @@ curl -X PUT \
         "templateId": "TemplateId",
         "requestId": "20200201010630ReZQ6KZzAH0",
         "createUser": "CreateUser",
-        "senderGroupingKey": "SenderGroupingKey"
+        "senderGroupingKey": "SenderGroupingKey",
+        "receiverRegion": "DOMESTIC",
+        "countryCode": "82"
     },
     "updateUser": "API Guide"
 }'
