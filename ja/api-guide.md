@@ -5597,7 +5597,9 @@ Content-Type: application/json;charset=UTF-8
     "templateId": "TemplateId",
     "requestId": "20200201010630ReZQ6KZzAH0",
     "createUser": "CreateUser",
-    "senderGroupingKey": "SenderGroupingKey"
+    "senderGroupingKey": "SenderGroupingKey",
+    "receiverRegion": "DOMESTIC",
+    "countryCode": "82"
   },
   "updateUser": "UpdateUser"
 }
@@ -5620,6 +5622,8 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.createUser           | String | 100   | オプション | 予約送信作成者                        |
 | searchParameter.senderGroupingKey    | String | 100   | オプション | 発信者グループキー                      |
 | searchParameter.recipientGroupingKey | String | 100   | オプション | 受信者グループキー                      |
+| searchParameter.receiverRegion       | String | -     | オプション | 国内/国際(DOMESTIC：国内、INTERNATIONAL：国際) |
+| searchParameter.countryCode          | String | -     | オプション | 国コード [[送信可能国](./international-sending-policy/#_5)] |
 | updateUser                           | String | 100   | 必須    | 予約キャンセルリクエスト者                  |
 
 #### cURL
@@ -5641,7 +5645,9 @@ https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/reservations
         "templateId": "TemplateId",
         "requestId": "20200201010630ReZQ6KZzAH0",
         "createUser": "CreateUser",
-        "senderGroupingKey": "SenderGroupingKey"
+        "senderGroupingKey": "SenderGroupingKey",
+        "receiverRegion": "DOMESTIC",
+        "countryCode": "82"
     },
     "updateUser": "API Guide"
 }'

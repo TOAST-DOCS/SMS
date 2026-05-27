@@ -5433,7 +5433,9 @@ Content-Type: application/json;charset=UTF-8
     "templateId": "TemplateId",
     "requestId": "20200201010630ReZQ6KZzAH0",
     "createUser": "CreateUser",
-    "senderGroupingKey": "SenderGroupingKey"
+    "senderGroupingKey": "SenderGroupingKey",
+    "receiverRegion": "DOMESTIC",
+    "countryCode": "82"
   },
   "updateUser": "UpdateUser"
 }
@@ -5456,6 +5458,8 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.createUser           | String | 100        | Optional | Request Creator of Scheduled Delivery   |
 | searchParameter.senderGroupingKey    | String | 100        | Optional | Sender group key                        |
 | searchParameter.recipientGroupingKey | String | 100        | Optional | Recipient group key                     |
+| searchParameter.receiverRegion       | String | -          | Optional | Domestic/International (DOMESTIC: Domestic, INTERNATIONAL: International) |
+| searchParameter.countryCode          | String | -          | Optional | Country code [[Available countries](./international-sending-policy/#_5)] |
 | updateUser                           | String | 100        | Required | Requester of Scheduled Cancellation     |
 
 #### cURL
@@ -5477,7 +5481,9 @@ curl -X PUT \
         "templateId": "TemplateId",
         "requestId": "20200201010630ReZQ6KZzAH0",
         "createUser": "CreateUser",
-        "senderGroupingKey": "SenderGroupingKey"
+        "senderGroupingKey": "SenderGroupingKey",
+        "receiverRegion": "DOMESTIC",
+        "countryCode": "82"
     },
     "updateUser": "API Guide"
 }'
