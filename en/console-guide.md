@@ -528,9 +528,41 @@ Cases of international SMS abuse are increasing globally.
 It is recommended to set the monthly limit and the country of origin only as much as necessary.
 NHN Cloud is not responsible for any international SMS sent due to abuse.
 
-### Alternative Characters Settings
-* If the body/subject of the delivery request contains unsendable text, you can set it to be converted to sendable text.
-* When the alternative characters setting is enabled, unsendable characters are converted to '?' and displayed.
+### International SMS Sending Settings
+* Before using the international SMS sending feature, make sure to check the [[International SMS Sending Policy]](./international-sending-policy).
+* If you don't want to use the international SMS sending feature, set it to unused to prevent incidents caused by international SMS volume pumping.
+* Allowed sending countries management
+    * When initially configured for use, only designated major countries are set to allow sending. Manage sending permissions by country through the **Allowed sending countries settings > Select allowed countries** button.
+* Auto-block monthly limit and threshold notifications
+    * The **auto-block monthly limit** is 1,000 messages by default and can be set up to a maximum of 10,000 messages.
+    * If you need to adjust beyond the maximum **auto-block monthly limit** of 10,000 messages, contact us through the **Request over 10,000** button.
+    * The **auto-block monthly limit** is an auxiliary feature and detection is not reflected in real time. NHN Cloud does not take responsibility for some errors in this auxiliary feature, so use it with caution.
+    * When **monthly limit threshold notification** is set to **enabled**, notification emails are sent to all project members when 70%, 90%, and 100% of the **auto-block monthly limit** value is reached.
+* Conversion rate-based sending block and notification
+    * When **conversion rate-based sending block and notification** is set to **enabled**, the feature is activated by country, and notification emails are sent to all project members when blocking occurs.
+    * Conversion rate-based sending block countries apply only to countries set through the **Conversion rate-based sending block country settings > Select blocked countries** button.
+    * A **Blocked** button appears next to countries blocked by conversion rate. Click this button to unblock them.
+    * Conversion rate-based blocking rules
+        * **Conversion rate** is the threshold setting for when conversion rate-based blocking occurs.
+            - Blocking occurs when the calculated conversion rate is below the conversion rate threshold setting value.
+            - The conversion rate can be set from 1% to 100%.
+        * **Minimum count** is the threshold setting for the number of conversion rate collection request messages that must be sent for conversion rate-based blocking to operate.
+            - Conversion rate-based blocking operates only when you send conversion rate collection requests equal to or greater than the minimum count.
+            - The minimum count can be set from 1 to 10,000 messages.
+        * **Time range** is the time range setting for calculating the conversion rate.
+            - The conversion rate is calculated based on the number of conversion rate collection request messages sent and conversion count within the time range from the sending request time.
+            - The time range can be set from 1 hour to 168 hours (7 days).
+* Daily sending volume limit settings management by country
+    * You can set daily sending volumes for specific countries and configure settings by country to stop further sending when the volume is exceeded.
+    * The daily sending volume standard by country is based on Korea Standard Time (KST) 0:00.
+    * When blocked by this feature, you can unblock by setting a higher daily limit for each country.
+    * Daily sending volume limit countries apply only to countries set through the **Daily sending volume limit settings by country > Select limited countries** button.
+    * The daily sending volume limit feature by country is an auxiliary feature and detection is not reflected in real time. NHN Cloud does not take responsibility for some errors in this auxiliary feature, so use it with caution.
+
+> [Caution]
+> Abuse cases for international SMS are increasing worldwide.
+> We recommend setting only what is necessary for monthly limits and designated sending countries.
+> NHN Cloud does not take any responsibility for international SMS sent through abuse.
 
 ### Set Duplicate Delivery
 * By setting, duplicate messages may not be sent.
@@ -550,6 +582,10 @@ NHN Cloud is not responsible for any international SMS sent due to abuse.
 * Depending on the message retention period policy, you can back up sending history data that is older than 180 days.
 * If you enter information about whether to back up messages, the file extension, and the storage to upload the file to, a file containing the backup date will be created in that storage.
 
+
+### Backup Settings
+* You can back up delivery history data that is more than 180 days old according to the message retention period policy.
+* When you enter the message backup status, file extension, and storage information for uploading the file, a file with the backup date is created in the specified storage.
 
 ## Statistical Event Key Settings
 When registering an event key and sending with that key, you can collect statistical data by statistical event key./
