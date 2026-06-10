@@ -30,7 +30,7 @@
 | Send/Query | false | -2008 |  Request ID (requestId) is invalid | Invalid requestId. |
 | Send/Query | false | -2009 | Attached file is not properly uploaded due to server error | Upload attach file error. |
 | Send/Query | false | -2010 | Upload type of attachment is invalid (server error) | Upload attach file type can not be empty. |
-| Send/Query | false | -2011 | Required query parameters are missing (requestId or startRequestDate, endRequestdate) | RequestId or start/endRequestDate or start/endCreateDate is required. |
+| Send/Query | false | -2011 | Required query parameters are missing (requestId or startRequestDate, endRequestDate) | RequestId or start/endRequestDate or start/endCreateDate is required. |
 | Send/Query | false | -2012 | When detailed query parameter is invalid (requestId or mtPr) | Search parameter is invalid.(requestId and mtPr). |
 | Send/Query | false | -2014 |Title or body is missing | The recipient can not be empty. |
 | Send/Query | false | -2015 | Title or body exceed maximum byte | Title or Body exceed maximum byte. |
@@ -49,6 +49,8 @@
 | Send/Query | false | -2048 | Exceeded the international message body limit | International message body exceed maximum length. |
 | Send/Query | false | -2050 | Failed to convert to international delivery(Unable to convert) | Conversion status is not ready. |
 | Send/Query | false | -2051 | Failed to send due to Conversion Rate Based Sending Blocking  | Conversion rate is lower than threshold. |
+| Send/Query | false | -2052 | Blocked due to exceeding the monthly message sending limit for the organization. |
+| Send/Query | false | -2053 | Blocked by the daily send limit by country. |
 | Send/Query | false | -4000 | Query range is more than a month | Search is possible within one month. |
 | Send/Query | false | -8000 | If authentication doesn't include a authentication statement | The body must contain auth guide ment. |
 | Template | false | -2100 | Template ID is missing | The templateId can not be empty. |
@@ -63,11 +65,11 @@
 | Template | false | -2109 | Template ID exceeds 50 characters | TemplateId length must be under 50. |
 | Template | false | -2110 | Not exist Template | Template is not exist. |
 | Template | false | -2111 | Invalid Template parameter | Template add parameter is invalid. |
-| Template | false | -2112 | Exceeded the maximum available number of templates for registration (Max: 1000)  | The maximum number of registered templates. |
+| Template | false | -2112 | Exceeded the maximum available number of templates for registration (Max: 1,000)  | The maximum number of registered templates. |
 | Template | false | -2114 | Title is empty  | The title can not be empty. |
 | Template | false | -2115 | Title exceeds 120 characters  | Title length must be under 120. |
 | Template | false | -2116 | Body length exceeds 255 characters, for SMS delivery   | SMS Body length must be under 255. |
-| Template | false | -2117 | Body length exceeds 4000 characters, for LMS/MMS delivery  | LMS/MMS Body length must be under 4000. |
+| Template | false | -2117 | Body length exceeds 4,000 characters, for LMS/MMS delivery  | LMS/MMS Body length must be under 4000. |
 | Template | false | -2043 | Attached file for template registration is already registered at another template | Already used attachFileId |
 | Template | false | -2044 | Request is sent to unavailable country | Invalid countryCode for sending. |
 | Template | false | -2045 | International sending is blocked | International sending blocked by service. |
@@ -174,19 +176,19 @@
 | 7 | Handset Busy | The handset was not available at the time the message was sent - retry |
 | 8 | Network Error | The message failed due to a network error - retry |
 | 9 | Illegal Number | The user has specifically requested not to receive messages from a specific service |
-| 11 | Unroutable | NHN Cloud cannot find a suitable route to deliver the message - contact support |
+| 11 | Unroutable | NHN Cloud cannot find a suitable route to deliver the message - contact Customer Support. |
 | 12 | Destination Unreachable | A route to the number cannot be found - confirm the recipient's number |
 | 13 | Subscriber Age Restriction | The target cannot receive your message due to their age |
 | 14 | Number Blocked by Carrier | The recipient should ask their carrier to enable SMS on their plan |
 | 16 | Gateway Quota Exceeded | Message delivery failed because the allowed number of requests per period was exceeded. This error is shown for accounts registered in the US and France only |
-| 20 | Fraud Defender Traffic Rule | The message has been rejected by Traffic Pumping issue -contact support |
+| 20 | Fraud Defender Traffic Rule | The message has been rejected by Traffic Pumping issue -contact Customer Support. |
 | 21 | Abnormal Sequential Dialing Detected | The High Density Contact Number Range threshold has been exceeded |
 | 22 | Abnormal Traffic Burst Detected | The Relative Increase threshold has been exceeded |
-| 39 | Illegal sender address for US destination | The message to US failed due to sendNo problem - contact support |
-| 51 | Header Filter | The message failed due to sendNo problem - contact support  |
+| 39 | Illegal sender address for US destination | The message to US failed due to sendNo problem - contact Customer Support. |
+| 51 | Header Filter | The message failed due to sendNo problem - contact Customer Support.  |
 | 53 | Consent Filter | The message failed due to consent not being authorized  |
-| 54 | Regulation Error | Unexpected regulation error - contact support |
-| 99 | General Error | Typically refers to an error in the route - contact support |
+| 54 | Regulation Error | Unexpected regulation error - contact Customer Support. |
+| 99 | General Error | Typically refers to an error in the route - contact Customer Support. |
 | 1000 | ETC Error | ETC error |
 
 ## Query Delivery Codes
