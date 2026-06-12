@@ -1,5 +1,23 @@
 ## Notification > SMS > Release Notes
 
+### June 23, 2026
+#### Added Features
+* [Console] Daily send limit by country
+  * Added a feature to restrict the daily send limit per country for international sending.
+  * This can be configured in **Project Dashboard > Send Settings > International SMS**.
+
+### March 24, 2026
+#### Added Features
+* [Console] Added notification for message delivery history backup results
+  * You can receive result notifications when configuring backup settings for message delivery history that has exceeded the retention period.
+  * This can be configured in **Project Dashboard > Notification Management**.
+  
+### December 31, 2025
+#### Added Features
+* [API] Added 080 opt-out number retrieval API
+    * Added an API to retrieve 080 opt-out numbers.
+    * For more information, see [[API v3.0 Guide > 080 Opt-Out Service](./api-guide/#080)].
+    
 ### December 31, 2025
 #### Added Features
 * [API] Added an API to look up 080 opt-out numbers
