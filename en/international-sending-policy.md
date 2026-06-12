@@ -1,11 +1,17 @@
 ## Notification > SMS > Service Policy > International Sending Policy
 
+<a id="guide-to-sending-international-sms-messages"></a>
+
 ## Guide to Sending International SMS Messages
 + When sending international SMS messages, please check the following key points.
 
-### Country-specific Sender ID Policy
+<a id="country-specific-sender-id-policy"></a>
+
+## Country-specific Sender ID Policy
 + International SMS messages are sent according to country-specific sender ID policies and may be treated as spam if you do not follow the policies.
 + The sending number set by the customer is not guaranteed to be exposed on the receiving device. In most cases, the messages are sent after changing the sending number to a random number in order to send international SMS messages normally.
+
+<a id="sending-policy"></a>
 
 ## Sending Policy
 * For detailed country-specific policies, see the [Detailed guide to SMS sending by country](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board).
@@ -18,6 +24,8 @@
 + The time of receipt of international SMS (time of arrival at handset) refers to the time of reply from international carriers and may differ from the actual time of receipt at the handset.
 + International carriers generally only keep sending logs within 7 days, so depending on the time of inquiry, it is difficult to confirm the exact cause of non-receipt and may take some time.
 + Transmission quality by country is affected by the network and infrastructure environment in that country and may differ from the domestic environment.
+
+<a id="billing-policy"></a>
 
 ## Billing Policy
 + International SMS messages are charged based on successful data transmission from overseas carriers.
@@ -34,6 +42,8 @@
 | UCS-2<br>(Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
 
+<a id="international-sms-traffic-pumping"></a>
+
 ## International SMS Traffic pumping
 + Some international mobile network operators (MNOs) may artificially trigger the sending of messages to increase revenues.
 + A bot or abuser makes a bulk request to send a message on a page, such as a request for a signup verification number.
@@ -48,9 +58,13 @@
     + Limit the maximum number of authentication requests allowed for the same IP band or similar incoming numbers, or the rate at which they are sent per second, as appropriate.
     + Prevent messages that are being sent to similar number ranges (e.g., +1111111110, +1111111111, +1111111112, +1111111113, etc.) from being ingested consecutively.
 
+<a id="sending-blocking-based-on-international-sms-conversion-rate"></a>
+
 ## Sending Blocking based on international SMS conversion rate
 + In general, you consider a conversion to have occurred when a recipient takes an action after receiving your message, such as clicking a URL or entering a verification number.
 + The Block by international SMS conversion rate feature allows you to check whether recipients convert after receiving a message, increasing the reliability of your international SMS sending and strengthening your protection against abusive behavior.
+
+<a id="collection-of-international-sms-conversions"></a>
 
 ### Collection of international SMS conversions
 + Set whether or not to collect conversion rates in the request to collect conversion rates field when making the international SMS sending API request.
@@ -61,6 +75,18 @@
 + Calculates the percentage of sent messaged that are converted from the messages set for collection of conversion rates, you can block messages from being sent to certain countries.
     + If you have more than 50 messages sent to a country with **Conversion Rate Based Sending Blocking and Notifications** enabled in a 24-hour period, and your conversion rate is 50% or less, sending to that country is automatically blocked.
 
+<a id="configure-conversion-rate-based-send-block-and-notification-features"></a>
+
+### Configure Conversion Rate-based Send Block and Notification Features
+
++ You must change the conversion rate-based sending blocking and notification settings to **Enabled** in the console **Sending Settings > International SMS** menu.
++ After enabling the feature, you must set countries to block based on conversion rates.
+    + Conversion rate calculation and blocking according to conversion rate-based blocking rule settings are applied by country.
++ Countries blocked according to conversion rate-based blocking rule settings can be checked in the console and can be unblocked by selecting the Block button.
+    + If conversion rate blocking is unblocked within the time range of the set blocking rules, conversion rates are calculated from the time of unblocking to prevent reblocking.
++ For more details, see [[Console User Guide](./console-guide/#sms_8)].
+
+<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (refers to setting blocked countries, not configuring the blocking feature itself) -->
 ### Set blocking countries by conversion rate
 + In **Delivery Settings > International SMS** from the console, you must change the Block by conversion rate setting to Enable.
 + After enabling the feature, you must set which countries to block based on conversion rate.
@@ -68,6 +94,8 @@
 + Countries that are blocked based on conversion rate-based blocking rule settings are visible in the console and can be unblocked by selecting Block.
     + If you unblock a conversion rate between the time range of the blocking rule you set, the conversion rate is calculated from the time you unblocked it to avoid reblocking.
 + For more information, see the [console user guide](./console-guide/#sms_8).
+
+<a id="available-countries"></a>
 
 ## Available countries
 | Country name | Country code |
