@@ -3,6 +3,24 @@
 The text message delivery system enables to send SMS, LMS, or MMS, schedule delivery, manage templates, and query history of deliveries.
 RESTful API is provided for easy integration.
 
+<a id="features"></a>
+
+## Features
+
+- Provides SMS, LMS, MMS delivery.
+    - SMS: 90 bytes, LMS: 2,000 bytes, MMS: 2,000 bytes + image
+- Supports mass delivery.
+    - You can enter recipient lists in Excel files and send SMS in bulk.
+- Scheduled delivery
+    - You can send messages at your desired time.
+- Provides replacement tags
+     - You can send personalized SMS content for each recipient by using replacement tags.
+- Provides template features
+    - You can register frequently used SMS as templates and use them.
+
+<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (no Korean counterpart for 'Specifications') -->
+<a id="specifications"></a>
+
 ## Specifications
 
 - Send SMS, LMS, and MMS.
