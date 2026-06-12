@@ -2650,7 +2650,7 @@ curl -X POST \
 }'
 ```
 
-#### Response
+[Response]
 
 ```json
 {
@@ -2678,7 +2678,7 @@ curl -X POST \
 | body.data.fileName   | 	String  | File name                                                                         |
 | body.data.filePath   | 	String  | Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
 
-#### Example of Uploading Attached Files
+[Example of Uploading Attached Files]
 
 | Http method | URL                                                                               |
 |-------------|-----------------------------------------------------------------------------------|
