@@ -1,5 +1,7 @@
 ## Notification > SMS > Result Code
 
+<a id="api-result-code"></a>
+
 ## API Result Code
 
 | Category | Successful or not | Result code | Result code message | API response message |
@@ -95,6 +97,8 @@
 | Tag | false | -7001 | Invalid parameter | Invalid parameter. |
 | Tag | false | -7002 | Failed to read .csv file | Invalid csv read. |
 
+<a id="result-code-of-receiving"></a>
+
 ## Result Code of Receiving
 
 | Category | Result code | Classification | Description |
@@ -149,7 +153,11 @@
 | ETC | E919 | Failure | Resending message is prohibited during when delivery is restricted |
 | ETC | E999 | Failure | Other errors |
 
+<a id="dlr-result-code"></a>
+
 ## DLR result code
+<a id="dlr-status-code"></a>
+
 ### DLR status code
 | DLR status code | Description |
 | - | - |
@@ -160,6 +168,8 @@
 | FAILED | Message not delivered |
 | REJECTED | Downstream carrier refuses to deliver message |
 | UNKNOWN | No useful information available |
+
+<a id="dlr-error-code"></a>
 
 ### DLR error code
 | DLR error code | Description | Notes |
@@ -189,13 +199,19 @@
 | 99 | General Error | Typically refers to an error in the route - contact support |
 | 1000 | ETC Error | ETC error |
 
+<a id="query-delivery-codes"></a>
+
 ## Query Delivery Codes
+<a id="result-code-of-receiving-2"></a>
+
 ### Result Code of Receiving
 
 | Code Value | Description |
 | - | - |
 | MTR1 | Successful |
 | MTR2 | Failed |
+
+<a id="detail-result-code-of-receiving"></a>
 
 ### Detail Result Code of Receiving
 
