@@ -1,6 +1,8 @@
 ## Notification > SMS > Service Policy > Sending Policy
 
 <span id='fabrication-number'></span>
+<a id="prevention-of-caller-number-fabrication"></a>
+
 ## Prevention of Caller Number Fabrication
 + To enable SMS, your own (or corporate-owned) caller number must be registered first.
 + If you use other's (or other company's) caller number, in accordance with [[Public notice on preventing damage on users due to falsified phone numbers in Notice 2015-32 by the Ministry of Science, ICT and Future Planning](https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891)] and [[Notification Terms of Services](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)], the following measures may be taken.
@@ -13,14 +15,20 @@
 ```
 
 <span id="fraud-number"></span>
+<a id="filter-messages-from-spoofed-numbers"></a>
+
 ## Filter Messages from Spoofed Numbers
 The 'Filter Messages from Spoofed Numbers' service protects user's own phone number from potentially spoofed for criminal acts or spamming.
+
+<a id="guide-to-usage"></a>
 
 ### Guide to Usage
 + As a free service provided by each telecommunication provider (e.g. SKT, KT, LG U+, or MVNO providers), it only requires your agreement to get registered.
 + If your text delivery is confirmed as 'Failure' on the website, even after it is sent to an appropriate number, see if your 'Filter Messages from Spoofed Numbers' service is enabled.
 + Disable 'Filter Messages from Spoofed Numbers' first, and then try sending your message.
 + It takes about 7 days to get disabled after it is applied.
+
+<a id="guide-to-cancelation"></a>
 
 ### Guide to Cancelation
 + On Website
@@ -32,15 +40,21 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
 
 <span id="spam-number"></span>
+<a id="filter-spams-by-telecommunication-providers"></a>
+
 ## Filter Spams by Telecommunication Providers
 + The service is provided by each telecommunication provider to automatically block annoying spams.
 + Texts considered as spams, by each provider's criteria, are sent to Spam Inbox, instead of Message Inbox.
+
+<a id="guide-to-usage-2"></a>
 
 ### Guide to Usage
 + If your delivery result is confirmed as successful but message is still not received, see if your Filter Spams service is enabled.
 + In accordance with the comprehensive measures set by the Anti-Spam Center of Korea Internet & Security Agency, each telecommunication provider provides 'Spam-Filtering' service.
 + If your message is saved at Spam Inbox, instead of Messages Inbox, disable the spam-filtering service first.
 + Due to policy to protect personal information, no one else but you must enable or disable the service.
+
+<a id="guide-to-cancelation-2"></a>
 
 ### Guide to Cancelation
 + On Website
@@ -52,9 +66,21 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
 
 <span id="rejection-of-receiving-080"></span>
+<a id="080-unsubscribe-service-guide"></a>
+
+## 080 unsubscribe service guide
+
++ The 080 opt-out service provides recipients with an opt-out option when sending advertising messages.
++ When sending advertising information, you must include a free opt-out method so that recipients can opt out or withdraw their consent to receive messages free of charge.
+
+<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (Level 3 heading with no parent section in ko outline) -->
+<a id="unsubscribing-080-numbers"></a>
+
 ### Unsubscribing 080 Numbers
 + With Unsubscribe 080 Numbers, recipients can reject receiving ad messages.
 + Ads must be sent along with how to unsubscribe for free, so that recipients can reject or withdraw consent to receiving ads, without a charge.
+
+<a id="guide-to-usage-3"></a>
 
 ### Guide to Usage
 + Charges for Unsubscribe 080 Numbers are not based on the delivery time, but upon the public release of each number (monthly fixed charges).
@@ -74,6 +100,8 @@ You must obtain the recipient's express prior consent and comply with the sendin
 + Prohibition of sending advertising information at night: Requires individual prior consent of the recipient when sending at night (PM 09 ~ AM 08)
 + Notify the recipient of the result of the opt-out request: name of the sender, the fact and date of the expression of intent, and the result of the processing.
 
+<a id="monthly-sending-volume-limit"></a>
+
 ## Monthly Sending Volume Limit
 * The SMS service has a monthly sending limit.
 * SMS sending volume is initially limited to 5,000 messages per month per organization. If you need to adjust your sending volume, contact [Customer Center](https://www.nhncloud.com/kr/support/inquiry).
@@ -81,15 +109,21 @@ You must obtain the recipient's express prior consent and comply with the sendin
 * Monthly sending quotas and usage can be viewed in the [Console > Organization > Project > Quota Management] menu. Go to [(https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/#sms)Resource Provision Policy Guide](https://docs.nhncloud.com/en/nhncloud/en/resource-policy/#sms).
 * Because the sending count is based on successful deliveries, successful deliveries are counted even if the device fails to receive them.
 
+<a id="guide-to-sending-speed-depending-on-the-size-of-mms-attachments"></a>
+
 ## Guide to Sending Speed Depending on the Size of MMS Attachments
 + When sending MMS, there may be a difference in the sending speed depending on the size of the attachments.
 + The larger the size of uploaded attachments is, the slower the sending speed and the update of reception result may become due to carrier's sending speed restrictions.
 + If you want faster delivery, we recommend that you make a request by reducing the size of attachments.
 
+<a id="guide-to-sending-contents-according-to-character-set"></a>
+
 ## Guide to sending contents according to character set
 + When received, messages included in EUC-KR normally appear the same as the contents sent.
 + When characters not included in EUC-KR are included in the title/body, the contents may appear as broken characters such as '?'.
     + Depending on the type of receiving device and carrier, the contents of the message may appear differently.
+
+<a id="timeout-policy-for-message-receiving-result"></a>
 
 ## Timeout Policy for Message Receiving Result
 + Depending on the device and communication status, there may be a delay in updating message receiving results.
@@ -104,6 +138,8 @@ You must obtain the recipient's express prior consent and comply with the sendin
 
 
 <span id="private-policy"></span>
+<a id="guide-for-notice-of-personal-information-assignor"></a>
+
 ## Guide for Notice of Personal Information Assignor
 
 When the Customer uses NHN Cloud > SMS Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with the Act on Promotion of Information and Communications Network Utilization and Information Protection, and the Personal Information Protection Act.
@@ -117,6 +153,8 @@ Assignor: NHN Cloud
 Content of Business: Send SMS in lieu of customers
 
 <span id="certification"></span>
+<a id="certified-bulk-message-sender"></a>
+
 ## Certified Bulk Message Sender
 Text resellers in the bulk texting business can operate messaging services after being certified as a bulk message sender.[[Go to Notice](https://www.nhncloud.com/kr/support/notice/detail/6041)]
 You can verify the certification issued by NHN Cloud by clicking the certification mark below.
