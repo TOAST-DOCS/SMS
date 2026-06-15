@@ -1,7 +1,11 @@
+<!-- pre-align:aligned sig=77058c78d235 -->
+
 ## Notification > SMS > Overview
 
 The text message delivery system enables to send SMS, LMS, or MMS, schedule delivery, manage templates, and query history of deliveries.
 RESTful API is provided for easy integration.
+
+<a id="specifications"></a>
 
 ## Specifications
 
@@ -15,6 +19,8 @@ RESTful API is provided for easy integration.
   - Send personalized SMS for each recipient by using replacement tags.
 - Support Templates
   - Register frequently-used SMS as templates.
+
+<a id="main-features"></a>
 
 ## Main Features
 
