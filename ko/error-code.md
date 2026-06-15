@@ -1,4 +1,8 @@
+<!-- pre-align:aligned sig=8dbeac641c33 -->
+
 ## Notification > SMS > 결과 코드
+
+<a id="api-result-code"></a>
 
 ## API 결과 코드
 
@@ -93,6 +97,8 @@
 | 태그 | false | -7001 | 유효하지 않은 파라미터 | Invalid parameter. |
 | 태그 | false | -7002 | .csv 읽기 실패 | Invalid csv read. |
 
+<a id="result-code-of-receiving"></a>
+
 ## 수신 결과 코드
 
 | 구분 | 결과 코드 | 분류 | 의미 |
@@ -147,7 +153,11 @@
 | ETC | E919 | 실패 | 발송 제한 시간인 경우, 메시지 재발송 처리가 금지된 경우 |
 | ETC | E999 | 실패 | 기타 오류 |
 
+<a id="dlr-result-code"></a>
+
 ## DLR 결과 코드
+<a id="dlr-status-code"></a>
+
 ### DLR 상태 코드
 | DLR 상태 코드 | 의미 |
 | - | - |
@@ -158,6 +168,8 @@
 | FAILED | 메시지 전송 실패 |
 | REJECTED | 통신사가 메시지 전송을 거부한 상태 |
 | UNKNOWN | 알 수 없음 |
+
+<a id="dlr-error-code"></a>
 
 ### DLR 에러 코드
 | DLR 에러 코드 | 의미 | 설명 |
@@ -187,13 +199,19 @@
 | 99 | 일반 오류 | 일반적으로 경로 오류를 의미함 - 고객지원에 문의하세요 |
 | 1000 | 기타 오류 | 그 외 오류 |
 
+<a id="query-delivery-codes"></a>
+
 ## 결과 조회 코드
+<a id="result-code-of-receiving-2"></a>
+
 ### 수신 결과 조회 코드
 
 | 코드 값 | 의미 | 
 | - | - |
 | MTR1 | 성공 | 
 | MTR2 | 실패 | 
+
+<a id="detail-result-code-of-receiving"></a>
 
 ### 수신 결과 조회 상세 코드
 
