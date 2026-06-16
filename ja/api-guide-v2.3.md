@@ -1682,14 +1682,14 @@ curl -X POST \
 }'
 ```
 
-<a id="message-search-based-on-result-update"></a>
+<a id="query-messages-based-on-result-update"></a>
 
 ## 結果アップデート基準メッセージ照会
 
 * 該当APIは、メッセージ送信結果アップデート時間基準で照会されます。
 * 端末送信結果をサービスの外で使用する場合、このAPIを使用してください。
 
-<a id="message-search"></a>
+<a id="query-messages"></a>
 
 ### メッセージ照会
 
@@ -2491,6 +2491,8 @@ Content-Type: application/json;charset=UTF-8
 | categoryDesc     | 	String  | 100    | 	オプション | 	カテゴリー名                    |
 | useYn            | 	String  | 1      | 	必須    | 使用有無(Y/N)                  |
 | createUser       | 	String  | 100    | オプション  | 登録したユーザー                   |
+
+<a id="curl-19"></a>
 
 #### cURL
 
