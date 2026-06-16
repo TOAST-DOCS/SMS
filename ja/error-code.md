@@ -1,4 +1,8 @@
+<!-- pre-align:aligned sig=8dbeac641c33 -->
+
 ## Notification > SMS > 結果コード
+
+<a id="api-result-code"></a>
 
 ## API結果コード
 
@@ -91,6 +95,8 @@
 | タグ | false | -7001 | 有効ではないパラメータ | Invalid parameter. |
 | タグ | false | -7002 | .csv読み込み失敗 | Invalid csv read. |
 
+<a id="result-code-of-receiving"></a>
+
 ## 受信結果コード
 
 | 区分 | 結果コード | 分類 | 意味 |
@@ -145,7 +151,11 @@
 | ETC | E919 | 失敗 | 送信制限時間の場合、メッセージ再送信処理が禁止されている場合 |
 | ETC | E999 | 失敗 | その他のエラー |
 
+<a id="dlr-result-code"></a>
+
 ## DLR結果コード
+<a id="dlr-status-code"></a>
+
 ### DLRステータスコード
 | DLRステータスコード | 意味 |
 | - | - |
@@ -156,6 +166,8 @@
 | FAILED | メッセージ送信失敗 |
 | REJECTED | サービスプロバイダーがメッセージの送信を拒否した状態 |
 | UNKNOWN | 不明 |
+
+<a id="dlr-error-code"></a>
 
 ### DLRエラーコード
 | DLRエラーコード | 意味 | 説明 |
@@ -185,13 +197,19 @@
 | 99 | 一般エラー | 一般的に経路エラーを意味する - サポートにお問い合わせください |
 | 1000 | その他エラー | その他のエラー |
 
+<a id="query-delivery-codes"></a>
+
 ## 発信照会コード
+<a id="result-code-of-receiving-2"></a>
+
 ### 受信結果コード
 
 | コード値 | 意味 | 
 | - | - |
 | MTR1 | 成功 | 
 | MTR2 | 失敗 | 
+
+<a id="detail-result-code-of-receiving"></a>
 
 ### 受信結果詳細コード
 
