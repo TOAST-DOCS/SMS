@@ -1782,15 +1782,15 @@ curl -X GET \
 
 <!-- TODO: translate body -->
 
-<a id="message-search-based-on-result-update"></a>
+<a id="query-messages-based-on-result-update"></a>
 
-## Message Search Based on Result Update
+## Query Messages Based on Result Update
 
 <!-- TODO: translate body -->
 
-<a id="message-search"></a>
+<a id="query-messages"></a>
 
-### Message Search
+### Query Messages
 
 <!-- TODO: translate body -->
 
