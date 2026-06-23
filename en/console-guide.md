@@ -126,11 +126,11 @@
 </table>
 
 !!! tip "Note"
-- After verifying your identity, you can register your sender number.
-- Usage agreement form can be downloaded from the console.
-- Documents confirming the relationship between the business and the third party can be consignment agreements, proof of headquarters and branch offices, etc.
-- There are no masked (hidden) parts of the communication service use certificate, and only documents issued within the last 3 months are accepted.
-- Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example: 000000-0\*\*\*\*\*\*
+    - After verifying your identity, you can register your sender number.
+    - Usage agreement form can be downloaded from the console.
+    - Documents confirming the relationship between the business and the third party can be consignment agreements, proof of headquarters and branch offices, etc.
+    - There are no masked (hidden) parts of the communication service use certificate, and only documents issued within the last 3 months are accepted.
+    - Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example: 000000-0\*\*\*\*\*\*
 
 ### How to Issue Documents for Each Mobile Carrier
 
@@ -170,7 +170,7 @@
 ```
 
 !!! tip "Note"
-Numbers that are subscribed to 'Blocking Sender Number Abuses' as part of additional telecom services, do not receive messages (web/system text delivery).
+    Numbers that are subscribed to 'Blocking Sender Number Abuses' as part of additional telecom services, do not receive messages (web/system text delivery).
 
 
 ### Register Sender Numbers
@@ -261,7 +261,7 @@ Fill out **recipient numbers** and **replacement data** in the downloaded templa
 ![sms_10_20230818](https://static.toastoven.net/prod_sms/eng/SMS_10_20230818.png)
 
 !!! danger "Caution"
-To enable template replacement, bind the replacement key with ##, like '##key##'.
+    To enable template replacement, bind the replacement key with ##, like '##key##'.
 
 Recipient numbers can include '+', '-', or space characters.
 
@@ -546,9 +546,9 @@ Registered webhooks can be checked in the **webhook registration list**.
     - The daily send limit by country applies only to countries configured through the **Daily Send Limit by Country Settings > Select Countries to Restrict** button.
     - The daily send limit by country is a supplementary feature and detection is not reflected in real time. NHN Cloud is not responsible for any errors in the supplementary feature, so please use it with caution.           
 !!! danger "Caution"
-Cases of international SMS abuse are increasing globally.
-It is recommended to set the monthly limit and the country of origin only as much as necessary.
-NHN Cloud is not responsible for any international SMS sent due to abuse.
+    Cases of international SMS abuse are increasing globally.
+    It is recommended to set the monthly limit and the country of origin only as much as necessary.
+    NHN Cloud is not responsible for any international SMS sent due to abuse.
 
 ### Alternative Characters Settings
 
@@ -674,12 +674,12 @@ This feature allows you to send a text message by selecting a tag instead of the
 1. Register statistical event keys in the **statistical event key management** tab. If sending using the API, you must obtain the statistics ID (statsId) from this screen.
 2. When sending a message from the console or to the API, you must also send the statistics event key.
 
-   2-1. When sending from console
+    2-1. When sending from console
     - When sending a text message in the **Deliver SMS** tab, select the statistical event key.
     - After entering all message information, click the **Send** button.
     - You can check statistical information after a certain period of time in the **Statistics** tab.
 
-   2-2. When sending via API
+    2-2. When sending via API
     - Enter the statsId obtained from the **statistics event key management** tab into the message transmission parameters.
     - You can check statistical information after a certain period of time in the **Statistics** tab.
 
