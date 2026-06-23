@@ -30,7 +30,7 @@
 | 送信/照会 | false | -2008 | リクエストID(requestId)が間違っている場合 | Invalid requestId. |
 | 送信/照会 | false | -2009 | 添付ファイルのアップロード中にサーバーエラーで正常にアップロードされなかった場合 | Upload attach file error. | 
 | 送信/照会 | false | -2010 | 添付ファイルのアップロードタイプが間違っている場合(サーバーエラー) | Upload attach file type can not be empty. |
-| 送信/照会 | false | -2011 | 必須照会パラメータが空白の場合(requestIdまたはstartRequestDate, endRequestdate) | RequestId or start/endRequestDate or start/endCreateDate is required. | 
+| 送信/照会 | false | -2011 | 必須照会パラメータが空白の場合(requestIdまたはstartRequestDate, endRequestDate) | RequestId or start/endRequestDate or start/endCreateDate is required. | 
 | 送信/照会 | false | -2012 | 詳細照会パラメータが無効な場合(requestIdまたはmtPr) | Search parameter is invalid.(requestId and mtPr). |
 | 送信/照会 | false | -2014 | タイトルまたは本文が空白の場合 | The recipient can not be empty. |
 | 送信/照会 | false | -2015 | タイトルまたは本文が超過した場合 | Title or Body exceed maximum byte. |
@@ -49,6 +49,7 @@
 | 送信/照会 | false | -2048 | 国際送信の本文が最大文字数を超えた場合 | International message body exceed maximum length. |
 | 送信/照会 | false | -2050 | 国際発送のコンバージョンに失敗した場合(コンバージョン可能な状態ではありません) | Conversion status is not ready. |
 | 送信/照会 | false | -2051 | コンバージョン率に基づくブロックにより送信に失敗した場合 | Conversion rate is lower than threshold. |
+| 送信/照会 | false | -2053 | 国別の1日送信限度制限により国際送信に失敗した場合 | Blocked by daily country send limit. |
 | 送信/照会 | false | -4000 | 照会範囲が1か月を超える場合 | Search is possible within one month. |
 | 送信/照会 | false | -8000 | 認証送信に認証文言が含まれていない場合 | The body must contain auth guide ment. |
 | テンプレート | false | -2100 | テンプレートIDが空白の場合 | The templateId can not be empty. |
@@ -63,11 +64,11 @@
 | テンプレート | false | -2109 | テンプレートIDが50文字を超える場合 | TemplateId length must be under 50. |
 | テンプレート | false | -2110 | テンプレートが存在しない場合 | Template is not exist. |
 | テンプレート | false | -2111 | 有効ではないテンプレートパラメータの場合 | Template add parameter is invalid. |
-| テンプレート | false | -2112 | 最大登録可能なテンプレート数を超過した場合(最大: 1000)  | The maximum number of registered templates. |
+| テンプレート | false | -2112 | 最大登録可能なテンプレート数を超過した場合(最大: 1,000)  | The maximum number of registered templates. |
 | テンプレート | false | -2114 | タイトルが空白の場合 | The title can not be empty. |
 | テンプレート | false | -2115 | タイトルが120文字を超える場合 | Title length must be under 120. |
 | テンプレート | false | -2116 | 送信タイプがSMSの場合、本文の長さが255文字を超える場合 | SMS Body length must be under 255. |
-| テンプレート | false | -2117 | 送信タイプがLMS/MMSの場合、本文の長さが4000文字を超える場合 | LMS/MMS Body length must be under 4000. |
+| テンプレート | false | -2117 | 送信タイプがLMS/MMSの場合、本文の長さが4,000文字を超える場合 | LMS/MMS Body length must be under 4000. |
 | テンプレート | false | -2043 | テンプレートに登録する添付ファイルが既に他のテンプレートに登録されている場合 | Already used attachFileId |
 | カテゴリー | false | -2200 | 有効ではないカテゴリーパラメータ(登録時) | Invalid add category parameter.(categoryName, useYn) |
 | カテゴリー | false | -2201 | 有効ではないカテゴリーパラメータ(修正時) | Invalid modify category parameter.(categoryId、categoryName、useYn) |
