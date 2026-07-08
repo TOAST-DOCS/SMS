@@ -1,6 +1,10 @@
+<a id="notification-sms-overview"></a>
+
 ## Notification > SMS > 概要
 SMS、LMS、MMS送信、送信予約機能、テンプレート管理、送信履歴の照会機能を備えたメッセージ送信システムです。
 簡単に連携するためのRESTful APIを提供します。
+
+<a id="specifications"></a>
 
 ## 特徴
 
@@ -14,6 +18,8 @@ SMS、LMS、MMS送信、送信予約機能、テンプレート管理、送信�
   -	置換タグを利用して受信者ごとにパーソナライズされたSMS内容を送信できます。
 - テンプレート機能の提供
   - よく使用するSMSは、テンプレートに登録して使用できます。
+
+<a id="main-features"></a>
 
 ## 主な機能
 

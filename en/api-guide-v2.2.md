@@ -1,6 +1,12 @@
+<a id="notification-sms-api-v22-guide"></a>
+
 ## Notification > SMS > API v2.2 Guide
 
+<a id="v22-api-overview"></a>
+
 ## v2.2 API Overview
+
+<a id="changes-from-v-21"></a>
 
 ### Changes from v 2.1
 
@@ -11,6 +17,8 @@
     * More restrictions in the length of title/body, like below.
     * SMS (Body: up to 255 characters), LMS/MMS (title: up to 120, and body: up to 4000 characters)
 
+<a id="api-domain"></a>
+
 ### [API Domain]
 
 | Environment | Domain                           |
@@ -18,6 +26,8 @@
 | Real        | 	https://sms.api.nhncloudservice.com |
 
 <span id="precautions"></span>
+
+<a id="caution"></a>
 
 ### [Caution]
 
@@ -31,9 +41,15 @@
 | MMS Title | 120 characters   | 40 bytes (20 characters for Korean, or 40 for English)          |
 | MMS Body  | 4,000 characters | 2,000 bytes (1,000 characters for Korean, or 2,000 for English) |
 
+<a id="short-sms"></a>
+
 ## Short SMS
 
+<a id="send-short-sms"></a>
+
 ### Send Short SMS
+
+<a id="request"></a>
 
 #### Request
 
@@ -90,6 +106,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                                                              | X        | Recipient group key                                                                                                |
 | userId                                    | 	String | 	100                                                                                             | X        | Delivery delimiter e.g) admin,system                                                                               |
 
+<a id="response"></a>
+
 #### Response
 
 ```json
@@ -131,6 +149,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data.sendResultList[].resultMessage        | String   | Result message                                                            |
 | body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                 |
 | body.data.sendResultList[].recipientGroupingKey | String   | Recipient group key                                                       |
+
+<a id="example-of-sending-short-sms-general-domestic-recipient-numbers"></a>
 
 #### Example of Sending Short SMS (general domestic recipient numbers)
 
@@ -199,6 +219,8 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "{body message}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
 ```
 
+<a id="example-of-sending-short-sms-with-country-code-included-to-recipient-numbers"></a>
+
 #### Example of Sending Short SMS (with country code included to recipient numbers)
 
 | Http metho | URL                                                                  |
@@ -256,7 +278,11 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.n
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "body","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
 ```
 
+<a id="list-delivery-of-short-sms"></a>
+
 ### List Delivery of Short SMS
+
+<a id="list-delivery-of-short-sms-request"></a>
 
 #### Request
 
@@ -299,6 +325,8 @@ Content-Type: application/json;charset=UTF-8
 | countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                        |
+
+<a id="list-delivery-of-short-sms-response"></a>
 
 #### Response
 
@@ -377,7 +405,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].senderGroupingKey    | 	String  | Sender's group key                                                                    |
 | body.data[].recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
+<a id="query-delivery-of-short-sms"></a>
+
 ### Query Delivery of Short SMS
+
+<a id="query-delivery-of-short-sms-request"></a>
 
 #### Request
 
@@ -400,6 +432,8 @@ Content-Type: application/json;charset=UTF-8
 | Value | Type     | Required | Description        |
 |-------|----------|----------|--------------------|
 | mtPr  | 	Integer | Required | Detail delivery ID |
+
+<a id="query-delivery-of-short-sms-response"></a>
 
 #### Response
 
@@ -470,9 +504,15 @@ Content-Type: application/json;charset=UTF-8
 | body.data.senderGroupingKey    | 	String  | Sender's group key                                                                    |
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
+<a id="long-mms"></a>
+
 ## Long MMS
 
+<a id="send-long-mms-attached-file-excluded"></a>
+
 ### Send Long MMS (attached file excluded)
+
+<a id="send-long-mms-attached-file-excluded-request"></a>
 
 #### Request
 
@@ -531,6 +571,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 1000                   | X        | Recipient group key                                                                                                |
 | userId                                    | 	String | 100                    | 	X       | Delivery delimiter  e.g.) admin,system                                                                             |
 
+<a id="send-long-mms-attached-file-excluded-response"></a>
+
 #### Response
 
 ```json
@@ -572,6 +614,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data.sendResultList[].resultMessage        | String   | Result message                                                              |
 | body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                   |
 | body.data.sendResultList[].recipientGroupingKey | String   | Recipient's group key                                                       |
+
+<a id="example-of-sending-long-mms"></a>
 
 #### Example of Sending Long MMS
 
@@ -641,7 +685,11 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms -d '{"title": "{title}","body": "{body message}","sendNo": "{sender number}","recipientList": [{"recipientNo": "{recipient number}","templateParameter": { }}],"userId": ""}'
 ```
 
+<a id="send-mms-attached-file-included"></a>
+
 ### Send MMS (attached file included)
+
+<a id="example-of-sending-attached-files"></a>
 
 #### Example of Sending Attached Files
 
@@ -707,6 +755,8 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.n
     - Size of Attached Image: Less than 300KB per image. But, less than 8000KB in total if the number of attached images is 3
     - Resolution of Image: Less than 1000*1000
 
+<a id="list-delivery-of-long-mms-request"></a>
+
 ### List Delivery of Long MMS Request
 
 [URL]
@@ -748,6 +798,14 @@ Content-Type: application/json;charset=UTF-8
 | countryCode          | 	String  | -          | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -          | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000       | Optional  | Number of queries (default: 15)                                                                                        |
+
+<a id="list-delivery-of-long-mms-request-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="list-delivery-of-long-mms-request-response"></a>
 
 #### Response
 
@@ -860,7 +918,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].senderGroupingKey              | 	String  | Sender's group key                                                                    |
 | body.data[].recipientGroupingKey           | 	String  | Recipient's group key                                                                 |
 
+<a id="query-single-delivery-of-long-mms"></a>
+
 ### Query Single Delivery of Long MMS
+
+<a id="query-single-delivery-of-long-mms-request"></a>
 
 #### Request
 
@@ -883,6 +945,8 @@ Content-Type: application/json;charset=UTF-8
 | Value | Type     | Required | Description        |
 |-------|----------|----------|--------------------|
 | mtPr  | 	Integer | Required | Detail delivery ID |
+
+<a id="query-single-delivery-of-long-mms-response"></a>
 
 #### Response
 
@@ -990,9 +1054,15 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].senderGroupingKey              | 	String  | Sender's group key                                                                    |
 | body.data[].recipientGroupingKey           | 	String  | Recipient's group key                                                                 |
 
+<a id="sms-for-authentication-emergency"></a>
+
 ## SMS for Authentication (emergency)
 
+<a id="send-sms-for-authentication"></a>
+
 ### Send SMS for Authentication
+
+<a id="send-sms-for-authentication-request"></a>
 
 #### Request
 
@@ -1049,6 +1119,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                                                              | X        | Recipient's group key                                                                                             |
 | userId                                    | 	String | 100                                                                                              | 	X       | Delivery delimiter e.g.) admin,system                                                                             |
 
+<a id="send-sms-for-authentication-response"></a>
+
 #### Response
 
 ```json
@@ -1090,6 +1162,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data.sendResultList[].resultMessage        | String   | Result message                                                               |
 | body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                    |
 | body.data.sendResultList[].recipientGroupingKey | String   | Recipient's group key                                                        |
+
+<a id="example"></a>
 
 #### Example
 
@@ -1158,7 +1232,11 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms -d '{"body": "{Body}","sendNo": "{sender number}","recipientList":[{"recipientNo": "{recipient number}","templateParameter": { }}],"userId": ""}'
 ```
 
+<a id="list-sms-delivery-for-authentication"></a>
+
 ### List SMS Delivery for Authentication
+
+<a id="list-sms-delivery-for-authentication-request"></a>
 
 #### Request
 
@@ -1201,6 +1279,8 @@ Content-Type: application/json;charset=UTF-8
 | countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (Default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (Default: 15)                                                                                        |
+
+<a id="list-sms-delivery-for-authentication-response"></a>
 
 #### Response
 
@@ -1279,7 +1359,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].senderGroupingKey    | 	String  | Sender's group key                                                                    |
 | body.data[].recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
+<a id="query-single-sms-delivery-for-authentication"></a>
+
 ### Query Single SMS Delivery for Authentication
+
+<a id="query-single-sms-delivery-for-authentication-request"></a>
 
 #### Request
 
@@ -1302,6 +1386,8 @@ Content-Type: application/json;charset=UTF-8
 | Value | Type     | Required | Description        |
 |-------|----------|----------|--------------------|
 | mtPr  | 	Integer | Required | Detail delivery ID |
+
+<a id="query-single-sms-delivery-for-authentication-response"></a>
 
 #### Response
 
@@ -1372,7 +1458,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.senderGroupingKey    | 	String  | Sender's group key                                                                    |
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
+<a id="ad-messages"></a>
+
 ## Ad Messages
+
+<a id="send-sms-for-advertisement"></a>
 
 ### Send SMS for Advertisement
 
@@ -1419,6 +1509,14 @@ Example
 Free opt out 080-XXX-XXXX
 ```
 
+<a id="send-sms-for-advertisement-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="send-mms-for-advertisement"></a>
+
 ### Send MMS for Advertisement
 
 [URL]
@@ -1464,12 +1562,24 @@ Example
 Free opt out 080-XXX-XXXX
 ```
 
+<a id="send-mms-for-advertisement-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="query-messages-by-result-updates"></a>
+
 ## Query Messages by Result Updates
 
 * The API is queried as of the update time of message delivery result.
 * Please apply this API to import delivery results on device from service.
 
+<a id="query-messages"></a>
+
 ### Query Messages
+
+<a id="query-messages-request"></a>
 
 #### Request
 
@@ -1497,6 +1607,8 @@ Content-Type: application/json;charset=UTF-8
 | messageType     | 	String | Optional | Message type (SMS/LMS/MMS/AUTH)                             |
 | pageNum         | Integer | Optional | Page number (default:1)                                     |
 | pageSize        | Integer | Optional | Number of queries (default:15)                              |
+
+<a id="query-messages-response"></a>
 
 #### Response
 
@@ -1549,9 +1661,15 @@ Content-Type: application/json;charset=UTF-8
 | body.data.resultUpdateList[].senderGroupingKey    | String   | Sender's group key                                      |
 | body.data.resultUpdateList[].recipientGroupingKey | String   | Recipient's group key                                   |
 
+<a id="tag-delivery"></a>
+
 ## Tag Delivery
 
+<a id="send-tagged-sms"></a>
+
 ### Send Tagged SMS
+
+<a id="send-tagged-sms-request"></a>
 
 #### Request
 
@@ -1602,6 +1720,8 @@ Content-Type: application/json;charset=UTF-8
 | adYn              | String              | 1                                                                                                | X        | Ad or not (default: N)                                 |
 | autoSendYn        | String              | 1                                                                                                | X        | Auto delivery or not (immediate delivery) (default: Y) |
 
+<a id="send-tagged-sms-response"></a>
+
 #### Response
 
 ```json
@@ -1626,7 +1746,11 @@ Content-Type: application/json;charset=UTF-8
 | header.resultMessage | 	String  | Failure message   |
 | body.data.requestId  | 	String  | Request ID        |
 
+<a id="send-tagged-lms"></a>
+
 ### Send Tagged LMS
+
+<a id="send-tagged-lms-request"></a>
 
 #### Request
 
@@ -1684,6 +1808,8 @@ Content-Type: application/json;charset=UTF-8
 | adYn              | String              | 1                      | X        | Ad or not (default: N)                                 |
 | autoSendYn        | String              | 1                      | X        | Auto delivery or not (immediate delivery) (default: Y) |
 
+<a id="send-tagged-lms-response"></a>
+
 #### Response
 
 ```json
@@ -1708,7 +1834,11 @@ Content-Type: application/json;charset=UTF-8
 | header.resultMessage | 	String  | Failure message   |
 | body.data.requestId  | 	String  | Request ID        |
 
+<a id="list-tag-delivery"></a>
+
 ### List Tag Delivery
+
+<a id="list-tag-delivery-request"></a>
 
 #### Request
 
@@ -1741,6 +1871,8 @@ GET /sms/v2.2/appKeys/{appKey}/tag-sender
 | statusCode       | String            | 10         | X        | Delivery status code<br>WAIT : "MAS00"<br>READY : "MAS01"<br>SENDREADY : "MAS09"<br>SENDWAIT : "MAS10"<br>SENDING : "MAS11"<br>COMPLETE : "MAS19"<br>CANCELING : "MAS90"<br>CANCEL : "MAS91"<br>FAIL : "MAS99" |
 | pageNum          | optional, Integer | -          | X        | Page number                                                                                                                                                                                                    |
 | pageSize         | optional, Integer | 1000       | X        | Number of queries                                                                                                                                                                                              |
+
+<a id="list-tag-delivery-response"></a>
 
 #### Response
 
@@ -1807,7 +1939,11 @@ GET /sms/v2.2/appKeys/{appKey}/tag-sender
 | body.data[].updateUser      | String       | Modifier                      |
 | body.data[].updateDate      | String       | Date and time of modification |
 
+<a id="list-recipients-of-tag-delivery"></a>
+
 ### List Recipients of Tag Delivery
+
+<a id="list-recipients-of-tag-delivery-request"></a>
 
 #### Request
 
@@ -1842,6 +1978,8 @@ Content-Type: application/json;charset=UTF-8
 | countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum          | Integer | -          | X        | Page number                                                                                                                                                        |
 | pageSize         | Integer | 1000       | X        | Number of queries                                                                                                                                                  |
+
+<a id="list-recipients-of-tag-delivery-response"></a>
 
 #### Response
 
@@ -1892,7 +2030,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.createDate    | String   | Date and time of registration                                                         |
 | body.data.updateDate    | String   | Date of modification                                                                  |
 
+<a id="list-recipient-details-of-tagged-delivery"></a>
+
 ### List Recipient Details of Tagged Delivery
+
+<a id="list-recipient-details-of-tagged-delivery-request"></a>
 
 #### Request
 
@@ -1916,6 +2058,8 @@ Content-Type: application/json;charset=UTF-8
 ```
 X
 ```
+
+<a id="list-recipient-details-of-tagged-delivery-response"></a>
 
 #### Response
 
@@ -1979,40 +2123,15 @@ X
 
 <span id="binaryUpload"></span>
 
+<a id="attached-files"></a>
+
 ## Attached Files
+
+<a id="upload-attached-files"></a>
 
 ### Upload Attached Files
 
-#### Request
-
-[URL]
-
-```
-POST  /sms/v2.2/appKeys/{appKey}/attachfile/binaryUpload
-Content-Type: application/json;charset=UTF-8
-```
-
-[Path parameter]
-
-| Value  | Type    | Description     |
-|--------|---------|-----------------|
-| appKey | 	String | Original appkey |
-
-[Request body]
-
-```json
-{
-  "fileName": "attachment.jpg",
-  "createUser": "CreateUser",
-  "fileBody": "{byte[] -> encoded value in Base64}"
-}
-```
-
-| Value      | Type   | Max Length | Required | Description                                                          |
-|------------|--------|------------|----------|----------------------------------------------------------------------|
-| fileName   | String | 45         | Required | File name (extensions available only in jpg or jpeg)                 |
-| fileBody   | Byte[] | 300K       | Required | File byte[] value encoded in Base64.<br/>* or byte arrangement value |
-| createUser | String | 100        | Required | File uploading user information                                      |
+<a id="upload-attached-files-response"></a>
 
 #### Response
 
@@ -2041,6 +2160,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data.fileId     | 	Integer | File ID                                                                           |
 | body.data.fileName   | 	String  | File name                                                                         |
 | body.data.filePath   | 	String  | Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
+
+<a id="example-of-uploading-attached-files"></a>
 
 #### Example of Uploading Attached Files
 
@@ -2077,9 +2198,15 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="category"></a>
+
 ## Category
 
+<a id="register"></a>
+
 ### Register
+
+<a id="register-request"></a>
 
 #### Request
 
@@ -2120,6 +2247,8 @@ Content-Type: application/json;charset=UTF-8
 
 - categoryParentId, if empty, is registered right below the highest category.
 
+<a id="register-response"></a>
+
 #### Response
 
 ```json
@@ -2158,7 +2287,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].useYn                   | 	String  | Use or not                |
 | body.data[].createUser              | 	String  | Registered user           |
 
+<a id="list-category"></a>
+
 ### List Category
+
+<a id="list-category-request"></a>
 
 #### Request
 
@@ -2181,6 +2314,8 @@ Content-Type: application/json;charset=UTF-8
 |----------|----------|-------------|----------|---------------------------|
 | pageNum  | 	Integer | -           | Optional | Page number (default : 1) |
 | pageSize | 	Integer | 1000        | Optional | Query count (default: 15) |
+
+<a id="list-category-response"></a>
 
 #### Response
 
@@ -2234,7 +2369,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateDate              | 	String  | Date of modification      |
 | body.data[].updateUser              | 	String  | Modified user             |
 
+<a id="get-category"></a>
+
 ### Get Category
+
+<a id="get-category-request"></a>
 
 #### Request
 
@@ -2251,6 +2390,8 @@ Content-Type: application/json;charset=UTF-8
 |------------|----------|-----------------|
 | appKey     | 	String  | Original appkey |
 | categoryId | 	Integer | Category ID     |
+
+<a id="get-category-response"></a>
 
 #### Response
 
@@ -2298,7 +2439,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateDate              | 	String  | Date of modification      |
 | body.data[].updateUser              | 	String  | Modified user             |
 
+<a id="modify"></a>
+
 ### Modify
+
+<a id="modify-request"></a>
 
 #### Request
 
@@ -2334,6 +2479,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn        | 	String | 1           | Required  | Use or not    |
 | updateUser   | 	String | 100         | Optional  | Modified user |
 
+<a id="modify-response"></a>
+
 #### Response
 
 ```json
@@ -2346,7 +2493,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="delete"></a>
+
 ### Delete
+
+<a id="delete-request"></a>
 
 #### Request
 
@@ -2364,6 +2515,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String  | Original appkey |
 | categoryId | 	Integer | Category ID     |
 
+<a id="delete-response"></a>
+
 #### Response
 
 ```json
@@ -2376,9 +2529,15 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="templates"></a>
+
 ## Templates
 
+<a id="templates-register"></a>
+
 ### Register
+
+<a id="templates-register-request"></a>
 
 #### Request
 
@@ -2428,6 +2587,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1           | Required  | 	Use or not                                        |
 | attachFileIdList | List<Integer> | -           | Optional  | Attached file ID(fileId)                           |
 
+<a id="templates-register-response"></a>
+
 #### Response
 
 ```json
@@ -2439,6 +2600,8 @@ Content-Type: application/json;charset=UTF-8
   }
 }
 ```
+
+<a id="example-of-registration"></a>
 
 #### Example of Registration
 
@@ -2488,69 +2651,15 @@ Content-Type: application/json;charset=UTF-8
     * Size of Attached Image: Less than 300KB
     * Resolution of Image: Less than 1000 x 1000
 
+<a id="send-templates-requiring-no-body-updates"></a>
+
 ### Send Templates (requiring no body updates)
 
-#### Example
-
-| Http method | Type | URL                                                                  |
-|-------------|------|----------------------------------------------------------------------|
-| POST        | SMS  | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms |
-| POST        | MMS  | https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms |
-
-For Request URL, choose a delivery type selected to register templates.
-
-**If request parameter body is empty, replace it with the body of the corresponding templateId.**
-
-[Request body] Replace with key and value for those for replacement.
-
-```json
-{
-  "templateId": "TemplateId",
-  "senderGroupingKey": "SenderGroupingKey",
-  "recipientList": [
-    {
-      "recipientNo": "01000000000",
-      "templateParameter": {
-        "key1": "Toast Cloud",
-        "key2": "SMS"
-      },
-      "recipientGroupingKey": "RecipientGroupingKey"
-    }
-  ]
-}
-```
-
-[Response]
-
-```json
-{
-  "header": {
-    "resultCode": 0,
-    "resultMessage": "SUCCESS",
-    "isSuccessful": true
-  },
-  "body": {
-    "data": {
-      "requestId": "20180813095534I4VcVuPBpd0",
-      "statusCode": "2",
-      "senderGroupingKey": "SenderGroupingKey",
-      "sendResultList": [
-        {
-          "recipientNo": "01000000000",
-          "resultCode": 0,
-          "resultMessage": "SUCCESS",
-          "recipientSeq": 1,
-          "recipientGroupingKey": "RecipientGroupingKey"
-        }
-      ]
-    }
-  }
-}
-```
-
-![[그림 1] Template](http://static.toastoven.net/prod_sms/img_27.png)
+<a id="send-templates-requiring-body-updates"></a>
 
 ### Send Templates (requiring body updates)
+
+<a id="example-of-sending-tempaltes"></a>
 
 #### Example of Sending Tempaltes
 
@@ -2616,7 +2725,11 @@ Such case is applicable when template needs to be modified after queried.
 }
 ```
 
+<a id="list-templates"></a>
+
 ### List Templates
+
+<a id="list-templates-request"></a>
 
 #### Request
 
@@ -2641,6 +2754,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn      | 	String  | Optional | Use or Not (Y/N)          |
 | pageNum    | 	Integer | Optional | Page number (default : 1) |
 | pageSize   | 	Integer | Optional | Query count (default: 15) |
+
+<a id="list-templates-response"></a>
 
 #### Response
 
@@ -2744,7 +2859,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].attachFileList[].uploadType    | 	String  | 	Type of uploaded                                 |
 | body.data[].attachFileList[].existFileName | 	String  | 	Name of saved file                               |
 
+<a id="query-single-template"></a>
+
 ### Query Single Template
+
+<a id="query-single-template-request"></a>
 
 #### Request
 
@@ -2761,6 +2880,8 @@ Content-Type: application/json;charset=UTF-8
 |------------|---------|-----------------|
 | appKey     | 	String | Original appkey |
 | templateId | 	String | Template ID     |
+
+<a id="query-single-template-response"></a>
 
 #### Response
 
@@ -2854,7 +2975,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.attachFileList[].createDate | 	String  | Date of registration of attachment                          |
 | body.data.attachFileList[].createUser | 	String  | Registered user of attachment                               |
 
+<a id="templates-modify"></a>
+
 ### Modify
+
+<a id="templates-modify-request"></a>
 
 #### Request
 
@@ -2900,6 +3025,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1           | Required  | 	Use or not                                        |
 | attachFileIdList | List<Integer> | -           | Optional  | Attached file ID(fileId)                           |
 
+<a id="templates-modify-response"></a>
+
 #### Response
 
 ```json
@@ -2912,7 +3039,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="templates-delete"></a>
+
 ### Delete
+
+<a id="templates-delete-request"></a>
 
 #### Request
 
@@ -2930,6 +3061,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | Original appkey |
 | templateId | 	String | Template ID     |
 
+<a id="templates-delete-response"></a>
+
 #### Response
 
 ```json
@@ -2942,9 +3075,15 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="rejection-of-receiving-080-numbers"></a>
+
 ## Rejection of Receiving 080 Numbers
 
+<a id="register-unsubsribers"></a>
+
 ### Register Unsubsribers
+
+<a id="register-unsubsribers-request"></a>
 
 #### Request
 
@@ -2978,6 +3117,8 @@ Content-Type: application/json;charset=UTF-8
 | unsubscribeNo   | String       | 25          | O        | 080 numbers to reject receiving             |
 | recipientNoList | List<String> | 10          | O        | Contact number of unsubscribers to be added |
 
+<a id="register-unsubsribers-response"></a>
+
 #### Response
 
 ```json
@@ -2990,7 +3131,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="query-target-of-rejection"></a>
+
 ### Query Target of Rejection
+
+<a id="query-target-of-rejection-request"></a>
 
 #### Request
 
@@ -3018,6 +3163,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                          |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                   |
 
+<a id="query-target-of-rejection-response"></a>
+
 #### Response
 
 ```json
@@ -3042,7 +3189,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="delete-target-of-rejection"></a>
+
 ### Delete Target of Rejection
+
+<a id="delete-target-of-rejection-request"></a>
 
 #### Request
 
@@ -3067,6 +3218,8 @@ Content-Type: application/json;charset=UTF-8
 | updateUser    | 	String | 	100        | Required  | User who delete rejection of receiving |
 | recipientNo   | 	String | 	20         | Required  | Rejected numbers to be deleted         |
 
+<a id="delete-target-of-rejection-response"></a>
+
 #### Response
 
 ```json
@@ -3080,9 +3233,15 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="sender-numbers"></a>
+
 ## Sender Numbers
 
+<a id="list-registered-sender-numbers-api"></a>
+
 ### List Registered Sender Numbers API
+
+<a id="list-registered-sender-numbers-api-request"></a>
 
 #### Request
 
@@ -3107,6 +3266,8 @@ Content-Type: application/json;charset=UTF-8
 | blockYn  | String   | Block or not                    |
 | pageNum  | 	Integer | Page number (default: 1)        |
 | pageSize | 	Integer | Number of queries (default: 15) |
+
+<a id="list-registered-sender-numbers-api-response"></a>
 
 #### Response
 
@@ -3169,9 +3330,15 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateDate  | String   | Date of modification      |
 | body.data[].updateUser  | String   | Modified user             |
 
+<a id="query-statistics"></a>
+
 ## Query Statistics
 
+<a id="query-integrated-statistics"></a>
+
 ### Query Integrated Statistics
+
+<a id="query-integrated-statistics-request"></a>
 
 #### Request
 
@@ -3197,6 +3364,8 @@ Content-Type: application/json;charset=UTF-8
 | messageType | String | 10          | X        | Message type<br/>SMS: Short messages, LMS: Long messages, MMS: Attachment, AUTH: Authentication |
 | contentType | String | 10          | X        | Content type <br/>NORMAL: General, AD: Advertisement                                            |
 | templateId  | String | 50          | X        | Template ID                                                                                     |
+
+<a id="query-integrated-statistics-response"></a>
 
 #### Response
 
@@ -3241,9 +3410,15 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].failedRate     | String   | Failure rate                     |
 | body.data[].pendingRate    | String   | Delivery rate                    |
 
+<a id="scheduled-delivery"></a>
+
 ## Scheduled Delivery
 
+<a id="list-scheduled-delivery"></a>
+
 ### List Scheduled Delivery
+
+<a id="list-scheduled-delivery-request"></a>
 
 #### Request
 
@@ -3278,6 +3453,8 @@ Content-Type: application/json;charset=UTF-8
 | countryCode      | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                                                                                                                                                 |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                                                                                          |
+
+<a id="list-scheduled-delivery-response"></a>
 
 #### Response
 
@@ -3345,7 +3522,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].createDate        | 	String       | Date of registration                                                                                                                                                                  |
 | body.data[].updateDate        | 	String       | Date of modification                                                                                                                                                                  |
 
+<a id="query-detail-scheduled-delivery"></a>
+
 ### Query Detail Scheduled Delivery
+
+<a id="query-detail-scheduled-delivery-request"></a>
 
 #### Request
 
@@ -3363,6 +3544,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey       | 	String  | Original appkey    |
 | requestId    | 	String  | Request ID         |
 | recipientSeq | 	Integer | Recipient sequence |
+
+<a id="query-detail-scheduled-delivery-response"></a>
 
 #### Response
 
@@ -3434,7 +3617,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.attachFileList[].filePath | 	String       | File path (for internal purpose)                                                                                                                                                       |
 | body.data.attachFileList[].fileName | 	String       | File name                                                                                                                                                                              |
 
+<a id="cancel-scheduled-delivery"></a>
+
 ### Cancel Scheduled Delivery
+
+<a id="cancel-scheduled-delivery-request"></a>
 
 #### Request
 
@@ -3497,9 +3684,21 @@ Content-Type: application/json;charset=UTF-8
 | body.data.requestedCount | 	Integer | Number of failed requests         |
 | body.data.canceledCount  | 	Integer | Number of successful cancellation |
 
+<a id="cancel-scheduled-delivery-1"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="download-delivery-result-files"></a>
+
 ## Download Delivery Result Files
 
+<a id="request-for-creating-query-files"></a>
+
 ### Request for Creating Query Files
+
+<a id="request-for-creating-query-files-request"></a>
 
 #### Request
 
@@ -3563,6 +3762,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientGroupingKey  | 	String | 100         | Optional                       | Recipient's group key                                                                                                  |
 | isIncludeTitleAndBody | Boolean | -           | Optional                       | Title and body included or not                                                                                         |
 
+<a id="request-for-creating-query-files-response"></a>
+
 #### Response
 
 ```json
@@ -3595,7 +3796,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.downloadStatusCode | 	String  | Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
 | body.data.expiredDate        | 	String  | 	Date and time of expiration for download period                                                                                                                                         |
 
+<a id="query-request-history-for-delivery-result-of-file-creation"></a>
+
 ### Query Request History for Delivery Result of File Creation
+
+<a id="query-request-history-for-delivery-result-of-file-creation-request"></a>
 
 #### Request
 
@@ -3620,6 +3825,8 @@ Content-Type: application/json;charset=UTF-8
 | downloadStatusCode | 	String  | 10         | Optional | Status code of download file    |
 | pageNum            | 	Integer | 	-         | Optional | Page number (default: 1)        |
 | pageSize           | 	Integer | 	1000      | Optional | Number of queries (default: 15) |
+
+<a id="query-request-history-for-delivery-result-of-file-creation-response"></a>
 
 #### Response
 
@@ -3669,7 +3876,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].createDate         | String   | Date and time of request for file creation                                                                                                                                               |
 | body.data[].updateDate         | String   | Date and time of completion or failure of file creation                                                                                                                                  |
 
+<a id="request-for-downloading-delivery-result-files"></a>
+
 ### Request for Downloading Delivery Result Files
+
+<a id="request-for-downloading-delivery-result-files-request"></a>
 
 #### Request
 
@@ -3687,15 +3898,23 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | Original appkey |
 | downloadId | String  | Download ID     |
 
+<a id="request-for-downloading-delivery-result-files-response"></a>
+
 #### Response
 
 ```
 file byte
 ```
 
+<a id="tag-management"></a>
+
 ## Tag Management
 
+<a id="query-tags"></a>
+
 ### Query Tags
+
+<a id="query-tags-request"></a>
 
 #### Request
 
@@ -3718,6 +3937,8 @@ Content-Type: application/json;charset=UTF-8
 |----------|----------|------------|----------|----------------------------------|
 | pageNum  | 	Integer | 	-         | Optional | Page number (Default : 1)        |
 | pageSize | 	Integer | 	1000      | Optional | Number of queries (Default : 15) |
+
+<a id="query-tags-response"></a>
 
 #### Response
 
@@ -3757,6 +3978,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].createdDate | String   | Date and time of creation     |
 | body.data[].tagId       | String   | Date and time of modification |
 
+<a id="register-tags"></a>
+
 ### Register Tags
 
 [URL]
@@ -3784,6 +4007,8 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|------------|----------|-------------|
 | tagName | String | 30         | Required | Tag name    |
 
+<a id="register-tags-response"></a>
+
 #### Response
 
 ```json
@@ -3807,6 +4032,8 @@ Content-Type: application/json;charset=UTF-8
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
 | body.data.tagId      | String   | Tag ID             |
+
+<a id="modify-tags"></a>
 
 ### Modify Tags
 
@@ -3836,6 +4063,8 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|------------|----------|-------------|
 | tagName | String | 30         | Required | Tag name    |
 
+<a id="modify-tags-response"></a>
+
 #### Response
 
 ```json
@@ -3854,6 +4083,8 @@ Content-Type: application/json;charset=UTF-8
 | header.isSuccessful  | 	Boolean | 	Successful or not |
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
+
+<a id="delete-tags"></a>
 
 ### Delete Tags
 
@@ -3871,6 +4102,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	Original appKey |
 | tagId  | 	String | 	Tag ID          |
 
+<a id="delete-tags-response"></a>
+
 #### Response
 
 ```json
@@ -3890,9 +4123,15 @@ Content-Type: application/json;charset=UTF-8
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
 
+<a id="uid-management"></a>
+
 ## UID Management
 
+<a id="query-uids"></a>
+
 ### Query UIDs
+
+<a id="query-uids-request"></a>
 
 #### Request
 
@@ -3917,6 +4156,8 @@ Content-Type: application/json;charset=UTF-8
 | offsetUid | 	String       | 	-         | Optional | offset UID                                                                                                                                                                    |
 | offset    | Integer       | -          | Optional | offset (default: 0)                                                                                                                                                           |
 | limit     | Integer       | 1000       | Optional | Number of queries (default: 15)                                                                                                                                               |
+
+<a id="query-uids-response"></a>
 
 #### Response
 
@@ -3971,7 +4212,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.uids[].contacts[].createdDate | String   | Date and time of contact creation |
 | body.data.uids[].last                   | Boolean  | Last on list or not               |
 
+<a id="get-uids"></a>
+
 ### Get UIDs
+
+<a id="get-uids-request"></a>
 
 #### Request
 
@@ -3987,6 +4232,8 @@ GET /sms/v2.2/appKeys/{appKey}/uids/{uid}
 |--------|---------|------------------|
 | appKey | 	String | 	Original appKey |
 | uid    | 	String | 	UID             |
+
+<a id="get-uids-response"></a>
 
 #### Response
 
@@ -4033,6 +4280,8 @@ GET /sms/v2.2/appKeys/{appKey}/uids/{uid}
 | body.data.contacts[].contactType | String   | Contact type                      |
 | body.data.contacts[].contact     | String   | Contact(phone number)             |
 | body.data.contacts[].createdDate | String   | Date and time of contact creation |
+
+<a id="register-uids"></a>
 
 ### Register UIDs
 
@@ -4083,6 +4332,8 @@ Content-Type: application/json;charset=UTF-8
 * When contacts is provided, tagIds is not required.
 * For this product, contactType must be requested in the "PHONE_NUMBER" value.
 
+<a id="register-uids-response"></a>
+
 #### Response
 
 ```json
@@ -4101,6 +4352,8 @@ Content-Type: application/json;charset=UTF-8
 | header.isSuccessful  | 	Boolean | 	Successful or not |
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
+
+<a id="delete-uids"></a>
 
 ### Delete UIDs
 
@@ -4118,6 +4371,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	Original appKey |
 | uid    | 	String | 	UID             |
 
+<a id="delete-uids-response"></a>
+
 #### Response
 
 ```json
@@ -4136,6 +4391,8 @@ Content-Type: application/json;charset=UTF-8
 | header.isSuccessful  | 	Boolean | 	Successful or not |
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
+
+<a id="register-phone-number"></a>
 
 ### Register Phone Number
 
@@ -4165,6 +4422,8 @@ Content-Type: application/json;charset=UTF-8
 |-------------|--------|------------|----------|--------------|
 | phoneNumber | String | -          | Required | Phone number |
 
+<a id="register-phone-number-response"></a>
+
 #### Response
 
 ```json
@@ -4184,6 +4443,8 @@ Content-Type: application/json;charset=UTF-8
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
 
+<a id="delete-phone-number"></a>
+
 ### Delete phone number
 
 [URL]
@@ -4200,6 +4461,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey      | 	String | 	Original appKey |
 | uid         | String  | UID              |
 | phoneNumber | String  | Phone number     |
+
+<a id="delete-phone-number-response"></a>
 
 #### Response
 

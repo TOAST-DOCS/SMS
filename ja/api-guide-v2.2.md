@@ -1,6 +1,12 @@
+<a id="notification-sms-api-v22-guide"></a>
+
 ## Notification > SMS > API v2.2ガイド
 
+<a id="v22-api-overview"></a>
+
 ## v2.2 API紹介
+
+<a id="changes-from-v-21"></a>
 
 ### v2.1からの変更事項
 
@@ -10,6 +16,8 @@
     * メッセージ送信時のタイトル/本文の文字数制限が下記のように変更されます。
     * SMS(本文：最大255文字)、LMS/MMS(タイトル：最大120文字、本文：最大4000文字)
 
+<a id="api-domain"></a>
+
 ### [APIドメイン]
 
 | 環境   | 	ドメイン                            |
@@ -17,6 +25,8 @@
 | Real | 	https://sms.api.nhncloudservice.com |
 
 <span id="precautions"></span>
+
+<a id="caution"></a>
 
 ### [注意事項]
 
@@ -30,9 +40,15 @@
 | MMSタイトル | 120文字   | 40バイト(全角20文字、半角40文字)          |
 | MMS本文   | 4,000文字 | 2,000バイト(全角1,000文字、半角2,000文字) |
 
+<a id="short-sms"></a>
+
 ## 短文SMS
 
+<a id="send-short-sms"></a>
+
 ### 短文SMSの送信
+
+<a id="request"></a>
 
 #### リクエスト
 
@@ -89,6 +105,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                            | X   | 受信者グループキー                                                          |
 | userId                                    | 	String | 	100                                                           | X   | 送信セパレータex)admin,system                                             |
 
+<a id="response"></a>
+
 #### レスポンス
 
 ```json
@@ -130,6 +148,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data.sendResultList[].resultMessage        | String   | 結果メッセージ                                      |
 | body.data.sendResultList[].recipientSeq         | Integer  | 受信者シーケンス(mtPr)                               |
 | body.data.sendResultList[].recipientGroupingKey | String   | 受信者グループキー                                    |
+
+<a id="example-of-sending-short-sms-general-domestic-recipient-numbers"></a>
 
 #### 短文SMSの送信例(一般国内受信番号)
 
@@ -198,6 +218,8 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "{本文内容}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
 ```
 
+<a id="example-of-sending-short-sms-with-country-code-included-to-recipient-numbers"></a>
+
 #### 短文SMS送信例(国コードが含まれている受信番号)
 
 | Http metho | URL                                                                  |
@@ -255,7 +277,11 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.n
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "本文","sendNo": "15446859","recipientList": [{"internationalRecipientNo": "821000000000"}]}'
 ```
 
+<a id="list-delivery-of-short-sms"></a>
+
 ### 短文SMS送信リストの照会
+
+<a id="list-delivery-of-short-sms-request"></a>
 
 #### リクエスト
 
@@ -298,6 +324,8 @@ Content-Type: application/json;charset=UTF-8
 | countryCode          | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                         |
 | pageSize             | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                          |
+
+<a id="list-delivery-of-short-sms-response"></a>
 
 #### レスポンス
 
@@ -376,7 +404,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].senderGroupingKey    | 	String  | 	発信者グループキー                                  |
 | body.data[].recipientGroupingKey | 	String  | 	受信者グループキー                                  |
 
+<a id="query-delivery-of-short-sms"></a>
+
 ### 短文SMS送信の単一照会
+
+<a id="query-delivery-of-short-sms-request"></a>
 
 #### リクエスト
 
@@ -399,6 +431,8 @@ Content-Type: application/json;charset=UTF-8
 | 値    | 	タイプ     | 	必須 | 	説明     |
 |------|----------|-----|---------|
 | mtPr | 	Integer | 	必須 | 	送信詳細ID |
+
+<a id="query-delivery-of-short-sms-response"></a>
 
 #### レスポンス
 
@@ -469,11 +503,17 @@ Content-Type: application/json;charset=UTF-8
 | body.data.senderGroupingKey    | 	String  | 	発信者グループキー                                  |
 | body.data.recipientGroupingKey | 	String  | 	受信者グループキー                                  |
 
+<a id="long-mms"></a>
+
 ## 長文MMS
+
+<a id="send-long-mms-attached-file-excluded"></a>
 
 ### 長文MMS送信(添付ファイルは含まない)
 
 ※ MMSは韓国外への送信はできません。
+
+<a id="send-long-mms-attached-file-excluded-request"></a>
 
 #### リクエスト
 
@@ -532,6 +572,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 1000              | X   | 受信者グループキー                                                          |
 | userId                                    | 	String | 100               | 	X  | 送信セパレータex)admin,system                                             |
 
+<a id="send-long-mms-attached-file-excluded-response"></a>
+
 #### レスポンス
 
 ```json
@@ -573,6 +615,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data.sendResultList[].resultMessage        | String   | 結果メッセージ                                      |
 | body.data.sendResultList[].recipientSeq         | Integer  | 受信者シーケンス(mtPr)                               |
 | body.data.sendResultList[].recipientGroupingKey | String   | 受信者グループキー                                    |
+
+<a id="example-of-sending-long-mms"></a>
 
 #### 長文MMSの送信例
 
@@ -642,7 +686,11 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/mms -d '{"title": "{タイトル}","body": "{本文内容}","sendNo": "{発信番号}","recipientList": [{"recipientNo": "{受信番号}","templateParameter": { }}],"userId": ""}'
 ```
 
+<a id="send-mms-attached-file-included"></a>
+
 ### 長文MMSの送信(添付ファイル含む)
+
+<a id="example-of-sending-attached-files"></a>
 
 #### 添付ファイルの送信例
 
@@ -708,7 +756,11 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.n
     - 添付イメージサイズ： 1個当り300KB以下。ただし、添付したイメージの数が3個の場合は合計800KB以下。
     - 添付イメージの解像度： 1000 x 1000以下
 
+<a id="list-delivery-of-long-mms-request"></a>
+
 ### 長文MMS送信リストの照会
+
+<a id="list-delivery-of-long-mms-request-1"></a>
 
 #### リクエスト
 
@@ -751,6 +803,8 @@ Content-Type: application/json;charset=UTF-8
 | countryCode          | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                         |
 | pageSize             | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                          |
+
+<a id="list-delivery-of-long-mms-request-response"></a>
 
 #### レスポンス
 
@@ -863,7 +917,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].senderGroupingKey              | 	String  | 	発信者グループキー                                  |
 | body.data[].recipientGroupingKey           | 	String  | 	受信者グループキー                                  |
 
+<a id="query-single-delivery-of-long-mms"></a>
+
 ### 長文MMS送信の単一照会
+
+<a id="query-single-delivery-of-long-mms-request"></a>
 
 #### リクエスト
 
@@ -886,6 +944,8 @@ Content-Type: application/json;charset=UTF-8
 | 値    | 	タイプ     | 	必須 | 	説明     |
 |------|----------|-----|---------|
 | mtPr | 	Integer | 	必須 | 	送信詳細ID |
+
+<a id="query-single-delivery-of-long-mms-response"></a>
 
 #### レスポンス
 
@@ -993,9 +1053,15 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].senderGroupingKey              | 	String  | 	発信者グループキー                                  |
 | body.data[].recipientGroupingKey           | 	String  | 	受信者グループキー                                  |
 
+<a id="sms-for-authentication-emergency"></a>
+
 ## 認証用SMS(緊急)
 
+<a id="send-sms-for-authentication"></a>
+
 ### 認証用SMSの送信
+
+<a id="send-sms-for-authentication-request"></a>
 
 #### リクエスト
 
@@ -1052,6 +1118,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                            | X   | 受信者グループキー                                                      |
 | userId                                    | 	String | 100                                                            | 	X  | 送信セパレータex)admin,system                                         |
 
+<a id="send-sms-for-authentication-response"></a>
+
 #### レスポンス
 
 ```json
@@ -1093,6 +1161,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data.sendResultList[].resultMessage        | String   | 結果メッセージ                                      |
 | body.data.sendResultList[].recipientSeq         | Integer  | 受信者シーケンス(mtPr)                               |
 | body.data.sendResultList[].recipientGroupingKey | String   | 受信者グループキー                                    |
+
+<a id="example"></a>
 
 #### 例
 
@@ -1161,7 +1231,11 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/auth/sms -d '{"body": "{本文内容}","sendNo": "{発信番号}","recipientList":[{"recipientNo": "{受信番号}","templateParameter": { }}],"userId": ""}'
 ```
 
+<a id="list-sms-delivery-for-authentication"></a>
+
 ### 認証用SMS送信リストの照会
+
+<a id="list-sms-delivery-for-authentication-request"></a>
 
 #### リクエスト
 
@@ -1204,6 +1278,8 @@ Content-Type: application/json;charset=UTF-8
 | countryCode          | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                      |
 | pageSize             | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                       |
+
+<a id="list-sms-delivery-for-authentication-response"></a>
 
 #### レスポンス
 
@@ -1282,7 +1358,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].senderGroupingKey    | 	String  | 	発信者グループキー                                  |
 | body.data[].recipientGroupingKey | 	String  | 	受信者グループキー                                  |
 
+<a id="query-single-sms-delivery-for-authentication"></a>
+
 ### 認証用SMS送信の単一照会
+
+<a id="query-single-sms-delivery-for-authentication-request"></a>
 
 #### リクエスト
 
@@ -1305,6 +1385,8 @@ Content-Type: application/json;charset=UTF-8
 | 値    | 	タイプ     | 	必須 | 	説明     |
 |------|----------|-----|---------|
 | mtPr | 	Integer | 	必須 | 	送信詳細ID |
+
+<a id="query-single-sms-delivery-for-authentication-response"></a>
 
 #### レスポンス
 
@@ -1375,7 +1457,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.senderGroupingKey    | 	String  | 	発信者グループキー                                  |
 | body.data.recipientGroupingKey | 	String  | 	受信者グループキー                                  |
 
+<a id="ad-messages"></a>
+
 ## 広告文字
+
+<a id="send-sms-for-advertisement"></a>
 
 ### 広告性SMS送信
 
@@ -1420,6 +1506,14 @@ Content-Type: application/json;charset=UTF-8
 (広告)
 無料拒否 080-XXX-XXXX
 ```
+
+<a id="send-sms-for-advertisement-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="send-mms-for-advertisement"></a>
 
 ### 広告性MMS送信
 
@@ -1467,12 +1561,24 @@ Content-Type: application/json;charset=UTF-8
 無料拒否 080-XXX-XXXX
 ```
 
+<a id="send-mms-for-advertisement-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="query-messages-by-result-updates"></a>
+
 ## 結果アップデート基準メッセージ照会
 
 * 該当APIは、メッセージ送信結果アップデート時間基準で照会されます。
 * 端末送信結果をサービスの外で使用する場合、このAPIを使用してください。
 
+<a id="query-messages"></a>
+
 ### メッセージ照会
+
+<a id="query-messages-request"></a>
 
 #### リクエスト
 
@@ -1500,6 +1606,8 @@ Content-Type: application/json;charset=UTF-8
 | messageType     | 	String | 	オプション | 	メッセージタイプ(SMS/LMS/MMS/AUTH)               |
 | pageNum         | Integer | オプション  | ページ番号(デフォルト値：1)                           |
 | pageSize        | Integer | オプション  | 照会数(デフォルト値：15)                            |
+
+<a id="query-messages-response"></a>
 
 #### レスポンス
 
@@ -1552,9 +1660,15 @@ Content-Type: application/json;charset=UTF-8
 | body.data.resultUpdateList[].senderGroupingKey    | String   | 発信者グループキー                         |
 | body.data.resultUpdateList[].recipientGroupingKey | String   | 受信者グループキー                         |
 
+<a id="tag-delivery"></a>
+
 ## タグ送信
 
+<a id="send-tagged-sms"></a>
+
 ### タグSMS送信
+
+<a id="send-tagged-sms-request"></a>
 
 #### リクエスト
 
@@ -1605,6 +1719,8 @@ Content-Type: application/json;charset=UTF-8
 | adYn              | String              | 1                                                              | X  | 広告かどうか(デフォルト値：N)                    |
 | autoSendYn        | String              | 1                                                              | X  | 自動送信(即時送信)するかどうか(デフォルト値：Y)          |
 
+<a id="send-tagged-sms-response"></a>
+
 #### レスポンス
 
 ```json
@@ -1629,9 +1745,13 @@ Content-Type: application/json;charset=UTF-8
 | header.resultMessage | 	String  | 	失敗メッセージ |
 | body.data.requestId  | 	String  | 	リクエストID |
 
+<a id="send-tagged-lms"></a>
+
 ### タグLMS送信
 
 ※ MMSは韓国外への送信はできません。
+
+<a id="send-tagged-lms-request"></a>
 
 #### リクエスト
 
@@ -1689,6 +1809,8 @@ Content-Type: application/json;charset=UTF-8
 | adYn              | String              | 1                 | X  | 広告かどうか(デフォルト値：N)                    |
 | autoSendYn        | String              | 1                 | X  | 自動送信(即時送信)するかどうか(基本Y)               |
 
+<a id="send-tagged-lms-response"></a>
+
 #### レスポンス
 
 ```json
@@ -1713,7 +1835,11 @@ Content-Type: application/json;charset=UTF-8
 | header.resultMessage | 	String  | 	失敗メッセージ |
 | body.data.requestId  | 	String  | 	リクエストID |
 
+<a id="list-tag-delivery"></a>
+
 ### タグ送信リストの照会
+
+<a id="list-tag-delivery-request"></a>
 
 #### リクエスト
 
@@ -1745,6 +1871,8 @@ GET /sms/v2.2/appKeys/{appKey}/tag-sender
 | statusCode       | String            | 10   | X   | 送信ステータスコード<br>WAIT："MAS00"<br>READY："MAS01"<br>SENDREADY："MAS09"<br>SENDWAIT："MAS10"<br>SENDING："MAS11"<br>COMPLETE："MAS19"<br>CANCEL："MAS91"<br>FAIL："MAS99" |
 | pageNum          | optional, Integer | -    | X   | ページ番号                                                                                                                                                         |
 | pageSize         | optional, Integer | 1000 | X   | 照会数                                                                                                                                                           |
+
+<a id="list-tag-delivery-response"></a>
 
 #### レスポンス
 
@@ -1811,7 +1939,11 @@ GET /sms/v2.2/appKeys/{appKey}/tag-sender
 | body.data[].updateUser      | String       | 修正したユーザー   |
 | body.data[].updateDate      | String       | 修正日        |
 
+<a id="list-recipients-of-tag-delivery"></a>
+
 ### タグ送信受信者リストの照会
+
+<a id="list-recipients-of-tag-delivery-request"></a>
 
 #### リクエスト
 
@@ -1846,6 +1978,8 @@ Content-Type: application/json;charset=UTF-8
 | countryCode      | String  | -    | X   | 国コード [[送信可能国](./international-sending-policy/#_5)] |
 | pageNum          | Integer | -    | X   | ページ番号                                                                                               |
 | pageSize         | Integer | 1000 | X   | 照会数                                                                                                 |
+
+<a id="list-recipients-of-tag-delivery-response"></a>
 
 #### レスポンス
 
@@ -1896,7 +2030,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.createDate    | String   | 登録日時                                       |
 | body.data.updateDate    | String   | 修正日                                        |
 
+<a id="list-recipient-details-of-tagged-delivery"></a>
+
 ### タグ送信受信者リストの詳細照会
+
+<a id="list-recipient-details-of-tagged-delivery-request"></a>
 
 #### リクエスト
 
@@ -1920,6 +2058,8 @@ Content-Type: application/json;charset=UTF-8
 ```
 X
 ```
+
+<a id="list-recipient-details-of-tagged-delivery-response"></a>
 
 #### レスポンス
 
@@ -1983,40 +2123,15 @@ X
 
 <span id="binaryUpload"></span>
 
+<a id="attached-files"></a>
+
 ## 添付ファイル
+
+<a id="upload-attached-files"></a>
 
 ### 添付ファイルのアップロード
 
-#### リクエスト
-
-[URL]
-
-```
-POST  /sms/v2.2/appKeys/{appKey}/attachfile/binaryUpload
-Content-Type: application/json;charset=UTF-8
-```
-
-[Path parameter]
-
-| 値      | 	タイプ    | 	説明            |
-|--------|---------|----------------|
-| appKey | 	String | 	固有のアプリケーションキー |
-
-[Request body]
-
-```json
-{
-  "fileName": "attachment.jpg",
-  "createUser": "CreateUser",
-  "fileBody": "{byte[] -> Base64エンコードした値}"
-}
-```
-
-| 値          | タイプ    | 最大    | 必須 | 説明                                          |
-|------------|--------|-------|----|---------------------------------------------|
-| fileName   | String | 45    | 必須 | ファイル名(拡張子はjpg、jpegのみ可能)                     |
-| fileBody   | Byte[] | 300KB | 必須 | ファイルbyte[]をBase64でエンコードした値。<br/>* またはバイト配列値 |
-| createUser | String | 100   | 必須 | ファイルアップロードユーザー情報                            |
+<a id="upload-attached-files-response"></a>
 
 #### レスポンス
 
@@ -2045,6 +2160,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data.fileId     | 	Integer | 	ファイルID                                                          |
 | body.data.fileName   | 	String  | 	ファイル名                                                           |
 | body.data.filePath   | 	String  | 	添付ファイルの基本パス <br/> (https://domain/attachFile/filePath/fileName) |
+
+<a id="example-of-uploading-attached-files"></a>
 
 #### 添付ファイルのアップロード例
 
@@ -2081,9 +2198,15 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="category"></a>
+
 ## カテゴリー
 
+<a id="register"></a>
+
 ### カテゴリーの登録
+
+<a id="register-request"></a>
 
 #### リクエスト
 
@@ -2124,6 +2247,8 @@ Content-Type: application/json;charset=UTF-8
 
 - categoryParentId値が空の場合、最上位カテゴリーのすぐ下に登録されます。
 
+<a id="register-response"></a>
+
 #### レスポンス
 
 ```json
@@ -2162,7 +2287,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].useYn                   | 	String  | 	使用有無       |
 | body.data[].createUser              | 	String  | 	登録したユーザー   |
 
+<a id="list-category"></a>
+
 ### カテゴリーリストの照会
+
+<a id="list-category-request"></a>
 
 #### リクエスト
 
@@ -2185,6 +2314,8 @@ Content-Type: application/json;charset=UTF-8
 |----------|----------|--------|--------|------------------|
 | pageNum  | 	Integer | -      | 	オプション | 	ページ番号(デフォルト値：1) |
 | pageSize | 	Integer | 1000   | 	オプション | 	照会数(デフォルト値：15)  |
+
+<a id="list-category-response"></a>
 
 #### レスポンス
 
@@ -2238,7 +2369,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateDate              | 	String  | 	修正日        |
 | body.data[].updateUser              | 	String  | 	修正したユーザー   |
 
+<a id="get-category"></a>
+
 ### カテゴリーの単件照会
+
+<a id="get-category-request"></a>
 
 #### リクエスト
 
@@ -2255,6 +2390,8 @@ Content-Type: application/json;charset=UTF-8
 |------------|----------|----------------|
 | appKey     | 	String  | 	固有のアプリケーションキー |
 | categoryId | 	Integer | 	カテゴリーID       |
+
+<a id="get-category-response"></a>
 
 #### レスポンス
 
@@ -2302,7 +2439,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateDate              | 	String  | 	修正日        |
 | body.data[].updateUser              | 	String  | 	修正したユーザー   |
 
+<a id="modify"></a>
+
 ### カテゴリーの修正
+
+<a id="modify-request"></a>
 
 #### リクエスト
 
@@ -2338,6 +2479,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn        | 	String | 1      | 	必須    | 使用有無(Y/N) |
 | updateUser   | 	String | 100    | 	オプション | 修正したユーザー  |
 
+<a id="modify-response"></a>
+
 #### レスポンス
 
 ```json
@@ -2350,7 +2493,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="delete"></a>
+
 ### カテゴリーの削除
+
+<a id="delete-request"></a>
 
 #### リクエスト
 
@@ -2368,6 +2515,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String  | 	固有のアプリケーションキー |
 | categoryId | 	Integer | 	カテゴリーID       |
 
+<a id="delete-response"></a>
+
 #### レスポンス
 
 ```json
@@ -2380,9 +2529,15 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="templates"></a>
+
 ## テンプレート
 
+<a id="templates-register"></a>
+
 ### テンプレートの登録
+
+<a id="templates-register-request"></a>
 
 #### リクエスト
 
@@ -2432,6 +2587,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1      | 	必須    | 	使用有無(Y/N)                      |
 | attachFileIdList | List<Integer> | -      | オプション  | 添付ファイルID(fileId)                |
 
+<a id="templates-register-response"></a>
+
 #### レスポンス
 
 ```json
@@ -2443,6 +2600,8 @@ Content-Type: application/json;charset=UTF-8
   }
 }
 ```
+
+<a id="example-of-registration"></a>
 
 #### テンプレートの登録例
 
@@ -2491,6 +2650,8 @@ Content-Type: application/json;charset=UTF-8
     - 添付イメージ数：2個以下
     - 添付イメージサイズ：300KB以下
     - 添付イメージ解像度：1000 x 1000以下
+
+<a id="send-templates-requiring-no-body-updates"></a>
 
 ### テンプレート送信(本文修正が必要ない場合)
 
@@ -2552,7 +2713,11 @@ Request URLは、テンプレート登録時に選択した送信タイプに選
 
 ![[図1]テンプレート送信に成功](http://static.toastoven.net/prod_sms/img_27.png)
 
+<a id="send-templates-requiring-body-updates"></a>
+
 ### テンプレート送信(本文修正が必要な場合)
+
+<a id="example-of-sending-tempaltes"></a>
 
 #### テンプレート送信例
 
@@ -2618,7 +2783,11 @@ Request URLは、テンプレート登録時に選択した送信タイプに選
 }
 ```
 
+<a id="list-templates"></a>
+
 ### テンプレートリストの照会
+
+<a id="list-templates-request"></a>
 
 #### リクエスト
 
@@ -2643,6 +2812,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn      | 	String  | 	オプション | 	使用(Y/N)         |
 | pageNum    | 	Integer | オプション  | 	ページ番号(デフォルト値：1) |
 | pageSize   | 	Integer | オプション  | 	検索数(デフォルト値：15)  |
+
+<a id="list-templates-response"></a>
 
 #### レスポンス
 
@@ -2746,7 +2917,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].attachFileList[].uploadType    | 	String  | 	アップロードタイプ                         |
 | body.data[].attachFileList[].existFileName | 	String  | 	保存された添付ファイルの名前                    |
 
+<a id="query-single-template"></a>
+
 ### テンプレートの単一照会
+
+<a id="query-single-template-request"></a>
 
 #### リクエスト
 
@@ -2763,6 +2938,8 @@ Content-Type: application/json;charset=UTF-8
 |------------|---------|----------------|
 | appKey     | 	String | 	固有のアプリケーションキー |
 | templateId | 	String | 	テンプレートID      |
+
+<a id="query-single-template-response"></a>
 
 #### レスポンス
 
@@ -2856,7 +3033,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.attachFileList[].createDate | 	String  | 	添付ファイルの登録日                               |
 | body.data.attachFileList[].createUser | 	String  | 	添付ファイル登録ユーザー                             |
 
+<a id="templates-modify"></a>
+
 ### テンプレートの修正
+
+<a id="templates-modify-request"></a>
 
 #### リクエスト
 
@@ -2902,6 +3083,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1      | 	必須    | 	使用有無(Y/N)                      |
 | attachFileIdList | List<Integer> | -      | オプション  | 添付ファイルID(fileId)                |
 
+<a id="templates-modify-response"></a>
+
 #### レスポンス
 
 ```json
@@ -2914,7 +3097,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="templates-delete"></a>
+
 ### テンプレートの削除
+
+<a id="templates-delete-request"></a>
 
 #### リクエスト
 
@@ -2932,6 +3119,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | 	固有のアプリケーションキー |
 | templateId | 	String | 	テンプレートID      |
 
+<a id="templates-delete-response"></a>
+
 #### レスポンス
 
 ```json
@@ -2944,9 +3133,15 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="rejection-of-receiving-080-numbers"></a>
+
 ## 080受信拒否サービス
 
+<a id="register-unsubsribers"></a>
+
 ### ﻿受信拒否対象者を登録
+
+<a id="register-unsubsribers-request"></a>
 
 #### リクエスト
 
@@ -2980,6 +3175,8 @@ Content-Type: application/json;charset=UTF-8
 | unsubscribeNo   | String       | 25     | O  | 080受信拒否番号     |
 | recipientNoList | List<String> | 10     | O  | 追加する受信拒否対象者番号 |
 
+<a id="register-unsubsribers-response"></a>
+
 #### レスポンス
 
 ```json
@@ -2992,7 +3189,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="query-target-of-rejection"></a>
+
 ### 受信拒否対象者の照会
+
+<a id="query-target-of-rejection-request"></a>
 
 #### リクエスト
 
@@ -3020,6 +3221,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                    |
 | pageSize         | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                     |
 
+<a id="query-target-of-rejection-response"></a>
+
 #### レスポンス
 
 ```json
@@ -3044,7 +3247,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="delete-target-of-rejection"></a>
+
 ### 受信拒否対象者の削除
+
+<a id="delete-target-of-rejection-request"></a>
 
 #### リクエスト
 
@@ -3069,6 +3276,8 @@ Content-Type: application/json;charset=UTF-8
 | updateUser    | 	String | 	100 | 必須  | 	受信拒否削除者    |
 | recipientNo   | 	String | 	20  | 必須  | 	削除する受信拒否番号 |
 
+<a id="delete-target-of-rejection-response"></a>
+
 #### レスポンス
 
 ```json
@@ -3082,9 +3291,15 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+<a id="sender-numbers"></a>
+
 ## 発信番号
 
+<a id="list-registered-sender-numbers-api"></a>
+
 ### 登録された発信番号リストの照会API
+
+<a id="list-registered-sender-numbers-api-request"></a>
 
 #### リクエスト
 
@@ -3109,6 +3324,8 @@ Content-Type: application/json;charset=UTF-8
 | blockYn  | String   | 遮断するかどうか        |
 | pageNum  | 	Integer | ページ番号(デフォルト値：1) |
 | pageSize | 	Integer | 照会数(デフォルト値：15)  |
+
+<a id="list-registered-sender-numbers-api-response"></a>
 
 #### レスポンス
 
@@ -3171,9 +3388,15 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateDate  | String   | 修正日        |
 | body.data[].updateUser  | String   | 修正したユーザー   |
 
+<a id="query-statistics"></a>
+
 ## 統計照会
 
+<a id="query-integrated-statistics"></a>
+
 ### 統合統計照会
+
+<a id="query-integrated-statistics-request"></a>
 
 #### リクエスト
 
@@ -3199,6 +3422,8 @@ Content-Type: application/json;charset=UTF-8
 | messageType | String | 10  | X  | メッセージタイプ<br/>SMS：短文、LMS：長文、MMS：添付ファイル、AUTH：認証用 |
 | contentType | String | 10  | X  | コンテンツタイプ<br/>NORMAL：一般、AD：広告                   |
 | templateId  | String | 50  | X  | テンプレートID                                       |
+
+<a id="query-integrated-statistics-response"></a>
 
 #### レスポンス
 
@@ -3243,9 +3468,15 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].failedRate     | String   | 失敗比率             |
 | body.data[].pendingRate    | String   | 送信中の比率           |
 
+<a id="scheduled-delivery"></a>
+
 ## 予約送信
 
+<a id="list-scheduled-delivery"></a>
+
 ### 予約送信リストの照会
+
+<a id="list-scheduled-delivery-request"></a>
 
 #### リクエスト
 
@@ -3280,6 +3511,8 @@ Content-Type: application/json;charset=UTF-8
 | countryCode      | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
 | pageNum          | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                                                                       |
 | pageSize         | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                                                                        |
+
+<a id="list-scheduled-delivery-response"></a>
 
 #### レスポンス
 
@@ -3347,7 +3580,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].createDate        | 	String       | 	登録日                                                                                                   |
 | body.data[].updateDate        | 	String       | 	修正日                                                                                                   |
 
+<a id="query-detail-scheduled-delivery"></a>
+
 ### 予約送信の詳細照会
+
+<a id="query-detail-scheduled-delivery-request"></a>
 
 #### リクエスト
 
@@ -3365,6 +3602,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey       | 	String  | 	固有のアプリケーションキー |
 | requestId    | 	String  | 	リクエストID       |
 | recipientSeq | 	Integer | 	受信者シーケンス      |
+
+<a id="query-detail-scheduled-delivery-response"></a>
 
 #### レスポンス
 
@@ -3436,7 +3675,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.attachFileList[].filePath | 	String       | 	ファイルパス(内部用)                                                                                           |
 | body.data.attachFileList[].fileName | 	String       | 	ファイル名                                                                                                 |
 
+<a id="cancel-scheduled-delivery"></a>
+
 ### 予約送信の取消
+
+<a id="cancel-scheduled-delivery-request"></a>
 
 #### リクエスト
 
@@ -3499,9 +3742,21 @@ Content-Type: application/json;charset=UTF-8
 | body.data.requestedCount | 	Integer | 	キャンセルリクエスト件数 |
 | body.data.canceledCount  | 	Integer | 	キャンセル成功件数    |
 
+<a id="cancel-scheduled-delivery-1"></a>
+
+#### 応答
+
+<!-- TODO: translate body -->
+
+<a id="download-delivery-result-files"></a>
+
 ## 送信結果ファイルのダウンロード
 
+<a id="request-for-creating-query-files"></a>
+
 ### 照会ファイル作成リクエスト
+
+<a id="request-for-creating-query-files-request"></a>
 
 #### リクエスト
 
@@ -3563,6 +3818,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientGroupingKey  | 	String | 100   | 	オプション    | 	受信者グループキー                                              |
 | isIncludeTitleAndBody | Boolean | -     | オプション     | タイトル、本文を含めるかどうか                                         |
 
+<a id="request-for-creating-query-files-response"></a>
+
 #### レスポンス
 
 ```json
@@ -3595,7 +3852,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.downloadStatusCode | 	String  | 	ファイル作成状態<br/>- READY：作成準備<br/>- MAKING：作成中<br/>- COMPLETED：作成完了<br/>- FAILED：作成失敗<br/>- EXPIRED：ダウンロード期間終了 |
 | body.data.expiredDate        | 	String  | 	ダウンロード期間終了日時                                                                                               |
 
+<a id="query-request-history-for-delivery-result-of-file-creation"></a>
+
 ### 送信結果ファイル作成リクエストの履歴照会
+
+<a id="query-request-history-for-delivery-result-of-file-creation-request"></a>
 
 #### リクエスト
 
@@ -3620,6 +3881,8 @@ Content-Type: application/json;charset=UTF-8
 | downloadStatusCode | 	String  | 10    | オプション | 	ダウンロードファイルのステータスコード |
 | pageNum            | 	Integer | 	-    | オプション | ページ番号(デフォルト値：1)      |
 | pageSize           | 	Integer | 	1000 | オプション | 照会数(デフォルト値：15)       |
+
+<a id="query-request-history-for-delivery-result-of-file-creation-response"></a>
 
 #### レスポンス
 
@@ -3669,7 +3932,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].createDate         | String   | ファイル作成リクエスト日時                                                                                              |
 | body.data[].updateDate         | String   | ファイル作成完了、失敗日時                                                                                              |
 
+<a id="request-for-downloading-delivery-result-files"></a>
+
 ### 送信結果ファイルのダウンロードリクエスト
+
+<a id="request-for-downloading-delivery-result-files-request"></a>
 
 #### リクエスト
 
@@ -3687,15 +3954,23 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | 	固有のアプリケーションキー |
 | downloadId | String  | ダウンロードID       |
 
+<a id="request-for-downloading-delivery-result-files-response"></a>
+
 #### レスポンス
 
 ```
 file byte
 ```
 
+<a id="tag-management"></a>
+
 ## タグ管理
 
+<a id="query-tags"></a>
+
 ### タグ照会
+
+<a id="query-tags-request"></a>
 
 #### リクエスト
 
@@ -3718,6 +3993,8 @@ Content-Type: application/json;charset=UTF-8
 |----------|----------|-------|-------|-------|
 | pageNum  | 	Integer | 	-    | オプション | オプション | ページ番号(デフォルト値：1)|
 | pageSize | 	Integer | 	1000 | オプション | オプション | 照会数(デフォルト値：15)|
+
+<a id="query-tags-response"></a>
 
 #### レスポンス
 
@@ -3757,6 +4034,8 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].createdDate | String   | 作成日時     |
 | body.data[].tagId       | String   | 修正日時     |
 
+<a id="register-tags"></a>
+
 ### タグ登録
 
 [URL]
@@ -3784,6 +4063,8 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|------|-----|-----|
 | tagName | String | 30   | 必須  | タグ名 |
 
+<a id="register-tags-response"></a>
+
 #### レスポンス
 
 ```json
@@ -3807,6 +4088,8 @@ Content-Type: application/json;charset=UTF-8
 | header.resultCode    | 	Integer | 	失敗コード   |
 | header.resultMessage | 	String  | 	失敗メッセージ |
 | body.data.tagId      | String   | タグID     |
+
+<a id="modify-tags"></a>
 
 ### タグ修正
 
@@ -3836,6 +4119,8 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|------|-----|-----|
 | tagName | String | 30   | 必須  | タグ名 |
 
+<a id="modify-tags-response"></a>
+
 #### レスポンス
 
 ```json
@@ -3854,6 +4139,8 @@ Content-Type: application/json;charset=UTF-8
 | header.isSuccessful  | 	Boolean | 	成否      |
 | header.resultCode    | 	Integer | 	失敗コード   |
 | header.resultMessage | 	String  | 	失敗メッセージ |
+
+<a id="delete-tags"></a>
 
 ### タグ削除
 
@@ -3871,6 +4158,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	固有のアプリケーションキー |
 | tagId  | 	String | 	タグID          |
 
+<a id="delete-tags-response"></a>
+
 #### レスポンス
 
 ```json
@@ -3890,9 +4179,15 @@ Content-Type: application/json;charset=UTF-8
 | header.resultCode    | 	Integer | 	失敗コード   |
 | header.resultMessage | 	String  | 	失敗メッセージ |
 
+<a id="uid-management"></a>
+
 ## UIDの管理
 
+<a id="query-uids"></a>
+
 ### UIDの照会
+
+<a id="query-uids-request"></a>
 
 #### リクエスト
 
@@ -3917,6 +4212,8 @@ Content-Type: application/json;charset=UTF-8
 | offsetUid | 	String       | 	-   | オプション | offset UID                                                                       |
 | offset    | Integer       | -    | オプション | offset(Default : 0)                                                              |
 | limit     | Integer       | 1000 | オプション | 照会件数(Default：15)                                                                 |
+
+<a id="query-uids-response"></a>
 
 #### レスポンス
 
@@ -3971,7 +4268,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.uids[].contacts[].createdDate | String   | 連絡先作成日時     |
 | body.data.uids[].last                   | Boolean  | 最後のリストかどうか  |
 
+<a id="get-uids"></a>
+
 ### UID単件照会
+
+<a id="get-uids-request"></a>
 
 #### リクエスト
 
@@ -3987,6 +4288,8 @@ GET /sms/v2.2/appKeys/{appKey}/uids/{uid}
 |--------|---------|----------------|
 | appKey | 	String | 	固有のアプリケーションキー |
 | uid    | 	String | 	UID           |
+
+<a id="get-uids-response"></a>
 
 #### レスポンス
 
@@ -4033,6 +4336,8 @@ GET /sms/v2.2/appKeys/{appKey}/uids/{uid}
 | body.data.contacts[].contactType | String   | 連絡先タイプ      |
 | body.data.contacts[].contact     | String   | 連絡先(携帯電話番号) |
 | body.data.contacts[].createdDate | String   | 連絡先 作成日時    |
+
+<a id="register-uids"></a>
 
 ### UIDの登録
 
@@ -4083,6 +4388,8 @@ Content-Type: application/json;charset=UTF-8
 * contactsが与えられている場合、tagIdsは必須値ではない。
 * 本サービスの場合、contactTypeは必ず"PHONE_NUMBER"値でリクエストする必要がある。
 
+<a id="register-uids-response"></a>
+
 #### レスポンス
 
 ```json
@@ -4101,6 +4408,8 @@ Content-Type: application/json;charset=UTF-8
 | header.isSuccessful  | 	Boolean | 	成否      |
 | header.resultCode    | 	Integer | 	失敗コード   |
 | header.resultMessage | 	String  | 	失敗メッセージ |
+
+<a id="delete-uids"></a>
 
 ### UIDの削除
 
@@ -4118,6 +4427,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	固有のアプリケーションキー |
 | uid    | 	String | 	UID           |
 
+<a id="delete-uids-response"></a>
+
 #### レスポンス
 
 ```json
@@ -4136,6 +4447,8 @@ Content-Type: application/json;charset=UTF-8
 | header.isSuccessful  | 	Boolean | 	成否      |
 | header.resultCode    | 	Integer | 	失敗コード   |
 | header.resultMessage | 	String  | 	失敗メッセージ |
+
+<a id="register-phone-number"></a>
 
 ### 携帯電話番号の登録
 
@@ -4165,6 +4478,8 @@ Content-Type: application/json;charset=UTF-8
 |-------------|--------|------|-----|--------|
 | phoneNumber | String | -    | 必須  | 携帯電話番号 |
 
+<a id="register-phone-number-response"></a>
+
 #### レスポンス
 
 ```json
@@ -4184,6 +4499,8 @@ Content-Type: application/json;charset=UTF-8
 | header.resultCode    | 	Integer | 	失敗コード   |
 | header.resultMessage | 	String  | 	失敗メッセージ |
 
+<a id="delete-phone-number"></a>
+
 ### 携帯電話番号の削除
 
 [URL]
@@ -4200,6 +4517,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey      | 	String | 	固有のアプリケーションキー |
 | uid         | String  | UID            |
 | phoneNumber | String  | 携帯電話番号         |
+
+<a id="delete-phone-number-response"></a>
 
 #### レスポンス
 

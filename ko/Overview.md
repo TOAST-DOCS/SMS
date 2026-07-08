@@ -1,7 +1,11 @@
+<a id="notification-sms-overview"></a>
+
 ## Notification > SMS > 개요
 
 SMS, LMS, MMS 발송, 발송 예약 기능, 템플릿 관리, 발송 내역 조회 기능을 제공하는 문자 메시지 발송 시스템입니다.
 손쉬운 연동을 위한 RESTful API를 제공합니다.
+
+<a id="specifications"></a>
 
 ## 특징
 
@@ -15,6 +19,8 @@ SMS, LMS, MMS 발송, 발송 예약 기능, 템플릿 관리, 발송 내역 조�
      -	치환 태그를 이용하여 수신자별 개별화된 SMS 내용을 발송할 수 있습니다.
 - 템플릿 기능 제공
     - 자주 사용하는 SMS는 템플릿으로 등록하여 사용할 수 있습니다.
+
+<a id="main-features"></a>
 
 ## 주요 기능
 

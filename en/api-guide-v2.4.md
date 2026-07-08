@@ -1,12 +1,20 @@
+<a id="notification-sms-api-v24-guide"></a>
+
 ## Notification > SMS > API v2.4 Guide
 
+<a id="v24-api-overview"></a>
+
 ## v2.4 API Overview
+
+<a id="changes-from-v-23"></a>
 
 ### Changes from v 2.3
 
 1. 각 메시지(단문, 장문, 인증) 발송 목록 검색 및 발송 단일 검색 응답 필드가 추가되었습니다.
     - 추가된 필드: messageType, recipientSeq
 2. 발송 단일 검색 조건에 사용되는 [mtPr]이 [recipientSeq]로 변경되었습니다.
+
+<a id="api-domain"></a>
 
 ### [API Domain]
 
@@ -15,6 +23,8 @@
 | Real        | 	https://sms.api.nhncloudservice.com |
 
 <span id="precautions"></span>
+
+<a id="caution"></a>
 
 ### [Caution]
 
@@ -28,9 +38,15 @@
 | MMS Title | 120 characters   | 40 bytes (20 characters for Korean, or 40 for English)          |
 | MMS Body  | 4,000 characters | 2,000 bytes (1,000 characters for Korean, or 2,000 for English) |
 
+<a id="short-sms"></a>
+
 ## Short SMS
 
+<a id="send-short-sms"></a>
+
 ### Send Short SMS
+
+<a id="request"></a>
 
 #### Request
 
@@ -89,6 +105,8 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 	100                                                                                             | X        | Delivery delimiter e.g) admin,system                                                                               |
 | statsId                                   | String  | 10                                                                                               | X        | Statistics ID (not included in the delivery search conditions)                                                     |
 
+<a id="curl"></a>
+
 #### cURL
 
 ```
@@ -104,6 +122,8 @@ curl -X POST \
     ]
 }'
 ```
+
+<a id="response"></a>
 
 #### Response
 
@@ -146,6 +166,8 @@ curl -X POST \
 | body.data.sendResultList[].resultMessage        | String   | Result message                                                            |
 | body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                 |
 | body.data.sendResultList[].recipientGroupingKey | String   | Recipient group key                                                       |
+
+<a id="example-of-sending-short-sms-general-domestic-recipient-numbers"></a>
 
 #### Example of Sending Short SMS (general domestic recipient numbers)
 
@@ -208,6 +230,8 @@ curl -X POST \
 }
 ```
 
+<a id="example-of-sending-short-sms-with-country-code-included-to-recipient-numbers"></a>
+
 #### Example of Sending Short SMS (with country code included to recipient numbers)
 
 | Http metho | URL                                                                  |
@@ -260,7 +284,11 @@ curl -X POST \
 }
 ```
 
+<a id="list-delivery-of-short-sms"></a>
+
 ### List Delivery of Short SMS
+
+<a id="list-delivery-of-short-sms-request"></a>
 
 #### Request
 
@@ -304,6 +332,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum              | 	Integer | -           | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                        |
 
+<a id="list-delivery-of-short-sms-curl"></a>
+
 #### cURL
 
 ```
@@ -311,6 +341,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-delivery-of-short-sms-response"></a>
 
 #### Response
 
@@ -391,7 +423,11 @@ curl -X GET \
 | body.data[].senderGroupingKey    | 	String  | Sender's group key                                                                    |
 | body.data[].recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
+<a id="query-delivery-of-short-sms"></a>
+
 ### Query Delivery of Short SMS
+
+<a id="query-delivery-of-short-sms-request"></a>
 
 #### Request
 
@@ -415,6 +451,8 @@ Content-Type: application/json;charset=UTF-8
 |--------------|----------|----------|--------------------|
 | recipientSeq | 	Integer | Required | Detail delivery ID |
 
+<a id="query-delivery-of-short-sms-curl"></a>
+
 #### cURL
 
 ```
@@ -422,6 +460,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-delivery-of-short-sms-response"></a>
 
 #### Response
 
@@ -494,9 +534,15 @@ curl -X GET \
 | body.data.senderGroupingKey    | 	String  | Sender's group key                                                                    |
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
+<a id="long-mms"></a>
+
 ## Long MMS
 
+<a id="send-long-mms-attached-file-excluded"></a>
+
 ### Send Long MMS (attached file excluded)
+
+<a id="send-long-mms-attached-file-excluded-request"></a>
 
 #### Request
 
@@ -557,6 +603,8 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 100                    | 	X       | Delivery delimiter  e.g.) admin,system                                                                             |
 | statsId                                   | String  | 10                     | X        | Statistics ID (not included in the delivery search conditions)                                                     |
 
+<a id="send-long-mms-attached-file-excluded-curl"></a>
+
 #### cURL
 
 ```
@@ -576,6 +624,8 @@ curl -X POST \
     "userId": ""
 }'
 ```
+
+<a id="send-long-mms-attached-file-excluded-response"></a>
 
 #### Response
 
@@ -618,6 +668,8 @@ curl -X POST \
 | body.data.sendResultList[].resultMessage        | String   | Result message                                                              |
 | body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                   |
 | body.data.sendResultList[].recipientGroupingKey | String   | Recipient's group key                                                       |
+
+<a id="example-of-sending-long-mms"></a>
 
 #### Example of Sending Long MMS
 
@@ -681,7 +733,11 @@ curl -X POST \
 }
 ```
 
+<a id="send-mms-attached-file-included"></a>
+
 ### Send MMS (attached file included)
+
+<a id="example-of-sending-attached-files"></a>
 
 #### Example of Sending Attached Files
 
@@ -747,6 +803,8 @@ curl -X POST \
     - Size of Attached Image: Less than 300KB per image. But, less than 8000KB in total if the number of attached images is 3
     - Resolution of Image: Less than 1000*1000
 
+<a id="list-delivery-of-long-mms-request"></a>
+
 ### List Delivery of Long MMS Request
 
 [URL]
@@ -789,6 +847,14 @@ Content-Type: application/json;charset=UTF-8
 | pageNum              | 	Integer | -          | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000       | Optional  | Number of queries (default: 15)                                                                                        |
 
+<a id="list-delivery-of-long-mms-request-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="list-delivery-of-long-mms-request-curl"></a>
+
 #### cURL
 
 ```
@@ -796,6 +862,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/mms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-delivery-of-long-mms-request-response"></a>
 
 #### Response
 
@@ -891,7 +959,11 @@ curl -X GET \
 | body.data[].senderGroupingKey             | 	String  | Sender's group key                                                                    |
 | body.data[].recipientGroupingKey          | 	String  | Recipient's group key                                                                 |
 
+<a id="query-single-delivery-of-long-mms"></a>
+
 ### Query Single Delivery of Long MMS
+
+<a id="query-single-delivery-of-long-mms-request"></a>
 
 #### Request
 
@@ -915,6 +987,8 @@ Content-Type: application/json;charset=UTF-8
 |--------------|----------|----------|--------------------|
 | recipientSeq | 	Integer | Required | Detail delivery ID |
 
+<a id="query-single-delivery-of-long-mms-curl"></a>
+
 #### cURL
 
 ```
@@ -922,6 +996,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/mms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-single-delivery-of-long-mms-response"></a>
 
 #### Response
 
@@ -1012,7 +1088,11 @@ curl -X GET \
 | body.data[].senderGroupingKey             | 	String  | Sender's group key                                                                    |
 | body.data[].recipientGroupingKey          | 	String  | Recipient's group key                                                                 |
 
+<a id="sms-for-authentication-emergency"></a>
+
 ## SMS for Authentication (emergency)
+
+<a id="send-sms-for-authentication"></a>
 
 ### Send SMS for Authentication
 
@@ -1027,6 +1107,8 @@ curl -X GET \
 - Example 1) Delivery shall fail if the full text (including template replacement) does not include authentication words, in the request of Send Authentication
   SMS API (for emergency)
 - Example 2) Validity for English words shall be checked regardless of small or capital letters
+
+<a id="send-sms-for-authentication-request"></a>
 
 #### Request
 
@@ -1085,6 +1167,8 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 100                                                                                              | 	X       | Delivery delimiter e.g.) admin,system                                                                             |
 | statsId                                   | String  | 10                                                                                               | X        | Statistics ID (not included in the delivery search conditions)                                                    |
 
+<a id="send-sms-for-authentication-curl"></a>
+
 #### cURL
 
 ```
@@ -1102,6 +1186,8 @@ curl -X POST \
     "userId": ""
 }'
 ```
+
+<a id="send-sms-for-authentication-response"></a>
 
 #### Response
 
@@ -1144,6 +1230,8 @@ curl -X POST \
 | body.data.sendResultList[].resultMessage        | String   | Result message                                                               |
 | body.data.sendResultList[].recipientSeq         | Integer  | Recipient sequence (mtPr)                                                    |
 | body.data.sendResultList[].recipientGroupingKey | String   | Recipient's group key                                                        |
+
+<a id="example"></a>
 
 #### Example
 
@@ -1206,7 +1294,11 @@ curl -X POST \
 }
 ```
 
+<a id="list-sms-delivery-for-authentication"></a>
+
 ### List SMS Delivery for Authentication
+
+<a id="list-sms-delivery-for-authentication-request"></a>
 
 #### Request
 
@@ -1250,6 +1342,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum              | 	Integer | -           | Optional  | Page number (Default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (Default: 15)                                                                                        |
 
+<a id="list-sms-delivery-for-authentication-curl"></a>
+
 #### cURL
 
 ```
@@ -1257,6 +1351,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/auth/sms?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-sms-delivery-for-authentication-response"></a>
 
 #### Response
 
@@ -1337,7 +1433,11 @@ curl -X GET \
 | body.data[].senderGroupingKey    | 	String  | Sender's group key                                                                    |
 | body.data[].recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
+<a id="query-single-sms-delivery-for-authentication"></a>
+
 ### Query Single SMS Delivery for Authentication
+
+<a id="query-single-sms-delivery-for-authentication-request"></a>
 
 #### Request
 
@@ -1361,6 +1461,8 @@ Content-Type: application/json;charset=UTF-8
 |--------------|----------|----------|--------------------|
 | recipientSeq | 	Integer | Required | Detail delivery ID |
 
+<a id="query-single-sms-delivery-for-authentication-curl"></a>
+
 #### cURL
 
 ```
@@ -1368,6 +1470,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sender/auth/sms/'"${REQUEST_ID}"'?recipientSeq='"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-single-sms-delivery-for-authentication-response"></a>
 
 #### Response
 
@@ -1440,7 +1544,11 @@ curl -X GET \
 | body.data.senderGroupingKey    | 	String  | Sender's group key                                                                    |
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
+<a id="ad-messages"></a>
+
 ## Ad Messages
+
+<a id="send-sms-for-advertisement"></a>
 
 ### Send SMS for Advertisement
 
@@ -1487,6 +1595,14 @@ Example
 Free opt out 080-XXX-XXXX
 ```
 
+<a id="send-sms-for-advertisement-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="send-sms-for-advertisement-curl"></a>
+
 #### cURL
 
 ```
@@ -1504,6 +1620,8 @@ curl -X POST \
     "userId": ""
 }'
 ```
+
+<a id="send-mms-for-advertisement"></a>
 
 ### Send MMS for Advertisement
 
@@ -1543,6 +1661,14 @@ Example
 [Deny for free]080XXXXXXX
 ```
 
+<a id="send-mms-for-advertisement-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="send-mms-for-advertisement-curl"></a>
+
 #### cURL
 
 ```
@@ -1562,12 +1688,18 @@ curl -X POST \
 }'
 ```
 
+<a id="query-messages-by-result-updates"></a>
+
 ## Query Messages by Result Updates
 
 * The API is queried as of the update time of message delivery result.
 * Please apply this API to import delivery results on device from service.
 
+<a id="query-messages"></a>
+
 ### Query Messages
+
+<a id="query-messages-request"></a>
 
 #### Request
 
@@ -1596,6 +1728,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum         | Integer | Optional | Page number (default:1)                                     |
 | pageSize        | Integer | Optional | Number of queries (default:15)                              |
 
+<a id="query-messages-curl"></a>
+
 #### cURL
 
 ```
@@ -1603,6 +1737,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/message-results?startRequestDate='"${START_DATE}"'&endRequestDate='"${END_DATE}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-messages-response"></a>
 
 #### Response
 
@@ -1655,9 +1791,15 @@ curl -X GET \
 | body.data.resultUpdateList[].senderGroupingKey    | String   | Sender's group key                                      |
 | body.data.resultUpdateList[].recipientGroupingKey | String   | Recipient's group key                                   |
 
+<a id="tag-delivery"></a>
+
 ## Tag Delivery
 
+<a id="send-tagged-sms"></a>
+
 ### Send Tagged SMS
+
+<a id="send-tagged-sms-request"></a>
 
 #### Request
 
@@ -1710,6 +1852,8 @@ Content-Type: application/json;charset=UTF-8
 | autoSendYn        | String              | 1                                                                                                | X        | Auto delivery or not (immediate delivery) (default: Y)         |
 | statsId           | String              | 10                                                                                               | X        | Statistics ID (not included in the delivery search conditions) |
 
+<a id="send-tagged-sms-curl"></a>
+
 #### cURL
 
 ```
@@ -1729,6 +1873,8 @@ curl -X POST \
     "statsId": "statsId"
 }'
 ```
+
+<a id="send-tagged-sms-response"></a>
 
 #### Response
 
@@ -1754,7 +1900,11 @@ curl -X POST \
 | header.resultMessage | 	String  | Failure message   |
 | body.data.requestId  | 	String  | Request ID        |
 
+<a id="send-tagged-lms"></a>
+
 ### Send Tagged LMS
+
+<a id="send-tagged-lms-request"></a>
 
 #### Request
 
@@ -1814,6 +1964,8 @@ Content-Type: application/json;charset=UTF-8
 | autoSendYn        | String              | 1                      | X        | Auto delivery or not (immediate delivery) (default: Y)         |
 | statsId           | String              | 10                     | X        | Statistics ID (not included in the delivery search conditions) |
 
+<a id="send-tagged-lms-curl"></a>
+
 #### cURL
 
 ```
@@ -1833,6 +1985,8 @@ curl -X POST \
     "autoSendYn": "Y"
 }'
 ```
+
+<a id="send-tagged-lms-response"></a>
 
 #### Response
 
@@ -1858,7 +2012,11 @@ curl -X POST \
 | header.resultMessage | 	String  | Failure message   |
 | body.data.requestId  | 	String  | Request ID        |
 
+<a id="list-tag-delivery"></a>
+
 ### List Tag Delivery
+
+<a id="list-tag-delivery-request"></a>
 
 #### Request
 
@@ -1892,6 +2050,8 @@ GET /sms/v2.4/appKeys/{appKey}/tag-sender
 | pageNum          | optional, Integer | -          | X        | Page number                                                                                                                                                                                                    |
 | pageSize         | optional, Integer | 1000       | X        | Number of queries                                                                                                                                                                                              |
 
+<a id="list-tag-delivery-curl"></a>
+
 #### cURL
 
 ```
@@ -1899,6 +2059,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tag-sender?requestId='"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-tag-delivery-response"></a>
 
 #### Response
 
@@ -1965,7 +2127,11 @@ curl -X GET \
 | body.data[].updateUser      | String       | Modifier                      |
 | body.data[].updateDate      | String       | Date and time of modification |
 
+<a id="list-recipients-of-tag-delivery"></a>
+
 ### List Recipients of Tag Delivery
+
+<a id="list-recipients-of-tag-delivery-request"></a>
 
 #### Request
 
@@ -2001,6 +2167,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | Integer | -          | X        | Page number                                                                                                                                                        |
 | pageSize         | Integer | 1000       | X        | Number of queries                                                                                                                                                  |
 
+<a id="list-recipients-of-tag-delivery-curl"></a>
+
 #### cURL
 
 ```
@@ -2008,6 +2176,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-recipients-of-tag-delivery-response"></a>
 
 #### Response
 
@@ -2058,7 +2228,11 @@ curl -X GET \
 | body.data.createDate    | String   | Date and time of registration                                                         |
 | body.data.updateDate    | String   | Date of modification                                                                  |
 
+<a id="list-recipient-details-of-tagged-delivery"></a>
+
 ### List Recipient Details of Tagged Delivery
+
+<a id="list-recipient-details-of-tagged-delivery-request"></a>
 
 #### Request
 
@@ -2083,6 +2257,8 @@ Content-Type: application/json;charset=UTF-8
 X
 ```
 
+<a id="list-recipient-details-of-tagged-delivery-curl"></a>
+
 #### cURL
 
 ```
@@ -2090,6 +2266,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tag-sender/'"${REQUEST_ID}"'/'"${RECIPIENT_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-recipient-details-of-tagged-delivery-response"></a>
 
 #### Response
 
@@ -2153,40 +2331,15 @@ curl -X GET \
 
 <span id="binaryUpload"></span>
 
+<a id="attached-files"></a>
+
 ## Attached Files
+
+<a id="upload-attached-files"></a>
 
 ### Upload Attached Files
 
-#### Request
-
-[URL]
-
-```
-POST  /sms/v2.4/appKeys/{appKey}/attachfile/binaryUpload
-Content-Type: application/json;charset=UTF-8
-```
-
-[Path parameter]
-
-| Value  | Type    | Description     |
-|--------|---------|-----------------|
-| appKey | 	String | Original appkey |
-
-[Request body]
-
-```json
-{
-  "fileName": "attachment.jpg",
-  "createUser": "CreateUser",
-  "fileBody": "{byte[] -> encoded value in Base64}"
-}
-```
-
-| Value      | Type   | Max Length | Required | Description                                                          |
-|------------|--------|------------|----------|----------------------------------------------------------------------|
-| fileName   | String | 45         | Required | File name (extensions available only in jpg or jpeg)                 |
-| fileBody   | Byte[] | 300K       | Required | File byte[] value encoded in Base64.<br/>* or byte arrangement value |
-| createUser | String | 100        | Required | File uploading user information                                      |
+<a id="upload-attached-files-curl"></a>
 
 #### cURL
 
@@ -2200,6 +2353,8 @@ curl -X POST \
     "fileBody": "1234567890"
 }'
 ```
+
+<a id="upload-attached-files-response"></a>
 
 #### Response
 
@@ -2228,6 +2383,8 @@ curl -X POST \
 | body.data.fileId     | 	Integer | File ID                                                                           |
 | body.data.fileName   | 	String  | File name                                                                         |
 | body.data.filePath   | 	String  | Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
+
+<a id="example-of-uploading-attached-files"></a>
 
 #### Example of Uploading Attached Files
 
@@ -2264,9 +2421,15 @@ curl -X POST \
 }
 ```
 
+<a id="category"></a>
+
 ## Category
 
+<a id="register"></a>
+
 ### Register
+
+<a id="register-request"></a>
 
 #### Request
 
@@ -2307,6 +2470,8 @@ Content-Type: application/json;charset=UTF-8
 
 - categoryParentId, if empty, is registered right below the highest category.
 
+<a id="register-curl"></a>
+
 #### cURL
 
 ```
@@ -2321,6 +2486,8 @@ curl -X POST \
     "createUser": "API Guide"
 }'
 ```
+
+<a id="register-response"></a>
 
 #### Response
 
@@ -2360,7 +2527,11 @@ curl -X POST \
 | body.data[].useYn                   | 	String  | Use or not                |
 | body.data[].createUser              | 	String  | Registered user           |
 
+<a id="list-category"></a>
+
 ### List Category
+
+<a id="list-category-request"></a>
 
 #### Request
 
@@ -2384,6 +2555,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum  | 	Integer | -           | Optional | Page number (default : 1) |
 | pageSize | 	Integer | 1000        | Optional | Query count (default: 15) |
 
+<a id="list-category-curl"></a>
+
 #### cURL
 
 ```
@@ -2391,6 +2564,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/categories' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-category-response"></a>
 
 #### Response
 
@@ -2444,7 +2619,11 @@ curl -X GET \
 | body.data[].updateDate              | 	String  | Date of modification      |
 | body.data[].updateUser              | 	String  | Modified user             |
 
+<a id="get-category"></a>
+
 ### Get Category
+
+<a id="get-category-request"></a>
 
 #### Request
 
@@ -2462,6 +2641,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String  | Original appkey |
 | categoryId | 	Integer | Category ID     |
 
+<a id="get-category-curl"></a>
+
 #### cURL
 
 ```
@@ -2469,6 +2650,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="get-category-response"></a>
 
 #### Response
 
@@ -2516,7 +2699,11 @@ curl -X GET \
 | body.data[].updateDate              | 	String  | Date of modification      |
 | body.data[].updateUser              | 	String  | Modified user             |
 
+<a id="modify"></a>
+
 ### Modify
+
+<a id="modify-request"></a>
 
 #### Request
 
@@ -2552,6 +2739,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn        | 	String | 1           | Required  | Use or not    |
 | updateUser   | 	String | 100         | Optional  | Modified user |
 
+<a id="modify-curl"></a>
+
 #### cURL
 
 ```
@@ -2567,6 +2756,8 @@ curl -X PUT \
 }'
 ```
 
+<a id="modify-response"></a>
+
 #### Response
 
 ```json
@@ -2579,7 +2770,11 @@ curl -X PUT \
 }
 ```
 
+<a id="delete"></a>
+
 ### Delete
+
+<a id="delete-request"></a>
 
 #### Request
 
@@ -2597,6 +2792,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String  | Original appkey |
 | categoryId | 	Integer | Category ID     |
 
+<a id="delete-curl"></a>
+
 #### cURL
 
 ```
@@ -2604,6 +2801,8 @@ curl -X DELETE \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/categories/'"${CATEGORY_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="delete-response"></a>
 
 #### Response
 
@@ -2617,9 +2816,15 @@ curl -X DELETE \
 }
 ```
 
+<a id="templates"></a>
+
 ## Templates
 
+<a id="templates-register"></a>
+
 ### Register
+
+<a id="templates-register-request"></a>
 
 #### Request
 
@@ -2669,6 +2874,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1           | Required  | 	Use or not                                        |
 | attachFileIdList | List<Integer> | -           | Optional  | Attached file ID(fileId)                           |
 
+<a id="templates-register-curl"></a>
+
 #### cURL
 
 ```
@@ -2688,6 +2895,8 @@ curl -X POST \
 }'
 ```
 
+<a id="templates-register-response"></a>
+
 #### Response
 
 ```json
@@ -2699,6 +2908,8 @@ curl -X POST \
   }
 }
 ```
+
+<a id="example-of-registration"></a>
 
 #### Example of Registration
 
@@ -2748,69 +2959,15 @@ curl -X POST \
     * Size of Attached Image: Less than 300KB
     * Resolution of Image: Less than 1000 x 1000
 
+<a id="send-templates-requiring-no-body-updates"></a>
+
 ### Send Templates (requiring no body updates)
 
-#### Example
-
-| Http method | Type | URL                                                                  |
-|-------------|------|----------------------------------------------------------------------|
-| POST        | SMS  | https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/{appKey}/sender/sms |
-| POST        | MMS  | https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/{appKey}/sender/mms |
-
-For Request URL, choose a delivery type selected to register templates.
-
-**If request parameter body is empty, replace it with the body of the corresponding templateId.**
-
-[Request body] Replace with key and value for those for replacement.
-
-```json
-{
-  "templateId": "TemplateId",
-  "senderGroupingKey": "SenderGroupingKey",
-  "recipientList": [
-    {
-      "recipientNo": "01000000000",
-      "templateParameter": {
-        "key1": "Toast Cloud",
-        "key2": "SMS"
-      },
-      "recipientGroupingKey": "RecipientGroupingKey"
-    }
-  ]
-}
-```
-
-[Response]
-
-```json
-{
-  "header": {
-    "resultCode": 0,
-    "resultMessage": "SUCCESS",
-    "isSuccessful": true
-  },
-  "body": {
-    "data": {
-      "requestId": "20180813095534I4VcVuPBpd0",
-      "statusCode": "2",
-      "senderGroupingKey": "SenderGroupingKey",
-      "sendResultList": [
-        {
-          "recipientNo": "01000000000",
-          "resultCode": 0,
-          "resultMessage": "SUCCESS",
-          "recipientSeq": 1,
-          "recipientGroupingKey": "RecipientGroupingKey"
-        }
-      ]
-    }
-  }
-}
-```
-
-![[Figure 1] Template](http://static.toastoven.net/prod_sms/img_27.png)
+<a id="send-templates-requiring-body-updates"></a>
 
 ### Send Templates (requiring body updates)
+
+<a id="example-of-sending-tempaltes"></a>
 
 #### Example of Sending Tempaltes
 
@@ -2876,7 +3033,11 @@ Such case is applicable when template needs to be modified after queried.
 }
 ```
 
+<a id="list-templates"></a>
+
 ### List Templates
+
+<a id="list-templates-request"></a>
 
 #### Request
 
@@ -2902,6 +3063,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum    | 	Integer | Optional | Page number (default : 1) |
 | pageSize   | 	Integer | Optional | Query count (default: 15) |
 
+<a id="list-templates-curl"></a>
+
 #### cURL
 
 ```
@@ -2909,6 +3072,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-templates-response"></a>
 
 #### Response
 
@@ -2993,7 +3158,11 @@ curl -X GET \
 | body.data[].attachFileList[].createDate | 	String  | Date of registration for attachment                         |
 | body.data[].attachFileList[].createUser | 	String  | Registered user of attachment                               |
 
+<a id="query-single-template"></a>
+
 ### Query Single Template
+
+<a id="query-single-template-request"></a>
 
 #### Request
 
@@ -3011,6 +3180,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | Original appkey |
 | templateId | 	String | Template ID     |
 
+<a id="query-single-template-curl"></a>
+
 #### cURL
 
 ```
@@ -3018,6 +3189,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-single-template-response"></a>
 
 #### Response
 
@@ -3107,7 +3280,11 @@ curl -X GET \
 | body.data.attachFileList[].createDate | 	String  | Date of registration of attachment                          |
 | body.data.attachFileList[].createUser | 	String  | Registered user of attachment                               |
 
+<a id="templates-modify"></a>
+
 ### Modify
+
+<a id="templates-modify-request"></a>
 
 #### Request
 
@@ -3153,6 +3330,8 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1           | Required  | 	Use or not                                        |
 | attachFileIdList | List<Integer> | -           | Optional  | Attached file ID(fileId)                           |
 
+<a id="templates-modify-curl"></a>
+
 #### cURL
 
 ```
@@ -3160,6 +3339,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="templates-modify-response"></a>
 
 #### Response
 
@@ -3173,7 +3354,11 @@ curl -X GET \
 }
 ```
 
+<a id="templates-delete"></a>
+
 ### Delete
+
+<a id="templates-delete-request"></a>
 
 #### Request
 
@@ -3191,6 +3376,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | Original appkey |
 | templateId | 	String | Template ID     |
 
+<a id="templates-delete-curl"></a>
+
 #### cURL
 
 ```
@@ -3198,6 +3385,8 @@ curl -X DELETE \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/templates/'"${TEMPLATE_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="templates-delete-response"></a>
 
 #### Response
 
@@ -3211,9 +3400,15 @@ curl -X DELETE \
 }
 ```
 
+<a id="rejection-of-receiving-080-numbers"></a>
+
 ## Rejection of Receiving 080 Numbers
 
+<a id="register-unsubsribers"></a>
+
 ### Register Unsubsribers
+
+<a id="register-unsubsribers-request"></a>
 
 #### Request
 
@@ -3247,6 +3442,8 @@ Content-Type: application/json;charset=UTF-8
 | unsubscribeNo   | String       | 25          | O        | 080 numbers to reject receiving             |
 | recipientNoList | List<String> | 10          | O        | Contact number of unsubscribers to be added |
 
+<a id="register-unsubsribers-curl"></a>
+
 #### cURL
 
 ```
@@ -3258,6 +3455,8 @@ curl -X POST \
     "recipientNoList": ["0100000000", "0100000001"]
 }'
 ```
+
+<a id="register-unsubsribers-response"></a>
 
 #### Response
 
@@ -3271,7 +3470,11 @@ curl -X POST \
 }
 ```
 
+<a id="query-target-of-rejection"></a>
+
 ### Query Target of Rejection
+
+<a id="query-target-of-rejection-request"></a>
 
 #### Request
 
@@ -3299,6 +3502,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                          |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                   |
 
+<a id="query-target-of-rejection-curl"></a>
+
 #### cURL
 
 ```
@@ -3306,6 +3511,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/blockservice/recipients' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-target-of-rejection-response"></a>
 
 #### Response
 
@@ -3331,7 +3538,11 @@ curl -X GET \
 }
 ```
 
+<a id="delete-target-of-rejection"></a>
+
 ### Delete Target of Rejection
+
+<a id="delete-target-of-rejection-request"></a>
 
 #### Request
 
@@ -3356,6 +3567,8 @@ Content-Type: application/json;charset=UTF-8
 | updateUser    | 	String | 	100        | Required  | User who delete rejection of receiving |
 | recipientNo   | 	String | 	20         | Required  | Rejected numbers to be deleted         |
 
+<a id="delete-target-of-rejection-curl"></a>
+
 #### cURL
 
 ```
@@ -3363,6 +3576,8 @@ curl -X DELETE \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/blockservice/recipients/removes?unsubscribeNo='"${UNSUB_NO}"'&updateUser='"${UPDATE_USER}"'&recipientNoList='"${RECIPIENT_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="delete-target-of-rejection-response"></a>
 
 #### Response
 
@@ -3377,9 +3592,15 @@ curl -X DELETE \
 }
 ```
 
+<a id="sender-numbers"></a>
+
 ## Sender Numbers
 
+<a id="list-registered-sender-numbers-api"></a>
+
 ### List Registered Sender Numbers API
+
+<a id="list-registered-sender-numbers-api-request"></a>
 
 #### Request
 
@@ -3405,6 +3626,8 @@ curl -X DELETE \
 | pageNum  | 	Integer | Page number (default: 1)        |
 | pageSize | 	Integer | Number of queries (default: 15) |
 
+<a id="list-registered-sender-numbers-api-curl"></a>
+
 #### cURL
 
 ```
@@ -3412,6 +3635,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/sendNos' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-registered-sender-numbers-api-response"></a>
 
 #### Response
 
@@ -3474,7 +3699,11 @@ curl -X GET \
 | body.data[].updateDate  | String   | Date of modification      |
 | body.data[].updateUser  | String   | Modified user             |
 
+<a id="query-statistics"></a>
+
 ## Query Statistics
+
+<a id="search-statistics---based-on-events"></a>
 
 ### Search Statistics - Based on Events
 
@@ -3484,6 +3713,8 @@ curl -X GET \
     * Delivery Count (sent): Delivery request time to telco provider (vendor)
     * Success Count(received): Actual received time on device
     * Failure Count (sentFailed): Response time of failure
+
+<a id="search-statistics---based-on-events-request"></a>
 
 #### Request
 
@@ -3513,6 +3744,8 @@ curl -X GET \
 | requestIds     | List<String> | 5               | Optional                                                                                                                                                                                                            | Request ID List                                                                                                      |
 | statsCriteria  | List<String> | Option          | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
 
+<a id="search-statistics---based-on-events-curl"></a>
+
 #### cURL
 
 ```
@@ -3520,6 +3753,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/stats?statisticsType='"${STATISTICS_TYPE}"'&from='"${FROM}"'&to='"${TO}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="search-statistics---based-on-events-response"></a>
 
 #### Response
 
@@ -3558,6 +3793,8 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.sentFailed | 	Integer | 	Number of failures                                                                                                                                          |
 | body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	Number of successes                                                                                                                                         |
 
+<a id="statistics-search---based-on-request-time"></a>
+
 ### Statistics Search - Based on Request Time
 
 * Statistics are collected based on delivery request time.
@@ -3566,6 +3803,8 @@ curl -X GET \
     * Delivery Count (sent): Delivery request time, with the increase incurred when delivery is requested to telecom provider (vendor)
     * Success count (received): Delivery request time, with the increase incurred on the actual received time on device
     * Failure Count (sentFailed): Delivery request time, with the increase incurred on the response time of failure
+
+<a id="statistics-search---based-on-request-time-request"></a>
 
 #### Request
 
@@ -3594,6 +3833,8 @@ curl -X GET \
 | templateIds    | List<String> | -           | Optional                                                                                                                                                                                                            | Template ID List                                                                                                      |
 | requestIds     | List<String> | 5           | Optional                                                                                                                                                                                                            | Request ID List                                                                                                       |
 | statsCriteria  | List<String> | Option      | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
+
+<a id="statistics-search---based-on-request-time-response"></a>
 
 #### Response
 
@@ -3634,7 +3875,11 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	Number of successes                                                                                                                                         |
 | body.data.events[].{statsCriteriaValue}.pending    | 	Integer | 	Number of pending items                                                                                                                                     |
 
+<a id="oldquery-integrated-statistics"></a>
+
 ### (Old)Query Integrated Statistics
+
+<a id="oldquery-integrated-statistics-request"></a>
 
 #### Request
 
@@ -3660,6 +3905,8 @@ curl -X GET \
 | messageType | String | 10          | X        | Message type<br/>SMS: Short messages, LMS: Long messages, MMS: Attachment, AUTH: Authentication |
 | contentType | String | 10          | X        | Content type <br/>NORMAL: General, AD: Advertisement                                            |
 | templateId  | String | 50          | X        | Template ID                                                                                     |
+
+<a id="oldquery-integrated-statistics-response"></a>
 
 #### Response
 
@@ -3704,9 +3951,15 @@ curl -X GET \
 | body.data[].failedRate     | String   | Failure rate                     |
 | body.data[].pendingRate    | String   | Delivery rate                    |
 
+<a id="scheduled-delivery"></a>
+
 ## Scheduled Delivery
 
+<a id="list-scheduled-delivery"></a>
+
 ### List Scheduled Delivery
+
+<a id="list-scheduled-delivery-request"></a>
 
 #### Request
 
@@ -3742,6 +3995,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                                                                                                                                                 |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                                                                                          |
 
+<a id="list-scheduled-delivery-curl"></a>
+
 #### cURL
 
 ```
@@ -3749,6 +4004,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/reservations' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-scheduled-delivery-response"></a>
 
 #### Response
 
@@ -3816,7 +4073,11 @@ curl -X GET \
 | body.data[].createDate        | 	String       | Date of registration                                                                                                                                                                  |
 | body.data[].updateDate        | 	String       | Date of modification                                                                                                                                                                  |
 
+<a id="query-detail-scheduled-delivery"></a>
+
 ### Query Detail Scheduled Delivery
+
+<a id="query-detail-scheduled-delivery-request"></a>
 
 #### Request
 
@@ -3835,6 +4096,8 @@ Content-Type: application/json;charset=UTF-8
 | requestId    | 	String  | Request ID         |
 | recipientSeq | 	Integer | Recipient sequence |
 
+<a id="query-detail-scheduled-delivery-curl"></a>
+
 #### cURL
 
 ```
@@ -3842,6 +4105,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/reservations/'"${R_ID}"'/'"${R_SEQ}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-detail-scheduled-delivery-response"></a>
 
 #### Response
 
@@ -3913,7 +4178,11 @@ curl -X GET \
 | body.data.attachFileList[].filePath | 	String       | File path (for internal purpose)                                                                                                                                                       |
 | body.data.attachFileList[].fileName | 	String       | File name                                                                                                                                                                              |
 
+<a id="cancel-scheduled-delivery"></a>
+
 ### Cancel Scheduled Delivery
+
+<a id="cancel-scheduled-delivery-request"></a>
 
 #### Request
 
@@ -3949,6 +4218,8 @@ Content-Type: application/json;charset=UTF-8
 | reservationList[].requestId    | String  | 25          | O        | Request ID                       |
 | reservationList[].recipientSeq | Integer | -           | O        | Recipient sequence               |
 | updateUser                     | String  | 100         | O        | Requesting user for cancellation |
+
+<a id="cancel-scheduled-delivery-curl"></a>
 
 #### cURL
 
@@ -3992,7 +4263,17 @@ curl -X PUT \
 | body.data.requestedCount | 	Integer | Number of failed requests         |
 | body.data.canceledCount  | 	Integer | Number of successful cancellation |
 
+<a id="cancel-scheduled-delivery-1"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="cancel-scheduled-delivery---multiple-filter"></a>
+
 ### Cancel Scheduled Delivery - Multiple Filter
+
+<a id="cancel-scheduled-delivery---multiple-filter-request"></a>
 
 #### Request
 
@@ -4052,6 +4333,8 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.recipientGroupingKey | String | 100        | Optional | Recipient group key                     |
 | updateUser                           | String | 100        | Required | Requester of Scheduled Cancellation     |
 
+<a id="cancel-scheduled-delivery---multiple-filter-curl"></a>
+
 #### cURL
 
 ```
@@ -4075,6 +4358,8 @@ curl -X PUT \
     "updateUser": "API Guide"
 }'
 ```
+
+<a id="cancel-scheduled-delivery---multiple-filter-response"></a>
 
 #### Response
 
@@ -4104,7 +4389,11 @@ curl -X PUT \
 | body.data.requestedDateTime       | 	String  | 	Time for Schedule Cancellation(yyyy-MM-dd HH:mm:ss)                                                                                                                                                           |
 | body.data.reservationCancelStatus | 	String  | 	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
 
+<a id="list-request-of-scheduled-delivery-cancellation---multiple-filter"></a>
+
 ### List Request of Scheduled Delivery Cancellation - Multiple Filter
+
+<a id="list-request-of-scheduled-delivery-cancellation---multiple-filter-request"></a>
 
 #### Request
 
@@ -4131,6 +4420,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum                | 	Integer | -          | 	Optional | 	Page number (default: 1)                                         |
 | pageSize               | 	Integer | 1000       | 	Optional | 	Number of queries (default: 15)                                  |
 
+<a id="list-request-of-scheduled-delivery-cancellation---multiple-filter-curl"></a>
+
 #### cURL
 
 ```
@@ -4138,6 +4429,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/reservations/search-cancels' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="list-request-of-scheduled-delivery-cancellation---multiple-filter-response"></a>
 
 #### Response
 
@@ -4184,9 +4477,15 @@ curl -X GET \
 | body.data[].createdDateTime         | 	String              | 	Request Creation Time for Schedule Cancellation                                                                                                                                                              |
 | body.data[].updatedDateTime         | 	String              | 	Modified Time for Scheduled Cancellation                                                                                                                                                                     |
 
+<a id="download-delivery-result-files"></a>
+
 ## Download Delivery Result Files
 
+<a id="request-for-creating-query-files"></a>
+
 ### Request for Creating Query Files
+
+<a id="request-for-creating-query-files-request"></a>
 
 #### Request
 
@@ -4250,6 +4549,8 @@ Content-Type: application/json;charset=UTF-8
 | recipientGroupingKey  | 	String | 100         | Optional                       | Recipient's group key                                                                                                  |
 | isIncludeTitleAndBody | Boolean | -           | Optional                       | Title and body included or not                                                                                         |
 
+<a id="request-for-creating-query-files-curl"></a>
+
 #### cURL
 
 ```
@@ -4262,6 +4563,8 @@ curl -X POST \
     "endRequestDate": "2020-08-08T00:00:00"
 }'
 ```
+
+<a id="request-for-creating-query-files-response"></a>
 
 #### Response
 
@@ -4295,7 +4598,11 @@ curl -X POST \
 | body.data.downloadStatusCode | 	String  | Status of File Creation<br/>- READY: Preparing to create<br/>- MAKING: Creating<br/>- COMPLETED: Creation completed<br/>- FAILED: Creation failed<br/>- EXPIRED: Download period expired |
 | body.data.expiredDate        | 	String  | 	Date and time of expiration for download period                                                                                                                                         |
 
+<a id="query-request-history-for-delivery-result-of-file-creation"></a>
+
 ### Query Request History for Delivery Result of File Creation
+
+<a id="query-request-history-for-delivery-result-of-file-creation-request"></a>
 
 #### Request
 
@@ -4321,6 +4628,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum            | 	Integer | 	-         | Optional | Page number (default: 1)        |
 | pageSize           | 	Integer | 	1000      | Optional | Number of queries (default: 15) |
 
+<a id="query-request-history-for-delivery-result-of-file-creation-curl"></a>
+
 #### cURL
 
 ```
@@ -4328,6 +4637,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/download-reservations' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-request-history-for-delivery-result-of-file-creation-response"></a>
 
 #### Response
 
@@ -4377,7 +4688,11 @@ curl -X GET \
 | body.data[].createDate         | String   | Date and time of request for file creation                                                                                                                                               |
 | body.data[].updateDate         | String   | Date and time of completion or failure of file creation                                                                                                                                  |
 
+<a id="request-for-downloading-delivery-result-files"></a>
+
 ### Request for Downloading Delivery Result Files
+
+<a id="request-for-downloading-delivery-result-files-request"></a>
 
 #### Request
 
@@ -4395,6 +4710,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | Original appkey |
 | downloadId | String  | Download ID     |
 
+<a id="request-for-downloading-delivery-result-files-curl"></a>
+
 #### cURL
 
 ```
@@ -4403,15 +4720,23 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
+<a id="request-for-downloading-delivery-result-files-response"></a>
+
 #### Response
 
 ```
 file byte
 ```
 
+<a id="tag-management"></a>
+
 ## Tag Management
 
+<a id="query-tags"></a>
+
 ### Query Tags
+
+<a id="query-tags-request"></a>
 
 #### Request
 
@@ -4435,6 +4760,8 @@ Content-Type: application/json;charset=UTF-8
 | pageNum  | 	Integer | 	-         | Optional | Page number (Default : 1)        |
 | pageSize | 	Integer | 	1000      | Optional | Number of queries (Default : 15) |
 
+<a id="query-tags-curl"></a>
+
 #### cURL
 
 ```
@@ -4442,6 +4769,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tags' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-tags-response"></a>
 
 #### Response
 
@@ -4481,6 +4810,8 @@ curl -X GET \
 | body.data[].createdDate | String   | Date and time of creation     |
 | body.data[].tagId       | String   | Date and time of modification |
 
+<a id="register-tags"></a>
+
 ### Register Tags
 
 [URL]
@@ -4508,6 +4839,8 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|------------|----------|-------------|
 | tagName | String | 30         | Required | Tag name    |
 
+<a id="register-tags-curl"></a>
+
 #### cURL
 
 ```
@@ -4518,6 +4851,8 @@ curl -X POST \
     "tagName": "API-Guide"
 }'
 ```
+
+<a id="register-tags-response"></a>
 
 #### Response
 
@@ -4542,6 +4877,8 @@ curl -X POST \
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
 | body.data.tagId      | String   | Tag ID             |
+
+<a id="modify-tags"></a>
 
 ### Modify Tags
 
@@ -4571,6 +4908,8 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|------------|----------|-------------|
 | tagName | String | 30         | Required | Tag name    |
 
+<a id="modify-tags-curl"></a>
+
 #### cURL
 
 ```
@@ -4581,6 +4920,8 @@ curl -X PUT \
     "tagName": "API-Guide2"
 }'
 ```
+
+<a id="modify-tags-response"></a>
 
 #### Response
 
@@ -4600,6 +4941,8 @@ curl -X PUT \
 | header.isSuccessful  | 	Boolean | 	Successful or not |
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
+
+<a id="delete-tags"></a>
 
 ### Delete Tags
 
@@ -4617,6 +4960,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	Original appKey |
 | tagId  | 	String | 	Tag ID          |
 
+<a id="delete-tags-curl"></a>
+
 #### cURL
 
 ```
@@ -4624,6 +4969,8 @@ curl -X DELETE \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/tags/'"${TAG_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="delete-tags-response"></a>
 
 #### Response
 
@@ -4644,9 +4991,15 @@ curl -X DELETE \
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
 
+<a id="uid-management"></a>
+
 ## UID Management
 
+<a id="query-uids"></a>
+
 ### Query UIDs
+
+<a id="query-uids-request"></a>
 
 #### Request
 
@@ -4672,6 +5025,8 @@ Content-Type: application/json;charset=UTF-8
 | offset    | Integer       | -          | Optional | offset (default: 0)                                                                                                                                                           |
 | limit     | Integer       | 1000       | Optional | Number of queries (default: 15)                                                                                                                                               |
 
+<a id="query-uids-curl"></a>
+
 #### cURL
 
 ```
@@ -4679,6 +5034,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids' \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="query-uids-response"></a>
 
 #### Response
 
@@ -4733,7 +5090,11 @@ curl -X GET \
 | body.data.uids[].contacts[].createdDate | String   | Date and time of contact creation |
 | body.data.uids[].last                   | Boolean  | Last on list or not               |
 
+<a id="get-uids"></a>
+
 ### Get UIDs
+
+<a id="get-uids-request"></a>
 
 #### Request
 
@@ -4750,6 +5111,8 @@ GET /sms/v2.4/appKeys/{appKey}/uids/{uid}
 | appKey | 	String | 	Original appKey |
 | uid    | 	String | 	UID             |
 
+<a id="get-uids-curl"></a>
+
 #### cURL
 
 ```
@@ -4757,6 +5120,8 @@ curl -X GET \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="get-uids-response"></a>
 
 #### Response
 
@@ -4803,6 +5168,8 @@ curl -X GET \
 | body.data.contacts[].contactType | String   | Contact type                      |
 | body.data.contacts[].contact     | String   | Contact(phone number)             |
 | body.data.contacts[].createdDate | String   | Date and time of contact creation |
+
+<a id="register-uids"></a>
 
 ### Register UIDs
 
@@ -4853,6 +5220,8 @@ Content-Type: application/json;charset=UTF-8
 * When contacts is provided, tagIds is not required.
 * For this product, contactType must be requested in the "PHONE_NUMBER" value.
 
+<a id="register-uids-curl"></a>
+
 #### cURL
 
 ```
@@ -4872,6 +5241,8 @@ curl -X POST \
 }'
 ```
 
+<a id="register-uids-response"></a>
+
 #### Response
 
 ```json
@@ -4890,6 +5261,8 @@ curl -X POST \
 | header.isSuccessful  | 	Boolean | 	Successful or not |
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
+
+<a id="delete-uids"></a>
 
 ### Delete UIDs
 
@@ -4907,6 +5280,8 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	Original appKey |
 | uid    | 	String | 	UID             |
 
+<a id="delete-uids-curl"></a>
+
 #### cURL
 
 ```
@@ -4914,6 +5289,8 @@ curl -X DELETE \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="delete-uids-response"></a>
 
 #### Response
 
@@ -4933,6 +5310,8 @@ curl -X DELETE \
 | header.isSuccessful  | 	Boolean | 	Successful or not |
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
+
+<a id="register-phone-number"></a>
 
 ### Register Phone Number
 
@@ -4962,6 +5341,8 @@ Content-Type: application/json;charset=UTF-8
 |-------------|--------|------------|----------|--------------|
 | phoneNumber | String | -          | Required | Phone number |
 
+<a id="register-phone-number-curl"></a>
+
 #### cURL
 
 ```
@@ -4972,6 +5353,8 @@ curl -X POST \
     "phoneNumber": "0100000000"
 }'
 ```
+
+<a id="register-phone-number-response"></a>
 
 #### Response
 
@@ -4992,6 +5375,8 @@ curl -X POST \
 | header.resultCode    | 	Integer | 	Failure code      |
 | header.resultMessage | 	String  | 	Failure message   |
 
+<a id="delete-phone-number"></a>
+
 ### Delete phone number
 
 [URL]
@@ -5009,6 +5394,8 @@ Content-Type: application/json;charset=UTF-8
 | uid         | String  | UID              |
 | phoneNumber | String  | Phone number     |
 
+<a id="delete-phone-number-curl"></a>
+
 #### cURL
 
 ```
@@ -5016,6 +5403,8 @@ curl -X DELETE \
 'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/phone-numbers/'"${P_NO}" \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
+
+<a id="delete-phone-number-response"></a>
 
 #### Response
 
