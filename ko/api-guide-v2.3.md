@@ -1685,14 +1685,14 @@ curl -X POST \
 }'
 ```
 
-<a id="message-search-based-on-result-update"></a>
+<a id="query-messages-based-on-result-update"></a>
 
 ## 결과 업데이트 기준 메시지 검색
 
 * 해당 API는 메시지 발송 결과 업데이트 시간 기준으로 검색됩니다.
 * 단말기 발송 결과를 서비스에서 가져가 사용하시는 경우 이 API를 사용해주세요.
 
-<a id="message-search"></a>
+<a id="query-messages"></a>
 
 ### 메시지 검색
 
