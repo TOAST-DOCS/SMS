@@ -1588,6 +1588,12 @@ Content-Type: application/json;charset=UTF-8
 
 <a id="request-10"></a>
 
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="curl-10"></a>
+
 #### cURL
 
 ```
@@ -1637,6 +1643,12 @@ Content-Type: application/json;charset=UTF-8
 
 [無料受信拒否]080XXXXXXX
 ```
+
+<a id="request-11"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
 
 <a id="curl-11"></a>
 
@@ -2311,9 +2323,7 @@ curl -X GET \
 
 ### 添付ファイルのアップロード
 
-<a id="curl-18"></a>
-
-#### リクエスト
+**リクエスト**
 
 [URL]
 
@@ -2344,7 +2354,7 @@ Content-Type: application/json;charset=UTF-8
 | fileBody   | Byte[] | 300KB | 必須 | ファイルbyte[]をBase64でエンコードした値。<br/>* またはバイト配列値 |
 | createUser | String | 100   | 必須 | ファイルアップロードユーザー情報                            |
 
-<a id="response-16"></a>
+<a id="curl-18"></a>
 
 #### cURL
 
@@ -2359,7 +2369,7 @@ curl -X POST \
 }'
 ```
 
-<a id="example-of-uploading-attached-files"></a>
+<a id="response-16"></a>
 
 #### レスポンス
 
@@ -2388,6 +2398,8 @@ curl -X POST \
 | body.data.fileId     | 	Integer | 	ファイルID                                                          |
 | body.data.fileName   | 	String  | 	ファイル名                                                           |
 | body.data.filePath   | 	String  | 	添付ファイルの基本パス <br/> (https://domain/attachFile/filePath/fileName) |
+
+<a id="example-of-uploading-attached-files"></a>
 
 #### 添付ファイルのアップロード例
 
@@ -2468,6 +2480,8 @@ Content-Type: application/json;charset=UTF-8
 | categoryDesc     | 	String  | 100    | 	オプション | 	カテゴリー名                    |
 | useYn            | 	String  | 1      | 	必須    | 使用有無(Y/N)                  |
 | createUser       | 	String  | 100    | オプション  | 登録したユーザー                   |
+
+<a id="curl-19"></a>
 
 #### cURL
 
@@ -4323,6 +4337,12 @@ curl -X PUT \
 | body.data.requestedCount | 	Integer | 	キャンセルリクエスト件数 |
 | body.data.canceledCount  | 	Integer | 	キャンセル成功件数    |
 
+<a id="response-36"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
 <a id="cancel-scheduled-delivery---multiple-filter"></a>
 
 ### 予約送信キャンセル - 多重フィルタ
@@ -4744,7 +4764,7 @@ curl -X GET \
 
 ### 送信結果ファイルのダウンロードリクエスト
 
-<a id="curl-41"></a>
+<a id="request-42"></a>
 
 #### リクエスト
 
@@ -4761,6 +4781,12 @@ Content-Type: application/json;charset=UTF-8
 |------------|---------|----------------|
 | appKey     | 	String | 	固有のアプリケーションキー |
 | downloadId | String  | ダウンロードID       |
+
+<a id="curl-41"></a>
+
+#### cURL
+
+<!-- TODO: translate body -->
 
 <a id="response-41"></a>
 
