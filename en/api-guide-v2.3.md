@@ -1,20 +1,18 @@
-## Notification > SMS > API v2.3 Guide
+<a id="notification-sms-api-v23-guide"></a>
+## Notification > SMS > API v2.3 Guide { #notification-sms-api-v23-guide }
 
 <a id="v23-api-overview"></a>
-
-## v2.3 API Overview
+## v2.3 API Overview { #v23-api-overview }
 
 <a id="changes-from-v-22"></a>
-
-### Changes from v 2.2
+### Changes from v 2.2 { #changes-from-v-22 }
 
 1. Validation for the main text for Send Authentication SMS API has been added.
 
 - For more details, see [[Send Authentication SMS API](./api-guide/#precautions-authword)].
 
 <a id="api-domain"></a>
-
-### [API Domain]
+### [API Domain] { #api-domain }
 
 | Environment | Domain                           |
 |-------------|----------------------------------|
@@ -23,8 +21,7 @@
 <span id="precautions"></span>
 
 <a id="caution"></a>
-
-### [Caution]
+### [Caution] { #caution }
 
 * Character lengths are supported as follows.
 * The maximum supported character counts are based on those saved; please write in standard specifications to prevent any text cutoff.
@@ -37,15 +34,12 @@
 | MMS Body  | 4,000 characters | 2,000 bytes (1,000 characters for Korean, or 2,000 for English) |
 
 <a id="short-sms"></a>
-
-## Short SMS
+## Short SMS { #short-sms }
 
 <a id="send-short-sms"></a>
-
-### Send Short SMS
+### Send Short SMS { #send-short-sms }
 
 <a id="request"></a>
-
 #### Request
 
 [URL]
@@ -104,7 +98,6 @@ Content-Type: application/json;charset=UTF-8
 | statsId                                   | String  | 10                                                                                               | X        | Statistics ID (not included in the delivery search conditions)                                                     |
 
 <a id="curl"></a>
-
 #### cURL
 
 ```
@@ -122,7 +115,6 @@ curl -X POST \
 ```
 
 <a id="response"></a>
-
 #### Response
 
 ```json
@@ -166,7 +158,6 @@ curl -X POST \
 | body.data.sendResultList[].recipientGroupingKey | String   | Recipient group key                                                       |
 
 <a id="example-of-sending-short-sms-general-domestic-recipient-numbers"></a>
-
 #### Example of Sending Short SMS (general domestic recipient numbers)
 
 | Http metho | URL                                                                  |
@@ -229,7 +220,6 @@ curl -X POST \
 ```
 
 <a id="example-of-sending-short-sms-with-country-code-included-to-recipient-numbers"></a>
-
 #### Example of Sending Short SMS (with country code included to recipient numbers)
 
 | Http metho | URL                                                                  |
@@ -283,11 +273,9 @@ curl -X POST \
 ```
 
 <a id="list-delivery-of-short-sms"></a>
-
-### List Delivery of Short SMS
+### List Delivery of Short SMS { #list-delivery-of-short-sms }
 
 <a id="request-2"></a>
-
 #### Request
 
 [URL]
@@ -331,7 +319,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                        |
 
 <a id="curl-2"></a>
-
 #### cURL
 
 ```
@@ -341,7 +328,6 @@ curl -X GET \
 ```
 
 <a id="response-2"></a>
-
 #### Response
 
 ```json
@@ -420,11 +406,9 @@ curl -X GET \
 | body.data[].recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
 <a id="query-delivery-of-short-sms"></a>
-
-### Query Delivery of Short SMS
+### Query Delivery of Short SMS { #query-delivery-of-short-sms }
 
 <a id="request-3"></a>
-
 #### Request
 
 [URL]
@@ -448,7 +432,6 @@ Content-Type: application/json;charset=UTF-8
 | mtPr  | 	Integer | Required | Detail delivery ID |
 
 <a id="curl-3"></a>
-
 #### cURL
 
 ```
@@ -458,7 +441,6 @@ curl -X GET \
 ```
 
 <a id="response-3"></a>
-
 #### Response
 
 ```json
@@ -529,15 +511,12 @@ curl -X GET \
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
 <a id="long-mms"></a>
-
-## Long MMS
+## Long MMS { #long-mms }
 
 <a id="send-long-mms-attached-file-excluded"></a>
-
-### Send Long MMS (attached file excluded)
+### Send Long MMS (attached file excluded) { #send-long-mms-attached-file-excluded }
 
 <a id="request-4"></a>
-
 #### Request
 
 [URL]
@@ -598,7 +577,6 @@ Content-Type: application/json;charset=UTF-8
 | statsId                                   | String  | 10                     | X        | Statistics ID (not included in the delivery search conditions)                                                     |
 
 <a id="curl-4"></a>
-
 #### cURL
 
 ```
@@ -620,7 +598,6 @@ curl -X POST \
 ```
 
 <a id="response-4"></a>
-
 #### Response
 
 ```json
@@ -664,7 +641,6 @@ curl -X POST \
 | body.data.sendResultList[].recipientGroupingKey | String   | Recipient's group key                                                       |
 
 <a id="example-of-sending-long-mms"></a>
-
 #### Example of Sending Long MMS
 
 | Http metho | URL                                                                  |
@@ -728,11 +704,9 @@ curl -X POST \
 ```
 
 <a id="send-mms-attached-file-included"></a>
-
-### Send MMS (attached file included)
+### Send MMS (attached file included) { #send-mms-attached-file-included }
 
 <a id="example-of-sending-attached-files"></a>
-
 #### Example of Sending Attached Files
 
 | Http method | URL                                                                  |
@@ -798,8 +772,7 @@ curl -X POST \
     - Resolution of Image: Less than 1000*1000
 
 <a id="list-delivery-of-long-mms-request"></a>
-
-### List Delivery of Long MMS Request
+### List Delivery of Long MMS Request { #list-delivery-of-long-mms-request }
 
 [URL]
 
@@ -842,13 +815,11 @@ Content-Type: application/json;charset=UTF-8
 | pageSize             | 	Integer | 1000       | Optional  | Number of queries (default: 15)                                                                                        |
 
 <a id="request-5"></a>
-
 #### Request
 
 <!-- TODO: translate body -->
 
 <a id="curl-5"></a>
-
 #### cURL
 
 ```
@@ -858,7 +829,6 @@ curl -X GET \
 ```
 
 <a id="response-5"></a>
-
 #### Response
 
 ```json
@@ -953,11 +923,9 @@ curl -X GET \
 | body.data[].recipientGroupingKey          | 	String  | Recipient's group key                                                                 |
 
 <a id="query-single-delivery-of-long-mms"></a>
-
-### Query Single Delivery of Long MMS
+### Query Single Delivery of Long MMS { #query-single-delivery-of-long-mms }
 
 <a id="request-6"></a>
-
 #### Request
 
 [URL]
@@ -981,7 +949,6 @@ Content-Type: application/json;charset=UTF-8
 | mtPr  | 	Integer | Required | Detail delivery ID |
 
 <a id="curl-6"></a>
-
 #### cURL
 
 ```
@@ -991,7 +958,6 @@ curl -X GET \
 ```
 
 <a id="response-6"></a>
-
 #### Response
 
 ```json
@@ -1081,12 +1047,10 @@ curl -X GET \
 | body.data[].recipientGroupingKey          | 	String  | Recipient's group key                                                                 |
 
 <a id="sms-for-authentication-emergency"></a>
-
-## SMS for Authentication (emergency)
+## SMS for Authentication (emergency) { #sms-for-authentication-emergency }
 
 <a id="send-sms-for-authentication"></a>
-
-### Send SMS for Authentication
+### Send SMS for Authentication { #send-sms-for-authentication }
 
 <span id="precautions-authword"></span>
 
@@ -1101,7 +1065,6 @@ curl -X GET \
 - Example 2) Validity for English words shall be checked regardless of small or capital letters
 
 <a id="request-7"></a>
-
 #### Request
 
 [URL]
@@ -1160,7 +1123,6 @@ Content-Type: application/json;charset=UTF-8
 | statsId                                   | String  | 10                                                                                               | X        | Statistics ID (not included in the delivery search conditions)                                                    |
 
 <a id="curl-7"></a>
-
 #### cURL
 
 ```
@@ -1180,7 +1142,6 @@ curl -X POST \
 ```
 
 <a id="response-7"></a>
-
 #### Response
 
 ```json
@@ -1224,7 +1185,6 @@ curl -X POST \
 | body.data.sendResultList[].recipientGroupingKey | String   | Recipient's group key                                                        |
 
 <a id="example"></a>
-
 #### Example
 
 | Http metho | URL                                                                       |
@@ -1287,11 +1247,9 @@ curl -X POST \
 ```
 
 <a id="list-sms-delivery-for-authentication"></a>
-
-### List SMS Delivery for Authentication
+### List SMS Delivery for Authentication { #list-sms-delivery-for-authentication }
 
 <a id="request-8"></a>
-
 #### Request
 
 [URL]
@@ -1335,7 +1293,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (Default: 15)                                                                                        |
 
 <a id="curl-8"></a>
-
 #### cURL
 
 ```
@@ -1345,7 +1302,6 @@ curl -X GET \
 ```
 
 <a id="response-8"></a>
-
 #### Response
 
 ```json
@@ -1424,11 +1380,9 @@ curl -X GET \
 | body.data[].recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
 <a id="query-single-sms-delivery-for-authentication"></a>
-
-### Query Single SMS Delivery for Authentication
+### Query Single SMS Delivery for Authentication { #query-single-sms-delivery-for-authentication }
 
 <a id="request-9"></a>
-
 #### Request
 
 [URL]
@@ -1452,7 +1406,6 @@ Content-Type: application/json;charset=UTF-8
 | mtPr  | 	Integer | Required | Detail delivery ID |
 
 <a id="curl-9"></a>
-
 #### cURL
 
 ```
@@ -1462,7 +1415,6 @@ curl -X GET \
 ```
 
 <a id="response-9"></a>
-
 #### Response
 
 ```json
@@ -1533,12 +1485,10 @@ curl -X GET \
 | body.data.recipientGroupingKey | 	String  | Recipient's group key                                                                 |
 
 <a id="ad-messages"></a>
-
-## Ad Messages
+## Ad Messages { #ad-messages }
 
 <a id="send-sms-for-advertisement"></a>
-
-### Send SMS for Advertisement
+### Send SMS for Advertisement { #send-sms-for-advertisement }
 
 [URL]
 
@@ -1753,75 +1703,62 @@ curl -X GET \
 | body.data.resultUpdateList[].recipientGroupingKey | String   | Recipient's group key                                   |
 
 <a id="request-10"></a>
-
 #### Request
 
 <!-- TODO: translate body -->
 
 <a id="curl-10"></a>
-
 #### cURL
 
 <!-- TODO: translate body -->
 
 <a id="send-mms-for-advertisement"></a>
-
-### Send MMS for Advertisement
+### Send MMS for Advertisement { #send-mms-for-advertisement }
 
 <!-- TODO: translate body -->
 
 <a id="request-11"></a>
-
 #### Request
 
 <!-- TODO: translate body -->
 
 <a id="curl-11"></a>
-
 #### cURL
 
 <!-- TODO: translate body -->
 
 <a id="query-messages-based-on-result-update"></a>
-
-## Query Messages Based on Result Update
+## Query Messages Based on Result Update { #query-messages-based-on-result-update }
 
 <!-- TODO: translate body -->
 
 <a id="query-messages"></a>
-
-### Query Messages
+### Query Messages { #query-messages }
 
 <!-- TODO: translate body -->
 
 <a id="request-12"></a>
-
 #### Request
 
 <!-- TODO: translate body -->
 
 <a id="curl-12"></a>
-
 #### cURL
 
 <!-- TODO: translate body -->
 
 <a id="response-10"></a>
-
 #### Response
 
 <!-- TODO: translate body -->
 
 <a id="tag-delivery"></a>
-
-## Tag Delivery
+## Tag Delivery { #tag-delivery }
 
 <a id="send-tagged-sms"></a>
-
-### Send Tagged SMS
+### Send Tagged SMS { #send-tagged-sms }
 
 <a id="request-13"></a>
-
 #### Request
 
 [URL]
@@ -1874,7 +1811,6 @@ Content-Type: application/json;charset=UTF-8
 | statsId           | String              | 10                                                                                               | X        | Statistics ID (not included in the delivery search conditions) |
 
 <a id="curl-13"></a>
-
 #### cURL
 
 ```
@@ -1896,7 +1832,6 @@ curl -X POST \
 ```
 
 <a id="response-11"></a>
-
 #### Response
 
 ```json
@@ -1922,11 +1857,9 @@ curl -X POST \
 | body.data.requestId  | 	String  | Request ID        |
 
 <a id="send-tagged-lms"></a>
-
-### Send Tagged LMS
+### Send Tagged LMS { #send-tagged-lms }
 
 <a id="request-14"></a>
-
 #### Request
 
 [URL]
@@ -1986,7 +1919,6 @@ Content-Type: application/json;charset=UTF-8
 | statsId           | String              | 10                     | X        | Statistics ID (not included in the delivery search conditions) |
 
 <a id="curl-14"></a>
-
 #### cURL
 
 ```
@@ -2008,7 +1940,6 @@ curl -X POST \
 ```
 
 <a id="response-12"></a>
-
 #### Response
 
 ```json
@@ -2034,11 +1965,9 @@ curl -X POST \
 | body.data.requestId  | 	String  | Request ID        |
 
 <a id="list-tag-delivery"></a>
-
-### List Tag Delivery
+### List Tag Delivery { #list-tag-delivery }
 
 <a id="request-15"></a>
-
 #### Request
 
 [URL]
@@ -2072,7 +2001,6 @@ GET /sms/v2.3/appKeys/{appKey}/tag-sender
 | pageSize         | optional, Integer | 1000       | X        | Number of queries                                                                                                                                                                                              |
 
 <a id="curl-15"></a>
-
 #### cURL
 
 ```
@@ -2082,7 +2010,6 @@ curl -X GET \
 ```
 
 <a id="response-13"></a>
-
 #### Response
 
 ```json
@@ -2149,11 +2076,9 @@ curl -X GET \
 | body.data[].updateDate      | String       | Date and time of modification |
 
 <a id="list-recipients-of-tag-delivery"></a>
-
-### List Recipients of Tag Delivery
+### List Recipients of Tag Delivery { #list-recipients-of-tag-delivery }
 
 <a id="request-16"></a>
-
 #### Request
 
 [URL]
@@ -2189,7 +2114,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize         | Integer | 1000       | X        | Number of queries                                                                                                                                                  |
 
 <a id="curl-16"></a>
-
 #### cURL
 
 ```
@@ -2199,7 +2123,6 @@ curl -X GET \
 ```
 
 <a id="response-14"></a>
-
 #### Response
 
 ```json
@@ -2250,11 +2173,9 @@ curl -X GET \
 | body.data.updateDate    | String   | Date of modification                                                                  |
 
 <a id="list-recipient-details-of-tagged-delivery"></a>
-
-### List Recipient Details of Tagged Delivery
+### List Recipient Details of Tagged Delivery { #list-recipient-details-of-tagged-delivery }
 
 <a id="request-17"></a>
-
 #### Request
 
 [URL]
@@ -2279,7 +2200,6 @@ X
 ```
 
 <a id="curl-17"></a>
-
 #### cURL
 
 ```
@@ -2289,7 +2209,6 @@ curl -X GET \
 ```
 
 <a id="response-15"></a>
-
 #### Response
 
 ```json
@@ -2353,12 +2272,10 @@ curl -X GET \
 <span id="binaryUpload"></span>
 
 <a id="attached-files"></a>
-
-## Attached Files
+## Attached Files { #attached-files }
 
 <a id="upload-attached-files"></a>
-
-### Upload Attached Files
+### Upload Attached Files { #upload-attached-files }
 
 **Request**
 
@@ -2392,7 +2309,6 @@ Content-Type: application/json;charset=UTF-8
 | createUser | String | 100        | Required | File uploading user information                                      |
 
 <a id="curl-18"></a>
-
 #### cURL
 
 ```
@@ -2407,7 +2323,6 @@ curl -X POST \
 ```
 
 <a id="response-16"></a>
-
 #### Response
 
 ```json
@@ -2437,7 +2352,6 @@ curl -X POST \
 | body.data.filePath   | 	String  | Default path of attached file <br/> (https://domain/attachFile/filePath/fileName) |
 
 <a id="example-of-uploading-attached-files"></a>
-
 #### Example of Uploading Attached Files
 
 | Http method | URL                                                                               |
@@ -2474,15 +2388,12 @@ curl -X POST \
 ```
 
 <a id="category"></a>
-
-## Category
+## Category { #category }
 
 <a id="register"></a>
-
-### Register
+### Register { #register }
 
 <a id="request-18"></a>
-
 #### Request
 
 [URL]
@@ -2523,7 +2434,6 @@ Content-Type: application/json;charset=UTF-8
 - categoryParentId, if empty, is registered right below the highest category.
 
 <a id="curl-19"></a>
-
 #### cURL
 
 ```
@@ -2540,7 +2450,6 @@ curl -X POST \
 ```
 
 <a id="response-17"></a>
-
 #### Response
 
 ```json
@@ -2580,11 +2489,9 @@ curl -X POST \
 | body.data[].createUser              | 	String  | Registered user           |
 
 <a id="list-category"></a>
-
-### List Category
+### List Category { #list-category }
 
 <a id="request-19"></a>
-
 #### Request
 
 [URL]
@@ -2608,7 +2515,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize | 	Integer | 1000        | Optional | Query count (default: 15) |
 
 <a id="curl-20"></a>
-
 #### cURL
 
 ```
@@ -2618,7 +2524,6 @@ curl -X GET \
 ```
 
 <a id="response-18"></a>
-
 #### Response
 
 ```json
@@ -2672,11 +2577,9 @@ curl -X GET \
 | body.data[].updateUser              | 	String  | Modified user             |
 
 <a id="get-category"></a>
-
-### Get Category
+### Get Category { #get-category }
 
 <a id="request-20"></a>
-
 #### Request
 
 [URL]
@@ -2694,7 +2597,6 @@ Content-Type: application/json;charset=UTF-8
 | categoryId | 	Integer | Category ID     |
 
 <a id="curl-21"></a>
-
 #### cURL
 
 ```
@@ -2704,7 +2606,6 @@ curl -X GET \
 ```
 
 <a id="response-19"></a>
-
 #### Response
 
 ```json
@@ -2752,11 +2653,9 @@ curl -X GET \
 | body.data[].updateUser              | 	String  | Modified user             |
 
 <a id="modify"></a>
-
-### Modify
+### Modify { #modify }
 
 <a id="request-21"></a>
-
 #### Request
 
 [URL]
@@ -2792,7 +2691,6 @@ Content-Type: application/json;charset=UTF-8
 | updateUser   | 	String | 100         | Optional  | Modified user |
 
 <a id="curl-22"></a>
-
 #### cURL
 
 ```
@@ -2809,7 +2707,6 @@ curl -X PUT \
 ```
 
 <a id="response-20"></a>
-
 #### Response
 
 ```json
@@ -2823,11 +2720,9 @@ curl -X PUT \
 ```
 
 <a id="delete"></a>
-
-### Delete
+### Delete { #delete }
 
 <a id="request-22"></a>
-
 #### Request
 
 [URL]
@@ -2845,7 +2740,6 @@ Content-Type: application/json;charset=UTF-8
 | categoryId | 	Integer | Category ID     |
 
 <a id="curl-23"></a>
-
 #### cURL
 
 ```
@@ -2855,7 +2749,6 @@ curl -X DELETE \
 ```
 
 <a id="response-21"></a>
-
 #### Response
 
 ```json
@@ -2869,15 +2762,12 @@ curl -X DELETE \
 ```
 
 <a id="templates"></a>
-
-## Templates
+## Templates { #templates }
 
 <a id="register-2"></a>
-
-### Register
+### Register { #register-2 }
 
 <a id="request-23"></a>
-
 #### Request
 
 [URL]
@@ -2927,7 +2817,6 @@ Content-Type: application/json;charset=UTF-8
 | attachFileIdList | List<Integer> | -           | Optional  | Attached file ID(fileId)                           |
 
 <a id="curl-24"></a>
-
 #### cURL
 
 ```
@@ -2948,7 +2837,6 @@ curl -X POST \
 ```
 
 <a id="response-22"></a>
-
 #### Response
 
 ```json
@@ -2962,7 +2850,6 @@ curl -X POST \
 ```
 
 <a id="example-of-registration"></a>
-
 #### Example of Registration
 
 | Http method | URL                                                                 |
@@ -3012,8 +2899,7 @@ curl -X POST \
     * Resolution of Image: Less than 1000 x 1000
 
 <a id="send-templates-requiring-no-body-updates"></a>
-
-### Send Templates (requiring no body updates)
+### Send Templates (requiring no body updates) { #send-templates-requiring-no-body-updates }
 
 **Example**
 
@@ -3076,11 +2962,9 @@ For Request URL, choose a delivery type selected to register templates.
 ![[Figure 1] Template](http://static.toastoven.net/prod_sms/img_27.png)
 
 <a id="send-templates-requiring-body-updates"></a>
-
-### Send Templates (requiring body updates)
+### Send Templates (requiring body updates) { #send-templates-requiring-body-updates }
 
 <a id="example-of-sending-tempaltes"></a>
-
 #### Example of Sending Tempaltes
 
 | Http method | Type | URL                                                                  |
@@ -3146,11 +3030,9 @@ Such case is applicable when template needs to be modified after queried.
 ```
 
 <a id="list-templates"></a>
-
-### List Templates
+### List Templates { #list-templates }
 
 <a id="request-24"></a>
-
 #### Request
 
 [URL]
@@ -3176,7 +3058,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize   | 	Integer | Optional | Query count (default: 15) |
 
 <a id="curl-25"></a>
-
 #### cURL
 
 ```
@@ -3186,7 +3067,6 @@ curl -X GET \
 ```
 
 <a id="response-23"></a>
-
 #### Response
 
 ```json
@@ -3272,11 +3152,9 @@ curl -X GET \
 | body.data[].attachFileList[].uploadType   | 	String  | 	Type of uploaded                                 |
 
 <a id="query-single-template"></a>
-
-### Query Single Template
+### Query Single Template { #query-single-template }
 
 <a id="request-25"></a>
-
 #### Request
 
 [URL]
@@ -3294,7 +3172,6 @@ Content-Type: application/json;charset=UTF-8
 | templateId | 	String | Template ID     |
 
 <a id="curl-26"></a>
-
 #### cURL
 
 ```
@@ -3304,7 +3181,6 @@ curl -X GET \
 ```
 
 <a id="response-24"></a>
-
 #### Response
 
 ```json
@@ -3385,11 +3261,9 @@ curl -X GET \
 | body.data[].attachFileList[].uploadType   | 	String  | 	Type of uploaded                                 |
 
 <a id="modify-2"></a>
-
-### Modify
+### Modify { #modify-2 }
 
 <a id="request-26"></a>
-
 #### Request
 
 [URL]
@@ -3435,7 +3309,6 @@ Content-Type: application/json;charset=UTF-8
 | attachFileIdList | List<Integer> | -           | Optional  | Attached file ID(fileId)                           |
 
 <a id="curl-27"></a>
-
 #### cURL
 
 ```
@@ -3445,7 +3318,6 @@ curl -X GET \
 ```
 
 <a id="response-25"></a>
-
 #### Response
 
 ```json
@@ -3459,11 +3331,9 @@ curl -X GET \
 ```
 
 <a id="delete-2"></a>
-
-### Delete
+### Delete { #delete-2 }
 
 <a id="request-27"></a>
-
 #### Request
 
 [URL]
@@ -3481,7 +3351,6 @@ Content-Type: application/json;charset=UTF-8
 | templateId | 	String | Template ID     |
 
 <a id="curl-28"></a>
-
 #### cURL
 
 ```
@@ -3491,7 +3360,6 @@ curl -X DELETE \
 ```
 
 <a id="response-26"></a>
-
 #### Response
 
 ```json
@@ -3505,15 +3373,12 @@ curl -X DELETE \
 ```
 
 <a id="rejection-of-receiving-080-numbers"></a>
-
-## Rejection of Receiving 080 Numbers
+## Rejection of Receiving 080 Numbers { #rejection-of-receiving-080-numbers }
 
 <a id="register-unsubsribers"></a>
-
-### Register Unsubsribers
+### Register Unsubsribers { #register-unsubsribers }
 
 <a id="request-28"></a>
-
 #### Request
 
 [URL]
@@ -3547,7 +3412,6 @@ Content-Type: application/json;charset=UTF-8
 | recipientNoList | List<String> | 10          | O        | Contact number of unsubscribers to be added |
 
 <a id="curl-29"></a>
-
 #### cURL
 
 ```
@@ -3561,7 +3425,6 @@ curl -X POST \
 ```
 
 <a id="response-27"></a>
-
 #### Response
 
 ```json
@@ -3575,11 +3438,9 @@ curl -X POST \
 ```
 
 <a id="query-target-of-rejection"></a>
-
-### Query Target of Rejection
+### Query Target of Rejection { #query-target-of-rejection }
 
 <a id="request-29"></a>
-
 #### Request
 
 [URL]
@@ -3607,7 +3468,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                   |
 
 <a id="curl-30"></a>
-
 #### cURL
 
 ```
@@ -3617,7 +3477,6 @@ curl -X GET \
 ```
 
 <a id="response-28"></a>
-
 #### Response
 
 ```json
@@ -3643,11 +3502,9 @@ curl -X GET \
 ```
 
 <a id="delete-target-of-rejection"></a>
-
-### Delete Target of Rejection
+### Delete Target of Rejection { #delete-target-of-rejection }
 
 <a id="request-30"></a>
-
 #### Request
 
 [URL]
@@ -3672,7 +3529,6 @@ Content-Type: application/json;charset=UTF-8
 | recipientNo   | 	String | 	20         | Required  | Rejected numbers to be deleted         |
 
 <a id="curl-31"></a>
-
 #### cURL
 
 ```
@@ -3682,7 +3538,6 @@ curl -X DELETE \
 ```
 
 <a id="response-29"></a>
-
 #### Response
 
 ```json
@@ -3697,15 +3552,12 @@ curl -X DELETE \
 ```
 
 <a id="sender-numbers"></a>
-
-## Sender Numbers
+## Sender Numbers { #sender-numbers }
 
 <a id="list-registered-sender-numbers-api"></a>
-
-### List Registered Sender Numbers API
+### List Registered Sender Numbers API { #list-registered-sender-numbers-api }
 
 <a id="request-31"></a>
-
 #### Request
 
 [URL]
@@ -3731,7 +3583,6 @@ curl -X DELETE \
 | pageSize | 	Integer | Number of queries (default: 15) |
 
 <a id="curl-32"></a>
-
 #### cURL
 
 ```
@@ -3741,7 +3592,6 @@ curl -X GET \
 ```
 
 <a id="response-30"></a>
-
 #### Response
 
 ```json
@@ -3804,12 +3654,10 @@ curl -X GET \
 | body.data[].updateUser  | String   | Modified user             |
 
 <a id="query-statistics"></a>
-
-## Query Statistics
+## Query Statistics { #query-statistics }
 
 <a id="search-statistics---based-on-events"></a>
-
-### Search Statistics - Based on Events
+### Search Statistics - Based on Events { #search-statistics---based-on-events }
 
 * Statistics are collected based on time of event occurrence.
 * Statistics are collected based on the following time criteria:
@@ -3819,7 +3667,6 @@ curl -X GET \
     * Failure Count (sentFailed): Response time of failure
 
 <a id="request-32"></a>
-
 #### Request
 
 [URL]
@@ -3849,7 +3696,6 @@ curl -X GET \
 | statsCriteria  | List<String> | Option          | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
 
 <a id="curl-33"></a>
-
 #### cURL
 
 ```
@@ -3859,7 +3705,6 @@ curl -X GET \
 ```
 
 <a id="response-31"></a>
-
 #### Response
 
 ```json
@@ -3898,8 +3743,7 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	Number of successes                                                                                                                                         |
 
 <a id="statistics-search---based-on-request-time"></a>
-
-### Statistics Search - Based on Request Time
+### Statistics Search - Based on Request Time { #statistics-search---based-on-request-time }
 
 * Statistics are collected based on delivery request time.
 * Statistics are collected based on the following criteria:
@@ -3909,7 +3753,6 @@ curl -X GET \
     * Failure Count (sentFailed): Delivery request time, with the increase incurred on the response time of failure
 
 <a id="request-33"></a>
-
 #### Request
 
 [URL]
@@ -3939,7 +3782,6 @@ curl -X GET \
 | statsCriteria  | List<String> | Option      | Stats criteria<br/>- EVENT: event(default value)<br/>- TEMPLATE_ID,EVENT: template, event<br/>- EXTRA_1,EVENT: message type, event<br/>- EXTRA_2,EVENT: ad on/off, event<br/>- EXTRA_3,EVENT: calling number, event |
 
 <a id="response-32"></a>
-
 #### Response
 
 ```json
@@ -3980,11 +3822,9 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.pending    | 	Integer | 	Number of pending items                                                                                                                                     |
 
 <a id="oldquery-integrated-statistics"></a>
-
-### (Old)Query Integrated Statistics
+### (Old)Query Integrated Statistics { #oldquery-integrated-statistics }
 
 <a id="request-34"></a>
-
 #### Request
 
 [URL]
@@ -4011,7 +3851,6 @@ curl -X GET \
 | templateId  | String | 50          | X        | Template ID                                                                                     |
 
 <a id="response-33"></a>
-
 #### Response
 
 ```json
@@ -4056,15 +3895,12 @@ curl -X GET \
 | body.data[].pendingRate    | String   | Delivery rate                    |
 
 <a id="scheduled-delivery"></a>
-
-## Scheduled Delivery
+## Scheduled Delivery { #scheduled-delivery }
 
 <a id="list-scheduled-delivery"></a>
-
-### List Scheduled Delivery
+### List Scheduled Delivery { #list-scheduled-delivery }
 
 <a id="request-35"></a>
-
 #### Request
 
 [URL]
@@ -4100,7 +3936,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                                                                                          |
 
 <a id="curl-34"></a>
-
 #### cURL
 
 ```
@@ -4110,7 +3945,6 @@ curl -X GET \
 ```
 
 <a id="response-34"></a>
-
 #### Response
 
 ```json
@@ -4178,11 +4012,9 @@ curl -X GET \
 | body.data[].updateDate        | 	String       | Date of modification                                                                                                                                                                  |
 
 <a id="query-detail-scheduled-delivery"></a>
-
-### Query Detail Scheduled Delivery
+### Query Detail Scheduled Delivery { #query-detail-scheduled-delivery }
 
 <a id="request-36"></a>
-
 #### Request
 
 [URL]
@@ -4201,7 +4033,6 @@ Content-Type: application/json;charset=UTF-8
 | recipientSeq | 	Integer | Recipient sequence |
 
 <a id="curl-35"></a>
-
 #### cURL
 
 ```
@@ -4211,7 +4042,6 @@ curl -X GET \
 ```
 
 <a id="response-35"></a>
-
 #### Response
 
 ```json
@@ -4283,11 +4113,9 @@ curl -X GET \
 | body.data.attachFileList[].fileName | 	String       | File name                                                                                                                                                                              |
 
 <a id="cancel-scheduled-delivery"></a>
-
-### Cancel Scheduled Delivery
+### Cancel Scheduled Delivery { #cancel-scheduled-delivery }
 
 <a id="request-37"></a>
-
 #### Request
 
 [URL]
@@ -4324,7 +4152,6 @@ Content-Type: application/json;charset=UTF-8
 | updateUser                     | String  | 100         | O        | Requesting user for cancellation |
 
 <a id="curl-36"></a>
-
 #### cURL
 
 ```
@@ -4368,17 +4195,14 @@ curl -X PUT \
 | body.data.canceledCount  | 	Integer | Number of successful cancellation |
 
 <a id="response-36"></a>
-
 #### Response
 
 <!-- TODO: translate body -->
 
 <a id="cancel-scheduled-delivery---multiple-filter"></a>
-
-### Cancel Scheduled Delivery - Multiple Filter
+### Cancel Scheduled Delivery - Multiple Filter { #cancel-scheduled-delivery---multiple-filter }
 
 <a id="request-38"></a>
-
 #### Request
 
 * Request for schedule cancellation is available only when the statu is 'Scheduled'.
@@ -4438,7 +4262,6 @@ Content-Type: application/json;charset=UTF-8
 | updateUser                           | String | 100        | Required | Requester of Scheduled Cancellation     |
 
 <a id="curl-37"></a>
-
 #### cURL
 
 ```
@@ -4464,7 +4287,6 @@ curl -X PUT \
 ```
 
 <a id="response-37"></a>
-
 #### Response
 
 ```json
@@ -4494,11 +4316,9 @@ curl -X PUT \
 | body.data.reservationCancelStatus | 	String  | 	Status of Schedule Cancellation<br/>- READY : Preparing for Scheduling<br/>- PROCESSING : Cancelling Schedule  <br/>- COMPLETED : Schedule Cancellation Completed<br/>- FAILED : Schedule Cancellation Failed |
 
 <a id="list-request-of-scheduled-delivery-cancellation---multiple-filter"></a>
-
-### List Request of Scheduled Delivery Cancellation - Multiple Filter
+### List Request of Scheduled Delivery Cancellation - Multiple Filter { #list-request-of-scheduled-delivery-cancellation---multiple-filter }
 
 <a id="request-39"></a>
-
 #### Request
 
 [URL]
@@ -4525,7 +4345,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize               | 	Integer | 1000       | 	Optional | 	Number of queries (default: 15)                                  |
 
 <a id="curl-38"></a>
-
 #### cURL
 
 ```
@@ -4535,7 +4354,6 @@ curl -X GET \
 ```
 
 <a id="response-38"></a>
-
 #### Response
 
 ```json
@@ -4582,15 +4400,12 @@ curl -X GET \
 | body.data[].updatedDateTime         | 	String              | 	Modified Time for Scheduled Cancellation                                                                                                                                                                     |
 
 <a id="download-delivery-result-files"></a>
-
-## Download Delivery Result Files
+## Download Delivery Result Files { #download-delivery-result-files }
 
 <a id="request-for-creating-query-files"></a>
-
-### Request for Creating Query Files
+### Request for Creating Query Files { #request-for-creating-query-files }
 
 <a id="request-40"></a>
-
 #### Request
 
 [URL]
@@ -4654,7 +4469,6 @@ Content-Type: application/json;charset=UTF-8
 | isIncludeTitleAndBody | Boolean | -           | Optional                       | Title and body included or not                                                                                         |
 
 <a id="curl-39"></a>
-
 #### cURL
 
 ```
@@ -4669,7 +4483,6 @@ curl -X POST \
 ```
 
 <a id="response-39"></a>
-
 #### Response
 
 ```json
@@ -4703,11 +4516,9 @@ curl -X POST \
 | body.data.expiredDate        | 	String  | 	Date and time of expiration for download period                                                                                                                                         |
 
 <a id="query-request-history-for-delivery-result-of-file-creation"></a>
-
-### Query Request History for Delivery Result of File Creation
+### Query Request History for Delivery Result of File Creation { #query-request-history-for-delivery-result-of-file-creation }
 
 <a id="request-41"></a>
-
 #### Request
 
 [URL]
@@ -4733,7 +4544,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize           | 	Integer | 	1000      | Optional | Number of queries (default: 15) |
 
 <a id="curl-40"></a>
-
 #### cURL
 
 ```
@@ -4743,7 +4553,6 @@ curl -X GET \
 ```
 
 <a id="response-40"></a>
-
 #### Response
 
 ```json
@@ -4793,11 +4602,9 @@ curl -X GET \
 | body.data[].updateDate         | String   | Date and time of completion or failure of file creation                                                                                                                                  |
 
 <a id="request-for-downloading-delivery-result-files"></a>
-
-### Request for Downloading Delivery Result Files
+### Request for Downloading Delivery Result Files { #request-for-downloading-delivery-result-files }
 
 <a id="request-42"></a>
-
 #### Request
 
 [URL]
@@ -4815,7 +4622,6 @@ Content-Type: application/json;charset=UTF-8
 | downloadId | String  | Download ID     |
 
 <a id="curl-41"></a>
-
 #### cURL
 
 ```
@@ -4825,7 +4631,6 @@ curl -X GET \
 ```
 
 <a id="response-41"></a>
-
 #### Response
 
 ```
@@ -4833,15 +4638,12 @@ file byte
 ```
 
 <a id="tag-management"></a>
-
-## Tag Management
+## Tag Management { #tag-management }
 
 <a id="query-tags"></a>
-
-### Query Tags
+### Query Tags { #query-tags }
 
 <a id="request-43"></a>
-
 #### Request
 
 [URL]
@@ -4865,7 +4667,6 @@ Content-Type: application/json;charset=UTF-8
 | pageSize | 	Integer | 	1000      | Optional | Number of queries (Default : 15) |
 
 <a id="curl-42"></a>
-
 #### cURL
 
 ```
@@ -4875,7 +4676,6 @@ curl -X GET \
 ```
 
 <a id="response-42"></a>
-
 #### Response
 
 ```json
@@ -4915,8 +4715,7 @@ curl -X GET \
 | body.data[].tagId       | String   | Date and time of modification |
 
 <a id="register-tags"></a>
-
-### Register Tags
+### Register Tags { #register-tags }
 
 [URL]
 
@@ -4944,7 +4743,6 @@ Content-Type: application/json;charset=UTF-8
 | tagName | String | 30         | Required | Tag name    |
 
 <a id="curl-43"></a>
-
 #### cURL
 
 ```
@@ -4957,7 +4755,6 @@ curl -X POST \
 ```
 
 <a id="response-43"></a>
-
 #### Response
 
 ```json
@@ -4983,8 +4780,7 @@ curl -X POST \
 | body.data.tagId      | String   | Tag ID             |
 
 <a id="modify-tags"></a>
-
-### Modify Tags
+### Modify Tags { #modify-tags }
 
 [URL]
 
@@ -5013,7 +4809,6 @@ Content-Type: application/json;charset=UTF-8
 | tagName | String | 30         | Required | Tag name    |
 
 <a id="curl-44"></a>
-
 #### cURL
 
 ```
@@ -5026,7 +4821,6 @@ curl -X PUT \
 ```
 
 <a id="response-44"></a>
-
 #### Response
 
 ```json
@@ -5047,8 +4841,7 @@ curl -X PUT \
 | header.resultMessage | 	String  | 	Failure message   |
 
 <a id="delete-tags"></a>
-
-### Delete Tags
+### Delete Tags { #delete-tags }
 
 [URL]
 
@@ -5065,7 +4858,6 @@ Content-Type: application/json;charset=UTF-8
 | tagId  | 	String | 	Tag ID          |
 
 <a id="curl-45"></a>
-
 #### cURL
 
 ```
@@ -5075,7 +4867,6 @@ curl -X DELETE \
 ```
 
 <a id="response-45"></a>
-
 #### Response
 
 ```json
@@ -5096,15 +4887,12 @@ curl -X DELETE \
 | header.resultMessage | 	String  | 	Failure message   |
 
 <a id="uid-management"></a>
-
-## UID Management
+## UID Management { #uid-management }
 
 <a id="query-uids"></a>
-
-### Query UIDs
+### Query UIDs { #query-uids }
 
 <a id="request-44"></a>
-
 #### Request
 
 [URL]
@@ -5130,7 +4918,6 @@ Content-Type: application/json;charset=UTF-8
 | limit     | Integer       | 1000       | Optional | Number of queries (default: 15)                                                                                                                                               |
 
 <a id="curl-46"></a>
-
 #### cURL
 
 ```
@@ -5140,7 +4927,6 @@ curl -X GET \
 ```
 
 <a id="response-46"></a>
-
 #### Response
 
 ```json
@@ -5195,11 +4981,9 @@ curl -X GET \
 | body.data.uids[].last                   | Boolean  | Last on list or not               |
 
 <a id="get-uids"></a>
-
-### Get UIDs
+### Get UIDs { #get-uids }
 
 <a id="request-45"></a>
-
 #### Request
 
 [URL]
@@ -5216,7 +5000,6 @@ GET /sms/v2.3/appKeys/{appKey}/uids/{uid}
 | uid    | 	String | 	UID             |
 
 <a id="curl-47"></a>
-
 #### cURL
 
 ```
@@ -5226,7 +5009,6 @@ curl -X GET \
 ```
 
 <a id="response-47"></a>
-
 #### Response
 
 ```json
@@ -5274,8 +5056,7 @@ curl -X GET \
 | body.data.contacts[].createdDate | String   | Date and time of contact creation |
 
 <a id="register-uids"></a>
-
-### Register UIDs
+### Register UIDs { #register-uids }
 
 [URL]
 
@@ -5325,7 +5106,6 @@ Content-Type: application/json;charset=UTF-8
 * For this product, contactType must be requested in the "PHONE_NUMBER" value.
 
 <a id="curl-48"></a>
-
 #### cURL
 
 ```
@@ -5346,7 +5126,6 @@ curl -X POST \
 ```
 
 <a id="response-48"></a>
-
 #### Response
 
 ```json
@@ -5367,8 +5146,7 @@ curl -X POST \
 | header.resultMessage | 	String  | 	Failure message   |
 
 <a id="delete-uids"></a>
-
-### Delete UIDs
+### Delete UIDs { #delete-uids }
 
 [URL]
 
@@ -5385,7 +5163,6 @@ Content-Type: application/json;charset=UTF-8
 | uid    | 	String | 	UID             |
 
 <a id="curl-49"></a>
-
 #### cURL
 
 ```
@@ -5395,7 +5172,6 @@ curl -X DELETE \
 ```
 
 <a id="response-49"></a>
-
 #### Response
 
 ```json
@@ -5416,8 +5192,7 @@ curl -X DELETE \
 | header.resultMessage | 	String  | 	Failure message   |
 
 <a id="register-phone-number"></a>
-
-### Register Phone Number
+### Register Phone Number { #register-phone-number }
 
 [URL]
 
@@ -5446,7 +5221,6 @@ Content-Type: application/json;charset=UTF-8
 | phoneNumber | String | -          | Required | Phone number |
 
 <a id="curl-50"></a>
-
 #### cURL
 
 ```
@@ -5459,7 +5233,6 @@ curl -X POST \
 ```
 
 <a id="response-50"></a>
-
 #### Response
 
 ```json
@@ -5480,8 +5253,7 @@ curl -X POST \
 | header.resultMessage | 	String  | 	Failure message   |
 
 <a id="delete-phone-number"></a>
-
-### Delete phone number
+### Delete phone number { #delete-phone-number }
 
 [URL]
 
@@ -5499,7 +5271,6 @@ Content-Type: application/json;charset=UTF-8
 | phoneNumber | String  | Phone number     |
 
 <a id="curl-51"></a>
-
 #### cURL
 
 ```
@@ -5509,7 +5280,6 @@ curl -X DELETE \
 ```
 
 <a id="response-51"></a>
-
 #### Response
 
 ```json
