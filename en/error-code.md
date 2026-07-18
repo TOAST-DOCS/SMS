@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=8dbeac641c33 -->
+<!-- pre-align:aligned sig=172b01aa78b5 -->
 
 <a id="notification-sms-result-code"></a>
 ## Notification > SMS > Result Code { #notification-sms-result-code }

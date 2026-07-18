@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=e0bbef3353de -->
+<!-- pre-align:aligned sig=72dbe1e35282 -->
 
 <a id="notification-sms-service-policy-sending-policy"></a>
 ## Notification > SMS > サービスポリシー > 送信ポリシー { #notification-sms-service-policy-sending-policy }

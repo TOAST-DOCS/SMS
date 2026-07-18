@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=738aed6a869b -->
+<!-- pre-align:aligned sig=fb2797554ca0 -->
 
 <a id="notification-sms-service-policy-international-sending-policy"></a>
 ## Notification > SMS > 서비스 정책 > 국제 SMS 발송 정책 { #notification-sms-service-policy-international-sending-policy }
