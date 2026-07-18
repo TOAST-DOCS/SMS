@@ -1,10 +1,10 @@
 <!-- pre-align:aligned sig=8dbeac641c33 -->
 
-## Notification > SMS > 결과 코드
+<a id="notification-sms-result-code"></a>
+## Notification > SMS > 결과 코드 { #notification-sms-result-code }
 
 <a id="api-result-code"></a>
-
-## API 결과 코드
+## API 결과 코드 { #api-result-code }
 
 | 카테고리 | 성공 여부 | 결과 코드 | 결과 코드 메시지 | API 응답 메시지 | 
 | - | - |-------| - | - |
@@ -98,8 +98,7 @@
 | 태그 | false | -7002 | .csv 읽기 실패 | Invalid csv read. |
 
 <a id="result-code-of-receiving"></a>
-
-## 수신 결과 코드
+## 수신 결과 코드 { #result-code-of-receiving }
 
 | 구분 | 결과 코드 | 분류 | 의미 |
 | - | - | - | - |
@@ -154,11 +153,9 @@
 | ETC | E999 | 실패 | 기타 오류 |
 
 <a id="dlr-result-code"></a>
-
-## DLR 결과 코드
+## DLR 결과 코드 { #dlr-result-code }
 <a id="dlr-status-code"></a>
-
-### DLR 상태 코드
+### DLR 상태 코드 { #dlr-status-code }
 | DLR 상태 코드 | 의미 |
 | - | - |
 | DELIVERED | 메시지가 단말기로 전송된 상태 |
@@ -170,8 +167,7 @@
 | UNKNOWN | 알 수 없음 |
 
 <a id="dlr-error-code"></a>
-
-### DLR 에러 코드
+### DLR 에러 코드 { #dlr-error-code }
 | DLR 에러 코드 | 의미 | 설명 |
 | - | - | - |
 | 0 | 전송됨 | 메시지가 성공적으로 전송됨 |
@@ -200,11 +196,9 @@
 | 1000 | 기타 오류 | 그 외 오류 |
 
 <a id="query-delivery-codes"></a>
-
-## 결과 조회 코드
-<a id="result-code-of-receiving-2"></a>
-
-### 수신 결과 조회 코드
+## 결과 조회 코드 { #query-delivery-codes }
+<a id="query-delivery-codes-result-code-of-receiving"></a>
+### 수신 결과 조회 코드 { #query-delivery-codes-result-code-of-receiving }
 
 | 코드 값 | 의미 | 
 | - | - |
@@ -212,8 +206,7 @@
 | MTR2 | 실패 | 
 
 <a id="detail-result-code-of-receiving"></a>
-
-### 수신 결과 조회 상세 코드
+### 수신 결과 조회 상세 코드 { #detail-result-code-of-receiving }
 
 | 코드 값 | 의미 | 
 | - | - |

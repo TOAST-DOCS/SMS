@@ -1,10 +1,10 @@
 <!-- pre-align:aligned sig=8dbeac641c33 -->
 
-## Notification > SMS > 結果コード
+<a id="notification-sms-result-code"></a>
+## Notification > SMS > 結果コード { #notification-sms-result-code }
 
 <a id="api-result-code"></a>
-
-## API結果コード
+## API結果コード { #api-result-code }
 
 | カテゴリー | 成否 | 結果コード | 結果コードメッセージ | APIレスポンスメッセージ | 
 | - | - | - | - | - |
@@ -97,8 +97,7 @@
 | タグ | false | -7002 | .csv読み込み失敗 | Invalid csv read. |
 
 <a id="result-code-of-receiving"></a>
-
-## 受信結果コード
+## 受信結果コード { #result-code-of-receiving }
 
 | 区分 | 結果コード | 分類 | 意味 |
 | - | - | - | - |
@@ -153,11 +152,9 @@
 | ETC | E999 | 失敗 | その他のエラー |
 
 <a id="dlr-result-code"></a>
-
-## DLR結果コード
+## DLR結果コード { #dlr-result-code }
 <a id="dlr-status-code"></a>
-
-### DLRステータスコード
+### DLRステータスコード { #dlr-status-code }
 | DLRステータスコード | 意味 |
 | - | - |
 | DELIVERED | メッセージが端末に送信された状態 |
@@ -169,8 +166,7 @@
 | UNKNOWN | 不明 |
 
 <a id="dlr-error-code"></a>
-
-### DLRエラーコード
+### DLRエラーコード { #dlr-error-code }
 | DLRエラーコード | 意味 | 説明 |
 | - | - | - |
 | 0 | 送信済 | メッセージが正常に送信された |
@@ -199,11 +195,9 @@
 | 1000 | その他エラー | その他のエラー |
 
 <a id="query-delivery-codes"></a>
-
-## 発信照会コード
-<a id="result-code-of-receiving-2"></a>
-
-### 受信結果コード
+## 発信照会コード { #query-delivery-codes }
+<a id="query-delivery-codes-result-code-of-receiving"></a>
+### 受信結果コード { #query-delivery-codes-result-code-of-receiving }
 
 | コード値 | 意味 | 
 | - | - |
@@ -211,8 +205,7 @@
 | MTR2 | 失敗 | 
 
 <a id="detail-result-code-of-receiving"></a>
-
-### 受信結果詳細コード
+### 受信結果詳細コード { #detail-result-code-of-receiving }
 
 | コード値 | 意味 | 
 | - | - |

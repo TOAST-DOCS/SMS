@@ -1,10 +1,10 @@
 <!-- pre-align:aligned sig=8dbeac641c33 -->
 
-## Notification > SMS > Result Code
+<a id="notification-sms-result-code"></a>
+## Notification > SMS > Result Code { #notification-sms-result-code }
 
 <a id="api-result-code"></a>
-
-## API Result Code
+## API Result Code { #api-result-code }
 
 | Category | Successful or not | Result code | Result code message | API response message |
 | - | - | - | - | - |
@@ -102,8 +102,7 @@
 | Tag | false | -7002 | Failed to read .csv file | Invalid csv read. |
 
 <a id="result-code-of-receiving"></a>
-
-## Result Code of Receiving
+## Result Code of Receiving { #result-code-of-receiving }
 
 | Category | Result code | Classification | Description |
 | - | - | - | - |
@@ -158,11 +157,9 @@
 | ETC | E999 | Failure | Other errors |
 
 <a id="dlr-result-code"></a>
-
-## DLR result code
+## DLR result code { #dlr-result-code }
 <a id="dlr-status-code"></a>
-
-### DLR status code
+### DLR status code { #dlr-status-code }
 | DLR status code | Description |
 | - | - |
 | DELIVERED | Message has been delivered |
@@ -174,8 +171,7 @@
 | UNKNOWN | No useful information available |
 
 <a id="dlr-error-code"></a>
-
-### DLR error code
+### DLR error code { #dlr-error-code }
 | DLR error code | Description | Notes |
 | - | - | - |
 | 0 | Delivered | Message was delivered successfully |
@@ -204,11 +200,9 @@
 | 1000 | ETC Error | ETC error |
 
 <a id="query-delivery-codes"></a>
-
-## Query Delivery Codes
-<a id="result-code-of-receiving-2"></a>
-
-### Result Code of Receiving
+## Query Delivery Codes { #query-delivery-codes }
+<a id="query-delivery-codes-result-code-of-receiving"></a>
+### Result Code of Receiving { #query-delivery-codes-result-code-of-receiving }
 
 | Code Value | Description |
 | - | - |
@@ -216,8 +210,7 @@
 | MTR2 | Failed |
 
 <a id="detail-result-code-of-receiving"></a>
-
-### Detail Result Code of Receiving
+### Detail Result Code of Receiving { #detail-result-code-of-receiving }
 
 | Code Value | Description |
 | - | - |

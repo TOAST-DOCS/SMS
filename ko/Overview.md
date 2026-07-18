@@ -1,13 +1,13 @@
 <!-- pre-align:aligned sig=77058c78d235 -->
 
-## Notification > SMS > 개요
+<a id="notification-sms-overview"></a>
+## Notification > SMS > 개요 { #notification-sms-overview }
 
 SMS, LMS, MMS 발송, 발송 예약 기능, 템플릿 관리, 발송 내역 조회 기능을 제공하는 문자 메시지 발송 시스템입니다.
 손쉬운 연동을 위한 RESTful API를 제공합니다.
 
 <a id="specifications"></a>
-
-## 특징
+## 특징 { #specifications }
 
 - SMS, LMS, MMS 발송을 제공합니다.
     - SMS: 90 바이트, LMS: 2,000 바이트, MMS: 2,000 바이트 + 이미지
@@ -21,8 +21,7 @@ SMS, LMS, MMS 발송, 발송 예약 기능, 템플릿 관리, 발송 내역 조�
     - 자주 사용하는 SMS는 템플릿으로 등록하여 사용할 수 있습니다.
 
 <a id="main-features"></a>
-
-## 주요 기능
+## 주요 기능 { #main-features }
 
 고객의 애플리케이션에서 사용할 수 있는 문자 메시지 발송과 조회 RESTful API를 제공합니다.
 SMS 발송, 발송 내역 조회, 템플릿 관리를 할 수 있는 UI를 제공합니다.

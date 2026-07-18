@@ -1,20 +1,18 @@
 <!-- pre-align:aligned sig=738aed6a869b -->
 
-## Notification > SMS > サービスポリシー > 国際SMS送信ポリシー
+<a id="notification-sms-service-policy-international-sending-policy"></a>
+## Notification > SMS > サービスポリシー > 国際SMS送信ポリシー { #notification-sms-service-policy-international-sending-policy }
 
 <a id="guide-to-sending-international-sms-messages"></a>
-
-## 国際SMSメッセージ送信案内
+## 国際SMSメッセージ送信案内 { #guide-to-sending-international-sms-messages }
 + 国際SMSメッセージを送信する時は、以下の重要事項を確認してください。
 <a id="country-specific-sender-id-policy"></a>
-
-## 国別発信番号ポリシー
+## 国別発信番号ポリシー { #country-specific-sender-id-policy }
 + 国際SMSメッセージは、国別発信番号ポリシーに従って送信され、このポリシーに従わなかった場合、スパムとして処理されることがあります。
 + 顧客が設定した発信番号は受信端末に表示されることを保障しません。国際SMSメッセージを正常に送信するために、任意の数字や文字、 NHNcorpなどに変更されて送信されることがあります。
 
 <a id="sending-policy"></a>
-
-## 送信ポリシー
+## 送信ポリシー { #sending-policy }
 + 国別詳細ポリシーは[[国別SMS送信詳細ガイド](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)]を参照してください。
 + ベトナムのように国際 SMSメッセージポリシーが厳格な国の場合、メッセージ送信内容が認証番号(OTP)の場合に限り正常に送信されることがあります。
 + メッセージを正常に送信するために、認証番号(OTP)送信内容を例のように入力することを推奨します。 (例: Your verification code is 00000)
@@ -27,8 +25,7 @@
 + 各国の送信品質は、当該国のネットワーク及びインフラ環境の影響を受け、国内環境と異なる場合があります。
 
 <a id="billing-policy"></a>
-
-## 課金ポリシー
+## 課金ポリシー { #billing-policy }
 + 国際SMSメッセージ送信費用は海外通信事業者へのデータ転送成否に基づいて課金されます。
 + 国際SMS課金ポリシーは、DLRメッセージの状態やDLR結果コードとは関係ありません。
 + 端末受信結果は海外通信事業者へのデータ転送成功を意味し、実際の端末の受信結果とは異なる場合があります。実際のユーザーがメッセージを受信していなくても課金対象に含まれることがあります。
@@ -44,8 +41,7 @@
 | GSM-7bit | 160文字 | 306文字<br>(=153*2) | 459文字<br>(=153*3) | 612文字<br>(=153*4) | 765文字<br>(=153*5) |
 
 <a id="international-sms-traffic-pumping"></a>
-
-## 国際SMSトラフィックポンピング現象
+## 国際SMSトラフィックポンピング現象 { #international-sms-traffic-pumping }
 + 一部海外通信事業者(MNO)で売上を上げるために、人為的にメッセージ送信を誘導する場合があります。
 + 会員登録認証番号の要求などのページで、Botや不正行為者がメッセージ送信を大量に要求します。
 + ほとんどのBotや不正行為者は認証要求後、実際の認証は行わない。アビューズが発生すると、認証番号の要求は増えるが、認証を行いコンバージョンされる割合は減少します。
@@ -60,14 +56,12 @@
     + 類似した番号範囲(例：+1111111110, +1111111111, +1111111112, +1111111113など）に送信されるメッセージが連続して流入しないようにします。
 
 <a id="sending-blocking-based-on-international-sms-conversion-rate"></a>
-
-## 国際SMSコンバージョン率に基づく送信ブロック
+## 国際SMSコンバージョン率に基づく送信ブロック { #sending-blocking-based-on-international-sms-conversion-rate }
 + 一般的に受信者がメッセージ受信後、URLクリックや認証番号入力などの動作を行った場合、コンバージョンが発生したとみなします。
 + 国際SMSコンバージョン率によるブロック設定機能により、受信者のメッセージ受信後にコンバージョンの有無をチェックすることで、国際SMS送信の信頼性を高め、アビューズに対するブロックを強化できます。
 
 <a id="collection-of-international-sms-conversions"></a>
-
-### 国際SMSのコンバージョン有無の収集設定
+### 国際SMSのコンバージョン有無の収集設定 { #collection-of-international-sms-conversions }
 + 国際SMS送信APIのリクエスト時に、コンバージョン率収集要求フィールドでコンバージョン率収集対象かどうかを設定します。
     + 詳細については、 [[API v3.0ガイド](./api-guide/#sms_1)]を参照してください。
 + コンバージョン率収集対象に設定した送信件がコンバージョンされたと判断された場合、コンバージョンAPIを呼び出してNHN Cloudにコンバージョンの有無を通知できます。
@@ -77,8 +71,7 @@
     + **コンバージョン率に基づく送信ブロックと通知**を**有効**に設定した国に送信したメッセージが24時間以内に50件以上、コンバージョン率が50%以下の場合、その国への送信が自動的にブロックされます。
 
 <a id="set-blocking-countries-by-conversion-rate"></a>
-
-### コンバージョン率に基づく送信ブロックと通知機能の使用設定
+### コンバージョン率に基づく送信ブロックと通知機能の使用設定 { #set-blocking-countries-by-conversion-rate }
 + コンソールの**送信設定** > 国際SMS**メニューで、コンバージョン率に基づく送信ブロックと通知の設定を**有効**に変更する必要があります。
 + 機能使用設定後、コンバージョン率によってブロックする国を設定する必要があります。
     + コンバージョン率ベースのブロックルール設定に基づくコンバージョン率の計算とブロックが国別に適用されます。
@@ -87,8 +80,7 @@
     + 詳細については、 [[コンソール使用ガイド](./console-guide/#sms_8)]を参照してください。
 
 <a id="available-countries"></a>
-
-## 送信可能国
+## 送信可能国 { #available-countries }
 | 国名 | 国コード |
 |---|---|
 | アメリカ/カナダ | 1 |

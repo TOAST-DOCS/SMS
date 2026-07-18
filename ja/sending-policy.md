@@ -1,12 +1,12 @@
 <!-- pre-align:aligned sig=e0bbef3353de -->
 
-## Notification > SMS > サービスポリシー > 送信ポリシー
+<a id="notification-sms-service-policy-sending-policy"></a>
+## Notification > SMS > サービスポリシー > 送信ポリシー { #notification-sms-service-policy-sending-policy }
 
 
 <span id='fabrication-number'></span>
 <a id="prevention-of-caller-number-fabrication"></a>
-
-## 発信番号の改ざん禁止
+## 発信番号の改ざん禁止 { #prevention-of-caller-number-fabrication }
 + SMSサービスを利用する時は、必ず本人(または自社)所有の発信番号を登録してから使用する必要があります。
 + 他人(または他社)の発信番号を使用した場合は、[[(韓国未来創造科学部公示第2015-32号)虚偽表示された電話番号によるユーザーの被害予防などに関する公示](https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891)]および 
 [[Notification利用規約](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)]に従い、下記の措置をとることがありますのでご注意してください。 
@@ -20,21 +20,18 @@
 
 <span id="fraud-number"></span>
 <a id="filter-messages-from-spoofed-numbers"></a>
-
-## 番号盗用メッセージ遮断サービス案内
+## 番号盗用メッセージ遮断サービス案内 { #filter-messages-from-spoofed-numbers }
 ‘番号盗用メッセージ遮断サービス’は、他人が勝手に自分の携帯電話番号をメッセージ犯罪に悪用したり、迷惑メールを送信できないようにするサービスです。
 
 <a id="guide-to-usage"></a>
-
-### 利用案内
+### 利用案内 { #guide-to-usage }
 + 移動サービスプロバイダー(SKT、KT、LG U+ およびMVNO事業者)から無料で提供されており、加入時に同意すると登録される場合があります。
 + メッセージ送信後、正常な番号にもかかわらずサイトでメッセージ送信結果が'失敗'になる場合、'番号盗用メッセージ遮断サービス'の加入状況を確認してください。
 + '番号盗用メッセージ遮断サービス'を解除した後、送信してください。
 + 解除申請後、適用されるまで約7日かかります。
 
 <a id="guide-to-cancelation"></a>
-
-### 解除案内
+### 解除案内 { #guide-to-cancelation }
 + サービスプロバイダーWebサイト
     + SKT番号盗用メッセージ遮断[[解除する](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
     + KT番号盗用メッセージ遮断[[解除する](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
@@ -45,22 +42,19 @@
 
 <span id="spam-number"></span>
 <a id="filter-spams-by-telecommunication-providers"></a>
-
-## サービスプロバイダー迷惑メール遮断サービス案内
+## サービスプロバイダー迷惑メール遮断サービス案内 { #filter-spams-by-telecommunication-providers }
 + 煩わしい広告性迷惑メールを移動サービスプロバイダーで自動的に遮断してくれるサービスです。
 + 移動サービスプロバイダーごとの組み合わせ基準に従い、迷惑メールと判断されるメッセージを携帯電話のメッセージ受信箱ではなく迷惑メール受信箱に送信します。
 
-<a id="guide-to-usage-2"></a>
-
-### 利用案内
+<a id="filter-spams-by-telecommunication-providers-guide-to-usage"></a>
+### 利用案内 { #filter-spams-by-telecommunication-providers-guide-to-usage }
 + 送信結果が成功になっているのにメッセージの受信ができない場合、サービスプロバイダーの迷惑メール遮断サービスを確認してください。
 + 韓国インターネット振興院不法迷惑メール対応センターで、迷惑メール総合対策を策定したことに伴い、各サービスプロバイダーで‘迷惑メール遮断サービス’を行っています。
 + メッセージ受信箱ではなく迷惑メールとして保存されたことが確認できたら、迷惑メール遮断サービスを解除して利用してください。
 + 個人情報保護ポリシーにより、本人以外は確認できないため、本人が直接確認する必要があります。
 
-<a id="guide-to-cancelation-2"></a>
-
-### 解除案内
+<a id="filter-spams-by-telecommunication-providers-guide-to-cancelation"></a>
+### 解除案内 { #filter-spams-by-telecommunication-providers-guide-to-cancelation }
 + サービスプロバイダーWebサイト
     + SKT迷惑メールフィルタリング[[解除する](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
     + KT迷惑メール遮断[[解除する](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
@@ -71,13 +65,11 @@
 
 <span id="rejection-of-receiving-080"></span>
 <a id="unsubscribing-080-numbers"></a>
-
-## 080受信拒否
+## 080受信拒否 { #unsubscribing-080-numbers }
 + 080受信拒否サービスは、広告メッセージ送信時、受信者に受信拒否を提供するサービスです。
 + 広告性情報の送信時、受信者が受信拒否や受信同意撤回を無料で行うことができるように、無料で受信を拒否する方法を必ず記載する必要があります。
-<a id="guide-to-usage-3"></a>
-
-### 利用案内
+<a id="unsubscribing-080-numbers-guide-to-usage"></a>
+### 利用案内 { #unsubscribing-080-numbers-guide-to-usage }
 + 080受信拒否サービスは、送信時間ではなく、080サービス番号が開通した後から課金されます(月定額)。
 + 080受信拒否番号は、新たに発行されるまで3～4日かかるため、一時的な利用や、解除と申請を繰り返すことは推奨しません。
 + 登録予約状態では開通をキャンセルできないため、登録時にご留意ください。
@@ -85,8 +77,7 @@
 + 080受信拒否番号を解約した場合や、外部で申請した080番号の場合は送信に失敗します。
 
 <a id="guide-to-sending-advertising-messages"></a>
-
-### 広告性メッセージ送信案内
+### 広告性メッセージ送信案内 { #guide-to-sending-advertising-messages }
 情報通信網利用促進および情報保護などに関する法律第50条に基づき営利目的の広告性情報を送信する場合 <br/>
 受信者の明確な事前同意を得なければならず、送信表記義務事項を必ず遵守する必要があります。<br/>
 [[韓国インターネット振興院(KISA)不法迷惑メール防止のための情報通信網法案内書](https://static.toastoven.net/prod_sms/eng/kisa_spam_guide.pdf)]
@@ -98,8 +89,7 @@
 + 受信拒否リクエスト受信者に結果を告知:送信者の名称、意思表示事実および日付、処理結果をすべて案内
 
 <a id="monthly-sending-volume-limit"></a>
-
-## 月間送信量制限の案内
+## 月間送信量制限の案内 { #monthly-sending-volume-limit }
 * SMSサービスは、月間の送信量が制限されています。
 * SMS送信量は、組織単位で月5,000件に制限されます。送信件数の調整が必要な場合は[[サポート](https://www.nhncloud.com/kr/support/inquiry)]にお問い合わせください。
 * 送信量制限はSMS/LMS/MMS/国際SMSの種類に関係なく、全てのテキストメッセージ送信件数を含めた限度です。
@@ -107,15 +97,13 @@
 * 送信成功基準で件数が集計されるため、送信に成功した件は端末受信に失敗しても含まれます。
 
 <a id="guide-to-sending-speed-depending-on-the-size-of-mms-attachments"></a>
-
-## MMS添付ファイルサイズに応じた送信速度案内
+## MMS添付ファイルサイズに応じた送信速度案内 { #guide-to-sending-speed-depending-on-the-size-of-mms-attachments }
 + MMS送信時に添付ファイルのサイズによって送信速度に差が出る場合があります。
 + アップロードされた添付ファイルのサイズが大きいほど、携帯電話会社の送信速度制限により送信速度および受信結果のアップデートが遅くなることがあります。
 '+ 速い送信をご希望の場合は添付ファイルのサイズを小さくしてリクエストすることを推奨します。
 
 <a id="guide-to-sending-contents-according-to-character-set"></a>
-
-## 文字コードに基づく送信内容案内
+## 文字コードに基づく送信内容案内 { #guide-to-sending-contents-according-to-character-set }
 '+ EUC-KRに含まれる文字は、受信時に送信内容と同じように正常に内容が表示されます。
 + EUC-KRに含まれていない文字がタイトル/本文に含まれる場合、受信時に'?'のように内容が文字化けして表示されることがあります。
     + 受信端末の機種、通信会社によって送信内容が異なる場合があります。
@@ -123,14 +111,12 @@
 
 <span id="private-policy"></span>
 <a id="timeout-policy-for-message-receiving-result"></a>
-
-## メッセージ受信結果タイムアウトポリシー
+## メッセージ受信結果タイムアウトポリシー { #timeout-policy-for-message-receiving-result }
 
 <!-- TODO: translate body -->
 
 <a id="guide-for-notice-of-personal-information-assignor"></a>
-
-## 個人情報受託会社の告知案内
+## 個人情報受託会社の告知案内 { #guide-for-notice-of-personal-information-assignor }
 
 顧客'がNHN Cloud > SMSサービスを利用する時、'顧客'と'当社'の間で個人情報処理に関する業務の委託/受託関係が発生しますので、韓国情報通信網法および個人情報保護法に従って、委託者>である'顧客'は個人情報処理方針を通して'当社'に個人情報を委託した状況(受託者および業務の内容)を公開する必要があります。
 
@@ -144,8 +130,7 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 
 <span id="certification"></span>
 <a id="certified-bulk-message-sender"></a>
-
-## 大量メッセージの送信資格認証制
+## 大量メッセージの送信資格認証制 { #certified-bulk-message-sender }
 大量メッセージ送信事業を行うメッセージ再販売事業者は、送信資格認証を受けた後、メッセージ送信サービスを運営することができます。[[お知らせを確認する](https://www.nhncloud.com/kr/support/notice/detail/6041)]
 次の認証マークをクリックしてNHN Cloud証明書を確認できます。
 

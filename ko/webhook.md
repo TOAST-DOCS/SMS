@@ -1,13 +1,13 @@
 <!-- pre-align:aligned sig=aed32cb25cdb -->
 
-## 웹훅
+<a id="webhook"></a>
+## 웹훅 { #webhook }
 
 SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 URL로 POST 요청을 생성합니다.<br>
 생성된 POST 요청에 대한 API 문서입니다.
 
 <a id="webhook-delivery"></a>
-
-## 웹훅 발송
+## 웹훅 발송 { #webhook-delivery }
 
 [URL]
 
@@ -47,8 +47,7 @@ SMS 서비스 내 특정 이벤트가 발생하면 웹훅 설정에 정의된 UR
 | event           | String    | 웹훅 이벤트명<br>* UNSUBSCRIBE: 광고 문자 수신 번호 등록<br>* MESSAGE_RESULT_UPDATE: 메시지 발송 결과 코드 업데이트<br>* CONVERSION_BLOCK: 전환율에 의한 차단 국가 발생<br>* INTERNATIONAL_DELIVERY_RECEIPT: 국제발송 DLR 업데이트 |
 | hooks           | List<Map> | 웹훅 이벤트 발생 시 데이터<br>* 상세한 내용은 [이벤트 유형별 hooks 정의](./webhook/#hooks)를 참고하세요.                                                                                                         |
 
-<a id="curl"></a>
-
+<a id="webhook-delivery-curl"></a>
 #### cURL
 
 ```
@@ -72,12 +71,10 @@ curl -X POST \
 ```
 
 <a id="hooks-definitions-by-event-type"></a>
-
-## 이벤트 유형별 hooks 정의
+## 이벤트 유형별 hooks 정의 { #hooks-definitions-by-event-type }
 웹훅 설정에 정의된 URL로 POST 요청을 생성할 때 이벤트 타입별 훅(hook) 데이터입니다.
 <a id="registration-of-recipient-number-for-ad-messages"></a>
-
-### 광고 문자 수신 번호 등록
+### 광고 문자 수신 번호 등록 { #registration-of-recipient-number-for-ad-messages }
 | 값                       | 타입     | 설명                                            |
 |-------------------------|--------|-----------------------------------------------|
 | hooks[].hookId          | String | 서비스에서 이벤트 발생 시 생성되는 고유 ID                     |
@@ -99,8 +96,7 @@ curl -X POST \
 ```
 
 <a id="code-update-for-message-sending-result"></a>
-
-### 메시지 발송 결과 코드 업데이트
+### 메시지 발송 결과 코드 업데이트 { #code-update-for-message-sending-result }
 | 값                            | 타입      | 설명                                                                                                |
 |------------------------------|---------|---------------------------------------------------------------------------------------------------|
 | hooks[].hookId               | String  | 서비스에서 이벤트 발생 시 생성되는 고유 ID                                                                         |
@@ -144,8 +140,7 @@ curl -X POST \
 ```
 
 <a id="conversion-rate-based-send-block-countries"></a>
-
-### 전환율 기반 발송 차단 국가 발생
+### 전환율 기반 발송 차단 국가 발생 { #conversion-rate-based-send-block-countries }
 | 값                       | 타입     | 설명                                            |
 |-------------------------|--------|-----------------------------------------------|
 | hooks[].hookId          | String | 서비스에서 이벤트 발생 시 생성되는 고유 ID                     |
@@ -163,8 +158,7 @@ curl -X POST \
 ```
 
 <a id="international-sms-dlr-update"></a>
-
-### 국제 발송 DLR 업데이트
+### 국제 발송 DLR 업데이트 { #international-sms-dlr-update }
 | 값                    | 타입      | 설명                                                                            |
 |----------------------|---------|-------------------------------------------------------------------------------|
 | hooks[].hookId       | String  | 서비스에서 이벤트 발생 시 생성되는 고유 ID                                                     |

@@ -1,13 +1,13 @@
 <!-- pre-align:aligned sig=77058c78d235 -->
 
-## Notification > SMS > Overview
+<a id="notification-sms-overview"></a>
+## Notification > SMS > Overview { #notification-sms-overview }
 
 The text message delivery system enables to send SMS, LMS, or MMS, schedule delivery, manage templates, and query history of deliveries.
 RESTful API is provided for easy integration.
 
 <a id="specifications"></a>
-
-## Specifications
+## Specifications { #specifications }
 
 - Send SMS, LMS, and MMS.
   - SMS: 90 bytes, LMS: 2,000 bytes, MMS: 2,000 bytes + images
@@ -21,8 +21,7 @@ RESTful API is provided for easy integration.
   - Register frequently-used SMS as templates.
 
 <a id="main-features"></a>
-
-## Main Features
+## Main Features { #main-features }
 
 RESTful API is provided to send and query text messages from client's applications.   
 UIs are supported to send SMS, query delivery history, and manage templates. 
