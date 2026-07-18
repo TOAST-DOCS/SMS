@@ -2403,6 +2403,10 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String  | 1      | 	必須    | 使用有無(Y/N)                  |
 | createUser       | 	String  | 100    | オプション  | 登録したユーザー                   |
 
+##### Description
+
+<!-- TODO: translate body -->
+
 <a id="curl-19"></a>
 #### cURL
 
@@ -2419,7 +2423,7 @@ curl -X POST \
 }'
 ```
 
-##### 説明
+**説明**
 
 - categoryParentId値が空の場合、最上位カテゴリーのすぐ下に登録されます。
 
