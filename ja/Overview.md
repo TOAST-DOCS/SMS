@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=77058c78d235 -->
+<!-- pre-align:aligned sig=7681c5d99477 -->
 
 <a id="notification-sms-overview"></a>
 ## Notification > SMS > 概要 { #notification-sms-overview }

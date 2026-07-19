@@ -1,20 +1,18 @@
-## Notification > SMS > API v2.4ガイド
+<a id="notification-sms-api-v24-guide"></a>
+## Notification > SMS > API v2.4ガイド { #notification-sms-api-v24-guide }
 
 <a id="v24-api-overview"></a>
-
-## v2.4 API紹介
+## v2.4 API紹介 { #v24-api-overview }
 
 <a id="changes-from-v-23"></a>
-
-### v2.3からの変更事項
+### v2.3からの変更事項 { #changes-from-v-23 }
 
 1. 各メッセージ(短文、長文、認証)送信リスト検索および送信単一検索レスポンスフィールドが追加されました。
     - 追加されたフィールド：messageType、recipientSeq
 2. 送信単一検索条件に使用される[mtPr]が[recipientSeq]に変更されました。
 
 <a id="api-domain"></a>
-
-### [APIドメイン]
+### [APIドメイン] { #api-domain }
 
 | 環境   | 	ドメイン                            |
 |------|----------------------------------|
@@ -23,8 +21,7 @@
 <span id="precautions"></span>
 
 <a id="caution"></a>
-
-### [注意事項]
+### [注意事項] { #caution }
 
 * サポートする文字数は下記の通りです。
 * 最大サポート文字数は保存基準で、文字切れ防止のため、標準規格で作成してください。
@@ -37,15 +34,12 @@
 | MMS本文   | 4,000文字 | 2,000バイト(全角1,000文字、半角2,000文字) |
 
 <a id="short-sms"></a>
-
-## 短文SMS
+## 短文SMS { #short-sms }
 
 <a id="send-short-sms"></a>
+### 短文SMSの送信 { #send-short-sms }
 
-### 短文SMSの送信
-
-<a id="request"></a>
-
+<a id="send-short-sms-request"></a>
 #### リクエスト
 
 [URL]
@@ -103,8 +97,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 	100                                                           | X   | 送信セパレータex)admin,system                                             |
 | statsId                                   | String  | 10                                                             | X   | 統計ID(発信検索条件には含まれません)                                               |
 
-<a id="curl"></a>
-
+<a id="send-short-sms-curl"></a>
 #### cURL
 
 ```
@@ -121,8 +114,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response"></a>
-
+<a id="send-short-sms-response"></a>
 #### レスポンス
 
 ```json
@@ -165,8 +157,7 @@ curl -X POST \
 | body.data.sendResultList[].recipientSeq         | Integer  | 受信者シーケンス(mtPr)                               |
 | body.data.sendResultList[].recipientGroupingKey | String   | 受信者グループキー                                    |
 
-<a id="example-of-sending-short-sms-general-domestic-recipient-numbers"></a>
-
+<a id="send-short-sms-example-of-sending-short-sms-general-domestic-recipient-numbers"></a>
 #### 短文SMSの送信例(一般国内受信番号)
 
 | Http metho | URL                                                                  |
@@ -228,8 +219,7 @@ curl -X POST \
 }
 ```
 
-<a id="example-of-sending-short-sms-with-country-code-included-to-recipient-numbers"></a>
-
+<a id="send-short-sms-example-of-sending-short-sms-with-country-code-included-to-recipient-numbers"></a>
 #### 短文SMS送信例(国コードが含まれている受信番号)
 
 | Http metho | URL                                                                  |
@@ -283,11 +273,9 @@ curl -X POST \
 ```
 
 <a id="list-delivery-of-short-sms"></a>
+### 短文SMS送信リストの照会 { #list-delivery-of-short-sms }
 
-### 短文SMS送信リストの照会
-
-<a id="request-2"></a>
-
+<a id="list-delivery-of-short-sms-request"></a>
 #### リクエスト
 
 [URL]
@@ -330,8 +318,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                         |
 | pageSize             | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                          |
 
-<a id="curl-2"></a>
-
+<a id="list-delivery-of-short-sms-curl"></a>
 #### cURL
 
 ```
@@ -340,8 +327,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-2"></a>
-
+<a id="list-delivery-of-short-sms-response"></a>
 #### レスポンス
 
 ```json
@@ -421,11 +407,9 @@ curl -X GET \
 | body.data[].recipientGroupingKey | 	String  | 	受信者グループキー                                  |
 
 <a id="query-delivery-of-short-sms"></a>
+### 短文SMS送信の単一照会 { #query-delivery-of-short-sms }
 
-### 短文SMS送信の単一照会
-
-<a id="request-3"></a>
-
+<a id="query-delivery-of-short-sms-request"></a>
 #### リクエスト
 
 [URL]
@@ -448,8 +432,7 @@ Content-Type: application/json;charset=UTF-8
 |--------------|----------|-----|---------|
 | recipientSeq | 	Integer | 	必須 | 	送信詳細ID |
 
-<a id="curl-3"></a>
-
+<a id="query-delivery-of-short-sms-curl"></a>
 #### cURL
 
 ```
@@ -458,8 +441,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-3"></a>
-
+<a id="query-delivery-of-short-sms-response"></a>
 #### レスポンス
 
 ```json
@@ -530,17 +512,14 @@ curl -X GET \
 | body.data.recipientGroupingKey | 	String  | 	受信者グループキー                                  |
 
 <a id="long-mms"></a>
-
-## 長文MMS
+## 長文MMS { #long-mms }
 
 <a id="send-long-mms-attached-file-excluded"></a>
-
-### 長文MMS送信(添付ファイルは含まない)
+### 長文MMS送信(添付ファイルは含まない) { #send-long-mms-attached-file-excluded }
 
 ※ MMSは韓国外への送信はできません。
 
-<a id="request-4"></a>
-
+<a id="send-long-mms-attached-file-excluded-request"></a>
 #### リクエスト
 
 [URL]
@@ -600,8 +579,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 100               | 	X  | 送信セパレータex)admin,system                                             |
 | statsId                                   | String  | 10                | X   | 統計ID(発信検索条件には含まれません)                                               |
 
-<a id="curl-4"></a>
-
+<a id="send-long-mms-attached-file-excluded-curl"></a>
 #### cURL
 
 ```
@@ -622,8 +600,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-4"></a>
-
+<a id="send-long-mms-attached-file-excluded-response"></a>
 #### レスポンス
 
 ```json
@@ -666,8 +643,7 @@ curl -X POST \
 | body.data.sendResultList[].recipientSeq         | Integer  | 受信者シーケンス(mtPr)                               |
 | body.data.sendResultList[].recipientGroupingKey | String   | 受信者グループキー                                    |
 
-<a id="example-of-sending-long-mms"></a>
-
+<a id="send-long-mms-attached-file-excluded-example-of-sending-long-mms"></a>
 #### 長文MMSの送信例
 
 | Http metho | URL                                                                  |
@@ -731,11 +707,9 @@ curl -X POST \
 ```
 
 <a id="send-mms-attached-file-included"></a>
+### 長文MMSの送信(添付ファイル含む) { #send-mms-attached-file-included }
 
-### 長文MMSの送信(添付ファイル含む)
-
-<a id="example-of-sending-attached-files"></a>
-
+<a id="send-mms-attached-file-included-example-of-sending-attached-files"></a>
 #### 添付ファイルの送信例
 
 | Http method | URL                                                                  |
@@ -802,11 +776,9 @@ curl -X POST \
     - 添付イメージの解像度： 1000 x 1000以下
 
 <a id="list-delivery-of-long-mms-request"></a>
+### 長文MMS送信リストの照会 { #list-delivery-of-long-mms-request }
 
-### 長文MMS送信リストの照会
-
-<a id="request-5"></a>
-
+<a id="list-delivery-of-long-mms-request-request"></a>
 #### リクエスト
 
 [URL]
@@ -849,8 +821,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                         |
 | pageSize             | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                          |
 
-<a id="curl-5"></a>
-
+<a id="list-delivery-of-long-mms-request-curl"></a>
 #### cURL
 
 ```
@@ -859,8 +830,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-5"></a>
-
+<a id="list-delivery-of-long-mms-request-response"></a>
 #### レスポンス
 
 ```json
@@ -956,11 +926,9 @@ curl -X GET \
 | body.data[].recipientGroupingKey          | 	String  | 	受信者グループキー                                  |
 
 <a id="query-single-delivery-of-long-mms"></a>
+### 長文MMS送信の単一照会 { #query-single-delivery-of-long-mms }
 
-### 長文MMS送信の単一照会
-
-<a id="request-6"></a>
-
+<a id="query-single-delivery-of-long-mms-request"></a>
 #### リクエスト
 
 [URL]
@@ -983,8 +951,7 @@ Content-Type: application/json;charset=UTF-8
 |--------------|----------|-----|---------|
 | recipientSeq | 	Integer | 	必須 | 	送信詳細ID |
 
-<a id="curl-6"></a>
-
+<a id="query-single-delivery-of-long-mms-curl"></a>
 #### cURL
 
 ```
@@ -993,8 +960,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-6"></a>
-
+<a id="query-single-delivery-of-long-mms-response"></a>
 #### レスポンス
 
 ```json
@@ -1085,12 +1051,10 @@ curl -X GET \
 | body.data[].recipientGroupingKey          | 	String  | 	受信者グループキー                                  |
 
 <a id="sms-for-authentication-emergency"></a>
-
-## 認証用SMS(緊急)
+## 認証用SMS(緊急) { #sms-for-authentication-emergency }
 
 <a id="send-sms-for-authentication"></a>
-
-### 認証用SMSの送信
+### 認証用SMSの送信 { #send-sms-for-authentication }
 
 <span id="precautions-authword"></span>
 
@@ -1103,8 +1067,7 @@ curl -X GET \
 - 例1)認証用SMS(緊急) API送信リクエストした時、全文(テンプレート日本語識別子含む)に認証文言が含まれていない場合は、送信に失敗します。
 - 例2)認証文言が英文の場合、大文字/小文字の区別なしで有効性チェックが行われます。
 
-<a id="request-7"></a>
-
+<a id="send-sms-for-authentication-request"></a>
 #### リクエスト
 
 [URL]
@@ -1162,8 +1125,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 100                                                            | 	X  | 送信セパレータex)admin,system                                         |
 | statsId                                   | String  | 10                                                             | X   | 統計ID(発信検索条件には含まれません)                                           |
 
-<a id="curl-7"></a>
-
+<a id="send-sms-for-authentication-curl"></a>
 #### cURL
 
 ```
@@ -1182,8 +1144,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-7"></a>
-
+<a id="send-sms-for-authentication-response"></a>
 #### レスポンス
 
 ```json
@@ -1226,8 +1187,7 @@ curl -X POST \
 | body.data.sendResultList[].recipientSeq         | Integer  | 受信者シーケンス(mtPr)                               |
 | body.data.sendResultList[].recipientGroupingKey | String   | 受信者グループキー                                    |
 
-<a id="example"></a>
-
+<a id="send-sms-for-authentication-example"></a>
 #### 例
 
 | Http metho | URL                                                                       |
@@ -1290,11 +1250,9 @@ curl -X POST \
 ```
 
 <a id="list-sms-delivery-for-authentication"></a>
+### 認証用SMS送信リストの照会 { #list-sms-delivery-for-authentication }
 
-### 認証用SMS送信リストの照会
-
-<a id="request-8"></a>
-
+<a id="list-sms-delivery-for-authentication-request"></a>
 #### リクエスト
 
 [URL]
@@ -1337,8 +1295,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                      |
 | pageSize             | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                       |
 
-<a id="curl-8"></a>
-
+<a id="list-sms-delivery-for-authentication-curl"></a>
 #### cURL
 
 ```
@@ -1347,8 +1304,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-8"></a>
-
+<a id="list-sms-delivery-for-authentication-response"></a>
 #### レスポンス
 
 ```json
@@ -1428,11 +1384,9 @@ curl -X GET \
 | body.data[].recipientGroupingKey | 	String  | 	受信者グループキー                                  |
 
 <a id="query-single-sms-delivery-for-authentication"></a>
+### 認証用SMS送信の単一照会 { #query-single-sms-delivery-for-authentication }
 
-### 認証用SMS送信の単一照会
-
-<a id="request-9"></a>
-
+<a id="query-single-sms-delivery-for-authentication-request"></a>
 #### リクエスト
 
 [URL]
@@ -1455,8 +1409,7 @@ Content-Type: application/json;charset=UTF-8
 |--------------|----------|-----|---------|
 | recipientSeq | 	Integer | 	必須 | 	送信詳細ID |
 
-<a id="curl-9"></a>
-
+<a id="query-single-sms-delivery-for-authentication-curl"></a>
 #### cURL
 
 ```
@@ -1465,8 +1418,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-9"></a>
-
+<a id="query-single-sms-delivery-for-authentication-response"></a>
 #### レスポンス
 
 ```json
@@ -1537,12 +1489,10 @@ curl -X GET \
 | body.data.recipientGroupingKey | 	String  | 	受信者グループキー                                  |
 
 <a id="ad-messages"></a>
-
-## 広告文字
+## 広告文字 { #ad-messages }
 
 <a id="send-sms-for-advertisement"></a>
-
-### 広告性SMS送信
+### 広告性SMS送信 { #send-sms-for-advertisement }
 
 [URL]
 
@@ -1586,14 +1536,12 @@ Content-Type: application/json;charset=UTF-8
 無料拒否 080-XXX-XXXX
 ```
 
-<a id="request-10"></a>
-
+<a id="send-sms-for-advertisement-request"></a>
 #### リクエスト
 
 <!-- TODO: translate body -->
 
-<a id="curl-10"></a>
-
+<a id="send-sms-for-advertisement-curl"></a>
 #### cURL
 
 ```
@@ -1613,8 +1561,7 @@ curl -X POST \
 ```
 
 <a id="send-mms-for-advertisement"></a>
-
-### 広告性MMS送信
+### 広告性MMS送信 { #send-mms-for-advertisement }
 
 ※ MMSは韓国外への送信はできません。
 
@@ -1644,14 +1591,12 @@ Content-Type: application/json;charset=UTF-8
 [無料受信拒否]080XXXXXXX
 ```
 
-<a id="request-11"></a>
-
+<a id="send-mms-for-advertisement-request"></a>
 #### リクエスト
 
 <!-- TODO: translate body -->
 
-<a id="curl-11"></a>
-
+<a id="send-mms-for-advertisement-curl"></a>
 #### cURL
 
 ```
@@ -1672,18 +1617,15 @@ curl -X POST \
 ```
 
 <a id="query-messages-by-result-updates"></a>
-
-## 結果アップデート基準メッセージ照会
+## 結果アップデート基準メッセージ照会 { #query-messages-by-result-updates }
 
 * 該当APIは、メッセージ送信結果アップデート時間基準で照会されます。
 * 端末送信結果をサービスの外で使用する場合、このAPIを使用してください。
 
 <a id="query-messages"></a>
+### メッセージ照会 { #query-messages }
 
-### メッセージ照会
-
-<a id="request-12"></a>
-
+<a id="query-messages-request"></a>
 #### リクエスト
 
 [URL]
@@ -1711,8 +1653,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum         | Integer | オプション  | ページ番号(デフォルト値：1)                           |
 | pageSize        | Integer | オプション  | 照会数(デフォルト値：15)                            |
 
-<a id="curl-12"></a>
-
+<a id="query-messages-curl"></a>
 #### cURL
 
 ```
@@ -1721,8 +1662,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-10"></a>
-
+<a id="query-messages-response"></a>
 #### レスポンス
 
 ```json
@@ -1775,15 +1715,12 @@ curl -X GET \
 | body.data.resultUpdateList[].recipientGroupingKey | String   | 受信者グループキー                         |
 
 <a id="tag-delivery"></a>
-
-## タグ送信
+## タグ送信 { #tag-delivery }
 
 <a id="send-tagged-sms"></a>
+### タグSMS送信 { #send-tagged-sms }
 
-### タグSMS送信
-
-<a id="request-13"></a>
-
+<a id="send-tagged-sms-request"></a>
 #### リクエスト
 
 [URL]
@@ -1835,8 +1772,7 @@ Content-Type: application/json;charset=UTF-8
 | autoSendYn        | String              | 1                                                              | X  | 自動送信(即時送信)するかどうか(デフォルト値：Y)          |
 | statsId           | String              | 10                                                             | X  | 統計ID(発信検索条件には含まれません)                |
 
-<a id="curl-13"></a>
-
+<a id="send-tagged-sms-curl"></a>
 #### cURL
 
 ```
@@ -1857,8 +1793,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-11"></a>
-
+<a id="send-tagged-sms-response"></a>
 #### レスポンス
 
 ```json
@@ -1884,13 +1819,11 @@ curl -X POST \
 | body.data.requestId  | 	String  | 	リクエストID |
 
 <a id="send-tagged-lms"></a>
-
-### タグLMS送信
+### タグLMS送信 { #send-tagged-lms }
 
 ※ MMSは韓国外への送信はできません。
 
-<a id="request-14"></a>
-
+<a id="send-tagged-lms-request"></a>
 #### リクエスト
 
 [URL]
@@ -1949,8 +1882,7 @@ Content-Type: application/json;charset=UTF-8
 | autoSendYn        | String              | 1                 | X  | 自動送信(即時送信)するかどうか(基本Y)               |
 | statsId           | String              | 10                | X  | 統計ID(発信検索条件には含まれません)                |
 
-<a id="curl-14"></a>
-
+<a id="send-tagged-lms-curl"></a>
 #### cURL
 
 ```
@@ -1971,8 +1903,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-12"></a>
-
+<a id="send-tagged-lms-response"></a>
 #### レスポンス
 
 ```json
@@ -1998,11 +1929,9 @@ curl -X POST \
 | body.data.requestId  | 	String  | 	リクエストID |
 
 <a id="list-tag-delivery"></a>
+### タグ送信リストの照会 { #list-tag-delivery }
 
-### タグ送信リストの照会
-
-<a id="request-15"></a>
-
+<a id="list-tag-delivery-request"></a>
 #### リクエスト
 
 [URL]
@@ -2034,8 +1963,7 @@ GET /sms/v2.4/appKeys/{appKey}/tag-sender
 | pageNum          | optional, Integer | -    | X   | ページ番号                                                                                                                                                         |
 | pageSize         | optional, Integer | 1000 | X   | 照会数                                                                                                                                                           |
 
-<a id="curl-15"></a>
-
+<a id="list-tag-delivery-curl"></a>
 #### cURL
 
 ```
@@ -2044,8 +1972,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-13"></a>
-
+<a id="list-tag-delivery-response"></a>
 #### レスポンス
 
 ```json
@@ -2112,11 +2039,9 @@ curl -X GET \
 | body.data[].updateDate      | String       | 修正日        |
 
 <a id="list-recipients-of-tag-delivery"></a>
+### タグ送信受信者リストの照会 { #list-recipients-of-tag-delivery }
 
-### タグ送信受信者リストの照会
-
-<a id="request-16"></a>
-
+<a id="list-recipients-of-tag-delivery-request"></a>
 #### リクエスト
 
 [URL]
@@ -2151,8 +2076,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | Integer | -    | X   | ページ番号                                                                                               |
 | pageSize         | Integer | 1000 | X   | 照会数                                                                                                 |
 
-<a id="curl-16"></a>
-
+<a id="list-recipients-of-tag-delivery-curl"></a>
 #### cURL
 
 ```
@@ -2161,8 +2085,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-14"></a>
-
+<a id="list-recipients-of-tag-delivery-response"></a>
 #### レスポンス
 
 ```json
@@ -2213,11 +2136,9 @@ curl -X GET \
 | body.data.updateDate    | String   | 修正日                                        |
 
 <a id="list-recipient-details-of-tagged-delivery"></a>
+### タグ送信受信者の詳細照会 { #list-recipient-details-of-tagged-delivery }
 
-### タグ送信受信者の詳細照会
-
-<a id="request-17"></a>
-
+<a id="list-recipient-details-of-tagged-delivery-request"></a>
 #### リクエスト
 
 [URL]
@@ -2241,8 +2162,7 @@ Content-Type: application/json;charset=UTF-8
 X
 ```
 
-<a id="curl-17"></a>
-
+<a id="list-recipient-details-of-tagged-delivery-curl"></a>
 #### cURL
 
 ```
@@ -2251,8 +2171,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-15"></a>
-
+<a id="list-recipient-details-of-tagged-delivery-response"></a>
 #### レスポンス
 
 ```json
@@ -2316,12 +2235,10 @@ curl -X GET \
 <span id="binaryUpload"></span>
 
 <a id="attached-files"></a>
-
-## 添付ファイル
+## 添付ファイル { #attached-files }
 
 <a id="upload-attached-files"></a>
-
-### 添付ファイルのアップロード
+### 添付ファイルのアップロード { #upload-attached-files }
 
 **リクエスト**
 
@@ -2354,8 +2271,7 @@ Content-Type: application/json;charset=UTF-8
 | fileBody   | Byte[] | 300KB | 必須 | ファイルbyte[]をBase64でエンコードした値。<br/>* またはバイト配列値 |
 | createUser | String | 100   | 必須 | ファイルアップロードユーザー情報                            |
 
-<a id="curl-18"></a>
-
+<a id="upload-attached-files-curl"></a>
 #### cURL
 
 ```
@@ -2369,8 +2285,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-16"></a>
-
+<a id="upload-attached-files-response"></a>
 #### レスポンス
 
 ```json
@@ -2399,8 +2314,7 @@ curl -X POST \
 | body.data.fileName   | 	String  | 	ファイル名                                                           |
 | body.data.filePath   | 	String  | 	添付ファイルの基本パス <br/> (https://domain/attachFile/filePath/fileName) |
 
-<a id="example-of-uploading-attached-files"></a>
-
+<a id="upload-attached-files-example-of-uploading-attached-files"></a>
 #### 添付ファイルのアップロード例
 
 | Http method | URL                                                                               |
@@ -2437,15 +2351,12 @@ curl -X POST \
 ```
 
 <a id="category"></a>
-
-## カテゴリー
+## カテゴリー { #category }
 
 <a id="register"></a>
+### カテゴリーの登録 { #register }
 
-### カテゴリーの登録
-
-<a id="request-18"></a>
-
+<a id="register-request"></a>
 #### リクエスト
 
 [URL]
@@ -2481,8 +2392,11 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String  | 1      | 	必須    | 使用有無(Y/N)                  |
 | createUser       | 	String  | 100    | オプション  | 登録したユーザー                   |
 
-<a id="curl-19"></a>
+##### Description
 
+<!-- TODO: translate body -->
+
+<a id="register-curl"></a>
 #### cURL
 
 ```
@@ -2498,12 +2412,11 @@ curl -X POST \
 }'
 ```
 
-##### 説明
+**説明**
 
 - categoryParentId値が空の場合、最上位カテゴリーのすぐ下に登録されます。
 
-<a id="response-17"></a>
-
+<a id="register-response"></a>
 #### レスポンス
 
 ```json
@@ -2543,11 +2456,9 @@ curl -X POST \
 | body.data[].createUser              | 	String  | 	登録したユーザー   |
 
 <a id="list-category"></a>
+### カテゴリーリストの照会 { #list-category }
 
-### カテゴリーリストの照会
-
-<a id="request-19"></a>
-
+<a id="list-category-request"></a>
 #### リクエスト
 
 [URL]
@@ -2570,8 +2481,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum  | 	Integer | -      | 	オプション | 	ページ番号(デフォルト値：1) |
 | pageSize | 	Integer | 1000   | 	オプション | 	照会数(デフォルト値：15)  |
 
-<a id="curl-20"></a>
-
+<a id="list-category-curl"></a>
 #### cURL
 
 ```
@@ -2580,8 +2490,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-18"></a>
-
+<a id="list-category-response"></a>
 #### レスポンス
 
 ```json
@@ -2635,11 +2544,9 @@ curl -X GET \
 | body.data[].updateUser              | 	String  | 	修正したユーザー   |
 
 <a id="get-category"></a>
+### カテゴリーの単件照会 { #get-category }
 
-### カテゴリーの単件照会
-
-<a id="request-20"></a>
-
+<a id="get-category-request"></a>
 #### リクエスト
 
 [URL]
@@ -2656,8 +2563,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String  | 	固有のアプリケーションキー |
 | categoryId | 	Integer | 	カテゴリーID       |
 
-<a id="curl-21"></a>
-
+<a id="get-category-curl"></a>
 #### cURL
 
 ```
@@ -2666,8 +2572,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-19"></a>
-
+<a id="get-category-response"></a>
 #### レスポンス
 
 ```json
@@ -2715,11 +2620,9 @@ curl -X GET \
 | body.data[].updateUser              | 	String  | 	修正したユーザー   |
 
 <a id="modify"></a>
+### カテゴリーの修正 { #modify }
 
-### カテゴリーの修正
-
-<a id="request-21"></a>
-
+<a id="modify-request"></a>
 #### リクエスト
 
 [URL]
@@ -2754,8 +2657,7 @@ Content-Type: application/json;charset=UTF-8
 | useYn        | 	String | 1      | 	必須    | 使用有無(Y/N) |
 | updateUser   | 	String | 100    | 	オプション | 修正したユーザー  |
 
-<a id="curl-22"></a>
-
+<a id="modify-curl"></a>
 #### cURL
 
 ```
@@ -2771,8 +2673,7 @@ curl -X PUT \
 }'
 ```
 
-<a id="response-20"></a>
-
+<a id="modify-response"></a>
 #### レスポンス
 
 ```json
@@ -2786,11 +2687,9 @@ curl -X PUT \
 ```
 
 <a id="delete"></a>
+### カテゴリーの削除 { #delete }
 
-### カテゴリーの削除
-
-<a id="request-22"></a>
-
+<a id="delete-request"></a>
 #### リクエスト
 
 [URL]
@@ -2807,8 +2706,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String  | 	固有のアプリケーションキー |
 | categoryId | 	Integer | 	カテゴリーID       |
 
-<a id="curl-23"></a>
-
+<a id="delete-curl"></a>
 #### cURL
 
 ```
@@ -2817,8 +2715,7 @@ curl -X DELETE \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-21"></a>
-
+<a id="delete-response"></a>
 #### レスポンス
 
 ```json
@@ -2832,15 +2729,12 @@ curl -X DELETE \
 ```
 
 <a id="templates"></a>
+## テンプレート { #templates }
 
-## テンプレート
+<a id="templates-register"></a>
+### テンプレートの登録 { #templates-register }
 
-<a id="register-2"></a>
-
-### テンプレートの登録
-
-<a id="request-23"></a>
-
+<a id="templates-register-request"></a>
 #### リクエスト
 
 [URL]
@@ -2889,8 +2783,7 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1      | 	必須    | 	使用有無(Y/N)                      |
 | attachFileIdList | List<Integer> | -      | オプション  | 添付ファイルID(fileId)                |
 
-<a id="curl-24"></a>
-
+<a id="templates-register-curl"></a>
 #### cURL
 
 ```
@@ -2910,8 +2803,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-22"></a>
-
+<a id="templates-register-response"></a>
 #### レスポンス
 
 ```json
@@ -2924,8 +2816,7 @@ curl -X POST \
 }
 ```
 
-<a id="example-of-registration"></a>
-
+<a id="templates-register-example-of-registration"></a>
 #### テンプレートの登録例
 
 | Http method | URL                                                                 |
@@ -2975,8 +2866,7 @@ curl -X POST \
     - 添付イメージ解像度：1000 x 1000以下
 
 <a id="send-templates-requiring-no-body-updates"></a>
-
-### テンプレート送信(本文修正が必要ない場合)
+### テンプレート送信(本文修正が必要ない場合) { #send-templates-requiring-no-body-updates }
 
 | Http method | 種類  | URL                                                                  |
 |-------------|-----|----------------------------------------------------------------------|
@@ -3037,11 +2927,9 @@ Request URLは、テンプレート登録時に選択した送信タイプに選
 ![[図1]テンプレート送信に成功](http://static.toastoven.net/prod_sms/img_27.png)
 
 <a id="send-templates-requiring-body-updates"></a>
+### テンプレート送信(本文修正が必要な場合) { #send-templates-requiring-body-updates }
 
-### テンプレート送信(本文修正が必要な場合)
-
-<a id="example-of-sending-tempaltes"></a>
-
+<a id="send-templates-requiring-body-updates-example-of-sending-tempaltes"></a>
 #### テンプレート送信例
 
 | Http method | 種類  | URL                                                                  |
@@ -3107,11 +2995,9 @@ Request URLは、テンプレート登録時に選択した送信タイプに選
 ```
 
 <a id="list-templates"></a>
+### テンプレートリストの照会 { #list-templates }
 
-### テンプレートリストの照会
-
-<a id="request-24"></a>
-
+<a id="list-templates-request"></a>
 #### リクエスト
 
 [URL]
@@ -3136,8 +3022,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum    | 	Integer | オプション  | 	ページ番号(デフォルト値：1) |
 | pageSize   | 	Integer | オプション  | 	検索数(デフォルト値：15)  |
 
-<a id="curl-25"></a>
-
+<a id="list-templates-curl"></a>
 #### cURL
 
 ```
@@ -3146,8 +3031,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-23"></a>
-
+<a id="list-templates-response"></a>
 #### レスポンス
 
 ```json
@@ -3233,11 +3117,9 @@ curl -X GET \
 | body.data[].attachFileList[].uploadType   | 	String  | 	アップロードタイプ                         |
 
 <a id="query-single-template"></a>
+### テンプレートの単一照会 { #query-single-template }
 
-### テンプレートの単一照会
-
-<a id="request-25"></a>
-
+<a id="query-single-template-request"></a>
 #### リクエスト
 
 [URL]
@@ -3254,8 +3136,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | 	固有のアプリケーションキー |
 | templateId | 	String | 	テンプレートID      |
 
-<a id="curl-26"></a>
-
+<a id="query-single-template-curl"></a>
 #### cURL
 
 ```
@@ -3264,8 +3145,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-24"></a>
-
+<a id="query-single-template-response"></a>
 #### レスポンス
 
 ```json
@@ -3350,12 +3230,10 @@ curl -X GET \
 | body.data[].attachFileList[].saveFileName | 	String  | 	保存された添付ファイルの名前                    |
 | body.data[].attachFileList[].uploadType   | 	String  | 	アップロードタイプ                         |
 
-<a id="modify-2"></a>
+<a id="templates-modify"></a>
+### テンプレートの修正 { #templates-modify }
 
-### テンプレートの修正
-
-<a id="request-26"></a>
-
+<a id="templates-modify-request"></a>
 #### リクエスト
 
 [URL]
@@ -3400,8 +3278,7 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1      | 	必須    | 	使用有無(Y/N)                      |
 | attachFileIdList | List<Integer> | -      | オプション  | 添付ファイルID(fileId)                |
 
-<a id="curl-27"></a>
-
+<a id="templates-modify-curl"></a>
 #### cURL
 
 ```
@@ -3410,8 +3287,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-25"></a>
-
+<a id="templates-modify-response"></a>
 #### レスポンス
 
 ```json
@@ -3424,12 +3300,10 @@ curl -X GET \
 }
 ```
 
-<a id="delete-2"></a>
+<a id="templates-delete"></a>
+### テンプレートの削除 { #templates-delete }
 
-### テンプレートの削除
-
-<a id="request-27"></a>
-
+<a id="templates-delete-request"></a>
 #### リクエスト
 
 [URL]
@@ -3446,8 +3320,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | 	固有のアプリケーションキー |
 | templateId | 	String | 	テンプレートID      |
 
-<a id="curl-28"></a>
-
+<a id="templates-delete-curl"></a>
 #### cURL
 
 ```
@@ -3456,8 +3329,7 @@ curl -X DELETE \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-26"></a>
-
+<a id="templates-delete-response"></a>
 #### レスポンス
 
 ```json
@@ -3471,15 +3343,12 @@ curl -X DELETE \
 ```
 
 <a id="rejection-of-receiving-080-numbers"></a>
-
-## 080受信拒否サービス
+## 080受信拒否サービス { #rejection-of-receiving-080-numbers }
 
 <a id="register-unsubsribers"></a>
+### ﻿受信拒否対象者を登録 { #register-unsubsribers }
 
-### ﻿受信拒否対象者を登録
-
-<a id="request-28"></a>
-
+<a id="register-unsubsribers-request"></a>
 #### リクエスト
 
 [URL]
@@ -3512,8 +3381,7 @@ Content-Type: application/json;charset=UTF-8
 | unsubscribeNo   | String       | 25     | O  | 080受信拒否番号     |
 | recipientNoList | List<String> | 10     | O  | 追加する受信拒否対象者番号 |
 
-<a id="curl-29"></a>
-
+<a id="register-unsubsribers-curl"></a>
 #### cURL
 
 ```
@@ -3526,8 +3394,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-27"></a>
-
+<a id="register-unsubsribers-response"></a>
 #### レスポンス
 
 ```json
@@ -3541,11 +3408,9 @@ curl -X POST \
 ```
 
 <a id="query-target-of-rejection"></a>
+### 受信拒否対象者の照会 { #query-target-of-rejection }
 
-### 受信拒否対象者の照会
-
-<a id="request-29"></a>
-
+<a id="query-target-of-rejection-request"></a>
 #### リクエスト
 
 [URL]
@@ -3572,8 +3437,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                    |
 | pageSize         | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                     |
 
-<a id="curl-30"></a>
-
+<a id="query-target-of-rejection-curl"></a>
 #### cURL
 
 ```
@@ -3582,8 +3446,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-28"></a>
-
+<a id="query-target-of-rejection-response"></a>
 #### レスポンス
 
 ```json
@@ -3609,11 +3472,9 @@ curl -X GET \
 ```
 
 <a id="delete-target-of-rejection"></a>
+### 受信拒否対象者の削除 { #delete-target-of-rejection }
 
-### 受信拒否対象者の削除
-
-<a id="request-30"></a>
-
+<a id="delete-target-of-rejection-request"></a>
 #### リクエスト
 
 [URL]
@@ -3637,8 +3498,7 @@ Content-Type: application/json;charset=UTF-8
 | updateUser    | 	String | 	100 | 必須  | 	受信拒否削除者    |
 | recipientNo   | 	String | 	20  | 必須  | 	削除する受信拒否番号 |
 
-<a id="curl-31"></a>
-
+<a id="delete-target-of-rejection-curl"></a>
 #### cURL
 
 ```
@@ -3647,8 +3507,7 @@ curl -X DELETE \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-29"></a>
-
+<a id="delete-target-of-rejection-response"></a>
 #### レスポンス
 
 ```json
@@ -3663,15 +3522,12 @@ curl -X DELETE \
 ```
 
 <a id="sender-numbers"></a>
-
-## 発信番号
+## 発信番号 { #sender-numbers }
 
 <a id="list-registered-sender-numbers-api"></a>
+### 登録された発信番号リストの照会API { #list-registered-sender-numbers-api }
 
-### 登録された発信番号リストの照会API
-
-<a id="request-31"></a>
-
+<a id="list-registered-sender-numbers-api-request"></a>
 #### リクエスト
 
 [URL]
@@ -3696,8 +3552,7 @@ curl -X DELETE \
 | pageNum  | 	Integer | ページ番号(デフォルト値：1) |
 | pageSize | 	Integer | 照会数(デフォルト値：15)  |
 
-<a id="curl-32"></a>
-
+<a id="list-registered-sender-numbers-api-curl"></a>
 #### cURL
 
 ```
@@ -3706,8 +3561,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-30"></a>
-
+<a id="list-registered-sender-numbers-api-response"></a>
 #### レスポンス
 
 ```json
@@ -3770,12 +3624,10 @@ curl -X GET \
 | body.data[].updateUser  | String   | 修正したユーザー   |
 
 <a id="query-statistics"></a>
-
-## 統計照会
+## 統計照会 { #query-statistics }
 
 <a id="search-statistics---based-on-events"></a>
-
-### 統計検索 - イベントベース
+### 統計検索 - イベントベース { #search-statistics---based-on-events }
 
 * イベント発生時間を基準に収集された統計です。
 * 次の時間を基準に統計が収集されます。
@@ -3784,8 +3636,7 @@ curl -X GET \
     * 成功数(received)：実際の端末受信時間
     * 失敗数(sentFailed)：失敗レスポンスが発生した時間
 
-<a id="request-32"></a>
-
+<a id="search-statistics---based-on-events-request"></a>
 #### リクエスト
 
 [URL]
@@ -3814,8 +3665,7 @@ curl -X GET \
 | requestIds     | List<String> | 5     | オプション                                                                                                                                                          | リクエストIDリスト                                                     |
 | statsCriteria  | List<String> | オプション | 統計基準<br/>- EVENT：イベント(基本値)<br/>- TEMPLATE_ID,EVENT：テンプレート、イベント<br/>- EXTRA_1,EVENT：メッセージタイプ、イベント<br/>- EXTRA_2,EVENT：広告かどうか、イベント<br/>- EXTRA_3,EVENT：発信番号、イベント |
 
-<a id="curl-33"></a>
-
+<a id="search-statistics---based-on-events-curl"></a>
 #### cURL
 
 ```
@@ -3824,8 +3674,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-31"></a>
-
+<a id="search-statistics---based-on-events-response"></a>
 #### レスポンス
 
 ```json
@@ -3864,8 +3713,7 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	成功数                                                                                                             |
 
 <a id="statistics-search---based-on-request-time"></a>
-
-### 統計検索 - リクエスト時間ベース
+### 統計検索 - リクエスト時間ベース { #statistics-search---based-on-request-time }
 
 * 送信リクエスト時間を基準に収集された統計です。
 * 次の時間を基準に統計が収集されます。
@@ -3874,8 +3722,7 @@ curl -X GET \
     * 成功数(received)：送信リクエスト時間です。数が増加するタイミングは実際の端末受信時間です。
     * 失敗数(sentFailed):送信リクエスト時間です。数が増加するタイミングは失敗レスポンスが発生した時間です。
 
-<a id="request-33"></a>
-
+<a id="statistics-search---based-on-request-time-request"></a>
 #### リクエスト
 
 [URL]
@@ -3904,8 +3751,7 @@ curl -X GET \
 | requestIds     | List<String> | 5     | オプション                                                                                                                                                          | リクエストIDリスト                                                     |
 | statsCriteria  | List<String> | オプション | 統計基準<br/>- EVENT：イベント(基本値)<br/>- TEMPLATE_ID,EVENT：テンプレート、イベント<br/>- EXTRA_1,EVENT：メッセージタイプ、イベント<br/>- EXTRA_2,EVENT：広告かどうか、イベント<br/>- EXTRA_3,EVENT：発信番号、イベント |
 
-<a id="response-32"></a>
-
+<a id="statistics-search---based-on-request-time-response"></a>
 #### レスポンス
 
 ```json
@@ -3946,11 +3792,9 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.pending    | 	Integer | 	送信中の数                                                                                                           |
 
 <a id="oldquery-integrated-statistics"></a>
+### (旧)統合統計照会 { #oldquery-integrated-statistics }
 
-### (旧)統合統計照会
-
-<a id="request-34"></a>
-
+<a id="oldquery-integrated-statistics-request"></a>
 #### リクエスト
 
 [URL]
@@ -3976,8 +3820,7 @@ curl -X GET \
 | contentType | String | 10  | X  | コンテンツタイプ<br/>NORMAL：一般、AD：広告                   |
 | templateId  | String | 50  | X  | テンプレートID                                       |
 
-<a id="response-33"></a>
-
+<a id="oldquery-integrated-statistics-response"></a>
 #### レスポンス
 
 ```json
@@ -4022,15 +3865,12 @@ curl -X GET \
 | body.data[].pendingRate    | String   | 送信中の比率           |
 
 <a id="scheduled-delivery"></a>
-
-## 予約送信
+## 予約送信 { #scheduled-delivery }
 
 <a id="list-scheduled-delivery"></a>
+### 予約送信リストの照会 { #list-scheduled-delivery }
 
-### 予約送信リストの照会
-
-<a id="request-35"></a>
-
+<a id="list-scheduled-delivery-request"></a>
 #### リクエスト
 
 [URL]
@@ -4065,8 +3905,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                                                                       |
 | pageSize         | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                                                                        |
 
-<a id="curl-34"></a>
-
+<a id="list-scheduled-delivery-curl"></a>
 #### cURL
 
 ```
@@ -4075,8 +3914,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-34"></a>
-
+<a id="list-scheduled-delivery-response"></a>
 #### レスポンス
 
 ```json
@@ -4144,11 +3982,9 @@ curl -X GET \
 | body.data[].updateDate        | 	String       | 	修正日                                                                                                   |
 
 <a id="query-detail-scheduled-delivery"></a>
+### 予約送信の詳細照会 { #query-detail-scheduled-delivery }
 
-### 予約送信の詳細照会
-
-<a id="request-36"></a>
-
+<a id="query-detail-scheduled-delivery-request"></a>
 #### リクエスト
 
 [URL]
@@ -4166,8 +4002,7 @@ Content-Type: application/json;charset=UTF-8
 | requestId    | 	String  | 	リクエストID       |
 | recipientSeq | 	Integer | 	受信者シーケンス      |
 
-<a id="curl-35"></a>
-
+<a id="query-detail-scheduled-delivery-curl"></a>
 #### cURL
 
 ```
@@ -4176,8 +4011,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-35"></a>
-
+<a id="query-detail-scheduled-delivery-response"></a>
 #### レスポンス
 
 ```json
@@ -4253,11 +4087,9 @@ curl -X GET \
 | body.data[].attachFileList[].uploadType   | 	String       | 	アップロードタイプ                                                                                             |
 
 <a id="cancel-scheduled-delivery"></a>
+### 予約送信の取消 { #cancel-scheduled-delivery }
 
-### 予約送信の取消
-
-<a id="request-37"></a>
-
+<a id="cancel-scheduled-delivery-request"></a>
 #### リクエスト
 
 [URL]
@@ -4293,8 +4125,7 @@ Content-Type: application/json;charset=UTF-8
 | reservationList[].recipientSeq | Integer | -   | O  | 受信者シーケンス    |
 | updateUser                     | String  | 100 | O  | キャンセルリクエスト者 |
 
-<a id="curl-36"></a>
-
+<a id="cancel-scheduled-delivery-curl"></a>
 #### cURL
 
 ```
@@ -4337,18 +4168,15 @@ curl -X PUT \
 | body.data.requestedCount | 	Integer | 	キャンセルリクエスト件数 |
 | body.data.canceledCount  | 	Integer | 	キャンセル成功件数    |
 
-<a id="response-36"></a>
-
+<a id="cancel-scheduled-delivery-response"></a>
 #### レスポンス
 
 <!-- TODO: translate body -->
 
 <a id="cancel-scheduled-delivery---multiple-filter"></a>
+### 予約送信キャンセル - 多重フィルタ { #cancel-scheduled-delivery---multiple-filter }
 
-### 予約送信キャンセル - 多重フィルタ
-
-<a id="request-38"></a>
-
+<a id="cancel-scheduled-delivery---multiple-filter-request"></a>
 #### リクエスト
 
 * 予約キャンセルリクエストは、状態が「予約中(RESERVED)」の場合にのみ行うことができます。
@@ -4407,8 +4235,7 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.recipientGroupingKey | String | 100 | オプション | 受信者グループキー                     |
 | updateUser                           | String | 100 | 必須    | 予約キャンセルリクエスト者                 |
 
-<a id="curl-37"></a>
-
+<a id="cancel-scheduled-delivery---multiple-filter-curl"></a>
 #### cURL
 
 ```
@@ -4433,8 +4260,7 @@ curl -X PUT \
 }'
 ```
 
-<a id="response-37"></a>
-
+<a id="cancel-scheduled-delivery---multiple-filter-response"></a>
 #### レスポンス
 
 ```json
@@ -4464,11 +4290,9 @@ curl -X PUT \
 | body.data.reservationCancelStatus | 	String  | 	予約キャンセル状態<br/>- READY :予約準備<br/>- PROCESSING :予約キャンセル中<br/>- COMPLETED :予約キャンセル完了<br/>- FAILED :予約キャンセル失敗 |
 
 <a id="list-request-of-scheduled-delivery-cancellation---multiple-filter"></a>
+### 予約送信キャンセルリクエストリスト照会 - 多重フィルタ { #list-request-of-scheduled-delivery-cancellation---multiple-filter }
 
-### 予約送信キャンセルリクエストリスト照会 - 多重フィルタ
-
-<a id="request-39"></a>
-
+<a id="list-request-of-scheduled-delivery-cancellation---multiple-filter-request"></a>
 #### リクエスト
 
 [URL]
@@ -4494,8 +4318,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum                | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                       |
 | pageSize               | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                        |
 
-<a id="curl-38"></a>
-
+<a id="list-request-of-scheduled-delivery-cancellation---multiple-filter-curl"></a>
 #### cURL
 
 ```
@@ -4504,8 +4327,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-38"></a>
-
+<a id="list-request-of-scheduled-delivery-cancellation---multiple-filter-response"></a>
 #### レスポンス
 
 ```json
@@ -4552,15 +4374,12 @@ curl -X GET \
 | body.data[].updatedDateTime         | 	String              | 	予約キャンセル修正時間                                                                                               |
 
 <a id="download-delivery-result-files"></a>
-
-## 送信結果ファイルのダウンロード
+## 送信結果ファイルのダウンロード { #download-delivery-result-files }
 
 <a id="request-for-creating-query-files"></a>
+### 照会ファイル作成リクエスト { #request-for-creating-query-files }
 
-### 照会ファイル作成リクエスト
-
-<a id="request-40"></a>
-
+<a id="request-for-creating-query-files-request"></a>
 #### リクエスト
 
 [URL]
@@ -4621,8 +4440,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientGroupingKey  | 	String | 100   | 	オプション    | 	受信者グループキー                                              |
 | isIncludeTitleAndBody | Boolean | -     | オプション     | タイトル、本文を含めるかどうか                                         |
 
-<a id="curl-39"></a>
-
+<a id="request-for-creating-query-files-curl"></a>
 #### cURL
 
 ```
@@ -4636,8 +4454,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-39"></a>
-
+<a id="request-for-creating-query-files-response"></a>
 #### レスポンス
 
 ```json
@@ -4671,11 +4488,9 @@ curl -X POST \
 | body.data.expiredDate        | 	String  | 	ダウンロード期間終了日時                                                                                               |
 
 <a id="query-request-history-for-delivery-result-of-file-creation"></a>
+### 送信結果ファイル作成リクエストの履歴照会 { #query-request-history-for-delivery-result-of-file-creation }
 
-### 送信結果ファイル作成リクエストの履歴照会
-
-<a id="request-41"></a>
-
+<a id="query-request-history-for-delivery-result-of-file-creation-request"></a>
 #### リクエスト
 
 [URL]
@@ -4700,8 +4515,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum            | 	Integer | 	-    | オプション | ページ番号(デフォルト値：1)      |
 | pageSize           | 	Integer | 	1000 | オプション | 照会数(デフォルト値：15)       |
 
-<a id="curl-40"></a>
-
+<a id="query-request-history-for-delivery-result-of-file-creation-curl"></a>
 #### cURL
 
 ```
@@ -4710,8 +4524,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-40"></a>
-
+<a id="query-request-history-for-delivery-result-of-file-creation-response"></a>
 #### レスポンス
 
 ```json
@@ -4761,11 +4574,9 @@ curl -X GET \
 | body.data[].updateDate         | String   | ファイル作成完了、失敗日時                                                                                              |
 
 <a id="request-for-downloading-delivery-result-files"></a>
+### 送信結果ファイルのダウンロードリクエスト { #request-for-downloading-delivery-result-files }
 
-### 送信結果ファイルのダウンロードリクエスト
-
-<a id="request-42"></a>
-
+<a id="request-for-downloading-delivery-result-files-request"></a>
 #### リクエスト
 
 [URL]
@@ -4782,14 +4593,12 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | 	固有のアプリケーションキー |
 | downloadId | String  | ダウンロードID       |
 
-<a id="curl-41"></a>
-
+<a id="request-for-downloading-delivery-result-files-curl"></a>
 #### cURL
 
 <!-- TODO: translate body -->
 
-<a id="response-41"></a>
-
+<a id="request-for-downloading-delivery-result-files-response"></a>
 #### レスポンス
 
 ```
@@ -4797,15 +4606,12 @@ file byte
 ```
 
 <a id="tag-management"></a>
-
-## タグ管理
+## タグ管理 { #tag-management }
 
 <a id="query-tags"></a>
+### タグ照会 { #query-tags }
 
-### タグ照会
-
-<a id="request-43"></a>
-
+<a id="query-tags-request"></a>
 #### リクエスト
 
 [URL]
@@ -4828,8 +4634,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum  | 	Integer | 	-    | オプション | オプション | ページ番号(デフォルト値：1)|
 | pageSize | 	Integer | 	1000 | オプション | オプション | 照会数(デフォルト値：15)|
 
-<a id="curl-42"></a>
-
+<a id="query-tags-curl"></a>
 #### cURL
 
 ```
@@ -4838,8 +4643,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-42"></a>
-
+<a id="query-tags-response"></a>
 #### レスポンス
 
 ```json
@@ -4879,8 +4683,7 @@ curl -X GET \
 | body.data[].tagId       | String   | 修正日時     |
 
 <a id="register-tags"></a>
-
-### タグ登録
+### タグ登録 { #register-tags }
 
 [URL]
 
@@ -4907,8 +4710,7 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|------|-----|-----|
 | tagName | String | 30   | 必須  | タグ名 |
 
-<a id="curl-43"></a>
-
+<a id="register-tags-curl"></a>
 #### cURL
 
 ```
@@ -4920,8 +4722,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-43"></a>
-
+<a id="register-tags-response"></a>
 #### レスポンス
 
 ```json
@@ -4947,8 +4748,7 @@ curl -X POST \
 | body.data.tagId      | String   | タグID     |
 
 <a id="modify-tags"></a>
-
-### タグ修正
+### タグ修正 { #modify-tags }
 
 [URL]
 
@@ -4976,8 +4776,7 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|------|-----|-----|
 | tagName | String | 30   | 必須  | タグ名 |
 
-<a id="curl-44"></a>
-
+<a id="modify-tags-curl"></a>
 #### cURL
 
 ```
@@ -4989,8 +4788,7 @@ curl -X PUT \
 }'
 ```
 
-<a id="response-44"></a>
-
+<a id="modify-tags-response"></a>
 #### レスポンス
 
 ```json
@@ -5011,8 +4809,7 @@ curl -X PUT \
 | header.resultMessage | 	String  | 	失敗メッセージ |
 
 <a id="delete-tags"></a>
-
-### タグ削除
+### タグ削除 { #delete-tags }
 
 [URL]
 
@@ -5028,8 +4825,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	固有のアプリケーションキー |
 | tagId  | 	String | 	タグID          |
 
-<a id="curl-45"></a>
-
+<a id="delete-tags-curl"></a>
 #### cURL
 
 ```
@@ -5038,8 +4834,7 @@ curl -X DELETE \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-45"></a>
-
+<a id="delete-tags-response"></a>
 #### レスポンス
 
 ```json
@@ -5060,15 +4855,12 @@ curl -X DELETE \
 | header.resultMessage | 	String  | 	失敗メッセージ |
 
 <a id="uid-management"></a>
-
-## UIDの管理
+## UIDの管理 { #uid-management }
 
 <a id="query-uids"></a>
+### UIDの照会 { #query-uids }
 
-### UIDの照会
-
-<a id="request-44"></a>
-
+<a id="query-uids-request"></a>
 #### リクエスト
 
 [URL]
@@ -5093,8 +4885,7 @@ Content-Type: application/json;charset=UTF-8
 | offset    | Integer       | -    | オプション | offset(Default : 0)                                                              |
 | limit     | Integer       | 1000 | オプション | 照会件数(Default：15)                                                                 |
 
-<a id="curl-46"></a>
-
+<a id="query-uids-curl"></a>
 #### cURL
 
 ```
@@ -5103,8 +4894,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-46"></a>
-
+<a id="query-uids-response"></a>
 #### レスポンス
 
 ```json
@@ -5159,11 +4949,9 @@ curl -X GET \
 | body.data.uids[].last                   | Boolean  | 最後のリストかどうか  |
 
 <a id="get-uids"></a>
+### UID単件照会 { #get-uids }
 
-### UID単件照会
-
-<a id="request-45"></a>
-
+<a id="get-uids-request"></a>
 #### リクエスト
 
 [URL]
@@ -5179,8 +4967,7 @@ GET /sms/v2.4/appKeys/{appKey}/uids/{uid}
 | appKey | 	String | 	固有のアプリケーションキー |
 | uid    | 	String | 	UID           |
 
-<a id="curl-47"></a>
-
+<a id="get-uids-curl"></a>
 #### cURL
 
 ```
@@ -5189,8 +4976,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-47"></a>
-
+<a id="get-uids-response"></a>
 #### レスポンス
 
 ```json
@@ -5238,8 +5024,7 @@ curl -X GET \
 | body.data.contacts[].createdDate | String   | 連絡先作成日時     |
 
 <a id="register-uids"></a>
-
-### UIDの登録
+### UIDの登録 { #register-uids }
 
 [URL]
 
@@ -5288,8 +5073,7 @@ Content-Type: application/json;charset=UTF-8
 * contactsが与えられている場合、tagIdsは必須値ではない。
 * 本サービスの場合、contactTypeは必ず"PHONE_NUMBER"値でリクエストする必要がある。
 
-<a id="curl-48"></a>
-
+<a id="register-uids-curl"></a>
 #### cURL
 
 ```
@@ -5309,8 +5093,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-48"></a>
-
+<a id="register-uids-response"></a>
 #### レスポンス
 
 ```json
@@ -5331,8 +5114,7 @@ curl -X POST \
 | header.resultMessage | 	String  | 	失敗メッセージ |
 
 <a id="delete-uids"></a>
-
-### UIDの削除
+### UIDの削除 { #delete-uids }
 
 [URL]
 
@@ -5348,8 +5130,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	固有のアプリケーションキー |
 | uid    | 	String | 	UID           |
 
-<a id="curl-49"></a>
-
+<a id="delete-uids-curl"></a>
 #### cURL
 
 ```
@@ -5358,8 +5139,7 @@ curl -X DELETE \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-49"></a>
-
+<a id="delete-uids-response"></a>
 #### レスポンス
 
 ```json
@@ -5380,8 +5160,7 @@ curl -X DELETE \
 | header.resultMessage | 	String  | 	失敗メッセージ |
 
 <a id="register-phone-number"></a>
-
-### 携帯電話番号登録
+### 携帯電話番号登録 { #register-phone-number }
 
 [URL]
 
@@ -5409,8 +5188,7 @@ Content-Type: application/json;charset=UTF-8
 |-------------|--------|------|-----|--------|
 | phoneNumber | String | -    | 必須  | 携帯電話番号 |
 
-<a id="curl-50"></a>
-
+<a id="register-phone-number-curl"></a>
 #### cURL
 
 ```
@@ -5422,8 +5200,7 @@ curl -X POST \
 }'
 ```
 
-<a id="response-50"></a>
-
+<a id="register-phone-number-response"></a>
 #### レスポンス
 
 ```json
@@ -5444,8 +5221,7 @@ curl -X POST \
 | header.resultMessage | 	String  | 	失敗メッセージ |
 
 <a id="delete-phone-number"></a>
-
-### 携帯電話番号削除
+### 携帯電話番号削除 { #delete-phone-number }
 
 [URL]
 
@@ -5462,8 +5238,7 @@ Content-Type: application/json;charset=UTF-8
 | uid         | String  | UID            |
 | phoneNumber | String  | 携帯電話番号         |
 
-<a id="curl-51"></a>
-
+<a id="delete-phone-number-curl"></a>
 #### cURL
 
 ```
@@ -5472,8 +5247,7 @@ curl -X DELETE \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
-<a id="response-51"></a>
-
+<a id="delete-phone-number-response"></a>
 #### レスポンス
 
 ```json

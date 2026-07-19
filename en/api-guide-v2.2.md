@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=4ea042d2b711 -->
+<!-- pre-align:aligned sig=84da94690b91 -->
 
 <a id="notification-sms-api-v22-guide"></a>
 ## Notification > SMS > API v2.2 Guide { #notification-sms-api-v22-guide }
