@@ -3,7 +3,7 @@
 
 <a id="june-23-2026"></a>
 ### June 23, 2026 { #june-23-2026 }
-<a id="added-features"></a>
+<a id="june-23-2026-added-features"></a>
 #### Added Features
 * [Console] Daily send limit by country
   * Added a feature to restrict the daily send limit per country for international sending.
@@ -11,7 +11,7 @@
 
 <a id="march-24-2026"></a>
 ### March 24, 2026 { #march-24-2026 }
-<a id="added-features-2"></a>
+<a id="march-24-2026-added-features"></a>
 #### Added Features
 * [Console] Added notification for message delivery history backup results
   * You can receive result notifications when configuring backup settings for message delivery history that has exceeded the retention period.
@@ -19,7 +19,7 @@
   
 <a id="december-31-2025"></a>
 ### December 31, 2025 { #december-31-2025 }
-<a id="added-features-3"></a>
+<a id="december-31-2025-added-features"></a>
 #### Added Features
 * [API] Added 080 opt-out number retrieval API
     * Added an API to retrieve 080 opt-out numbers.
@@ -27,7 +27,7 @@
     
 <a id="october-28-2025"></a>
 ### October 28, 2025 { #october-28-2025 }
-<a id="feature-updates"></a>
+<a id="october-28-2025-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Relaxed the 080 opt-out number validation logic when sending advertisements
   * When sending advertisements, the 080 opt-out number has been changed so that it can be sent normally even if a '-' is inserted in the middle.
@@ -35,14 +35,14 @@
     * You can get the notifications automatically whenever the set monthly sending limit reaches 70%, 90%, and 100%.
     * You can set it from **Project Dashboard > Notification Management**.
 
-<a id="bug-fixes"></a>
+<a id="october-28-2025-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed statistics query bug
   * Fixed a bug where data was retrieved twice when the data search range was set narrow in statistics query.
 
 <a id="june-24-2025"></a>
 ### June 24, 2025 { #june-24-2025 }
-<a id="feature-updates-2"></a>
+<a id="june-24-2025-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Improved the international sending statistics
     * The basis for collecting the message count event in International Sending Statistics has been changed to the send success time.
@@ -51,7 +51,7 @@
 
 <a id="march-4-2025"></a>
 ### March 4, 2025 { #march-4-2025 }
-<a id="feature-updates-3"></a>
+<a id="march-4-2025-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Improved receive result in international sending to reflect DLR status
     * A receive success indicates that the DLR status is DELIVERED.
@@ -66,28 +66,28 @@
     * Added receive events to the international sending statistics API.
     * For more information, see [[Statistic Search - International Send](./api-guide/#statistic-search-international-send)].
 
-<a id="added-features-4"></a>
+<a id="march-4-2025-added-features"></a>
 #### Added Features
 * [Console/API] Added domestic/international and country code filters for querying delivery lists
     * These filters are available in the Query by SMS Request, Query Mass SMS Delivery, and Query Tagged SMS Delivery functions.
     * The receiverRegion and countryCode query parameters have been added to the APIs for all versions of List SMS Deliveries, List MMS Deliveries, List Scheduled Deliveries, List Verification SMS Deliveries, List Recipients of Mass Delivery, and List Recipients of Tagged Delivery.
     * For more information, see [[API v3.0 Guide](./api-guide)], [[API v2.4 Guide](./api-guide-v2.4)], [[API v2.3 Guide](./api-guide-v2.3)], [[API v2.2 Guide](./api-guide-v2.2)].
 
-<a id="bug-fixes-2"></a>
+<a id="march-4-2025-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed a bug in the API for international sending statistics
     * Fixed an issue where the number of successful conversion rate collection requests and the number of conversion events were not displayed in the international sending statistics API.
 
 <a id="november-26-2024"></a>
 ### November 26, 2024 { #november-26-2024 }
-<a id="added-features-5"></a>
+<a id="november-26-2024-added-features"></a>
 #### Added Features
 * [ETC] Added CloudTrail logs when block is enabled based on conversion rate
     * If blocking by conversion rate for international SMS sending occurs, you can view the history in CloudTrail.
 
 <a id="october-7-2024"></a>
 ### October 7, 2024. { #october-7-2024 }
-<a id="added-features-6"></a>
+<a id="october-7-2024-added-features"></a>
 #### Added Features
 * [API] Added message count field to the message sending results update webhook
     * Added the messageCount field to the message sending result update webhook to indicate the number of messages sent.
@@ -98,7 +98,7 @@
 
 <a id="september-10-2024"></a>
 ### September 10, 2024 { #september-10-2024 }
-<a id="added-features-7"></a>
+<a id="september-10-2024-added-features"></a>
 #### Added Features
 * [Console/API] Added the feature to limit monthly sending volume per organization
     * Added the feature to limit monthly sending volume per organization.
@@ -106,7 +106,7 @@
 
 <a id="august-27-2024"></a>
 ### August 27, 2024 { #august-27-2024 }
-<a id="added-features-8"></a>
+<a id="august-27-2024-added-features"></a>
 #### Added Features
 * [Console/API] Added statistical events to International Delivery in Categorize Statistics 
     * Added READY and CONVERTED statistical events to International Delivery in Categorize Statistics
@@ -115,7 +115,7 @@
     * Added the feature to set Blocking Rules by Conversion Rate for international SMS sending.
         * You can set the conversion rate blocking threshold, minimum number of blocks, and conversion rate calculation time.
     * For more information, see[[Console user guide > International SMS Sending Settings](./console-guide/#sms_8)].
-<a id="feature-updates-4"></a>
+<a id="august-27-2024-feature-updates"></a>
 #### Feature Updates
 * [ETC] Changed conversion rate calculation rules when unblocking based on international SMS sending conversion rate
     * Changed conversion rate calculation rules to prevent reblocking when sending conversions after unblocking a conversion rate-based blocking country.
@@ -123,7 +123,7 @@
 
 <a id="july-1-2024"></a>
 ### July 1, 2024 { #july-1-2024 }
-<a id="feature-updates-5"></a>
+<a id="july-1-2024-feature-updates"></a>
 #### Feature Updates
 * [ETC] Made changes to international sending policy
     * Added Puerto Rico's country code '1939' to the list of available countries.
@@ -132,7 +132,7 @@
 
 <a id="may-28-2024"></a>
 ### May 28, 2024 { #may-28-2024 }
-<a id="added-features-9"></a>
+<a id="may-28-2024-added-features"></a>
 #### Added Features
 * [Console/API] Added the feature to convert to international SMS delivery 
     * Changed the Send API
@@ -151,12 +151,12 @@
 
 <a id="may-14-2024"></a>
 ### May 14, 2024 { #may-14-2024 }
-<a id="feature-updates-6"></a>
+<a id="may-14-2024-feature-updates"></a>
 #### Feature Updates
 * [API] Added a message status field to the message result update webhook
     * Added the messageStatus field to the message result update webhook to indicate the status of the message.
     * For more information, see [Webhook Guide](./webhook/#hooks).
-<a id="bug-fixes-3"></a>
+<a id="may-14-2024-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed bugs in the message result update webhook
     * Fixed a bug where, when sending fails, the result code was missing in the message result update webhook
@@ -164,42 +164,42 @@
 
 <a id="april-23-2024"></a>
 ### April 23, 2024 { #april-23-2024 }
-<a id="feature-updates-7"></a>
+<a id="april-23-2024-feature-updates"></a>
 #### Feature Updates
 * [Console] Changed the maximum time period for scheduled delivery
     * Made modifications so that the sending date for scheduled delivery can be set up to 60 days from now.
 
 <a id="march-26-2024"></a>
 ### March 26, 2024 { #march-26-2024 }
-<a id="added-features-10"></a>
+<a id="march-26-2024-added-features"></a>
 #### Added Features
 * [API] Added International Send Statistics API
     * Added the International Send Statistics API.
     * For more information, see [[Statistics Search - International Send](./api-guide/#_105)].
-<a id="feature-updates-8"></a>
+<a id="march-26-2024-feature-updates"></a>
 #### Feature Updates
 * [Console] Message Send Type Segmentation
     * Segmented message send types to SMS, LMS, and MMS when sending or registering a template.
 
 <a id="february-27-2024"></a>
 ### February 27, 2024 { #february-27-2024 }
-<a id="added-features-11"></a>
+<a id="february-27-2024-added-features"></a>
 #### Added Features
 * [Console] Role segmentation
     * Added the feature to grant separate SMS menu access and feature control permissions based on role.
       ([Link](https://docs.nhncloud.com/ko/nhncloud/ko/console-guide/#_24))
-<a id="feature-updates-9"></a>
+<a id="february-27-2024-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Eased advertising copy restrictions
     * Modified to allow ads to be sent even if they contain other characters on either end of the free unsubscribe or free opt-out text that must be included when sending the ads.
-<a id="bug-fixes-4"></a>
+<a id="february-27-2024-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed bugs that occurred when requesting mass delivery, tagged delivery file download
     * Fixed a bug where you cannot download the lists filtered by search criteria from Query by Recipient for mass delivery or tagged delivery when requesting a file download.
 
 <a id="january-23-2024"></a>
 ### January 23, 2024 { #january-23-2024 }
-<a id="added-features-12"></a>
+<a id="january-23-2024-added-features"></a>
 #### Added Features
 * [Console/API] Added DLR result retrieval for international SMS delivery
     * Added the feature to query DLR results when sending international SMS.
@@ -208,14 +208,14 @@
     * For more information, see [International SMS sending policy](./international-sending-policy).
     * For DLR status and error code, see [DLR Result Code](./error-code/#dlr).
 
-<a id="feature-updates-10"></a>
+<a id="january-23-2024-feature-updates"></a>
 #### Feature Updates
 * [Console] Separated sender number pre-registration from identity verification
     * Separated the sender number pre-registration tab from the identity verification tab.
 
 <a id="december-15-2023"></a>
 ### December 15, 2023 { #december-15-2023 }
-<a id="feature-updates-11"></a>
+<a id="december-15-2023-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Changed the Terms and Conditions for individual members
    * To provide stable service, the SMS service for individual members was ended.
@@ -223,7 +223,7 @@
 
 <a id="november-28-2023"></a>
 ### November 28, 2023 { #november-28-2023 }
-<a id="feature-updates-12"></a>
+<a id="november-28-2023-feature-updates"></a>
 #### Feature Updates
 * [Console] Monthly limit threshold notifications for International SMS
     * Added the feature to send a notification email to all project members when the auto blocking monthly limit is reached.
@@ -235,7 +235,7 @@
 
 <a id="october-31-2023"></a>
 ### October 31, 2023. { #october-31-2023 }
-<a id="feature-updates-13"></a>
+<a id="october-31-2023-feature-updates"></a>
 #### Feature Updates
 * [Console] Improved international SMS sending settings
     * Split the sending settings menu into two tabs: General SMS and International SMS.
@@ -247,14 +247,14 @@
 * [Console/API] Improved bulk and tagged delivery
     * Applied the identification code to mass and tag delivery according to the revised KISA .
 
-<a id="bug-fixes-5"></a>
+<a id="october-31-2023-bug-fixes"></a>
 #### Bug Fixes
 * [Console/API] Fixed a bug that displayed as ETC when sending LMS/MMS to KT mobile devices
     * Fixed a bug that intermittently displayed as ETC when sending LMS/MMS to KT mobile devices.
 
 <a id="september-26-2023"></a>
 ### September 26, 2023 { #september-26-2023 }
-<a id="feature-updates-14"></a>
+<a id="september-26-2023-feature-updates"></a>
 #### Feature Updates
 * [Console] Improved to identify the reason behind denied personal authentication
     * Improved to identify why you were denied authentication in your authentication history.
@@ -263,7 +263,7 @@
 
 <a id="august-29-2023"></a>
 ### August 29, 2023 { #august-29-2023 }
-<a id="feature-updates-15"></a>
+<a id="august-29-2023-feature-updates"></a>
 #### Feature Updates
 * [API] Improved template deletion
     * Improved to allow reregistration with deleted template ID.
@@ -281,7 +281,7 @@
 
 <a id="august-1-2023"></a>
 ### August 1, 2023 { #august-1-2023 }
-<a id="added-features-13"></a>
+<a id="august-1-2023-added-features"></a>
 #### Added Features
 * [Console] Added split sending feature
     * Added a feature to send messages by time when requesting mass delivery.
@@ -292,7 +292,7 @@
     * When sending international text messages, you can send up to 765 characters in GSM-7 and 335 characters in UCS-2, and send them as long messages through the concat function.
     * For more details, please refer to the [[Billing Policy]](./international-sending-policy/#_3) of the service policy.
 
-<a id="feature-updates-16"></a>
+<a id="august-1-2023-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Improved international text message sending encoding
     * When sending international text messages, they are sent in GSM-7 or UCS-2 encoding depending on the character set of the body text.
@@ -301,7 +301,7 @@
 
 <a id="july-25-2023"></a>
 ### July 25, 2023 { #july-25-2023 }
-<a id="feature-updates-17"></a>
+<a id="july-25-2023-feature-updates"></a>
 #### Feature Updates
 * [Console] Improved the identity verification process
     * Improved so that, when identity verification is rejected or requested again, users can change business registration certificates registered in the organization.
@@ -311,26 +311,26 @@
 
 <a id="july-11-2023"></a>
 ### July 11, 2023 { #july-11-2023 }
-<a id="bug-fixes-6"></a>
+<a id="july-11-2023-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed a bug where message could be sent with a deleted template
     * Improved so that message could not be sent with a deleted template.
 
 <a id="may-30-2023"></a>
 ### May 30, 2023 { #may-30-2023 }
-<a id="feature-updates-18"></a>
+<a id="may-30-2023-feature-updates"></a>
 #### Feature Updates
 * [Console] Improved the identity verification process
     * Improved so that, when using the SMS console, you only need to authenticate once within the same organization.
 
 <a id="april-25-2023"></a>
 ### April 25, 2023 { #april-25-2023 }
-<a id="added-features-14"></a>
+<a id="april-25-2023-added-features"></a>
 #### Added Features
 * Added a feature to set the monthly delivery limit on international SMS
     * If you enable international SMS delivery, you can set the monthly limit.
 
-<a id="feature-updates-19"></a>
+<a id="april-25-2023-feature-updates"></a>
 #### Feature Updates
 * [API] Added code update webhook field as a result of sending message
     * Added the recipientGroupingKey, senderGroupingKey fields to code update webhook as a result of sending message.
@@ -346,14 +346,14 @@
 
 <a id="march-28-2023"></a>
 ### March 28, 2023 { #march-28-2023 }
-<a id="added-features-15"></a>
+<a id="march-28-2023-added-features"></a>
 #### Added Features
 * [Console] Added a setting to use international SMS
     * Added a setting that allows you to set the international SMS delivery feature to 'Not Used' when not in use to prevent issues such as abusing.
 * [Console] Aplied CloudTrail
     * Applied CloudTrail to allow you to check usage history.
 
-<a id="feature-updates-20"></a>
+<a id="march-28-2023-feature-updates"></a>
 #### Feature Updates
 * [API] Faded out APIs related to sender numbers
     * Faded out some APIs related to sender numbers due to enhanced sender number pre-registration system.
@@ -365,14 +365,14 @@
 
 <a id="february-28-2023"></a>
 ### February 28, 2023 { #february-28-2023 }
-<a id="added-features-16"></a>
+<a id="february-28-2023-added-features"></a>
 #### Added Features
 * [Console/API] Added the validation logic for avaliable countries stated in the guide
     * Modified to fail for countries other than those specified in the guide.
 
 <a id="february-17-2023"></a>
 ### February 17, 2023 { #february-17-2023 }
-<a id="added-features-17"></a>
+<a id="february-17-2023-added-features"></a>
 #### Added Features
 * [Console] Enhanced pre-registration of calling numbers
     * Added verification processes when using the SMS console and registering calling numbers.
@@ -380,26 +380,26 @@
 
 <a id="january-31-2023"></a>
 ### January 31, 2023 { #january-31-2023 }
-<a id="feature-updates-21"></a>
+<a id="january-31-2023-feature-updates"></a>
 #### Feature Updates
 * [Console] Increased the recipient file size limit to upload for mass delivery
     * Changed the limit from 10MB to 30MB.
 
 <a id="october-25-2022"></a>
 ### October 25, 2022 { #october-25-2022 }
-<a id="bug-fixes-7"></a>
+<a id="october-25-2022-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed a bug that occurred to a single search of messages
     * Fixed the bug where search results are exposed without type classification in a single search of messages.
 
 <a id="august-23-2022"></a>
 ### August 23, 2022 { #august-23-2022 }
-<a id="feature-updates-22"></a>
+<a id="august-23-2022-feature-updates"></a>
 #### Feature Updates
 * [Console] Changed the button name and message for mass and tag delivery
     * Changed the button name of Schedule Delivery to reduce confusion because pressing the mass delivery or tag delivery button immediately executes delivery.
 
-<a id="bug-fixes-8"></a>
+<a id="august-23-2022-bug-fixes"></a>
 #### Bug Fixes
 * [API] Added a field that was omitted for webhook delivery
     * Added the recipientNo field that was omitted for webhook delivery.
@@ -408,7 +408,7 @@
 
 <a id="july-26-2022"></a>
 ### July 26, 2022 { #july-26-2022 }
-<a id="feature-updates-23"></a>
+<a id="july-26-2022-feature-updates"></a>
 #### Feature Updates
 * [API] Enhanced validation of recipient numbers
     * Modified so that, if the length of the recipient number exceeds 15 characters, the number is determined as not conforming to international telecommunication standards (E.164 of ITU-T) and the request is processed as a failure.
@@ -417,7 +417,7 @@
 
 <a id="april-26-2022"></a>
 ### April 26, 2022 { #april-26-2022 }
-<a id="feature-updates-24"></a>
+<a id="april-26-2022-feature-updates"></a>
 #### Feature Updates
 * [Console] Improved the personal information masking logic used when downloading results of general, mass, or tag delivery
     * Modified the logic so that it is the same as the masking logic used in the console.
@@ -427,7 +427,7 @@
 
 <a id="march-29-2022"></a>
 ### March 29, 2022 { #march-29-2022 }
-<a id="feature-updates-25"></a>
+<a id="march-29-2022-feature-updates"></a>
 #### Feature Updates
 * [Console] Improved and changed the feature to download general, mass, and tag sending results
     * For Excel download, changed to create a .zip file for more than 1 million results.
@@ -436,14 +436,14 @@
 
 <a id="january-25-2022"></a>
 ### January 25, 2022 { #january-25-2022 }
-<a id="bug-fixes-9"></a>
+<a id="january-25-2022-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed a bug where, when a 4-byte emoji is included in the template parameter for mass delivery, it is left as in-progress status
     * Modified so that, if the template parameter includes a 4-byte emoji, it is filtered as an invalid recipient.
 
 <a id="december-14-2021"></a>
 ### December 14, 2021 { #december-14-2021 }
-<a id="feature-updates-26"></a>
+<a id="december-14-2021-feature-updates"></a>
 #### Feature Updates
 * [Console] Changed format of template file (Excel, CSV) for mass delivery
     * The num column has been removed from the template file for creating mass delivery recipient information.
@@ -451,27 +451,27 @@
 
 <a id="september-14-2021"></a>
 ### September 14, 2021 { #september-14-2021 }
-<a id="added-features-18"></a>
+<a id="september-14-2021-added-features"></a>
 #### Added Features
 * [API] Added a mass delivery query API
     * Added an API to query mass delivery requests and mass delivery recipients.
 
 <a id="july-27-2021"></a>
 ### July 27, 2021 { #july-27-2021 }
-<a id="added-features-19"></a>
+<a id="july-27-2021-added-features"></a>
 #### Added Features
 * [Console] Added update webhook as a result of sending
     * Users can receive webhook when updating the result on the request to send.
         * Users can receive webhook when succeeded or failed to send.
 
-<a id="feature-updates-27"></a>
+<a id="july-27-2021-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Enhanced duplicate check when registering calling number
     * The number that has already been registered as well as the number requested for registration has been modified so that it cannot be duplicated.
 
 <a id="april-27-2021"></a>
 ### April 27, 2021 { #april-27-2021 }
-<a id="feature-updates-28"></a>
+<a id="april-27-2021-feature-updates"></a>
 #### Feature Updates
 * [Console] Added the feature of moving a template between categories
     * Updated to allow template transfer between categories.
@@ -480,7 +480,7 @@
 
 <a id="march-23-2021"></a>
 ### March 23, 2021 { #march-23-2021 }
-<a id="feature-updates-29"></a>
+<a id="march-23-2021-feature-updates"></a>
 #### Feature Updates
 * [Console] Improved the process of sending a large volume of SMS
     * Improved the process of sending a large volume of SMS.
@@ -493,14 +493,14 @@
 * [Console/API] Disallowed use of some special characters for template ID
     * Improved to disallow the use of '/', '?', ':' for template ID.
 
-<a id="bug-fixes-10"></a>
+<a id="march-23-2021-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed the bug of not exposing the calling number registration request details
     * Fixed the bug where the calling number registration request details popup would not be exposed properly.
 
 <a id="january-26-2021"></a>
 ### January 26, 2021 { #january-26-2021 }
-<a id="added-features-20"></a>
+<a id="january-26-2021-added-features"></a>
 #### Added Features
 * [Console/API] Added a feature of sharing blocked 080 phone numbers across projects
     * A single 080 phone number can be shared across multiple projects.
@@ -510,7 +510,7 @@
 
 <a id="december-29-2020"></a>
 ### December 29, 2020 { #december-29-2020 }
-<a id="feature-updates-30"></a>
+<a id="december-29-2020-feature-updates"></a>
 #### Feature Updates
 * [API] Applied partial changes to response body of SMS sent list search and send single search for short text/long text/authentication
     * Added the messageType/recipientSeq field.
@@ -519,19 +519,19 @@
 
 <a id="october-27-2020"></a>
 ### October 27, 2020 { #october-27-2020 }
-<a id="feature-updates-31"></a>
+<a id="october-27-2020-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Changed body validation when sending advertisements
     * Modified so that brackets can be omitted from the text **[Unsubscribe for free]** included in the body.
 
 <a id="september-22-2020"></a>
 ### September 22, 2020 { #september-22-2020 }
-<a id="added-features-21"></a>
+<a id="september-22-2020-added-features"></a>
 #### Added Features
 * [Console] Added a 080 opt-out webhook feature
     * Added a feature to receive a mobile phone number that has been opt out by 080 opt-out with a webhook.
 
-<a id="feature-updates-32"></a>
+<a id="september-22-2020-feature-updates"></a>
 #### Feature Updates
 * [API] Fixed a bug of API to query result updates based on received time
     * Fixed an issue where, when querying result updates based on the received time, the query failed if the base month of the sending date and the receiving date were different.
@@ -540,7 +540,7 @@
 
 <a id="august-25-2020"></a>
 ### August 25, 2020 { #august-25-2020 }
-<a id="feature-updates-33"></a>
+<a id="august-25-2020-feature-updates"></a>
 #### Feature Updates
 * [Console] Enhanced validation of Excel for mass delivery
     * If the recipient's number is not entered, validation will fail.
@@ -549,14 +549,14 @@
 * [Console] Enhanced validation of backup settings
     * If '/' is appended before or after the file save path in the backup setting of the **Delivery Setting** tab, the validation will fail.
 
-<a id="bug-fixes-11"></a>
+<a id="august-25-2020-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed an issue where a file uploaded from the **Register Sender Number** tab could not be downloaded
     * Fixed an issue where, after uploading a file with document authentication in the **Manage Sender Number > Register Sender Number** tab, the file could not be downloaded.
 
 <a id="july-28-2020"></a>
 ### July 28, 2020 { #july-28-2020 }
-<a id="bug-fixes-12"></a>
+<a id="july-28-2020-bug-fixes"></a>
 #### Bug Fixes
 * [Console/API] Fixed an issue related to creating email-type template ID
     * Fixed an issue where querying, modifying, or deleting does not work if a template ID is created in the email type.
@@ -565,19 +565,19 @@
 
 <a id="june-23-2020"></a>
 ### June 23, 2020 { #june-23-2020 }
-<a id="feature-updates-34"></a>
+<a id="june-23-2020-feature-updates"></a>
 #### Feature Updates
 * [Console] Changed charging information on the **Setting for Unsubscribe 080 Numbers**
     * Modified invalid charging information on the **Setting for Unsubscribe 080 Numbers** tab.
 
-<a id="bug-fixes-13"></a>
+<a id="june-23-2020-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Unable to download attached files from the detail page of scheduled delivery list
     * Fixed the 404 error occurred at the click of an attached file within View Details of Scheduled Delivery on the **Query SMS Request** tab.
 
 <a id="april-28-2020"></a>
 ### April 28, 2020 { #april-28-2020 }
-<a id="feature-updates-35"></a>
+<a id="april-28-2020-feature-updates"></a>
 #### Feature Updates
 * [Console] Backup is available for delivery list data older than 180 days
     * Newly added a feature of creating backup files in OBS or AWS S3 for delivery data (general/mass/tag) that are older than 180 days.
@@ -585,14 +585,14 @@
 * [API] Added Request ID as a filter condition for Search Statistics API
     * Added a filter condition of listing request IDs for **Search Statistics- Based on Event/Request Time**.
 
-<a id="bug-fixes-14"></a>
+<a id="april-28-2020-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed error of pagination on the list of failed data from the **Mass/Tag Delivery List** tab.
     * Fixed inoperability of pagination while listing failure from the **Mass/Tag Delivery List** tab.
 
 <a id="march-24-2020"></a>
 ### March 24, 2020 { #march-24-2020 }
-<a id="feature-updates-36"></a>
+<a id="march-24-2020-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Updated Statistics
     * When **Statistics Event Key (statsId)** is included for a delivery, you can query by **Statistics Event Key** on the statistics page.
@@ -601,7 +601,7 @@
 
 <a id="february-25-2020"></a>
 ### February 25, 2020 { #february-25-2020 }
-<a id="added-features-22"></a>
+<a id="february-25-2020-added-features"></a>
 #### Added Features
 * [API] Added API for Tag Management
     * Following APIs have been added:
@@ -612,14 +612,14 @@
     * Added senderGroupingKey, recipientGroupingKey conditions to List Scheduled
     * Added API to cancel in many conditions, other than Cancel Single Schedule API
 
-<a id="feature-updates-37"></a>
+<a id="february-25-2020-feature-updates"></a>
 #### Feature Updates
 * [ETC] Changed Charging Policy for Unsubscription
     * The hourly charging policy for unsubscription has been changed into monthly-based policy.
 * [Console/API] Increased Size of Document Upload Files along with Sender Number Registration
     * Document upload file volume has been increased to 10MB.
 
-<a id="bug-fixes-15"></a>
+<a id="february-25-2020-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed Unavailability of Same Document Uploads for Sender Number Registration
     * Failure in uploading documents in same file names has been fixed.
@@ -628,7 +628,7 @@
 
 <a id="january-21-2020"></a>
 ### January 21, 2020 { #january-21-2020 }
-<a id="feature-updates-38"></a>
+<a id="january-21-2020-feature-updates"></a>
 #### Feature Updates
 * [Console] Change of Scheduling for Mass/Tag Message Delivery
     * When mass or tag delivery time is scheduled, the **Check and Schedule Delivery** button is deleted, to show the **Schedule Delivery** button only.
@@ -637,24 +637,24 @@
 
 <a id="december-24-2019"></a>
 ### December 24, 2019 { #december-24-2019 }
-<a id="added-features-23"></a>
+<a id="december-24-2019-added-features"></a>
 #### Added Features
 * [API] Added API for Registering Unsubscribed Users
     * Added API to register users who unsubscribe 080 numbers
 
-<a id="feature-updates-39"></a>
+<a id="december-24-2019-feature-updates"></a>
 #### Feature Updates
 * [Console] Updated Query Page for Unsuscribed Users
     * Added the filter-search feature for unsubscribed 080 numbers
 
 <a id="november-26-2019"></a>
 ### November 26, 2019 { #november-26-2019 }
-<a id="added-features-24"></a>
+<a id="november-26-2019-added-features"></a>
 #### Added Features
 * [Console] Added the Feature of Ad Delivery Restriction Time
     * Night-time ad delivery can be restricted.
 
-<a id="feature-updates-40"></a>
+<a id="november-26-2019-feature-updates"></a>
 #### Feature Updates
 * [Console] Changed Mailing Period for Guide on Failed Mass/Tag Message Delivery
     * In case mass/tag messages are not actually delivered even after [Confirm and Send] is selected without time scheduled, they are 'Processed as Failure' one day after registered, and guiding mail is sent to users.
@@ -664,12 +664,12 @@
 
 <a id="october-29-2019"></a>
 ### October 29, 2019 { #october-29-2019 }
-<a id="added-features-25"></a>
+<a id="october-29-2019-added-features"></a>
 #### Added Features
 * [Console] Canceling scheduled delivery in batch
     * Delivery can be canceled only for the messages waiting to be scheduled
 
-<a id="feature-updates-41"></a>
+<a id="october-29-2019-feature-updates"></a>
 #### Feature Updates
 * [Console] Warning message for remaining resources with SMS service disabled
     * While the 080 number rejection service is enabled, it must be disabled first to disable the SMS service.
@@ -679,13 +679,13 @@
     * Message delivery is unavailable when authentication message is not included
     * For more details, see [[API User Guide](./api-guide/#precautions-authword)].
 
-<a id="bug-fixes-16"></a>
+<a id="october-29-2019-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed the issue in which the comment field is not properly shown when querying history of sender number authentication requests
 
 <a id="september-24-2019"></a>
 ### September 24, 2019 { #september-24-2019 }
-<a id="feature-updates-42"></a>
+<a id="september-24-2019-feature-updates"></a>
 #### Feature Updates
 * [Console] Improved/updated Query Tab of Web Console
     * Combined the **List Delivery per Request** page and the **List Scheduled Delivery** page.
@@ -694,7 +694,7 @@
     * Added the **Register Sender Number** button for delivery page, also onto the **Template Management** tab.
 * [Console] Deleted the **Cancel All Schedules** button from the **Query Scheduled SMS Delivery** tab.
 
-<a id="bug-fixes-17"></a>
+<a id="september-24-2019-bug-fixes"></a>
 #### Bug Fixes
 * [Console/API] Fixed Partial Failure in Scheduled Delivery
     * Infrequently, messages scheduled as of current time were partially not delivered.
@@ -703,27 +703,27 @@
 
 <a id="august-27-2019"></a>
 ### August 27, 2019 { #august-27-2019 }
-<a id="feature-updates-43"></a>
+<a id="august-27-2019-feature-updates"></a>
 #### Feature Updates
 * [Console] Allowed more length for a business name, for the setting of Rejection of Receiving 080 Numbers
     * Updated to save up to 100 characters for a business name
 * [Console] Added a column on an excel sheet when downloading files on the list of each request
 
-<a id="bug-fixes-18"></a>
+<a id="august-27-2019-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed an issue in which delivery result is not available due to 'telecom provider's issue', when recipient's number has been managed by the prevention service of sender number falsification
 * [Console] Fixed an issue in which the warning window does not show, if query of each SMS request exceeds the maximum period (30 days)
 
 <a id="july-23-2019"></a>
 ### July 23, 2019 { #july-23-2019 }
-<a id="added-features-26"></a>
+<a id="july-23-2019-added-features"></a>
 #### Added Features
 * [API] Category API Added
     * Provide APIs for Register/Query/Edit/Delete Category.
 * [API] Template API Added
     * Provide APIs for Register/Query/Edit/Delete Template.
 
-<a id="feature-updates-44"></a>
+<a id="july-23-2019-feature-updates"></a>
 #### Feature Updates
 * [API] Validation Tightened for Title/Body in Text Delivery
     * More restrictions in the length of title/body, from v2.2 API.
@@ -731,14 +731,14 @@
 * [API] Template Delivery Higher on Priority of Request Parameter
     * Modified, as of v2.2 API, that data saved on a template cannot be used when request parameter includes title, body, sender number, or attached files, if delivery is requested via template.
 
-<a id="bug-fixes-19"></a>
+<a id="july-23-2019-bug-fixes"></a>
 #### Bug Fixes
 * [API] Updated for the query of scheduled delivery details, to respond with defined codes when the query is attempted with invalid request ID.
 
 
 <a id="june-25-2019"></a>
 ### June 25, 2019 { #june-25-2019 }
-<a id="added-features-27"></a>
+<a id="june-25-2019-added-features"></a>
 #### Added Features
 * [Console] Added sender's group key and recipient's group key in the query of request by SMS
     * Sender's group key and recipient's group key have been added as part of query conditions for each SMS request.
@@ -747,7 +747,7 @@
 * [API] Added Create/Query/Download delivery list in files for General messages
     * APIs have been added to download general delivery list in files.
 
-<a id="bug-fixes-20"></a>
+<a id="june-25-2019-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed template parameter which is not replaced and therefore not visible, in the query of scheduled delivery list and details
     * The issue of template parameter which was not properly replaced in the query of scheduled delivery list and details has been fixed.
@@ -757,11 +757,11 @@
 
 <a id="may-28-2019"></a>
 ### May 28, 2019 { #may-28-2019 }
-<a id="feature-updates-45"></a>
+<a id="may-28-2019-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Improved performance of scheduled delivery
 
-<a id="bug-fixes-21"></a>
+<a id="may-28-2019-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed to respond with defined codes for the query of template details, when it is tried with invalid template
 * [Console] Processing disallowed characters for template registration/modification
@@ -771,7 +771,7 @@
 
 <a id="april-23-2019"></a>
 ### April 23, 2019 { #april-23-2019 }
-<a id="feature-updates-46"></a>
+<a id="april-23-2019-feature-updates"></a>
 #### Feature Updates
 * [API] Increased LMS/MMS length limit
     * Improved so that LMS/MMS titles can be saved up to 120 characters.
@@ -784,7 +784,7 @@
 * [API] Fixed an API response error
     * Improved to respond with -9998 instead of server error (500) when calling an API that does not exist.
 
-<a id="bug-fixes-22"></a>
+<a id="april-23-2019-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed an issue where the query failed intermittently when querying an opt-out list
     * Resolved the issue where the query failed intermittently when querying an opt-out list.
@@ -797,7 +797,7 @@
 
 <a id="march-26-2019"></a>
 ### March 26, 2019 { #march-26-2019 }
-<a id="feature-updates-47"></a>
+<a id="march-26-2019-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Retention period changed for delivery history
     * Delivery history can be queried down to 6 months before.
@@ -809,13 +809,13 @@
 
 <a id="february-26-2019"></a>
 ### February 26, 2019 { #february-26-2019 }
-<a id="added-features-28"></a>
+<a id="february-26-2019-added-features"></a>
 #### Added Features
 * [API] Sender numbers added as part of query conditions requesting for history of sender number authentication
     * Added to query request history with sender numbers (sendNo).
     * See [[API Guide](./api-guide/#api_1)] for more details.
 
-<a id="feature-updates-48"></a>
+<a id="february-26-2019-feature-updates"></a>
 #### Feature Updates
 * [Console] Input windows improved for sender number on the page requesting for message delivery
     * Search is available on the input window for sender numbers
@@ -824,21 +824,21 @@
 
 <a id="february-19-2019"></a>
 ### February 19, 2019 { #february-19-2019 }
-<a id="feature-updates-49"></a>
+<a id="february-19-2019-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Longer template ID
     * Allowed length of template ID has changed to 50 characters, from 10
 
 <a id="december-27-2018"></a>
 ### December 27, 2018 { #december-27-2018 }
-<a id="added-features-29"></a>
+<a id="december-27-2018-added-features"></a>
 #### Added Features
 * [Console/API] Restriction of Duplicate Delivery
     * You may set whether to enable duplicate delivery, as well as block time
     * The service is disabled by default, and if it is enabled, a same message is not re-sent during configured time period.
     * See [[Console Guide](./console-guide/#_28)] for more details.
 
-<a id="feature-updates-50"></a>
+<a id="december-27-2018-feature-updates"></a>
 #### Feature Updates
 * [Console] Korean goes unbroken if downloaded CSV file opens up with excel
     * Added BOM type, so as Korean opens unbroken even on CSV file from excel
@@ -848,12 +848,12 @@
 
 <a id="november-27-2018"></a>
 ### November 27, 2018 { #november-27-2018 }
-<a id="added-features-30"></a>
+<a id="november-27-2018-added-features"></a>
 #### Added Features
 * [API] Query Delivery Result Updates API Added
     * Added API to query delivery results as of updated time
 
-<a id="feature-updates-51"></a>
+<a id="november-27-2018-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Update cycle changed for delivery results
     * Cycle of updates of receiving result on device changes from 1 minute to 5 seconds.
@@ -870,7 +870,7 @@
     * You can send with template parameters to send request by tags.
     * See [[API Guide](./api-guide/#sms_11)] for more details.
 
-<a id="bug-fixes-23"></a>
+<a id="november-27-2018-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed invalid error code response
     * For text delivery request, if a request field includes past time, it is responded with -2022 error, not -2021.
@@ -878,13 +878,13 @@
 
 <a id="august-28-2018"></a>
 ### August 28, 2018 { #august-28-2018 }
-<a id="added-features-31"></a>
+<a id="august-28-2018-added-features"></a>
 #### Added Features
 * [API] Query/Cancel Scheduled Delivery API Added
     * Added API to list and cancel scheduled delivery.
     * See [[API Guide](./api-guide/#_73)] for more details.
 
-<a id="feature-updates-52"></a>
+<a id="august-28-2018-feature-updates"></a>
 #### Feature Updates
 * [Console/API] Length restriction in file name of attachment when uploaded
     * Server error occurred when the length of an attached file name exceeded 45 characters.
@@ -900,14 +900,14 @@
 
 <a id="june-26-2018"></a>
 ### June 26, 2018 { #june-26-2018 }
-<a id="feature-updates-53"></a>
+<a id="june-26-2018-feature-updates"></a>
 #### Feature Updates
 * [Console] Change guiding email text regarding ready for mass/tag delivery
     * Changed email text, sent when message is not actually sent after 'Scheduled Delivery after Check' is clicked.
 
 <a id="may-29-2018"></a>
 ### May 29, 2018 { #may-29-2018 }
-<a id="feature-updates-54"></a>
+<a id="may-29-2018-feature-updates"></a>
 #### Feature Updates
 * [Console] Added validation for sender number registration via document authentication
     * Modified to check number validity after sender number is entered and before pop-up is exposed on document authentication.
@@ -922,12 +922,12 @@
 
 <a id="april-24-2018"></a>
 ### April 24, 2018 { #april-24-2018 }
-<a id="added-features-32"></a>
+<a id="april-24-2018-added-features"></a>
 #### Added Features
 * [Console] Added exporting files (csv) for the history of mass/tag delivery
     * Mass/tag delivery history can be downloaded in csv files.
 
-<a id="feature-updates-55"></a>
+<a id="april-24-2018-feature-updates"></a>
 #### Feature Updates
 * [Console] Available to use many 080 numbers
     * Many 080 numbers are available in a single project.
@@ -942,7 +942,7 @@
 * [Console] Download CSV Files added on the UID & Contact registration page
     * CSV files, including sample data, can be downloaded on the UID & Contact Registration page.
 
-<a id="bug-fixes-24"></a>
+<a id="april-24-2018-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed error of uploading mass delivery files
     * Fixed the issue of failed operations of an attached file in the same name when it is re-uploaded after uploaded with invalid attached file
@@ -955,7 +955,7 @@
 
 <a id="march-22-2018"></a>
 ### March 22, 2018 { #march-22-2018 }
-<a id="added-features-33"></a>
+<a id="march-22-2018-added-features"></a>
 #### Added Features
 * [Console] Downloading CSV added
     * Added the feature of downloading CSV on the page of query by SMS request, and of setting for rejection of receiving 080 numbers.
@@ -968,7 +968,7 @@
     * Scheduled delivery is available for SMS/MMS/AUTH.
     * See [[API Guide](./api-guide/#sms_2)] for more details.
 
-<a id="bug-fixes-25"></a>
+<a id="march-22-2018-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed the bug in which query was unavailable after request status was selected as "failure" on the query page by SMS request
     * Fixed the issue of unavailability of data query when the request status was selected as "failure".
@@ -978,13 +978,13 @@
 
 <a id="february-22-2018"></a>
 ### February 22, 2018 { #february-22-2018 }
-<a id="added-features-34"></a>
+<a id="february-22-2018-added-features"></a>
 #### Added Features
 * [Console/API] Tag delivery added
     * The function of tag delivery has been added.
     * Managing tags, UIDs, and recipient numbers are available now.
 
-<a id="feature-updates-56"></a>
+<a id="february-22-2018-feature-updates"></a>
 #### Feature Updates
 * [Console] User message improvement
     * Messages on pages and pop-ups have been partially improved.
@@ -995,7 +995,7 @@
     * Added Query Sender Number API.
     * See [[API Guide](./api-guide/#api_2)] for more details.
 
-<a id="bug-fixes-26"></a>
+<a id="february-22-2018-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Incorrect exposure of tabs on the sender number management page
     * Fixed the error by which wrong tabs show on top, when the sender number management tab is displayed on the "sender number registration" or "sender number query" page.
@@ -1007,7 +1007,7 @@
 
 <a id="december-21-2017"></a>
 ### December 21, 2017 { #december-21-2017 }
-<a id="bug-fixes-27"></a>
+<a id="december-21-2017-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed delivery bugs on console.
     * Fixed the bug by which 90-byte messages are partially sent, with each space is deemed as 2 bytes.
@@ -1015,17 +1015,17 @@
 
 <a id="november-23-2017"></a>
 ### November 23, 2017 { #november-23-2017 }
-<a id="added-features-35"></a>
+<a id="november-23-2017-added-features"></a>
 #### Added Features
 * [API] Request/Query Sender Number Registration API added
     * Request/Query Sender Number Registration which was available only on console is now provided in APIs.
     * See [[API Guide](./api-guide/#_56)] for more details.
 
-<a id="deleted"></a>
+<a id="november-23-2017-deleted"></a>
 #### Deleted
 * [API] v1.0 API deprecated
 
-<a id="feature-updates-57"></a>
+<a id="november-23-2017-feature-updates"></a>
 #### Feature Updates
 * [Console] Added Schedule Delivery page
     * Check scheduled delivery list on the page.
@@ -1038,20 +1038,20 @@
 * [API] Added error message for invalid recipient numbers
     * When the country code is null with the input of invalid number, it is not returned as system error but as invalid recipient number.
 
-<a id="bug-fixes-28"></a>
+<a id="november-23-2017-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Query unavailable with requestId for scheduled delivery
     * Modified the issue in which query was unavailable with requestId, after scheduled delivery, on the page of query delivery.
 
 <a id="october-19-2017"></a>
 ### October 19, 2017 { #october-19-2017 }
-<a id="bug-fixes-29"></a>
+<a id="october-19-2017-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed the bug in which delivery result of SMS for authentication is not updated
 
 <a id="september-21-2017"></a>
 ### September 21, 2017 { #september-21-2017 }
-<a id="added-features-36"></a>
+<a id="september-21-2017-added-features"></a>
 #### Added Features
 * [Console, API] Query target of rejection receiving 080 numbers
     * Added querying recipients rejecting 080 numbers and API
@@ -1059,7 +1059,7 @@
 
 <a id="august-24-2017"></a>
 ### August 24, 2017 { #august-24-2017 }
-<a id="added-features-37"></a>
+<a id="august-24-2017-added-features"></a>
 #### Added Features
 * [Console] Send email guidance on approval/denial of sender numbers
     * Guidance is sent to users by email regarding sender number approval or denial.
@@ -1068,14 +1068,14 @@
 * [API] Error response added to unsupported ContentType
     * Modified to return as clear error, not a system error, if API requesting header is set with unsupported ContentType.
 
-<a id="bug-fixes-30"></a>
+<a id="august-24-2017-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed the bug by which category/template registration is saved only as "enabled"
     * The bug by which category/template registration is saved only as "Enabled" even though the status was actually checked as "Disabled".
 
 <a id="april-20-2017"></a>
 ### April 20, 2017 { #april-20-2017 }
-<a id="added-features-38"></a>
+<a id="april-20-2017-added-features"></a>
 #### Added Features
 * [API] Rejection of Receiving 080 Numbers added
     * You may join the rejection service of receiving 080 numbers to send ad messages. [[API Guide](./api-guide/#sms_11)]
@@ -1083,30 +1083,30 @@
 
 <a id="march-23-2017"></a>
 ### March 23, 2017 { #march-23-2017 }
-<a id="feature-updates-58"></a>
+<a id="march-23-2017-feature-updates"></a>
 #### Feature Updates
 * [Console] In the query of mass delivery, select window for cause of result has been grouped.
 
-<a id="bug-fixes-31"></a>
+<a id="march-23-2017-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed the bug by which show details of scheduled delivery are returned as empty.
 
 
 <a id="february-23-2017"></a>
 ### February 23, 2017 { #february-23-2017 }
-<a id="bug-fixes-32"></a>
+<a id="february-23-2017-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed the bug of abnormal operations of pagination due to error of delivery count in the query of mass MMS delivery.
 
 <a id="january-19-2017"></a>
 ### January 19, 2017 { #january-19-2017 }
-<a id="feature-updates-59"></a>
+<a id="january-19-2017-feature-updates"></a>
 #### Feature Updates
 * [API] Restriction of individuals added to send to a number of recipients.
     * AS-IS: No restriction was available for a number of recipients.
     * TO-BE: Each request can have no more than 1000 recipients.
 
-<a id="bug-fixes-33"></a>
+<a id="january-19-2017-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed the bug, in query delivery, by which field is clicked to show ellipsis on the right of the field.
     * AS-IS: Long title and body results in ellipsis created on the right of the field.
@@ -1114,7 +1114,7 @@
 
 <a id="december-22-2016"></a>
 ### December 22, 2016 { #december-22-2016 }
-<a id="feature-updates-60"></a>
+<a id="december-22-2016-feature-updates"></a>
 #### Feature Updates
 * [Console] Added the function by which query is available for failed delivery cases.
     * AS-IS: For failed SMS or MMS delivery, response is available but cannot be queried on console.
@@ -1127,7 +1127,7 @@
     * AS-IS: Charged on the basis of request time of text delivery
     * TO-BE: Charged by the response time for delivery result
 
-<a id="bug-fixes-34"></a>
+<a id="december-22-2016-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed the bug in which server error occurred for the sending of MMS attachment when the file was unavailable attached file
     * AS-IS: Responded with server error when sent by unavailable attached file ID
@@ -1138,7 +1138,7 @@
 
 <a id="december-8-2016"></a>
 ### December 8, 2016 { #december-8-2016 }
-<a id="feature-updates-61"></a>
+<a id="december-8-2016-feature-updates"></a>
 #### Feature Updates
 * [Console] Improved/changed template features.
     * AS-IS: When a template was deleted, information was not shown on the delivery history of the template
@@ -1150,7 +1150,7 @@
     * AS-IS: Check duplicate checks only
     * TO-BE: Duplicate checks + Check sender number registration format [[Format of Sender Number Registration](./console-guide/#_16)]
 
-<a id="bug-fixes-35"></a>
+<a id="december-8-2016-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Fixed the bug by which MMS template was registered even without title.
     * Issue: Regarding MMS template registration, template can be registered without a title.
@@ -1158,21 +1158,21 @@
 
 <a id="november-24-2016"></a>
 ### November 24, 2016 { #november-24-2016 }
-<a id="feature-updates-62"></a>
+<a id="november-24-2016-feature-updates"></a>
 #### Feature Updates
 * [Console] Features of mass delivery improved/changed.
     * Replacement Improved/Changed: Replacement delivery was available by selecting templates only, but now it is available by entering replacement key on the title or body without selecting a template.
     * Uploading Template Files: In some editors, like excel, even when there is no available data for cell which has editing history, empty character string data are included in saving. Now, it has been changed that empty character strings which are not within the range of input are ignored from validation to upload template files.
     * Caution Messages Added: In some editors, like excel, CSV template files are created and uni codes are not saved, which results in broken characters. Cautions on such issue are to be provided for template downloads and schedule delivery.
 
-<a id="bug-fixes-36"></a>
+<a id="november-24-2016-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Modified error on the mass delivery page.
     * Modified event errors: Modified the error in which an alert shows like 'Select a delivery request to query', at the click of the header of the request list.
 
 <a id="october-20-2016"></a>
 ### October 20, 2016 { #october-20-2016 }
-<a id="feature-updates-63"></a>
+<a id="october-20-2016-feature-updates"></a>
 #### Feature Updates
 * [Console] Mass upload delivery has improved/changed.
     * CSV Format Supported for Mass Upload Delivery: Mass upload delivery becomes available not only on excel but CSV file (with CSV template provided)
@@ -1186,7 +1186,7 @@
     * AS-IS: If the body is empty, response may be successful but since content is missing, it is deemed as undelivered. When queried, it shows error in message type.
     * TO-BE: If the body is empty, response fails along with the message that body message is empty.
 
-<a id="bug-fixes-37"></a>
+<a id="october-20-2016-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Modified abnormal operations after SMS delivery, on Firefox .
     * Issue: After delivery, sender numbers could not be selected or field was not returned to default.
@@ -1194,12 +1194,12 @@
 
 <a id="september-29-2016"></a>
 ### September 29, 2016 { #september-29-2016 }
-<a id="feature-updates-64"></a>
+<a id="september-29-2016-feature-updates"></a>
 #### Feature Updates
 * [Console] Modified to allow sending SMS from the web page, to recipient numbers which include country code.
     * Reference: Notification > SMS > Getting Started > Send General SMS, General LMS, and MMS
 
-<a id="bug-fixes-38"></a>
+<a id="september-29-2016-bug-fixes"></a>
 #### Bug Fixes
 * [API] Fixed the bug in which userId is always responded with null, among responses for Query SMS Delivery API.
     * Issue: userId was responded always with null, among responses for Query SMS Delivery API.
@@ -1210,12 +1210,12 @@
 
 <a id="august-18-2016"></a>
 ### August 18, 2016 { #august-18-2016 }
-<a id="feature-updates-65"></a>
+<a id="august-18-2016-feature-updates"></a>
 #### Feature Updates
 * [API] Field added for recipient numbers, including country code
     * Reference: Notification > SMS > Developer's Guide > [Send Single SMS, Send Long MMS, Send SMS for Authentication] API Specifications (internationalRecipientNo field added)
 
-<a id="bug-fixes-39"></a>
+<a id="august-18-2016-bug-fixes"></a>
 #### Bug Fixes
 * [Console] Allowed to normally change to enable or disable SMS template.
     * Issue: Even after service is changed to Enable/Disable, it was not normally applied when template was called.
@@ -1223,7 +1223,7 @@
 
 <a id="august-4-2016"></a>
 ### August 4, 2016 { #august-4-2016 }
-<a id="bug-fixes-40"></a>
+<a id="august-4-2016-bug-fixes"></a>
 #### Bug Fixes
 * [API] Modified to allow MMS sending if SMS sender number is registered by mobile phone authentication.
     * Issue: Send numbers saved by mobile phone authentication were saved in the format of international numbers, which prohibited MMS delivery.
