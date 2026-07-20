@@ -1,12 +1,12 @@
-<!-- pre-align:aligned sig=77058c78d235 -->
+<!-- pre-align:aligned sig=7681c5d99477 -->
 
-## Notification > SMS > 概要
+<a id="notification-sms-overview"></a>
+## Notification > SMS > 概要 { #notification-sms-overview }
 SMS、LMS、MMS送信、送信予約機能、テンプレート管理、送信履歴の照会機能を備えたメッセージ送信システムです。
 簡単に連携するためのRESTful APIを提供します。
 
 <a id="specifications"></a>
-
-## 特徴
+## 特徴 { #specifications }
 
 - SMS、LMS、MMS送信を提供します。
   - SMS: 90バイト、LMS: 2,000バイト、MMS: 2,000バイト+イメージ
@@ -20,8 +20,7 @@ SMS、LMS、MMS送信、送信予約機能、テンプレート管理、送信�
   - よく使用するSMSは、テンプレートに登録して使用できます。
 
 <a id="main-features"></a>
-
-## 主な機能
+## 主な機能 { #main-features }
 
 顧客のアプリケーションで使用できるメッセージ送信と照会RESTful APIを提供します。
 SMS送信、送信履歴の照会、テンプレートの管理ができるUIを提供します。

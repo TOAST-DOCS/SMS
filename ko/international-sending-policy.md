@@ -1,21 +1,19 @@
-<!-- pre-align:aligned sig=738aed6a869b -->
+<!-- pre-align:aligned sig=fb2797554ca0 -->
 
-## Notification > SMS > 서비스 정책 > 국제 SMS 발송 정책
+<a id="notification-sms-service-policy-international-sending-policy"></a>
+## Notification > SMS > 서비스 정책 > 국제 SMS 발송 정책 { #notification-sms-service-policy-international-sending-policy }
 
 <a id="guide-to-sending-international-sms-messages"></a>
-
-## 국제 SMS 메시지 발송 안내
+## 국제 SMS 메시지 발송 안내 { #guide-to-sending-international-sms-messages }
 + 국제 SMS 메시지 발송 시 아래의 주요 사항을 확인하여 주시기 바랍니다.
 
 <a id="country-specific-sender-id-policy"></a>
-
-## 국가별 발신 번호 정책
+## 국가별 발신 번호 정책 { #country-specific-sender-id-policy }
 + 국제 SMS 메시지는 국가별 발신 번호 정책에 따라 발송되어 해당 정책을 따르지 않은 경우 스팸으로 처리될 수 있습니다.
 + 고객이 설정한 발신 번호는 수신 단말기에 노출을 보장할 수 없으며, 국제 SMS 메시지를 정상적으로 발송하기 위해 임의의 숫자나 문자, NHNcorp 등으로 변경되어 발송될 수 있습니다.
 
 <a id="sending-policy"></a>
-
-## 발송 정책
+## 발송 정책 { #sending-policy }
 + 국가별 상세 정책은 [[국가별 SMS 발송 상세 가이드](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)]를 참고하십시오.
 + 베트남과 같이 국제 SMS 메시지 정책이 엄격한 국가의 경우, 메시지 발송 내용이 인증 번호(OTP)인 경우에 대해서만 정상적으로 발송될 수 있습니다.
 + 메시지를 정상적으로 발송하기 위해 인증 번호(OTP) 발송 내용을 예시와 같이 입력할 것을 권장합니다. (예시: Your verification code is 00000)
@@ -28,8 +26,7 @@
 + 국가별 전송 품질은 해당 국가의 네트워크 및 인프라 환경의 영향을 받으며, 국내 환경과 차이가 있을 수 있습니다.
 
 <a id="billing-policy"></a>
-
-## 과금 정책
+## 과금 정책 { #billing-policy }
 + 국제 SMS 메시지 발송 비용은 해외 통신 사업자로의 데이터 전송 성공 여부에 따라 과금됩니다.
 + 국제 SMS 과금 정책은 DLR 메시지 상태 및 DLR 결과 코드와는 무관합니다.
 + 단말기 수신 결과는 해외 통신 사업자로의 데이터 전송 성공을 의미하며, 실제 단말기의 수신 결과와 상이할 수 있습니다. 실제 사용자가 메시지를 수신하지 못했더라도 과금 대상에 포함될 수 있습니다.
@@ -45,8 +42,7 @@
 | GSM-7bit | 160자 | 306자<br>(=153*2) | 459자<br>(=153*3) | 612자<br>(=153*4) | 765자<br>(=153*5) |
 
 <a id="international-sms-traffic-pumping"></a>
-
-## 국제 SMS 물량 펌핑 현상
+## 국제 SMS 물량 펌핑 현상 { #international-sms-traffic-pumping }
 + 일부 해외 이동통신사업자(MNO)에서 매출을 올리기 위해 인위적으로 메시지 발송을 유도하는 경우가 있습니다.
 + 회원가입 인증 번호 요청 등의 페이지에서 봇 또는 어뷰저가 메시지 발송을 대량 요청합니다.
 + 대부분의 봇 또는 어뷰저는 인증 요청 후 실제 인증은 하지 않습니다. 어뷰징이 발생하면 인증번호 요청은 늘지만, 인증을 수행하고 전환되는 비율은 줄어듭니다.
@@ -61,14 +57,12 @@
     + 유사한 번호 범위(예: +1111111110, +1111111111, +1111111112, +1111111113 등)로 전송되는 메시지가 연속적으로 인입되지 않도록 합니다.
 
 <a id="sending-blocking-based-on-international-sms-conversion-rate"></a>
-
-## 국제 SMS 전환율 기반 발송 차단
+## 국제 SMS 전환율 기반 발송 차단 { #sending-blocking-based-on-international-sms-conversion-rate }
 + 일반적으로 수신자가 메시지 수신 후 URL 클릭이나 인증번호 입력과 같은 동작을 수행했을 때, 전환이 발생한 것으로 간주합니다.
 + 국제 SMS 전환율에 의한 차단 설정 기능을 통해 수신자의 메시지 수신 후 전환 여부를 체크하여 국제 SMS 발송의 신뢰성을 높이고 어뷰징에 대한 차단을 강화할 수 있습니다.
 
 <a id="collection-of-international-sms-conversions"></a>
-
-### 국제 SMS 전환 여부 수집 설정
+### 국제 SMS 전환 여부 수집 설정 { #collection-of-international-sms-conversions }
 + 국제 SMS 발송 API 요청 시 전환율 수집 요청 필드로 전환율 수집 대상 여부를 설정합니다.
     + 자세한 사항은 [[API v3.0 가이드](./api-guide/#sms_1)]를 참고하세요.
 + 전환율 수집 대상으로 설정한 발송 건이 전환된 것으로 판단되면 전환 API 호출을 통해 NHN Cloud에 전환 여부를 알릴 수 있습니다.
@@ -78,8 +72,7 @@
     + **전환율 기반 발송 차단 및 알림**을 **사용**으로 설정한 국가로 발송한 메시지가 24시간 동안 50건 이상이고, 전환율이 50% 이하인 경우 해당 국가로의 발송이 자동 차단됩니다.
 
 <a id="set-blocking-countries-by-conversion-rate"></a>
-
-### 전환율 기반 발송 차단 및 알림 기능 사용 설정
+### 전환율 기반 발송 차단 및 알림 기능 사용 설정 { #set-blocking-countries-by-conversion-rate }
 + 콘솔 **발송 설정 > 국제 SMS** 메뉴에서 전환율 기반 발송 차단 및 알림 설정을 **사용**으로 변경해야 합니다.
 + 기능 사용 설정 후 전환율에 따라 차단할 국가를 설정해야 합니다.
     + 전환율 기반 차단 규칙 설정에 따른 전환율 계산 및 차단이 국가별로 적용됩니다. 
@@ -88,8 +81,7 @@
 + 자세한 사항은 [[콘솔 사용 가이드](./console-guide/#sms_8)]를 참고하세요.
 
 <a id="available-countries"></a>
-
-## 전송 가능 국가
+## 전송 가능 국가 { #available-countries }
 | 국가명 | 국가 코드 |
 | ------- | ----- |
 | 미국 / 캐나다 | 1 |

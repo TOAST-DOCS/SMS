@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=fcae760093f6 -->
+<!-- pre-align:aligned sig=817102849a61 -->
 
 <style>
     .custom-table thead {
@@ -14,13 +14,13 @@
     }
 </style>
 
-## Notification > SMS > 콘솔 사용 가이드
+<a id="notification-sms-console-guide"></a>
+## Notification > SMS > 콘솔 사용 가이드 { #notification-sms-console-guide }
 
 > SMS 서비스를 이용하려면 [콘솔 > SMS > 발신 번호 사전 등록 > 발신 번호 등록 및 명의자 인증]에서 발신 번호를 사전에 등록한 후 사용할 수 있습니다(전기통신사업법 관련 고시 준수).
 
 <a id="identity-verification"></a>
-
-## 본인 인증
+## 본인 인증 { #identity-verification }
 
 - 전기통신사업법 관련 고시 준수를 위해 SMS 서비스에 강화된 발신 번호 사전등록제가 적용되었습니다.
     - 2022년 3월 2일 이후 가입한 회원에 한함
@@ -34,8 +34,7 @@
   재직증명서 내 주민번호 뒤 6자리는 <span style="color:red;font-weight:bold">반드시 마스킹(숨김) 처리</span>하세요. 예: 000000-0\*\*\*\*\*\*
 
 <a id="required-documentation-by-member-type"></a>
-
-### 회원 유형에 따른 필요한 서류
+### 회원 유형에 따른 필요한 서류 { #required-documentation-by-member-type }
 
 <table class="custom-table" style="text-align: center">
   <thead>
@@ -70,8 +69,7 @@
 </table>
 
 <a id="identity-verification-process"></a>
-
-### 본인 인증 절차
+### 본인 인증 절차 { #identity-verification-process }
 
 ![sms_01_20240104](https://static.toastoven.net/prod_sms/SMS_01_20240104.png)
 
@@ -84,27 +82,23 @@
 7. 본인 인증 절차가 완료되면 계정에 등록된 메일로 승인 결과가 전송됩니다.
 
 <a id="description-of-identity-verification-status"></a>
-
-### 본인 인증 상태 설명
+### 본인 인증 상태 설명 { #description-of-identity-verification-status }
 
 - 심사 중: 등록한 본인 인증에 대한 인증 서류를 관리자가 검토하고 있는 상태
 - 거부: 본인 인증이 반려되어 서류 재등록이 필요한 상태
 - 승인: 본인 인증 승인 완료 상태
 
 <a id="pre-register-sender-numbers"></a>
-
-## 발신 번호 사전 등록
+## 발신 번호 사전 등록 { #pre-register-sender-numbers }
 
 <a id="enforce-pre-registration-of-sender-numbers"></a>
-
-### 발신 번호 사전등록제 시행
+### 발신 번호 사전등록제 시행 { #enforce-pre-registration-of-sender-numbers }
 
 - 전기통신사업법 관련 고시에 따라 발신 번호 등록 시 발신 번호에 대한 명의자 인증이 필요합니다.
 - 명의자 인증은 발신 번호 종류에 따라 인증 방법과 필요한 서류가 결정됩니다.
 
 <a id="owner-verification-method-by-calling-number"></a>
-
-### 발신 번호에 명의자에 따른 인증 방법
+### 발신 번호에 명의자에 따른 인증 방법 { #owner-verification-method-by-calling-number }
 
 <table class="custom-table" style="text-align: center">
   <thead>
@@ -150,8 +144,7 @@
 
 
 <a id="how-to-issue-documents-for-each-mobile-carrier"></a>
-
-### 발신 번호 이통사별 증빙 서류 발급 방법
+### 발신 번호 이통사별 증빙 서류 발급 방법 { #how-to-issue-documents-for-each-mobile-carrier }
 
 - 통신서비스 이용증명원은 각 통신사 홈페이지에서 내려받을 수 있습니다.
 - 통신사마다 '가입확인서, 가입증명원, 이용계약 등록사항 증명서' 등으로 명칭이 다를 수 있습니다.
@@ -174,8 +167,7 @@
     - 헬로모바일 고객 센터: 1855-1144(LGU+), 1855-1144(KT), 1855-2114(SKT)
 
 <a id="registration-format-for-sender-numbers"></a>
-
-### 발신 번호 등록 형식
+### 발신 번호 등록 형식 { #registration-format-for-sender-numbers }
 
 ```
 * 유선전화번호 : 02-YYY-YYYY (지역번호 포함하여 등록)
@@ -190,8 +182,7 @@
     휴대폰 번호 중 통신사 부가 서비스인 '발신 번호 도용 차단 서비스'에 가입되어 있는 번호로는 메시지가 전송되지 않습니다(웹/시스템 문자 전송). 
 
 <a id="register-sender-numbers"></a>
-
-### 발신 번호 등록 절차
+### 발신 번호 등록 절차 { #register-sender-numbers }
 
 ![sms_02_20240104](https://static.toastoven.net/prod_sms/SMS_02_20240104.png)
 
@@ -206,8 +197,7 @@
 8. 발신 번호 등록 인증 절차가 완료되면 계정에 등록된 메일로 승인 결과가 전송됩니다.
 
 <a id="description-for-sender-number-registration-status"></a>
-
-### 발신 번호 등록 상태 설명
+### 발신 번호 등록 상태 설명 { #description-for-sender-number-registration-status }
 
 - 심사 중: 등록한 발신 번호에 대한 인증 서류를 관리자가 검토하고 있는 상태
 - 거부: 서류 인증이 반려되어 서류 재등록이 필요한 상태
@@ -218,8 +208,7 @@
 ![sms_03_20230818](https://static.toastoven.net/prod_sms/SMS_03_20230818.png)
 
 <a id="sending-sms"></a>
-
-## SMS 발송
+## SMS 발송 { #sending-sms }
 
 - 최대 글자 수는 저장 기준입니다. 문자 잘림을 방지하기 위해서 최대 글자 수가 아닌 표준 규격을 기준으로 작성합니다.
 - 내용 표준 규격
@@ -238,8 +227,7 @@
 - 예약 발송의 발송 일시는 현재로부터 최대 60일 이후까지 설정 가능합니다.
 
 <a id="general-delivery"></a>
-
-### 일반 발송
+### 일반 발송 { #general-delivery }
 
 1. 템플릿 사용 여부: 사용자가 만들어 놓은 템플릿을 사용하여 발송할 수 있습니다.
     - 사전에 만들어 놓은 템플릿이 있다면 **템플릿 사용 여부**를 **사용**으로 선택하고, **템플릿 선택** 창에서 원하는 템플릿을 선택합니다.
@@ -265,13 +253,11 @@
 11. 발송: **발송** 버튼을 클릭하여 발송합니다.
 
 <a id="mass-delivery"></a>
-
-### 대량 발송
+### 대량 발송 { #mass-delivery }
 
 Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS를 발송할 수 있는 기능입니다.
 
-<a id="template-files"></a>
-
+<a id="mass-delivery-template-files"></a>
 #### 템플릿 파일
 
 템플릿 파일은 **대량 발송** 탭 선택 후 **템플릿 다운로드** 버튼을 클릭하여 다운로드할 수 있습니다.
@@ -291,8 +277,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 
 수신 번호는 '+', '-', 공백 문자를 포함하여 입력할 수 있습니다.
 
-<a id="validity-check-for-template-files"></a>
-
+<a id="mass-delivery-validity-check-for-template-files"></a>
 #### 템플릿 파일 유효성 검사
 
 파일 업로드 시 템플릿 파일의 데이터에 오류가 있는 경우 오류 내용이 표시됩니다. 오류는 총 오류 건수와 최대 10건의 오류 내용을 출력합니다.
@@ -304,8 +289,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 - 수신 번호가 잘못된 포맷으로 입력된 경우
 - 수신 번호 또는 치환 데이터 입력이 누락된 경우
 
-<a id="select-scheduled-delivery-deliver-after-checkimmediate-delivery"></a>
-
+<a id="mass-delivery-select-scheduled-delivery-deliver-after-checkimmediate-delivery"></a>
 #### 발송 예약 선택(확인 후 진행/즉시 발송)
 
 발송 정보 입력과 대량 발송 파일을 업로드한 후에 발송을 진행하려면 **발송 예약** 버튼을 클릭합니다. 발송 예약 시 수신 대상 번호를 확인 후 진행하는 **확인 후 예약발송**과 **예약 발송**을 선택할 수 있습니다.
@@ -313,16 +297,14 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 - 확인 후 예약 발송: 수신 번호와 발송 내용을 **대량 SMS 발송 조회** 탭에서 확인 후 발송을 진행할 수 있습니다. 확인 후 발송을 진행하지 않으면 발송이 진행되지 않으므로 유의하세요.
 - 예약 발송: 수신 번호와 발송 내용을 확인하지 않고 발송을 진행합니다. 발송 결과는 **대량 SMS 발송 조회** 탭에서 확인할 수 있습니다.
 
-<a id="split-send"></a>
-
+<a id="mass-delivery-split-send"></a>
 #### 분할 발송
 
 분할 발송을 사용하면 **분할 횟수**와 **발송 간격**을 설정해 메시지를 나눠 발송할 수 있습니다.
 
 <span id='tag-send'></span>
 <a id="send-tags"></a>
-
-### 태그 발송
+### 태그 발송 { #send-tags }
 
 태그의 조건에 맞는 UID로 발송할 수 있는 기능입니다.
 
@@ -333,15 +315,13 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 태그 등록은 **태그 관리** 탭에서 가능하며, UID & 전화번호 저장은 **UID 관리** 탭에서 가능합니다.
 
 <a id="setting-for-rejection-of-receiving-080-numbers"></a>
-
-## 080 수신 거부 설정
+## 080 수신 거부 설정 { #setting-for-rejection-of-receiving-080-numbers }
 
 080 수신 거부 서비스는 광고 문자 발송 시, 수신자에게 수신 거부를 제공하는 서비스입니다.
 광고성 정보 전송 시, 수신자가 수신 거부나 수신 동의의 철회를 무료로 할 수 있도록 <span style="color:red">무료 수신 거부 방법을 반드시 기재</span>해야 합니다.
 
 <a id="subscription"></a>
-
-### 가입
+### 가입 { #subscription }
 
 **080 수신 거부 설정** 탭으로 이동하면 가입 화면을 확인할 수 있습니다.
 **080 수신 거부 번호 추가 신청** 버튼을 누르면 업체명을 입력할 수 있습니다.
@@ -351,23 +331,20 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 ![sms_14_20230818](https://static.toastoven.net/prod_sms/SMS_14_20230818.png)
 
 <a id="registration-scheduled"></a>
-
-### 등록 예약
+### 등록 예약 { #registration-scheduled }
 
 가입 신청을 완료하면 등록 예약 상태로 변경됩니다.
 080 수신 거부 서비스 개통은 영업일 기준 3~4일이 소요되고, 개통이 완료되면 사용할 수 있습니다.
 
 <a id="registration-completed"></a>
-
-### 등록 완료
+### 등록 완료 { #registration-completed }
 
 개통이 완료되면, 사용 시작 일시와 상태를 확인할 수 있습니다.
 **080 수신 거부 서비스 등록 예약, 사용 중 상태에서 SMS 상품 이용 종료를 할 수 없습니다.** 해지 후, 상품 이용 종료가 가능합니다.
 해지를 원하시면 **해지** 버튼을 누르면 해지됩니다.
 
 <a id="send-ad-messages"></a>
-
-### 광고성 문자 발송
+### 광고성 문자 발송 { #send-ad-messages }
 
 1. 080 수신 거부 서비스 사용 중 상태에서만 광고성 문자 발송할 수 있습니다.
 2. 발송 타입을 **광고용**으로 변경하면 수신 거부 번호 선택 창이 나옵니다.
@@ -394,18 +371,15 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 ![sms_16_20230818](https://static.toastoven.net/prod_sms/SMS_16_20230818.png)
 
 <a id="query-target-of-rejection"></a>
-
-### 수신 거부 대상자 조회
+### 수신 거부 대상자 조회 { #query-target-of-rejection }
 
 수신 거부 요청 일시를 옵션으로 수신 거부를 요청한 대상자를 하단 패널에서 조회할 수 있습니다.
 
 <a id="query-of-sms"></a>
-
-## SMS 조회
+## SMS 조회 { #query-of-sms }
 
 <a id="query-by-sms-request"></a>
-
-### SMS 요청별 조회
+### SMS 요청별 조회 { #query-by-sms-request }
 
 각 항목을 조건으로 조회할 수 있습니다.
 (요청 ID 또는 발신 일시는 필수 값입니다.)
@@ -419,8 +393,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 - 발송 결과를 통해 발송 처리에 대한 성공/실패를 확인할 수 있습니다.
 
 <a id="query-scheduled-sms-delivery"></a>
-
-### SMS 예약 발송 조회
+### SMS 예약 발송 조회 { #query-scheduled-sms-delivery }
 
 예약 발송된 목록들을 조회할 수 있습니다.
 
@@ -432,8 +405,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 - 예약 대기 상태인 경우 해당 목록을 선택하여 예약을 취소할 수 있습니다.
 
 <a id="query-mass-sms-delivery"></a>
-
-### 대량 SMS 발송 조회
+### 대량 SMS 발송 조회 { #query-mass-sms-delivery }
 
 발송 유형별로 대량의 발송 건을 조회할 수 있습니다.
 
@@ -443,8 +415,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 - 발송/취소: 대량 업로드 발송 예약 시 수신 대상자 확인 후 예약 발송을 선택한 경우, '발송 준비 완료' 상태의 예약 건을 선택 후 **발송/취소** 버튼을 클릭하여 발송하거나 취소할 수 있습니다. 예약 발송의 경우 자동으로 현재 시간에 발송 처리됩니다.
 - 발송 실패 확인: 진행 상태가 '발송 완료' 상태인 예약 건에서 일부 발송 요청이 실패한 건은 발송 실패 건수를 확인할 수 있습니다. **실패 건수** 버튼을 클릭하면 실패된 수신 번호와 발송 내용을 보여줍니다.
 
-<a id="delivery-status-of-mass-sms"></a>
-
+<a id="query-mass-sms-delivery-delivery-status-of-mass-sms"></a>
 #### 대량 SMS 발송 진행 상태
 
 - 대기: 수신자 파일 데이터를 읽는 작업을 진행하기 전 상태입니다.
@@ -458,8 +429,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 - 취소 완료: 발송 취소가 완료된 상태입니다.
 - 발송 실패: 발송 진행 중 발송 오류가 발생한 경우입니다.
 
-<a id="query-sms-delivery-per-recipient"></a>
-
+<a id="query-mass-sms-delivery-query-sms-delivery-per-recipient"></a>
 #### 수신자별 SMS 발송 조회
 
 대량 발송 건(리스트의 행)을 선택하시면 하단의 리스트에서 수신 번호별 발송 내용과 발송 결과를 조회할 수 있습니다.
@@ -473,19 +443,16 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 성공적으로 치환된 데이터를 확인할 수 있습니다.
 
 <a id="query-tagged-sms-delivery"></a>
+### 태그 SMS 발송 조회 { #query-tagged-sms-delivery }
 
-### 태그 SMS 발송 조회
-
-<a id="query-by-delivery-request"></a>
-
+<a id="query-tagged-sms-delivery-query-by-delivery-request"></a>
 #### 발송 요청별 조회
 
 태그 발송 요청 건들을 조회할 수 있습니다. 클릭 시 하단의 수신자별 조회에서 각 수신자별 조회가 가능합니다.
 
 ![sms_22_20230818](https://static.toastoven.net/prod_sms/SMS_22_20230818.png)
 
-<a id="query-sending-by-recipient"></a>
-
+<a id="query-tagged-sms-delivery-query-sending-by-recipient"></a>
 #### 수신자별 발송 조회
 
 하나의 요청에서 발송한 수신자 리스트를 조회할 수 있습니다.
@@ -497,12 +464,10 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 ![sms_24_20230818](https://static.toastoven.net/prod_sms/SMS_24_20230818.png)
 
 <a id="template-management"></a>
-
-## 템플릿 관리
+## 템플릿 관리 { #template-management }
 
 <a id="add-categories"></a>
-
-### 카테고리 추가
+### 카테고리 추가 { #add-categories }
 
 **카테고리 추가** 버튼 클릭 시 카테고리 추가가 가능합니다.
 
@@ -511,8 +476,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 반드시 카테고리를 선택한 상태에서 **카테고리 추가** 버튼을 클릭해야 합니다.
 
 <a id="modify-categories"></a>
-
-### 카테고리 수정
+### 카테고리 수정 { #modify-categories }
 
 **카테고리 수정** 버튼을 클릭 시 카테고리 수정이 가능합니다.
 
@@ -521,8 +485,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 반드시 카테고리를 선택한 상태에서 **카테고리 수정** 버튼을 클릭해야 합니다.
 
 <a id="add-templates"></a>
-
-### 템플릿 추가
+### 템플릿 추가 { #add-templates }
 
 **템플릿 추가** 버튼 클릭 시 템플릿 추가가 가능합니다.
 
@@ -534,8 +497,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 4. 모든 내용을 입력한 뒤 반드시 카테고리를 선택한 상태에서 **템플릿 추가**를 클릭합니다.
 
 <a id="modify-templates"></a>
-
-### 템플릿 수정
+### 템플릿 수정 { #modify-templates }
 
 템플릿을 선택하여 수정이 가능합니다.
 
@@ -547,8 +509,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 
 <span id='uid-manage'></span>
 <a id="uid-management"></a>
-
-## UID 관리
+## UID 관리 { #uid-management }
 
 UID 및 휴대폰 번호를 등록하고 삭제할 수 있습니다. 태그와 UID 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인하세요.
 
@@ -567,8 +528,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 
 <span id='tag-manage'></span>
 <a id="tag-management"></a>
-
-## 태그 관리
+## 태그 관리 { #tag-management }
 
 등록된 UID에 태그를 붙이거나 삭제할 수 있는 페이지입니다. 태그와 UID 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인하세요.
 
@@ -581,8 +541,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 태그에 UID를 등록합니다. (UID 탭에서 등록한 UID를 등록합니다.)
 
 <a id="webhook-management"></a>
-
-## 웹훅 관리
+## 웹훅 관리 { #webhook-management }
 
 지정한 이벤트 발생 시 URL을 지정하여 웹훅 이벤트를 받을 수 있습니다.
 
@@ -596,12 +555,10 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 등록 완료된 웹훅은 **웹훅 등록 목록**에서 확인 가능합니다.
 
 <a id="sending-settings"></a>
-
-## 발송 설정
+## 발송 설정 { #sending-settings }
 
 <a id="international-sms-sending-settings"></a>
-
-### 국제 SMS 발송 설정
+### 국제 SMS 발송 설정 { #international-sms-sending-settings }
 
 - 국제 SMS 발송 기능 이용 전 반드시 [[국제 SMS 발송 정책]](./international-sending-policy)을 확인합니다.
 - 국제 SMS 발송 기능을 사용하지 않으려면 미사용으로 설정하여 국제 SMS 물량 펌핑 현상으로 인한 사고를 방지합니다.
@@ -639,15 +596,13 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
     NHN Cloud는 어뷰징으로 발송된 국제 SMS에 대해 일체의 책임을 지지 않습니다.
 
 <a id="alternative-characters-settings"></a>
-
-### 대체 문자 설정
+### 대체 문자 설정 { #alternative-characters-settings }
 
 - 발송 요청의 본문/제목에 발송 불가능한 문자가 포함된 경우 발송 가능한 문자로 변환하도록 설정할 수 있습니다.
 - 대체 문자 설정을 사용으로 설정하면 발송 불가능한 문자가 '?'로 변환되어 표시됩니다.
 
 <a id="set-duplicate-delivery"></a>
-
-### 중복 발송 설정
+### 중복 발송 설정 { #set-duplicate-delivery }
 
 - 중복된 메시지를 발송하지 않도록 설정할 수 있습니다.
 - 중복 발송 차단 설정을 한 경우 설정된 시간(단위:분) 동안 동일한 요청에 대해 발송 실패 처리됩니다.
@@ -656,8 +611,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
     - 메시지 타입(SMS/LMS/MMS/AUTH), 발송 타입(일반/대량/태그), 발신 번호, 수신 번호, 제목, 본문, 첨부 파일
 
 <a id="limit-advertising-messages"></a>
-
-### 광고 발송 제한 설정
+### 광고 발송 제한 설정 { #limit-advertising-messages }
 
 - 광고 메시지의 발송 시간을 제한할 수 있습니다.
 - 설정된 시간 동안 광고 발송은 진행되지 않습니다.
@@ -666,15 +620,13 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 - 미발송 메시지 설정 방식에 따라 실패/재발송이 가능합니다.
 
 <a id="backup-settings"></a>
-
-### 백업 설정
+### 백업 설정 { #backup-settings }
 
 - 메시지 보관 기간 정책에 따라 180일이 지난 발송 이력 데이터를 백업할 수 있습니다.
 - 메시지 백업 여부, 파일 확장자, 파일을 업로드할 저장소 정보를 입력하면 해당 저장소에 백업 일자가 포함된 파일이 생성됩니다.
 
 <a id="statistical-event-key-settings"></a>
-
-## 통계 이벤트 키 설정
+## 통계 이벤트 키 설정 { #statistical-event-key-settings }
 
 이벤트 키를 등록하여 해당 키로 발송 시, 통계 이벤트 키별로 통계 데이터를 수집할 수 있습니다.<br/>
 통계 이벤트 키 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인하세요.
@@ -689,18 +641,15 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 **데이터 수집 기간 종료 시점은 활성화인 경우에 수정이 가능합니다.**
 
 <a id="statistics"></a>
-
-## 통계
+## 통계 { #statistics }
 
 <a id="query-statistics"></a>
-
-### 통계 조회
+### 통계 조회 { #query-statistics }
 
 - 발송 요청 기간, 통계 이벤트 키, 템플릿 등 타입별로 통계를 조회할 수 있습니다.
 - 발송 요청, 성공, 실패 등 발송 상태를 그래프와 표로 확인할 수 있습니다.
 
-<a id="categorize-statistics"></a>
-
+<a id="query-statistics-categorize-statistics"></a>
 #### 통계 분류
 
 - 메시지(요청 시간): 발송 요청 시간 기준으로 수집된 통계입니다.
@@ -727,16 +676,13 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
     - 전환 완료: 전환율 수집 요청 발송 건이 전환 완료된 시간
 
 <a id="note"></a>
-
-## 참고
+## 참고 { #note }
 
 <span id='tag-uid'></span>
 <a id="tags-and-uid"></a>
+### 태그와 UID { #tags-and-uid }
 
-### 태그와 UID
-
-<a id="glossary"></a>
-
+<a id="tags-and-uid-glossary"></a>
 #### 서비스 용어
 
 | 용어           | 설명                                       |
@@ -745,8 +691,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 | UID          | 사용자를 구분하는 ID(식별자). <br>하나의 UID에는 여러 개의 연락처를 등록하여 발송에 사용할 수 있습니다. |
 | 연락처(contact) | 연락을 하기 위해 정해둔 곳. <br>Notification에서는 Push, Email, SMS, 총 3개의 서비스에서 연락처를 등록할 수 있습니다. <br>Push는 토큰, Email은 메일 주소, SMS는 전화번호를 말합니다. |
 
-<a id="send-using-tags"></a>
-
+<a id="tags-and-uid-send-using-tags"></a>
 #### 태그를 사용하여 발송
 
 수신자 정보인 전화번호 대신, 태그를 선택하여 문자를 발송할 수 있는 기능입니다.
@@ -764,19 +709,16 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
     - 문자는 태그에 등록된 UID의 전화번호로 발송됩니다.
     - 자세한 내용은 [태그를 사용한 문자 발송](./console-guide/#tag-send)을 참고하세요.
 
-<a id="relationship-with-tag-features-in-other-services"></a>
-
+<a id="tags-and-uid-relationship-with-tag-features-in-other-services"></a>
 #### 다른 서비스의 태그 기능과의 관계
 
 - 만약 같은 프로젝트에서 Push 또는 SMS 서비스를 사용하고 있다면, Email에서 사용하고 있는 태그와 UID 정보를 재등록 없이 함께 사용할 수 있습니다.
 - 각 서비스의 콘솔을 통해 같은 UID에 다른 연락처 정보를 추가할 수 있습니다.
 
 <a id="statistics-event-keys-and-statistics"></a>
+### 통계 이벤트 키와 통계 { #statistics-event-keys-and-statistics }
 
-### 통계 이벤트 키와 통계
-
-<a id="glossary-2"></a>
-
+<a id="statistics-event-keys-and-statistics-glossary"></a>
 #### 서비스 용어
 
 | 용어           | 설명                                       |
@@ -784,8 +726,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 | 통계 이벤트 키 | 통계를 특정 단위로 묶어서 보고 싶을 때 사용하는 이벤트 키입니다. |
 | statsId | 통계 이벤트 키의 고유 ID 입니다. API로 호출 시 해당 값을 주로 이용합니다. |
 
-<a id="if-you-want-to-extract-statistics-in-specific-units-when-sending-a-message"></a>
-
+<a id="statistics-event-keys-and-statistics-if-you-want-to-extract-statistics-in-specific-units-when-sending-a-message"></a>
 #### 메시지 발송 시 특정 단위로 통계를 추출하고 싶은 경우
 
 1. **통계 이벤트 키 관리** 탭에서 통계 이벤트 키를 등록합니다. API를 사용하여 발송하는 경우 통계 아이디(statsId)를 이 화면에서 획득해야 합니다.
@@ -801,8 +742,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
     - 일정 시간이 지난 후 **통계** 탭에서 통계 정보를 확인할 수 있습니다.
 
 <a id="data-retention-period"></a>
-
-### 데이터 보관 기간
+### 데이터 보관 기간 { #data-retention-period }
 
 - 데이터 보관 정책에 따라 최근 180일의 발송 이력을 보관합니다. 이 기간 동안 발송 내역 조회가 가능하며, 보관 기간이 만료되면 관련 법령에 따라 데이터를 삭제합니다.
 - 서비스에 이용된 첨부 파일은 7일간만 보관되며 그 이후에는 삭제되어 조회할 수 없습니다.

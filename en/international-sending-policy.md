@@ -1,21 +1,19 @@
-<!-- pre-align:aligned sig=738aed6a869b -->
+<!-- pre-align:aligned sig=fb2797554ca0 -->
 
-## Notification > SMS > Service Policy > International Sending Policy
+<a id="notification-sms-service-policy-international-sending-policy"></a>
+## Notification > SMS > Service Policy > International Sending Policy { #notification-sms-service-policy-international-sending-policy }
 
 <a id="guide-to-sending-international-sms-messages"></a>
-
-## Guide to Sending International SMS Messages
+## Guide to Sending International SMS Messages { #guide-to-sending-international-sms-messages }
 + When sending international SMS messages, please check the following key points.
 
 <a id="country-specific-sender-id-policy"></a>
-
-## Country-specific Sender ID Policy
+## Country-specific Sender ID Policy { #country-specific-sender-id-policy }
 + International SMS messages are sent according to country-specific sender ID policies and may be treated as spam if you do not follow the policies.
 + The sending number set by the customer is not guaranteed to be exposed on the receiving device. In most cases, the messages are sent after changing the sending number to a random number in order to send international SMS messages normally.
 
 <a id="sending-policy"></a>
-
-## Sending Policy
+## Sending Policy { #sending-policy }
 * For detailed country-specific policies, see the [Detailed guide to SMS sending by country](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board).
 + In countries with strict international SMS message policies such as Vietnam, messages can be sent normally only if the content of the sending message is a verification number (OTP).
 + To send messages properly, it is recommended to enter the verification number (OTP) as follows. (Example: Your verification code is 00000)
@@ -28,8 +26,7 @@
 + Transmission quality by country is affected by the network and infrastructure environment in that country and may differ from the domestic environment.
 
 <a id="billing-policy"></a>
-
-## Billing Policy
+## Billing Policy { #billing-policy }
 + International SMS messages are charged based on successful data transmission from overseas carriers.
 + International SMS billing policies are independent of DLR message status and DLR result codes.
 + The device reception result means the success of data transmission to the overseas communication service provider, and may differ from the actual device reception result. Even if the actual user did not receive the message, it may still count towards billing.
@@ -45,8 +42,7 @@
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
 
 <a id="international-sms-traffic-pumping"></a>
-
-## International SMS Traffic pumping
+## International SMS Traffic pumping { #international-sms-traffic-pumping }
 + Some international mobile network operators (MNOs) may artificially trigger the sending of messages to increase revenues.
 + A bot or abuser makes a bulk request to send a message on a page, such as a request for a signup verification number.
 + Most bots or abusers don't actually authenticate after requesting authentication. When abusing occurs, requests for authentication number increases, but the percentage that authenticate and convert decreases.
@@ -61,14 +57,12 @@
     + Prevent messages that are being sent to similar number ranges (e.g., +1111111110, +1111111111, +1111111112, +1111111113, etc.) from being ingested consecutively.
 
 <a id="sending-blocking-based-on-international-sms-conversion-rate"></a>
-
-## Sending Blocking based on international SMS conversion rate
+## Sending Blocking based on international SMS conversion rate { #sending-blocking-based-on-international-sms-conversion-rate }
 + In general, you consider a conversion to have occurred when a recipient takes an action after receiving your message, such as clicking a URL or entering a verification number.
 + The Block by international SMS conversion rate feature allows you to check whether recipients convert after receiving a message, increasing the reliability of your international SMS sending and strengthening your protection against abusive behavior.
 
 <a id="collection-of-international-sms-conversions"></a>
-
-### Collection of international SMS conversions
+### Collection of international SMS conversions { #collection-of-international-sms-conversions }
 + Set whether or not to collect conversion rates in the request to collect conversion rates field when making the international SMS sending API request.
     + For more information, see the [API v3.0 guide](./api-guide/#sms_1).
 + When you determine that a shipment that you set up to collect conversion rates has converted, you can notify NHN Cloud of the conversion through a conversion API call.
@@ -78,8 +72,7 @@
     + If you have more than 50 messages sent to a country with **Conversion Rate Based Sending Blocking and Notifications** enabled in a 24-hour period, and your conversion rate is 50% or less, sending to that country is automatically blocked.
 
 <a id="set-blocking-countries-by-conversion-rate"></a>
-
-### Set blocking countries by conversion rate
+### Set blocking countries by conversion rate { #set-blocking-countries-by-conversion-rate }
 + In **Delivery Settings > International SMS** from the console, you must change the Block by conversion rate setting to Enable.
 + After enabling the feature, you must set which countries to block based on conversion rate.
     + Conversion rate is calculated and blocking applies for each country based on the conversion rate-based blocking rule settings. 
@@ -88,8 +81,7 @@
 + For more information, see the [console user guide](./console-guide/#sms_8).
 
 <a id="available-countries"></a>
-
-## Available countries
+## Available countries { #available-countries }
 | Country name | Country code |
 | ------- | ----- |
 | United States / Canada | 1 |

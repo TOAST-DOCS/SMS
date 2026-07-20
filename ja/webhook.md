@@ -1,13 +1,13 @@
-<!-- pre-align:aligned sig=aed32cb25cdb -->
+<!-- pre-align:aligned sig=360130a3bb5d -->
 
-## Webフック
+<a id="webhook"></a>
+## Webフック { #webhook }
 
 SMSサービス内で特定イベントが発生すると、Webフック設定に定義されているURLにPOSTリクエストを作成します。<br>
 作成されたPOSTリクエストについてのAPI文書です。
 
 <a id="webhook-delivery"></a>
-
-## Webフック送信
+## Webフック送信 { #webhook-delivery }
 
 [URL]
 
@@ -47,8 +47,7 @@ SMSサービス内で特定イベントが発生すると、Webフック設定�
 | event           | String    | Webフックイベント名<br>* UNSUBSCRIBE:広告文字受信番号登録<br>* MESSAGE_RESULT_UPDATE:メッセージ送信結果コードアップデート<br>* CONVERSION_BLOCK:コンバージョン率によるブロック国発生 |
 | hooks           | List<Map> | Webフックイベント発生時のデータ<br>* 詳細は[イベントタイプ別hooks定義](./webhook/#hooks)を参照してください。                                                    |
 
-<a id="curl"></a>
-
+<a id="webhook-delivery-curl"></a>
 #### cURL
 
 ```
@@ -72,12 +71,10 @@ curl -X POST \
 ```
 
 <a id="hooks-definitions-by-event-type"></a>
-
-## イベントタイプ別hooks定義
+## イベントタイプ別hooks定義 { #hooks-definitions-by-event-type }
 Webフック設定で定義されたURLでPOSTリクエストを作成する時、イベントタイプ別のフック(hook)データです。
 <a id="registration-of-recipient-number-for-ad-messages"></a>
-
-### 広告メッセージ受信番号登録
+### 広告メッセージ受信番号登録 { #registration-of-recipient-number-for-ad-messages }
 | 値                       | タイプ    | 説明                                            |
 |-------------------------|--------|-----------------------------------------------|
 | hooks[].hookId          | String | サービスでイベント発生時に作成される固有ID                        |
@@ -99,8 +96,7 @@ Webフック設定で定義されたURLでPOSTリクエストを作成する時�
 ```
 
 <a id="code-update-for-message-sending-result"></a>
-
-### メッセージ送信結果コードアップデート
+### メッセージ送信結果コードアップデート { #code-update-for-message-sending-result }
 | 値                      | タイプ    | 説明                                           |
 |-------------------------|--------|-----------------------------------------------|
 | hooks[].hookId          | String | サービスでイベント発生時に作成される固有ID                     |
@@ -144,8 +140,7 @@ Webフック設定で定義されたURLでPOSTリクエストを作成する時�
 ```
 
 <a id="conversion-rate-based-send-block-countries"></a>
-
-### コンバージョン率に基づく送信ブロック国発生
+### コンバージョン率に基づく送信ブロック国発生 { #conversion-rate-based-send-block-countries }
 | 値                     | タイプ   | 説明                                          |
 |-------------------------|--------|-----------------------------------------------|
 | hooks[].hookId          | String | サービスでイベント発生時に作成される固有ID                     |
@@ -163,8 +158,7 @@ Webフック設定で定義されたURLでPOSTリクエストを作成する時�
 ```
 
 <a id="international-sms-dlr-update"></a>
-
-### 国際送信DLRアップデート
+### 国際送信DLRアップデート { #international-sms-dlr-update }
 | 値                  | タイプ    | 説明                                                                          |
 |----------------------|---------|-------------------------------------------------------------------------------|
 | hooks[].hookId       | String  | サービスでイベント発生時に作成される固有ID                                                     |

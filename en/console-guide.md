@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=fcae760093f6 -->
+<!-- pre-align:aligned sig=817102849a61 -->
 
 <style>
     .custom-table thead {
@@ -14,13 +14,13 @@
     }
 </style>
 
-## Notification > SMS > Console Guide
+<a id="notification-sms-console-guide"></a>
+## Notification > SMS > Console Guide { #notification-sms-console-guide }
 
 > To enable SMS Service, you may first register sender numbers on [Console > SMS > Pre-register Sender Numbers > Register Sender Number and Verify Owner] (Telecommunications Business Law).
 
 <a id="identity-verification"></a>
-
-## Identity Verification
+## Identity Verification { #identity-verification }
 
 - In order to comply with the amendment of the Telecommunications Business Act, an enhanced sender number pre-registration system has been applied to the SMS service.
     - Only for members who joined after March 2, 2022
@@ -34,8 +34,7 @@
   Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example) 000000-0\*\*\*\*\*\*
 
 <a id="required-documentation-by-member-type"></a>
-
-### Required Documentation by Member Type
+### Required Documentation by Member Type { #required-documentation-by-member-type }
 
 <table class="custom-table" style="text-align: center">
   <thead>
@@ -70,8 +69,7 @@
 </table>
 
 <a id="identity-verification-process"></a>
-
-### Identity Verification Process
+### Identity Verification Process { #identity-verification-process }
 
 ![sms_01_20240104](https://static.toastoven.net/prod_sms/eng/SMS_01_20240104.png)
 
@@ -84,8 +82,7 @@
 7. Once the identity verification process is complete, the approval result will be sent to the email registered to your account.
 
 <a id="description-of-identity-verification-status"></a>
-
-### Description of identity verification status
+### Description of identity verification status { #description-of-identity-verification-status }
 
 - Reviewing: The administrator is reviewing the authentication documents for registered identity verification.
 - Rejected: A state in which identity verification has been rejected and documents must be re-registered.
@@ -93,19 +90,16 @@
 
 
 <a id="pre-register-sender-numbers"></a>
-
-## Pre-register Sender Numbers
+## Pre-register Sender Numbers { #pre-register-sender-numbers }
 
 <a id="enforce-pre-registration-of-sender-numbers"></a>
-
-### Enforce pre-registration of sender numbers
+### Enforce pre-registration of sender numbers { #enforce-pre-registration-of-sender-numbers }
 
 - In accordance with the Telecommunications Business Act, the registration of a sender number requires the verification of the owner of the sender number.
 - The owner verification method and required documents are determined according to the sender number type.
 
 <a id="owner-verification-method-by-calling-number"></a>
-
-### Owner verification method by calling number
+### Owner verification method by calling number { #owner-verification-method-by-calling-number }
 
 <table class="custom-table" style="text-align: center">
   <thead>
@@ -149,8 +143,7 @@
     - Proof of employment can only be <span style="color:red;font-weight:bold">documents with the date of issuance and a stamp.<span style="color:red;font-weight:bold"><br/>Make sure you <span style="color:red;font-weight:bold">mask (hide) the last 6 digits of your resident registration number<span style="color:red;font-weight:bold"> in your employment certificate. Example: 000000-0\*\*\*\*\*\*
 
 <a id="how-to-issue-documents-for-each-mobile-carrier"></a>
-
-### How to Issue Documents for Each Mobile Carrier
+### How to Issue Documents for Each Mobile Carrier { #how-to-issue-documents-for-each-mobile-carrier }
 
 - You can download the service usage certificate from your carrier's website.
 - Depending on the carrier, the service usage certificate may differ such as "subscription confirmation," "proof of subscription," or "proof of contract registration".
@@ -177,8 +170,7 @@
     - Hello Mobile Customer Center: 1855-1144 (LGU+), 1855-1144 (KT), 1855-2114 (SKT)
 
 <a id="registration-format-for-sender-numbers"></a>
-
-### Registration Format for Sender Numbers
+### Registration Format for Sender Numbers { #registration-format-for-sender-numbers }
 
 ```
 * Fixed phone number: 02-YYY-YYYY (including area code)
@@ -194,8 +186,7 @@
 
 
 <a id="register-sender-numbers"></a>
-
-### Register Sender Numbers
+### Register Sender Numbers { #register-sender-numbers }
 
 ![sms_02_20240104](https://static.toastoven.net/prod_sms/eng/SMS_02_20240104.png)
 
@@ -210,8 +201,7 @@
 8. Once the sender number verification process is complete, the approval result will be sent to the email registered to your account.
 
 <a id="description-for-sender-number-registration-status"></a>
-
-### Description for Sender Number Registration Status
+### Description for Sender Number Registration Status { #description-for-sender-number-registration-status }
 
 - Reviewing: The administrator is reviewing the authentication documents for the registered sender number.
 - Rejected: Document authentication is rejected and document re-registration is required.
@@ -222,8 +212,7 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 ![sms_03_20230818](https://static.toastoven.net/prod_sms/eng/SMS_03_20230818.png)
 
 <a id="sending-sms"></a>
-
-## Sending SMS
+## Sending SMS { #sending-sms }
 
 - The maximum character count is based on storage. To avoid character truncation, write to a standard size, not a maximum character count.
 - Content standards
@@ -244,8 +233,7 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 
 
 <a id="general-delivery"></a>
-
-### General Delivery
+### General Delivery { #general-delivery }
 
 1. Enable Template: You can send messages on user-created templates.
     - If you have pre-created templates, select **Use** from **Use Templates** and select a template from **Select Templates**.
@@ -271,13 +259,11 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 11. Send: Click **Send** for delivery.
 
 <a id="mass-delivery"></a>
-
-### Mass Delivery
+### Mass Delivery { #mass-delivery }
 
 You can send SMS/MMS to many numbers via template files in Excel/CSV.
 
-<a id="template-files"></a>
-
+<a id="mass-delivery-template-files"></a>
 #### Template Files
 
 To download template files, select **Mass Delivery** and click **Download Templates**.
@@ -297,8 +283,7 @@ Fill out **recipient numbers** and **replacement data** in the downloaded templa
 
 Recipient numbers can include '+', '-', or space characters.
 
-<a id="validity-check-for-template-files"></a>
-
+<a id="mass-delivery-validity-check-for-template-files"></a>
 #### Validity Check for Template Files
 
 When a template file includes data error while uploaded, such errors, including the total number and no more than 10 errors, are displayed.
@@ -310,8 +295,7 @@ Type of Errors
 - When recipient numbers are entered in a wrong format
 - When recipient numbers or replacement data are missing
 
-<a id="select-scheduled-delivery-deliver-after-checkimmediate-delivery"></a>
-
+<a id="mass-delivery-select-scheduled-delivery-deliver-after-checkimmediate-delivery"></a>
 #### Select Scheduled Delivery (Deliver after Check/Immediate Delivery)
 
 To send after delivery information and mass delivery files are uploaded, click **Schedule Delivery**. To schedule delivery, you may select either **Deliver after Check** or **Scheduled Delivery**.
@@ -319,16 +303,14 @@ To send after delivery information and mass delivery files are uploaded, click *
 - Scheduled Delivery after Check: Check recipient numbers and message body to send, from the **Query Mass SMS Delivery** tab and then send. Otherwise, you cannot send messages.
 - Scheduled Delivery: Send immediately, without checking recipient numbers and text messages. Find delivery results on the **Query Mass SMS Delivery** tab.
 
-<a id="split-send"></a>
-
+<a id="mass-delivery-split-send"></a>
 #### Split Send
 
 Split send allows you to split messages before sending by setting **Number of Splits** and **Send Interval**.
 
 <span id='tag-send'></span>
 <a id="send-tags"></a>
-
-### Send Tags
+### Send Tags { #send-tags }
 
 Send with UID according to tag conditions.
 
@@ -339,15 +321,13 @@ Send with UID according to tag conditions.
 Tags can be registered on **Tag Management**, while UID and phone numbers can be saved on the **UID Management** tab.
 
 <a id="setting-for-rejection-of-receiving-080-numbers"></a>
-
-## Setting for Rejection of Receiving 080 Numbers
+## Setting for Rejection of Receiving 080 Numbers { #setting-for-rejection-of-receiving-080-numbers }
 
 The rejection of receiving 080 numbers service allows recipients to reject receiving of ad messages.
 Advertisement messages<span style="color:red"> must include how to Deny for free </span> for recipients to reject or withdraw consent of receiving.
 
 <a id="subscription"></a>
-
-### Subscription
+### Subscription { #subscription }
 
 Go to **Setting for rejection of receiving 080 numbers** to find the subscription page.
 Click **Add 080 Numbers to Reject Receiving** to enter business names.
@@ -357,20 +337,17 @@ Click **Add 080 Numbers to Reject Receiving** to enter business names.
 ![sms_14_20230818](https://static.toastoven.net/prod_sms/eng/SMS_14_20230818.png)
 
 <a id="registration-scheduled"></a>
-
-### Registration Scheduled
+### Registration Scheduled { #registration-scheduled }
 
 When subscription is fully applied, the status is changed to Registration Scheduled. It takes 3 to 4 business days to open the rejection of receiving 080-number service, and the service is enabled after opening.
 
 <a id="registration-completed"></a>
-
-### Registration Completed
+### Registration Completed { #registration-completed }
 
 When the service is completely open, you can find the start date and status of service.**While the rejection of 080-number is scheduled for registration or in service, SMS Service cannot be closed.** Service can be closed only after it is canceled.To cancel the service, press **Cancel Service**.
 
 <a id="send-ad-messages"></a>
-
-### Send Ad Messages
+### Send Ad Messages { #send-ad-messages }
 
 1. Ad messages can be sent only when the rejection 080-number service is enable.
 2. When the delivery type is changed into **For Advertisement**, you can find an option to select numbers to reject receiving.
@@ -397,18 +374,15 @@ Deny for free 080XXXXXXX
 ![sms_16_20230818](https://static.toastoven.net/prod_sms/eng/SMS_16_20230818.png)
 
 <a id="query-target-of-rejection"></a>
-
-### Query Target of Rejection
+### Query Target of Rejection { #query-target-of-rejection }
 
 Rejection targets, requested with request date and time as optional, can be queried from the panel at the bottom.
 
 <a id="query-of-sms"></a>
-
-## Query of SMS
+## Query of SMS { #query-of-sms }
 
 <a id="query-by-sms-request"></a>
-
-### Query by SMS Request
+### Query by SMS Request { #query-by-sms-request }
 
 Each item can be queried by conditions.
 (request id or date and time of delivery are required).
@@ -422,8 +396,7 @@ Each item can be queried by conditions.
 - You can check the success/failure of sending processing through the sending results.
 
 <a id="query-scheduled-sms-delivery"></a>
-
-### Query Scheduled SMS Delivery
+### Query Scheduled SMS Delivery { #query-scheduled-sms-delivery }
 
 You can query the list of scheduled delivery.
 
@@ -435,8 +408,7 @@ You can query the list of scheduled delivery.
 - If your scheduled sending is waiting, you can cancel it by selecting it from the list.
 
 <a id="query-mass-sms-delivery"></a>
-
-### Query Mass SMS Delivery
+### Query Mass SMS Delivery { #query-mass-sms-delivery }
 
 You can search for mass delivery by sending type.
 
@@ -447,8 +419,7 @@ You can search for mass delivery by sending type.
 - You can send or cancel by clicking the **Send/Cancel** button. In case of scheduled sending is automatically processed at the current time.
 - Check Failed Delivery: If delivery request fails while the progress status is 'Delivery Completed', the number of failure can be found. Click **Failure Cases** to check failed recipient numbers and messages.
 
-<a id="delivery-status-of-mass-sms"></a>
-
+<a id="query-mass-sms-delivery-delivery-status-of-mass-sms"></a>
 #### Delivery Status of Mass SMS
 
 - Waiting: Recipient file data are yet to be read.
@@ -462,8 +433,7 @@ You can search for mass delivery by sending type.
 - Canceled: The delivery has been canceled.
 - Delivery Failed: Error occurred during delivery.
 
-<a id="query-sms-delivery-per-recipient"></a>
-
+<a id="query-mass-sms-delivery-query-sms-delivery-per-recipient"></a>
 #### Query SMS Delivery per Recipient
 
 Select mass delivery (column on the list) to check delivery information of each recipient number and the result.
@@ -477,19 +447,16 @@ To find more details of delivery, click **View Details**.
 You can find successfully replaced data.
 
 <a id="query-tagged-sms-delivery"></a>
+### Query Tagged SMS Delivery { #query-tagged-sms-delivery }
 
-### Query Tagged SMS Delivery
-
-<a id="query-by-delivery-request"></a>
-
+<a id="query-tagged-sms-delivery-query-by-delivery-request"></a>
 #### Query by Delivery Request
 
 You can query requests for tag delivery. Click to query each recipient as below.
 
 ![sms_22_20230818](https://static.toastoven.net/prod_sms/eng/SMS_22_20230818.png)
 
-<a id="query-sending-by-recipient"></a>
-
+<a id="query-tagged-sms-delivery-query-sending-by-recipient"></a>
 #### Query Sending by Recipient
 
 You can query the list of recipients sent from one request.
@@ -501,12 +468,10 @@ To find more details of delivery, click **View Details**.
 ![sms_24_20230818](https://static.toastoven.net/prod_sms/eng/SMS_24_20230818.png)
 
 <a id="template-management"></a>
-
-## Template Management
+## Template Management { #template-management }
 
 <a id="add-categories"></a>
-
-### Add Categories
+### Add Categories { #add-categories }
 
 Click **Add Categories** to add categories.
 
@@ -515,8 +480,7 @@ Click **Add Categories** to add categories.
 Make sure to click **Add Categories** while a category is selected.
 
 <a id="modify-categories"></a>
-
-### Modify Categories
+### Modify Categories { #modify-categories }
 
 Click **Modify Categories** to modify categories.
 
@@ -525,8 +489,7 @@ Click **Modify Categories** to modify categories.
 Make sure to click **Modify Categories** while a category is selected.
 
 <a id="add-templates"></a>
-
-### Add Templates
+### Add Templates { #add-templates }
 
 Click **Add Templates** to add templates.
 
@@ -538,8 +501,7 @@ Click **Add Templates** to add templates.
 4. After entering all the information, make sure to select a category, click **Add Template**.
 
 <a id="modify-templates"></a>
-
-### Modify Templates
+### Modify Templates { #modify-templates }
 
 Select a template to modify.
 
@@ -551,8 +513,7 @@ Select a template to modify.
 
 <span id='uid-manage'></span>
 <a id="uid-management"></a>
-
-## UID Management
+## UID Management { #uid-management }
 
 You can register and delete UID and mobile phone number. Please refer to [the reference](./console-guide/#tag-uid)
 
@@ -572,8 +533,7 @@ Find the number counts while uploading a template which is created.
 
 <span id='tag-manage'></span>
 <a id="tag-management"></a>
-
-## Tag Management
+## Tag Management { #tag-management }
 
 This is a page where you can tag or delete registered UIDs. Please refer to the reference for the meaning of tags and UID terms.
 
@@ -586,8 +546,7 @@ Click **Register Tag** to register the tag.
 Register UID in tag. (Register the UID registered in the UID tab.)
 
 <a id="webhook-management"></a>
-
-## Webhook Management
+## Webhook Management { #webhook-management }
 
 You can receive a webhook event by specifying a URL when a specified event occurs.
 
@@ -601,8 +560,7 @@ You can receive a webhook event by specifying a URL when a specified event occur
 Registered webhooks can be checked in the **webhook registration list**.
 
 <a id="sending-settings"></a>
-
-## Sending Settings
+## Sending Settings { #sending-settings }
 
 - Before using the international SMS sending feature, see [International Sending Policy](./international-sending-policy).
 - If you do not want to use the international SMS sending feature, you can prevent accidents due to international SMS volume pumping by setting it to unused.
@@ -639,21 +597,18 @@ Registered webhooks can be checked in the **webhook registration list**.
     NHN Cloud is not responsible for any international SMS sent due to abuse.
 
 <a id="international-sms-sending-settings"></a>
-
-### International SMS Sending Settings
+### International SMS Sending Settings { #international-sms-sending-settings }
 
 <!-- TODO: translate body -->
 
 <a id="alternative-characters-settings"></a>
-
-### Alternative Characters Settings
+### Alternative Characters Settings { #alternative-characters-settings }
 
 - If the body/subject of the delivery request contains unsendable text, you can set it to be converted to sendable text.
 - When the alternative characters setting is enabled, unsendable characters are converted to '?' and displayed.
 
 <a id="set-duplicate-delivery"></a>
-
-### Set Duplicate Delivery
+### Set Duplicate Delivery { #set-duplicate-delivery }
 
 - By setting, duplicate messages may not be sent.
 - When the duplicate delivery setting is blocked, delivery is processed as failure for same requests during specified period (unit:minute).
@@ -662,8 +617,7 @@ Registered webhooks can be checked in the **webhook registration list**.
     - Message type (SMS/LMS/MMS/AUTH), delivery type (general/mass/tag), sender number, recipient number, title, body, and attached file
 
 <a id="limit-advertising-messages"></a>
-
-### Limit Advertising Messages
+### Limit Advertising Messages { #limit-advertising-messages }
 
 - You can limit the sending time of advertising messages.
 - Advertising messages will not be sent during the set time.
@@ -672,16 +626,14 @@ Registered webhooks can be checked in the **webhook registration list**.
 - Failure/re-delivery is possible depending on how the undelivered message is set up.
 
 <a id="backup-settings"></a>
-
-### Backup Settings
+### Backup Settings { #backup-settings }
 
 - Depending on the message retention period policy, you can back up sending history data that is older than 180 days.
 - If you enter information about whether to back up messages, the file extension, and the storage to upload the file to, a file containing the backup date will be created in that storage.
 
 
 <a id="statistical-event-key-settings"></a>
-
-## Statistical Event Key Settings
+## Statistical Event Key Settings { #statistical-event-key-settings }
 
 When registering an event key and sending with that key, you can collect statistical data by statistical event key./
 Please refer to the [reference](./console-guide/#tag-uid) for the meaning of statistical event key terms.
@@ -696,19 +648,16 @@ When the data collection period ends, it becomes inactive and no longer collects
 **The end point of the data collection period can be modified if activated.**
 
 <a id="statistics"></a>
-
-## Statistics
+## Statistics { #statistics }
 
 <a id="query-statistics"></a>
-
-### Query Statistics
+### Query Statistics { #query-statistics }
 
 - You can view statistics by delivery request duration, statistics event keys, template, and delivery type.
 - You can view delivery requests, successes, and failures in graphs and tables.
 
 
-<a id="categorize-statistics"></a>
-
+<a id="query-statistics-categorize-statistics"></a>
 #### Categorize Statistics
 
 - Messages (request time): Statistics collected by request time to send.
@@ -736,16 +685,13 @@ When the data collection period ends, it becomes inactive and no longer collects
 
 
 <a id="note"></a>
-
-## [Note]
+## [Note] { #note }
 
 <span id='tag-uid'></span>
 <a id="tags-and-uid"></a>
+### Tags and UID { #tags-and-uid }
 
-### Tags and UID
-
-<a id="glossary"></a>
-
+<a id="tags-and-uid-glossary"></a>
 #### Glossary
 
 | Term           | Description                                       |
@@ -754,8 +700,7 @@ When the data collection period ends, it becomes inactive and no longer collects
 | UID          | An ID (identifier) that identifies the user. <br>Multiple contacts can be registered in one UID and used for sending. |
 | Contact | A place designated for contact. <br>In Notification, you can register contact information from three services: Push, Email, and SMS. <br>Push refers to a token, Email refers to an email address, and SMS refers to a phone number. |
 
-<a id="send-using-tags"></a>
-
+<a id="tags-and-uid-send-using-tags"></a>
 #### Send using tags
 
 This feature allows you to send a text message by selecting a tag instead of the phone number that is the recipient's information.
@@ -773,18 +718,15 @@ This feature allows you to send a text message by selecting a tag instead of the
     - The text is sent to the phone number of the UID registered in the tag.
     - For more information, please refer to [Sending messages using tags](./console-guide/#tag-send).
 
-<a id="relationship-with-tag-features-in-other-services"></a>
-
+<a id="tags-and-uid-relationship-with-tag-features-in-other-services"></a>
 #### Relationship with tag features in other services
 
 - If you are using Push or SMS services in the same project, you can use the tag and UID information used in Email together without re-registering.
 - You can add additional contact information to the same UID through each service's console.
 
 <a id="statistics-event-keys-and-statistics"></a>
-
-### Statistics Event Keys and Statistics
-<a id="glossary-2"></a>
-
+### Statistics Event Keys and Statistics { #statistics-event-keys-and-statistics }
+<a id="statistics-event-keys-and-statistics-glossary"></a>
 #### Glossary
 
 | Term           | Description                                       |
@@ -792,8 +734,7 @@ This feature allows you to send a text message by selecting a tag instead of the
 | Statistical Event Key | This is an event key used when you want to view statistics grouped into specific units. |
 | statsId | Unique ID of the statistical event key. This value is mainly used when calling the API. |
 
-<a id="if-you-want-to-extract-statistics-in-specific-units-when-sending-a-message"></a>
-
+<a id="statistics-event-keys-and-statistics-if-you-want-to-extract-statistics-in-specific-units-when-sending-a-message"></a>
 #### If you want to extract statistics in specific units when sending a message
 
 1. Register statistical event keys in the **statistical event key management** tab. If sending using the API, you must obtain the statistics ID (statsId) from this screen.
@@ -809,8 +750,7 @@ This feature allows you to send a text message by selecting a tag instead of the
     - You can check statistical information after a certain period of time in the **Statistics** tab.
 
 <a id="data-retention-period"></a>
-
-### Data retention period
+### Data retention period { #data-retention-period }
 
 * Retains the sending history for the last 180 days in accordance with the data retention policy. During this period, you can view message delivery history. Once the retention period expires, data will be deleted in accordance with applicable laws and regulations.
 * The attachments used in services are retained for 7 days. After 7 days, they are deleted and cannot be retrieved.

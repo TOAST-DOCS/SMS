@@ -1,14 +1,13 @@
-<!-- pre-align:aligned sig=4ea042d2b711 -->
+<!-- pre-align:aligned sig=84da94690b91 -->
 
-## Notification > SMS > API v2.2 Guide
+<a id="notification-sms-api-v22-guide"></a>
+## Notification > SMS > API v2.2 Guide { #notification-sms-api-v22-guide }
 
 <a id="v22-api-overview"></a>
-
-## v2.2 API 소개
+## v2.2 API 소개 { #v22-api-overview }
 
 <a id="changes-from-v-21"></a>
-
-### v2.1과 달라진 사항
+### v2.1과 달라진 사항 { #changes-from-v-21 }
 
 1. 템플릿으로 발송 요청 시 요청 파라미터의 우선순위가 높아지도록 수정되었습니다.
     - 예시) 템플릿으로 발송 요청 시 요청 파라미터에 제목, 본문, 발신번호, 첨부파일이 포함된 경우 템플릿에 저장된 데이터를 사용되지 않도록 수정
@@ -17,8 +16,7 @@
     * SMS(본문: 최대 255자), LMS/MMS(제목: 최대 120자, 본문: 최대 4000자)
 
 <a id="api-domain"></a>
-
-### [API 도메인]
+### [API 도메인] { #api-domain }
 
 | 환경   | 	도메인                             |
 |------|----------------------------------|
@@ -27,8 +25,7 @@
 <span id="precautions"></span>
 
 <a id="caution"></a>
-
-### [주의 사항]
+### [주의 사항] { #caution }
 
 * 지원하는 문자 길이는 아래와 같습니다.
 * 최대 지원 글자 수는 저장 기준이며 문자 잘림을 방지하기 위해서 표준 규격으로 작성해주세요.
@@ -41,15 +38,12 @@
 | MMS 본문 | 4,000자 | 2,000바이트(한글 1,000자, 영문 2,000자) |
 
 <a id="short-sms"></a>
-
-## 단문 SMS
+## 단문 SMS { #short-sms }
 
 <a id="send-short-sms"></a>
+### 단문 SMS 발송 { #send-short-sms }
 
-### 단문 SMS 발송
-
-<a id="request"></a>
-
+<a id="send-short-sms-request"></a>
 #### 요청
 
 [URL]
@@ -105,8 +99,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                                | X   | 수신자 그룹키                                                                    |
 | userId                                    | 	String | 	100                                                               | X   | 발송 구분자 ex)admin,system                                                     |
 
-<a id="response"></a>
-
+<a id="send-short-sms-response"></a>
 #### 응답
 
 ```json
@@ -149,8 +142,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data.sendResultList[].recipientSeq         | Integer  | 수신자 시퀀스(mtPr)                       |
 | body.data.sendResultList[].recipientGroupingKey | String   | 수신자 그룹키                             |
 
-<a id="example-of-sending-short-sms-general-domestic-recipient-numbers"></a>
-
+<a id="send-short-sms-example-of-sending-short-sms-general-domestic-recipient-numbers"></a>
 #### 단문 SMS 발송 예제(일반 국내 수신 번호)
 
 | Http metho | URL                                                                  |
@@ -211,8 +203,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.nhncloudservice.com/sms/v2.2/appKeys/{appKey}/sender/sms -d '{"body": "{본문 내용}","sendNo": "15446859","senderGroupingKey":"SenderGroupingKey","recipientList":[{"recipientNo": "01000000000","recipientGroupingKey":"RecipientGroupingKey"},{"recipientNo": "01000000002","recipientGroupingKey":"RecipientGroupingKey2"}]}'
 ```
 
-<a id="example-of-sending-short-sms-with-country-code-included-to-recipient-numbers"></a>
-
+<a id="send-short-sms-example-of-sending-short-sms-with-country-code-included-to-recipient-numbers"></a>
 #### 단문 SMS 발송 예제(국가 코드가 포함된 수신 번호)
 
 | Http metho | URL                                                                  |
@@ -271,11 +262,9 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.n
 ```
 
 <a id="list-delivery-of-short-sms"></a>
+### 단문 SMS 발송리스트 조회 { #list-delivery-of-short-sms }
 
-### 단문 SMS 발송리스트 조회
-
-<a id="request-2"></a>
-
+<a id="list-delivery-of-short-sms-request"></a>
 #### 요청
 
 [URL]
@@ -318,8 +307,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
 | pageSize             | 	Integer | 1000   | 	옵션 | 	조회 수(기본값 : 15)                                       |
 
-<a id="response-2"></a>
-
+<a id="list-delivery-of-short-sms-response"></a>
 #### 응답
 
 ```json
@@ -398,11 +386,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].recipientGroupingKey | 	String  | 	수신자 그룹키                                       |
 
 <a id="query-delivery-of-short-sms"></a>
+### 단문 SMS 발송 단일 조회 { #query-delivery-of-short-sms }
 
-### 단문 SMS 발송 단일 조회
-
-<a id="request-3"></a>
-
+<a id="query-delivery-of-short-sms-request"></a>
 #### 요청
 
 [URL]
@@ -425,8 +411,7 @@ Content-Type: application/json;charset=UTF-8
 |------|----------|-----|-----------|
 | mtPr | 	Integer | 	필수 | 	발송 상세 ID |
 
-<a id="response-3"></a>
-
+<a id="query-delivery-of-short-sms-response"></a>
 #### 응답
 
 ```json
@@ -497,17 +482,14 @@ Content-Type: application/json;charset=UTF-8
 | body.data.recipientGroupingKey | 	String  | 	수신자 그룹키                                       |
 
 <a id="long-mms"></a>
-
-## 장문 MMS
+## 장문 MMS { #long-mms }
 
 <a id="send-long-mms-attached-file-excluded"></a>
-
-### 장문 MMS 발송(첨부 파일 미포함)
+### 장문 MMS 발송(첨부 파일 미포함) { #send-long-mms-attached-file-excluded }
 
 ※ LMS/MMS는 해외 발송이 불가능합니다.
 
-<a id="request-4"></a>
-
+<a id="send-long-mms-attached-file-excluded-request"></a>
 #### 요청
 
 [URL]
@@ -565,8 +547,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 1000  | X   | 수신자 그룹키                                                                    |
 | userId                                    | 	String | 100   | 	X  | 발송 구분자 ex)admin,system                                                     |
 
-<a id="response-4"></a>
-
+<a id="send-long-mms-attached-file-excluded-response"></a>
 #### 응답
 
 ```json
@@ -609,8 +590,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data.sendResultList[].recipientSeq         | Integer  | 수신자 시퀀스(mtPr)                       |
 | body.data.sendResultList[].recipientGroupingKey | String   | 수신자 그룹키                             |
 
-<a id="example-of-sending-long-mms"></a>
-
+<a id="send-long-mms-attached-file-excluded-example-of-sending-long-mms"></a>
 #### 장문 MMS 발송 예제
 
 | Http metho | URL                                                                  |
@@ -673,11 +653,9 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.n
 ```
 
 <a id="send-mms-attached-file-included"></a>
+### 장문 MMS 발송(첨부 파일 포함) { #send-mms-attached-file-included }
 
-### 장문 MMS 발송(첨부 파일 포함)
-
-<a id="example-of-sending-attached-files"></a>
-
+<a id="send-mms-attached-file-included-example-of-sending-attached-files"></a>
 #### 첨부 파일 발송 예제
 
 | Http method | URL                                                                  |
@@ -743,11 +721,9 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.n
     - 첨부 이미지 해상도: 1000*1000 이하
 
 <a id="list-delivery-of-long-mms-request"></a>
+### 장문 MMS 발송 리스트 조회 { #list-delivery-of-long-mms-request }
 
-### 장문 MMS 발송 리스트 조회
-
-<a id="request-5"></a>
-
+<a id="list-delivery-of-long-mms-request-request"></a>
 #### 요청
 
 [URL]
@@ -790,8 +766,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum              | 	Integer | -     | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
 | pageSize             | 	Integer | 1000  | 	옵션 | 	조회 수(기본값 : 15)                                       |
 
-<a id="response-5"></a>
-
+<a id="list-delivery-of-long-mms-request-response"></a>
 #### 응답
 
 ```json
@@ -904,11 +879,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].recipientGroupingKey           | 	String  | 	수신자 그룹키                                       |
 
 <a id="query-single-delivery-of-long-mms"></a>
+### 장문 MMS 발송 단일 조회 { #query-single-delivery-of-long-mms }
 
-### 장문 MMS 발송 단일 조회
-
-<a id="request-6"></a>
-
+<a id="query-single-delivery-of-long-mms-request"></a>
 #### 요청
 
 [URL]
@@ -931,8 +904,7 @@ Content-Type: application/json;charset=UTF-8
 |------|----------|-----|-----------|
 | mtPr | 	Integer | 	필수 | 	발송 상세 ID |
 
-<a id="response-6"></a>
-
+<a id="query-single-delivery-of-long-mms-response"></a>
 #### 응답
 
 ```json
@@ -1040,15 +1012,12 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].recipientGroupingKey           | 	String  | 	수신자 그룹키                                       |
 
 <a id="sms-for-authentication-emergency"></a>
-
-## 인증용 SMS(긴급)
+## 인증용 SMS(긴급) { #sms-for-authentication-emergency }
 
 <a id="send-sms-for-authentication"></a>
+### 인증용 SMS 발송 { #send-sms-for-authentication }
 
-### 인증용 SMS 발송
-
-<a id="request-7"></a>
-
+<a id="send-sms-for-authentication-request"></a>
 #### 요청
 
 [URL]
@@ -1104,8 +1073,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientList[].recipientGroupingKey      | String  | 100                                                                | X   | 수신자 그룹키                                                                 |
 | userId                                    | 	String | 100                                                                | 	X  | 발송 구분자 ex)admin,system                                                  |
 
-<a id="response-7"></a>
-
+<a id="send-sms-for-authentication-response"></a>
 #### 응답
 
 ```json
@@ -1148,8 +1116,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data.sendResultList[].recipientSeq         | Integer  | 수신자 시퀀스(mtPr)                       |
 | body.data.sendResultList[].recipientGroupingKey | String   | 수신자 그룹키                             |
 
-<a id="example"></a>
-
+<a id="send-sms-for-authentication-example"></a>
 #### 예제
 
 | Http metho | URL                                                                       |
@@ -1218,11 +1185,9 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://sms.api.n
 ```
 
 <a id="list-sms-delivery-for-authentication"></a>
+### 인증용 SMS 발송리스트 조회 { #list-sms-delivery-for-authentication }
 
-### 인증용 SMS 발송리스트 조회
-
-<a id="request-8"></a>
-
+<a id="list-sms-delivery-for-authentication-request"></a>
 #### 요청
 
 [URL]
@@ -1265,8 +1230,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
 | pageSize             | 	Integer | 1000   | 	옵션 | 	조회 수(기본값 : 15)                                       |
 
-<a id="response-8"></a>
-
+<a id="list-sms-delivery-for-authentication-response"></a>
 #### 응답
 
 ```json
@@ -1345,11 +1309,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].recipientGroupingKey | 	String  | 	수신자 그룹키                                       |
 
 <a id="query-single-sms-delivery-for-authentication"></a>
+### 인증용 SMS 발송 단일 조회 { #query-single-sms-delivery-for-authentication }
 
-### 인증용 SMS 발송 단일 조회
-
-<a id="request-9"></a>
-
+<a id="query-single-sms-delivery-for-authentication-request"></a>
 #### 요청
 
 [URL]
@@ -1372,8 +1334,7 @@ Content-Type: application/json;charset=UTF-8
 |------|----------|-----|-----------|
 | mtPr | 	Integer | 	필수 | 	발송 상세 ID |
 
-<a id="response-9"></a>
-
+<a id="query-single-sms-delivery-for-authentication-response"></a>
 #### 응답
 
 ```json
@@ -1444,15 +1405,12 @@ Content-Type: application/json;charset=UTF-8
 | body.data.recipientGroupingKey | 	String  | 	수신자 그룹키                                       |
 
 <a id="ad-messages"></a>
-
-## 광고 문자
+## 광고 문자 { #ad-messages }
 
 <a id="send-sms-for-advertisement"></a>
+### 광고성 SMS 발송 { #send-sms-for-advertisement }
 
-### 광고성 SMS 발송
-
-<a id="request-10"></a>
-
+<a id="send-sms-for-advertisement-request"></a>
 #### 요청
 
 [URL]
@@ -1500,13 +1458,11 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 <a id="send-mms-for-advertisement"></a>
-
-### 광고성 MMS 발송
+### 광고성 MMS 발송 { #send-mms-for-advertisement }
 
 ※ LMS/MMS는 해외 발송이 불가능합니다.
 
-<a id="request-11"></a>
-
+<a id="send-mms-for-advertisement-request"></a>
 #### 요청
 
 [URL]
@@ -1554,18 +1510,15 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 <a id="query-messages-by-result-updates"></a>
-
-## 결과 업데이트 기준 메시지 검색
+## 결과 업데이트 기준 메시지 검색 { #query-messages-by-result-updates }
 
 * 해당 API는 메시지 발송 결과 업데이트 시간 기준으로 조회됩니다.
 * 단말기 발송 결과를 서비스에서 가져가 사용하시는 경우 이 API를 사용해주세요.
 
 <a id="query-messages"></a>
+### 메시지 조회 { #query-messages }
 
-### 메시지 조회
-
-<a id="request-12"></a>
-
+<a id="query-messages-request"></a>
 #### 요청
 
 [URL]
@@ -1593,8 +1546,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum         | Integer | 옵션  | 페이지 번호(기본값:1)                              |
 | pageSize        | Integer | 옵션  | 조회 수(기본값:15)                               |
 
-<a id="response-10"></a>
-
+<a id="query-messages-response"></a>
 #### 응답
 
 ```json
@@ -1647,15 +1599,12 @@ Content-Type: application/json;charset=UTF-8
 | body.data.resultUpdateList[].recipientGroupingKey | String   | 수신자 그룹 키                          |
 
 <a id="tag-delivery"></a>
-
-## 태그 발송
+## 태그 발송 { #tag-delivery }
 
 <a id="send-tagged-sms"></a>
+### 태그 SMS 발송 { #send-tagged-sms }
 
-### 태그 SMS 발송
-
-<a id="request-13"></a>
-
+<a id="send-tagged-sms-request"></a>
 #### 요청
 
 [URL]
@@ -1705,8 +1654,7 @@ Content-Type: application/json;charset=UTF-8
 | adYn              | String              | 1                                                                  | X  | 광고 여부(기본값: N)                        |
 | autoSendYn        | String              | 1                                                                  | X  | 자동 발송(즉시 발송) 여부 (기본값: Y)             |
 
-<a id="response-11"></a>
-
+<a id="send-tagged-sms-response"></a>
 #### 응답
 
 ```json
@@ -1732,13 +1680,11 @@ Content-Type: application/json;charset=UTF-8
 | body.data.requestId  | 	String  | 	요청 ID  |
 
 <a id="send-tagged-lms"></a>
-
-### 태그 LMS 발송
+### 태그 LMS 발송 { #send-tagged-lms }
 
 ※ LMS/MMS는 해외 발송이 불가능합니다.
 
-<a id="request-14"></a>
-
+<a id="send-tagged-lms-request"></a>
 #### 요청
 
 [URL]
@@ -1796,8 +1742,7 @@ Content-Type: application/json;charset=UTF-8
 | adYn              | String              | 1      | X  | 광고 여부(기본값: N)                        |
 | autoSendYn        | String              | 1      | X  | 자동 발송(즉시 발송) 여부 (기본 Y)               |
 
-<a id="response-12"></a>
-
+<a id="send-tagged-lms-response"></a>
 #### 응답
 
 ```json
@@ -1823,11 +1768,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data.requestId  | 	String  | 	요청 ID  |
 
 <a id="list-tag-delivery"></a>
+### 태그 발송 리스트 조회 { #list-tag-delivery }
 
-### 태그 발송 리스트 조회
-
-<a id="request-15"></a>
-
+<a id="list-tag-delivery-request"></a>
 #### 요청
 
 [URL]
@@ -1859,8 +1802,7 @@ GET /sms/v2.2/appKeys/{appKey}/tag-sender
 | pageNum          | optional, Integer | -     | X   | 페이지 번호                                                                                                                                                                                             |
 | pageSize         | optional, Integer | 1000  | X   | 조회 수                                                                                                                                                                                               |
 
-<a id="response-13"></a>
-
+<a id="list-tag-delivery-response"></a>
 #### 응답
 
 ```json
@@ -1927,11 +1869,9 @@ GET /sms/v2.2/appKeys/{appKey}/tag-sender
 | body.data[].updateDate      | String       | 수정 날짜     |
 
 <a id="list-recipients-of-tag-delivery"></a>
+### 태그 발송 수신자 리스트 조회 { #list-recipients-of-tag-delivery }
 
-### 태그 발송 수신자 리스트 조회
-
-<a id="request-16"></a>
-
+<a id="list-recipients-of-tag-delivery-request"></a>
 #### 요청
 
 [URL]
@@ -1966,8 +1906,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | Integer | -     | X   | 페이지 번호                                                                                             |
 | pageSize         | Integer | 1000  | X   | 조회 수                                                                                               |
 
-<a id="response-14"></a>
-
+<a id="list-recipients-of-tag-delivery-response"></a>
 #### 응답
 
 ```json
@@ -2018,11 +1957,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data.updateDate    | String   | 수정 날짜                                        |
 
 <a id="list-recipient-details-of-tagged-delivery"></a>
+### 태그 발송 수신자 리스트 상세 조회 { #list-recipient-details-of-tagged-delivery }
 
-### 태그 발송 수신자 리스트 상세 조회
-
-<a id="request-17"></a>
-
+<a id="list-recipient-details-of-tagged-delivery-request"></a>
 #### 요청
 
 [URL]
@@ -2046,8 +1983,7 @@ Content-Type: application/json;charset=UTF-8
 X
 ```
 
-<a id="response-15"></a>
-
+<a id="list-recipient-details-of-tagged-delivery-response"></a>
 #### 응답
 
 ```json
@@ -2111,12 +2047,10 @@ X
 <span id="binaryUpload"></span>
 
 <a id="attached-files"></a>
-
-## 첨부 파일
+## 첨부 파일 { #attached-files }
 
 <a id="upload-attached-files"></a>
-
-### 첨부 파일 업로드
+### 첨부 파일 업로드 { #upload-attached-files }
 
 [URL]
 
@@ -2148,8 +2082,7 @@ Content-Type: application/json;charset=UTF-8
 | fileBody   | Byte[] | 300K  | 필수 | 파일 byte[]를 Base64로 인코딩한 값.<br/>* 또는 바이트 배열 값 |
 | createUser | String | 100   | 필수 | 파일 업로드 사용자 정보                                |
 
-<a id="response-16"></a>
-
+<a id="upload-attached-files-response"></a>
 #### 응답
 
 ```json
@@ -2178,8 +2111,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data.fileName   | 	String  | 	파일명                                                             |
 | body.data.filePath   | 	String  | 	첨부 파일 기본 경로 <br/> (https://domain/attachFile/filePath/fileName) |
 
-<a id="example-of-uploading-attached-files"></a>
-
+<a id="upload-attached-files-example-of-uploading-attached-files"></a>
 #### 첨부 파일 업로드 예제
 
 | Http method | URL                                                                               |
@@ -2216,15 +2148,12 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 <a id="category"></a>
-
-## 카테고리
+## 카테고리 { #category }
 
 <a id="register"></a>
+### 카테고리 등록 { #register }
 
-### 카테고리 등록
-
-<a id="request-18"></a>
-
+<a id="register-request"></a>
 #### 요청
 
 [URL]
@@ -2264,8 +2193,7 @@ Content-Type: application/json;charset=UTF-8
 
 - categoryParentId 값이 비어있는 경우, 최상위 카테고리 바로 아래에 등록됩니다.
 
-<a id="response-17"></a>
-
+<a id="register-response"></a>
 #### 응답
 
 ```json
@@ -2305,11 +2233,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].createUser              | 	String  | 	등록한 사용자    |
 
 <a id="list-category"></a>
+### 카테고리 리스트 조회 { #list-category }
 
-### 카테고리 리스트 조회
-
-<a id="request-19"></a>
-
+<a id="list-category-request"></a>
 #### 요청
 
 [URL]
@@ -2332,8 +2258,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum  | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1) |
 | pageSize | 	Integer | 1000   | 	옵션 | 	조회 수(기본값 : 15)  |
 
-<a id="response-18"></a>
-
+<a id="list-category-response"></a>
 #### 응답
 
 ```json
@@ -2387,11 +2312,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateUser              | 	String  | 	수정한 사용자    |
 
 <a id="get-category"></a>
+### 카테고리 단건 조회 { #get-category }
 
-### 카테고리 단건 조회
-
-<a id="request-20"></a>
-
+<a id="get-category-request"></a>
 #### 요청
 
 [URL]
@@ -2408,8 +2331,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String  | 	고유의 앱키  |
 | categoryId | 	Integer | 	카테고리 ID |
 
-<a id="response-19"></a>
-
+<a id="get-category-response"></a>
 #### 응답
 
 ```json
@@ -2457,11 +2379,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateUser              | 	String  | 	수정한 사용자    |
 
 <a id="modify"></a>
+### 카테고리 수정 { #modify }
 
-### 카테고리 수정
-
-<a id="request-21"></a>
-
+<a id="modify-request"></a>
 #### 요청
 
 [URL]
@@ -2496,8 +2416,7 @@ Content-Type: application/json;charset=UTF-8
 | useYn        | 	String | 1      | 	필수 | 사용 여부(Y/N) |
 | updateUser   | 	String | 100    | 	옵션 | 수정한 사용자    |
 
-<a id="response-20"></a>
-
+<a id="modify-response"></a>
 #### 응답
 
 ```json
@@ -2511,11 +2430,9 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 <a id="delete"></a>
+### 카테고리 삭제 { #delete }
 
-### 카테고리 삭제
-
-<a id="request-22"></a>
-
+<a id="delete-request"></a>
 #### 요청
 
 [URL]
@@ -2532,8 +2449,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String  | 	고유의 앱키  |
 | categoryId | 	Integer | 	카테고리 ID |
 
-<a id="response-21"></a>
-
+<a id="delete-response"></a>
 #### 응답
 
 ```json
@@ -2547,15 +2463,12 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 <a id="templates"></a>
+## 템플릿 { #templates }
 
-## 템플릿
+<a id="templates-register"></a>
+### 템플릿 등록 { #templates-register }
 
-<a id="register-2"></a>
-
-### 템플릿 등록
-
-<a id="request-23"></a>
-
+<a id="templates-register-request"></a>
 #### 요청
 
 [URL]
@@ -2604,8 +2517,7 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1      | 	필수 | 	사용 여부(Y/N)                  |
 | attachFileIdList | List<Integer> | -      | 옵션  | 첨부 파일 ID(fileId)             |
 
-<a id="response-22"></a>
-
+<a id="templates-register-response"></a>
 #### 응답
 
 ```json
@@ -2618,8 +2530,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-<a id="example-of-registration"></a>
-
+<a id="templates-register-example-of-registration"></a>
 #### 템플릿 등록 예시
 
 | Http method | URL                                                                 |
@@ -2669,8 +2580,7 @@ Content-Type: application/json;charset=UTF-8
     - 첨부 이미지 해상도 : 1000 x 1000 이하
 
 <a id="send-templates-requiring-no-body-updates"></a>
-
-### 템플릿 발송(본문 수정이 필요 없는 경우)
+### 템플릿 발송(본문 수정이 필요 없는 경우) { #send-templates-requiring-no-body-updates }
 
 | Http method | 종류  | URL                                                                  |
 |-------------|-----|----------------------------------------------------------------------|
@@ -2731,11 +2641,9 @@ Request URL은 템플릿 등록시 선택한 발송 유형으로 선택하여 �
 ![[그림 1] 템플릿 발송 성공](http://static.toastoven.net/prod_sms/img_27.png)
 
 <a id="send-templates-requiring-body-updates"></a>
+### 템플릿 발송(본문 수정이 필요한 경우) { #send-templates-requiring-body-updates }
 
-### 템플릿 발송(본문 수정이 필요한 경우)
-
-<a id="example-of-sending-tempaltes"></a>
-
+<a id="send-templates-requiring-body-updates-example-of-sending-tempaltes"></a>
 #### 템플릿 발송 예제
 
 | Http method | 종류  | URL                                                                  |
@@ -2801,11 +2709,9 @@ Request URL은 템플릿 등록 시 선택한 발송 유형으로 선택하여 �
 ```
 
 <a id="list-templates"></a>
+### 템플릿 목록 검색 { #list-templates }
 
-### 템플릿 목록 검색
-
-<a id="request-24"></a>
-
+<a id="list-templates-request"></a>
 #### 요청
 
 [URL]
@@ -2830,8 +2736,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum    | 	Integer | 옵션  | 	페이지 번호(기본값 : 1) |
 | pageSize   | 	Integer | 옵션  | 	검색 수(기본값 : 15)  |
 
-<a id="response-23"></a>
-
+<a id="list-templates-response"></a>
 #### 응답
 
 ```json
@@ -2935,11 +2840,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].attachFileList[].existFileName | 	String  | 	저장된 파일명                         |
 
 <a id="query-single-template"></a>
+### 템플릿 단일 조회 { #query-single-template }
 
-### 템플릿 단일 조회
-
-<a id="request-25"></a>
-
+<a id="query-single-template-request"></a>
 #### 요청
 
 [URL]
@@ -2956,8 +2859,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | 	고유의 앱키 |
 | templateId | 	String | 	템플릿 ID |
 
-<a id="response-24"></a>
-
+<a id="query-single-template-response"></a>
 #### 응답
 
 ```json
@@ -3050,12 +2952,10 @@ Content-Type: application/json;charset=UTF-8
 | body.data.attachFileList[].createDate | 	String  | 	첨부 파일 등록 날짜                     |
 | body.data.attachFileList[].createUser | 	String  | 	첨부 파일 등록 사용자                    |
 
-<a id="modify-2"></a>
+<a id="templates-modify"></a>
+### 템플릿 수정 { #templates-modify }
 
-### 템플릿 수정
-
-<a id="request-26"></a>
-
+<a id="templates-modify-request"></a>
 #### 요청
 
 [URL]
@@ -3100,8 +3000,7 @@ Content-Type: application/json;charset=UTF-8
 | useYn            | 	String       | 1      | 	필수 | 	사용 여부(Y/N)                  |
 | attachFileIdList | List<Integer> | -      | 옵션  | 첨부 파일 ID(fileId)             |
 
-<a id="response-25"></a>
-
+<a id="templates-modify-response"></a>
 #### 응답
 
 ```json
@@ -3114,12 +3013,10 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-<a id="delete-2"></a>
+<a id="templates-delete"></a>
+### 템플릿 삭제 { #templates-delete }
 
-### 템플릿 삭제
-
-<a id="request-27"></a>
-
+<a id="templates-delete-request"></a>
 #### 요청
 
 [URL]
@@ -3136,8 +3033,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | 	고유의 앱키 |
 | templateId | 	String | 	템플릿 ID |
 
-<a id="response-26"></a>
-
+<a id="templates-delete-response"></a>
 #### 응답
 
 ```json
@@ -3151,15 +3047,12 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 <a id="rejection-of-receiving-080-numbers"></a>
-
-## 080 수신 거부 서비스
+## 080 수신 거부 서비스 { #rejection-of-receiving-080-numbers }
 
 <a id="register-unsubsribers"></a>
+### 수신 거부 대상자 등록 { #register-unsubsribers }
 
-### 수신 거부 대상자 등록
-
-<a id="request-28"></a>
-
+<a id="register-unsubsribers-request"></a>
 #### 요청
 
 [URL]
@@ -3192,8 +3085,7 @@ Content-Type: application/json;charset=UTF-8
 | unsubscribeNo   | String       | 25     | O  | 080 수신거부번호   |
 | recipientNoList | List<String> | 10     | O  | 수신 거부 대상자 번호 |
 
-<a id="response-27"></a>
-
+<a id="register-unsubsribers-response"></a>
 #### 응답
 
 ```json
@@ -3207,11 +3099,9 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 <a id="query-target-of-rejection"></a>
+### 수신 거부 대상자 조회 { #query-target-of-rejection }
 
-### 수신 거부 대상자 조회
-
-<a id="request-29"></a>
-
+<a id="query-target-of-rejection-request"></a>
 #### 요청
 
 [URL]
@@ -3238,8 +3128,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                   |
 | pageSize         | 	Integer | 1000   | 	옵션 | 	조회 수(기본값 : 15)                    |
 
-<a id="response-28"></a>
-
+<a id="query-target-of-rejection-response"></a>
 #### 응답
 
 ```json
@@ -3265,11 +3154,9 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 <a id="delete-target-of-rejection"></a>
+### 수신 거부 대상자 삭제 { #delete-target-of-rejection }
 
-### 수신 거부 대상자 삭제
-
-<a id="request-30"></a>
-
+<a id="delete-target-of-rejection-request"></a>
 #### 요청
 
 [URL]
@@ -3293,8 +3180,7 @@ Content-Type: application/json;charset=UTF-8
 | updateUser    | 	String | 	100   | 필수  | 	수신 거부 삭제자    |
 | recipientNo   | 	String | 	20    | 필수  | 	삭제할 수신 거부 번호 |
 
-<a id="response-29"></a>
-
+<a id="delete-target-of-rejection-response"></a>
 #### 응답
 
 ```json
@@ -3309,15 +3195,12 @@ Content-Type: application/json;charset=UTF-8
 ```
 
 <a id="sender-numbers"></a>
-
-## 발신 번호
+## 발신 번호 { #sender-numbers }
 
 <a id="list-registered-sender-numbers-api"></a>
+### 등록된 발신 번호 목록 검색 API { #list-registered-sender-numbers-api }
 
-### 등록된 발신 번호 목록 검색 API
-
-<a id="request-31"></a>
-
+<a id="list-registered-sender-numbers-api-request"></a>
 #### 요청
 
 [URL]
@@ -3342,8 +3225,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum  | 	Integer | 페이지 번호(기본값 : 1) |
 | pageSize | 	Integer | 조회 수(기본값 : 15)  |
 
-<a id="response-30"></a>
-
+<a id="list-registered-sender-numbers-api-response"></a>
 #### 응답
 
 ```json
@@ -3406,15 +3288,12 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateUser  | String   | 수정한 사용자    |
 
 <a id="query-statistics"></a>
-
-## 통계 조회
+## 통계 조회 { #query-statistics }
 
 <a id="query-integrated-statistics"></a>
+### 통합 통계 조회 { #query-integrated-statistics }
 
-### 통합 통계 조회
-
-<a id="request-32"></a>
-
+<a id="query-integrated-statistics-request"></a>
 #### 요청
 
 [URL]
@@ -3440,8 +3319,7 @@ Content-Type: application/json;charset=UTF-8
 | contentType | String | 10     | X  | 콘텐츠 타입<br/>NORMAL: 일반, AD: 광고                  |
 | templateId  | String | 50     | X  | 템플릿 ID                                         |
 
-<a id="response-31"></a>
-
+<a id="query-integrated-statistics-response"></a>
 #### 응답
 
 ```json
@@ -3486,15 +3364,12 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].pendingRate    | String   | 발송 중 비율             |
 
 <a id="scheduled-delivery"></a>
-
-## 예약 발송
+## 예약 발송 { #scheduled-delivery }
 
 <a id="list-scheduled-delivery"></a>
+### 예약 발송 목록 조회 { #list-scheduled-delivery }
 
-### 예약 발송 목록 조회
-
-<a id="request-33"></a>
-
+<a id="list-scheduled-delivery-request"></a>
 #### 요청
 
 [URL]
@@ -3529,8 +3404,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                                                                                                                     |
 | pageSize         | 	Integer | 1000   | 	옵션 | 	조회 수(기본값 : 15)                                                                                                                                      |
 
-<a id="response-32"></a>
-
+<a id="list-scheduled-delivery-response"></a>
 #### 응답
 
 ```json
@@ -3598,11 +3472,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateDate        | 	String       | 	수정 날짜                                                                                                                                               |
 
 <a id="query-detail-scheduled-delivery"></a>
+### 예약 발송 상세 조회 { #query-detail-scheduled-delivery }
 
-### 예약 발송 상세 조회
-
-<a id="request-34"></a>
-
+<a id="query-detail-scheduled-delivery-request"></a>
 #### 요청
 
 [URL]
@@ -3620,8 +3492,7 @@ Content-Type: application/json;charset=UTF-8
 | requestId    | 	String  | 	요청 ID   |
 | recipientSeq | 	Integer | 	수신자 시퀀스 |
 
-<a id="response-33"></a>
-
+<a id="query-detail-scheduled-delivery-response"></a>
 #### 응답
 
 ```json
@@ -3693,11 +3564,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data.attachFileList[].fileName | 	String       | 	파일명                                                                                                 |
 
 <a id="cancel-scheduled-delivery"></a>
+### 예약 발송 취소 { #cancel-scheduled-delivery }
 
-### 예약 발송 취소
-
-<a id="request-35"></a>
-
+<a id="cancel-scheduled-delivery-request"></a>
 #### 요청
 
 [URL]
@@ -3733,8 +3602,7 @@ Content-Type: application/json;charset=UTF-8
 | reservationList[].recipientSeq | Integer | -      | O  | 수신자 시퀀스 |
 | updateUser                     | String  | 100    | O  | 취소 요청자  |
 
-<a id="response-34"></a>
-
+<a id="cancel-scheduled-delivery-response"></a>
 #### 응답
 
 ```json
@@ -3762,15 +3630,12 @@ Content-Type: application/json;charset=UTF-8
 | body.data.canceledCount  | 	Integer | 	취소 성공 건수 |
 
 <a id="download-delivery-result-files"></a>
-
-## 발송 결과 파일 다운로드
+## 발송 결과 파일 다운로드 { #download-delivery-result-files }
 
 <a id="request-for-creating-query-files"></a>
+### 검색 파일 생성 요청 { #request-for-creating-query-files }
 
-### 검색 파일 생성 요청
-
-<a id="request-36"></a>
-
+<a id="request-for-creating-query-files-request"></a>
 #### 요청
 
 [URL]
@@ -3833,8 +3698,7 @@ Content-Type: application/json;charset=UTF-8
 | recipientGroupingKey  | 	String | 100    | 	옵션 | 	수신자 그룹 키                                              |
 | isIncludeTitleAndBody | Boolean | -      | 옵션  | 제목, 본문 포함 여부                                           |
 
-<a id="response-35"></a>
-
+<a id="request-for-creating-query-files-response"></a>
 #### 응답
 
 ```json
@@ -3868,11 +3732,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data.expiredDate        | 	String  | 	다운로드 기간 만료 일시                                                                                                       |
 
 <a id="query-request-history-for-delivery-result-of-file-creation"></a>
+### 발송 결과 파일 생성 요청 내역 검색 { #query-request-history-for-delivery-result-of-file-creation }
 
-### 발송 결과 파일 생성 요청 내역 검색
-
-<a id="request-37"></a>
-
+<a id="query-request-history-for-delivery-result-of-file-creation-request"></a>
 #### 요청
 
 [URL]
@@ -3897,8 +3759,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum            | 	Integer | 	-    | 옵션  | 페이지 번호(기본값: 1) |
 | pageSize           | 	Integer | 	1000 | 옵션  | 조회 수(기본값: 15)  |
 
-<a id="response-36"></a>
-
+<a id="query-request-history-for-delivery-result-of-file-creation-response"></a>
 #### 응답
 
 ```json
@@ -3948,11 +3809,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].updateDate         | String   | 파일 생성 완료, 실패 일시                                                                                                     |
 
 <a id="request-for-downloading-delivery-result-files"></a>
+### 발송 결과 파일 다운로드 요청 { #request-for-downloading-delivery-result-files }
 
-### 발송 결과 파일 다운로드 요청
-
-<a id="request-38"></a>
-
+<a id="request-for-downloading-delivery-result-files-request"></a>
 #### 요청
 
 [URL]
@@ -3969,8 +3828,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey     | 	String | 	고유의 앱키 |
 | downloadId | String  | 다운로드 ID |
 
-<a id="response-37"></a>
-
+<a id="request-for-downloading-delivery-result-files-response"></a>
 #### 응답
 
 ```
@@ -3978,15 +3836,12 @@ file byte
 ```
 
 <a id="tag-management"></a>
-
-## 태그 관리
+## 태그 관리 { #tag-management }
 
 <a id="query-tags"></a>
+### 태그 조회 { #query-tags }
 
-### 태그 조회
-
-<a id="request-39"></a>
-
+<a id="query-tags-request"></a>
 #### 요청
 
 [URL]
@@ -4009,8 +3864,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum  | 	Integer | 	-    | 옵션  | 페이지 번호(기본값: 1) |
 | pageSize | 	Integer | 	1000 | 옵션  | 조회 수(기본값: 15)  |
 
-<a id="response-38"></a>
-
+<a id="query-tags-response"></a>
 #### 응답
 
 ```json
@@ -4050,8 +3904,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data[].tagId       | String   | 수정 일시      |
 
 <a id="register-tags"></a>
-
-### 태그 등록
+### 태그 등록 { #register-tags }
 
 [URL]
 
@@ -4078,8 +3931,7 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|-------|-----|-------|
 | tagName | String | 30    | 필수  | 태그 이름 |
 
-<a id="response-39"></a>
-
+<a id="register-tags-response"></a>
 #### 응답
 
 ```json
@@ -4105,8 +3957,7 @@ Content-Type: application/json;charset=UTF-8
 | body.data.tagId      | String   | 태그 ID   |
 
 <a id="modify-tags"></a>
-
-### 태그 수정
+### 태그 수정 { #modify-tags }
 
 [URL]
 
@@ -4134,8 +3985,7 @@ Content-Type: application/json;charset=UTF-8
 |---------|--------|-------|-----|-------|
 | tagName | String | 30    | 필수  | 태그 이름 |
 
-<a id="response-40"></a>
-
+<a id="modify-tags-response"></a>
 #### 응답
 
 ```json
@@ -4156,8 +4006,7 @@ Content-Type: application/json;charset=UTF-8
 | header.resultMessage | 	String  | 	실패 메시지 |
 
 <a id="delete-tags"></a>
-
-### 태그 삭제
+### 태그 삭제 { #delete-tags }
 
 [URL]
 
@@ -4173,8 +4022,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	고유의 앱키 |
 | tagId  | 	String | 	태그 ID  |
 
-<a id="response-41"></a>
-
+<a id="delete-tags-response"></a>
 #### 응답
 
 ```json
@@ -4195,15 +4043,12 @@ Content-Type: application/json;charset=UTF-8
 | header.resultMessage | 	String  | 	실패 메시지 |
 
 <a id="uid-management"></a>
-
-## UID 관리
+## UID 관리 { #uid-management }
 
 <a id="query-uids"></a>
+### UID 조회 { #query-uids }
 
-### UID 조회
-
-<a id="request-40"></a>
-
+<a id="query-uids-request"></a>
 #### 요청
 
 [URL]
@@ -4228,8 +4073,7 @@ Content-Type: application/json;charset=UTF-8
 | offset    | Integer       | -     | 옵션  | offset 0(기본값)                                                                                  |
 | limit     | Integer       | 1000  | 옵션  | 조회 건수 15(기본값)                                                                                  |
 
-<a id="response-42"></a>
-
+<a id="query-uids-response"></a>
 #### 응답
 
 ```json
@@ -4283,11 +4127,9 @@ Content-Type: application/json;charset=UTF-8
 | body.data.uids[].last                   | Boolean  | 마지막 리스트 여부  |
 
 <a id="get-uids"></a>
+### UID 단건 조회 { #get-uids }
 
-### UID 단건 조회
-
-<a id="request-41"></a>
-
+<a id="get-uids-request"></a>
 #### 요청
 
 [URL]
@@ -4303,8 +4145,7 @@ GET /sms/v2.2/appKeys/{appKey}/uids/{uid}
 | appKey | 	String | 	고유의 앱키 |
 | uid    | 	String | 	UID    |
 
-<a id="response-43"></a>
-
+<a id="get-uids-response"></a>
 #### 응답
 
 ```json
@@ -4352,8 +4193,7 @@ GET /sms/v2.2/appKeys/{appKey}/uids/{uid}
 | body.data.contacts[].createdDate | String   | 연락처 생성 일시   |
 
 <a id="register-uids"></a>
-
-### UID 등록
+### UID 등록 { #register-uids }
 
 [URL]
 
@@ -4402,8 +4242,7 @@ Content-Type: application/json;charset=UTF-8
 * contacts가 주어지는 경우 tagIds는 필수 값이 아닙니다.
 * 본 상품의 경우, contactType은 반드시 "PHONE_NUMBER" 값으로 요청해야 합니다.
 
-<a id="response-44"></a>
-
+<a id="register-uids-response"></a>
 #### 응답
 
 ```json
@@ -4424,8 +4263,7 @@ Content-Type: application/json;charset=UTF-8
 | header.resultMessage | 	String  | 	실패 메시지 |
 
 <a id="delete-uids"></a>
-
-### UID 삭제
+### UID 삭제 { #delete-uids }
 
 [URL]
 
@@ -4441,8 +4279,7 @@ Content-Type: application/json;charset=UTF-8
 | appKey | 	String | 	고유의 앱키 |
 | uid    | 	String | 	UID    |
 
-<a id="response-45"></a>
-
+<a id="delete-uids-response"></a>
 #### 응답
 
 ```json
@@ -4463,8 +4300,7 @@ Content-Type: application/json;charset=UTF-8
 | header.resultMessage | 	String  | 	실패 메시지 |
 
 <a id="register-phone-number"></a>
-
-### 휴대폰 번호 등록
+### 휴대폰 번호 등록 { #register-phone-number }
 
 [URL]
 
@@ -4492,8 +4328,7 @@ Content-Type: application/json;charset=UTF-8
 |-------------|--------|-------|-----|--------|
 | phoneNumber | String | -     | 필수  | 휴대폰 번호 |
 
-<a id="response-46"></a>
-
+<a id="register-phone-number-response"></a>
 #### 응답
 
 ```json
@@ -4514,8 +4349,7 @@ Content-Type: application/json;charset=UTF-8
 | header.resultMessage | 	String  | 	실패 메시지 |
 
 <a id="delete-phone-number"></a>
-
-### 휴대폰 번호 삭제
+### 휴대폰 번호 삭제 { #delete-phone-number }
 
 [URL]
 
@@ -4532,8 +4366,7 @@ Content-Type: application/json;charset=UTF-8
 | uid         | String  | UID     |
 | phoneNumber | String  | 휴대폰 번호  |
 
-<a id="response-47"></a>
-
+<a id="delete-phone-number-response"></a>
 #### 응답
 
 ```json

@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=fcae760093f6 -->
+<!-- pre-align:aligned sig=817102849a61 -->
 
 <style>
     .custom-table thead {
@@ -14,13 +14,13 @@
     }
 </style>
 
-## Notification > SMS > コンソール使用ガイド
+<a id="notification-sms-console-guide"></a>
+## Notification > SMS > コンソール使用ガイド { #notification-sms-console-guide }
 
 > SMSサービスを利用するには、[コンソール > SMS > 発信番号事前登録 > 発信番号登録および名義人認証]で発信番号を事前に登録した後、使用できます(電気通信事業法)。
 
 <a id="identity-verification"></a>
-
-## 本人認証
+## 本人認証 { #identity-verification }
 * 電気通信事業法関連改定告示を遵守するために、SMSサービスに強化された発信番号事前登録制が適用されました。
     * 2022年3月2日以降に加入した会員に限る
 - 個人会員はサービスを利用できません。(2023年12月15日時点で個人会員サービス利用ポリシーが変更されました。)
@@ -33,8 +33,7 @@
   在職証明書内の住民番号後ろ6桁は <span style="color:red;font-weight:bold">必ずマスキング(伏せ字)処理</span>してください。例) 000000-0\*\*\*\*\*\*
 
 <a id="required-documentation-by-member-type"></a>
-
-### 会員タイプ別に必要な書類
+### 会員タイプ別に必要な書類 { #required-documentation-by-member-type }
 <table class="custom-table" style="text-align: center">
   <thead>
       <tr>
@@ -68,8 +67,7 @@
 </table>
 
 <a id="identity-verification-process"></a>
-
-### 本人認証の手順
+### 本人認証の手順 { #identity-verification-process }
 ![sms_01_20240104](https://static.toastoven.net/prod_sms/SMS_01_20240104.png)
 1. **発信番号事前登録**タブを選択します。
 2. **携帯電話本人認証および必要書類を添付する**をクリックして手続きを開始します。
@@ -80,26 +78,22 @@
 7. 本人認証手続きが完了すると、アカウントに登録されたメールに承認結果が送信されます。
 
 <a id="description-of-identity-verification-status"></a>
-
-### 本人認証状態の説明
+### 本人認証状態の説明 { #description-of-identity-verification-status }
 - 審査中:登録した本人認証に関する認証書類を管理者が確認している状態
 - 拒否:本人認証が却下され書類の再登録が必要な状態
 - 承認:本人認証の承認が完了した状態
 
 
 <a id="pre-register-sender-numbers"></a>
-
-## 発信番号の事前登録
+## 発信番号の事前登録 { #pre-register-sender-numbers }
 
 <a id="enforce-pre-registration-of-sender-numbers"></a>
-
-### 発信番号の事前登録制施行
+### 発信番号の事前登録制施行 { #enforce-pre-registration-of-sender-numbers }
 * 電気通信事業法により、発信番号の登録時、発信番号の名義人認証が必要です。
 * 名義人認証は、発信番号の種類によって認証方法と必要な書類が決定されます。
 
 <a id="owner-verification-method-by-calling-number"></a>
-
-### 発信番号に名義者に基づく認証方法
+### 発信番号に名義者に基づく認証方法 { #owner-verification-method-by-calling-number }
 <table class="custom-table" style="text-align: center">
   <thead>
       <tr>
@@ -144,8 +138,7 @@
   在職証明書内の住民番号後ろ6桁は <span style="color:red;font-weight:bold">必ずマスキング(伏せ字)処理</span>してください。例) 000000-0\*\*\*\*\*\*
 
 <a id="how-to-issue-documents-for-each-mobile-carrier"></a>
-
-### 発信番号通信会社別の証明書類発行方法
+### 発信番号通信会社別の証明書類発行方法 { #how-to-issue-documents-for-each-mobile-carrier }
 - 通信サービス利用証明書は、各通信会社のWebサイトからダウンロードできます。
 - 通信会社によって「加入確認書、加入証明書、利用契約登録事項証明書」など名称が異なる場合があります。
 
@@ -171,8 +164,7 @@
     * ハローモバイルサポート: 1855-1144(LGU+), 1855-1144(KT), 1855-2114(SKT)
 
 <a id="registration-format-for-sender-numbers"></a>
-
-### 発信番号の登録形式
+### 発信番号の登録形式 { #registration-format-for-sender-numbers }
 
 ```
 * 固定電話番号：02-YYY-YYYY (市外局番を含めて登録)
@@ -188,8 +180,7 @@
 
 
 <a id="register-sender-numbers"></a>
-
-### 発信番号登録の手順
+### 発信番号登録の手順 { #register-sender-numbers }
 ![sms_02_20240104](https://static.toastoven.net/prod_sms/SMS_02_20240104.png)
 1. 発信番号を登録する前に、本人認証を行っていない場合は本人認証手続きを行います。
     * 2022年3月2日以前に加入した場合、本人認証なしでコンソールの利用が可能です。
@@ -202,8 +193,7 @@
 8. 発信番号登録認証手続きが完了すると、アカウントに登録されたメールに承認結果が送信されます。
 
 <a id="description-for-sender-number-registration-status"></a>
-
-### 発信番号登録状態の説明
+### 発信番号登録状態の説明 { #description-for-sender-number-registration-status }
 + 審査中:登録した発信番号に関する認証書類を管理者が確認している状態
 + 拒否:書類認証が却下され書類の再登録が必要な状態
 + 承認:発信番号の使用が可能な状態
@@ -213,8 +203,7 @@
 ![sms_03_20230818](https://static.toastoven.net/prod_sms/eng/SMS_03_20230818.png)
 
 <a id="sending-sms"></a>
-
-## SMS送信
+## SMS送信 { #sending-sms }
 
 * 最大文字数は保存基準です。文字切れを防ぐために最大文字数ではなく、標準規格を基準に作成します。
 - 内容の標準規格
@@ -234,8 +223,7 @@
 
 
 <a id="general-delivery"></a>
-
-### 一般送信
+### 一般送信 { #general-delivery }
 
 1.テンプレートの使用可否：ユーザーが作成したテンプレートを使用して送信できます。
 * 事前に作成したテンプレートがある場合は、**テンプレートの使用可否**を**使用**に選択し、**テンプレートの選択**ウィンドウで希望のテンプレートを選択します。
@@ -261,13 +249,11 @@
 11. 送信: **送信** ボタンをクリックして送信します。
 
 <a id="mass-delivery"></a>
-
-### 大量送信
+### 大量送信 { #mass-delivery }
 
 Excel/CSVフォーマットのテンプレートファイルを使って、複数の受信番号にSMS/MMSを送信できる機能です。
 
-<a id="template-files"></a>
-
+<a id="mass-delivery-template-files"></a>
 #### テンプレートファイル
 
 テンプレートファイルは**大量送信**タブ選択後、**テンプレートダウンロード**ボタンをクリックしてダウンロードできます。
@@ -287,8 +273,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 受信番号は'+'、'-'、空白文字を含めて入力できます。
 
-<a id="validity-check-for-template-files"></a>
-
+<a id="mass-delivery-validity-check-for-template-files"></a>
 #### テンプレートファイルの有効性チェック
 
 ファイルのアップロード時に、テンプレートファイルのデータにエラーがある場合、エラーの内容が表示されます。エラーは総エラー件数と最大10件のエラー内容を表示します。
@@ -300,8 +285,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 - 受信番号が誤ったフォーマットで入力された場合
 - 受信番号または置換データの入力がない場合
 
-<a id="select-scheduled-delivery-deliver-after-checkimmediate-delivery"></a>
-
+<a id="mass-delivery-select-scheduled-delivery-deliver-after-checkimmediate-delivery"></a>
 #### 送信予約の選択(確認後に進行/即時送信)
 
 送信情報の入力と、大量送信ファイルのアップロードを行った後に送信を進行するには、**送信予約**ボタンをクリックします。送信予約の際、受信対象番号を確認後に進行する**確認後に予約送信**と**予約送信**を選択できます。
@@ -309,16 +293,14 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 - 確認後に予約送信：受信番号と送信内容を**一括SMS送信照会**タブで確認後に送信できます。確認後に送信を行わないと送信されないためご注意ください。
 - 予約送信：受信番号と送信内容を確認せずに送信を進行します。送信結果は**大量SMS送信照会**タブで確認できます。
 
-<a id="split-send"></a>
-
+<a id="mass-delivery-split-send"></a>
 #### 分割送信
 
 分割送信を使用すると、**分割回数**と**送信間隔**を設定してメッセージ分割して送信できます。
 
 <span id='tag-send'></span>
 <a id="send-tags"></a>
-
-### タグ送信
+### タグ送信 { #send-tags }
 
 タグの条件に合ったUIDで送信できる機能です。
 
@@ -329,15 +311,13 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 タグ登録は**タグ管理**タブで、UIDと電話番号の保存は**UID管理**タブで行えます。
 
 <a id="setting-for-rejection-of-receiving-080-numbers"></a>
-
-## 080受信拒否設定
+## 080受信拒否設定 { #setting-for-rejection-of-receiving-080-numbers }
 
 080受信拒否サービスは広告メール送信時、受信者に受信拒否を提供するサービスです。
 広告性情報の送信時、受信者が無料で受信拒否や受信同意の撤回を行えるよう、<span style="color:red">無料の受信拒否方法を必ず記載</span>する必要があります。
 
 <a id="subscription"></a>
-
-### 加入
+### 加入 { #subscription }
 
 **080受信拒否設定**タブに移動すると、加入画面を確認できます。
 **080受信拒否番号の追加申請**ボタンを押すと、業者名を入力できます。
@@ -347,23 +327,20 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 ![sms_14_20230818](https://static.toastoven.net/prod_sms/eng/SMS_14_20230818.png)
 
 <a id="registration-scheduled"></a>
-
-### 登録予約
+### 登録予約 { #registration-scheduled }
 
 加入申請が完了すると、登録予約状態に変更されます。
 080受信拒否サービスの開通には、営業日基準で3～4日かかり、開通が完了すると使用できます。
 
 <a id="registration-completed"></a>
-
-### 登録完了
+### 登録完了 { #registration-completed }
 
 開通が完了すると、使用開始日時と状態を確認できます。
 **080受信拒否サービス登録予約、使用中状態ではSMSサービスの利用を終了できません。**解約後にサービスの利用を終了できます。
 解約したい時は、**解約**ボタンを押すと解約できます。
 
 <a id="send-ad-messages"></a>
-
-### 広告性メッセージの送信
+### 広告性メッセージの送信 { #send-ad-messages }
 
 1. 080受信拒否サービスを使用中の状態でのみ、広告性メッセージを送信できます。
 2. 送信タイプを**広告用**に変更すると、受信拒否番号選択ウィンドウが表示されます。
@@ -388,18 +365,15 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 ![sms_16_20230818](https://static.toastoven.net/prod_sms/eng/SMS_16_20230818.png)
 
 <a id="query-target-of-rejection"></a>
-
-### 受信拒否対象者の照会
+### 受信拒否対象者の照会 { #query-target-of-rejection }
 
 受信拒否リクエスト日時をオプションで、受信拒否をリクエストした対象者を、下にあるパネルで照会できます。
 
 <a id="query-of-sms"></a>
-
-## SMS照会
+## SMS照会 { #query-of-sms }
 
 <a id="query-by-sms-request"></a>
-
-### SMSリクエスト別照会
+### SMSリクエスト別照会 { #query-by-sms-request }
 
 各項目を条件に照会できます。
 (リクエストIDまたは送信日時は必須値です。)
@@ -413,8 +387,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 * 送信結果で送信処理の成功/失敗を確認できます。
 
 <a id="query-scheduled-sms-delivery"></a>
-
-### SMS予約送信の照会
+### SMS予約送信の照会 { #query-scheduled-sms-delivery }
 
 予約送信されたリストを照会できます。
 
@@ -426,8 +399,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 * 予約待機状態の場合、そのリストを選択して予約をキャンセルできます。
 
 <a id="query-mass-sms-delivery"></a>
-
-### 大量SMS送信の照会
+### 大量SMS送信の照会 { #query-mass-sms-delivery }
 
 送信タイプ別に大量の送信件を照会できます。
 
@@ -438,8 +410,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 * **送信/キャンセル**ボタンをクリックして送信またはキャンセルができます。予約送信の場合、自動的に現在時間に送信処理されます。
 * 送信失敗の確認:進行状態が'送信完了'状態の予約件で、一部の送信リクエストが失敗した件は、送信失敗件数を確認できます。**失敗件数**ボタンをクリックすると、失敗した受信番号と送信内容が表示されます。
 
-<a id="delivery-status-of-mass-sms"></a>
-
+<a id="query-mass-sms-delivery-delivery-status-of-mass-sms"></a>
 #### 大量SMS送信の進行状態
 
 - 待機：テンプレートファイルデータの読み込み作業を進行する前の状態です。
@@ -451,8 +422,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 - 送信失敗：送信進行中に送信エラーが発生した場合です。
 - 送信取消：ユーザーが送信を取り消した状態です。
 
-<a id="query-sms-delivery-per-recipient"></a>
-
+<a id="query-mass-sms-delivery-query-sms-delivery-per-recipient"></a>
 #### 受信者別のSMS送信の照会
 
 大量送信件(リストの行)を選択すると、下にあるリストで受信番号別の送信内容と送信結果を照会できます。
@@ -466,19 +436,16 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 置換されたデータを確認できます。
 
 <a id="query-tagged-sms-delivery"></a>
+### タグSMS送信の照会 { #query-tagged-sms-delivery }
 
-### タグSMS送信の照会
-
-<a id="query-by-delivery-request"></a>
-
+<a id="query-tagged-sms-delivery-query-by-delivery-request"></a>
 #### 送信リクエスト別照会
 
 タグ送信リクエスト件を照会できます。クリックすると、下にある受信者別照会で受信者別の照会ができます。
 
 ![sms_22_20230818](https://static.toastoven.net/prod_sms/eng/SMS_22_20230818.png)
 
-<a id="query-sending-by-recipient"></a>
-
+<a id="query-tagged-sms-delivery-query-sending-by-recipient"></a>
 #### 受信者別の送信照会
 
 1つのリクエストで送信した受信者リストを照会できます。
@@ -490,12 +457,10 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 ![sms_24_20230818](https://static.toastoven.net/prod_sms/eng/SMS_24_20230818.png)
 
 <a id="template-management"></a>
-
-## テンプレートの管理
+## テンプレートの管理 { #template-management }
 
 <a id="add-categories"></a>
-
-### カテゴリーの追加
+### カテゴリーの追加 { #add-categories }
 
 **カテゴリー追加**ボタンをクリックすると、カテゴリーの追加ができます。
 
@@ -504,8 +469,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 カテゴリーを選択した状態で**カテゴリー追加**ボタンをクリックする必要があります。
 
 <a id="modify-categories"></a>
-
-### カテゴリーの修正
+### カテゴリーの修正 { #modify-categories }
 
 **カテゴリー修正**ボタンをクリックすると、カテゴリーの修正ができます。
 
@@ -514,8 +478,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 カテゴリーを選択した状態で**カテゴリー修正**ボタンをクリックする必要があります。
 
 <a id="add-templates"></a>
-
-### テンプレートの追加
+### テンプレートの追加 { #add-templates }
 
 **テンプレート追加**ボタンをクリックすると、テンプレートを追加できます。
 
@@ -527,8 +490,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 4. すべての内容の入力後、必ずカテゴリーを選択した状態で**テンプレート追加**をクリックします。
 
 <a id="modify-templates"></a>
-
-### テンプレートの修正
+### テンプレートの修正 { #modify-templates }
 
 テンプレートを選択し、修正できます。
 
@@ -540,8 +502,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 <span id='uid-manage'></span>
 <a id="uid-management"></a>
-
-## UIDの管理
+## UIDの管理 { #uid-management }
 
 UID及び携帯電話番号の登録や削除ができます。タグとUIDの用語の意味は、[参考](./console-guide/#tag-uid)でご確認ください。
 
@@ -559,8 +520,7 @@ uid,phoneNumber形式で入力します。<br/>
 
 <span id='tag-manage'></span>
 <a id="tag-management"></a>
-
-## タグの管理
+## タグの管理 { #tag-management }
 
 登録されたUIDにタグを付与したり削除したりできるページです。タグとUIDの用語の意味は、[参考](./console-guide/#tag-uid)でご確認ください。
 
@@ -572,8 +532,7 @@ uid,phoneNumber形式で入力します。<br/>
 タグにUIDを登録します。(UIDタブで登録したUIDを登録します。)
 
 <a id="webhook-management"></a>
-
-## Webフック管理
+## Webフック管理 { #webhook-management }
 指定したイベントが発生した場合、URLを指定してWebフックイベントを受け取れます。
 
 ![sms_35_20230818](https://static.toastoven.net/prod_sms/eng/SMS_35_20230818.png)
@@ -586,11 +545,9 @@ uid,phoneNumber形式で入力します。<br/>
 登録が完了したWebフックは**Webフック登録リスト**で確認可能です。
 
 <a id="sending-settings"></a>
-
-## 送信設定
+## 送信設定 { #sending-settings }
 <a id="international-sms-sending-settings"></a>
-
-### 国際SMS送信設定
+### 国際SMS送信設定 { #international-sms-sending-settings }
 * 国際SMS送信機能を利用する前に必ず[[国際SMS送信ポリシー]](./international-sending-policy)を確認してください。
 * 国際SMS送信機能を使用しない場合は、未使用に設定して、国際SMS量ポンピング現象による事故を防止します。
 * 送信許可国の管理
@@ -628,14 +585,12 @@ uid,phoneNumber形式で入力します。<br/>
     NHN Cloudは、不正利用によって送信された国際SMSに対していかなる責任も負いません。 
 
 <a id="alternative-characters-settings"></a>
-
-### 代替文字設定
+### 代替文字設定 { #alternative-characters-settings }
 * 送信リクエストの本文/タイトルに送信不可能な文字が含まれている場合、送信可能な文字に変換されるよう設定できます。
 * 代替文字設定を「使用」に設定すると、送信不可能な文字が'？'に変換されて表示されます。
 
 <a id="set-duplicate-delivery"></a>
-
-### 重複送信設定
+### 重複送信設定 { #set-duplicate-delivery }
 - 重複したメッセージを送信しないように設定できます。
 - 重複送信ブロック設定を行った場合、設定された時間(単位：分)の間、同一のリクエストに対しては送信失敗として処理されます。
 - ブロック可能な最大時間は1時間です。
@@ -643,8 +598,7 @@ uid,phoneNumber形式で入力します。<br/>
     - メッセージタイプ(SMS/LMS/MMS/AUTH)、送信タイプ(一般/一括/タグ)、送信元番号、受信番号、件名、本文、添付ファイル
 
 <a id="limit-advertising-messages"></a>
-
-### 広告送信制限設定
+### 広告送信制限設定 { #limit-advertising-messages }
 * 広告メッセージの送信時間を制限できます。
 * 設定された時間内は広告送信が行われません。
     * 広告制限開始設定が可能な時間: 18:00～21:00
@@ -652,14 +606,12 @@ uid,phoneNumber形式で入力します。<br/>
 * 未送信メッセージの設定方式によって失敗/再送信が可能です。
 
 <a id="backup-settings"></a>
-
-### バックアップ設定
+### バックアップ設定 { #backup-settings }
 * メッセージ保管期間ポリシーに従い、180日が経過した送信履歴データをバックアップできます。
 * メッセージのバックアップ有無、ファイル拡張子、ファイルをアップロードするストレージ情報を入力すると、該当ストレージにバックアップ日時が含まれたファイルが作成されます。
 
 <a id="statistical-event-key-settings"></a>
-
-## 統計イベントキー設定
+## 統計イベントキー設定 { #statistical-event-key-settings }
 イベントキーを登録して該当キーを送信する場合、統計イベントキーごとに統計データを収集できます。/
 統計イベントキーの用語の意味は[参考](./console-guide/#tag-uid)で確認してください。
 
@@ -673,18 +625,15 @@ uid,phoneNumber形式で入力します。<br/>
 **データ収集期間の終了時点は、有効の場合にのみ修正が可能です。**
 
 <a id="statistics"></a>
-
-## 統計
+## 統計 { #statistics }
 
 <a id="query-statistics"></a>
-
-### 統計照会
+### 統計照会 { #query-statistics }
 
 - 送信リクエスト期間、統計イベントキー、テンプレートなどのタイプ別に統計を照会できます。
 - 送信リクエスト、成功、失敗などの送信状態をグラフと表で確認できます。
 
-<a id="categorize-statistics"></a>
-
+<a id="query-statistics-categorize-statistics"></a>
 #### 統計分類
 * メッセージ(リクエスト時間):送信リクエスト時間基準で収集された統計です。
 * 次の時間基準で統計が収集されます。
@@ -711,16 +660,13 @@ uid,phoneNumber形式で入力します。<br/>
 
 
 <a id="note"></a>
-
-## 参考
+## 参考 { #note }
 
 <span id='tag-uid'></span>
 <a id="tags-and-uid"></a>
+### タグとUID { #tags-and-uid }
 
-### タグとUID
-
-<a id="glossary"></a>
-
+<a id="tags-and-uid-glossary"></a>
 #### サービス用語
 | 用語          | 説明                                      |
 | ------------ | ---------------------------------------- |
@@ -728,8 +674,7 @@ uid,phoneNumber形式で入力します。<br/>
 | UID          | ユーザーを区分するID(識別子)。<br>1つのUIDに複数の連絡先を登録し、送信に使用できます。 |
 | 連絡先(contact) | 連絡をするために決めておいた宛先。<br>NotificationではPush、Email、SMSの3個のサービスで連絡先を登録できます。<br>Pushはトークン、 Emailはメールアドレス、 SMSは電話番号が連絡先になります。 |
 
-<a id="send-using-tags"></a>
-
+<a id="tags-and-uid-send-using-tags"></a>
 #### タグを使用して送信
 受信者情報である電話番号の代わりに、タグを選択してメッセージを送信できる機能です。
 
@@ -746,25 +691,21 @@ uid,phoneNumber形式で入力します。<br/>
     - SMSはタグに登録されたUIDの電話番号に送信されます。
     - 詳細については、[タグを使用したSMS送信](./console-guide/#tag-send)をご参照ください。
 
-<a id="relationship-with-tag-features-in-other-services"></a>
-
+<a id="tags-and-uid-relationship-with-tag-features-in-other-services"></a>
 #### 他のサービスのタグ機能との関係
 * 同じプロジェクトでPushまたはSMSサービスを使用している場合、Emailで使用しているタグとUID情報を再登録せずに、一緒に使用できます。
 * 各サービスのコンソールから、同じUIDに他の連絡先情報を追加できます。
 
 <a id="statistics-event-keys-and-statistics"></a>
-
-### 統計イベントキーと統計
-<a id="glossary-2"></a>
-
+### 統計イベントキーと統計 { #statistics-event-keys-and-statistics }
+<a id="statistics-event-keys-and-statistics-glossary"></a>
 #### サービス用語
 | 用語         | 説明                                     |
 | ------------ | ---------------------------------------- |
 | 統計イベントキー | 統計を特定の単位でまとめて確認したい時に使用するイベントキーです。 |
 | statsId | 統計イベントキーの固有ID値です。 APIで呼び出す時、この値を主に利用します。 |
 
-<a id="if-you-want-to-extract-statistics-in-specific-units-when-sending-a-message"></a>
-
+<a id="statistics-event-keys-and-statistics-if-you-want-to-extract-statistics-in-specific-units-when-sending-a-message"></a>
 #### メッセージ送信時、特定の単位で統計を抽出したい場合
 1. **統計イベントキー管理**タブで統計イベントキーを登録します。 APIを使用して送信する場合、統計ID(statsId)をこの画面で取得する必要があります。
 2. Console画面またはAPIからメッセージを転送する時、統計イベントキーを一緒に送信する必要があります。
@@ -779,8 +720,7 @@ uid,phoneNumber形式で入力します。<br/>
     - 一定時間が経過すると、**統計**タブで統計情報を確認できます。
 
 <a id="data-retention-period"></a>
-
-### データ保管期間
+### データ保管期間 { #data-retention-period }
 * データ保管ポリシーに基づき、過去180日の送信履歴を保管します。この期間中は送信履歴の照会が可能であり、保管期限が切れると関連法令に従ってデータを削除します。
 * サービスに利用された添付ファイルは7日間のみ保管され、その後は削除されて照会できません。
 * ただし、テンプレートに登録された添付ファイルおよび証明書類(通信サービス利用証明書)はサービスを利用している間保管されます。
