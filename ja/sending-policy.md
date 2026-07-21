@@ -3,8 +3,6 @@
 <a id="notification-sms-service-policy-sending-policy"></a>
 ## Notification > SMS > サービスポリシー > 送信ポリシー { #notification-sms-service-policy-sending-policy }
 
-
-<span id='fabrication-number'></span>
 <a id="prevention-of-caller-number-fabrication"></a>
 ## 発信番号の改ざん禁止 { #prevention-of-caller-number-fabrication }
 + SMSサービスを利用する時は、必ず本人(または自社)所有の発信番号を登録してから使用する必要があります。
@@ -18,7 +16,6 @@
 ㆍその他発信番号改ざんによるすべての損失に対する損害賠償を請求 
 ```
 
-<span id="fraud-number"></span>
 <a id="filter-messages-from-spoofed-numbers"></a>
 ## 番号盗用メッセージ遮断サービス案内 { #filter-messages-from-spoofed-numbers }
 ‘番号盗用メッセージ遮断サービス’は、他人が勝手に自分の携帯電話番号をメッセージ犯罪に悪用したり、迷惑メールを送信できないようにするサービスです。
@@ -40,7 +37,6 @@
     + 携帯電話114 + 通話ボタン
     + SKTサポート(1599-0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
 
-<span id="spam-number"></span>
 <a id="filter-spams-by-telecommunication-providers"></a>
 ## サービスプロバイダー迷惑メール遮断サービス案内 { #filter-spams-by-telecommunication-providers }
 + 煩わしい広告性迷惑メールを移動サービスプロバイダーで自動的に遮断してくれるサービスです。
@@ -63,7 +59,6 @@
     + 携帯電話114 + 通話ボタン
     + SKTサポート(1599-0011)、KT ollehサポート(100)、LG U+ サポート(1544-0010)
 
-<span id="rejection-of-receiving-080"></span>
 <a id="unsubscribing-080-numbers"></a>
 ## 080受信拒否 { #unsubscribing-080-numbers }
 + 080受信拒否サービスは、広告メッセージ送信時、受信者に受信拒否を提供するサービスです。
@@ -108,8 +103,6 @@
 + EUC-KRに含まれていない文字がタイトル/本文に含まれる場合、受信時に'?'のように内容が文字化けして表示されることがあります。
     + 受信端末の機種、通信会社によって送信内容が異なる場合があります。
 
-
-<span id="private-policy"></span>
 <a id="timeout-policy-for-message-receiving-result"></a>
 ## メッセージ受信結果タイムアウトポリシー { #timeout-policy-for-message-receiving-result }
 
@@ -128,7 +121,6 @@ SMSサービスを利用する時、顧客の会社で定めている'個人情�
 受託社：NHNクラウド
 業務の内容：メッセージの送信代行
 
-<span id="certification"></span>
 <a id="certified-bulk-message-sender"></a>
 ## 大量メッセージの送信資格認証制 { #certified-bulk-message-sender }
 大量メッセージ送信事業を行うメッセージ再販売事業者は、送信資格認証を受けた後、メッセージ送信サービスを運営することができます。[[お知らせを確認する](https://www.nhncloud.com/kr/support/notice/detail/6041)]

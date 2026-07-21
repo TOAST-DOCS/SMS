@@ -18,8 +18,6 @@
 |------|----------------------------------|
 | Real | 	https://sms.api.nhncloudservice.com |
 
-<span id="precautions"></span>
-
 <a id="caution"></a>
 ### [注意事項] { #caution }
 
@@ -83,7 +81,7 @@ Content-Type: application/json;charset=UTF-8
 | 値                                         | 	タイプ    | 最大                                                             | 	必須 | 	説明                                                                |
 |-------------------------------------------|---------|----------------------------------------------------------------|-----|--------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                             | 	X  | 	送信テンプレートID                                                        |
-| body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O  | 	本文内容                                                              |
+| body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#caution)] | 	O  | 	本文内容                                                              |
 | sendNo                                    | 	String | 13                                                             | 	O  | 	発信番号                                                              |
 | requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                  |
 | senderGroupingKey                         | String  | 100                                                            | X   | 発信者グループキー                                                          |
@@ -768,7 +766,7 @@ curl -X POST \
 ##### 説明
 
 - 添付ファイル(フィールド名：attachFileIdList)を含む長文MMSを送信するためには、事前に添付ファイルのアップロードを行う必要があります。<br>
-- [[添付ファイルアップロード](./api-guide/#binaryUpload)]</a> ガイドを参照してください。
+- [[添付ファイルアップロード](./api-guide/#attached-files)]</a> ガイドを参照してください。
 - 付イメージ制限事項
     - サポートコーデック：.jpg、.jpeg
     - 添付イメージ数：3個以下
@@ -1056,8 +1054,6 @@ curl -X GET \
 <a id="send-sms-for-authentication"></a>
 ### 認証用SMSの送信 { #send-sms-for-authentication }
 
-<span id="precautions-authword"></span>
-
 1. 認証用SMSの送信時、含まれる必要がある認証文言案内
 
 | 区分         | 認証文言                                  |
@@ -1111,7 +1107,7 @@ Content-Type: application/json;charset=UTF-8
 | 値                                         | 	タイプ    | 最大                                                             | 	必須 | 	説明                                                            |
 |-------------------------------------------|---------|----------------------------------------------------------------|-----|----------------------------------------------------------------|
 | templateId                                | 	String | 50                                                             | 	X  | 	送信テンプレートID                                                    |
-| body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O  | 	本文内容[[注意事項](./api-guide/#precautions-authword)]               |
+| body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#caution)] | 	O  | 	本文内容[[注意事項](./api-guide/#send-sms-for-authentication)]               |
 | sendNo                                    | 	String | 13                                                             | 	O  | 	発信番号                                                          |
 | requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                               |
 | senderGroupingKey                         | String  | 100                                                            | X   | 発信者グループキー                                                      |
@@ -1761,7 +1757,7 @@ Content-Type: application/json;charset=UTF-8
 
 | 値                 | 	タイプ                | 	最大                                                            | 必須 | 	説明                                 |
 |-------------------|---------------------|----------------------------------------------------------------|----|-------------------------------------|
-| body              | 	String             | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#precautions)] | 	O | 	本文内容                               |
+| body              | 	String             | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#caution)] | 	O | 	本文内容                               |
 | sendNo            | String              | 13                                                             | O  | 発信番号                                |
 | requestDate       | String              | -                                                                 | X  | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可            |
 | templateId        | String              | 50                                                             | X  | テンプレートID                            |
@@ -2231,8 +2227,6 @@ curl -X GET \
 | body.data.attachFileList[].fileSequence | Integer  | 添付ファイル - ファイル番号                            |
 | body.data.attachFileList[].createDate   | String   | 添付ファイル - 作成日時                              |
 | body.data.attachFileList[].updateDate   | String   | 添付ファイル - 修正日                               |
-
-<span id="binaryUpload"></span>
 
 <a id="attached-files"></a>
 ## 添付ファイル { #attached-files }
@@ -2858,7 +2852,7 @@ curl -X POST \
 ##### 説明
 
 - 添付ファイル(フィールド名：attachFileIdList)を含むテンプレートの登録するためには、事前に添付ファイルのアップロードを行う必要があります。<br>
-- [[添付ファイルアップロード](./api-guide/#binaryUpload)]</a> ガイドを参照してください。
+- [[添付ファイルアップロード](./api-guide/#attached-files)]</a> ガイドを参照してください。
 - 付イメージ制限事項
     - サポートコーデック：.jpg
     - 添付イメージ数：2個以下

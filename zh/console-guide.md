@@ -276,7 +276,7 @@ To send after delivery information and mass delivery files are uploaded, click *
 
 Split send allows you to split messages before sending by setting **Number of Splits** and **Send Interval**.
 
-<span id='tag-send'></span>
+<a id="tag-send"></a>
 ### Send Tags
 
 Send with UID according to tag conditions.
@@ -456,7 +456,7 @@ Select a template to modify.
 2. Modify the sending type, template information, and content.
 3. Make sure to click **Modify Templates** while a category is selected after modification is completed.
 
-<span id='uid-manage'></span>
+<a id="uid-manage"></a>
 ## UID Management
 
 You can register and delete UID and mobile phone number. Please refer to [the reference](./console-guide/#tag-uid)
@@ -474,7 +474,7 @@ ex) sms_uuid1,01012345678
 ![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_32_20230818.png)
 Find the number counts while uploading a template which is created.
 
-<span id='tag-manage'></span>
+<a id="tag-manage"></a>
 ## Tag Management
 
 This is a page where you can tag or delete registered UIDs. Please refer to the reference for the meaning of tags and UID terms.
@@ -599,7 +599,7 @@ When the data collection period ends, it becomes inactive and no longer collects
 
 ## [Note]
 
-<span id='tag-uid'></span>
+<a id="tag-uid"></a>
 ### Tags and UID
 
 #### Glossary

@@ -18,8 +18,6 @@
 |------|----------------------------------|
 | Real | 	https://sms.api.nhncloudservice.com |
 
-<span id="precautions"></span>
-
 <a id="caution"></a>
 ### [주의 사항] { #caution }
 
@@ -83,7 +81,7 @@ Content-Type: application/json;charset=UTF-8
 | 값                                         | 	타입     | 최대 길이                                                             | 	필수 | 	설명                                                                        |
 |-------------------------------------------|---------|-------------------------------------------------------------------|-----|----------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                | 	X  | 	발송 템플릿 ID                                                                 |
-| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O  | 	본문 내용                                                                     |
+| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#caution)] | 	O  | 	본문 내용                                                                     |
 | sendNo                                    | 	String | 13                                                                | 	O  | 	발신 번호                                                                     |
 | requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                   |
 | senderGroupingKey                         | String  | 100                                                               | X   | 발신자 그룹키                                                                    |
@@ -773,7 +771,7 @@ curl -X POST \
 ##### Description
 
 - 첨부 파일(필드명: attachFileIdList)을 포함한 장문 MMS 발송을 위해서는 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
+- [[첨부 파일 업로드](./api-guide/#attached-files)]</a> 가이드를 참고하시기 바랍니다.
 - 첨부 이미지 제한 사항
     - 지원 코덱: .jpg, .jpeg
     - 첨부 이미지 개수: 3개 이하
@@ -1062,8 +1060,6 @@ curl -X GET \
 <a id="send-sms-for-authentication"></a>
 ### 인증용 SMS 발송 { #send-sms-for-authentication }
 
-<span id="precautions-authword"></span>
-
 1. 인증용 SMS 발송 시 본문 내 포함되어야 할 인증 문구 안내
 
 | 구분          | 인증 문구                                      |
@@ -1117,7 +1113,7 @@ Content-Type: application/json;charset=UTF-8
 | 값                                         | 	타입     | 최대 길이                                                             | 	필수 | 	설명                                                                     |
 |-------------------------------------------|---------|-------------------------------------------------------------------|-----|-------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                | 	X  | 	발송 템플릿 ID                                                              |
-| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O  | 	본문 내용 [[주의사항](./api-guide/#precautions-authword)]                      |
+| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#caution)] | 	O  | 	본문 내용 [[주의사항](./api-guide/#send-sms-for-authentication)]                      |
 | sendNo                                    | 	String | 13                                                                | 	O  | 	발신 번호                                                                  |
 | requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                |
 | senderGroupingKey                         | String  | 100                                                               | X   | 발신자 그룹키                                                                 |
@@ -1780,7 +1776,7 @@ Content-Type: application/json;charset=UTF-8
 
 | 값                 | 	타입                 | 	최대 길이                                                            | 필수 | 	설명                                  |
 |-------------------|---------------------|-------------------------------------------------------------------|----|--------------------------------------|
-| body              | 	String             | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O | 	본문 내용                               |
+| body              | 	String             | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#caution)] | 	O | 	본문 내용                               |
 | sendNo            | String              | 13                                                                | O  | 발신 번호                                |
 | requestDate       | String              | -                                                                 | X  | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능             |
 | templateId        | String              | 50                                                                | X  | 템플릿 ID                               |
@@ -2250,8 +2246,6 @@ curl -X GET \
 | body.data.attachFileList[].fileSequence | Integer  | 첨부 파일 - 파일 번호                                |
 | body.data.attachFileList[].createDate   | String   | 첨부 파일 - 생성 일시                                |
 | body.data.attachFileList[].updateDate   | String   | 첨부 파일 - 수정 날짜                                |
-
-<span id="binaryUpload"></span>
 
 <a id="attached-files"></a>
 ## 첨부 파일 { #attached-files }
@@ -2872,7 +2866,7 @@ curl -X POST \
 ##### Description
 
 - 첨부 파일(필드명: attachFileIdList)을 포함한 템플릿 등록은 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
+- [[첨부 파일 업로드](./api-guide/#attached-files)]</a> 가이드를 참고하시기 바랍니다.
 - 첨부 이미지 제한 사항
     - 지원 코덱 : jpg
     - 첨부 이미지 개수 : 3개 이하

@@ -83,7 +83,6 @@
 - 拒否:本人認証が却下され書類の再登録が必要な状態
 - 承認:本人認証の承認が完了した状態
 
-
 <a id="pre-register-sender-numbers"></a>
 ## 発信番号の事前登録 { #pre-register-sender-numbers }
 
@@ -178,7 +177,6 @@
 !!! 参考
     携帯電話番号のうちサービスプロバイダーのオプションサービスである'発信番号盗用遮断サービス'に加入している番号には、メッセージが送信されない。(Web/システムメッセージ送信)
 
-
 <a id="register-sender-numbers"></a>
 ### 発信番号登録の手順 { #register-sender-numbers }
 ![sms_02_20240104](https://static.toastoven.net/prod_sms/SMS_02_20240104.png)
@@ -220,7 +218,6 @@
 - 送信元番号のブロックによってSMS送信に失敗した場合は、「番号盗用SMSブロックサービス」をご確認ください。[[ガイドへ移動]](./sending-policy/#fraud-number)
 - 送信結果は成功でもSMSを受信できない場合は、「通信会社の迷惑メールブロックサービス」をご確認ください。[[ガイドへ移動]](./sending-policy/#spam-number)
 * 予約送信の送信日時は現在から最大60日後まで設定可能です。
-
 
 <a id="general-delivery"></a>
 ### 一般送信 { #general-delivery }
@@ -298,7 +295,6 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 
 分割送信を使用すると、**分割回数**と**送信間隔**を設定してメッセージ分割して送信できます。
 
-<span id='tag-send'></span>
 <a id="send-tags"></a>
 ### タグ送信 { #send-tags }
 
@@ -500,7 +496,6 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 2. **送信タイプ、テンプレート情報、内容**を修正します。
 3. 修正完了後、必ずカテゴリーを選択した状態で**テンプレート修正**をクリックします。
 
-<span id='uid-manage'></span>
 <a id="uid-management"></a>
 ## UIDの管理 { #uid-management }
 
@@ -518,7 +513,6 @@ uid,phoneNumber形式で入力します。<br/>
 ![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_32_20230818.png)
 テンプレート作成後、アップロード時に確認された番号の数を確認できます。
 
-<span id='tag-manage'></span>
 <a id="tag-management"></a>
 ## タグの管理 { #tag-management }
 
@@ -658,11 +652,9 @@ uid,phoneNumber形式で入力します。<br/>
     * 転換待機：転換率収集リクエスト送信件のメッセージ受信時間
     * 転換完了：転換率収集リクエスト送信件の転換が完了した時間
 
-
 <a id="note"></a>
 ## 参考 { #note }
 
-<span id='tag-uid'></span>
 <a id="tags-and-uid"></a>
 ### タグとUID { #tags-and-uid }
 

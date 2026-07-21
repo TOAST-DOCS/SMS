@@ -15,7 +15,7 @@
 |-------------|----------------------------------|
 | Real        | 	https://sms.api.nhncloudservice.com |
 
-<span id="precautions"></span>
+<a id="precautions"></a>
 
 ### [Caution]
 
@@ -1220,8 +1220,6 @@ curl -X GET \
 
 ### Send SMS for Authentication
 
-<span id="precautions-authword"></span>
-
 1. Guide for authentication words required to be included for sending authentication SMS
 
 | Category                           | Authentication Words                                        |
@@ -1289,7 +1287,7 @@ Content-Type: application/json;charset=UTF-8
 | Value                                     | Type    | Max Length                                                                                       | Required | Description                                                                                                                                                                        |
 |-------------------------------------------|---------|--------------------------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                                               | 	X       | Delivery template ID                                                                                                                                                               |
-| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] | 	O       | 	Body [[Precautions](./api-guide/#precautions-authword)]                                                                                                                           |
+| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] | 	O       | 	Body [[Precautions](./api-guide/#send-sms-for-authentication)]                                                                                                                           |
 | sendNo                                    | 	String | 13                                                                                               | 	O       | Sender number                                                                                                                                                                      |
 | requestDate                               | String  | -                                                                                                | X        | Date and time of schedule (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                                                                                                                                       |
 | senderGroupingKey                         | String  | 100                                                                                              | X        | Sender's group key                                                                                                                                                                 |
@@ -3033,7 +3031,7 @@ curl -X GET \
 | body.data.dlr.dlrStatus                 | String  | X        | DLR status code                                                                       |
 | body.data.dlr.networkCode               | String  | X        | DLR network code                                                                      |
 | body.data.dlr.errorCode                 | String  | X        | DLR error code                                                                        |
-<span id="binaryUpload"></span>
+<a id="binaryUpload"></a>
 
 ## Attached Files
 
