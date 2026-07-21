@@ -142,7 +142,6 @@
     - 통신서비스 이용증명원은 <span style="color:red;font-weight:bold">마스킹(숨김) 처리된 부분이 없고, 최근 3개월 이내 발급된 서류</span>만 가능합니다.
     - 재직증명서는 <span style="color:red;font-weight:bold">발급일이 표기되어 있고, 직인이 날인된 서류</span>만 가능합니다.<br/>재직증명서 내 주민번호 뒤 6자리는 <span style="color:red;font-weight:bold">반드시 마스킹(숨김) 처리</span>하세요. 예: 000000-0\*\*\*\*\*\*
 
-
 <a id="how-to-issue-documents-for-each-mobile-carrier"></a>
 ### 발신 번호 이통사별 증빙 서류 발급 방법 { #how-to-issue-documents-for-each-mobile-carrier }
 
@@ -302,7 +301,6 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 
 분할 발송을 사용하면 **분할 횟수**와 **발송 간격**을 설정해 메시지를 나눠 발송할 수 있습니다.
 
-<span id='tag-send'></span>
 <a id="send-tags"></a>
 ### 태그 발송 { #send-tags }
 
@@ -507,7 +505,6 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 2. **발송 유형, 템플릿 정보, 내용**을 수정합니다.
 3. 수정을 완료한 뒤 반드시 카테고리를 선택한 상태에서 **템플릿 수정**을 클릭합니다.
 
-<span id='uid-manage'></span>
 <a id="uid-management"></a>
 ## UID 관리 { #uid-management }
 
@@ -526,7 +523,6 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 
 템플릿 작성 후 업로드 시 확인된 번호 개수를 확인할 수 있습니다.
 
-<span id='tag-manage'></span>
 <a id="tag-management"></a>
 ## 태그 관리 { #tag-management }
 
@@ -678,7 +674,6 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 <a id="note"></a>
 ## 참고 { #note }
 
-<span id='tag-uid'></span>
 <a id="tags-and-uid"></a>
 ### 태그와 UID { #tags-and-uid }
 

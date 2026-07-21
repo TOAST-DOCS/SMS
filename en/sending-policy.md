@@ -3,7 +3,6 @@
 <a id="notification-sms-service-policy-sending-policy"></a>
 ## Notification > SMS > Service Policy > Sending Policy { #notification-sms-service-policy-sending-policy }
 
-<span id='fabrication-number'></span>
 <a id="prevention-of-caller-number-fabrication"></a>
 ## Prevention of Caller Number Fabrication { #prevention-of-caller-number-fabrication }
 + To enable SMS, your own (or corporate-owned) caller number must be registered first.
@@ -16,7 +15,6 @@
 ㆍDamages shall be claimed for all other losses incurred out of sender number falsification
 ```
 
-<span id="fraud-number"></span>
 <a id="filter-messages-from-spoofed-numbers"></a>
 ## Filter Messages from Spoofed Numbers { #filter-messages-from-spoofed-numbers }
 The 'Filter Messages from Spoofed Numbers' service protects user's own phone number from potentially spoofed for criminal acts or spamming.
@@ -38,7 +36,6 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
     + Press 114 on mobile phone + Call
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
 
-<span id="spam-number"></span>
 <a id="filter-spams-by-telecommunication-providers"></a>
 ## Filter Spams by Telecommunication Providers { #filter-spams-by-telecommunication-providers }
 + The service is provided by each telecommunication provider to automatically block annoying spams.
@@ -61,7 +58,6 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
     + Press 114 on mobile phone + Call
     + Call 1599-0011 for SKT, 100 for KT Olleh, or 1544-0010 for LG U+
 
-<span id="rejection-of-receiving-080"></span>
 <a id="unsubscribing-080-numbers"></a>
 ## Unsubscribing 080 Numbers { #unsubscribing-080-numbers }
 + With Unsubscribe 080 Numbers, recipients can reject receiving ad messages.
@@ -119,8 +115,6 @@ You must obtain the recipient's express prior consent and comply with the sendin
 | LMS | 80 hour | Do not retry. Update of receive failure result (Result code: 2000) |
 | MMS | 80 hour | Do not retry. Update of receive failure result (Result code: 2000) |
 
-
-<span id="private-policy"></span>
 <a id="guide-for-notice-of-personal-information-assignor"></a>
 ## Guide for Notice of Personal Information Assignor { #guide-for-notice-of-personal-information-assignor }
 
@@ -134,7 +128,6 @@ To use NHN Cloud SMS Service, make sure the following is displayed for 'Personal
 Assignor: NHN Cloud
 Content of Business: Send SMS in lieu of customers
 
-<span id="certification"></span>
 <a id="certified-bulk-message-sender"></a>
 ## Certified Bulk Message Sender { #certified-bulk-message-sender }
 Text resellers in the bulk texting business can operate messaging services after being certified as a bulk message sender.[[Go to Notice](https://www.nhncloud.com/kr/support/notice/detail/6041)]

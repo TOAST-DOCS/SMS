@@ -21,8 +21,6 @@
 |------|----------------------------------|
 | Real | 	https://sms.api.nhncloudservice.com |
 
-<span id="precautions"></span>
-
 <a id="caution"></a>
 ### [주의 사항] { #caution }
 
@@ -100,7 +98,7 @@ Content-Type: application/json;charset=UTF-8
 | 값                                         | 	타입     | 최대 길이                                                             | 	필수 | 	설명                                                                                                                                        |
 |-------------------------------------------|---------|-------------------------------------------------------------------|-----|--------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                | 	X  | 	발송 템플릿 ID                                                                                                                                 |
-| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O  | 	본문 내용                                                                                                                                     |
+| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#caution)] | 	O  | 	본문 내용                                                                                                                                     |
 | sendNo                                    | 	String | 13                                                                | 	O  | 	발신 번호                                                                                                                                     |
 | requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                                                        |
 | senderGroupingKey                         | String  | 100                                                               | X   | 발신자 그룹 키                                                                                                                                   |
@@ -943,7 +941,7 @@ curl -X POST \
 ##### Description
 
 - 첨부 파일(필드명: attachFileIdList)을 포함한 장문 MMS 발송을 위해서는 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
+- [[첨부 파일 업로드](./api-guide/#attached-files)]</a> 가이드를 참고하시기 바랍니다.
 - 첨부 이미지 제한 사항
     - 지원 코덱: .jpg, .jpeg
     - 첨부 이미지 개수: 3개 이하
@@ -1266,8 +1264,6 @@ curl -X GET \
 <a id="send-sms-for-authentication"></a>
 ### 인증용 SMS 발송 { #send-sms-for-authentication }
 
-<span id="precautions-authword"></span>
-
 1. 인증용 SMS 발송 시 본문 내 포함되어야 할 인증 문구 안내
 
 | 구분          | 인증 문구                                       |
@@ -1335,7 +1331,7 @@ Content-Type: application/json;charset=UTF-8
 | 값                                         | 	타입     | 최대 길이                                                             | 	필수 | 	설명                                                                                                                                      |
 |-------------------------------------------|---------|-------------------------------------------------------------------|-----|------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                | 	X  | 	발송 템플릿 ID                                                                                                                               |
-| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O  | 	본문 내용 [[주의사항](./api-guide/#precautions-authword)]                                                                                       |
+| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#caution)] | 	O  | 	본문 내용 [[주의사항](./api-guide/#send-sms-for-authentication)]                                                                                       |
 | sendNo                                    | 	String | 13                                                                | 	O  | 	발신 번호                                                                                                                                   |
 | requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                                                      |
 | senderGroupingKey                         | String  | 100                                                               | X   | 발신자 그룹 키                                                                                                                                 |
@@ -2611,7 +2607,7 @@ Content-Type: application/json;charset=UTF-8
 
 | 값                 | 	타입                 | 	최대 길이                                                            | 필수 | 	설명                                  |
 |-------------------|---------------------|-------------------------------------------------------------------|----|--------------------------------------|
-| body              | 	String             | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#precautions)] | 	O | 	본문 내용                               |
+| body              | 	String             | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#caution)] | 	O | 	본문 내용                               |
 | sendNo            | String              | 13                                                                | O  | 발신 번호                                |
 | requestDate       | String              | -                                                                 | X  | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능             |
 | templateId        | String              | 50                                                                | X  | 템플릿 ID                               |
@@ -3160,7 +3156,6 @@ curl -X GET \
 | body.data.dlr.dlrStatus                 | String  | X        | DLR 상태 코드                                                                          |
 | body.data.dlr.networkCode               | String  | X        | DLR 네트워크 코드                                                                       |
 | body.data.dlr.errorCode                 | String  | X        | DLR 에러 코드                                                                          |
-<span id="binaryUpload"></span>
 
 <a id="attached-files"></a>
 ## 첨부 파일 { #attached-files }
@@ -3901,7 +3896,7 @@ curl -X POST \
 ##### Description
 
 - 첨부 파일(필드명: attachFileIdList)을 포함한 템플릿 등록은 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#binaryUpload)]</a> 가이드를 참고하시기 바랍니다.
+- [[첨부 파일 업로드](./api-guide/#attached-files)]</a> 가이드를 참고하시기 바랍니다.
 - 첨부 이미지 제한 사항
     - 지원 코덱 : jpg
     - 첨부 이미지 개수 : 3개 이하
@@ -5352,93 +5347,6 @@ curl -X GET \
 | events.{statsCriteriaValue}.CONCAT      | Integer | O        | 실 수신 성공 개수                                |
 | events.{statsCriteriaValue}.READY       | Integer | O        | 전환율 수집 요청 발송 성공 개수                        |
 | events.{statsCriteriaValue}.CONVERTED   | Integer | O        | 전환 개수                                     |
-
-<a id="oldquery-integrated-statistics"></a>
-### (구)통합 통계 검색 { #oldquery-integrated-statistics }
-
-<a id="oldquery-integrated-statistics-request"></a>
-#### 요청
-
-[URL]
-
-| Http method | 	URI                                                                                                                                                                  |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GET         | 	/sms/v3.0/appKeys/{appKey}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId} |
-
-[Path parameter]
-
-| 값      | 	타입     | 	설명     |
-|--------|---------|---------|
-| appKey | 	String | 	고유의 앱키 |
-
-[Header]
-
-```json
-{
-  "X-Secret-Key": "{secret-key}"
-}
-```
-
-| 값            | 	타입     | 	설명        |
-|--------------|---------|------------|
-| X-Secret-Key | 	String | 	고유의 시크릿 키 |
-
-[Query parameter]
-
-| 값           | 	타입    | 	최대 길이 | 필수 | 설명                                             |
-|-------------|--------|--------|----|------------------------------------------------|
-| searchType  | String | 10     | O  | 통계 구분<br/>DATE:날짜별, TIME:시간별, DAY:요일별          |
-| from        | String | -      | O  | 통계 검색 시작 날짜<br/>yyyy-MM-dd HH:mm               |
-| to          | String | -      | O  | 통계 검색 종료 날짜<br/>yyyy-MM-dd HH:mm               |
-| messageType | String | 10     | X  | 메시지 타입<br/>SMS:단문, LMS:장문, MMS:첨부 파일, AUTH:인증용 |
-| contentType | String | 10     | X  | 콘텐츠 타입<br/>NORMAL: 일반, AD: 광고                  |
-| templateId  | String | 50     | X  | 템플릿 ID                                         |
-
-<a id="oldquery-integrated-statistics-response"></a>
-#### 응답
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "body": {
-    "data": [
-      {
-        "divisionName": "2018-06-01",
-        "statisticsView": {
-          "requestedCount": 10,
-          "succeedCount": 10,
-          "failedCount": 0,
-          "pendingCount": 0,
-          "succeedRate": "100.00",
-          "failedRate": "0.00",
-          "pendingRate": "0.00"
-        }
-      }
-    ]
-  }
-}
-```
-
-| 값                          | 타입     | Not Null | 설명                      |
-|-----------------------------|---------|----------|-------------------------|
-| header                      | Object  | O        | 헤더 영역                 |
-| header.isSuccessful         | Boolean | O        | 성공 여부                 |
-| header.resultCode           | Integer | O        | 실패 코드                 |
-| header.resultMessage        | String  | O        | 실패 메시지               |
-| body                        | Object  | X        | 본문 영역                 |
-| body.data[].divisionName    | String  | X        | 표시이름<br/>날짜, 시간, 요일 |
-| body.data[].statisticsView  | Object  | X        |                         |
-| body.data[].requestedCount  | Integer | X        | 요청 개수                 |
-| body.data[].succeedCount    | Integer | X        | 성공 개수                 |
-| body.data[].failedCount     | Integer | X        | 실패 개수                 |
-| body.data[].pendingCount    | Integer | X        | 발송 중 개수              |
-| body.data[].succeedRate     | String  | X        | 성공 비율                 |
-| body.data[].failedRate      | String  | X        | 실패 비율                 |
-| body.data[].pendingRate     | String  | X        | 발송 중 비율              |
 
 <a id="scheduled-delivery"></a>
 ## 예약 발송 { #scheduled-delivery }

@@ -677,7 +677,7 @@
     * Delivery is available only when the 080 number rejection service is 'Enabled'.
 * [API] Tighter validation for the delivery of certification messages
     * Message delivery is unavailable when authentication message is not included
-    * For more details, see [[API User Guide](./api-guide/#precautions-authword)].
+    * For more details, see [[API User Guide](./api-guide/#send-sms-for-authentication)].
 
 <a id="october-29-2019-bug-fixes"></a>
 #### Bug Fixes

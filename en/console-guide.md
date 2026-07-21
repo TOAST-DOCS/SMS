@@ -88,7 +88,6 @@
 - Rejected: A state in which identity verification has been rejected and documents must be re-registered.
 - Approved: Identity verification approval completed
 
-
 <a id="pre-register-sender-numbers"></a>
 ## Pre-register Sender Numbers { #pre-register-sender-numbers }
 
@@ -184,7 +183,6 @@
 !!! tip "Note"
     Numbers that are subscribed to 'Blocking Sender Number Abuses' as part of additional telecom services, do not receive messages (web/system text delivery).
 
-
 <a id="register-sender-numbers"></a>
 ### Register Sender Numbers { #register-sender-numbers }
 
@@ -229,7 +227,6 @@ Sender numbers that are properly registered can be found on the **Retrieve Outgo
 - If you fail to send a text due to blocking the sender number, please check the 'Stolen Number Text Blocking Service'. [Go to the user guide](./sending-policy/#fraud-number)
 - If the sending is successful but you do not receive the text, please check ‘Mobile Carrier Spam Blocking Service’. [Shortcut to guide](./sending-policy/#spam-number)
 - The sending date and time for scheduled delivery can be set up to 60 days from now.
-
 
 
 <a id="general-delivery"></a>
@@ -308,7 +305,6 @@ To send after delivery information and mass delivery files are uploaded, click *
 
 Split send allows you to split messages before sending by setting **Number of Splits** and **Send Interval**.
 
-<span id='tag-send'></span>
 <a id="send-tags"></a>
 ### Send Tags { #send-tags }
 
@@ -511,7 +507,6 @@ Select a template to modify.
 2. Modify the sending type, template information, and content.
 3. Make sure to click **Modify Templates** while a category is selected after modification is completed.
 
-<span id='uid-manage'></span>
 <a id="uid-management"></a>
 ## UID Management { #uid-management }
 
@@ -531,7 +526,6 @@ Example: sms_uuid1,01012345678
 
 Find the number counts while uploading a template which is created.
 
-<span id='tag-manage'></span>
 <a id="tag-management"></a>
 ## Tag Management { #tag-management }
 
@@ -631,7 +625,6 @@ Registered webhooks can be checked in the **webhook registration list**.
 - Depending on the message retention period policy, you can back up sending history data that is older than 180 days.
 - If you enter information about whether to back up messages, the file extension, and the storage to upload the file to, a file containing the backup date will be created in that storage.
 
-
 <a id="statistical-event-key-settings"></a>
 ## Statistical Event Key Settings { #statistical-event-key-settings }
 
@@ -655,7 +648,6 @@ When the data collection period ends, it becomes inactive and no longer collects
 
 - You can view statistics by delivery request duration, statistics event keys, template, and delivery type.
 - You can view delivery requests, successes, and failures in graphs and tables.
-
 
 <a id="query-statistics-categorize-statistics"></a>
 #### Categorize Statistics
@@ -683,11 +675,9 @@ When the data collection period ends, it becomes inactive and no longer collects
     - Waiting for Conversion: Time when a message is received from a conversion rate collection request
     - Conversion Completed: Time when a conversion rate collection request is sent and converted
 
-
 <a id="note"></a>
 ## [Note] { #note }
 
-<span id='tag-uid'></span>
 <a id="tags-and-uid"></a>
 ### Tags and UID { #tags-and-uid }
 
