@@ -75,7 +75,7 @@
 <a id="guide-to-sending-advertising-messages"></a>
 ### 광고성 문자 발송 안내 { #guide-to-sending-advertising-messages }
 [[정보통신망 이용촉진 및 정보보호 등에 관한 법률](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0)] 제50조에 의거하여 영리 목적의 광고성 정보 전송 시 수신자의 명시적인 사전 동의를 받아야 하며 발송 표기 의무사항을 반드시 준수해야 합니다.
-관련 법률을 위반할 경우 위반 내용에 따라 형사처벌 또는 과태료가 부과될 수 있으니 유의해주시기 바랍니다.
+관련 법률을 위반할 경우 위반 내용에 따라 형사처벌 또는 과태료가 부과될 수 있으니 유의하세요.
 
 [[한국인터넷진흥원(KISA) 불법스팸 방지를 위한 정보통신망법 안내서](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
 
