@@ -21,8 +21,6 @@
 |-------------|----------------------------------|
 | Real        | 	https://sms.api.nhncloudservice.com |
 
-<span id="precautions"></span>
-
 <a id="caution"></a>
 ### [Caution] { #caution }
 
@@ -100,7 +98,7 @@ Content-Type: application/json;charset=UTF-8
 | Value                                     | Type    | Max Length                                                                                       | Required | Description                                                                                                                                                                                                                                                                                                                          |
 |-------------------------------------------|---------|--------------------------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                                               | 	X       | Delivery template ID                                                                                                                                                                                                                                                                                                                 |
-| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] | 	O       | 	Body                                                                                                                                                                                                                                                                                                                                |
+| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#caution)] | 	O       | 	Body                                                                                                                                                                                                                                                                                                                                |
 | sendNo                                    | 	String | 13                                                                                               | 	O       | Sender number                                                                                                                                                                                                                                                                                                                        |
 | requestDate                               | String  | -                                                                                                | X        | Request date and time (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                                                                                                                                                                                                                                                                                             |
 | senderGroupingKey                         | String  | 100                                                                                              | X        | Sender's group key                                                                                                                                                                                                                                                                                                                   |
@@ -942,7 +940,7 @@ curl -X POST \
 ##### Description
 
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
-- See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
+- See guides for [[Upload Attachment](./api-guide/#attached-files)]</a> .
 - Restrictions for Attached Images
     - Supported Codec: .jpg, .jpeg
     - Number of Attached Images: 3 or less
@@ -1264,8 +1262,6 @@ curl -X GET \
 <a id="send-sms-for-authentication"></a>
 ### Send SMS for Authentication { #send-sms-for-authentication }
 
-<span id="precautions-authword"></span>
-
 1. Guide for authentication words required to be included for sending authentication SMS
 
 | Category                           | Authentication Words                                        |
@@ -1334,7 +1330,7 @@ Content-Type: application/json;charset=UTF-8
 | Value                                     | Type    | Max Length                                                                                       | Required | Description                                                                                                                                                                        |
 |-------------------------------------------|---------|--------------------------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                                               | 	X       | Delivery template ID                                                                                                                                                               |
-| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] | 	O       | 	Body [[Precautions](./api-guide/#precautions-authword)]                                                                                                                           |
+| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#caution)] | 	O       | 	Body [[Precautions](./api-guide/#send-sms-for-authentication)]                                                                                                                           |
 | sendNo                                    | 	String | 13                                                                                               | 	O       | Sender number                                                                                                                                                                      |
 | requestDate                               | String  | -                                                                                                | X        | Date and time of schedule (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                                                                                                                                       |
 | senderGroupingKey                         | String  | 100                                                                                              | X        | Sender's group key                                                                                                                                                                 |
@@ -2603,7 +2599,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Value             | Type                | 	Max Length                                                                                      | Required | Description                                                    |
 |-------------------|---------------------|--------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------|
-| body              | 	String             | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#precautions)] | 	O       | 	Body                                                          |
+| body              | 	String             | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#caution)] | 	O       | 	Body                                                          |
 | sendNo            | String              | 13                                                                                               | O        | Sender number                                                  |
 | requestDate       | String              | -                                                                                                | X        | Date and time of schedule (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                   |
 | templateId        | String              | 50                                                                                               | X        | Template ID                                                    |
@@ -3152,7 +3148,6 @@ curl -X GET \
 | body.data.dlr.dlrStatus                 | String  | X        | DLR status code                                                                       |
 | body.data.dlr.networkCode               | String  | X        | DLR network code                                                                      |
 | body.data.dlr.errorCode                 | String  | X        | DLR error code                                                                        |
-<span id="binaryUpload"></span>
 
 <a id="attached-files"></a>
 ## Attached Files { #attached-files }
@@ -3894,7 +3889,7 @@ curl -X POST \
 ##### Description
 
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
-- See guides for [[Upload Attachment](./api-guide/#binaryUpload)]</a> .
+- See guides for [[Upload Attachment](./api-guide/#attached-files)]</a> .
 - Restrictions for Attached Images
     * Supported Codec: .jpg
     * Number of Attached Images: Less than 2

@@ -3,7 +3,6 @@
 <a id="notification-sms-service-policy-sending-policy"></a>
 ## Notification > SMS > 서비스 정책 > 발송 정책 { #notification-sms-service-policy-sending-policy }
 
-<span id='fabrication-number'></span>
 <a id="prevention-of-caller-number-fabrication"></a>
 ## 발신 번호 변작(변조) 금지 { #prevention-of-caller-number-fabrication }
 + SMS 서비스를 이용할 때 반드시 본인(또는 자사) 소유의 발신 번호를 등록한 후 사용해야 합니다.
@@ -17,7 +16,6 @@
 ㆍ기타 발신번호 변작으로 인한 모든 손실에 대한 손해 배상 청구  
 ```
 
-<span id="fraud-number"></span>
 <a id="filter-messages-from-spoofed-numbers"></a>
 ## 번호 도용 문자 차단 서비스 안내 { #filter-messages-from-spoofed-numbers }
 ‘번호 도용 문자 차단 서비스’ 서비스는 타인이 임의로 내 휴대전화 번호를 문자 범죄에 악용하거나 스팸을 발송할 수 없게 지켜주는 서비스입니다.
@@ -39,7 +37,6 @@
     + 휴대폰 114 + 통화 버튼
     + SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
 
-<span id="spam-number"></span>
 <a id="filter-spams-by-telecommunication-providers"></a>
 ## 통신사 스팸 차단 서비스 안내 { #filter-spams-by-telecommunication-providers }
 + 귀찮은 광고성 스팸 문자를 이동통신사에서 자동으로 차단해주는 서비스입니다.
@@ -62,7 +59,6 @@
     + 휴대폰 114 + 통화 버튼
     + SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
 
-<span id="rejection-of-receiving-080"></span>
 <a id="unsubscribing-080-numbers"></a>
 ## 080 수신 거부 서비스 안내 { #unsubscribing-080-numbers }
 + 080 수신 거부 서비스는 광고 문자 발송 시, 수신자에게 수신 거부를 제공하는 서비스입니다.
@@ -142,7 +138,6 @@
 | LMS | 80 시간 | 재시도하지 않음. 수신 실패 결과 업데이트(결과 코드: 2000) |
 | MMS | 80 시간 | 재시도하지 않음. 수신 실패 결과 업데이트(결과 코드: 2000) |
 
-<span id="private-policy"></span>
 <a id="guide-for-notice-of-personal-information-assignor"></a>
 ## 개인 정보 수탁사 고지 안내 { #guide-for-notice-of-personal-information-assignor }
 
@@ -156,7 +151,6 @@ SMS 상품 이용 시 고객사에서 운영하는 '개인 정보처리방침' >
 수탁사: 엔에이치엔 클라우드
 업무의 내용: 문자 발송 대행
 
-<span id="certification"></span>
 <a id="certified-bulk-message-sender"></a>
 ## 대량문자 전송자격인증제 { #certified-bulk-message-sender }
 대량 문자 전송 사업을 하는 문자 재판매 사업자는 전송 자격 인증을 받은 후 문자 전송 서비스를 운영할 수 있습니다. [[공지 사항 바로 가기](https://www.nhncloud.com/kr/support/notice/detail/6041)]

@@ -17,7 +17,7 @@
 |-------------|----------------------------------|
 | Real        | 	https://sms.api.nhncloudservice.com |
 
-<span id="precautions"></span>
+<a id="precautions"></a>
 
 ### [Caution]
 
@@ -1963,7 +1963,7 @@ X
 | body.data.attachFileList[].createDate   | String   | Attached file - date of creation                                                      |
 | body.data.attachFileList[].updateDate   | String   | Attached file - date of modification                                                  |
 
-<span id="binaryUpload"></span>
+<a id="binaryUpload"></a>
 
 ## Attached Files
 
