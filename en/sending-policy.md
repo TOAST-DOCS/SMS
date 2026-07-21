@@ -72,7 +72,6 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 + 080 numbers that are cancelled from unsubscription or applied externally, delivery shall fail.
 
 <a id="guide-to-sending-advertising-messages"></a>
-
 ### Guide to Sending Advertising Messages { #guide-to-sending-advertising-messages }
 Under Article 50 of the [[Act on Promotion of Information and Communications Network Utilization and Information Protection](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0)], when transmitting advertising information for commercial purposes, you must obtain explicit prior consent from recipients and comply with the mandatory disclosure requirements for sending.
 Please note that violating the relevant laws may result in criminal penalties or administrative fines, depending on the nature of the violation.
