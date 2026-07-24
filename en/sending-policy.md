@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=72dbe1e35282 -->
+<!-- pre-align:aligned sig=92c12cba37bf -->
 
 <a id="notification-sms-service-policy-sending-policy"></a>
 ## Notification > SMS > Service Policy > Sending Policy { #notification-sms-service-policy-sending-policy }
@@ -104,6 +104,21 @@ Free opt-out 080-****-****
 
 Notify opt-out request recipients of the result
 * All of the following must be communicated: ① name of the sender, ② fact of opt-out or withdrawal of consent to receive, ③ date on which the intent was expressed, and ④ processing result
+
+<a id="consent-to-receive-advertising-information"></a>
+### Consent to receive advertising information { #consent-to-receive-advertising-information }
+
+<!-- TODO: translate body -->
+
+<a id="mandatory-ad-notation-requirements"></a>
+### Mandatory Ad Notation Requirements { #mandatory-ad-notation-requirements }
+
+<!-- TODO: translate body -->
+
+<a id="notifying-opt-out-request-recipients-of-the-result"></a>
+### Notifying opt-out request recipients of the result { #notifying-opt-out-request-recipients-of-the-result }
+
+<!-- TODO: translate body -->
 
 <a id="monthly-sending-volume-limit"></a>
 ## Monthly Sending Volume Limit { #monthly-sending-volume-limit }

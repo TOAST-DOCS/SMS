@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=72dbe1e35282 -->
+<!-- pre-align:aligned sig=92c12cba37bf -->
 
 <a id="notification-sms-service-policy-sending-policy"></a>
 ## Notification > SMS > サービスポリシー > 送信ポリシー { #notification-sms-service-policy-sending-policy }
@@ -104,6 +104,21 @@
 
 受信拒否リクエスト受信者への結果通知
 * ①送信者の名称、②受信拒否または受信同意の撤回の事実、③当該意思を表示した日付、④処理結果をすべて案内
+
+<a id="consent-to-receive-advertising-information"></a>
+### 広告受信同意 { #consent-to-receive-advertising-information }
+
+<!-- TODO: translate body -->
+
+<a id="mandatory-ad-notation-requirements"></a>
+### 広告表記の義務事項 { #mandatory-ad-notation-requirements }
+
+<!-- TODO: translate body -->
+
+<a id="notifying-opt-out-request-recipients-of-the-result"></a>
+### 受信拒否を要請した受信者への結果通知 { #notifying-opt-out-request-recipients-of-the-result }
+
+<!-- TODO: translate body -->
 
 <a id="monthly-sending-volume-limit"></a>
 ## 月間送信量制限の案内 { #monthly-sending-volume-limit }
