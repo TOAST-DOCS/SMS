@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=72dbe1e35282 -->
+<!-- pre-align:aligned sig=92c12cba37bf -->
 
 <a id="notification-sms-service-policy-sending-policy"></a>
 ## Notification > SMS > 서비스 정책 > 발송 정책 { #notification-sms-service-policy-sending-policy }
@@ -79,11 +79,13 @@
 
 [[한국인터넷진흥원(KISA) 불법스팸 방지를 위한 정보통신망법 안내서](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
 
-### 광고 수신 동의
+<a id="consent-to-receive-advertising-information"></a>
+### 광고 수신 동의 { #consent-to-receive-advertising-information }
 * 영리 목적의 광고성 정보 전송 시 수신자의 명시적인 사전 동의를 받아야 합니다.
 * 광고성 메시지는 오후 9시부터 다음 날 오전 8시까지 발송할 수 없습니다. 해당 시간대 발송을 위해서는 수신자로부터 별도의 야간 광고 수신 동의가 필요합니다.
 
-### 광고 표기 의무사항
+<a id="mandatory-ad-notation-requirements"></a>
+### 광고 표기 의무사항 { #mandatory-ad-notation-requirements }
 * 광고성 정보가 시작되는 부분에 '(광고)' 표기
     * (광/고), (광 고), ("광고"), [광고] 등의 변칙 표기 금지
     * 제목이 있는 LMS/MMS 경우 제목과 본문 모두 시작 부분에 '(광고)' 표시
@@ -103,7 +105,8 @@
 무료수신거부 080-****-****
 ```
 
-### 수신거부 요청 수신자에 결과 고지
+<a id="notifying-opt-out-request-recipients-of-the-result"></a>
+### 수신거부 요청 수신자에 결과 고지 { #notifying-opt-out-request-recipients-of-the-result }
 * ①전송자의 명칭, ②수신거부 또는 수신동의 철회 사실, ③해당 의사를 표시한 날짜, ④처리 결과를 모두 안내
 
 <a id="monthly-sending-volume-limit"></a>
