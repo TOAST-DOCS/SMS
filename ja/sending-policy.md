@@ -78,11 +78,13 @@
 
 [[韓国インターネット振興院(KISA)不法スパム防止のための情報通信網法ガイド](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
 
-### 広告受信同意
+<a id="consent-to-receive-advertising"></a>
+### 広告受信同意 { #consent-to-receive-advertising }
 * 営利目的の広告性情報を送信する際は、受信者の明示的な事前同意を得る必要があります。
 * 広告メッセージは午後9時から翌日午前8時まで送信することはできません。該当時間帯に送信するためには、受信者から別途の夜間広告受信同意が必要です。
 
-### 広告表記の義務事項
+<a id="advertising-disclosure-requirements"></a>
+### 広告表記の義務事項 { #advertising-disclosure-requirements }
 * 広告性情報の冒頭に「(광고)」を表記します
     * (광/고)、(광 고)、("광고")、[광고] などの変則表記は禁止です
     * 件名のある LMS/MMS の場合、件名と本文の両方の冒頭に「(광고)」を表示します
@@ -102,7 +104,8 @@
 無料受信拒否 080-****-****
 ```
 
-### 受信拒否リクエスト受信者への結果通知
+<a id="notify-opt-out-request-recipients-of-the-result"></a>
+### 受信拒否リクエスト受信者への結果通知 { #notify-opt-out-request-recipients-of-the-result }
 * ①送信者の名称、②受信拒否または受信同意の撤回の事実、③当該意思を表示した日付、④処理結果をすべて案内
 
 <a id="monthly-sending-volume-limit"></a>
