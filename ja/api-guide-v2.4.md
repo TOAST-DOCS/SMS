@@ -1,5 +1,3 @@
-<!-- pre-align:aligned sig=d18815424bd1 -->
-
 <a id="notification-sms-api-v24-guide"></a>
 ## Notification > SMS > API v2.4ガイド { #notification-sms-api-v24-guide }
 
@@ -3786,6 +3784,79 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.sentFailed | 	Integer | 	失敗数                                                                                                             |
 | body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	成功数                                                                                                             |
 | body.data.events[].{statsCriteriaValue}.pending    | 	Integer | 	送信中の数                                                                                                           |
+
+<a id="oldquery-integrated-statistics"></a>
+### (旧)統合統計照会 { #oldquery-integrated-statistics }
+
+<a id="oldquery-integrated-statistics-request"></a>
+#### リクエスト
+
+[URL]
+
+| Http method | 	URI                                                                                                                                                                  |
+|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET         | 	/sms/v2.4/appKeys/{appKey}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId} |
+
+[Path parameter]
+
+| 値      | 	タイプ    | 	説明            |
+|--------|---------|----------------|
+| appKey | 	String | 	固有のアプリケーションキー |
+
+[Query parameter]
+
+| 値           | 	タイプ   | 	最大 | 必須 | 説明                                             |
+|-------------|--------|-----|----|------------------------------------------------|
+| searchType  | String | 10  | O  | 統計区分<br/>DATE：日付別、TIME：時間別、DAY：曜日別             |
+| from        | String | -   | O  | 統計照会開始日時<br/>yyyy-MM-dd HH:mm                  |
+| to          | String | -   | O  | 統計照会の終了日時<br/>yyyy-MM-dd HH:mm                 |
+| messageType | String | 10  | X  | メッセージタイプ<br/>SMS：短文、LMS：長文、MMS：添付ファイル、AUTH：認証用 |
+| contentType | String | 10  | X  | コンテンツタイプ<br/>NORMAL：一般、AD：広告                   |
+| templateId  | String | 50  | X  | テンプレートID                                       |
+
+<a id="oldquery-integrated-statistics-response"></a>
+#### レスポンス
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "data": [
+      {
+        "divisionName": "2018-06-01",
+        "statisticsView": {
+          "requestedCount": 10,
+          "succeedCount": 10,
+          "failedCount": 0,
+          "pendingCount": 0,
+          "succeedRate": "100.00",
+          "failedRate": "0.00",
+          "pendingRate": "0.00"
+        }
+      }
+    ]
+  }
+}
+```
+
+| 値                          | タイプ      | 説明               |
+|----------------------------|----------|------------------|
+| header.isSuccessful        | 	Boolean | 	成否              |
+| header.resultCode          | 	Integer | 	失敗コード           |
+| header.resultMessage       | 	String  | 	失敗メッセージ         |
+| body.data[].divisionName   | String   | 表示名<br/>日付、時間、曜日 |
+| body.data[].statisticsView | Object   |                  |
+| body.data[].requestedCount | Integer  | リクエスト数           |
+| body.data[].succeedCount   | Integer  | 成功数              |
+| body.data[].failedCount    | Integer  | 失敗数              |
+| body.data[].pendingCount   | Integer  | 送信中の数            |
+| body.data[].succeedRate    | String   | 成功比率             |
+| body.data[].failedRate     | String   | 失敗比率             |
+| body.data[].pendingRate    | String   | 送信中の比率           |
 
 <a id="scheduled-delivery"></a>
 ## 予約送信 { #scheduled-delivery }

@@ -1,5 +1,3 @@
-<!-- pre-align:aligned sig=d18815424bd1 -->
-
 <a id="notification-sms-api-v24-guide"></a>
 ## Notification > SMS > API v2.4 Guide { #notification-sms-api-v24-guide }
 
@@ -3801,6 +3799,79 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.sentFailed | 	Integer | 	Number of failures                                                                                                                                          |
 | body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	Number of successes                                                                                                                                         |
 | body.data.events[].{statsCriteriaValue}.pending    | 	Integer | 	Number of pending items                                                                                                                                     |
+
+<a id="oldquery-integrated-statistics"></a>
+### (Old)Query Integrated Statistics { #oldquery-integrated-statistics }
+
+<a id="oldquery-integrated-statistics-request"></a>
+#### Request
+
+[URL]
+
+| Http method | 	URI                                                                                                                                                                 |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET         | 	/sms/v2.4/appKeys/{appKey/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId} |
+
+[Path parameter]
+
+| Value  | Type    | Description     |
+|--------|---------|-----------------|
+| appKey | 	String | Original appkey |
+
+[Query parameter]
+
+| Value       | Type   | 	Max Length | Required | Description                                                                                     |
+|-------------|--------|-------------|----------|-------------------------------------------------------------------------------------------------|
+| searchType  | String | 10          | O        | Type of statistics <br/>DATE:By date, TIME:By time, DAY:By day                                  |
+| from        | String | -           | O        | Start date of query statistics<br/>yyyy-MM-dd HH:mm                                             |
+| to          | String | -           | O        | End date of query statistics<br/>yyyy-MM-dd HH:mm                                               |
+| messageType | String | 10          | X        | Message type<br/>SMS: Short messages, LMS: Long messages, MMS: Attachment, AUTH: Authentication |
+| contentType | String | 10          | X        | Content type <br/>NORMAL: General, AD: Advertisement                                            |
+| templateId  | String | 50          | X        | Template ID                                                                                     |
+
+<a id="oldquery-integrated-statistics-response"></a>
+#### Response
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "data": [
+      {
+        "divisionName": "2018-06-01",
+        "statisticsView": {
+          "requestedCount": 10,
+          "succeedCount": 10,
+          "failedCount": 0,
+          "pendingCount": 0,
+          "succeedRate": "100.00",
+          "failedRate": "0.00",
+          "pendingRate": "0.00"
+        }
+      }
+    ]
+  }
+}
+```
+
+| Value                      | Type     | Description                      |
+|----------------------------|----------|----------------------------------|
+| header.isSuccessful        | 	Boolean | Successful or not                |
+| header.resultCode          | 	Integer | Failure code                     |
+| header.resultMessage       | 	String  | Failure message                  |
+| body.data[].divisionName   | String   | Display name<br/>Date, time, Day |
+| body.data[].statisticsView | Object   |                                  |
+| body.data[].requestedCount | Integer  | Number of requests               |
+| body.data[].succeedCount   | Integer  | Success count                    |
+| body.data[].failedCount    | Integer  | Failure count                    |
+| body.data[].pendingCount   | Integer  | Delivery count                   |
+| body.data[].succeedRate    | String   | Success rate                     |
+| body.data[].failedRate     | String   | Failure rate                     |
+| body.data[].pendingRate    | String   | Delivery rate                    |
 
 <a id="scheduled-delivery"></a>
 ## Scheduled Delivery { #scheduled-delivery }
