@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=e49e0a0eb044 -->
+
 <a id="notification-sms-api-v23-guide"></a>
 ## Notification > SMS > API v2.3 Guide { #notification-sms-api-v23-guide }
 
@@ -3789,6 +3791,7 @@ curl -X GET \
 | body.data.events[].{statsCriteriaValue}.received   | 	Integer | 	성공 개수                                                                                                              |
 | body.data.events[].{statsCriteriaValue}.pending    | 	Integer | 	발송 중 개수                                                                                                            |
 
+<a id="scheduled-delivery"></a>
 ## 예약 발송 { #scheduled-delivery }
 
 <a id="list-scheduled-delivery"></a>
