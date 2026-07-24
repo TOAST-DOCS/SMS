@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=842985799b6c -->
+<!-- pre-align:aligned sig=c5be1a623430 -->
 
 <a id="notification-sms-api-v30-guide"></a>
 ## Notification > SMS > API v3.0 Guide { #notification-sms-api-v30-guide }
@@ -5338,93 +5338,6 @@ curl -X GET \
 | events.{statsCriteriaValue}.CONCAT          | Integer | O        | Number of successes                                              |
 | events.{statsCriteriaValue}.READY           | Integer | O        | Number of conversion rate collection requests successfuly sent   |
 | events.{statsCriteriaValue}.CONVERTED       | Integer | O        | Number of converted items                                        |
-
-<a id="oldquery-integrated-statistics"></a>
-### (Old)Query Integrated Statistics { #oldquery-integrated-statistics }
-
-<a id="oldquery-integrated-statistics-request"></a>
-#### Request
-
-[URL]
-
-| Http method | 	URI                                                                                                                                                                  |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GET         | 	/sms/v3.0/appKeys/{appKey}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId} |
-
-[Path parameter]
-
-| Value  | 	Type   | 	Description     |
-|--------|---------|------------------|
-| appKey | 	String | 	Original appkey |
-
-[Header]
-
-```json
-{
-  "X-Secret-Key": "{secret-key}"
-}
-```
-
-| Value        | Type    | Description          |
-|--------------|---------|----------------------|
-| X-Secret-Key | 	String | 	Original secret key |
-
-[Query parameter]
-
-| Value       | Type   | 	Max Length | Required | Description                                                                                     |
-|-------------|--------|-------------|----------|-------------------------------------------------------------------------------------------------|
-| searchType  | String | 10          | O        | Type of statistics <br/>DATE:By date, TIME:By time, DAY:By day                                  |
-| from        | String | -           | O        | Start date of query statistics<br/>yyyy-MM-dd HH:mm                                             |
-| to          | String | -           | O        | End date of query statistics<br/>yyyy-MM-dd HH:mm                                               |
-| messageType | String | 10          | X        | Message type<br/>SMS: Short messages, LMS: Long messages, MMS: Attachment, AUTH: Authentication |
-| contentType | String | 10          | X        | Content type <br/>NORMAL: General, AD: Advertisement                                            |
-| templateId  | String | 50          | X        | Template ID                                                                                     |
-
-<a id="oldquery-integrated-statistics-response"></a>
-#### Response
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "body": {
-    "data": [
-      {
-        "divisionName": "2018-06-01",
-        "statisticsView": {
-          "requestedCount": 10,
-          "succeedCount": 10,
-          "failedCount": 0,
-          "pendingCount": 0,
-          "succeedRate": "100.00",
-          "failedRate": "0.00",
-          "pendingRate": "0.00"
-        }
-      }
-    ]
-  }
-}
-```
-
-| Value                      | Type    | Not Null | Description                      |
-|----------------------------|---------|----------|----------------------------------|
-| header                     | Object  | O        | Header area                      |
-| header.isSuccessful        | Boolean | O        | Successful or not                |
-| header.resultCode          | Integer | O        | Failure code                     |
-| header.resultMessage       | String  | O        | Failure message                  |
-| body                       | Object  | X        | Body area                        |
-| body.data[].divisionName   | String  | X        | Display name<br/>Date, time, Day |
-| body.data[].statisticsView | Object  | X        |                                  |
-| body.data[].requestedCount | Integer | X        | Number of requests               |
-| body.data[].succeedCount   | Integer | X        | Success count                    |
-| body.data[].failedCount    | Integer | X        | Failure count                    |
-| body.data[].pendingCount   | Integer | X        | Delivery count                   |
-| body.data[].succeedRate    | String  | X        | Success rate                     |
-| body.data[].failedRate     | String  | X        | Failure rate                     |
-| body.data[].pendingRate    | String  | X        | Delivery rate                    |
 
 <a id="scheduled-delivery"></a>
 ## Scheduled Delivery { #scheduled-delivery }
