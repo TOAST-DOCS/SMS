@@ -78,11 +78,13 @@ Please note that violating the relevant laws may result in criminal penalties or
 
 [[Korea Internet & Security Agency (KISA) Guide to the Information and Communications Network Act for the Prevention of Illegal Spam](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
 
-### Consent to Receive Advertising
+<a id="consent-to-receive-advertising"></a>
+### Consent to Receive Advertising { #consent-to-receive-advertising }
 * When sending advertising information for commercial purposes, you must obtain the explicit prior consent of recipients.
 * Advertising messages cannot be sent between 9 PM and 8 AM the following day. To send messages during these hours, you must obtain separate nighttime advertising consent from recipients.
 
-### Advertising Disclosure Requirements
+<a id="advertising-disclosure-requirements"></a>
+### Advertising Disclosure Requirements { #advertising-disclosure-requirements }
 * Mark "(광고)" at the beginning of the advertising information
     * Irregular notations such as (광/고), (광 고), ("광고"), and [광고] are prohibited
     * For LMS/MMS messages with a subject, mark "(광고)" at the beginning of both the subject and body
@@ -102,7 +104,8 @@ Example: Message advertising disclosure examples
 Free opt-out 080-****-****
 ```
 
-### Notify opt-out request recipients of the result
+<a id="notify-opt-out-request-recipients-of-the-result"></a>
+### Notify opt-out request recipients of the result { #notify-opt-out-request-recipients-of-the-result }
 * All of the following must be communicated: ① name of the sender, ② fact of opt-out or withdrawal of consent to receive, ③ date on which the intent was expressed, and ④ processing result
 
 <a id="monthly-sending-volume-limit"></a>
