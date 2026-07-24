@@ -1,5 +1,3 @@
-<!-- pre-align:aligned sig=bf7aa4e53faf -->
-
 <a id="notification-sms-release-notes"></a>
 ## Notification > SMS > 릴리스 노트 { #notification-sms-release-notes }
 

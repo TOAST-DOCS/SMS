@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=c5be1a623430 -->
+<!-- pre-align:aligned sig=842985799b6c -->
 
 <a id="notification-sms-api-v30-guide"></a>
 ## Notification > SMS > API v3.0 Guide { #notification-sms-api-v30-guide }
@@ -5326,6 +5326,93 @@ https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/stats?statis
 | events.{statsCriteriaValue}.CONCAT      | Integer | O        | 実受信成功数                                        |
 | events.{statsCriteriaValue}.READY       | Integer | O        | コンバージョン率収集リクエストの送信成功数           |
 | events.{statsCriteriaValue}.CONVERTED   | Integer | O        | コンバージョン数                                    |
+
+<a id="oldquery-integrated-statistics"></a>
+### (旧)統合統計検索 { #oldquery-integrated-statistics }
+
+<a id="oldquery-integrated-statistics-request"></a>
+#### リクエスト
+
+[URL]
+
+| Http method | 	URI                                                                                                                                                                  |
+|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET         | 	/sms/v3.0/appKeys/{appKey}/statistics/view?searchType={searchType}&from={from}&to={to}&messageTypes={messageType}&contentTypes={contentType}&templateId={templateId} |
+
+[Path parameter]
+
+| 値      | 	タイプ    | 	説明            |
+|--------|---------|----------------|
+| appKey | 	String | 	固有のアプリケーションキー |
+
+[Header]
+
+```json
+{
+"X-Secret-Key": "{secret-key}"
+}
+```
+
+| 値            | 	タイプ    | 	説明          |
+|--------------|---------|--------------|
+| X-Secret-Key | 	String | 	固有のシークレットキー |
+
+[Query parameter]
+
+| 値           | 	タイプ   | 	最大長さ | 必須 | 説明                                              |
+|-------------|--------|-------|----|-------------------------------------------------|
+| searchType  | String | 10    | O  | 統計区分<br/>DATE：日別、TIME：時間別、 DAY：曜日別              |
+| from        | String | -     | O  | 統計検索開始日<br/>yyyy-MM-dd HH:mm                    |
+| to          | String | -     | O  | 統計検索終了日<br/>yyyy-MM-dd HH:mm                    |
+| messageType | String | 10    | X  | メッセージタイプ<br/>SMS：短文、LMS：長文、MMS：添付ファイル、 AUTH：認証用 |
+| contentType | String | 10    | X  | コンテンツタイプ<br/>NORMAL：一般、 AD：広告                   |
+| templateId  | String | 50    | X  | テンプレートID                                        |
+
+<a id="oldquery-integrated-statistics-response"></a>
+#### レスポンス
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "body": {
+    "data": [
+      {
+        "divisionName": "2018-06-01",
+        "statisticsView": {
+          "requestedCount": 10,
+          "succeedCount": 10,
+          "failedCount": 0,
+          "pendingCount": 0,
+          "succeedRate": "100.00",
+          "failedRate": "0.00",
+          "pendingRate": "0.00"
+        }
+      }
+    ]
+  }
+}
+```
+
+| 値                          | タイプ    | Not Null | 説明               |
+|----------------------------|---------|----------|--------------------|
+| header                     | Object  | O        | ヘッダ領域            |
+| header.isSuccessful        | Boolean | O        | 成否                |
+| header.resultCode          | Integer | O        | 失敗コード            |
+| header.resultMessage       | String  | O        | 失敗メッセージ         |
+| body                       | Object  | X        | 本文領域              |
+| body.data[].divisionName   | String  | X        | 表示名<br/>日、時間、曜日 |
+| body.data[].statisticsView | Object  | X        |                     |
+| body.data[].requestedCount | Integer | X        | リクエスト数           |
+| body.data[].succeedCount   | Integer | X        | 成功数               |
+| body.data[].failedCount    | Integer | X        | 失敗数               |
+| body.data[].pendingCount   | Integer | X        | 送信中の数            |
+| body.data[].succeedRate    | String  | X        | 成功比率              |
+| body.data[].failedRate     | String  | X        | 失敗比率              |
+| body.data[].pendingRate    | String  | X        | 送信中の比率           |
 
 <a id="scheduled-delivery"></a>
 ## 予約送信 { #scheduled-delivery }
