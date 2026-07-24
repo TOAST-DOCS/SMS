@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=92c12cba37bf -->
+<!-- pre-align:aligned sig=72dbe1e35282 -->
 
 <a id="notification-sms-service-policy-sending-policy"></a>
 ## Notification > SMS > Service Policy > Sending Policy { #notification-sms-service-policy-sending-policy }
@@ -78,11 +78,11 @@ Please note that violating the relevant laws may result in criminal penalties or
 
 [[Korea Internet & Security Agency (KISA) Guide to the Information and Communications Network Act for the Prevention of Illegal Spam](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
 
-Consent to Receive Advertising
+### Consent to Receive Advertising
 * When sending advertising information for commercial purposes, you must obtain the explicit prior consent of recipients.
 * Advertising messages cannot be sent between 9 PM and 8 AM the following day. To send messages during these hours, you must obtain separate nighttime advertising consent from recipients.
 
-Advertising Disclosure Requirements
+### Advertising Disclosure Requirements
 * Mark "(광고)" at the beginning of the advertising information
     * Irregular notations such as (광/고), (광 고), ("광고"), and [광고] are prohibited
     * For LMS/MMS messages with a subject, mark "(광고)" at the beginning of both the subject and body
@@ -102,23 +102,8 @@ Example: Message advertising disclosure examples
 Free opt-out 080-****-****
 ```
 
-Notify opt-out request recipients of the result
+### Notify opt-out request recipients of the result
 * All of the following must be communicated: ① name of the sender, ② fact of opt-out or withdrawal of consent to receive, ③ date on which the intent was expressed, and ④ processing result
-
-<a id="consent-to-receive-advertising-information"></a>
-### Consent to receive advertising information { #consent-to-receive-advertising-information }
-
-<!-- TODO: translate body -->
-
-<a id="mandatory-ad-notation-requirements"></a>
-### Mandatory Ad Notation Requirements { #mandatory-ad-notation-requirements }
-
-<!-- TODO: translate body -->
-
-<a id="notifying-opt-out-request-recipients-of-the-result"></a>
-### Notifying opt-out request recipients of the result { #notifying-opt-out-request-recipients-of-the-result }
-
-<!-- TODO: translate body -->
 
 <a id="monthly-sending-volume-limit"></a>
 ## Monthly Sending Volume Limit { #monthly-sending-volume-limit }
