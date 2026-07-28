@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=72dbe1e35282 -->
+<!-- pre-align:aligned sig=5bcc83f92b12 -->
 
 <a id="notification-sms-service-policy-sending-policy"></a>
 ## Notification > SMS > Service Policy > Sending Policy { #notification-sms-service-policy-sending-policy }
@@ -73,15 +73,40 @@ The 'Filter Messages from Spoofed Numbers' service protects user's own phone num
 
 <a id="guide-to-sending-advertising-messages"></a>
 ### Guide to Sending Advertising Messages { #guide-to-sending-advertising-messages }
-In accordance with Article 50 of the Act on Promotion of Information and Communications Network Utilization and Information Protection etc.
-You must obtain the recipient's express prior consent and comply with the sending marking obligations.<br/>
-[[Korea Internet & Security Agency (KISA) Guide to the Information and Communication Network Act to Prevent Illegal Spam](https://static.toastoven.net/prod_sms/eng/kisa_spam_guide.pdf)]
-+ The sending number must be a valid number that can be directly contacted by the actual sender.
-+ Insert (advertising) text at the beginning of the content
-+ Include the sender's business name or service name
-+ Provide a free opt-out method
-+ Prohibition of sending advertising information at night: Requires individual prior consent of the recipient when sending at night (PM 09 ~ AM 08)
-+ Notify the recipient of the result of the opt-out request: name of the sender, the fact and date of the expression of intent, and the result of the processing.
+Under Article 50 of the [[Act on Promotion of Information and Communications Network Utilization and Information Protection](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0)], when transmitting advertising information for commercial purposes, you must obtain explicit prior consent from recipients and comply with the mandatory disclosure requirements for sending.
+Please note that violating the relevant laws may result in criminal penalties or administrative fines, depending on the nature of the violation.
+
+[[Korea Internet & Security Agency (KISA) Guide to the Information and Communications Network Act for the Prevention of Illegal Spam](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
+
+<a id="consent-to-receive-advertising"></a>
+### Consent to Receive Advertising { #consent-to-receive-advertising }
+* When sending advertising information for commercial purposes, you must obtain the explicit prior consent of recipients.
+* Advertising messages cannot be sent between 9 PM and 8 AM the following day. To send messages during these hours, you must obtain separate nighttime advertising consent from recipients.
+
+<a id="advertising-disclosure-requirements"></a>
+### Advertising Disclosure Requirements { #advertising-disclosure-requirements }
+* Mark "(광고)" at the beginning of the advertising information
+    * Irregular notations such as (광/고), (광 고), ("광고"), and [광고] are prohibited
+    * For LMS/MMS messages with a subject, mark "(광고)" at the beginning of both the subject and body
+* Include the message sender information: "company name or service name" and "contact information"
+    * If the sender number and contact number are the same, the contact number may be omitted
+* Include a free 080 unsubscribe number at the bottom of the message
+
+Example: Message advertising disclosure examples
+```
+[Web]
+(Ads) [Sender name]
+[Sender's contact number]
+[Or sender's address]
+
+[Ad content]
+
+Free opt-out 080-****-****
+```
+
+<a id="notify-opt-out-request-recipients-of-the-result"></a>
+### Notify opt-out request recipients of the result { #notify-opt-out-request-recipients-of-the-result }
+* All of the following must be communicated: ① name of the sender, ② fact of opt-out or withdrawal of consent to receive, ③ date on which the intent was expressed, and ④ processing result
 
 <a id="monthly-sending-volume-limit"></a>
 ## Monthly Sending Volume Limit { #monthly-sending-volume-limit }
