@@ -1,15 +1,18 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=172b01aa78b5 -->
 
 <a id="notification-sms-result-code"></a>
 ## Notification > SMS > 結果コード { #notification-sms-result-code }
 
 <a id="api-result-code"></a>
+
 ## API結果コード { #api-result-code }
 
 | カテゴリー | 成否 | 結果コード | 結果コードメッセージ | APIレスポンスメッセージ | 
 | - | - | - | - | - |
-| 共通 | true | 0 | 成功 | SUCCESS |
-| 共通 | false | 4 | パラメータ検証に失敗しました | |
+| 共通 | true | 0     | 成功 | SUCCESS |
+| 共通 | false | 4     | パラメータ検証に失敗しました | | 
 | 共通 | false | -1000 | 有効ではないアプリケーションキー | Invalid appKey. |
 | 共通 | false | -1001 | 存在しないアプリケーションキー | Service is not exist. |
 | 共通 | false | -1002 | 使用が終了したアプリケーションキー | Service is disabled. |
@@ -31,6 +34,7 @@
 | 送信/照会 | false | -2004 | 添付ファイルが期限切れまたは存在しない場合 | File is expired or does not exist. | 
 | 送信/照会 | false | -2005 | 添付ファイルのサイズが300KBを超える場合 | The file size must be greater than 0 and less than 300KB. |
 | 送信/照会 | false | -2006 | テンプレートに設定された送信タイプとリクエストされた送信タイプが異なる場合 | Invalid template type. |
+| 送信/照会 | false | -2007 | リクエストしたデータが存在しない場合 | Not exist data. |
 | 送信/照会 | false | -2008 | リクエストID(requestId)が間違っている場合 | Invalid requestId. |
 | 送信/照会 | false | -2009 | 添付ファイルのアップロード中にサーバーエラーで正常にアップロードされなかった場合 | Upload attach file error. | 
 | 送信/照会 | false | -2010 | 添付ファイルのアップロードタイプが間違っている場合(サーバーエラー) | Upload attach file type can not be empty. |
@@ -53,6 +57,7 @@
 | 送信/照会 | false | -2048 | 国際送信の本文が最大文字数を超えた場合 | International message body exceed maximum length. |
 | 送信/照会 | false | -2050 | 国際発送のコンバージョンに失敗した場合(コンバージョン可能な状態ではありません) | Conversion status is not ready. |
 | 送信/照会 | false | -2051 | コンバージョン率に基づくブロックにより送信に失敗した場合 | Conversion rate is lower than threshold. |
+| 送信/照会 | false | -2052 | 組織あたりの月間送信数超過により送信に失敗した場合 | Blocked by organization message sending count exceed. |
 | 送信/照会 | false | -2053 | 国別の1日送信限度制限により国際送信に失敗した場合 | Blocked by daily country send limit. |
 | 送信/照会 | false | -4000 | 照会範囲が1か月を超える場合 | Search is possible within one month. |
 | 送信/照会 | false | -8000 | 認証送信に認証文言が含まれていない場合 | The body must contain auth guide ment. |
@@ -69,13 +74,13 @@
 | テンプレート | false | -2110 | テンプレートが存在しない場合 | Template is not exist. |
 | テンプレート | false | -2111 | 有効ではないテンプレートパラメータの場合 | Template add parameter is invalid. |
 | テンプレート | false | -2112 | 最大登録可能なテンプレート数を超過した場合(最大: 1,000)  | The maximum number of registered templates. |
-| テンプレート | false | -2114 | タイトルが空白の場合 | The title can not be empty. |
-| テンプレート | false | -2115 | タイトルが120文字を超える場合 | Title length must be under 120. |
-| テンプレート | false | -2116 | 送信タイプがSMSの場合、本文の長さが255文字を超える場合 | SMS Body length must be under 255. |
-| テンプレート | false | -2117 | 送信タイプがLMS/MMSの場合、本文の長さが4,000文字を超える場合 | LMS/MMS Body length must be under 4000. |
+| テンプレート | false | -2114 | タイトルが空白の場合  | The title can not be empty. |
+| テンプレート | false | -2115 | タイトルが120文字を超える場合  | Title length must be under 120. |
+| テンプレート | false | -2116 | 送信タイプがSMSの場合、本文の長さが255文字を超える場合  | SMS Body length must be under 255. |
+| テンプレート | false | -2117 | 送信タイプがLMS/MMSの場合、本文の長さが4,000文字を超える場合  | LMS/MMS Body length must be under 4000. |
 | テンプレート | false | -2043 | テンプレートに登録する添付ファイルが既に他のテンプレートに登録されている場合 | Already used attachFileId |
 | カテゴリー | false | -2200 | 有効ではないカテゴリーパラメータ(登録時) | Invalid add category parameter.(categoryName, useYn) |
-| カテゴリー | false | -2201 | 有効ではないカテゴリーパラメータ(修正時) | Invalid modify category parameter.(categoryId、categoryName、useYn) |
+| カテゴリー | false | -2201 | 有効ではないカテゴリーパラメータ(修正時) | Invalid modify category parameter.(categoryId, categoryName, useYn) |
 | カテゴリー | false | -2202 | 有効ではないカテゴリー(カテゴリー照会失敗) | Invalid category. |
 | カテゴリー | false | -2203 | 親カテゴリーが存在しない場合 | CategoryParentId is invalid. |
 | カテゴリー | false | -2204 | 使用の有無が正しくない場合 | UseYn is invalid. |
@@ -186,7 +191,7 @@
 | 16 | ゲートウェイ割り当て量超過 | 期間当たりに許可された要求回数を超えたため、メッセージの送信に失敗しました。このエラーは、米国とフランスに登録されたアカウントにのみ適用されます。 |
 | 20 | 不正行為防止トラフィックルール | メッセージがトラフィックポンプによって拒否された - サポートにお問い合わせください |
 | 21 | 異常な連続発信を検出 | 高密度受信番号範囲のしきい値を超えています |
-| 22 | 異常なトラフィックの急増を検出｜相対的な増加のしきい値を超えています |
+| 22 | 異常なトラフィックの急増を検出 | 相対的な増加のしきい値を超えています |
 | 39 | 宛先が米国の誤った発信者アドレス | 発信番号の問題で米国にメッセージ送信失敗 - サポートにお問い合わせください |
 | 51 | ヘッダフィルタ | 発信番号の問題で米国にメッセージ送信失敗 - サポートにお問い合わせください |
 | 53 | 同意フィルタ | 同意しないため、メッセージ送信失敗 |
