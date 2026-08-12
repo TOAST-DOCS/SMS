@@ -6,7 +6,6 @@
 ## Notification > SMS > Result Code { #notification-sms-result-code }
 
 <a id="api-result-code"></a>
-
 ## API Result Code { #api-result-code }
 
 | Category | Successful or not | Result code | Result code message | API response message |
