@@ -1,17 +1,20 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=172b01aa78b5 -->
 
 <a id="notification-sms-result-code"></a>
 ## Notification > SMS > Result Code { #notification-sms-result-code }
 
 <a id="api-result-code"></a>
+
 ## API Result Code { #api-result-code }
 
 | Category | Successful or not | Result code | Result code message | API response message |
-| - | - | - | - | - |
-| Common | true | 0 | Successful | SUCCESS |
-| Common | false | 4 | Parameter validation failed | |
+| - | - |-------| - | - |
+| Common | true | 0     | Successful | SUCCESS |
+| Common | false | 4     | Parameter validation failed | |
 | Common | false | -1000 | Invalid appkey | Invalid appKey. |
-| Common | false | -1001 | Not exist appkey | Service does not exist. |
+| Common | false | -1001 | Not exist appkey | Service is not exist. |
 | Common | false | -1002 | Terminated appkey | Service is disabled. |
 | Common | false | -1003 | Member not included in the project | Not project member id. |
 | Common | false | -1004 | Not allowed IP | Not allow ip. |
@@ -26,17 +29,18 @@
 | Send/Query | false | -1006 | Invalid delivery message format (messageType) | MessageType is invalid. |
 | Send/Query | false | -2000 | Invalid date format | Date format error. |
 | Send/Query | false | -2001 | Recipient is missing | RecipientList can not be null. |
-| Send/Query | false | -2002 |Name of attached file is invalid | Invalid attach file name. |
+| Send/Query | false | -2002 | Name of attached file is invalid | Invalid attach file name. |
 | Send/Query | false | -2003 | Extension of attached file is not jpg or jpeg | Attach file required jpg or jpeg. |
 | Send/Query | false | -2004 | The attachment has expired or does not exist | File is expired or does not exist. |
 | Send/Query | false | -2005 | Attached file is sized 300KB or more  | The file size must be greater than 0 and less than 300KB. |
 | Send/Query | false | -2006 | Delivery type in template setting is not consistent with requested type | Invalid template type. |
-| Send/Query | false | -2008 |  Request ID (requestId) is invalid | Invalid requestId. |
+| Send/View | false | -2007 | The requested data does not exist. | Not exist data. |
+| Send/Query | false | -2008 | Request ID (requestId) is invalid | Invalid requestId. |
 | Send/Query | false | -2009 | Attached file is not properly uploaded due to server error | Upload attach file error. |
 | Send/Query | false | -2010 | Upload type of attachment is invalid (server error) | Upload attach file type can not be empty. |
 | Send/Query | false | -2011 | Required query parameters are missing (requestId or startRequestDate, endRequestDate) | RequestId or start/endRequestDate or start/endCreateDate is required. |
 | Send/Query | false | -2012 | When detailed query parameter is invalid (requestId or mtPr) | Search parameter is invalid.(requestId and mtPr). |
-| Send/Query | false | -2014 |Title or body is missing | The recipient can not be empty. |
+| Send/Query | false | -2014 | Title or body is missing | The recipient can not be empty. |
 | Send/Query | false | -2015 | Title or body exceed maximum byte | Title or Body exceed maximum byte. |
 | Send/Query | false | -2016 | The number of recipients is over 1,000 | The max recipient size is 1000. |
 | Send/Query | false | -2017 | Failed to create excel | Making Excel file is failed. |
@@ -45,16 +49,16 @@
 | Send/Query | false | -2021 | System error (failed in saving queue) | System error. Failed insert queue. |
 | Send/Query | false | -2022 | Request date and time is set earlier than the current time | RequestDate is not before currentDate. |
 | Send/Query | false | -2023 | Title or body includes characters that are not allowed (e.g. emojis) | Unacceptable characters in title and body. |
-| Send/Query | false | -2024 |  International delivery is sent with LMS/MMS | LMS/MMS Type is not sent to outside of Korea. |
+| Send/Query | false | -2024 | International delivery is sent with LMS/MMS | LMS/MMS Type is not sent to outside of Korea. |
 | Send/Query | false | -2044 | Request is sent to unavailable country | Invalid countryCode for sending. |
 | Send/Query | false | -2045 | International sending is blocked | International sending blocked by service. |
 | Send/Query | false | -2046 | Sent to blocked country | Blocked country by service. |
 | Send/Query | false | -2047 | Exceeded the block limit | Blocked by total indicator. |
 | Send/Query | false | -2048 | Exceeded the international message body limit | International message body exceed maximum length. |
-| Send/Query | false | -2050 | Failed to convert to international delivery(Unable to convert) | Conversion status is not ready. |
-| Send/Query | false | -2051 | Failed to send due to Conversion Rate Based Sending Blocking  | Conversion rate is lower than threshold. |
-| Send/Query | false | -2052 | Blocked due to exceeding the monthly message sending limit for the organization. |
-| Send/Query | false | -2053 | Blocked by the daily send limit by country. |
+| Send/Query | false | -2050 | Failed to convert to international delivery (Unable to convert) | Conversion status is not ready. |
+| Send/Query | false | -2051 | Failed to send due to Conversion Rate Based Sending Blocking | Conversion rate is lower than threshold. |
+| Send/Query | false | -2052 | Blocked due to exceeding the monthly message sending limit for the organization. | Blocked by organization message sending count exceed. |
+| Send/Query | false | -2053 | Blocked by the daily send limit by country. | Blocked by daily country send limit. |
 | Send/Query | false | -4000 | Query range is more than a month | Search is possible within one month. |
 | Send/Query | false | -8000 | If authentication doesn't include a authentication statement | The body must contain auth guide ment. |
 | Template | false | -2100 | Template ID is missing | The templateId can not be empty. |
@@ -64,7 +68,7 @@
 | Template | false | -2104 | Delivery type is missing (0: sms, 1: mms) | The sendType can not be empty.(0-sms, 1-mms) |
 | Template | false | -2105 | Body is missing | The body can not be empty. |
 | Template | false | -2106 | Use or not is invalid | UseYn is invalid. |
-| Template | false | -2107 | Invalid Template ID(When modifying/deleting) | Invalid template. |
+| Template | false | -2107 | Invalid Template ID (When modifying/deleting) | Invalid template. |
 | Template | false | -2108 | Category ID is missing | The categoryId can not be empty. |
 | Template | false | -2109 | Template ID exceeds 50 characters | TemplateId length must be under 50. |
 | Template | false | -2110 | Not exist Template | Template is not exist. |
@@ -75,10 +79,6 @@
 | Template | false | -2116 | Body length exceeds 255 characters, for SMS delivery   | SMS Body length must be under 255. |
 | Template | false | -2117 | Body length exceeds 4,000 characters, for LMS/MMS delivery  | LMS/MMS Body length must be under 4000. |
 | Template | false | -2043 | Attached file for template registration is already registered at another template | Already used attachFileId |
-| Template | false | -2044 | Request is sent to unavailable country | Invalid countryCode for sending. |
-| Template | false | -2045 | International sending is blocked | International sending blocked by service. |
-| Template | false | -2046 | Sent to blocked country  | Blocked country by service. |
-| Template | false | -2047 | Exceeded the block limit | Blocked by total indicator. |
 | Category | false | -2200 | Invalid category parameter (to register) | Invalid add category parameter.(categoryName, useYn) |
 | Category | false | -2201 | Invalid category parameter (to modify) | Invalid modify category parameter.(categoryId, categoryName, useYn) |
 | Category | false | -2202 | Invalid category (failed to query category) | Invalid category. |
