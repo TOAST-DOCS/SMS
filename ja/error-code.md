@@ -6,7 +6,6 @@
 ## Notification > SMS > 結果コード { #notification-sms-result-code }
 
 <a id="api-result-code"></a>
-
 ## API結果コード { #api-result-code }
 
 | カテゴリー | 成否 | 結果コード | 結果コードメッセージ | APIレスポンスメッセージ | 
