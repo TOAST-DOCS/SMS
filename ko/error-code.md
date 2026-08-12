@@ -31,6 +31,7 @@
 | 발송/조회 | false | -2004 | 첨부 파일이 만료되거나 존재하지 않는 경우 | File is expired or does not exist. | 
 | 발송/조회 | false | -2005 | 첨부 파일 사이즈가 300KB가 넘는 경우 | The file size must be greater than 0 and less than 300KB. |
 | 발송/조회 | false | -2006 | 템플릿에 설정된 발송 유형과 요청온 발송 유형이 맞지 않는 경우 | Invalid template type. |
+| 발송/조회 | false | -2007 | 요청한 데이터가 존재하지 않는 경우 | Not exist data. |
 | 발송/조회 | false | -2008 | 요청 ID(requestId)가 잘못된 경우 | Invalid requestId. |
 | 발송/조회 | false | -2009 | 첨부 파일 업로드 도중 서버 오류로 인해 정상적으로 업로드되지 않은 경우 | Upload attach file error. | 
 | 발송/조회 | false | -2010 | 첨부 파일 업로드 유형이 잘못된 경우(서버 오류) | Upload attach file type can not be empty. |
