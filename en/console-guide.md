@@ -593,7 +593,39 @@ Registered webhooks can be checked in the **webhook registration list**.
 <a id="international-sms-sending-settings"></a>
 ### International SMS Sending Settings { #international-sms-sending-settings }
 
-<!-- TODO: translate body -->
+- Before using the international SMS sending feature, make sure to check the [[International SMS Sending Policy]](./international-sending-policy).
+- If you don't want to use the international SMS sending feature, set it to disabled to prevent incidents caused by international SMS pumping.
+- Manage countries allowed to send
+    - Only the specified major countries are enabled for sending during the initial setup. You can manage whether to send to each country through the **Sending Country Settings > Select Countries to Allow** button.
+- Auto Block Monthly Limit and Threshold Notification
+    - The **Auto Block Monthly Limit** is 1,000 per month by default, and can be adjusted up to 10,000.
+    - If you need to adjust the limit beyond the maximum of 10,000, contact us via the **Request to Exceed 10,000** button.
+    - **Auto Block Monthly Limit** is a subsidiary feature, and detection is not reflected in real time. NHN Cloud is not responsible for any errors in the subsidiary features, so use it with caution.
+    - If you set **Monthly Limit Threshold Notification** to **Enabled**, a notification email is sent to all project members when the value set for **Auto Block Monthly Limit** reaches 70%, 90%, and 100%.
+- Conversion Rate-Based Sending Blocking and Notification
+    - If you set **Conversion Rate-Based Sending Blocking and Notification** to **Enabled**, the feature is activated per country, and a notification email is sent to all project members when blocking occurs.
+    - Conversion rate-based sending blocking applies only to countries configured through the **Conversion Rate-Based Sending Blocking Country Settings > Select Blocked Countries** button.
+    - A **Blocked** button is displayed next to countries that have been blocked based on the conversion rate. Choose the button to remove the block.
+    - Conversion rate-based blocking rules
+        - **Conversion Rate** is the threshold setting at which conversion rate-based blocking is triggered.
+            - Blocking occurs when the calculated conversion rate falls at or below the configured conversion rate threshold.
+            - The conversion rate can be set from 1% to 100%.
+        - **Minimum Count** is the threshold setting for the number of conversion rate collection requests that must be sent for conversion rate-based blocking to operate.
+            - Conversion rate-based blocking operates only after the number of conversion rate collection requests sent reaches or exceeds the minimum count.
+            - The minimum count can be set from 1 to 10,000.
+        - **Time Range** is the setting for the time window used to calculate the conversion rate.
+            - The conversion rate is calculated based on the number of conversion rate collection requests sent and the number of conversions within the time range from the time of the sending request.
+            - The time range can be set from 1 hour to 168 hours (7 days).
+- Manage Per-Country Daily Sending Limit Settings
+    - You can set a daily sending limit for specific countries, and configure per-country settings so that no more messages are sent when the limit is exceeded.
+    - The daily sending limit resets at midnight in Korean Standard Time (KST).
+    - If a country is blocked by this feature, you can remove the block by setting a higher daily limit for that country.
+    - The per-country daily sending limit applies only to countries configured through the **Per-Country Daily Sending Limit Settings > Select Limited Countries** button.
+    - The per-country daily sending limit feature is a subsidiary feature, and detection is not reflected in real time. NHN Cloud is not responsible for any errors in the subsidiary features, so use it with caution.
+
+!!! danger "Caution"
+    We're seeing an increase in abuse cases for international SMS globally. We recommend that you set the monthly limit and the country of origin only as much as necessary.
+    NHN Cloud is not responsible for any international SMS sent through abusing.
 
 <a id="alternative-characters-settings"></a>
 ### Alternative Characters Settings { #alternative-characters-settings }

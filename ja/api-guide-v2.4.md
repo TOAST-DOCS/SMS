@@ -1537,7 +1537,49 @@ Content-Type: application/json;charset=UTF-8
 <a id="send-sms-for-advertisement-request"></a>
 #### リクエスト
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+POST  /sms/v2.4/appKeys/{appKey}/sender/ad-sms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値      | 	タイプ     | 	説明     |
+|--------|---------|---------|
+| appKey | 	String | 	固有のアプリキー |
+
+[Request Body]
+上記のSMS送信と同じです。
+[[Request Body 参照](./api-guide/#sms_2)]
+
+<span style="color:red">ただし、本文に広告性必須フレーズが含まれている必要があります。</span>
+
+080番号はコンソールの**[080受信拒否設定]**タブで確認できます。
+
+広告性必須フレーズのルールは次のとおりです。
+- 開始フレーズ: `(광고)`
+- 最終フレーズ: `무료수신거부 {080수신거부번호}` または `무료거부 {080수신거부번호}`
+  - 当該フレーズにはスペースが含まれる場合があります。
+  - 080受信拒否番号の間には「-」が含まれる場合があります。
+
+例
+```
+(広告)
+
+[無料受信拒否]080XXXXXXX
+```
+```
+(広告)
+
+無料受信拒否 080XXXXXXX
+```
+```
+(広告)
+
+無料拒否 080-XXX-XXXX
+```
 
 <a id="send-sms-for-advertisement-curl"></a>
 #### cURL
@@ -1592,7 +1634,42 @@ Content-Type: application/json;charset=UTF-8
 <a id="send-mms-for-advertisement-request"></a>
 #### リクエスト
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+POST  /sms/v2.4/appKeys/{appKey}/sender/ad-mms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値      | 	タイプ     | 	説明     |
+|--------|---------|---------|
+| appKey | 	String | 	固有のアプリキー |
+
+[Request Body]
+上記のMMS送信と同じです。
+[[Request Body 参照](./api-guide/#mms_1)]
+
+<span style="color:red">ただし、本文に広告性必須文句が含まれている必要があります。</span>
+
+080番号はコンソールの**[080受信拒否設定]**タブで確認できます。
+
+広告性必須文句のルールは次のとおりです。
+- 開始文句: `(광고)`
+- 末尾文句: `무료수신거부 {080수신거부번호}` または `무료거부 {080수신거부번호}` （当該文句には空白が含まれる場合があります。）
+
+例
+```
+(広告)
+
+[無料受信拒否]080XXXXXXX
+```
+```
+(広告)
+
+無料拒否 080XXXXXXX
+```
 
 <a id="send-mms-for-advertisement-curl"></a>
 #### cURL
@@ -4094,7 +4171,29 @@ curl -X PUT \
 <a id="cancel-scheduled-delivery-response"></a>
 #### レスポンス
 
-<!-- TODO: translate body -->
+```json
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "requestedCount": 1,
+      "canceledCount": 1
+    }
+  }
+}
+```
+
+| 値                        | 	タイプ      | 	説明       |
+|--------------------------|----------|-----------|
+| header.isSuccessful      | 	Boolean | 	成功かどうか    |
+| header.resultCode        | 	Integer | 	失敗コード    |
+| header.resultMessage     | 	String  | 	失敗メッセージ   |
+| body.data.requestedCount | 	Integer | 	キャンセルリクエスト件数 |
+| body.data.canceledCount  | 	Integer | 	キャンセル成功件数 |
 
 <a id="cancel-scheduled-delivery---multiple-filter"></a>
 ### 予約送信キャンセル - 多重フィルタ { #cancel-scheduled-delivery---multiple-filter }
@@ -4519,7 +4618,11 @@ Content-Type: application/json;charset=UTF-8
 <a id="request-for-downloading-delivery-result-files-curl"></a>
 #### cURL
 
-<!-- TODO: translate body -->
+```
+curl -X GET \
+'https://sms.api.nhncloudservice.com/sms/v2.4/appKeys/'"${APP_KEY}"'/download-reservations/'"${DOWNLOAD_RESERVATION_ID}"'/download' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 <a id="request-for-downloading-delivery-result-files-response"></a>
 #### レスポンス

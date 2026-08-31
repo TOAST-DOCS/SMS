@@ -131,7 +131,15 @@
 <a id="timeout-policy-for-message-receiving-result"></a>
 ## メッセージ受信結果タイムアウトポリシー { #timeout-policy-for-message-receiving-result }
 
-<!-- TODO: translate body -->
++ 端末および通信状態によって、メッセージの受信結果の更新が遅延する場合があります。
++ メッセージの受信結果が遅延した場合、NHN Cloud の再送信ポリシーに従って送信を試みます。
++ 再送信ポリシーは次のとおりです。
+
+| 送信タイプ | タイムアウト時間 | タイムアウト後 |
+|---|---|---|
+| SMS | 25 時間 | 再試行しません。受信失敗結果を更新します（結果コード: 2000） |
+| LMS | 80 時間 | 再試行しません。受信失敗結果を更新します（結果コード: 2000） |
+| MMS | 80 時間 | 再試行しません。受信失敗結果を更新します（結果コード: 2000） |
 
 <a id="guide-for-notice-of-personal-information-assignor"></a>
 ## 個人情報受託会社の告知案内 { #guide-for-notice-of-personal-information-assignor }
