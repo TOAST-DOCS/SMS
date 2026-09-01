@@ -313,7 +313,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100  | 	オプション | 	送信者グループキー                                               |
 | recipientGroupingKey | 	String  | 100  | 	オプション | 	受信者グループキー                                               |
 | receiverRegion       | 	String  | -    | 	オプション | 	国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode          | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                         |
 | pageSize             | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                          |
 
@@ -815,7 +815,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100  | 	オプション | 	送信者グループキー                                               |
 | recipientGroupingKey | 	String  | 100  | 	オプション | 	受信者グループキー                                               |
 | receiverRegion       | 	String  | -    | 	オプション | 	国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode          | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                         |
 | pageSize             | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                          |
 
@@ -1285,7 +1285,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100  | 	オプション | 	送信者グループキー                                            |
 | recipientGroupingKey | 	String  | 100  | 	オプション | 	受信者グループキー                                            |
 | receiverRegion       | 	String  | -    | 	オプション | 	国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode          | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                      |
 | pageSize             | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                       |
 
@@ -2081,7 +2081,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName    | String  | 10   | X   | メッセージステータスコード<br/> - READY：準備<br/> - SENDING：送信リクエスト中<br/> - COMPLETED：送信リクエスト完了<br/> - FAILED：送信失敗 |
 | resultCode       | String  | 10   | X   | 受信結果コード                                                                                             |
 | receiverRegion   | String  | -    | X   | 国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode      | String  | -    | X   | 国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode      | String  | -    | X   | 国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum          | Integer | -    | X   | ページ番号                                                                                               |
 | pageSize         | Integer | 1000 | X   | 照会数                                                                                                 |
 
@@ -3830,7 +3830,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId       | 	String  | 50   | 	オプション | 	テンプレート番号                                                                                              |
 | messageStatus    | 	String  | 10   | 	オプション | 	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信、FAILED_AD:失敗(広告制限)、再送信待機(広告制限)) |
 | receiverRegion   | 	String  | -    | 	オプション | 	国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode      | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode      | 	String  | -    | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum          | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                                                                       |
 | pageSize         | 	Integer | 1000 | 	オプション | 	照会数(デフォルト値：15)                                                                                        |
 

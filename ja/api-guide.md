@@ -101,7 +101,7 @@ Content-Type: application/json;charset=UTF-8
 | 値                                         | 	タイプ    | 最大長さ                                                           | 	必須 | 	説明                                                                  |
 |-------------------------------------------|---------|----------------------------------------------------------------|-----|----------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                             | 	X  | 	送信テンプレートID                                                          |
-| body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#caution)] | 	O  | 	本文内容                                                                |
+| body                                      | 	String | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](#caution)] | 	O  | 	本文内容                                                                |
 | sendNo                                    | 	String | 13                                                             | 	O  | 	発信番号                                                                |
 | requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可                                                                                      |
 | senderGroupingKey                         | String  | 100                                                            | X   | 発信者グループキー                                                            |
@@ -350,7 +350,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100   | 	オプション | 	送信者グループキー                                                   |
 | recipientGroupingKey | 	String  | 100   | 	オプション | 	受信者グループキー                                                   |
 | receiverRegion       | 	String  | -     | 	オプション | 	国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode          | 	String  | -     | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -     | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -     | 	オプション | 	ページ番号(デフォルト値：1)                                             |
 | pageSize             | 	Integer | 1000  | 	オプション | 	検索数(デフォルト値：15)                                              |
 
@@ -942,7 +942,7 @@ https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/sender/mms' 
 ##### Description
 
 - 添付ファイル(フィールド名：attachFileIdList)を含む長文MMSを送信するには、事前に添付ファイルのアップロードを行う必要があります。<br>
-- [[添付ファイルアップロード](./api-guide/#attached-files)]</a> ガイドを参照してください。
+- [[添付ファイルアップロード](#attached-files)]</a> ガイドを参照してください。
 - 添付画像制限事項
     - サポートコーデック：.jpg、.jpeg
     - 添付イメージ数：3個以下
@@ -1003,7 +1003,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100  | 	オプション | 	送信者グループキー                                                   |
 | recipientGroupingKey | 	String  | 100  | 	オプション | 	受信者グループキー                                                   |
 | receiverRegion       | 	String  | -     | 	オプション | 	国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode          | 	String  | -     | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -     | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -    | 	オプション | 	ページ番号(デフォルト値：1)                                             |
 | pageSize             | 	Integer | 1000 | 	オプション | 	検索数(デフォルト値：15)                                              |
 
@@ -1332,7 +1332,7 @@ Content-Type: application/json;charset=UTF-8
 | 値                                       | 	タイプ   | 最大長さ                                                           | 	必須 | 	説明                                                                                                                                    |
 |-------------------------------------------|---------|-------------------------------------------------------------------|-----|------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                | 	X  | 	送信テンプレートID                                                                                                                               |
-| body                                      | 	String | 標準: 90バイト、最大: 255文字(EUC-KR基準) [[注意事項](./api-guide/#caution)] | 	O  | 	本文内容[[注意事項](./api-guide/#send-sms-for-authentication)]                                                                                       |
+| body                                      | 	String | 標準: 90バイト、最大: 255文字(EUC-KR基準) [[注意事項](#caution)] | 	O  | 	本文内容[[注意事項](#send-sms-for-authentication)]                                                                                       |
 | sendNo                                    | 	String | 13                                                                | 	O  | 	発信番号                                                                                                                                 |
 | requestDate                               | String  | -                                                                 | X   | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可能                                                                                    |
 | senderGroupingKey                         | String  | 100                                                               | X   | 発信者グループキー                                                                                                                               |
@@ -1531,7 +1531,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100   | 	オプション | 	送信者グループキー                                                   |
 | recipientGroupingKey | 	String  | 100   | 	オプション | 	受信者グループキー                                                   |
 | receiverRegion       | 	String  | -     | 	オプション | 	国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode          | 	String  | -     | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -     | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -     | 	オプション | 	ページ番号(デフォルト値：1)                                             |
 | pageSize             | 	Integer | 1000  | 	オプション | 	検索数(デフォルト値：15)                                              |
 
@@ -2347,7 +2347,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName    | String  | 10   | X   | メッセージステータスコード<br/> - READY：準備<br/> - SENDING：送信リクエスト中<br/> - COMPLETED ：送信リクエスト完了<br/> - FAILED ：送信失敗 |
 | resultCode       | String  | 10   | X   | 受信結果コード                                                                                               |
 | receiverRegion   | String  | -    | X   | 国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode      | String  | -    | X   | 国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode      | String  | -    | X   | 国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum          | Integer | -    | X   | ページ番号                                                                                                 |
 | pageSize         | Integer | 1000 | X   | 検索数                                                                                                   |
 
@@ -2590,7 +2590,7 @@ Content-Type: application/json;charset=UTF-8
 
 | 値                 | 	タイプ                | 	最大長さ                                                          | 必須 | 	説明                                 |
 |-------------------|---------------------|----------------------------------------------------------------|----|-------------------------------------|
-| body              | 	String             | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](./api-guide/#caution)] | 	O | 	本文内容                               |
+| body              | 	String             | 標準：90バイト、最大：255文字(EUC-KR基準) [[注意事項](#caution)] | 	O | 	本文内容                               |
 | sendNo            | String              | 13                                                             | O  | 発信番号                                |
 | requestDate       | String              | -                                                                 | X  | 予約日時(yyyy-MM-dd HH:mm)<br/>現在から最大60日後まで設定可            |
 | templateId        | String              | 50                                                             | X  | テンプレートID                            |
@@ -2949,7 +2949,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName    | String  | 10   | X   | メッセージステータスコード<br/> - READY：準備<br/> - SENDING：送信リクエスト中<br/> - COMPLETED ：送信リクエスト完了<br/> - FAILED ：送信失敗 |
 | resultCode       | String  | 10   | X   | 受信結果コード                                                                                               |
 | receiverRegion   | String  | -    | X   | 国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode      | String  | -    | X   | 国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode      | String  | -    | X   | 国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum          | Integer | -    | X   | ページ番号                                                                                                 |
 | pageSize         | Integer | 1000 | X   | 検索数                                                                                                   |
 
@@ -3878,7 +3878,7 @@ https://sms.api.nhncloudservice.com/sms/v3.0/appKeys/'"${APP_KEY}"'/templates' \
 ##### Description
 
 - 添付ファイル(フィールド名：attachFileIdList)を含むテンプレート登録は、事前に添付ファイルのアップロードを行う必要があります。<br>
-- [[添付ファイルアップロード](./api-guide/#attached-files)]</a> ガイドを参照してください。
+- [[添付ファイルアップロード](#attached-files)]</a> ガイドを参照してください。
 - 添付画像制限事項
     - サポートコーデック：jpg
     - 添付画像数：3個以下
@@ -5376,7 +5376,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId       | 	String  | 50    | 	オプション | 	テンプレート番号                                                                                             |
 | messageStatus    | 	String  | 10    | 	オプション | 	メッセージのステータス<br/>(RESERVED：予約待機、SENDING：送信中、COMPLETED：送信完了、FAILED：送信失敗、CANCEL：キャンセル、DUPLICATED：重複送信、FAILED_AD:失敗(広告制限)、再送信待機(広告制限)) |
 | receiverRegion   | 	String  | -     | 	オプション | 	国内/国際 (DOMESTIC: 国内, INTERNATIONAL: 国際) |
-| countryCode      | 	String  | -     | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#_5)] |
+| countryCode      | 	String  | -     | 	オプション | 	国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | pageNum          | 	Integer | -     | 	オプション | 	ページ番号(デフォルト値：1)                                                                                      |
 | pageSize         | 	Integer | 1000  | 	オプション | 	検索数(デフォルト値：15)                                                                                       |
 
@@ -5752,7 +5752,7 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.senderGroupingKey    | String | 100   | オプション | 発信者グループキー                      |
 | searchParameter.recipientGroupingKey | String | 100   | オプション | 受信者グループキー                      |
 | searchParameter.receiverRegion       | String | -     | オプション | 国内/国際(DOMESTIC：国内、INTERNATIONAL：国際) |
-| searchParameter.countryCode          | String | -     | オプション | 国コード [[送信可能国](./international-sending-policy/#_5)] |
+| searchParameter.countryCode          | String | -     | オプション | 国コード [[送信可能国](./international-sending-policy/#available-countries)] |
 | updateUser                           | String | 100   | 必須    | 予約キャンセルリクエスト者                  |
 
 <a id="cancel-scheduled-delivery---multiple-filter-curl"></a>

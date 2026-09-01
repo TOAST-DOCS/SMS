@@ -697,7 +697,7 @@ This feature allows you to send a text message by selecting a tag instead of the
 
 1. Register UID.
     - Register UID and one or multiple phone numbers in the **UID management** tab.
-    - For more information, please refer to [UID Management](./console-guide/#uid-manage).
+    - For more information, please refer to [UID Management](#uid-management).
 2. Register a tag.
     - Register tags in the **Manage Tags** tab.
     - For more information, please refer to [Manage Tags](./console-guide/#tag-manage).

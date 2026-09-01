@@ -314,7 +314,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
 | receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                        |
 
@@ -810,7 +810,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100        | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100        | Optional  | Recipient's group key                                                                                                  |
 | receiverRegion       | 	String  | -          | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode          | 	String  | -          | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -          | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -          | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000       | Optional  | Number of queries (default: 15)                                                                                        |
 
@@ -1286,7 +1286,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
 | receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (Default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (Default: 15)                                                                                        |
 

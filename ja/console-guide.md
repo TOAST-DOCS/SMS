@@ -499,7 +499,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 <a id="uid-management"></a>
 ## UIDの管理 { #uid-management }
 
-UID及び携帯電話番号の登録や削除ができます。タグとUIDの用語の意味は、[参考](./console-guide/#tag-uid)でご確認ください。
+UID及び携帯電話番号の登録や削除ができます。タグとUIDの用語の意味は、[参考](#note)でご確認ください。
 
 ![sms_29,30_20230818](https://static.toastoven.net/prod_sms/eng/SMS_29,30_20230818.png)
 
@@ -516,7 +516,7 @@ uid,phoneNumber形式で入力します。<br/>
 <a id="tag-management"></a>
 ## タグの管理 { #tag-management }
 
-登録されたUIDにタグを付与したり削除したりできるページです。タグとUIDの用語の意味は、[参考](./console-guide/#tag-uid)でご確認ください。
+登録されたUIDにタグを付与したり削除したりできるページです。タグとUIDの用語の意味は、[参考](#note)でご確認ください。
 
 ![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_33_20230818.png)
 
@@ -607,7 +607,7 @@ uid,phoneNumber形式で入力します。<br/>
 <a id="statistical-event-key-settings"></a>
 ## 統計イベントキー設定 { #statistical-event-key-settings }
 イベントキーを登録して該当キーを送信する場合、統計イベントキーごとに統計データを収集できます。/
-統計イベントキーの用語の意味は[参考](./console-guide/#tag-uid)で確認してください。
+統計イベントキーの用語の意味は[参考](#note)で確認してください。
 
 ![sms_36_20230818](https://static.toastoven.net/prod_sms/eng/SMS_36_20230818.png)
 

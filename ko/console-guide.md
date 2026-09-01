@@ -508,7 +508,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 <a id="uid-management"></a>
 ## UID 관리 { #uid-management }
 
-UID 및 휴대폰 번호를 등록하고 삭제할 수 있습니다. 태그와 UID 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인하세요.
+UID 및 휴대폰 번호를 등록하고 삭제할 수 있습니다. 태그와 UID 용어 의미는 [참고](#note)에서 확인하세요.
 
 ![sms_29,30_20230818](https://static.toastoven.net/prod_sms/SMS_29,30_20230818.png)
 
@@ -526,7 +526,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 <a id="tag-management"></a>
 ## 태그 관리 { #tag-management }
 
-등록된 UID에 태그를 붙이거나 삭제할 수 있는 페이지입니다. 태그와 UID 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인하세요.
+등록된 UID에 태그를 붙이거나 삭제할 수 있는 페이지입니다. 태그와 UID 용어 의미는 [참고](#note)에서 확인하세요.
 
 ![sms_32_20230818](https://static.toastoven.net/prod_sms/SMS_33_20230818.png)
 
@@ -625,7 +625,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 ## 통계 이벤트 키 설정 { #statistical-event-key-settings }
 
 이벤트 키를 등록하여 해당 키로 발송 시, 통계 이벤트 키별로 통계 데이터를 수집할 수 있습니다.<br/>
-통계 이벤트 키 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인하세요.
+통계 이벤트 키 용어 의미는 [참고](#note)에서 확인하세요.
 
 ![sms_36_20230818](https://static.toastoven.net/prod_sms/SMS_36_20230818.png)
 
@@ -693,10 +693,10 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 
 1. UID를 등록합니다.
     - **UID 관리** 탭에서 UID와 한 개, 또는 여러 개의 전화번호를 등록합니다.
-    - 자세한 내용은 [UID 관리](./console-guide/#uid-manage)를 참고하세요.
+    - 자세한 내용은 [UID 관리](#uid-management)를 참고하세요.
 2. 태그를 등록합니다.
     - **태그 관리** 탭에서 태그를 등록합니다.
-    - 자세한 내용은 [태그 관리](./console-guide/#tag-manage)를 참고하세요.
+    - 자세한 내용은 [태그 관리](#tag-management)를 참고하세요.
 3. 태그에 UID를 등록합니다.
     - **태그 관리** 탭에서 등록한 태그에 UID를 등록합니다.
 4. 태그를 선택한 후 문자를 발송합니다.

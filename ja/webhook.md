@@ -45,7 +45,7 @@ SMSサービス内で特定イベントが発生すると、Webフック設定�
 | productName     | String    | Webフックイベントが発生したサービス名                                                                                                              |
 | appKey          | String    | Webフックイベントが発生したサービスアプリキー                                                                                                           |
 | event           | String    | Webフックイベント名<br>* UNSUBSCRIBE:広告文字受信番号登録<br>* MESSAGE_RESULT_UPDATE:メッセージ送信結果コードアップデート<br>* CONVERSION_BLOCK:コンバージョン率によるブロック国発生 |
-| hooks           | List<Map> | Webフックイベント発生時のデータ<br>* 詳細は[イベントタイプ別hooks定義](./webhook/#hooks)を参照してください。                                                    |
+| hooks           | List<Map> | Webフックイベント発生時のデータ<br>* 詳細は[イベントタイプ別hooks定義](#hooks-definitions-by-event-type)を参照してください。                                                    |
 
 <a id="webhook-delivery-curl"></a>
 #### cURL

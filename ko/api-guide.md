@@ -98,7 +98,7 @@ Content-Type: application/json;charset=UTF-8
 | 값                                         | 	타입     | 최대 길이                                                             | 	필수 | 	설명                                                                                                                                        |
 |-------------------------------------------|---------|-------------------------------------------------------------------|-----|--------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                | 	X  | 	발송 템플릿 ID                                                                                                                                 |
-| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#caution)] | 	O  | 	본문 내용                                                                                                                                     |
+| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](#caution)] | 	O  | 	본문 내용                                                                                                                                     |
 | sendNo                                    | 	String | 13                                                                | 	O  | 	발신 번호                                                                                                                                     |
 | requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                                                        |
 | senderGroupingKey                         | String  | 100                                                               | X   | 발신자 그룹 키                                                                                                                                   |
@@ -348,7 +348,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹 키                                             |
 | recipientGroupingKey | 	String  | 100    | 	옵션 | 	수신자 그룹 키                                             |
 | receiverRegion       | 	String  | -      | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)       |
-| countryCode          | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
 | pageSize             | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                       |
 
@@ -941,7 +941,7 @@ curl -X POST \
 ##### Description
 
 - 첨부 파일(필드명: attachFileIdList)을 포함한 장문 MMS 발송을 위해서는 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#attached-files)]</a> 가이드를 참고하시기 바랍니다.
+- [[첨부 파일 업로드](#attached-files)]</a> 가이드를 참고하시기 바랍니다.
 - 첨부 이미지 제한 사항
     - 지원 코덱: .jpg, .jpeg
     - 첨부 이미지 개수: 3개 이하
@@ -1002,7 +1002,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100   | 	옵션 | 	발송자 그룹 키                                             |
 | recipientGroupingKey | 	String  | 100   | 	옵션 | 	수신자 그룹 키                                             |
 | receiverRegion       | 	String  | -     | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)       |
-| countryCode          | 	String  | -     | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -     | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -     | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
 | pageSize             | 	Integer | 1000  | 	옵션 | 	검색 수(기본값 : 15)                                       |
 
@@ -1331,7 +1331,7 @@ Content-Type: application/json;charset=UTF-8
 | 값                                         | 	타입     | 최대 길이                                                             | 	필수 | 	설명                                                                                                                                      |
 |-------------------------------------------|---------|-------------------------------------------------------------------|-----|------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                | 	X  | 	발송 템플릿 ID                                                                                                                               |
-| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#caution)] | 	O  | 	본문 내용 [[주의사항](./api-guide/#send-sms-for-authentication)]                                                                                       |
+| body                                      | 	String | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](#caution)] | 	O  | 	본문 내용 [[주의사항](#send-sms-for-authentication)]                                                                                       |
 | sendNo                                    | 	String | 13                                                                | 	O  | 	발신 번호                                                                                                                                   |
 | requestDate                               | String  | -                                                                 | X   | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능                                                                                      |
 | senderGroupingKey                         | String  | 100                                                               | X   | 발신자 그룹 키                                                                                                                                 |
@@ -1530,7 +1530,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | String  | 100   | 옵션 | 발송자 그룹 키                                                                             |
 | recipientGroupingKey | String  | 100   | 옵션 | 수신자 그룹 키                                                                             |
 | receiverRegion       | String  | -     | 옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)       |
-| countryCode          | String  | -     | 옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| countryCode          | String  | -     | 옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)] |
 | pageNum              | Integer | -     | 옵션 | 페이지 번호(기본값 : 1)                                                                      |
 | pageSize             | Integer | 1000  | 옵션 | 검색 수(기본값 : 15)                                                                       |
 
@@ -2364,7 +2364,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName    | String  | 10    | X   | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송 요청 완료<br/> - FAILED : 발송 실패 |
 | resultCode       | String  | 10    | X   | 수신 결과 코드                                                                                           |
 | receiverRegion   | String  | -     | X   | 국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)                                                             |
-| countryCode      | String  | -     | X   | 국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)]                                             |
+| countryCode      | String  | -     | X   | 국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)]                                             |
 | pageNum          | Integer | -     | X   | 페이지 번호                                                                                             |
 | pageSize         | Integer | 1000  | X   | 검색 수                                                                                               |
 
@@ -2607,7 +2607,7 @@ Content-Type: application/json;charset=UTF-8
 
 | 값                 | 	타입                 | 	최대 길이                                                            | 필수 | 	설명                                  |
 |-------------------|---------------------|-------------------------------------------------------------------|----|--------------------------------------|
-| body              | 	String             | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](./api-guide/#caution)] | 	O | 	본문 내용                               |
+| body              | 	String             | 표준: 90바이트, 최대: 255자(EUC-KR 기준) [[주의사항](#caution)] | 	O | 	본문 내용                               |
 | sendNo            | String              | 13                                                                | O  | 발신 번호                                |
 | requestDate       | String              | -                                                                 | X  | 예약 일시(yyyy-MM-dd HH:mm)<br/>현재로부터 최대 60일 이후까지 설정 가능             |
 | templateId        | String              | 50                                                                | X  | 템플릿 ID                               |
@@ -2966,7 +2966,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName    | String  | 10    | X   | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송 요청 완료<br/> - FAILED : 발송 실패 |
 | resultCode       | String  | 10    | X   | 수신 결과 코드                                                                                           |
 | receiverRegion   | String  | -     | X   | 국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)                                                             |
-| countryCode      | String  | -     | X   | 국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)]                                             |
+| countryCode      | String  | -     | X   | 국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)]                                             |
 | pageNum          | Integer | -     | X   | 페이지 번호                                                                                             |
 | pageSize         | Integer | 1000  | X   | 검색 수                                                                                               |
 
@@ -3896,7 +3896,7 @@ curl -X POST \
 ##### Description
 
 - 첨부 파일(필드명: attachFileIdList)을 포함한 템플릿 등록은 사전에 첨부 파일 업로드가 진행되어야 합니다.<br>
-- [[첨부 파일 업로드](./api-guide/#attached-files)]</a> 가이드를 참고하시기 바랍니다.
+- [[첨부 파일 업로드](#attached-files)]</a> 가이드를 참고하시기 바랍니다.
 - 첨부 이미지 제한 사항
     - 지원 코덱 : jpg
     - 첨부 이미지 개수 : 3개 이하
@@ -5397,7 +5397,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId       | 	String  | 50     | 	옵션 | 	템플릿 번호                                                                                                                                              |
 | messageStatus    | 	String  | 10     | 	옵션 | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소, DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고 제한)) |
 | receiverRegion   | 	String  | -      | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)                                                                                                              |
-| countryCode      | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)]                                                                                              |
+| countryCode      | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)]                                                                                              |
 | pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                                                                                                                     |
 | pageSize         | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                                                                                                                      |
 
@@ -5770,7 +5770,7 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.senderGroupingKey    | String | 100    | 옵션 | 발신자 그룹 키                        |
 | searchParameter.recipientGroupingKey | String | 100    | 옵션 | 수신자 그룹 키                        |
 | searchParameter.receiverRegion       | String | -      | 옵션 | 국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제) |
-| searchParameter.countryCode          | String | -      | 옵션 | 국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| searchParameter.countryCode          | String | -      | 옵션 | 국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)] |
 | updateUser                           | String | 100    | 필수 | 예약 취소 요청자                       |
 
 <a id="cancel-scheduled-delivery---multiple-filter-curl"></a>

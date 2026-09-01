@@ -59,7 +59,7 @@
     * 수신 성공은 DLR 상태가 DELIVERED 상태임을 의미합니다.
     * 수신 실패는 DLR 상태가 EXPIRED, FAILED, REJECTED, UNKNOWN 상태임을 의미합니다.
     * 국제 발송 결과가 수신 실패인 경우 수신 결과 코드는 다음 문서를 참고하시기 바랍니다.
-        * [[수신 결과 코드](./error-code/#_1)]
+        * [[수신 결과 코드](./error-code/#result-code-of-receiving)]
 * [Console] 국제 발송 통계 개선
     * 국제 발송 통계 분류에 메시지 타입 조회 필터가 추가되었습니다.
     * 국제 발송 통계 분류에 수신 이벤트가 추가되었습니다.
@@ -208,7 +208,7 @@
         * v3.0 상세 조회 API에 dlr 필드가 추가되었습니다.
         * 콘솔 상세 조회에 DLR 상태, DLR 네트워크 코드, DLR 오류 코드가 추가되었습니다.
     * 자세한 사항은 [[국제 SMS 발송 정책](./international-sending-policy)]을 참고하시기 바랍니다.
-    * DLR 상태 및 오류 코드는 결과 코드의 [[DLR 결과 코드](./error-code/#dlr)]를 참고하시기 바랍니다.
+    * DLR 상태 및 오류 코드는 결과 코드의 [[DLR 결과 코드](./error-code/#dlr-result-code)]를 참고하시기 바랍니다.
 <a id="january-23-2024-feature-updates"></a>
 #### 기능 개선/변경
 * [Console] 발신번호 사전등록, 본인 인증 탭 분리
@@ -276,7 +276,7 @@
 * [API] v3.0 목록조회 API 및 상세조회 API에 발송 건수 필드 추가
     * v3.0 목록 조회 및 상세 조회 API에 발송 건수 필드(messageCount)가 추가되었습니다.
     * 국제 발송 concat 기능으로 긴 메시지가 여러 건으로 나뉘어 발송되는 경우, 글자 수 기준에 따라 발송된 건수를 확인할 수 있습니다.
-    * 글자 수 기준은 서비스 정책의 [[과금 정책](./international-sending-policy/#_3)]을 참고하시기 바랍니다.
+    * 글자 수 기준은 서비스 정책의 [[과금 정책](./international-sending-policy/#billing-policy)]을 참고하시기 바랍니다.
 * [Console] 발송 조회 목록에 발송 건수 칼럼 추가
     * SMS 요청별 조회, 대량 SMS 발송 조회, 태그 SMS 발송 조회의 발송 목록에서 발송 건수를 확인할 수 있습니다.
 
@@ -291,7 +291,7 @@
     * 해당 설정은 **발송 설정** 탭에서 설정 가능합니다.
 * [Console/API] 국제 발송 concat 제공
     * 국제 문자 발송 시 GSM-7 765자, UCS-2 335자까지 발송 가능하며, concat(연결) 기능을 통해 긴 메시지로 발송합니다.
-    * 자세한 사항은 서비스 정책의 [[과금 정책](./international-sending-policy/#_3)]를 참고하시기 바랍니다.
+    * 자세한 사항은 서비스 정책의 [[과금 정책](./international-sending-policy/#billing-policy)]를 참고하시기 바랍니다.
 
 <a id="august-1-2023-feature-updates"></a>
 #### 기능 개선/변경
@@ -1151,7 +1151,7 @@
     * TO-BE : 결과 사유를 전체로 선택했을 경우, 상세 결과 사유 셀렉트창 보이지 않게 수정
 * [Console] 발신번호 등록 시, 유효성 검사 강화하였습니다.
     * AS-IS : 중복 검사만 체크
-    * TO-BE : 중복검사 + 발신번호 등록 형식 체크 &nbsp;&nbsp;[[발신번호 등록 형식](./console-guide/#_16)]
+    * TO-BE : 중복검사 + 발신번호 등록 형식 체크 &nbsp;&nbsp;[[발신번호 등록 형식](./console-guide/#registration-format-for-sender-numbers)]
 
 
 <a id="december-8-2016-bug-fixes"></a>

@@ -98,7 +98,7 @@ Content-Type: application/json;charset=UTF-8
 | Value                                     | Type    | Max Length                                                                                       | Required | Description                                                                                                                                                                                                                                                                                                                          |
 |-------------------------------------------|---------|--------------------------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                                               | 	X       | Delivery template ID                                                                                                                                                                                                                                                                                                                 |
-| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#caution)] | 	O       | 	Body                                                                                                                                                                                                                                                                                                                                |
+| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](#caution)] | 	O       | 	Body                                                                                                                                                                                                                                                                                                                                |
 | sendNo                                    | 	String | 13                                                                                               | 	O       | Sender number                                                                                                                                                                                                                                                                                                                        |
 | requestDate                               | String  | -                                                                                                | X        | Request date and time (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                                                                                                                                                                                                                                                                                             |
 | senderGroupingKey                         | String  | 100                                                                                              | X        | Sender's group key                                                                                                                                                                                                                                                                                                                   |
@@ -347,7 +347,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
 | receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                        |
 
@@ -940,7 +940,7 @@ curl -X POST \
 ##### Description
 
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
-- See guides for [[Upload Attachment](./api-guide/#attached-files)]</a> .
+- See guides for [[Upload Attachment](#attached-files)]</a> .
 - Restrictions for Attached Images
     - Supported Codec: .jpg, .jpeg
     - Number of Attached Images: 3 or less
@@ -1001,7 +1001,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100        | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100        | Optional  | Recipient's group key                                                                                                  |
 | receiverRegion       | 	String  | -          | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode          | 	String  | -          | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -          | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -          | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000       | Optional  | Number of queries (default: 15)                                                                                        |
 
@@ -1330,7 +1330,7 @@ Content-Type: application/json;charset=UTF-8
 | Value                                     | Type    | Max Length                                                                                       | Required | Description                                                                                                                                                                        |
 |-------------------------------------------|---------|--------------------------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | templateId                                | 	String | 50                                                                                               | 	X       | Delivery template ID                                                                                                                                                               |
-| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#caution)] | 	O       | 	Body [[Precautions](./api-guide/#send-sms-for-authentication)]                                                                                                                           |
+| body                                      | 	String | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](#caution)] | 	O       | 	Body [[Precautions](#send-sms-for-authentication)]                                                                                                                           |
 | sendNo                                    | 	String | 13                                                                                               | 	O       | Sender number                                                                                                                                                                      |
 | requestDate                               | String  | -                                                                                                | X        | Date and time of schedule (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                                                                                                                                       |
 | senderGroupingKey                         | String  | 100                                                                                              | X        | Sender's group key                                                                                                                                                                 |
@@ -1529,7 +1529,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
 | receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (Default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (Default: 15)                                                                                        |
 
@@ -2356,7 +2356,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName    | String  | 10         | X        | Message status code<br/> - READY:Ready<br/> - SENDING: Requesting for delivery<br/> - COMPLETED : Request for delivery completed<br/> - FAILED : Delivery failed |
 | resultCode       | String  | 10         | X        | Result code of receiving                                                                                                                                         |
 | receiverRegion   | String  | -          | X        | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum          | Integer | -          | X        | Page number                                                                                                                                                      |
 | pageSize         | Integer | 1000       | X        | Number of queries                                                                                                                                                |
 
@@ -2599,7 +2599,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Value             | Type                | 	Max Length                                                                                      | Required | Description                                                    |
 |-------------------|---------------------|--------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------|
-| body              | 	String             | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](./api-guide/#caution)] | 	O       | 	Body                                                          |
+| body              | 	String             | Standard: 90 bytes, Max: 255 characters (as of EUC-KR) [[Precautions](#caution)] | 	O       | 	Body                                                          |
 | sendNo            | String              | 13                                                                                               | O        | Sender number                                                  |
 | requestDate       | String              | -                                                                                                | X        | Date and time of schedule (yyyy-MM-dd HH:mm)<br>Can be set up to 60 days from now                   |
 | templateId        | String              | 50                                                                                               | X        | Template ID                                                    |
@@ -2958,7 +2958,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName    | String  | 10         | X        | Message status code<br/> - READY: Ready<br/> - SENDING: Requesting for delivery <br/> - COMPLETED : Request for delivery completed<br/> - FAILED : Delivery failed |
 | resultCode       | String  | 10         | X        | Result code of receiving                                                                                                                                           |
 | receiverRegion   | String  | -          | X        | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum          | Integer | -          | X        | Page number                                                                                                                                                        |
 | pageSize         | Integer | 1000       | X        | Number of queries                                                                                                                                                  |
 
@@ -3889,7 +3889,7 @@ curl -X POST \
 ##### Description
 
 - To deliver long MMS including attached files (field name: attachFileIdList), attached files must be uploaded first. <br>
-- See guides for [[Upload Attachment](./api-guide/#attached-files)]</a> .
+- See guides for [[Upload Attachment](#attached-files)]</a> .
 - Restrictions for Attached Images
     * Supported Codec: .jpg
     * Number of Attached Images: Less than 2
@@ -5388,7 +5388,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId       | 	String  | 50          | Optional  | Template number                                                                                                                                                                          |
 | messageStatus    | 	String  | 10          | Optional  | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
 | receiverRegion   | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode      | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode      | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                                                                                                                                                 |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                                                                                          |
 
@@ -5769,7 +5769,7 @@ Content-Type: application/json;charset=UTF-8
 | searchParameter.senderGroupingKey    | String | 100        | Optional | Sender group key                        |
 | searchParameter.recipientGroupingKey | String | 100        | Optional | Recipient group key                     |
 | searchParameter.receiverRegion       | String | -          | Optional | Domestic/International (DOMESTIC: Domestic, INTERNATIONAL: International) |
-| searchParameter.countryCode          | String | -          | Optional | Country code [[Available countries](./international-sending-policy/#_5)] |
+| searchParameter.countryCode          | String | -          | Optional | Country code [[Available countries](./international-sending-policy/#available-countries)] |
 | updateUser                           | String | 100        | Required | Requester of Scheduled Cancellation     |
 
 <a id="cancel-scheduled-delivery---multiple-filter-curl"></a>
