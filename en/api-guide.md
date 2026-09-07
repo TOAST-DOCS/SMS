@@ -5692,7 +5692,31 @@ curl -X PUT \
 <a id="cancel-scheduled-delivery-response"></a>
 #### Response
 
-<!-- TODO: translate body -->
+```json
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "requestedCount": 1,
+      "canceledCount": 1
+    }
+  }
+}
+```
+
+| Name                      | Type    | Not Null | Description                        |
+|---------------------------|---------|----------|------------------------------------|
+| header                    | Object  | O        | Header area                        |
+| header.isSuccessful       | Boolean | O        | Success                            |
+| header.resultCode         | Integer | O        | Failure code                       |
+| header.resultMessage      | String  | O        | Failure message                    |
+| body                      | Object  | X        | Body area                          |
+| body.data.requestedCount  | Integer | O        | Number of cancellation requests    |
+| body.data.canceledCount   | Integer | O        | Number of successful cancellations |
 
 <a id="cancel-scheduled-delivery---multiple-filter"></a>
 ### Cancel Scheduled Delivery - Multiple Filter { #cancel-scheduled-delivery---multiple-filter }
