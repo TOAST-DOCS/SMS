@@ -1467,7 +1467,49 @@ Content-Type: application/json;charset=UTF-8
 <a id="send-sms-for-advertisement-request"></a>
 #### リクエスト
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+POST  /sms/v2.2/appKeys/{appKey}/sender/ad-sms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値      | 	タイプ     | 	説明     |
+|--------|---------|---------|
+| appKey | 	String | 	固有のアプリキー |
+
+[Request Body]
+上記のSMS送信と同じです。
+[[Request Body 参照](./api-guide/#sms_2)]
+
+<span style="color:red">ただし、本文に広告性必須文言が含まれている必要があります。</span>
+
+080番号はコンソールの**[080受信拒否設定]**タブで確認できます。
+
+広告性必須文言のルールは次のとおりです。
+- 開始文言: `(광고)`
+- 末尾文言: `무료수신거부 {080수신거부번호}` または `무료거부 {080수신거부번호}`
+  - 当該文言にはスペースが含まれることがあります。
+  - 080受信拒否番号の間には'-'が含まれることがあります。
+
+例
+```
+(広告)
+
+[無料受信拒否]080XXXXXXX
+```
+```
+(広告)
+
+無料受信拒否 080XXXXXXX
+```
+```
+(広告)
+
+無料受信拒否 080-XXX-XXXX
+```
 
 <a id="send-mms-for-advertisement"></a>
 ### 広告性MMS送信 { #send-mms-for-advertisement }
@@ -1519,7 +1561,49 @@ Content-Type: application/json;charset=UTF-8
 <a id="send-mms-for-advertisement-request"></a>
 #### リクエスト
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+POST  /sms/v2.2/appKeys/{appKey}/sender/ad-mms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値      | 	タイプ     | 	説明     |
+|--------|---------|---------|
+| appKey | 	String | 	固有のアプリキー |
+
+[Request Body]
+上記のMMS送信と同様です。
+[[Request Body 参照](./api-guide/#mms_1)]
+
+<span style="color:red">ただし、本文に広告性必須文言を含める必要があります。</span>
+
+080番号はコンソールの**[080受信拒否設定]**タブで確認できます。
+
+広告性必須文言のルールは次のとおりです。
+- 開始文言: `(광고)`
+- 末尾文言: `무료수신거부 {080수신거부번호}` または `무료거부 {080수신거부번호}` 
+  - 当該文言にはスペースが含まれる場合があります。
+  - 080受信拒否番号の間には「-」が含まれる場合があります。
+
+例
+```
+(広告)
+
+[無料受信拒否]080XXXXXXX
+```
+```
+(広告)
+
+無料受信拒否 080XXXXXXX
+```
+```
+(広告)
+
+無料受信拒否 080-XXX-XXXX
+```
 
 <a id="query-messages-by-result-updates"></a>
 ## 結果アップデート基準メッセージ照会 { #query-messages-by-result-updates }
@@ -3630,18 +3714,32 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-| 値                        | 	タイプ     | 	説明           |
-|--------------------------|----------|---------------|
-| header.isSuccessful      | 	Boolean | 	成否           |
-| header.resultCode        | 	Integer | 	失敗コード        |
-| header.resultMessage     | 	String  | 	失敗メッセージ      |
-| body.data.requestedCount | 	Integer | 	キャンセルリクエスト件数 |
-| body.data.canceledCount  | 	Integer | 	キャンセル成功件数    |
-
 <a id="cancel-scheduled-delivery-response"></a>
 #### レスポンス
 
-<!-- TODO: translate body -->
+```json
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "requestedCount": 1,
+      "canceledCount": 1
+    }
+  }
+}
+```
+
+| 値                        | 	タイプ      | 	説明       |
+|--------------------------|----------|-----------|
+| header.isSuccessful      | 	Boolean | 	成功したかどうか    |
+| header.resultCode        | 	Integer | 	失敗コード    |
+| header.resultMessage     | 	String  | 	失敗メッセージ   |
+| body.data.requestedCount | 	Integer | 	キャンセルリクエスト件数 |
+| body.data.canceledCount  | 	Integer | 	キャンセル成功件数 |
 
 <a id="download-delivery-result-files"></a>
 ## 送信結果ファイルのダウンロード { #download-delivery-result-files }
@@ -3698,6 +3796,8 @@ Content-Type: application/json;charset=UTF-8
 | requestId             | 	String | 25    | 	必須条件(1番) | 	リクエストID                                                |
 | startRequestDate      | 	String | -     | 	必須条件(2番) | 	送信日開始値(yyyy-MM-dd HH:mm:ss)                            |
 | endRequestDate        | 	String | -     | 	必須条件(2番) | 	送信日終了値(yyyy-MM-dd HH:mm:ss)                            |
+| startCreateDate       | 	String | -      | 	必須 | 	登録日開始値(yyyy-MM-dd HH:mm:ss)                        |
+| endCreateDate         | 	String | -      | 	必須 | 	登録日終了値(yyyy-MM-dd HH:mm:ss)                           |
 | startResultDate       | 	String | -     | 	オプション    | 	受信日開始値(yyyy-MM-dd HH:mm:ss)                            |
 | endResultDate         | 	String | -     | 	オプション    | 	受信日終了値(yyyy-MM-dd HH:mm:ss)                            |
 | sendNo                | 	String | 13    | 	オプション    | 	発信番号                                                   |
