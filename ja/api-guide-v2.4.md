@@ -504,8 +504,9 @@ curl -X GET \
 | body.data.resultCodeName       | 	String  | 	受信結果コード名                                   |
 | body.data.telecomCode          | 	Integer | 	サービスプロバイダーコード                              |
 | body.data.telecomCodeName      | 	String  | 	サービスプロバイダー名                                |
-| body.data.recipientSeq         | 	Integer | 	送信詳細ID(詳細照会時は必須)                           |
-| body.data.sendType             | 	String  | 	送信タイプ(0：Sms、1：Mms、2：Auth)                  |
+| body.data[].recipientSeq       | 	Integer | 	送信詳細ID(詳細照会時は必須)(旧 mtPr)                   |
+| body.data.sendType             | 	String  | 	送信タイプ(0：Sms、1：Lms/Mms、2：Auth)              |
+| body.data.messageType          | 	String  | 	メッセージタイプ(SMS/LMS/MMS/AUTH)                 |
 | body.data.userId               | 	String  | 	送信リクエストID                                  |
 | body.data.adYn                 | 	String  | 	広告かどうか                                     |
 | body.data.senderGroupingKey    | 	String  | 	発信者グループキー                                  |
@@ -1479,8 +1480,9 @@ curl -X GET \
 | body.data.resultCodeName       | 	String  | 	受信結果コード名                                   |
 | body.data.telecomCode          | 	Integer | 	サービスプロバイダーコード                              |
 | body.data.telecomCodeName      | 	String  | 	サービスプロバイダー名                                |
-| body.data.recipientSeq         | 	Integer | 	送信詳細ID(詳細照会時は必須)                           |
-| body.data.sendType             | 	String  | 	送信タイプ(0：Sms、1：Mms、2：Auth)                  |
+| body.data[].recipientSeq       | 	Integer | 	送信詳細ID(詳細照会時は必須)(旧 mtPr)                   |
+| body.data.sendType             | 	String  | 	送信タイプ(0：Sms、1：Lms/Mms、2：Auth)              |
+| body.data.messageType          | 	String  | 	メッセージタイプ(SMS/LMS/MMS/AUTH)                 |
 | body.data.userId               | 	String  | 	送信リクエストID                                  |
 | body.data.adYn                 | 	String  | 	広告かどうか                                     |
 | body.data.senderGroupingKey    | 	String  | 	発信者グループキー                                  |
@@ -1537,7 +1539,49 @@ Content-Type: application/json;charset=UTF-8
 <a id="send-sms-for-advertisement-request"></a>
 #### リクエスト
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+POST  /sms/v2.4/appKeys/{appKey}/sender/ad-sms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値      | 	タイプ     | 	説明     |
+|--------|---------|---------|
+| appKey | 	String | 	固有のアプリキー |
+
+[Request Body]
+上記のSMS送信と同様です。
+[[Request Body 参照](./api-guide/#sms_2)]
+
+<span style="color:red">ただし、本文に広告性必須文言が含まれている必要があります。</span>
+
+080番号はコンソールの **[080受信拒否設定]** タブで確認できます。
+
+広告性必須文言のルールは次のとおりです。
+- 開始文言: `(광고)`
+- 末尾文言: `무료수신거부 {080受信拒否番号}` または `무료거부 {080受信拒否番号}`
+  - 当該文言には空白が含まれる場合があります。
+  - 080受信拒否番号の間には「-」が含まれる場合があります。
+
+例
+```
+(広告)
+
+[無料受信拒否]080XXXXXXX
+```
+```
+(広告)
+
+無料受信拒否 080XXXXXXX
+```
+```
+(広告)
+
+無料受信拒否 080-XXX-XXXX
+```
 
 <a id="send-sms-for-advertisement-curl"></a>
 #### cURL
@@ -1592,7 +1636,42 @@ Content-Type: application/json;charset=UTF-8
 <a id="send-mms-for-advertisement-request"></a>
 #### リクエスト
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+POST  /sms/v2.4/appKeys/{appKey}/sender/ad-mms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| 値      | 	タイプ     | 	説明     |
+|--------|---------|---------|
+| appKey | 	String | 	固有のアプリキー |
+
+[Request Body]
+上記のMMS送信と同じです。
+[[Request Body 参照](./api-guide/#mms_1)]
+
+<span style="color:red">ただし、本文に広告性必須文言が含まれている必要があります。</span>
+
+080番号はコンソールの **[080受信拒否設定]** タブで確認できます。
+
+広告性必須文言のルールは次のとおりです。
+- 開始文言: `(광고)`
+- 最後の文言: `무료수신거부 {080受信拒否番号}` または `무료거부 {080受信拒否番号}` (当該文言には空白が含まれる場合があります。)
+
+例
+```
+(広告)
+
+[無料受信拒否]080XXXXXXX
+```
+```
+(広告)
+
+無料受信拒否 080XXXXXXX
+```
 
 <a id="send-mms-for-advertisement-curl"></a>
 #### cURL
@@ -4094,7 +4173,29 @@ curl -X PUT \
 <a id="cancel-scheduled-delivery-response"></a>
 #### レスポンス
 
-<!-- TODO: translate body -->
+```json
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "requestedCount": 1,
+      "canceledCount": 1
+    }
+  }
+}
+```
+
+| 値                        | 	タイプ      | 	説明       |
+|--------------------------|----------|-----------|
+| header.isSuccessful      | 	Boolean | 	成功かどうか    |
+| header.resultCode        | 	Integer | 	失敗コード    |
+| header.resultMessage     | 	String  | 	失敗メッセージ   |
+| body.data.requestedCount | 	Integer | 	キャンセルリクエスト件数 |
+| body.data.canceledCount  | 	Integer | 	キャンセル成功件数 |
 
 <a id="cancel-scheduled-delivery---multiple-filter"></a>
 ### 予約送信キャンセル - 多重フィルタ { #cancel-scheduled-delivery---multiple-filter }
@@ -4351,6 +4452,8 @@ Content-Type: application/json;charset=UTF-8
 | requestId             | 	String | 25    | 	必須条件(1番) | 	リクエストID                                                |
 | startRequestDate      | 	String | -     | 	必須条件(2番) | 	送信日開始値(yyyy-MM-dd HH:mm:ss)                            |
 | endRequestDate        | 	String | -     | 	必須条件(2番) | 	送信日終了値(yyyy-MM-dd HH:mm:ss)                            |
+| startCreateDate       | 	String | -      | 	必須 | 	登録日開始値(yyyy-MM-dd HH:mm:ss)                        |
+| endCreateDate         | 	String | -      | 	必須 | 	登録日終了値(yyyy-MM-dd HH:mm:ss)                        |
 | startResultDate       | 	String | -     | 	オプション    | 	受信日開始値(yyyy-MM-dd HH:mm:ss)                            |
 | endResultDate         | 	String | -     | 	オプション    | 	受信日終了値(yyyy-MM-dd HH:mm:ss)                            |
 | sendNo                | 	String | 13    | 	オプション    | 	発信番号                                                   |
