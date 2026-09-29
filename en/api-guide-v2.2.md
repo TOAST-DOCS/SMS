@@ -2772,7 +2772,7 @@ For Request URL, choose a delivery type selected to register templates.
 }
 ```
 
-![[그림 1] Template](http://static.toastoven.net/prod_sms/img_27.png)
+![[Image 1] Template](http://static.toastoven.net/prod_sms/img_27.png)
 
 <a id="send-templates-requiring-body-updates"></a>
 ### Send Templates (requiring body updates) { #send-templates-requiring-body-updates }
@@ -4389,7 +4389,7 @@ Content-Type: application/json;charset=UTF-8
 | contacts[].contactType | String | -          | Required | Contact type(PHONE_NUMBER) |
 | contacts[].contact     | String | -          | Required | Contact (phone number)     |
 
-[주의]
+[Caution]
 
 * When tagIds is provided, contacts is not required.
 * When contacts is provided, tagIds is not required.
