@@ -558,6 +558,9 @@ Registered webhooks can be checked in the **webhook registration list**.
 <a id="sending-settings"></a>
 ## Sending Settings { #sending-settings }
 
+<a id="international-sms-sending-settings"></a>
+### International SMS Sending Settings { #international-sms-sending-settings }
+
 - Before using the international SMS sending feature, see [International Sending Policy](./international-sending-policy).
 - If you do not want to use the international SMS sending feature, you can prevent accidents due to international SMS volume pumping by setting it to unused.
 - Manage countries allowed to send
@@ -591,11 +594,6 @@ Registered webhooks can be checked in the **webhook registration list**.
     Cases of international SMS abuse are increasing globally.
     It is recommended to set the monthly limit and the country of origin only as much as necessary.
     NHN Cloud is not responsible for any international SMS sent due to abuse.
-
-<a id="international-sms-sending-settings"></a>
-### International SMS Sending Settings { #international-sms-sending-settings }
-
-<!-- TODO: translate body -->
 
 <a id="alternative-characters-settings"></a>
 ### Alternative Characters Settings { #alternative-characters-settings }
