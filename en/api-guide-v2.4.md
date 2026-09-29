@@ -9,9 +9,9 @@
 <a id="changes-from-v-23"></a>
 ### Changes from v 2.3 { #changes-from-v-23 }
 
-1. 각 메시지(단문, 장문, 인증) 발송 목록 검색 및 발송 단일 검색 응답 필드가 추가되었습니다.
-    - 추가된 필드: messageType, recipientSeq
-2. 발송 단일 검색 조건에 사용되는 [mtPr]이 [recipientSeq]로 변경되었습니다.
+1. Added response fields to the delivery list search and single delivery search for each message type (SMS, LMS, authentication).
+    - Added fields: messageType, recipientSeq
+2. Changed the search condition field used for single delivery search from [mtPr] to [recipientSeq].
 
 <a id="api-domain"></a>
 ### [API Domain] { #api-domain }
