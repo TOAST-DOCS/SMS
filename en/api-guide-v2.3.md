@@ -817,7 +817,45 @@ Content-Type: application/json;charset=UTF-8
 <a id="list-delivery-of-long-mms-request-request"></a>
 #### Request
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+GET  /sms/v2.3/appKeys/{appKey}/sender/mms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| Name | 	Type | 	Description |
+|--------|---------|---------|
+| appKey | 	String | 	Unique app key |
+
+[Query parameter]
+
+* One of the following is required: requestId, startRequestDate + endRequestDate, or startCreateDate + endCreateDate.
+* If you search by both registration date and delivery date at the same time, the delivery date is ignored.
+
+| Name                 | 	Type    | Max Length | 	Required | 	Description                                                   |
+|----------------------|----------|-------|-----|-------------------------------------------------------|
+| requestId            | 	String  | 25    | 	Required | 	Request ID                                                |
+| startRequestDate     | 	String  | -     | 	Required | 	Start date of delivery request (yyyy-MM-dd HH:mm:ss)                       |
+| endRequestDate       | 	String  | -     | 	Required | 	End date of delivery request (yyyy-MM-dd HH:mm:ss)                       |
+| startCreateDate      | 	String  | -     | 	Required | 	Start date of registration (yyyy-MM-dd HH:mm:ss)                       |
+| endCreateDate        | 	String  | -     | 	Required | 	End date of registration (yyyy-MM-dd HH:mm:ss)                       |
+| startResultDate      | 	String  | -     | 	Optional | 	Start date of reception (yyyy-MM-dd HH:mm:ss)                       |
+| endResultDate        | 	String  | -     | 	Optional | 	End date of reception (yyyy-MM-dd HH:mm:ss)                       |
+| sendNo               | 	String  | 13    | 	Optional | 	Sender number                                                |
+| recipientNo          | 	String  | 20    | 	Optional | 	Recipient number                                                |
+| templateId           | 	String  | 50    | 	Optional | 	Template ID                                               |
+| msgStatus            | 	String  | 1     | 	Optional | Message status code (0: Failed, 1: Requested, 2: Processing, 3: Successful, 4: Reservation canceled, 5: Duplicate failure, 6: Failed (advertising restriction), 7: Pending resend (advertising restriction)) |
+| resultCode           | 	String  | 10    | 	Optional | 	Reception result code [[Search code table](./error-code/#_2)]                |
+| subResultCode        | 	String  | 10    | 	Optional | 	Reception result detail code [[Search code table](./error-code/#_3)]             |
+| senderGroupingKey    | 	String  | 100   | 	Optional | 	Sender grouping key                                              |
+| recipientGroupingKey | 	String  | 100   | 	Optional | 	Recipient grouping key                                              |
+| receiverRegion       | 	String  | -     | 	Optional | 	Domestic/International (DOMESTIC: Domestic, INTERNATIONAL: International)       |
+| countryCode          | 	String  | -     | 	Optional | 	Country code [[Countries available for sending](./international-sending-policy/#_5)] |
+| pageNum              | 	Integer | -     | 	Optional | 	Page number (default: 1)                                      |
+| pageSize             | 	Integer | 1000  | 	Optional | 	Number of results (default: 15)                                       |
 
 <a id="list-delivery-of-long-mms-request-curl"></a>
 #### cURL

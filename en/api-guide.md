@@ -112,6 +112,7 @@ Content-Type: application/json;charset=UTF-8
 | userId                                    | 	String | 	100                                                                                             | X        | Delivery delimiter e.g) admin,system                                                                                                                                                                                                                                                                                                 |
 | statsId                                   | String  | 10                                                                                               | X        | Statistics ID (not included in the delivery search conditions)                                                                                                                                                                                                                                                                       |
 | originCode                                | String  | 9                                                                                                | X        | Identification code (9-digit registration number, excluding symbols, letters, and spaces, as listed on certificates for special value-added telecommunications business operators)<br/>Do not use unless you are special value-added telecommunications business operator. NHN Cloud's identification code is added by default.<br/> |
+| useConversion                             | Boolean | -                                                                 | X   | Conversion rate collection request (default: false)<br/>Unavailable if a scheduled date and time is set                                                                                            |
 
 <a id="send-short-sms-curl"></a>
 #### cURL
@@ -5692,7 +5693,31 @@ curl -X PUT \
 <a id="cancel-scheduled-delivery-response"></a>
 #### Response
 
-<!-- TODO: translate body -->
+```json
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "requestedCount": 1,
+      "canceledCount": 1
+    }
+  }
+}
+```
+
+| Value                     | Type    | Not Null | Description                         |
+|---------------------------|---------|----------|-------------------------------------|
+| header                    | Object  | O        | Header area                         |
+| header.isSuccessful       | Boolean | O        | Success                             |
+| header.resultCode         | Integer | O        | Failure code                        |
+| header.resultMessage      | String  | O        | Failure message                     |
+| body                      | Object  | X        | Body area                           |
+| body.data.requestedCount  | Integer | O        | Number of cancellation requests     |
+| body.data.canceledCount   | Integer | O        | Number of successful cancellations  |
 
 <a id="cancel-scheduled-delivery---multiple-filter"></a>
 ### Cancel Scheduled Delivery - Multiple Filter { #cancel-scheduled-delivery---multiple-filter }
