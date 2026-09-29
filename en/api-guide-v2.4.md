@@ -2947,7 +2947,7 @@ For Request URL, choose a delivery type selected to register templates.
 
 For Request URL, choose a delivery type selected to register templates.
 
-**If template ID and request parameter body include values, sender number and body message are not replaced with template. **
+**If template ID and request parameter body include values, sender number and body message are not replaced with template.**
 
 Nevertheless, with the input of template ID, it is available to query with the template.
 
