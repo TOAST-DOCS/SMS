@@ -210,7 +210,7 @@
         * v3.0詳細照会APIにdlrフィールドが追加されました。
         * コンソール詳細照会にDLR状態、 DLRネットワークコード、 DLRエラーコードを追加しました。
     * 詳細については、[[国際SMS送信ポリシー](./international-sending-policy)]を参照してください。
-    * DLR状態及びエラーコードは結果コードの[[DLR結果コード](./error-code/#dlr)]を参照してください。
+    * DLR状態及びエラーコードは結果コードの[[DLR結果コード](./error-code/#dlr-result-code)]を参照してください。
 <a id="january-23-2024-feature-updates"></a>
 #### 機能改善・変更
 * [Console]発信番号事前登録、本人認証タブ分離
@@ -278,7 +278,7 @@
 * [API] v3.0リスト照会APIおよび詳細照会APIに送信件数フィールドを追加
     * v3.0リスト照会および詳細照会APIに送信件数フィールド(messageCount)が追加されました。
     * 国際送信concat機能で長いメッセージが複数件に分かれて送信される場合、文字数基準で送信された件数を確認できます。
-    * 文字数基準はサービスポリシーの[[課金ポリシー](./international-sending-policy/#_3)]を参照してください。
+    * 文字数基準はサービスポリシーの[[課金ポリシー](./international-sending-policy/#billing-policy)]を参照してください。
 * [Console]送信照会リストに送信件数カラムを追加
     * SMSリクエスト別照会、一括SMS送信照会、タグSMS送信照会の送信リストで送信件数を確認できます。
 
@@ -293,7 +293,7 @@
     * 該当設定は**送信設定**タブで設定可能です。
 * [Console/API]国際送信concat提供
     * 国際SMS送信時、GSM-7 765文字、UCS-2 335文字まで送信可能で、concat(接続)機能により長いメッセージで送信します。
-    * 詳細については、サービスポリシーの[[課金ポリシー](./international-sending-policy/#_3)]を参照してください。
+    * 詳細については、サービスポリシーの[[課金ポリシー](./international-sending-policy/#billing-policy)]を参照してください。
 
 <a id="august-1-2023-feature-updates"></a>
 #### 機能改善・変更

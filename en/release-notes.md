@@ -66,7 +66,7 @@
     * For more information on the statistics event, see [[Statistics > Query Statistics](./console-guide/#query-statistics)].
 * [API] Improved the international sending statistics API
     * Added receive events to the international sending statistics API.
-    * For more information, see [[Statistic Search - International Send](./api-guide/#statistic-search-international-send)].
+    * For more information, see [[Statistic Search - International Send](./api-guide/#statistic-search---international-send)].
 
 <a id="march-4-2025-added-features"></a>
 #### Added Features
@@ -208,7 +208,7 @@
         * Added the dlr field to the v3.0 detailed list API.
         * Added the DLR status, DLR network code, and DLR error code to the detailed list API.
     * For more information, see [International SMS sending policy](./international-sending-policy).
-    * For DLR status and error code, see [DLR Result Code](./error-code/#dlr).
+    * For DLR status and error code, see [DLR Result Code](./error-code/#dlr-result-code).
 
 <a id="january-23-2024-feature-updates"></a>
 #### Feature Updates
@@ -273,7 +273,7 @@
     * Improved to send user email addresses to the createUser and updateUser fields when querying.
 * [Console/API] Improved the mass delivery cancellation feature
     * During mass delivery, cancellation request is viewed as "Canceling" until all recipients have been canceled, and "Canceled" after all recipients have been canceled.
-    * For more information on status codes, see [List Mass Delivery](./api-guide/#_30).
+    * For more information on status codes, see [List Mass Delivery](./api-guide/#list-mass-delivery).
 * [API] Added the delivered message count field to the v3.0 list query and detailed query APIs
     * Added the delivered message count (messageCount) to the v3.0 list query and detailed query APIs.
     * If a long message is divided into several messages and sent using the international concat function, you can check the number of messages sent based on the number of characters.
