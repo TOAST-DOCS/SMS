@@ -315,7 +315,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹키                                              |
 | recipientGroupingKey | 	String  | 100    | 	옵션 | 	수신자 그룹키                                              |
 | receiverRegion       | 	String  | -      | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)       |
-| countryCode          | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
 | pageSize             | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                       |
 
@@ -822,7 +822,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100   | 	옵션 | 	발송자 그룹키                                              |
 | recipientGroupingKey | 	String  | 100   | 	옵션 | 	수신자 그룹키                                              |
 | receiverRegion       | 	String  | -     | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)       |
-| countryCode          | 	String  | -     | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -     | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -     | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
 | pageSize             | 	Integer | 1000  | 	옵션 | 	검색 수(기본값 : 15)                                       |
 
@@ -1296,7 +1296,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100    | 	옵션 | 	발송자 그룹키                                              |
 | recipientGroupingKey | 	String  | 100    | 	옵션 | 	수신자 그룹키                                              |
 | receiverRegion       | 	String  | -      | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)       |
-| countryCode          | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                      |
 | pageSize             | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                       |
 
@@ -2089,7 +2089,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName    | String  | 10    | X   | 메시지 상태 코드<br/> - READY:준비<br/> - SENDING:발송 요청 중<br/> - COMPLETED : 발송 요청 완료<br/> - FAILED : 발송 실패 |
 | resultCode       | String  | 10    | X   | 수신 결과 코드                                                                                           |
 | receiverRegion   | String  | -     | X   | 국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)                                                             |
-| countryCode      | String  | -     | X   | 국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)]                                             |
+| countryCode      | String  | -     | X   | 국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)]                                             |
 | pageNum          | Integer | -     | X   | 페이지 번호                                                                                             |
 | pageSize         | Integer | 1000  | X   | 검색 수                                                                                               |
 
@@ -3833,7 +3833,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId       | 	String  | 50     | 	옵션 | 	템플릿 번호                                                                                                                                              |
 | messageStatus    | 	String  | 10     | 	옵션 | 	메시지 상태<br/>(RESERVED:예약 대기, SENDING:발송 중, COMPLETED:발송 완료, FAILED:발송 실패, CANCEL:취소, DUPLICATED:중복 발송, FAILED_AD:실패(광고 제한), RESEND_AD:재발송 대기(광고 제한)) |
 | receiverRegion   | 	String  | -      | 	옵션 | 	국내/국제(DOMESTIC: 국내, INTERNATIONAL: 국제)                                                                                                              |
-| countryCode      | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#_5)]                                                                                              |
+| countryCode      | 	String  | -      | 	옵션 | 	국가 코드 [[전송 가능 국가](./international-sending-policy/#available-countries)]                                                                                              |
 | pageNum          | 	Integer | -      | 	옵션 | 	페이지 번호(기본값 : 1)                                                                                                                                     |
 | pageSize         | 	Integer | 1000   | 	옵션 | 	검색 수(기본값 : 15)                                                                                                                                      |
 
