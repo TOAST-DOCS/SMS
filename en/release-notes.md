@@ -1,6 +1,6 @@
 <!-- machine_translated: true -->
 
-<!-- pre-align:aligned sig=bf7aa4e53faf -->
+<!-- pre-align:aligned sig=1928346f69c0 -->
 
 <a id="notification-sms-release-notes"></a>
 ## Notification > SMS > Release Notes { #notification-sms-release-notes }
