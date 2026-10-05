@@ -1,6 +1,6 @@
 <!-- machine_translated: true -->
 
-<!-- pre-align:aligned sig=817102849a61 -->
+<!-- pre-align:aligned sig=a580c8a22356 -->
 
 <style>
     .custom-table thead {
@@ -210,6 +210,18 @@
 Sender numbers that are properly registered can be found on the **Retrieve Outgoing Numbers** page.
 
 ![sms_03_20230818](https://static.toastoven.net/prod_sms/eng/SMS_03_20230818.png)
+
+<a id="sender-number-registration-limit"></a>
+### Sender number registration limit { #sender-number-registration-limit }
+
+You can register up to 5 sender numbers per account.
+
+- All sender numbers registered across all projects in every organization owned by the account are counted together. The limit is not 5 per project.
+- If the same sender number is registered in multiple projects, it is counted as one.
+- Only approved sender numbers are counted. Numbers that are under review or rejected are not counted.
+- Sender numbers in projects where both SMS and Notification Hub are disabled are not counted.
+
+If all 5 sender numbers are already registered, you cannot register additional sender numbers or register them in bulk. Delete any unused sender numbers before registering new ones.
 
 <a id="sending-sms"></a>
 ## Sending SMS { #sending-sms }
