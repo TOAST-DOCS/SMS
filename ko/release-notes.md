@@ -3,6 +3,14 @@
 <a id="notification-sms-release-notes"></a>
 ## Notification > SMS > 릴리스 노트 { #notification-sms-release-notes }
 
+<a id="october-6-2026"></a>
+### 2026. 10. 6. { #october-6-2026 }
+<a id="october-6-2026-added-features"></a>
+#### 신규 기능 추가
+* [Console] 발신 번호 등록 개수 제한
+  * 계정당 등록할 수 있는 발신 번호가 최대 5개로 제한됩니다.
+  * 자세한 내용은 [콘솔 사용 가이드 > 발신 번호 사전 등록](./console-guide#sender-number-registration-limit)을 참고합니다.
+
 <a id="june-23-2026"></a>
 ### 2026. 06. 23. { #june-23-2026 }
 <a id="june-23-2026-added-features"></a>
