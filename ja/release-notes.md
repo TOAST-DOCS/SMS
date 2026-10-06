@@ -1,7 +1,17 @@
-<!-- pre-align:aligned sig=bf7aa4e53faf -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=1928346f69c0 -->
 
 <a id="notification-sms-release-notes"></a>
 ## Notification > SMS > リリースノート { #notification-sms-release-notes }
+
+<a id="october-6-2026"></a>
+### 2026. 10. 6. { #october-6-2026 }
+<a id="october-6-2026-added-features"></a>
+#### 新規機能追加
+* [Console] 発信番号登録数の制限
+  * アカウントあたりに登録できる発信番号が最大 5 件に制限されます。
+  * 詳細については、[コンソール使用ガイド > 発信番号事前登録](./console-guide#sender-number-registration-limit)を参照してください。
 
 <a id="june-23-2026"></a>
 ### 2026. 06. 23. { #june-23-2026 }
@@ -210,7 +220,7 @@
         * v3.0詳細照会APIにdlrフィールドが追加されました。
         * コンソール詳細照会にDLR状態、 DLRネットワークコード、 DLRエラーコードを追加しました。
     * 詳細については、[[国際SMS送信ポリシー](./international-sending-policy)]を参照してください。
-    * DLR状態及びエラーコードは結果コードの[[DLR結果コード](./error-code/#dlr)]を参照してください。
+    * DLR状態及びエラーコードは結果コードの[[DLR結果コード](./error-code/#dlr-result-code)]を参照してください。
 <a id="january-23-2024-feature-updates"></a>
 #### 機能改善・変更
 * [Console]発信番号事前登録、本人認証タブ分離
@@ -278,7 +288,7 @@
 * [API] v3.0リスト照会APIおよび詳細照会APIに送信件数フィールドを追加
     * v3.0リスト照会および詳細照会APIに送信件数フィールド(messageCount)が追加されました。
     * 国際送信concat機能で長いメッセージが複数件に分かれて送信される場合、文字数基準で送信された件数を確認できます。
-    * 文字数基準はサービスポリシーの[[課金ポリシー](./international-sending-policy/#_3)]を参照してください。
+    * 文字数基準はサービスポリシーの[[課金ポリシー](./international-sending-policy/#billing-policy)]を参照してください。
 * [Console]送信照会リストに送信件数カラムを追加
     * SMSリクエスト別照会、一括SMS送信照会、タグSMS送信照会の送信リストで送信件数を確認できます。
 
@@ -293,7 +303,7 @@
     * 該当設定は**送信設定**タブで設定可能です。
 * [Console/API]国際送信concat提供
     * 国際SMS送信時、GSM-7 765文字、UCS-2 335文字まで送信可能で、concat(接続)機能により長いメッセージで送信します。
-    * 詳細については、サービスポリシーの[[課金ポリシー](./international-sending-policy/#_3)]を参照してください。
+    * 詳細については、サービスポリシーの[[課金ポリシー](./international-sending-policy/#billing-policy)]を参照してください。
 
 <a id="august-1-2023-feature-updates"></a>
 #### 機能改善・変更
@@ -817,21 +827,21 @@
 * [API]発信番号登録リクエストの有効性検査を改善
     * 発信番号登録リクエスト時に無効な添付ファイルIDでリクエストした場合、失敗するように有効性検査が追加されました。
 
-
 <a id="february-26-2019"></a>
 ### 2019.02.26 { #february-26-2019 }
 <a id="february-26-2019-added-features"></a>
 #### 機能追加
-* [API] 発信番号認証リクエスト履歴照会条件に発信番号を追加
-    * 発信番号(sendNo)でリクエスト履歴を照会できるようになりました。
-    * 詳細については、[[APIガイド](./api-guide/#api_1)]を参照してください。
+* [API] 発信番号認証リクエスト履歴照会条件への発信番号の追加
+    * 発信番号 (sendNo) でリクエスト履歴を照会できるように追加されました。
+    * 詳細については、[[APIガイド](./api-guide/#api_1)] を参照してください。
 
 <a id="february-26-2019-feature-updates"></a>
 #### 機能改善/変更
-* [Console] メッセージ送信リクエスト画面の発信番号入力欄の改善
-    * 発信番号入力欄で検索が可能になりました。
+* [Console] メッセージ送信リクエスト画面の発信番号入力フィールドの改善
+    * 発信番号入力フィールドで検索できるように改善されました。
 * [Console/API] 080受信拒否ガイド文言のバリデーション改善
-    * 広告送信時に本文に必須で含める必要がある「(광고) [무료수신거부]080xxxxxxx」文言について、スペースチェックを行わないよう改善されました。<a id="february-19-2019"></a>
+    * 広告送信時に本文に必須で含める必要がある「(광고) [무료수신거부]080xxxxxxx」の文言について、空白チェックを行わないように改善されました。
+
 <a id="february-19-2019"></a>
 ### 2019.02.19 { #february-19-2019 }
 

@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=817102849a61 -->
+<!-- pre-align:aligned sig=a580c8a22356 -->
 
 <style>
     .custom-table thead {
@@ -205,6 +205,18 @@
 정상적으로 등록을 완료한 발신 번호는 **발신 번호 조회** 화면에서 확인할 수 있습니다.
 
 ![sms_03_20230818](https://static.toastoven.net/prod_sms/SMS_03_20230818.png)
+
+<a id="sender-number-registration-limit"></a>
+### 발신 번호 등록 개수 제한 { #sender-number-registration-limit }
+
+계정당 등록할 수 있는 발신 번호는 최대 5개입니다.
+
+- 계정이 소유한 모든 조직의 모든 프로젝트에 등록된 발신 번호를 합산해 셉니다. 프로젝트별로 5개가 아닙니다.
+- 같은 발신 번호가 여러 프로젝트에 등록되어 있어도 1개로 셉니다.
+- 승인된 발신 번호만 셉니다. 심사 중이거나 거부된 번호는 세지 않습니다.
+- SMS와 Notification Hub가 모두 비활성화된 프로젝트의 발신 번호는 세지 않습니다.
+
+5개를 모두 등록한 상태에서는 발신 번호를 추가로 등록하거나 대량으로 등록할 수 없습니다. 사용하지 않는 발신 번호를 삭제한 뒤 등록하세요.
 
 <a id="sending-sms"></a>
 ## SMS 발송 { #sending-sms }
@@ -508,7 +520,7 @@ Excel/CSV 포맷의 템플릿 파일을 통해 여러 수신 번호로 SMS/MMS�
 <a id="uid-management"></a>
 ## UID 관리 { #uid-management }
 
-UID 및 휴대폰 번호를 등록하고 삭제할 수 있습니다. 태그와 UID 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인하세요.
+UID 및 휴대폰 번호를 등록하고 삭제할 수 있습니다. 태그와 UID 용어 의미는 [참고](#note)에서 확인하세요.
 
 ![sms_29,30_20230818](https://static.toastoven.net/prod_sms/SMS_29,30_20230818.png)
 
@@ -526,7 +538,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 <a id="tag-management"></a>
 ## 태그 관리 { #tag-management }
 
-등록된 UID에 태그를 붙이거나 삭제할 수 있는 페이지입니다. 태그와 UID 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인하세요.
+등록된 UID에 태그를 붙이거나 삭제할 수 있는 페이지입니다. 태그와 UID 용어 의미는 [참고](#note)에서 확인하세요.
 
 ![sms_32_20230818](https://static.toastoven.net/prod_sms/SMS_33_20230818.png)
 
@@ -625,7 +637,7 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 ## 통계 이벤트 키 설정 { #statistical-event-key-settings }
 
 이벤트 키를 등록하여 해당 키로 발송 시, 통계 이벤트 키별로 통계 데이터를 수집할 수 있습니다.<br/>
-통계 이벤트 키 용어 의미는 [참고](./console-guide/#tag-uid)에서 확인하세요.
+통계 이벤트 키 용어 의미는 [참고](#note)에서 확인하세요.
 
 ![sms_36_20230818](https://static.toastoven.net/prod_sms/SMS_36_20230818.png)
 
@@ -644,6 +656,15 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 
 - 발송 요청 기간, 통계 이벤트 키, 템플릿 등 타입별로 통계를 조회할 수 있습니다.
 - 발송 요청, 성공, 실패 등 발송 상태를 그래프와 표로 확인할 수 있습니다.
+
+!!! danger "주의"
+    통계 건수와 청구 건수의 차이
+
+    통계 메뉴에서 제공하는 건수는 발송 시점에 실시간으로 집계된 값입니다. 실시간 집계의 특성상 일부 건이 통계에 반영되지 않을 수 있습니다.
+
+    청구 건수는 매월 발송 내역 전체를 대상으로 별도의 확인 절차를 거쳐 확정됩니다. 이 때문에 통계 메뉴의 건수와 청구 건수는 차이가 있을 수 있으며, 정확한 이용 건수는 청구 내역을 기준으로 합니다.
+
+    따라서 청구 금액 확인이나 정산 대사 목적으로는 통계 메뉴의 건수 대신 청구 내역을 이용하세요. 통계 메뉴는 발송 추이와 결과 분포를 확인하는 용도로 활용하세요.
 
 <a id="query-statistics-categorize-statistics"></a>
 #### 통계 분류
@@ -693,10 +714,10 @@ uid,phoneNumber 형식으로 입력합니다.<br/>
 
 1. UID를 등록합니다.
     - **UID 관리** 탭에서 UID와 한 개, 또는 여러 개의 전화번호를 등록합니다.
-    - 자세한 내용은 [UID 관리](./console-guide/#uid-manage)를 참고하세요.
+    - 자세한 내용은 [UID 관리](#uid-management)를 참고하세요.
 2. 태그를 등록합니다.
     - **태그 관리** 탭에서 태그를 등록합니다.
-    - 자세한 내용은 [태그 관리](./console-guide/#tag-manage)를 참고하세요.
+    - 자세한 내용은 [태그 관리](#tag-management)를 참고하세요.
 3. 태그에 UID를 등록합니다.
     - **태그 관리** 탭에서 등록한 태그에 UID를 등록합니다.
 4. 태그를 선택한 후 문자를 발송합니다.

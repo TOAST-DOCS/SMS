@@ -9,9 +9,9 @@
 <a id="changes-from-v-23"></a>
 ### Changes from v 2.3 { #changes-from-v-23 }
 
-1. 각 메시지(단문, 장문, 인증) 발송 목록 검색 및 발송 단일 검색 응답 필드가 추가되었습니다.
-    - 추가된 필드: messageType, recipientSeq
-2. 발송 단일 검색 조건에 사용되는 [mtPr]이 [recipientSeq]로 변경되었습니다.
+1. Added response fields to the delivery list search and single delivery search for each message type (SMS, LMS, authentication).
+    - Added fields: messageType, recipientSeq
+2. Changed the search condition field used for single delivery search from [mtPr] to [recipientSeq].
 
 <a id="api-domain"></a>
 ### [API Domain] { #api-domain }
@@ -314,7 +314,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
 | receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                        |
 
@@ -814,14 +814,52 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100        | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100        | Optional  | Recipient's group key                                                                                                  |
 | receiverRegion       | 	String  | -          | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode          | 	String  | -          | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -          | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -          | Optional  | Page number (default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000       | Optional  | Number of queries (default: 15)                                                                                        |
 
 <a id="list-delivery-of-long-mms-request-request"></a>
 #### Request
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+GET  /sms/v2.4/appKeys/{appKey}/sender/mms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| Value | 	Type | 	Description |
+|--------|---------|---------|
+| appKey | 	String | 	Unique app key |
+
+[Query parameter]
+
+* One of the following is required: requestId, startRequestDate + endRequestDate, or startCreateDate + endCreateDate.
+* If you search by both registration date and delivery date at the same time, the delivery date is ignored.
+
+| Value                | 	Type    | Max length | 	Required | 	Description                                                                                        |
+|----------------------|----------|-------|-----|-------------------------------------------------------|
+| requestId            | 	String  | 25    | 	Required | 	Request ID                                                                                         |
+| startRequestDate     | 	String  | -     | 	Required | 	Start date of delivery (yyyy-MM-dd HH:mm:ss)                                                       |
+| endRequestDate       | 	String  | -     | 	Required | 	End date of delivery (yyyy-MM-dd HH:mm:ss)                                                         |
+| startCreateDate      | 	String  | -     | 	Required | 	Start date of registration (yyyy-MM-dd HH:mm:ss)                                                   |
+| endCreateDate        | 	String  | -     | 	Required | 	End date of registration (yyyy-MM-dd HH:mm:ss)                                                     |
+| startResultDate      | 	String  | -     | 	Optional | 	Start date of reception (yyyy-MM-dd HH:mm:ss)                                                      |
+| endResultDate        | 	String  | -     | 	Optional | 	End date of reception (yyyy-MM-dd HH:mm:ss)                                                        |
+| sendNo               | 	String  | 13    | 	Optional | 	Sender number                                                                                      |
+| recipientNo          | 	String  | 20    | 	Optional | 	Recipient number                                                                                   |
+| templateId           | 	String  | 50    | 	Optional | 	Template ID                                                                                        |
+| msgStatus            | 	String  | 1     | 	Optional | Message status code (0: failed, 1: requested, 2: processing, 3: successful, 4: reservation canceled, 5: duplicate failure) |
+| resultCode           | 	String  | 10    | 	Optional | 	Reception result code [[Search code table](./error-code/#_2)]                                      |
+| subResultCode        | 	String  | 10    | 	Optional | 	Detailed reception result code [[Search code table](./error-code/#_3)]                             |
+| senderGroupingKey    | 	String  | 100   | 	Optional | 	Sender grouping key                                                                                |
+| recipientGroupingKey | 	String  | 100   | 	Optional | 	Recipient grouping key                                                                             |
+| receiverRegion       | 	String  | -     | 	Optional | 	Domestic/International (DOMESTIC: domestic, INTERNATIONAL: international)                          |
+| countryCode          | 	String  | -     | 	Optional | 	Country code [[Countries available for sending](./international-sending-policy/#_5)]               |
+| pageNum              | 	Integer | -     | 	Optional | 	Page number (default: 1)                                                                           |
+| pageSize             | 	Integer | 1000  | 	Optional | 	Search count (default: 15)                                                                         |
 
 <a id="list-delivery-of-long-mms-request-curl"></a>
 #### cURL
@@ -1292,7 +1330,7 @@ Content-Type: application/json;charset=UTF-8
 | senderGroupingKey    | 	String  | 100         | Optional  | Sender's group key                                                                                                     |
 | recipientGroupingKey | 	String  | 100         | Optional  | Recipient's group key                                                                                                  |
 | receiverRegion       | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode          | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum              | 	Integer | -           | Optional  | Page number (Default : 1)                                                                                              |
 | pageSize             | 	Integer | 1000        | Optional  | Number of queries (Default: 15)                                                                                        |
 
@@ -1544,7 +1582,49 @@ Free opt out 080-XXX-XXXX
 <a id="send-sms-for-advertisement-request"></a>
 #### Request
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+POST  /sms/v2.4/appKeys/{appKey}/sender/ad-sms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| Value  | Type   | Description    |
+|--------|--------|----------------|
+| appKey | String | Unique app key |
+
+[Request Body]
+Same as the SMS sending above.
+[[Request Body Reference](./api-guide/#sms_2)]
+
+<span style="color:red">However, the body must include the mandatory advertising phrases.</span>
+
+You can check the 080 number on the **080 Opt-Out Settings** tab in the console.
+
+The rules for mandatory advertising phrases are as follows:
+- Opening phrase: `(광고)`
+- Closing phrase: `무료수신거부 {080수신거부번호}` or `무료거부 {080수신거부번호}`
+  - The phrase may contain spaces.
+  - Hyphens (-) may be included within the 080 opt-out number.
+
+Example
+```
+(Ad)
+
+[Toll-free Opt-out]080XXXXXXX
+```
+```
+(Ad)
+
+Toll-free Opt-out 080XXXXXXX
+```
+```
+(Ads)
+
+Free opt-out 080-XXX-XXXX
+```
 
 <a id="send-sms-for-advertisement-curl"></a>
 #### cURL
@@ -1607,7 +1687,42 @@ Example
 <a id="send-mms-for-advertisement-request"></a>
 #### Request
 
-<!-- TODO: translate body -->
+[URL]
+
+```
+POST  /sms/v2.4/appKeys/{appKey}/sender/ad-mms
+Content-Type: application/json;charset=UTF-8
+```
+
+[Path parameter]
+
+| Value | Type | Description |
+|--------|---------|---------|
+| appKey | String | Unique app key |
+
+[Request Body]
+Same as the MMS send above.
+[[See Request Body](./api-guide/#mms_1)]
+
+<span style="color:red">However, the required advertising phrases must be included in the body.</span>
+
+You can check the 080 number in the **080 Opt-Out Settings** tab on the console.
+
+The rules for required advertising phrases are as follows:
+- Opening phrase: `(광고)`
+- Closing phrase: `무료수신거부 {080수신거부번호}` or `무료거부 {080수신거부번호}` (The phrase may include spaces.)
+
+Example
+```
+(Ad)
+
+[Toll-free Opt-out]080XXXXXXX
+```
+```
+(Ad)
+
+Toll-free Opt-out 080XXXXXXX
+```
 
 <a id="send-mms-for-advertisement-curl"></a>
 #### cURL
@@ -2084,7 +2199,7 @@ Content-Type: application/json;charset=UTF-8
 | msgStatusName    | String  | 10         | X        | Message status code<br/> - READY: Ready<br/> - SENDING: Requesting for delivery <br/> - COMPLETED : Request for delivery completed<br/> - FAILED : Delivery failed |
 | resultCode       | String  | 10         | X        | Result code of receiving                                                                                                                                           |
 | receiverRegion   | String  | -          | X        | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode      | String  | -          | X        | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum          | Integer | -          | X        | Page number                                                                                                                                                        |
 | pageSize         | Integer | 1000       | X        | Number of queries                                                                                                                                                  |
 
@@ -2947,7 +3062,7 @@ For Request URL, choose a delivery type selected to register templates.
 
 For Request URL, choose a delivery type selected to register templates.
 
-**If template ID and request parameter body include values, sender number and body message are not replaced with template. **
+**If template ID and request parameter body include values, sender number and body message are not replaced with template.**
 
 Nevertheless, with the input of template ID, it is available to query with the template.
 
@@ -3839,7 +3954,7 @@ Content-Type: application/json;charset=UTF-8
 | templateId       | 	String  | 50          | Optional  | Template number                                                                                                                                                                          |
 | messageStatus    | 	String  | 10          | Optional  | Message status<br/>(RESERVED: Ready for schedule, SENDING: Sending, COMPLETED:Delivery completed, FAILED: Delivery failed, CANCEL: Canceled, DUPLICATED: Duplicate delivery, FAILED_AD: Failed (Ad restricted), RESEND_AD: Waiting for Resending (Ad restricted)) |
 | receiverRegion   | 	String  | -           | Optional  | Domestic or international message delivery (DOMESTIC, INTERNATIONAL) |
-| countryCode      | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#_5)] |
+| countryCode      | 	String  | -           | Optional  | Country Code [[Available countries](./international-sending-policy/#available-countries)] |
 | pageNum          | 	Integer | -           | Optional  | Page number (default: 1)                                                                                                                                                                 |
 | pageSize         | 	Integer | 1000        | Optional  | Number of queries (default: 15)                                                                                                                                                          |
 
@@ -4105,7 +4220,29 @@ curl -X PUT \
 <a id="cancel-scheduled-delivery-response"></a>
 #### Response
 
-<!-- TODO: translate body -->
+```json
+{
+  "header": {
+    "resultCode": 0,
+    "resultMessage": "success",
+    "isSuccessful": true
+  },
+  "body": {
+    "data": {
+      "requestedCount": 1,
+      "canceledCount": 1
+    }
+  }
+}
+```
+
+| Value                     | 	Type      | 	Description       |
+|--------------------------|----------|-----------|
+| header.isSuccessful      | 	Boolean | 	Success    |
+| header.resultCode        | 	Integer | 	Result code    |
+| header.resultMessage     | 	String  | 	Result message   |
+| body.data.requestedCount | 	Integer | 	Number of cancellation requests |
+| body.data.canceledCount  | 	Integer | 	Number of successful cancellations |
 
 <a id="cancel-scheduled-delivery---multiple-filter"></a>
 ### Cancel Scheduled Delivery - Multiple Filter { #cancel-scheduled-delivery---multiple-filter }

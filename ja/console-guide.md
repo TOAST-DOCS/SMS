@@ -1,4 +1,6 @@
-<!-- pre-align:aligned sig=817102849a61 -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=a580c8a22356 -->
 
 <style>
     .custom-table thead {
@@ -199,6 +201,18 @@
 正常に登録が完了した発信番号は**発信番号照会**画面で確認できます。
 
 ![sms_03_20230818](https://static.toastoven.net/prod_sms/eng/SMS_03_20230818.png)
+
+<a id="sender-number-registration-limit"></a>
+### 発信番号登録数の制限 { #sender-number-registration-limit }
+
+アカウントごとに登録できる発信番号は最大 5 件です。
+
+- アカウントが所有するすべての組織のすべてのプロジェクトに登録された発信番号を合算して数えます。プロジェクトごとに 5 件ではありません。
+- 同じ発信番号が複数のプロジェクトに登録されていても、1 件として数えます。
+- 承認された発信番号のみを数えます。審査中または拒否された番号は数えません。
+- SMSと Notification Hub がどちらも無効になっているプロジェクトの発信番号は数えません。
+
+5 件すべてを登録した状態では、発信番号を追加で登録したり、大量に登録したりすることはできません。使用していない発信番号を削除してから登録してください。
 
 <a id="sending-sms"></a>
 ## SMS送信 { #sending-sms }
@@ -499,7 +513,7 @@ Excel/CSVフォーマットのテンプレートファイルを使って、複�
 <a id="uid-management"></a>
 ## UIDの管理 { #uid-management }
 
-UID及び携帯電話番号の登録や削除ができます。タグとUIDの用語の意味は、[参考](./console-guide/#tag-uid)でご確認ください。
+UID及び携帯電話番号の登録や削除ができます。タグとUIDの用語の意味は、[参考](#note)でご確認ください。
 
 ![sms_29,30_20230818](https://static.toastoven.net/prod_sms/eng/SMS_29,30_20230818.png)
 
@@ -516,7 +530,7 @@ uid,phoneNumber形式で入力します。<br/>
 <a id="tag-management"></a>
 ## タグの管理 { #tag-management }
 
-登録されたUIDにタグを付与したり削除したりできるページです。タグとUIDの用語の意味は、[参考](./console-guide/#tag-uid)でご確認ください。
+登録されたUIDにタグを付与したり削除したりできるページです。タグとUIDの用語の意味は、[参考](#note)でご確認ください。
 
 ![sms_32_20230818](https://static.toastoven.net/prod_sms/eng/SMS_33_20230818.png)
 
@@ -607,7 +621,7 @@ uid,phoneNumber形式で入力します。<br/>
 <a id="statistical-event-key-settings"></a>
 ## 統計イベントキー設定 { #statistical-event-key-settings }
 イベントキーを登録して該当キーを送信する場合、統計イベントキーごとに統計データを収集できます。/
-統計イベントキーの用語の意味は[参考](./console-guide/#tag-uid)で確認してください。
+統計イベントキーの用語の意味は[参考](#note)で確認してください。
 
 ![sms_36_20230818](https://static.toastoven.net/prod_sms/eng/SMS_36_20230818.png)
 
@@ -626,6 +640,15 @@ uid,phoneNumber形式で入力します。<br/>
 
 - 送信リクエスト期間、統計イベントキー、テンプレートなどのタイプ別に統計を照会できます。
 - 送信リクエスト、成功、失敗などの送信状態をグラフと表で確認できます。
+
+!!! danger "注意"
+    統計件数と請求件数の差異
+
+    統計メニューで提供される件数は、送信時点にリアルタイムで集計された値です。リアルタイム集計の性質上、一部の件数が統計に反映されない場合があります。
+
+    請求件数は毎月、送信履歴全体を対象に別途の確認手続きを経て確定されます。そのため、統計メニューの件数と請求件数には差異が生じる場合があります。正確な利用件数は請求履歴を基準とします。
+
+    したがって、請求金額の確認や精算照合の目的には、統計メニューの件数の代わりに請求履歴をご利用ください。統計メニューは送信推移と結果分布を確認する用途にご活用ください。
 
 <a id="query-statistics-categorize-statistics"></a>
 #### 統計分類
@@ -660,6 +683,7 @@ uid,phoneNumber形式で入力します。<br/>
 
 <a id="tags-and-uid-glossary"></a>
 #### サービス用語
+
 | 用語          | 説明                                      |
 | ------------ | ---------------------------------------- |
 | タグ(tag)      | UIDを分類するシステム。<br>UIDに複数のタグをつけてユーザーが簡単にUID情報を検索し、使用できます。 |
@@ -692,6 +716,7 @@ uid,phoneNumber形式で入力します。<br/>
 ### 統計イベントキーと統計 { #statistics-event-keys-and-statistics }
 <a id="statistics-event-keys-and-statistics-glossary"></a>
 #### サービス用語
+
 | 用語         | 説明                                     |
 | ------------ | ---------------------------------------- |
 | 統計イベントキー | 統計を特定の単位でまとめて確認したい時に使用するイベントキーです。 |

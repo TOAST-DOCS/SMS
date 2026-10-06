@@ -1,4 +1,6 @@
-<!-- pre-align:aligned sig=817102849a61 -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=a580c8a22356 -->
 
 <style>
     .custom-table thead {
@@ -208,6 +210,18 @@
 Sender numbers that are properly registered can be found on the **Retrieve Outgoing Numbers** page.
 
 ![sms_03_20230818](https://static.toastoven.net/prod_sms/eng/SMS_03_20230818.png)
+
+<a id="sender-number-registration-limit"></a>
+### Sender number registration limit { #sender-number-registration-limit }
+
+You can register up to 5 sender numbers per account.
+
+- All sender numbers registered across all projects in every organization owned by the account are counted together. The limit is not 5 per project.
+- If the same sender number is registered in multiple projects, it is counted as one.
+- Only approved sender numbers are counted. Numbers that are under review or rejected are not counted.
+- Sender numbers in projects where both SMS and Notification Hub are disabled are not counted.
+
+If all 5 sender numbers are already registered, you cannot register additional sender numbers or register them in bulk. Delete any unused sender numbers before registering new ones.
 
 <a id="sending-sms"></a>
 ## Sending SMS { #sending-sms }
@@ -649,6 +663,15 @@ When the data collection period ends, it becomes inactive and no longer collects
 - You can view statistics by delivery request duration, statistics event keys, template, and delivery type.
 - You can view delivery requests, successes, and failures in graphs and tables.
 
+!!! danger "Caution"
+    Difference Between Statistics Count and Billing Count
+
+    The count provided in the Statistics menu is a value aggregated in real time at the time of delivery. Due to the nature of real-time aggregation, some items may not be reflected in the statistics.
+
+    The billing count is finalized each month through a separate verification process that covers the entire delivery history. As a result, the count in the Statistics menu and the billing count may differ, and the exact usage count is based on the billing history.
+
+    Therefore, for billing verification or reconciliation purposes, use the billing history instead of the count in the Statistics menu. Use the Statistics menu to check delivery trends and result distribution.
+
 <a id="query-statistics-categorize-statistics"></a>
 #### Categorize Statistics
 
@@ -697,7 +720,7 @@ This feature allows you to send a text message by selecting a tag instead of the
 
 1. Register UID.
     - Register UID and one or multiple phone numbers in the **UID management** tab.
-    - For more information, please refer to [UID Management](./console-guide/#uid-manage).
+    - For more information, please refer to [UID Management](#uid-management).
 2. Register a tag.
     - Register tags in the **Manage Tags** tab.
     - For more information, please refer to [Manage Tags](./console-guide/#tag-manage).
