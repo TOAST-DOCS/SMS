@@ -1526,6 +1526,9 @@ curl -X GET \
 <a id="send-sms-for-advertisement"></a>
 ### Send SMS for Advertisement { #send-sms-for-advertisement }
 
+<a id="send-sms-for-advertisement-request"></a>
+#### Request
+
 [URL]
 
 ```
@@ -1559,7 +1562,6 @@ Example
 [Deny for free]080XXXXXXX
 ```
 ```
-```
 (Ad)
 
 [Deny for free]080XXXXXXX
@@ -1570,6 +1572,7 @@ Example
 Free opt out 080-XXX-XXXX
 ```
 
+<a id="send-sms-for-advertisement-curl"></a>
 #### cURL
 
 ```
@@ -1588,7 +1591,11 @@ curl -X POST \
 }'
 ```
 
-### Send MMS for Advertisement
+<a id="send-mms-for-advertisement"></a>
+### Send MMS for Advertisement { #send-mms-for-advertisement }
+
+<a id="send-mms-for-advertisement-request"></a>
+#### Request
 
 [URL]
 
@@ -1626,6 +1633,7 @@ Example
 [Deny for free]080XXXXXXX
 ```
 
+<a id="send-mms-for-advertisement-curl"></a>
 #### cURL
 
 ```
@@ -1645,13 +1653,16 @@ curl -X POST \
 }'
 ```
 
-## Query Messages by Result Updates
+<a id="query-messages-based-on-result-update"></a>
+## Query Messages by Result Updates { #query-messages-based-on-result-update }
 
 * The API is queried as of the update time of message delivery result.
 * Please apply this API to import delivery results on device from service.
 
-### Query Messages
+<a id="query-messages"></a>
+### Query Messages { #query-messages }
 
+<a id="query-messages-request"></a>
 #### Request
 
 [URL]
@@ -1679,6 +1690,7 @@ Content-Type: application/json;charset=UTF-8
 | pageNum         | Integer | Optional | Page number (default:1)                                     |
 | pageSize        | Integer | Optional | Number of queries (default:15)                              |
 
+<a id="query-messages-curl"></a>
 #### cURL
 
 ```
@@ -1687,6 +1699,7 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8'
 ```
 
+<a id="query-messages-response"></a>
 #### Response
 
 ```json
@@ -1737,56 +1750,6 @@ curl -X GET \
 | body.data.resultUpdateList[].telecomCodeName      | String   | Name of telecom provider                                |
 | body.data.resultUpdateList[].senderGroupingKey    | String   | Sender's group key                                      |
 | body.data.resultUpdateList[].recipientGroupingKey | String   | Recipient's group key                                   |
-
-<a id="send-sms-for-advertisement-request"></a>
-#### Request
-
-<!-- TODO: translate body -->
-
-<a id="send-sms-for-advertisement-curl"></a>
-#### cURL
-
-<!-- TODO: translate body -->
-
-<a id="send-mms-for-advertisement"></a>
-### Send MMS for Advertisement { #send-mms-for-advertisement }
-
-<!-- TODO: translate body -->
-
-<a id="send-mms-for-advertisement-request"></a>
-#### Request
-
-<!-- TODO: translate body -->
-
-<a id="send-mms-for-advertisement-curl"></a>
-#### cURL
-
-<!-- TODO: translate body -->
-
-<a id="query-messages-based-on-result-update"></a>
-## Query Messages Based on Result Update { #query-messages-based-on-result-update }
-
-<!-- TODO: translate body -->
-
-<a id="query-messages"></a>
-### Query Messages { #query-messages }
-
-<!-- TODO: translate body -->
-
-<a id="query-messages-request"></a>
-#### Request
-
-<!-- TODO: translate body -->
-
-<a id="query-messages-curl"></a>
-#### cURL
-
-<!-- TODO: translate body -->
-
-<a id="query-messages-response"></a>
-#### Response
-
-<!-- TODO: translate body -->
 
 <a id="tag-delivery"></a>
 ## Tag Delivery { #tag-delivery }
@@ -4129,7 +4092,8 @@ curl -X PUT \
 }'
 ```
 
-[Response body]
+<a id="cancel-scheduled-delivery-response"></a>
+#### Response
 
 ```json
 {
@@ -4154,11 +4118,6 @@ curl -X PUT \
 | header.resultMessage     | 	String  | Failure message                   |
 | body.data.requestedCount | 	Integer | Number of failed requests         |
 | body.data.canceledCount  | 	Integer | Number of successful cancellation |
-
-<a id="cancel-scheduled-delivery-response"></a>
-#### Response
-
-<!-- TODO: translate body -->
 
 <a id="cancel-scheduled-delivery---multiple-filter"></a>
 ### Cancel Scheduled Delivery - Multiple Filter { #cancel-scheduled-delivery---multiple-filter }
