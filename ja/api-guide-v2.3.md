@@ -4633,7 +4633,11 @@ Content-Type: application/json;charset=UTF-8
 <a id="request-for-downloading-delivery-result-files-curl"></a>
 #### cURL
 
-<!-- TODO: translate body -->
+```
+curl -X GET \
+'https://sms.api.nhncloudservice.com/sms/v2.3/appKeys/'"${APP_KEY}"'/download-reservations/'"${DOWNLOAD_RESERVATION_ID}"'/download' \
+-H 'Content-Type: application/json;charset=UTF-8'
+```
 
 <a id="request-for-downloading-delivery-result-files-response"></a>
 #### レスポンス
