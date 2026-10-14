@@ -1551,6 +1551,7 @@ Same as Send SMS in the above.
 080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console.
 
 Required statements for ads are as follows.
+
 - Opening statement: `(Ads)`
 - Last statement: `toll-free opt out {080 opt-out number}` or `free opt out {080 opt-out number}` 
   - The phrase may contain spaces.
@@ -1619,6 +1620,7 @@ Same as Send MMS in the above.
 080 numbers are available in **Setting for Rejection of Receiving 080 Numbers** on console. 
 
 Required statements for ads are as follows.
+
 - Opening statement: `(Ads)`
 - Last statement: `Deny for free {080-unsubscribed-number}` or `Deny for free {080-unsubscribed-number}` (the phrase can include spaces).
 

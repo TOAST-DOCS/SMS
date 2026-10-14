@@ -125,6 +125,7 @@
 <a id="guide-to-sending-contents-according-to-character-set"></a>
 ## 文字コードに基づく送信内容案内 { #guide-to-sending-contents-according-to-character-set }
 '+ EUC-KRに含まれる文字は、受信時に送信内容と同じように正常に内容が表示されます。
+
 + EUC-KRに含まれていない文字がタイトル/本文に含まれる場合、受信時に'?'のように内容が文字化けして表示されることがあります。
     + 受信端末の機種、通信会社によって送信内容が異なる場合があります。
 
